@@ -1,0 +1,6 @@
+com\future\order\entity\User.class
+com\future\order\base\BaseDao.class
+com\future\order\action\UserAction.class
+com\future\order\dao\UserDao.class
+com\future\order\service\IUserService.class
+com\future\order\base\BaseAction.class

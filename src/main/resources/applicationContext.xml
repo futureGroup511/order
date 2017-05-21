@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd">
+        
+
+		<!--自动扫描与装配bean包含子包  -->
+		<context:component-scan base-package="com.future.order.*"></context:component-scan>
+		<context:property-placeholder location="classpath:jdbc.properties"  />
+       
+        <!-- 定义BasicDataSource数据源 -->
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+        destroy-method="close">
+        	<!-- 指定连接数据库的JDBC驱动 -->
+        	<property name="driverClassName" value="${driver}">
+        	</property>
+        	<!-- 指定数据库的url -->
+        	<property name="url" value="${url}"></property>
+        	<!-- 用户名 -->
+        	<property name="username" value="${user}"></property>
+        	<!-- 密码 -->
+        	<property name="password" value="${password}"></property>
+        </bean>
+        
+        <!-- 定义hibernate的SessionFactory -->
+        <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        	<!-- 将上文定义的数据源dataSource注入到LocalSessionFactoryBean类的sessionFactory-->
+        	<property name="dataSource" >
+        		<ref bean="dataSource"/>
+        	</property>
+        	<!-- 设置hebernate相关属性-->
+        	<property name="hibernateProperties">
+        		<props>
+        			<!-- 为了使LocalSesionFactoryBean类获得当前线程要配置下面这个属性 
+        			<prop key="hibernate.current_session_context_class">
+        				thread
+        			</prop>-->
+        			<!-- 设置Hibernate数据库方言 -->
+        			<prop key="hibernate.dialect">
+        				org.hibernate.dialect.MySQLDialect
+        			</prop>
+        			<!--  <prop key="hibernate.show_sql">true</prop> 
+        			<prop key="format_sql">true</prop>-->
+					<prop key="hibernate.hbm2ddl.auto">update</prop>
+					<prop key=""></prop>
+					    
+        		</props>
+        	</property>
+   
+   			<!--使用包扫描-->
+    		<property name="packagesToScan">
+       			<list>
+            		<value>com.future.order.entity</value>
+        		</list>
+      		</property>
+        </bean>
+ 
+	<!-- 配置声明式事物 -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- 配置处理事务的注释 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+		
+	<!--2.配置事务属性  -->
+	<!--2.配置事务属性: 焦祥宇修改 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			 <tx:method name="add*" propagation="REQUIRED" rollback-for = "Exception"/>   
+	         <tx:method name="delete*" propagation="REQUIRED" rollback-for = "Exception"/> 
+	         <tx:method name="update*" propagation="REQUIRED" rollback-for = "Exception"/> 
+	         <tx:method name="*" read-only="false" /> 
+		</tx:attributes>
+	</tx:advice>
+	<!-- 基于AOP的声明事务配置完成 -->
+	<!--aop配置： 焦祥宇修改 -->
+	<aop:config>
+        <aop:pointcut id="interceptorPointCuts"  expression=" execution(* com.future.order.dao.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice"  pointcut-ref="interceptorPointCuts" />        
+   </aop:config> 
+        
+</beans>
