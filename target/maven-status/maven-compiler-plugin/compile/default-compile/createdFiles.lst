@@ -1,6 +1,16 @@
-com\future\order\entity\User.class
+com\future\order\entity\ShopCart.class
 com\future\order\base\BaseDao.class
+com\future\order\entity\Inform.class
 com\future\order\action\UserAction.class
+com\future\order\entity\MenuMaterial.class
+com\future\order\entity\Tables.class
+com\future\order\entity\Stock.class
+com\future\order\entity\User.class
+com\future\order\entity\Menu.class
+com\future\order\entity\OrderDetails.class
+com\future\order\entity\StockDetails.class
 com\future\order\dao\UserDao.class
+com\future\order\entity\Ingredient.class
 com\future\order\service\IUserService.class
 com\future\order\base\BaseAction.class
+com\future\order\entity\Order.class
