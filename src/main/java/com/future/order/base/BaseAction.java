@@ -4,16 +4,26 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-
+import com.future.order.service.IInformService;
+import com.future.order.service.IIngerdientService;
+import com.future.order.service.IMenuMaterialService;
+import com.future.order.service.IMenuService;
+import com.future.order.service.IOrderDetailsService;
+import com.future.order.service.IOrderService;
+import com.future.order.service.IShopCartService;
+import com.future.order.service.IStockDetailsService;
+import com.future.order.service.IStockService;
+import com.future.order.service.ITablesService;
+import com.future.order.service.IUserService;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BaseAction extends ActionSupport implements SessionAware{
+public class BaseAction extends ActionSupport implements SessionAware,RequestAware{
 
 	/**
 	 * 
@@ -21,16 +31,32 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = 1L;
 	
 	protected Map<String,Object> session;
+	protected Map<String,Object> request;
 	
 	//service 注入
-	/*@Resource
-	protected IPartyIntroductionService partyIntroductionService;*/
-	
-	
-	protected HttpServletRequest getRequest(){
-		return ServletActionContext.getRequest();
-	}
-	
+	@Resource
+	protected IInformService informService;
+	@Resource
+	protected IIngerdientService ingerdientService;
+	@Resource
+	protected IMenuMaterialService menuMaterialService;
+	@Resource
+	protected IMenuService menuService;
+	@Resource
+	protected IOrderDetailsService orderDetailsService;
+	@Resource
+	protected IOrderService orderService;
+	@Resource
+	protected IShopCartService shopCartService;
+	@Resource
+	protected IStockDetailsService stockDetailsService;
+	@Resource
+	protected IStockService stockService;
+	@Resource
+	protected ITablesService tablesService;
+	@Resource
+	protected IUserService userService;
+		
 	protected HttpServletResponse getResponse(){
 		return ServletActionContext.getResponse();
 	}
@@ -46,5 +72,14 @@ public class BaseAction extends ActionSupport implements SessionAware{
 	public Map<String,Object> getSession(){
 		return session;
 	}
+	
+	public Map<String, Object> getRequest() {
+		return request;
+	}
+	@Override
+	public void setRequest(Map<String, Object> request) {
+		this.request = request;
+	}
+	
 	
 }

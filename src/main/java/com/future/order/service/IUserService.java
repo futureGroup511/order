@@ -6,10 +6,12 @@
  */  
 package com.future.order.service;
 
+import com.future.order.entity.User;
+
 /**
  * @author Administrator
  *
  */
 public interface IUserService {
-
+	public boolean add(User user);
 }
