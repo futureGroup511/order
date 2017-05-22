@@ -237,6 +237,21 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
     	</plugin>
+    	<plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                   
+                    <path>/order</path>
+                   
+                    <url>http://localhost:8080/manager/html</url>
+                   
+                    <server>tomcat7</server>
+                   
+                    <port>8080</port>
+                </configuration>
+            </plugin>
     </plugins>
   </build>
 </project>
