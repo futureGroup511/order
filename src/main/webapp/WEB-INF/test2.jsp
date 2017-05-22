@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="test_toAddUser.action">添加用户</a>
+ name:${user.name}<br>
+ phone:${user.phone}<br>
+ password:${user.password}<br>
+ sort:${user.sort}<br>
+ ${meg}		
 </body>
 </html>

@@ -15,6 +15,9 @@
 
 	<package name="default" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
 		<!-- 这里放全局的映射 -->
-		
+		<action name="test_*" class="com.future.order.action.TestAction" method="{1}">
+			<result name="toAddUser">/WEB-INF/test1.jsp</result>			
+			<result name="addUser">/WEB-INF/test2.jsp</result>
+		</action>
 	</package>
 </struts>

@@ -13,7 +13,7 @@
         
 
 		<!--自动扫描与装配bean包含子包  -->
-		<context:component-scan base-package="com.future.order.*"></context:component-scan>
+		<context:component-scan base-package="com.future.order"></context:component-scan>
 		<context:property-placeholder location="classpath:jdbc.properties"  />
        
         <!-- 定义BasicDataSource数据源 -->

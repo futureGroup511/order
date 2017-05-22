@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="test_toAddUser.action">添加用户</a>
+	<form action="test_addUser.action" method="post">
+		name:<input type="text" name="user.name"><br>
+		phone:<input type="text" name="user.phone"><br>
+		password:<input type="text" name="user.password"><br>
+		sort:<input type="text" name="user.sort"><br>
+		<input type="submit" value="提交">
+	</form>
 </body>
 </html>

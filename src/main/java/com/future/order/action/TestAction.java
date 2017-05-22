@@ -19,6 +19,10 @@ public class TestAction extends BaseAction {
 	
 	private User user;
 	
+	public String toAddUser() throws Exception {
+		
+		return "toAddUser";
+	}
 	public String addUser() throws Exception {
 		boolean bool=userService.add(user);
 		if(bool==true){
@@ -26,7 +30,7 @@ public class TestAction extends BaseAction {
 		}else{
 			request.put("meg", "添加失败");
 		}
-		return "";
+		return "addUser";
 	}
 
 	
