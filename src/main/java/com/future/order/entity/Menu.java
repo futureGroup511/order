@@ -31,7 +31,7 @@ public class Menu {
 	@Column(length=8)
 	private double price;//价格
 	@Column(length=1)
-	private int exist;//是否可以做（待定）
+	private int exist;//是否可以做
 	private Date createDate;//创建时间
 	@Column(length=255)
 	private String remark;//备注（备用）

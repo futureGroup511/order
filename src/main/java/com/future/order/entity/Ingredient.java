@@ -29,6 +29,9 @@ public class Ingredient {
 	private double num;//库存量
 	private Date stockDate;//最新进货时间
 	private Date createDate;//创建时间
+	
+	private String source;//素源（二维码地址（待定））
+	private String remark;//备注
 	/**
 	 * @return the id
 	 */
@@ -102,10 +105,37 @@ public class Ingredient {
 		this.createDate = createDate;
 	}
 	
+	/**
+	 * @return the source
+	 */
+	public String getSource() {
+		return source;
+	}
+	/**
+	 * @param source the source to set
+	 */
+	public void setSource(String source) {
+		this.source = source;
+	}
+	/**
+	 * @return the remark
+	 */
+	public String getRemark() {
+		return remark;
+	}
+	/**
+	 * @param remark the remark to set
+	 */
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Ingredient [id=" + id + ", name=" + name + ", price=" + price + ", num=" + num + ", stockDate="
-				+ stockDate + ", createDate=" + createDate + "]";
+				+ stockDate + ", createDate=" + createDate + ", source=" + source + ", remark=" + remark + "]";
 	}
 	
 }
