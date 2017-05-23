@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="test_toAddUser.action">添加用户</a>
+<a href="${rootPath}test_toAddUser.action">添加用户</a>
 </body>
 </html>

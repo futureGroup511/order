@@ -27,8 +27,10 @@ public class ShopCart {
 	private int menuId;//菜品id
 	@Column(length=10)
 	private String menuName;//菜品名称
+	@Column(length=5)
+	private int menuNum;//该菜品数量
 	@Column(length=10)
-	private double price;//价格
+	private double price;//单价
 	@Column(length=5)
 	private int num;//数量（待定）
 	@Column(length=255)
@@ -128,11 +130,28 @@ public class ShopCart {
 	 */
 	public void setRemark(String remark) {
 		this.remark = remark;
-	}	
+	}
+	
+	/**
+	 * @return the menuNum
+	 */
+	public int getMenuNum() {
+		return menuNum;
+	}
+	/**
+	 * @param menuNum the menuNum to set
+	 */
+	public void setMenuNum(int menuNum) {
+		this.menuNum = menuNum;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "ShopCart [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", menuId=" + menuId
-				+ ", menuName=" + menuName + ", price=" + price + ", num=" + num + ", remark=" + remark + "]";
+				+ ", menuName=" + menuName + ", menuNum=" + menuNum + ", price=" + price + ", num=" + num + ", remark="
+				+ remark + "]";
 	}
 		
 }

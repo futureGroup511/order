@@ -34,10 +34,19 @@ public class OrderDetails {
 	@Column(length=5)
 	private int menuId;//菜品id
 	@Column(length=10)
-	private String menuName;//菜品名称
+	private String menuName;//菜品名称 
+	@Column(length=5)
+	private int menuNum;//该菜品数量
 	@Column(length=10)
 	private String status;//菜品状态（未完成，完成）
 	private Date creatDate;//下单时间
+	@Column(length=255)
+	private String remark;//备注（备用）
+	//记录哪个厨师做的这个订单
+	@Column(length=10)
+	private int cookId;//厨师id，
+	@Column(length=10)
+	private String cookName;//厨师名称
 	/**
 	 * @return the id
 	 */
@@ -135,10 +144,62 @@ public class OrderDetails {
 		this.creatDate = creatDate;
 	}
 	
+	/**
+	 * @return the menuNum
+	 */
+	public int getMenuNum() {
+		return menuNum;
+	}
+	/**
+	 * @param menuNum the menuNum to set
+	 */
+	public void setMenuNum(int menuNum) {
+		this.menuNum = menuNum;
+	}
+	
+	/**
+	 * @return the remark
+	 */
+	public String getRemark() {
+		return remark;
+	}
+	/**
+	 * @param remark the remark to set
+	 */
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
+	/**
+	 * @return the cookId
+	 */
+	public int getCookId() {
+		return cookId;
+	}
+	/**
+	 * @param cookId the cookId to set
+	 */
+	public void setCookId(int cookId) {
+		this.cookId = cookId;
+	}
+	/**
+	 * @return the cookName
+	 */
+	public String getCookName() {
+		return cookName;
+	}
+	/**
+	 * @param cookName the cookName to set
+	 */
+	public void setCookName(String cookName) {
+		this.cookName = cookName;
+	}
+	
 	@Override
 	public String toString() {
 		return "OrderDetails [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", orderId=" + orderId
-				+ ", menuId=" + menuId + ", menuName=" + menuName + ", status=" + status + ", creatDate=" + creatDate
+				+ ", menuId=" + menuId + ", menuName=" + menuName + ", menuNum=" + menuNum + ", status=" + status
+				+ ", creatDate=" + creatDate + ", remark=" + remark + ", cookId=" + cookId + ", cookName=" + cookName
 				+ "]";
 	}
 	

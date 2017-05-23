@@ -9,7 +9,7 @@
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
-	<package name="admin" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
+	<package name="manage" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
 					
 	</package>
 </struts>
