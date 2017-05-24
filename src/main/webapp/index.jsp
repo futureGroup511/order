@@ -8,5 +8,11 @@
 </head>
 <body>
 <a href="${rootPath}test_toAddUser.action">添加用户</a>
+	
+	<form action="" method="post">
+		<input type="text" name="user.username">
+		<input type="password" name="user.password">
+		<input type="submit" value="提交">
+	</form>
 </body>
 </html>

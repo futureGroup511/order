@@ -13,5 +13,7 @@ import com.future.order.entity.User;
  *
  */
 public interface IUserService {
+	
 	public boolean add(User user);
+	
 }
