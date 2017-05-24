@@ -27,7 +27,7 @@ public class User {
 	@Column(length=10)
 	private String password;
 	@Column(length=1)
-	private int sort;//用户类型（厨师：1，收银：2）	
+	private String sort;//用户类型（厨师：1，收银：2）	
 	private Date createDate;//注册时间
 	@Column(length=10)
 	private String remark;//备注（备用）
@@ -83,13 +83,13 @@ public class User {
 	/**
 	 * @return the sort
 	 */
-	public int getSort() {
+	public String getSort() {
 		return sort;
 	}
 	/**
 	 * @param sort the sort to set
 	 */
-	public void setSort(int sort) {
+	public void setSort(String sort) {
 		this.sort = sort;
 	}
 	/**
