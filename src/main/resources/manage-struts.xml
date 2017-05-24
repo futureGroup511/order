@@ -10,6 +10,11 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
 	<package name="manage" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
-					
+			<action name="manager">
+				<result>/WEB-INF/admin/index.jsp</result>
+			</action>
+			<action name="login_*" method="{1}" class="">
+			
+			</action>
 	</package>
 </struts>
