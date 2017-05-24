@@ -26,8 +26,7 @@ public class Ingredient {
 	@Column(length=10)
 	private double price;//单价
 	@Column(length=10)
-	private double num;//库存量
-	private Date stockDate;//最新进货时间
+	private double num;//库存量	
 	private Date createDate;//创建时间
 	
 	private String source;//素源（二维码地址（待定））
@@ -80,18 +79,7 @@ public class Ingredient {
 	public void setNum(double num) {
 		this.num = num;
 	}
-	/**
-	 * @return the stockDate
-	 */
-	public Date getStockDate() {
-		return stockDate;
-	}
-	/**
-	 * @param stockDate the stockDate to set
-	 */
-	public void setStockDate(Date stockDate) {
-		this.stockDate = stockDate;
-	}
+	
 	/**
 	 * @return the createDate
 	 */
@@ -134,8 +122,8 @@ public class Ingredient {
 	 */
 	@Override
 	public String toString() {
-		return "Ingredient [id=" + id + ", name=" + name + ", price=" + price + ", num=" + num + ", stockDate="
-				+ stockDate + ", createDate=" + createDate + ", source=" + source + ", remark=" + remark + "]";
+		return "Ingredient [id=" + id + ", name=" + name + ", price=" + price + ", num=" + num + ", createDate="
+				+ createDate + ", source=" + source + ", remark=" + remark + "]";
 	}
 	
 }
