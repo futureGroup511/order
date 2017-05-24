@@ -19,7 +19,7 @@
 		<a href="">增加配料</a><br>
 		<a href="">查询配料</a><br>
 		<a href="">删除配料</a><br>
-		<a href="">修改配料</a>
+		<a href="">修改配料</a>          
 	</details>
 	<details>
 		<summary>菜品管理</summary>
