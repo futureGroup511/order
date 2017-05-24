@@ -26,8 +26,8 @@ public class User {
 	private String phone;//手机号（账号）
 	@Column(length=10)
 	private String password;
-	@Column(length=1)
-	private String sort;//用户类型（厨师：1，收银：2）	
+	@Column(length=7)
+	private String sort;//用户类型（厨师：cook，收银：manager）	
 	private Date createDate;//注册时间
 	@Column(length=10)
 	private String remark;//备注（备用）
