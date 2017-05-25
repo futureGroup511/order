@@ -29,7 +29,7 @@ public class Ingredient {
 	private double num;//库存量	
 	private Date createDate;//创建时间
 	
-	private String source;//素源（二维码地址（待定））
+	private String source;//溯源（二维码地址（待定））
 	private String remark;//备注
 	/**
 	 * @return the id

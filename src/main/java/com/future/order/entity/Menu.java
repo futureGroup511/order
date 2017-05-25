@@ -26,10 +26,14 @@ public class Menu {
 	private String imgUrl;
 	@Column(length=255)
 	private String introduce;//简介
-	@Column(length=15)
-	private String sort;//类别
+	@Column(length=5)
+	private int typeId;//类型id
+	@Column(length=10)
+	private String typeName;//类型名称
 	@Column(length=8)
 	private double price;//价格
+	@Column(length=20)
+	private int num;//被订次数
 	@Column(length=1)
 	private int exist;//是否可以做
 	private Date createDate;//创建时间
@@ -83,17 +87,30 @@ public class Menu {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
+	
 	/**
-	 * @return the sort
+	 * @return the typeId
 	 */
-	public String getSort() {
-		return sort;
+	public int getTypeId() {
+		return typeId;
 	}
 	/**
-	 * @param sort the sort to set
+	 * @param typeId the typeId to set
 	 */
-	public void setSort(String sort) {
-		this.sort = sort;
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
+	/**
+	 * @return the typeName
+	 */
+	public String getTypeName() {
+		return typeName;
+	}
+	/**
+	 * @param typeName the typeName to set
+	 */
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 	/**
 	 * @return the price
@@ -106,6 +123,18 @@ public class Menu {
 	 */
 	public void setPrice(double price) {
 		this.price = price;
+	}	
+	/**
+	 * @return the num
+	 */
+	public int getNum() {
+		return num;
+	}
+	/**
+	 * @param num the num to set
+	 */
+	public void setNum(int num) {
+		this.num = num;
 	}
 	/**
 	 * @return the exist
@@ -149,9 +178,9 @@ public class Menu {
 	 */
 	@Override
 	public String toString() {
-		return "Menu [id=" + id + ", name=" + name + ", imgUrl=" + imgUrl + ", introduce=" + introduce + ", sort="
-				+ sort + ", price=" + price + ", exist=" + exist + ", createDate=" + createDate + ", remark=" + remark
-				+ "]";
+		return "Menu [id=" + id + ", name=" + name + ", imgUrl=" + imgUrl + ", introduce=" + introduce + ", typeId="
+				+ typeId + ", typeName=" + typeName + ", price=" + price + ", num=" + num + ", exist=" + exist
+				+ ", createDate=" + createDate + ", remark=" + remark + "]";
 	}
 	
 }
