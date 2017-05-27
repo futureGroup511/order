@@ -10,10 +10,17 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
 	<package name="manage" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
-			<action name="manager">
+			<action name="loginAction"  class="com.future.order.action.LoginAction">
+				<result name="manager">/WEB-INF/admin/index.jsp</result>
+				<result name="cook">/WEB-INF/cook/index.jsp</result>
+				<result name="login">/index.jsp</result>
+			</action>
+			
+			<action name="CodeAction" class="com.future.order.action.CodeAction">
 				<result>/WEB-INF/admin/index.jsp</result>
 			</action>
-			<action name="login_*" method="{1}" class="">
+			
+			<action name="" class="com.future.order.action.">
 			
 			</action>
 	</package>

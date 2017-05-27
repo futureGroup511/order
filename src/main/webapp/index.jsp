@@ -9,9 +9,11 @@
 <body>
 <a href="${rootPath}test_toAddUser.action">添加用户</a>
 	
-	<form action="" method="post">
-		<input type="text" name="user.username">
-		<input type="password" name="user.password">
+	<form action="${rootPath}manage/loginAction.action" method="post">
+		手机号：<input type="text" name="user.phone">
+		密&nbsp;码：<input type="password" name="user.password">
+		验证码：
+		<img alt="点击刷新" src="${rootPath }validation" id="yan" /></a>
 		<input type="submit" value="提交">
 	</form>
 </body>

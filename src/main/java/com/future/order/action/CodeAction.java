@@ -71,7 +71,7 @@ public class CodeAction extends ActionSupport implements RequestAware, ServletRe
 		// 输出到页面
 		ImageIO.write(image, "JPEG", response.getOutputStream());
 		// 返回值必须为空
-		return SUCCESS;
+		return null;
 	}
 
 	public HttpServletResponse getServletResponse() {
