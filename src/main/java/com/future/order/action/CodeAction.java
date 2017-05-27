@@ -14,17 +14,17 @@ import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.future.order.base.BaseAction;
 
-public class CodeAction extends ActionSupport implements RequestAware, ServletResponseAware, SessionAware {
+public class CodeAction extends BaseAction implements RequestAware, ServletResponseAware, SessionAware {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private HttpServletResponse response;
-	private Map<String, Object> request;
-	private Map<String, Object> session;
+//	private Map<String, Object> request;
+//	private Map<String, Object> session;
 
 	/**
 	 * @author 张金高
@@ -33,7 +33,6 @@ public class CodeAction extends ActionSupport implements RequestAware, ServletRe
 	 */
 	@Override
 	public String execute() throws Exception {
-		System.out.println("执行了execute方法（）。。。。。");
 		// 设置响应头不要缓存页面
 		response.setContentType("image/jpeg");
 		response.setHeader("Pragma", "No-cache");
@@ -83,22 +82,6 @@ public class CodeAction extends ActionSupport implements RequestAware, ServletRe
 		this.response = response;
 	}
 
-	@Override
-	public void setRequest(Map<String, Object> request) {
-		this.request = request;
-	}
 
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
-
-	public Map<String, Object> getRequest() {
-		return request;
-	}
-
-	public Map<String, Object> getSession() {
-		return session;
-	}
 
 }

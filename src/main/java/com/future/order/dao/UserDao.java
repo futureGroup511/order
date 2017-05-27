@@ -15,9 +15,20 @@ import com.future.order.service.IUserService;
 @Service
 public class UserDao extends BaseDao<User> implements IUserService {
 	
+
 	@Override
-	public boolean add(User user) {		
-		return saveEntity(user);
+	public User login(String phone, String password) {	//登录
+		String hql = "from User where phone='"+phone+"'and password= '"+password+"'";
+		return (User)this.uniqueResult(hql);
 	}
 
+	@Override
+	public boolean addUser(User user) {
+		String hql = "from User where phone='"+user.getPhone()+"'";
+		User userDataBase = (User) this.uniqueResult(hql);
+		if(userDataBase==null){
+			return false;
+		}
+		return this.saveEntity(user);
+	}
 }

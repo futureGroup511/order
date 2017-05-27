@@ -1,16 +1,18 @@
 package com.future.order.action.manager;
 
+import com.future.order.base.BaseAction;
 import com.future.order.entity.User;
-import com.opensymphony.xwork2.ActionSupport;
 
-public class UserManager extends ActionSupport {
+public class UserManagerAction extends BaseAction {
 
 	private User user;
 
-	private void addUser() {
-		
-		
+	public String addUser() {
+		System.out.println(user);
+		request.put("addMsg", "添加成功");
+		return "addUser";
 	}
+	
 	
 	public User getUser() {
 		return user;

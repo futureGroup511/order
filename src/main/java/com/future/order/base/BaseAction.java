@@ -4,12 +4,14 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;//用于获得servlet从而获得session
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.future.order.dao.UserDao;
 import com.future.order.service.IInformService;
 import com.future.order.service.IIngerdientService;
 import com.future.order.service.IMenuMaterialService;
@@ -80,6 +82,5 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	public void setRequest(Map<String, Object> request) {
 		this.request = request;
 	}
-	
-	
+
 }

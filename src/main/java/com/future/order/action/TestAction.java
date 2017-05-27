@@ -26,9 +26,11 @@ public class TestAction extends BaseAction {
 	public String addUser() throws Exception {
 		boolean bool=userService.add(user);
 		if(bool==true){
-			request.put("meg", "添加成功");//这是从action的RequestAware获得的request，只有put，get方法
+//			this.getRequest().setAttribute("meg", "添加成功");//更改为存放进request中，不用map
+			//request.put("meg", "添加成功");//这是从action的RequestAware获得的request，只有put，get方法
 		}else{
-			request.put("meg", "添加失败");
+//			this.getRequest().setAttribute("meg", "添加失败");
+			//request.put("meg", "添加失败");//??
 		}
 		return "addUser";
 	}

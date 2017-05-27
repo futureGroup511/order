@@ -9,19 +9,31 @@
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
-	<package name="manage" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
-			<action name="loginAction"  class="com.future.order.action.LoginAction">
-				<result name="manager">/WEB-INF/admin/index.jsp</result>
-				<result name="cook">/WEB-INF/cook/index.jsp</result>
-				<result name="login">/index.jsp</result>
-			</action>
-			
-			<action name="CodeAction" class="com.future.order.action.CodeAction">
-				<result>/WEB-INF/admin/index.jsp</result>
-			</action>
-			
-			<action name="" class="com.future.order.action.">
-			
-			</action>
+	<package name="manage" extends="struts-default,json-default"
+		namespace="/manage" strict-method-invocation="false">
+
+		<action name="manager">
+			<result>/WEB-INF/admin/index.jsp</result>
+		</action>
+
+		<action name="loginAction" class="com.future.order.action.LoginAction">
+			<result name="manager">/WEB-INF/admin/index.jsp</result>
+			<result name="cook">/WEB-INF/cook/index.jsp</result>
+			<result name="login">/index.jsp</result>
+		</action>
+
+		<action name="CodeAction" class="com.future.order.action.CodeAction">
+			<result>/WEB-INF/admin/index.jsp</result>
+		</action>
+
+		<action name="Change_*" method="{1}"
+			class="com.future.order.action.manager.ChangeAction">
+			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
+			<result name="managerUser">/WEB-INF/admin/manageruser.jsp</result>
+		</action>
+		
+		<action name="UserManager_*" method="{1}" class="com.future.order.action.manager.UserManagerAction">
+			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
+		</action>
 	</package>
 </struts>
