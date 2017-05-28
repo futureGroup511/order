@@ -1,22 +1,8 @@
 package com.future.order.action;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.util.Map;
-import java.util.Random;
-
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.interceptor.RequestAware;
-import org.apache.struts2.interceptor.ServletResponseAware;
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.future.order.base.BaseAction;
-import com.future.order.dao.UserDao;
 import com.future.order.entity.User;
-import com.future.order.service.IUserService;
 
 public class LoginAction extends BaseAction {
 
@@ -53,6 +39,7 @@ public class LoginAction extends BaseAction {
 	}
 	
 	public User getUser() {
+		
 		return user;
 	}
 	
@@ -60,7 +47,6 @@ public class LoginAction extends BaseAction {
 		this.user = user;
 	}
 	public String getRandStr() {
-		System.out.println("getrandStr"+randStr);
 		return randStr;
 	}
 

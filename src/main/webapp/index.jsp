@@ -15,7 +15,7 @@
 </head>
 <body>
 	<center>
-		<form action="${rootPath}/manage/loginAction" method="post">
+		<form action="${rootPath}manage/loginAction" method="post">
 			手机号：<input type="text" name="user.phone"><br>
 			密&nbsp;码：<input type="password" name="user.password"><br>
 <%-- 			验证码：<img alt="验证码" id="imagecode"  src="${rootPath}manage/CodeAction.action" width="120" height="40"> --%>

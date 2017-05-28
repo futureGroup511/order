@@ -52,6 +52,15 @@ public class BaseDao<T> {
 		this.getSession().delete(t);
 		return true;
 	}
+	//一个表中的全部记录,zjg
+	protected final List<T> selectAll(){
+		String className=clazz.getSimpleName();
+		String hql = "from "+className;
+		Query query = this.getSession().createQuery(hql);
+		List<T> list=query.list();
+		return list;
+	}
+	
 	protected final List<T> getEntityList(String hql,Object ...objects){
 		Query query=this.getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){

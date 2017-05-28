@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-selectuser
+manageruser查询出来所有用户
 </body>
 </html>

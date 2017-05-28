@@ -6,6 +6,9 @@
  */  
 package com.future.order.dao;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
@@ -27,8 +30,19 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		String hql = "from User where phone='"+user.getPhone()+"'";
 		User userDataBase = (User) this.uniqueResult(hql);
 		if(userDataBase==null){
-			return false;
+			user.setCreateDate(new Date());
+			this.saveEntity(user);
+			return true;
 		}
-		return this.saveEntity(user);
+		return false;
+	}
+
+	@Override
+	public List<User> selectAllUser() {
+		List<User> list = this.selectAll();
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i)+"asd");
+		}
+		return list;
 	}
 }
