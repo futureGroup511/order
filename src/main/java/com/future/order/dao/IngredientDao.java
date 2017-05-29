@@ -30,14 +30,14 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 
 	@Override
 	public List<Ingredient> getAll() {
-		@SuppressWarnings("unused")
 		List<Ingredient> list = new ArrayList<Ingredient>();
-		try{
-			String hql="from Ingredient";
-			list=this.getEntityList(hql);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+		list = selectAll();
+//		try{
+//			String hql="from Ingredient";
+//			list=this.getEntityList(hql);
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		return list;
 
 	}
