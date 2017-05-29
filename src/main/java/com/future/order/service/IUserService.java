@@ -24,6 +24,4 @@ public interface IUserService {
 	//查询用户
 	public List<User> selectAllUser();
 
-	public boolean add(User user);//把User这个实体类作为参数传进方法里来；只定义接口中方法由模型层调用。
-
 }
