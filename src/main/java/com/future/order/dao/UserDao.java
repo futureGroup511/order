@@ -20,9 +20,14 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	
 
 	@Override
+<<<<<<< Updated upstream
 	public User login(String phone, String password) {	//登录
 		String hql = "from User where phone='"+phone+"'and password= '"+password+"'";
 		return (User)this.uniqueResult(hql);
+=======
+	public boolean add(User user) {		
+		return saveEntity(user);//返回底层方法，底层中有与数据库连接的增删改查的方法。
+>>>>>>> Stashed changes
 	}
 
 	@Override

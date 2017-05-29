@@ -14,6 +14,7 @@
 
 </head>
 <body>
+<<<<<<< Updated upstream
 	<center>
 		<form action="${rootPath}manage/loginAction" method="post">
 			手机号：<input type="text" name="user.phone"><br>
@@ -24,5 +25,8 @@
 			<input type="submit" value="提交">
 		</form>
 	</center>
+=======
+
+>>>>>>> Stashed changes
 </body>
 </html>
