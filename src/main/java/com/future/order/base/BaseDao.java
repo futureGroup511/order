@@ -14,12 +14,13 @@ import org.hibernate.SessionFactory;
 import com.future.order.entity.User;
 
 public class BaseDao<T> {
-	@Resource
+	@Resource//注入session工厂
 	private SessionFactory sessionFactory;
 	
 	private Class<T> clazz;
 
 	
+	@SuppressWarnings("unchecked")
 	public BaseDao(){
 		Type type=this.getClass().getGenericSuperclass();
 		if(!(type instanceof ParameterizedType)){
@@ -27,29 +28,32 @@ public class BaseDao<T> {
 		}
 		clazz=(Class<T>)((ParameterizedType) type).getActualTypeArguments()[0];
 	}
-	
+	//返回数据库中多少条记录
 	public int getNum(){
 		String className=clazz.getSimpleName();
 		String hql="select count(*) from "+className;		
 		return ((Long)this.uniqueResult(hql)).intValue();
 	}
 	
-	
+	//返回session会话
 	protected Session getSession(){
 		return this.sessionFactory.getCurrentSession();
 	}
-	
+	//根据ID查询
 	protected final T getEntity(int id){
 		return (T)this.getSession().get(clazz, id);
 	}
+	//录入
 	protected final boolean saveEntity(T t){
 		this.getSession().save(t);
 		return true;
 	}
+	//修改信息
 	protected final boolean updateEntity(T t){
 		this.getSession().update(t);
 		return true;
 	}
+	//删除对象
 	protected final boolean deleteEntity(T t){
 		this.getSession().delete(t);
 		return true;
@@ -63,6 +67,9 @@ public class BaseDao<T> {
 		return list;
 	}
 	
+
+	
+	//执行查询功能，返回一个列表
 	protected final List<T> getEntityList(String hql,Object ...objects){
 		Query query=this.getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){
@@ -80,7 +87,7 @@ public class BaseDao<T> {
 		}
 		return query.executeUpdate();
 	}
-	
+	//返回一个对象
 	protected final Object uniqueResult(String hql, Object... objects) {
 		Query query = getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){

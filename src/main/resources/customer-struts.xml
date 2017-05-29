@@ -10,6 +10,16 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
 	<package name="customer" extends="struts-default,json-default" namespace="/customer" strict-method-invocation="false">
-					
+		<action name="GetUser" class="com.future.order.action.TestGetAction">
+			<result name="toGetUser">/WEB-INF/customer/cart.jsp</result>			
+			<result name="getUser">/WEB-INF/customer/menu.jsp</result><!-- 以方法来进行确定返回的页面 -->
+		</action>
+		<action name="test_*" class="com.future.order.action.TestGetAction" method="{1}">
+			<result name="cart">/WEB-INF/customer/ingredient.jsp</result>			
+			<result name="getUser">/WEB-INF/customer/menu.jsp</result>
+			<result name="orderUser">/WEB-INF/customer/order.jsp</result>
+			
+		</action>
 	</package>
+	 
 </struts>
