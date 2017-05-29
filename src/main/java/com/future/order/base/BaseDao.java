@@ -11,8 +11,6 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.future.order.entity.User;
-
 public class BaseDao<T> {
 	@Resource//注入session工厂
 	private SessionFactory sessionFactory;
