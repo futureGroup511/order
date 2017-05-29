@@ -24,5 +24,6 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	public Menu Doorder(int id ){
 		Menu menu = this.getEntity(id);
 		return menu;
+		//asd 
 	}
 }
