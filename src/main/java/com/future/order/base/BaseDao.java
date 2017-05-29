@@ -41,6 +41,7 @@ public class BaseDao<T> {
 		return (T)this.getSession().get(clazz, id);
 	}
 	protected final boolean saveEntity(T t){
+		System.out.println("baseDao:"+t);
 		this.getSession().save(t);
 		return true;
 	}

@@ -31,6 +31,7 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		User userDataBase = (User) this.uniqueResult(hql);
 		if(userDataBase==null){
 			user.setCreateDate(new Date());
+			System.out.println("UserDao"+user);
 			this.saveEntity(user);
 			return true;
 		}
@@ -38,11 +39,8 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	}
 
 	@Override
-	public List<User> selectAllUser() {
+	public List<User> selectAllUser() {//查找所有用户
 		List<User> list = this.selectAll();
-		for(int i=0;i<list.size();i++){
-			System.out.println(list.get(i)+"asd");
-		}
 		return list;
 	}
 }

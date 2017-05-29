@@ -34,6 +34,7 @@
 		
 		<action name="UserManager_*" method="{1}" class="com.future.order.action.manager.UserManagerAction">
 			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
+			<result name="updateUser">/WEB-INF/admin/updateuser.jsp</result>
 		</action>
 	</package>
 </struts>
