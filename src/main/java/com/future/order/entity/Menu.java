@@ -173,9 +173,7 @@ public class Menu {
 		this.remark = remark;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
 	@Override
 	public String toString() {
 		return "Menu [id=" + id + ", name=" + name + ", imgUrl=" + imgUrl + ", introduce=" + introduce + ", typeId="

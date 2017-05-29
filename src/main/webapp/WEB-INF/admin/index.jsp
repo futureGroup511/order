@@ -15,8 +15,8 @@
 	</details>
 	<details>
 		<summary>配料管理</summary>
-		<a href="">增加配料</a><br>
-		<a href="">管理配料</a>          
+		<a href="${rootPath}manage/Change_addIngredient">增加配料</a><br>
+		<a href="${rootPath}manage/Change_managerIngredient">管理配料</a>          
 	</details>
 	<details>
 		<summary>菜品管理</summary>

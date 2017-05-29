@@ -11,8 +11,6 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.future.order.entity.User;
-
 public class BaseDao<T> {
 	@Resource//注入session工厂
 	private SessionFactory sessionFactory;
@@ -58,6 +56,9 @@ public class BaseDao<T> {
 		this.getSession().delete(t);
 		return true;
 	}
+
+
+
 	//一个表中的全部记录,zjg
 	protected final List<T> selectAll(){
 		String className=clazz.getSimpleName();
@@ -66,10 +67,16 @@ public class BaseDao<T> {
 		List<T> list=query.list();
 		return list;
 	}
-	
 
 	
 	//执行查询功能，返回一个列表
+
+
+
+
+	//执行查询功能，返回一个列表
+
+
 	protected final List<T> getEntityList(String hql,Object ...objects){
 		Query query=this.getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){

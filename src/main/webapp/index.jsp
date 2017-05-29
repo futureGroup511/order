@@ -12,6 +12,7 @@
  	}
 </script>
 </head>
+
 <body>
 	<center>
 		<form action="${rootPath}manage/loginAction" method="post">
@@ -23,5 +24,6 @@
 			<input type="submit" value="提交">
 		</form>
 	</center>
+
 </body>
 </html>

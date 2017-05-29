@@ -16,6 +16,7 @@ import com.future.order.entity.User;
  */
 public interface IUserService {
 
+
 	//登录
 	public User login(String phone,String pasword);
 	//添加用户
@@ -24,4 +25,9 @@ public interface IUserService {
 	public List<User> selectAllUser();
 	//wqj查询子用户
 	public User viewUser( int id);
+	//修改
+	public boolean updateUser(User user);
+	//删除
+	public boolean deleteUser(User user);
+
 }

@@ -29,10 +29,17 @@
 			class="com.future.order.action.manager.ChangeAction">
 			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
 			<result name="managerUser">/WEB-INF/admin/manageruser.jsp</result>
+			<result name="addIngredient">/WEB-INF/admin/addingredient.jsp</result>
 		</action>
 		
 		<action name="UserManager_*" method="{1}" class="com.future.order.action.manager.UserManagerAction">
 			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
+			<result name="updateUser">/WEB-INF/admin/updateuser.jsp</result>
+			<result name="deleteUser">/WEB-INF/admin/manageruser.jsp</result>
+		</action>
+		
+		<action name="Ingredient_*" method="{1}" class="com.future.order.action.manager.IngredientManagerAction" >
+			<result name="addIngredient">/WEB-INF/admin/addingredient.jsp</result>
 		</action>
 		
 		<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">

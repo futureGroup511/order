@@ -16,7 +16,8 @@ import com.future.order.entity.Ingredient;
  *
  */
 public interface IIngerdientService {
-	public Ingredient get(int id);
-
+	//学长加
 	public List<Ingredient> getAll();
+	//添加配料
+	public boolean addIngredient(Ingredient ingredient);
 }
