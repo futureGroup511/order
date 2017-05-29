@@ -1,5 +1,6 @@
 /**        
  * @author: 焦祥宇 
+
  * @date:   createDate：2017年5月21日 下午6:20:21   
  * @Description:  订单详情类
  * 

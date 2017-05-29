@@ -9,9 +9,18 @@
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
-	<package name="cook" extends="struts-default,json-default" namespace="/cook" strict-method-invocation="false">
+<package name="cook" extends="struts-default,json-default" namespace="/cook" strict-method-invocation="false">
 		<action name="cook">
 		<result>/WEB-INF/cook/index.jsp</result>
-		</action>	
+		</action>
+		<action name="Cookdetail_*" method="{1}" class="com.future.order.action.cook.CookdetailAction">
+			<result name="viewUser">/WEB-INF/cook/cookdetail.jsp</result>
+			<result name="managerUser">/WEB-INF/admin/manageruser.jsp</result>
+		</action>
+		<action name="orderCenter_*" method="{1}" class="com.future.order.action.cook.orderCenterAction">
+		<result name="allOrder">/WEB-INF/cook/ordercenter.jsp</result>
+		<result name="menu">/WEB-INF/cook/doorder.jsp</result>
+		</action>
+		
 	</package>
 </struts>

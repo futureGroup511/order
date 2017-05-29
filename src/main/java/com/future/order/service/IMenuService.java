@@ -6,10 +6,21 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
+import com.future.order.entity.Menu;
+
 /**
  * @author Administrator
  *
  */
 public interface IMenuService {
+
+	public Menu Doorder(int id );
+
+
+	public Menu get(int id);
+
+	public List<Menu> getAll();
 
 }

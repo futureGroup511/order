@@ -20,26 +20,29 @@ import com.future.order.service.IIngerdientService;
 @Service
 public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientService {
 
-
 	@Override
-	public Ingredient get(int id) {
-		Ingredient ingredient=null;
-		ingredient=this.getEntity(id);
-		return ingredient;
+	public List<Ingredient> getAll() {
+		List<Ingredient> list = new ArrayList<Ingredient>();
+		list = selectAll();
+//		try{
+//			String hql="from Ingredient";
+//			list=this.getEntityList(hql);
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		return list;
+
 	}
 
 	@Override
-	public List<Ingredient> getAll() {
-		@SuppressWarnings("unused")
-		List<Ingredient> list = new ArrayList<Ingredient>();
-		try{
-			String hql="from Ingredient";
-			list=this.getEntityList(hql);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
+	public boolean addIngredient(Ingredient ingredient) {
+		return this.saveEntity(ingredient);
+	}
 
+	@Override
+	public Ingredient get(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

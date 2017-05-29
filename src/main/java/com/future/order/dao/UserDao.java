@@ -18,14 +18,13 @@ import com.future.order.service.IUserService;
 
 @Service
 public class UserDao extends BaseDao<User> implements IUserService {
-	
-
-	@Override
 
 	public User login(String phone, String password) {	//登录
 		String hql = "from User where phone='"+phone+"'and password= '"+password+"'";
 		return (User)this.uniqueResult(hql);
+
 	}
+	
 	@Override
 	public boolean addUser(User user) {
 		String hql = "from User where phone='"+user.getPhone()+"'";
@@ -39,10 +38,23 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	}
 
 	@Override
-	public List<User> selectAllUser() {
+	public List<User> selectAllUser() {//查找所有用户
 		List<User> list = this.selectAll();
 		return list;
 	}
 
+	@Override
+	public User viewUser(int id ){
+		User user = this.getEntity(id);
+		return user;
+	}
+	@Override
+	public boolean updateUser(User user) {	//修改用户信息
+		return this.updateEntity(user);
+	}
+	@Override
+	public boolean deleteUser(User user) {
+		return this.deleteEntity(user);
+	}
 
 }

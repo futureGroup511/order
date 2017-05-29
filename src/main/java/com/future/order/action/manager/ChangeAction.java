@@ -12,16 +12,20 @@ import com.future.order.entity.User;
  */
 public class ChangeAction extends BaseAction{
 	
+	
 	//用户模块中转站
 	public String addUser() {	
 		return "addUser";
 	}
-	
-	public String managerUser() {
-		System.out.println("查询出来所有用户");
+	//转发到管理用户界面，查询出所有用户
+	public String managerUser() {	
 		List<User> list = userService.selectAllUser();
 		request.put("allUser", list);
 		return "managerUser";
+	}
+	//配料模块中转站
+	public String addIngredient(){
+		return "addIngredient";
 	}
 	
 	public String addStocks(){
