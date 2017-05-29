@@ -6,6 +6,8 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
 import com.future.order.entity.User;
 
 /**
@@ -14,6 +16,10 @@ import com.future.order.entity.User;
  */
 public interface IUserService {
 	
-	public boolean add(User user);
-	
+	//登录
+	public User login(String phone,String pasword);
+	//添加用户
+	public boolean addUser(User user);
+	//查询用户
+	public List<User> selectAllUser();
 }

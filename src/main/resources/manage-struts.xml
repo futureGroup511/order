@@ -10,19 +10,38 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
 	<package name="manage" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
-			<action name="manager">
-				<result>/WEB-INF/admin/index.jsp</result>
-			</action>
-			<action name="login_*" method="{1}" class="">
-			
-			</action>
-			
-			<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">
+
+		<action name="manager">
+			<result>/WEB-INF/admin/index.jsp</result>
+		</action>
+
+		<action name="loginAction" class="com.future.order.action.LoginAction">
+			<result name="manager">/WEB-INF/admin/index.jsp</result>
+			<result name="cook">/WEB-INF/cook/index.jsp</result>
+			<result name="login">/index.jsp</result>
+		</action>
+
+		<action name="CodeAction" class="com.future.order.action.CodeAction">
+			<result>/WEB-INF/admin/index.jsp</result>
+		</action>
+
+		<action name="Change_*" method="{1}"
+			class="com.future.order.action.manager.ChangeAction">
+			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
+			<result name="managerUser">/WEB-INF/admin/manageruser.jsp</result>
+		</action>
+		
+		<action name="UserManager_*" method="{1}" class="com.future.order.action.manager.UserManagerAction">
+			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
+		</action>
+		
+		<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">
 				<result name="check">/WEB-INF/admin/ordercheck.jsp</result>
 				<result name="update">/WEB-INF/admin/updateorder.jsp</result>
-			</action>
-			<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
-				<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
-			</action>
+		</action>
+			
+		<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
+			<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
+		</action>
 	</package>
 </struts>
