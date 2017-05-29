@@ -1,9 +1,9 @@
 /**        
- * @author: 焦祥宇 
+ * @author: 焦祥宇 马黎明
  * @date:   createDate：2017年5月22日 上午10:48:47   
  * @Description:  
  * 
- */  
+ */ 
 package com.future.order.dao;
 
 import java.util.ArrayList;
@@ -29,8 +29,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		@SuppressWarnings("unused")
 		List<Order> list = new ArrayList<Order>();
 		try{
-			String hql="from Order";
-			list=this.getEntityList(hql);
+			list=this.selectAll();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

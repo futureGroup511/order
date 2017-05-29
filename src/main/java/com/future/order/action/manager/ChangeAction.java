@@ -24,4 +24,8 @@ public class ChangeAction extends BaseAction{
 		return "managerUser";
 	}
 	
+	public String addStocks(){
+		return "addstock";
+		
+	}
 }

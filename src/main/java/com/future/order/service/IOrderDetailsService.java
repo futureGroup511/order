@@ -1,5 +1,5 @@
 /**        
- * @author: 焦祥宇 
+ * @author: 焦祥宇 马黎明
  * @date:   createDate：2017年5月22日 上午10:42:51   
  * @Description:  
  * 
@@ -18,4 +18,7 @@ import com.future.order.entity.OrderDetails;
 public interface IOrderDetailsService {
 	public List<OrderDetails> CheckDetails(int id);
 	public boolean DeletOrderDetails(int id);
+	public boolean DeletDetails(int detailid);
+	public OrderDetails CheckById(int detailid);
+	public boolean UpdateOrder(OrderDetails details);
 }

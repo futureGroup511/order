@@ -23,5 +23,6 @@ public interface IUserService {
 	public boolean addUser(User user);
 	//查询用户
 	public List<User> selectAllUser();
+	
 
 }

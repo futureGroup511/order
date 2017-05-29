@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -10,15 +11,47 @@
 <body>
 <form action="${rootPath}manage/OrderAction_Update" method="post"> 
 	<center>
-		id:<input name="orders.id" value="${order.id}" type="text">
-	         餐桌id:<input name="orders.tableId" value="${order.tableId}" type="text">
-	         餐桌名称:<input name="orders.tableName" value="${order.tableName}" type="text"><br>
-	         总价:<input name="orders.total" value="${order.total}" type="text">
-	         状态:<input name="orders.status" value="${order.status}" type="text"><br>
-	         订单时间:<input name="orders.createDate" value="${order.createDate}" type="text">
-	         厨师id:<input name="orders.cookId" value="${order.cookId}" type="text"><br>
-	         厨师姓名:<input name="orders.cookName" value="${order.cookName}" type="text">
-	         备注:<input name="orders.remark" value="${order.remark}" type="text"><br>
+	<tr>
+		<td>id:</td>
+		<td><input name="orders.id" value="${order.id}" type="text" readonly="readonly"></td>
+	</tr>
+	<tr>
+		<td>餐桌id:</td>
+		<td><input name="orders.tableId" value="${order.tableId}" type="text"><br></td>
+		</tr>
+	<tr>
+		<td>餐桌名称:</td>
+		<td><input name="orders.tableName" value="${order.tableName}" type="text"></td>
+	</tr>
+	<tr>
+		<td>总价:</td>
+		<td> <input name="orders.total" value="${order.total}" type="text"><br></td>
+	</tr>
+	<tr>
+		<td> 状态:</td>
+<%-- 		<td><input name="orders.status" value="${order.status}" type="text"><br></td> --%>
+		<select name="orders.status">
+			<option value="未付款"  <c:if test='${order.status eq "未付款"}'>selected="selected"</c:if>>未付款</option>
+			<option value="已处理"  <c:if test='${order.status eq "已处理"}'>selected="selected"</c:if>>已处理</option>
+			<option value="已付款"  <c:if test='${order.status eq "已付款"}'>selected="selected"</c:if>>已付款</option>
+		</select>
+	</tr>
+	<tr>
+		<td>订单时间:</td>
+		<td><input name="orders.createDate" value="${order.createDate}" type="text" readonly="readonly"><br></td>
+	</tr>
+	<tr>
+		<td>厨师id:</td>
+		<td><input name="orders.cookId" value="${order.cookId}" type="text"></td>
+	</tr>
+	<tr>
+		<td>厨师姓名:</td>
+		<td> <input name="orders.cookName" value="${order.cookName}" type="text"><br></td>
+	</tr>
+	<tr>
+		<td>备注:</td>
+		<td> <input name="orders.remark" value="${order.remark}" type="text"><br></td>
+	</tr>
 	         <button type="submit" value="修改">修改</button>
 	</center>
 	</form>

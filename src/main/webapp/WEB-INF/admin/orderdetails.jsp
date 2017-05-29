@@ -8,12 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<center>${markinfo}</center>
 	<table width="1000px" height="100px" align="center" border="1">
 	<tr>
-				<td colspan="13" align="center">订单详细信息</td>
+				<td colspan="12" align="center">订单详细信息</td>
 	</tr>
 	<tr>
-	  	 <th>id</th>
          <th>餐桌id</th>
          <th>餐桌名称</th>
          <th>订单id</th>
@@ -28,8 +28,7 @@
          <th>操作</th>
 	</tr>
        	 <c:forEach items="${alldetails}" var="item">  
-	            <tr>  
-	                <td>${item.id}</td>
+	            <tr>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
 	                <td>${item.orderId}</td>
@@ -41,7 +40,7 @@
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
-	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${path}/ReaumeServlet?id=${item.id}&ask=delet">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${path}/ReaumeServlet?id=${item.id}&ask=update">修改</a></td>      
+	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderDetailsAction_Delet()?detailid=${item.id}">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}">修改</a></td>      
 	            </tr>  
         	</c:forEach>
 	</table>
