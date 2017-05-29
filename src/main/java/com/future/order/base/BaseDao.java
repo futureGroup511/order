@@ -18,6 +18,7 @@ public class BaseDao<T> {
 	private Class<T> clazz;
 
 	
+	@SuppressWarnings("unchecked")
 	public BaseDao(){
 		Type type=this.getClass().getGenericSuperclass();
 		if(!(type instanceof ParameterizedType)){
@@ -42,6 +43,7 @@ public class BaseDao<T> {
 	}
 	//录入
 	protected final boolean saveEntity(T t){
+		System.out.println("baseDao:"+t);
 		this.getSession().save(t);
 		return true;
 	}
@@ -55,7 +57,6 @@ public class BaseDao<T> {
 		this.getSession().delete(t);
 		return true;
 	}
-<<<<<<< Updated upstream
 	//一个表中的全部记录,zjg
 	protected final List<T> selectAll(){
 		String className=clazz.getSimpleName();
@@ -65,10 +66,9 @@ public class BaseDao<T> {
 		return list;
 	}
 	
-=======
+
 	
 	//执行查询功能，返回一个列表
->>>>>>> Stashed changes
 	protected final List<T> getEntityList(String hql,Object ...objects){
 		Query query=this.getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){

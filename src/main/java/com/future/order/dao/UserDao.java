@@ -20,22 +20,18 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	
 
 	@Override
-<<<<<<< Updated upstream
+
 	public User login(String phone, String password) {	//登录
 		String hql = "from User where phone='"+phone+"'and password= '"+password+"'";
 		return (User)this.uniqueResult(hql);
-=======
-	public boolean add(User user) {		
-		return saveEntity(user);//返回底层方法，底层中有与数据库连接的增删改查的方法。
->>>>>>> Stashed changes
 	}
-
 	@Override
 	public boolean addUser(User user) {
 		String hql = "from User where phone='"+user.getPhone()+"'";
 		User userDataBase = (User) this.uniqueResult(hql);
 		if(userDataBase==null){
 			user.setCreateDate(new Date());
+			System.out.println("UserDao"+user);
 			this.saveEntity(user);
 			return true;
 		}
@@ -43,11 +39,15 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	}
 
 	@Override
-	public List<User> selectAllUser() {
+	public List<User> selectAllUser() {//查找所有用户
 		List<User> list = this.selectAll();
-		for(int i=0;i<list.size();i++){
-			System.out.println(list.get(i)+"asd");
-		}
 		return list;
 	}
+	@Override
+	public User viewUser(int id ){
+		User user = this.getEntity(id);
+		return user;
+	}
+	
+	
 }

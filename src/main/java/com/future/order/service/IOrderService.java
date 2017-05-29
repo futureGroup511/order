@@ -15,7 +15,15 @@ import com.future.order.entity.Order;
  *
  */
 public interface IOrderService {
+//	public List<Order> getNotPay();
+	public List<Order> Check();
+	public List<Order> CheckNoOrder();
+	public List<Order> CheckOrder();
+	public boolean DeletOrder(int id);
+	public boolean PayOrder(int id);
+	public Order CheckById(int id);
+	public boolean UpdateOrder(Order orders);
+	
 
 	public List<Order> getAll();
-
 }
