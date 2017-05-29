@@ -22,4 +22,7 @@ public interface IUserService {
 	public boolean addUser(User user);
 	//查询用户
 	public List<User> selectAllUser();
+	//wqj查询子用户
+	public User viewUser( int id);
+	
 }

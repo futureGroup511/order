@@ -45,4 +45,11 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		}
 		return list;
 	}
+	@Override
+	public User viewUser(int id ){
+		User user = this.getEntity(id);
+		return user;
+	}
+	
+	
 }
