@@ -23,6 +23,8 @@ public class Ingredient {
 	private int id;
 	@Column(length=10)
 	private String name;
+	@Column(length=255)
+	private String introduce;
 	@Column(length=10)
 	private double price;//单价
 	@Column(length=10)
@@ -54,6 +56,19 @@ public class Ingredient {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	/**
+	 * @return the introduce
+	 */
+	public String getIntroduce() {
+		return introduce;
+	}
+	/**
+	 * @param introduce the introduce to set
+	 */
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
 	}
 	/**
 	 * @return the price
@@ -122,8 +137,8 @@ public class Ingredient {
 	 */
 	@Override
 	public String toString() {
-		return "Ingredient [id=" + id + ", name=" + name + ", price=" + price + ", num=" + num + ", createDate="
-				+ createDate + ", source=" + source + ", remark=" + remark + "]";
+		return "Ingredient [id=" + id + ", name=" + name + ", introduce=" + introduce + ", price=" + price + ", num="
+				+ num + ", createDate=" + createDate + ", source=" + source + ", remark=" + remark + "]";
 	}
 	
 }
