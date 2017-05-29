@@ -16,10 +16,8 @@ import com.future.order.entity.User;
 */
 public class CookdetailAction extends BaseAction{
 	private User user;
-	
 	public String viewUser(){
-		String phone =  (String) session.get("userPhone");
-		int id=666;
+		int id=(int) session.get("userId");
 		User user=userService.viewUser(id);
 		System.out.println(user);
 		request.put("myself", user);
