@@ -15,9 +15,13 @@
 
 	<package name="default" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
 		<!-- 这里放全局的映射 -->
-		<action name="test_*" class="com.future.order.action.TestAction" method="{1}">
+		<!-- <action name="test_*" class="com.future.order.action.TestAction" method="{1}">
 			<result name="toAddUser">/WEB-INF/test1.jsp</result>			
-			<result name="addUser">/WEB-INF/test2.jsp</result>
-		</action>
+			<result name="addUser">/WEB-INF/test2.jsp</result>以方法来进行确定返回的页面
+		</action> -->
+		<!-- <action name="test_*" class="com.future.order.action.TestGetAction" method="{1}">
+			<result name="toGetUser">/WEB-INF/customer/cart.jsp</result>			
+			<result name="getUser">/WEB-INF/customer/list.jsp</result>以方法来进行确定返回的页面
+		</action> -->
 	</package>
 </struts>

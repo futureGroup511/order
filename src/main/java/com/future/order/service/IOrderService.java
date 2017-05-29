@@ -24,4 +24,6 @@ public interface IOrderService {
 	public Order CheckById(int id);
 	public boolean UpdateOrder(Order orders);
 	
+
+	public List<Order> getAll();
 }

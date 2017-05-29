@@ -12,6 +12,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
+
+import com.future.order.entity.Ingredient;
+
 import com.future.order.entity.Order;
 import com.future.order.service.IOrderService;
 
@@ -20,9 +23,15 @@ import ognl.OgnlContext;
 @Service
 public class OrderDao extends BaseDao<Order> implements IOrderService {
 
+
 	@Override
 	public List<Order> Check() {
-		@SuppressWarnings("unused")
+		return null;
+	}
+	
+	@Override
+	public List<Order> getAll() {
+
 		List<Order> list = new ArrayList<Order>();
 		try{
 			String hql="from Order";
@@ -31,6 +40,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 			e.printStackTrace();
 		}
 		return list;
+
 	}
 
 	@Override
@@ -129,6 +139,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		return sign;
 	}
 
+	
 //	@Override
 //	public List<Order> getNotPay() {
 //		String name="已处理";
@@ -150,5 +161,8 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 ////				List users = session.createQuery("select u.id, u.name from User u where u.name like :myname").setParameter("myname", "%张%").list(); 
 //		return list;
 //	}
+
+
+	
 
 }
