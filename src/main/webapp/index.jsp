@@ -14,5 +14,6 @@
 		<input type="password" name="user.password">
 		<input type="submit" value="提交">
 	</form>
+	<a href="${rootPath}manage/OrderAction">wdsd</a>
 </body>
 </html>

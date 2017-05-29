@@ -6,10 +6,16 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
+import com.future.order.entity.OrderDetails;
+
+
 /**
  * @author Administrator
  *
  */
 public interface IOrderDetailsService {
-
+	public List<OrderDetails> CheckDetails(int id);
+	public boolean DeletOrderDetails(int id);
 }

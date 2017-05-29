@@ -16,5 +16,13 @@
 			<action name="login_*" method="{1}" class="">
 			
 			</action>
+			
+			<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">
+				<result name="check">/WEB-INF/admin/ordercheck.jsp</result>
+				<result name="update">/WEB-INF/admin/updateorder.jsp</result>
+			</action>
+			<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
+				<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
+			</action>
 	</package>
 </struts>

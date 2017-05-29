@@ -30,7 +30,6 @@
 	</details>
 	<details>
 		<summary>订单管理</summary>
-		<a href="">增加订单</a><br>
 		<a href="">查询订单</a><br>
 		<a href="">删除订单</a><br>
 		<a href="">修改订单</a>

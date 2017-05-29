@@ -18,6 +18,7 @@ public class BaseDao<T> {
 	private Class<T> clazz;
 
 	
+	@SuppressWarnings("unchecked")
 	public BaseDao(){
 		Type type=this.getClass().getGenericSuperclass();
 		if(!(type instanceof ParameterizedType)){
