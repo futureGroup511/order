@@ -55,5 +55,4 @@ public class LoginAction extends BaseAction {
 		this.randStr = randStr;
 	}
 
-
 }

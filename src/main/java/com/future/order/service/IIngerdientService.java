@@ -6,10 +6,17 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
+import com.future.order.entity.Ingredient;
+
+
 /**
  * @author Administrator
  *
  */
 public interface IIngerdientService {
+	public Ingredient get(int id);
 
+	public List<Ingredient> getAll();
 }

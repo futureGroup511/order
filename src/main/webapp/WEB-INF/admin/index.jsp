@@ -25,7 +25,7 @@
 	</details>
 	<details>
 		<summary>订单管理</summary>
-		<a href="">管理订单</a>
+		<a href="${rootPath}manage/OrderAction">管理订单</a>
 	</details>
 	<details>
 		<summary>进货管理</summary>

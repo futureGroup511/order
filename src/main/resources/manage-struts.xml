@@ -9,8 +9,7 @@
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
-	<package name="manage" extends="struts-default,json-default"
-		namespace="/manage" strict-method-invocation="false">
+	<package name="manage" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
 
 		<action name="manager">
 			<result>/WEB-INF/admin/index.jsp</result>
@@ -35,6 +34,15 @@
 		<action name="UserManager_*" method="{1}" class="com.future.order.action.manager.UserManagerAction">
 			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
 			<result name="updateUser">/WEB-INF/admin/updateuser.jsp</result>
+		</action>
+		
+		<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">
+				<result name="check">/WEB-INF/admin/ordercheck.jsp</result>
+				<result name="update">/WEB-INF/admin/updateorder.jsp</result>
+		</action>
+			
+		<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
+			<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
 		</action>
 	</package>
 </struts>

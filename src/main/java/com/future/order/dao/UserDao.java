@@ -20,11 +20,11 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	
 
 	@Override
+
 	public User login(String phone, String password) {	//登录
 		String hql = "from User where phone='"+phone+"'and password= '"+password+"'";
 		return (User)this.uniqueResult(hql);
 	}
-
 	@Override
 	public boolean addUser(User user) {
 		String hql = "from User where phone='"+user.getPhone()+"'";
@@ -43,4 +43,11 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		List<User> list = this.selectAll();
 		return list;
 	}
+	@Override
+	public User viewUser(int id ){
+		User user = this.getEntity(id);
+		return user;
+	}
+	
+	
 }

@@ -28,7 +28,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BaseAction extends ActionSupport implements SessionAware,RequestAware{
 
 	/**
-	 * 
+	 * 这是一些对于session、request的一种定义以便在后来对其直接的引用
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -39,7 +39,8 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	@Resource
 	protected IInformService informService;
 	@Resource
-	protected IIngerdientService ingerdientService;
+	protected 
+	IIngerdientService ingerdientService;
 	@Resource
 	protected IMenuMaterialService menuMaterialService;
 	@Resource
