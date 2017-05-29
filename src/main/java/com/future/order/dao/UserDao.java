@@ -20,7 +20,6 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	
 
 	@Override
-
 	public User login(String phone, String password) {	//登录
 		String hql = "from User where phone='"+phone+"'and password= '"+password+"'";
 		return (User)this.uniqueResult(hql);
@@ -31,7 +30,6 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		User userDataBase = (User) this.uniqueResult(hql);
 		if(userDataBase==null){
 			user.setCreateDate(new Date());
-			System.out.println("UserDao"+user);
 			this.saveEntity(user);
 			return true;
 		}
@@ -43,10 +41,19 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		List<User> list = this.selectAll();
 		return list;
 	}
+	
 	@Override
 	public User viewUser(int id ){
 		User user = this.getEntity(id);
 		return user;
+	}
+	@Override
+	public boolean updateUser(User user) {	//修改用户信息
+		return this.updateEntity(user);
+	}
+	@Override
+	public boolean deleteUser(User user) {
+		return this.deleteEntity(user);
 	}
 	
 	

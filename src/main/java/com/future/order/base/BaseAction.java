@@ -39,8 +39,7 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	@Resource
 	protected IInformService informService;
 	@Resource
-	protected 
-	IIngerdientService ingerdientService;
+	protected IIngerdientService ingerdientService;
 	@Resource
 	protected IMenuMaterialService menuMaterialService;
 	@Resource

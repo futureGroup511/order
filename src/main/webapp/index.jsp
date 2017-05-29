@@ -14,7 +14,6 @@
 
 </head>
 <body>
-<a href="${rootPath}test_toAddUser.action">添加用户</a>
 	<center>
 		<form action="${rootPath}manage/loginAction" method="post">
 			手机号：<input type="text" name="user.phone"><br>

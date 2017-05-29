@@ -45,7 +45,6 @@ public class BaseDao<T> {
 	}
 	//录入
 	protected final boolean saveEntity(T t){
-		System.out.println("baseDao:"+t);
 		this.getSession().save(t);
 		return true;
 	}
@@ -67,8 +66,6 @@ public class BaseDao<T> {
 		List<T> list=query.list();
 		return list;
 	}
-	
-
 	
 	//执行查询功能，返回一个列表
 	protected final List<T> getEntityList(String hql,Object ...objects){

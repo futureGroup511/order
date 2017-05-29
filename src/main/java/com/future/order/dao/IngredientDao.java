@@ -20,14 +20,6 @@ import com.future.order.service.IIngerdientService;
 @Service
 public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientService {
 
-
-	@Override
-	public Ingredient get(int id) {
-		Ingredient ingredient=null;
-		ingredient=this.getEntity(id);
-		return ingredient;
-	}
-
 	@Override
 	public List<Ingredient> getAll() {
 		@SuppressWarnings("unused")
@@ -40,6 +32,11 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 		}
 		return list;
 
+	}
+
+	@Override
+	public boolean addIngredient(Ingredient ingredient) {
+		return this.saveEntity(ingredient);
 	}
 
 	

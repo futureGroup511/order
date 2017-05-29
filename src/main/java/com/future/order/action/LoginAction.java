@@ -24,8 +24,7 @@ public class LoginAction extends BaseAction {
 //		}
 		User userDataBase = userService.login(user.getPhone(),user.getPassword());
 		if(userDataBase!=null){
-			session.put("userId", userDataBase.getId());//将用户Id存进session
-			session.put("userPhone", userDataBase.getPhone());//将用户账号存进session
+			session.put("user", userDataBase);//将用户对象session
 			if(userDataBase.getSort().equals("cook")){
 				session.put("userSort", "cook");	//将用户身份放进session
 				return "cook";
@@ -40,7 +39,6 @@ public class LoginAction extends BaseAction {
 	}
 	
 	public User getUser() {
-		
 		return user;
 	}
 	
