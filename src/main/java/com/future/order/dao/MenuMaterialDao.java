@@ -12,7 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
-import com.future.order.entity.Ingredient;
+
 import com.future.order.entity.MenuMaterial;
 
 import com.future.order.service.IMenuMaterialService;
@@ -38,6 +38,12 @@ public class MenuMaterialDao extends BaseDao<MenuMaterial> implements IMenuMater
 		MenuMaterial m=null;
 		m=this.getEntity(id);
 		return m;
+	}
+
+	@Override
+	public List<MenuMaterial> getByMenuId(int menuId) {
+		String hql="from MenuMaterial m where m.menuId="+menuId;		
+		return this.getEntityList(hql);
 	}
 	
 }

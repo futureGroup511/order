@@ -6,10 +6,17 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
+import com.future.order.entity.StockDetails;
+
 /**
  * @author Administrator
  *
  */
 public interface IStockDetailsService {
 
+	public List<StockDetails> getAll();
+
+	public List<StockDetails> getBycreateDate(int ingId);
 }
