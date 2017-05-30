@@ -30,7 +30,7 @@
 	<details>
 		<summary>进货管理</summary>
 		<a href="${rootPath}manage/Change_addStocks">增加进货</a><br>
-		<a href="">管理进货</a>
+		<a href="${rootPath}manage/StockAction">管理进货</a>
 	</details>
 	<details>
 		<summary>个人中心</summary>

@@ -5,13 +5,13 @@
 <html>
 <script language="javascript">
 function CheckNopay(){
-	window.location.href="${rootPath}manage/OrderAction_ChecknoPoy";
+	window.location.href="${rootPath}manage/OrderAction?sign=two"; 
 	}
 function CheckPay(){
-	window.location.href="${rootPath}manage/OrderAction_CheckPay";
+	window.location.href="${rootPath}manage/OrderAction?sign=there";
 	}
 function Check(){
-	window.location.href="${rootPath}manage/OrderAction";
+	window.location.href="${rootPath}manage/OrderAction?sign=one";
 	}
 	</script>
 <head>
@@ -40,7 +40,7 @@ function Check(){
          <th>操作</th>
          <th>操作</th>
 	</tr>
-       	 <c:forEach items="${alllist}" var="item"> 
+       	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
 	                <td><intput >${item.id}</td>
 	                <td>${item.tableId}</td>
@@ -56,5 +56,32 @@ function Check(){
 	            </tr>  
         	</c:forEach>
 	</table>
+	<div id="list-two">
+		<ul class="pagination">
+						<li><a
+							href="${rootPath}manage/OrderAction?page=${pc.prePage}&sign=${sign}">上一页</a></li>
+						<c:if test="${1 < pc.currentPage -3}">
+							<li><a href="#">1</a></li>
+						</c:if>
+
+						<c:forEach var="i"
+							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }"
+							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
+							<c:choose>
+								<c:when test="${i>0 && i == pc.currentPage }">
+									<li class="active"><a
+										href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li>
+								</c:when>
+
+								<c:when test="${i>0 && i != postPS.currentPage }">
+									<li><a href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<li><a
+							href="${rootPath}manage/OrderAction?page=${pc.nextPage}&sign=${sign}">下一页</a></li>
+					</ul>
+	
+	</div>
 </body>
 </html>

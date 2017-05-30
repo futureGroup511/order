@@ -6,10 +6,17 @@
  */  
 package com.future.order.service;
 
+import com.future.order.entity.StockDetails;
+import com.future.order.util.PageCut;
+
 /**
  * @author Administrator
  *
  */
 public interface IStockDetailsService {
+
+	PageCut<StockDetails> getPageCut(int currentPage, int pageSize, int stockid);
+
+	boolean DeletStockDetails(int id);
 
 }
