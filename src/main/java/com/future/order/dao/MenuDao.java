@@ -48,5 +48,10 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		list=this.getEntityList(hql);
 		return list;
 	}
+	@Override
+	public Menu get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
