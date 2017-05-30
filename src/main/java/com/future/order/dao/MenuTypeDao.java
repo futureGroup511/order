@@ -8,54 +8,33 @@
 package com.future.order.dao;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
-
-import com.future.order.entity.Menu;
-
-import com.future.order.service.IMenuService;
+import com.future.order.entity.MenuType;
+import com.future.order.service.IMenuTypeService;
 
 @Service
-public class MenuDao extends BaseDao<Menu> implements IMenuService {
-
-	//wqj获取订单
-	@Override
-	public Menu Doorder(int id ){
-		Menu menu = this.getEntity(id);
-		return menu;
-		//asd 
-	}
-
+public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService {
 
 	@Override
-	public List<Menu> getAll() {
-			List<Menu> list = new ArrayList<Menu>();
-			try{
-				String hql="from Menu";
-				list=this.getEntityList(hql);
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-			return list;
+	public List<MenuType> getAllMenuType() {
+		List<MenuType> list = new ArrayList<MenuType>();
+		try{
+			String hql="from MenuType";
+			list=this.getEntityList(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
-
-	
-
-	@Override
-	public Menu get(int id) {
-		Menu menu=null;
-		menu=this.getEntity(id);
-		return menu;
+		return list;
 	}
 
-
-	@Override
-	public List<Menu> ByName(String typeName) {
+	/*@Override
+	public List<MenuType> ByName(String typeName) {
 		System.out.println(typeName);
 		if(XXX(typeName,"iso8859-1")){
 			try {
@@ -67,19 +46,19 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 			}
 		}
 		
-		String hql="from Menu m where m.typeName='"+typeName+"'";		
+		String hql="from MenuType m where m.typeName='"+typeName+"'";		
 		return this.getEntityList(hql);
 	}
-
-	/**
+	
+	*//**
 	 * @author 丁赵雷
 	 * @date 2017/5/30 21:17
 	 * @param str 需要判断的字符串
 	 * @param charset 字符集
 	 * @return
 	 * 判断该字符串是哪种字符集
-	 */
-	public static boolean XXX(String str,String charset){
+	 *//*
+	public static boolean garbled(String str,String charset){
 		boolean flag = false;
 		
 		try {
@@ -93,4 +72,7 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		
 		return flag;
 	}
+	*/
+	
+	
 }

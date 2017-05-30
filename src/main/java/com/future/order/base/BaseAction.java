@@ -2,20 +2,23 @@ package com.future.order.base;
 
 import java.util.Map;
 
+
+
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;//用于获得servlet从而获得session
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.future.order.dao.UserDao;
+
 import com.future.order.service.IInformService;
 import com.future.order.service.IIngerdientService;
 import com.future.order.service.IMenuMaterialService;
 import com.future.order.service.IMenuService;
+import com.future.order.service.IMenuTypeService;
 import com.future.order.service.IOrderDetailsService;
 import com.future.order.service.IOrderService;
 import com.future.order.service.IShopCartService;
@@ -44,6 +47,8 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	protected IMenuMaterialService menuMaterialService;
 	@Resource
 	protected IMenuService menuService;
+	@Resource
+	protected IMenuTypeService menuTypeService;
 	@Resource
 	protected IOrderDetailsService orderDetailsService;
 	@Resource

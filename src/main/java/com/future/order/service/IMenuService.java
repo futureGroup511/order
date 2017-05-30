@@ -1,5 +1,6 @@
 /**        
  * @author: 焦祥宇 
+
  * @date:   createDate：2017年5月22日 上午10:44:08   
  * @Description:  
  * 
@@ -7,6 +8,7 @@
 package com.future.order.service;
 
 import java.util.List;
+
 
 import com.future.order.entity.Menu;
 
@@ -22,5 +24,8 @@ public interface IMenuService {
 	public Menu get(int id);
 
 	public List<Menu> getAll();
+
+
+	public List<Menu> ByName(String typeName);
 
 }
