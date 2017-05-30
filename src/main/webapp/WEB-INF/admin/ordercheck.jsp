@@ -51,8 +51,8 @@ function Check(){
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
-	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderDetailsAction?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}">付款</a></td>      
-	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_CheckOrder()?id=${item.id}">修改</a></td>      
+	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}">付款</a></td>      
+	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}">修改</a></td>      
 	            </tr>  
         	</c:forEach>
 	</table>

@@ -23,12 +23,11 @@ public interface IUserService {
 	public boolean addUser(User user);
 	//查询用户
 	public List<User> selectAllUser();
-
 	//wqj查询子用户
 	public User viewUser( int id);
-
-
-	public boolean add(User user);//把User这个实体类作为参数传进方法里来；只定义接口中方法由模型层调用。
-
+	//修改
+	public boolean updateUser(User user);
+	//删除
+	public boolean deleteUser(User user);
 
 }

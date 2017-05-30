@@ -15,8 +15,8 @@
 	</details>
 	<details>
 		<summary>配料管理</summary>
-		<a href="">增加配料</a><br>
-		<a href="">管理配料</a>          
+		<a href="${rootPath}manage/Change_addIngredient">增加配料</a><br>
+		<a href="${rootPath}manage/Change_managerIngredient">管理配料</a>          
 	</details>
 	<details>
 		<summary>菜品管理</summary>
@@ -29,7 +29,7 @@
 	</details>
 	<details>
 		<summary>进货管理</summary>
-		<a href="">增加进货</a><br>
+		<a href="${rootPath}manage/Change_addStocks">增加进货</a><br>
 		<a href="">管理进货</a>
 	</details>
 	<details>
@@ -39,7 +39,7 @@
 	</details>
 	</div>
 	<div style="width:90%;float: right">
-		<iframe height="400px" width="100%" name="mainFrame" src="" ></iframe> 
+		<iframe height="400px" width="100%" name="mainFrame" src=""></iframe> 
 	</div>
 	</body>
 </html>
