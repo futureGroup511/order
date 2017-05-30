@@ -15,12 +15,11 @@ import com.future.order.entity.Menu;
  *
  */
 public interface IMenuService {
-
-	public Menu Doorder(int id );
-
-
-	public Menu get(int id);
-
+	//wqj查看所有菜单
 	public List<Menu> getAll();
+
+	Menu Doorder(int id);
+
+	List<Menu> unfinish();
 
 }

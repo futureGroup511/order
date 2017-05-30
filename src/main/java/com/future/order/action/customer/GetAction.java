@@ -17,7 +17,6 @@ public class GetAction extends BaseAction {
 	
 	
 	private int id;
-
 	
 	public int getId() {
 		return id;
@@ -58,21 +57,10 @@ public class GetAction extends BaseAction {
 		request.put("order",list);
 		return "getOrder";
 	}
-	public String menu() throws Exception {
-		Menu menu=menuService.get(id);
-		request.put("menu",menu);
-		return "menu";
-	}
+
 	public String MenuMaterial() throws Exception {
 		MenuMaterial menumaterial=menuMaterialService.get(id);
 		request.put("menumaterial",menumaterial);
 		return "MenuMaterial";
 	}
-	public String ingredient() throws Exception {
-		Ingredient ingredient=ingerdientService.get(id);
-		request.put("ingredient",ingredient);
-		return "ingredient";
-	}
-	
-	
 }

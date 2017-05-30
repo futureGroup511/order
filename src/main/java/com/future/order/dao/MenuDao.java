@@ -29,8 +29,6 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		return menu;
 		//asd 
 	}
-
-
 	@Override
 	public List<Menu> getAll() {
 			List<Menu> list = new ArrayList<Menu>();
@@ -42,14 +40,13 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 			}
 			return list;
 		}
-
-	
-
 	@Override
-	public Menu get(int id) {
-		Menu menu=null;
-		menu=this.getEntity(id);
-		return menu;
+	public List<Menu> unfinish(){
+		List<Menu> list = new ArrayList<Menu>();
+		 int exist=1;
+		String hql="from Menu m where m.exist='"+exist+"'";
+		list=this.getEntityList(hql);
+		return list;
 	}
 
 }

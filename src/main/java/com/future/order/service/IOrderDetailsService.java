@@ -21,4 +21,5 @@ public interface IOrderDetailsService {
 	public boolean DeletDetails(int detailid);
 	public OrderDetails CheckById(int detailid);
 	public boolean UpdateOrder(OrderDetails details);
+	
 }
