@@ -11,12 +11,12 @@
 	<details>
 		<summary>用户管理</summary>
 		<a href="${rootPath}manage/Change_addUser">增加用户</a><br>
-		<a href="${rootPath}manage/Change_managerUser">管理用户</a>
+		<a href="${rootPath}manage/UserManager">管理用户</a>
 	</details>
 	<details>
 		<summary>配料管理</summary>
 		<a href="${rootPath}manage/Change_addIngredient">增加配料</a><br>
-		<a href="${rootPath}manage/Change_managerIngredient">管理配料</a>          
+		<a href="${rootPath}manage/Ingredient">管理配料</a>          
 	</details>
 	<details>
 		<summary>菜品管理</summary>

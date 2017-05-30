@@ -12,6 +12,8 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.future.order.entity.Menu;
+
 public class BaseDao<T> {
 	@Resource//注入session工厂
 	private SessionFactory sessionFactory;
@@ -65,7 +67,6 @@ public class BaseDao<T> {
 		List<T> list=query.list();
 		return list;
 	}
-
 
 	//执行查询功能，返回一个列表
 	protected final List<T> getEntityList(String hql,Object ...objects){

@@ -8,10 +8,12 @@
 </head>
 <body>
 	<center>
+	${addIngerdientMsg}
 		<form action="Ingredient_addIngredient" method="post">
 			名称：<input type="text" name="ingredient.name"><br>
 			单价(元/kg)：<input type="text" name="ingredient.price"><br>
 			库存量(kg)：<input type="text" name="ingredient.num"><br>
+			简介：<textarea rows="10" cols="30" name="ingredient.introduce"></textarea><br>
 			<input type="submit" value="添加">
 		</form>
 	</center>

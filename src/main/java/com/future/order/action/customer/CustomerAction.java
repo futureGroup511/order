@@ -26,6 +26,7 @@ public class CustomerAction extends BaseAction {
 	
 	
 	private int id;
+
 	private int ingId;
 	private String name;
 	public int getId() {
@@ -81,12 +82,16 @@ public class CustomerAction extends BaseAction {
 		request.put("order",list);
 		return "getOrder";
 	}
+
 	
 	public String ByName() throws Exception{
 		List<Menu> menu=menuService.ByName(name);
 		request.put("menu",menu);
 		return "ByName";
 	}
+
+
+
 	public String menu() throws Exception {				
 		Menu menu=menuService.get(id);		
 		List<MenuMaterial> list=menuMaterialService.getByMenuId(id);
@@ -94,13 +99,16 @@ public class CustomerAction extends BaseAction {
 		request.put("list",list);
 		return "menu";
 	}
+	public String MenuMaterial() throws Exception {
+		MenuMaterial menumaterial=menuMaterialService.get(id);
+		request.put("menumaterial",menumaterial);
+		return "MenuMaterial";
+	}
 	public String StockDetails() throws Exception {
 		List<StockDetails> list1=stockDetailsService.getBycreateDate(ingId);
 		request.put("list1",list1);
 		System.out.println(list1);
 		return "StockDetails";
 	}
-	
-	
-	
+
 }

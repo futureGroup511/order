@@ -10,6 +10,7 @@
 <body>
 	<center>
 	${deleteUserMsg}
+	共有数据${allUser.count}条
 		<table border="1">
 			<tr>
 				<td>账号</td>
@@ -19,17 +20,31 @@
 				<td>操作</td>
 				<td>操作</td>
 			</tr>
-		<c:forEach items="${allUser}" var="item">
+		<c:forEach items="${allUser.data}" var="pageCut">
 			<tr>
-				<td><input type="text" name="user.phone" value="${item.phone }" readonly="readonly"></td>
-				<td><input type="text" name="user.name" value="${item.name }" readonly="readonly"></td>
-				<td><input type="text" name="user.createDate" value="${item.createDate }" readonly="readonly"></td> 
-				<td><input type="text" name="user.sort" value="${item.sort }" readonly="readonly"></td>
-				<td><a href="${rootPath}manage/UserManager_toUpdateUser?userId=${item.id}">修改</a></td>
-				<td><a href="${rootPath}manage/UserManager_deleteUser?user.id=${item.id}">删除</a></td>
-			</tr> 
+				<td><input type="text" name="user.phone" value="${pageCut.phone}" readonly="readonly"></td>
+				<td><input type="text" name="user.name" value="${pageCut.name }" readonly="readonly"></td>
+				<td><input type="text" name="user.createDate" value="${pageCut.createDate }" readonly="readonly"></td> 
+				<td><input type="text" name="user.sort" value="${pageCut.sort }" readonly="readonly"></td>
+				<td><a href="${rootPath}manage/UserManager_toUpdateUser?userId=${pageCut.id}">修改</a></td>
+				<td><a href="${rootPath}manage/UserManager_deleteUser?user.id=${pageCut.id}">删除</a></td>
+			</tr>
 		</c:forEach>
 		</table>
+		<a href="${rootPath }manage/UserManager?page=${allUser.prePage}">上一页</a>
+		
+		<c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"
+					end="${allUser.currentPage+3>allUser.pageNum?allUser.pageNum:allUser.currentPage+3  }">
+					<c:choose>
+						<c:when test="${i>0 && i == allUser.currentPage }">
+							<li class="active"><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+						</c:when>
+						<c:when test="${i>0 && i != allUser.currentPage }">
+							<li><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+			<a href="${rootPath }manage/UserManager?page=${allUser.nextPage}">下一页</a>
 	</center>
 </body>
 </html>

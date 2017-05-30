@@ -13,13 +13,16 @@
 	<details>
 		<summary>个人中心</summary>
 		<a href="${rootPath}cook/Cookdetail_viewUser">查看资料</a><br>
-		<a href="">修改资料</a><br>
+		<a href="${rootPath}cook/Cookdetail_updateUser"">修改资料</a><br>
 	</details>
 	<details>
 		<summary>订单中心</summary>
-		<a href="${rootPath}cook/orderCenter_order">查看所有订单</a><br>
-		<a href="${rootPath}cook/orderCenter_checkorder">已完成订单</a><br>
-		<a href="${rootPath}cook/orderCenter_unfinish">未完成订单</a><br>
+		<a href="${rootPath}cook/orderCenter_checkorder">查看所有订单</a><br>
+		<a href="${rootPath}cook/orderCenter_finishd">已完成订单</a><br>
+		<a href="${rootPath}cook/orderCenter_unfinishd">未完成订单</a><br>
+	</details>
+	<details>
+		<summary><a href="${rootPath}cook/Cookdetail_updateUser"">退出登录</a></summary>
 	</details>
 	</div>
 	<div style="width:90%;float: right">
