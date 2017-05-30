@@ -14,11 +14,22 @@ import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
 
 import com.future.order.entity.Menu;
-
+import com.future.order.entity.Order;
+import com.future.order.entity.User;
+import com.future.order.entity.Menu;
 import com.future.order.service.IMenuService;
 
 @Service
 public class MenuDao extends BaseDao<Menu> implements IMenuService {
+
+	//wqj获取订单
+	@Override
+	public Menu Doorder(int id ){
+		Menu menu = this.getEntity(id);
+		return menu;
+		//asd 
+	}
+
 
 	@Override
 	public List<Menu> getAll() {

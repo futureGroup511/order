@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,17 +44,28 @@
 	<th>需求量</th>
 	<th>进货时间</th>
 	</tr>
-	
+	<c:forEach items="${list }" var="menumaterial">
 		<tr>
-		<td>${menumaterial.menuId}</td>
-		<td>${menumaterial.menuName}</td>
-		<td>${menumaterial.ingId}</td>
-		<td>${menumaterial.ingName}</td>
-		<td>${menumaterial.num}</td>
-		<td>${menumaterial.stockDate}</td>
-		
+			<td>${menumaterial.menuId}</td>
+			<td>${menumaterial.menuName}</td>
+			<td>${menumaterial.ingId}</td>
+			<td>${menumaterial.ingName}</td>
+			<td>${menumaterial.num}</td>
+			<td>${menumaterial.stockDate}<a href="${rootPath}customer/customer_StockDetails?id=${menumaterial.ingId}">更多进货时间信息</a>&nbsp;</td>
 		</tr>
-	 
+	</c:forEach>	
+</table>
+<table align="center" width="100%" border="1">
+	<tr>
+	<th>配料名称</th>
+	<th>进货时间</th>
+	</tr>
+	<c:forEach items="${list1}" var="StockDetails">
+		<tr>
+		<td>${StockDetails.ingName}</td>
+		<td>${StockDetails.createDate}</td>
+		</tr>
+	 </c:forEach>
 </table>
 </body>
 </html>

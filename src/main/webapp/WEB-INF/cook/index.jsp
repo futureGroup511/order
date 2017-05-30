@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-欢迎登陆本系统
+欢迎登陆本系统 
 <div style="width: 10%;float: left;">
 	<details>
 		<summary>个人中心</summary>
@@ -17,8 +17,9 @@
 	</details>
 	<details>
 		<summary>订单中心</summary>
-		<a href="">已完成订单</a><br>
-		<a href="">未完成订单</a><br>
+		<a href="${rootPath}cook/orderCenter_order">查看所有订单</a><br>
+		<a href="${rootPath}cook/orderCenter_checkorder">已完成订单</a><br>
+		<a href="${rootPath}cook/orderCenter_unfinish">未完成订单</a><br>
 	</details>
 	</div>
 	<div style="width:90%;float: right">

@@ -18,20 +18,12 @@ public class ChangeAction extends BaseAction{
 	public String addUser() {	
 		return "addUser";
 	}
-	//转发到管理用户界面，查询出所有用户
-	
-//	public String managerUser() {
-//		List<User> list = userService.selectAllUser();
-//		request.put("allUser", list);
-//		return "managerUser";
-//	}
 	//配料模块中转站
 	public String addIngredient(){
 		return "addIngredient";
 	}
-//	public String managerIngredient(){
-//		List<Ingredient> list = ingerdientService.getAll();
-//		request.put("allIngredient", list);
-//		return "managerIngredient";
-//	}
+	public String addStocks(){
+		return "addstock";
+		
+	}
 }

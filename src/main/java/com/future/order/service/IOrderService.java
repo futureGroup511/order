@@ -1,5 +1,5 @@
 /**        
-z * @author: 焦祥宇 
+z * @author: 焦祥宇 马黎明
  * @date:   createDate：2017年5月22日 上午10:43:20   
  * @Description:  
  * 
@@ -23,7 +23,5 @@ public interface IOrderService {
 	public boolean PayOrder(int id);
 	public Order CheckById(int id);
 	public boolean UpdateOrder(Order orders);
-	
-
 	public List<Order> getAll();
 }

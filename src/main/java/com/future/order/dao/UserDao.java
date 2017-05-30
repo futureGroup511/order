@@ -6,6 +6,7 @@
  */  
 package com.future.order.dao;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		List<User> list = this.selectAll();
 		return list;
 	}
-	
+
 	@Override
 	public User viewUser(int id ){
 		User user = this.getEntity(id);
@@ -65,5 +66,4 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		pc.setData(this.getEntityLimitList("from User", (curr-1)*pageSize, pageSize));
 		return pc;
 	}
-	
 }

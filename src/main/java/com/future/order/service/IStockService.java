@@ -6,10 +6,16 @@
  */  
 package com.future.order.service;
 
+import com.future.order.entity.Stock;
+
 /**
  * @author Administrator
  *
  */
 public interface IStockService {
+
+
+	public boolean AddStock(Stock stock);
+
 
 }

@@ -19,5 +19,7 @@ public interface IMenuMaterialService {
 	public List<MenuMaterial> getAll();
 
 	public MenuMaterial get(int id);
+	public List<MenuMaterial> getByMenuId(int menuId);
+	
 
 }

@@ -56,9 +56,6 @@ public class BaseDao<T> {
 		this.getSession().delete(t);
 		return true;
 	}
-
-
-
 	//一个表中的全部记录,zjg
 	protected final List<T> selectAll(){
 		String className=clazz.getSimpleName();
