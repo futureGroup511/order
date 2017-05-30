@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-deleteuser
+删除成功！pretty good boy.
 </body>
 </html>

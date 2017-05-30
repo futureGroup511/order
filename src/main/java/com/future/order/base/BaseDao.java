@@ -1,6 +1,7 @@
 package com.future.order.base;
 
 import java.lang.reflect.ParameterizedType;
+
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import com.future.order.entity.Menu;
 
 public class BaseDao<T> {
 	@Resource//注入session工厂
@@ -56,9 +59,6 @@ public class BaseDao<T> {
 		this.getSession().delete(t);
 		return true;
 	}
-
-
-
 	//一个表中的全部记录,zjg
 	protected final List<T> selectAll(){
 		String className=clazz.getSimpleName();
@@ -68,15 +68,7 @@ public class BaseDao<T> {
 		return list;
 	}
 
-	
 	//执行查询功能，返回一个列表
-
-
-
-
-	//执行查询功能，返回一个列表
-
-
 	protected final List<T> getEntityList(String hql,Object ...objects){
 		Query query=this.getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){

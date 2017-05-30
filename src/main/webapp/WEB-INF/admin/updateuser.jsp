@@ -17,7 +17,12 @@
 				<td><input type="text" name="user.phone" value="${updateUser.phone}"></td>
 			</tr>
 			<tr>
+				<td>密码：</td>
+				<td><input type="text" name="user.password" value="${updateUser.password}"></td>
+			</tr>
+			<tr>
 				<td>姓名：</td>
+				
 				<td><input type="text" name="user.name" value="${updateUser.name}"></td>
 			</tr>
 			<tr>

@@ -96,8 +96,8 @@
  -->
 <a href="${rootPath}customer/customer_getMenu.action">进入客户权限1</a>
 <a href="${rootPath}customer/customer_getOrder.action">进入客户权限2</a>
-<a href="${rootPath}customer/customer_getIngredient.action">进入客户权限3</a>
+<a href="${rootPath}customer/cart_selectAll.action">进入客户权限3</a>
 <a href="${rootPath}customer/customer_getMenuMaterial.action">进入客户权限4</a>
-<%-- <a href="${rootPath}customer/customer_getMenuMaterial.action">进入客户权限4</a> --%>
+<a href="${rootPath}customer/customer_getMenuType.action">进入客户权限5</a>
 </body>
 </html>

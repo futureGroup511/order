@@ -6,10 +6,24 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
+import com.future.order.entity.ShopCart;
+
 /**
  * @author Administrator
  *
  */
+/**
+ * @author 安李杰
+ *
+ */
 public interface IShopCartService {
+
+	public List<ShopCart> getAll();
+
+	public boolean delete(int id);
+
+	public boolean deleteAll(ShopCart shopcart);
 
 }

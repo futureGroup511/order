@@ -15,12 +15,12 @@
 		</action>
 		<action name="Cookdetail_*" method="{1}" class="com.future.order.action.cook.CookdetailAction">
 			<result name="viewUser">/WEB-INF/cook/cookdetail.jsp</result>
-			<result name="managerUser">/WEB-INF/admin/manageruser.jsp</result>
+			<result name="Updateuser">/WEB-INF/admin/updateuser.jsp</result>
 		</action>
 		<action name="orderCenter_*" method="{1}" class="com.future.order.action.cook.orderCenterAction">
 		<result name="allOrder">/WEB-INF/cook/ordercenter.jsp</result>
+		<result name="orderdetail">/WEB-INF/cook/orderdetail.jsp</result>
 		<result name="menu">/WEB-INF/cook/doorder.jsp</result>
 		</action>
-		
 	</package>
 </struts>

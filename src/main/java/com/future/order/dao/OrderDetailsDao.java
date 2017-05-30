@@ -30,6 +30,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(list);
 		return list;
 	}
 

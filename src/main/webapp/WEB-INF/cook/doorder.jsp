@@ -26,18 +26,21 @@
          <th>创建时间</th>
          
 	</tr>
+	<c:forEach items="${menu}" var="items">
 	            <tr>  
-	                <td><intput >${menu.id}</td>
-	                <td>${menu.name}</td>
-	                <td>${menu.imgUrl}</td>
-	                <td>${menu.introduce}</td>
-	                <td>${menu.typeId}</td>
-	                <td>${menu.typeName}</td>
-	                <td>${menu.price}</td>
-	                <td>${menu.exist}</td>
-	                <td>${menu.createDate}</td>
-	                <td><a href="${rootPath}cook/orderCenter_domenu">完成</a></td>
-	            </tr>  
+	                <td>${items.id}</td>
+	                <td>${items.name}</td>
+	                <td>${items.imgUrl}</td>
+	                <td>${items.introduce}</td>
+	                <td>${items.typeId}</td>
+	                <td>${items.typeName}</td>
+	                <td>${items.price}</td>
+	                <td>${items.num}</td> 
+	                <td>${items.exist}</td>
+	                <td>${items.createDate}</td>
+	                <td><a href="${rootPath}cook/orderCenter_domenu?orderId=${items.id}">完成</a></td>
+	            </tr>
+	            </c:forEach>  
 	</table>
 </body>
 </html>

@@ -15,6 +15,7 @@ import com.future.order.util.PageCut;
  */
 public interface IStockService {
 
+
 	public boolean AddStock(Stock stock);
 
 	public PageCut<Stock> getPageCut(int currentPage, int pageSize);
