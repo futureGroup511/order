@@ -68,11 +68,5 @@ public class GetAction extends BaseAction {
 		request.put("menumaterial",menumaterial);
 		return "MenuMaterial";
 	}
-	public String ingredient() throws Exception {
-		Ingredient ingredient=ingerdientService.get(id);
-		request.put("ingredient",ingredient);
-		return "ingredient";
-	}
-	
 	
 }

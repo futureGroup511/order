@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
 import com.future.order.entity.User;
 import com.future.order.service.IUserService;
+import com.future.order.util.PageCut;
 
 @Service
 public class UserDao extends BaseDao<User> implements IUserService {
@@ -54,6 +55,15 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	@Override
 	public boolean deleteUser(User user) {
 		return this.deleteEntity(user);
+	}
+
+	@Override
+	public PageCut<User> getPageCut(int curr,int pageSize) {
+		String hql = "select count(*) from User";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<User> pc = new PageCut<User>(curr,pageSize,count);
+		pc.setData(this.getEntityLimitList("from User", (curr-1)*pageSize, pageSize));
+		return pc;
 	}
 	
 }

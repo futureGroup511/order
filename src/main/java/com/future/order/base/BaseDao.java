@@ -68,15 +68,7 @@ public class BaseDao<T> {
 		return list;
 	}
 
-	
 	//执行查询功能，返回一个列表
-
-
-
-
-	//执行查询功能，返回一个列表
-
-
 	protected final List<T> getEntityList(String hql,Object ...objects){
 		Query query=this.getSession().createQuery(hql);
 		for(int i=0;i<objects.length;i++){

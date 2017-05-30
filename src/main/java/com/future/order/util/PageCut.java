@@ -21,7 +21,6 @@ public class PageCut<T> {
 	public PageCut(){};
 	
 	public PageCut(int currentPage, int pageSize, int count) {
-		super();
 		this.currentPage = currentPage;
 		this.pageSize = pageSize;
 		this.count = count;
@@ -80,4 +79,11 @@ public class PageCut<T> {
 	public void setPrePage(int prePage) {
 		this.prePage = prePage;
 	}
+
+	@Override
+	public String toString() {
+		return "PageCut [currentPage=" + currentPage + ", pageSize=" + pageSize + ", pageNum=" + pageNum + ", count="
+				+ count + ", data=" + data + ", nextPage=" + nextPage + ", prePage=" + prePage + "]";
+	}
+	
 }

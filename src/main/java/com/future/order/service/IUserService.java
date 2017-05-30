@@ -9,6 +9,7 @@ package com.future.order.service;
 import java.util.List;
 
 import com.future.order.entity.User;
+import com.future.order.util.PageCut;
 
 /**
  * @author Administrator
@@ -29,5 +30,7 @@ public interface IUserService {
 	public boolean updateUser(User user);
 	//删除
 	public boolean deleteUser(User user);
+	//分页
+	public PageCut<User> getPageCut(int curr,int pageSize);
 
 }

@@ -13,8 +13,9 @@ import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Ingredient;
-
+import com.future.order.entity.User;
 import com.future.order.service.IIngerdientService;
+import com.future.order.util.PageCut;
 
 
 @Service
@@ -22,16 +23,8 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 
 	@Override
 	public List<Ingredient> getAll() {
-		List<Ingredient> list = new ArrayList<Ingredient>();
-		list = selectAll();
-//		try{
-//			String hql="from Ingredient";
-//			list=this.getEntityList(hql);
-//		}catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		List<Ingredient> list = this.selectAll();
 		return list;
-
 	}
 
 	@Override
@@ -39,5 +32,30 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 		return this.saveEntity(ingredient);
 	}
 
-	
+	@Override
+	public Ingredient getById(int id) {
+		Ingredient ingredient = this.getEntity(id);
+		return ingredient;
+	}
+
+	@Override
+	public boolean updateIngredient(Ingredient ingredient) {
+		boolean boo = this.updateEntity(ingredient);
+		return boo;
+	}
+
+	@Override
+	public boolean deleteIngredient(Ingredient ingredient) {
+		boolean boo = this.deleteEntity(ingredient);
+		return boo;
+	}
+
+	@Override
+	public PageCut<Ingredient> getPageCut(int curr, int pageSize) {
+		String hql = "select count(*) from Ingredient";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Ingredient> pc = new PageCut<Ingredient>(curr,pageSize,count);
+		pc.setData(this.getEntityLimitList("from Ingredient", (curr-1)*pageSize, pageSize));
+		return pc;
+	}
 }
