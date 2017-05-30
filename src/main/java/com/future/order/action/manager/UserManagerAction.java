@@ -4,8 +4,8 @@ package com.future.order.action.manager;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
-import com.future.order.dao.UserDao;
 import com.future.order.entity.User;
+import com.future.order.util.PageCut;
 /**
  * 
  * @author 金高
@@ -20,6 +20,13 @@ public class UserManagerAction extends BaseAction {
 	 */
 	private User user;
 	private int userId;	//得到前台的传来的id
+	private int page=1;
+	
+	public String execute(){
+		PageCut<User> pCut=userService.getPageCut(page,3);
+		request.put("allUser", pCut);
+		return SUCCESS;
+	}
 	
 	public String addUser() {
 		boolean boo = userService.addUser(user);
@@ -30,11 +37,11 @@ public class UserManagerAction extends BaseAction {
 		}
 		return "addUser";
 	}
-
+	
 	public String toUpdateUser(){	//到修改界面，查询出所修改用户信息
 		User user = userService.viewUser(userId);
 		request.put("updateUser", user);
-		return "updateUser";
+		return "toUpdateUser";
 	}
 	
 	public String updateUser(){	//确认修改信息
@@ -44,9 +51,8 @@ public class UserManagerAction extends BaseAction {
 		} else {
 			request.put("updateUserMsg", "修改失败");
 		}
-		int tempId = user.getId();
-		User user = userService.viewUser(tempId);
-		request.put("updateUser", user);
+		List<User> list = userService.selectAllUser();
+		request.put("allUser", list);
 		return "updateUser";
 	}
 
@@ -77,4 +83,13 @@ public class UserManagerAction extends BaseAction {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+	
 }

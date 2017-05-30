@@ -14,6 +14,8 @@ import com.future.order.entity.Stock;
  */
 public interface IStockService {
 
+
 	public boolean AddStock(Stock stock);
+
 
 }

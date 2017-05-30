@@ -22,4 +22,6 @@ public interface IMenuService {
 
 	List<Menu> unfinish();
 
+	public Menu get(int id);
+
 }
