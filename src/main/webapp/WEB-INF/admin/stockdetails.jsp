@@ -32,7 +32,7 @@
 	                <td>${item.price}</td>
 	                <td>${item.num}</td>
 	                <td>${item.createDate}</td>
-	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/StockAction_Delet()?id=${item.id}">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/StockAction_toUpdate()?id=${item.id}">修改</a></td>      
+	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}">修改</a></td>      
 	            </tr>  
         	</c:forEach>
 	</table>

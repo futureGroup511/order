@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Menu;
-
 import com.future.order.entity.StockDetails;
 import com.future.order.service.IStockDetailsService;
 import com.future.order.util.PageCut;
@@ -64,6 +63,48 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	public List<StockDetails> getBycreateDate(int ingId) {
 		String hql="from StockDetails m where m.ingId="+ingId;		
 		return this.getEntityList(hql);
+	}
+
+	@Override
+	public boolean DeletDetails(int stocksid) {
+		boolean sign = false;
+		try{
+			String hql="delete from StockDetails o Where o.id='"+stocksid+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			sign=true;
+		}else{
+			sign=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
+	}
+
+	@Override
+	public StockDetails CheckById(int stocksid) {
+		@SuppressWarnings("unused")
+		StockDetails stockDetails = new StockDetails();
+		try{
+			String hql="from StockDetails o where o.id='"+stocksid+"'";
+			stockDetails=(StockDetails) this.uniqueResult(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return stockDetails;
+	}
+
+	@Override
+	public boolean Updatestocks(StockDetails details) {
+		boolean sign=false;
+		try{
+			sign=this.updateEntity(details);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
 	}
 
 }

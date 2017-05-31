@@ -27,4 +27,10 @@ public interface IStockDetailsService {
 	public List<StockDetails> getAll();
 
 	public List<StockDetails> getBycreateDate(int ingId);
+
+	public boolean DeletDetails(int stocksid);
+
+	public StockDetails CheckById(int stocksid);
+
+	public boolean Updatestocks(StockDetails details);
 }

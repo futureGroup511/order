@@ -67,6 +67,7 @@
 		
 		<action name="StockDetailsAction_*" method="{1}" class="com.future.order.action.manager.StockDetailsAction">
 			<result name="details">/WEB-INF/admin/stockdetails.jsp</result>
+			<result name="update">/WEB-INF/admin/updatestocknews.jsp</result>
 		</action>
 	</package>
 </struts>
