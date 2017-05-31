@@ -22,8 +22,23 @@ public class ChangeAction extends BaseAction{
 	public String addIngredient(){
 		return "addIngredient";
 	}
+	//菜品模块中转站
+	public String addMenu(){
+		return "addMenu";
+	}
+	//获得个人资料
+	public String getMyself(){
+		return "getMyself";
+	}
+	//退出登录前,防倒退
+	public String logOff(){
+		return "logOff";
+	}
+	//退出登录
+	public String out(){
+		return "out";
+	}
 	public String addStocks(){
 		return "addstock";
-		
 	}
 }
