@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,7 +40,12 @@
 	</tr>
 	<tr>
 		<td>菜品状态:</td>
-		<td><input name="details.status" value="${ordernews.status}" type="text" readonly="readonly"><br></td>
+<%-- 		<td><input name="details.status" value="${ordernews.status}" type="text" readonly="readonly"><br></td> --%>
+		<select name="details.status">
+			<option value="未完成" <c:if test='${ordernews.status eq "未完成"}'> selected="selected"</c:if>>未完成</option>
+			<option value="已处理" <c:if test='${ordernews.status eq "已处理"}'> selected="selected"</c:if>>已处理</option>
+			<option value="已完成" <c:if test='${ordernews.status eq "已完成"}'> selected="selected"</c:if>>已完成</option>
+		</select><br>
 	</tr>
 	<tr>
 		<td>订单时间:</td>

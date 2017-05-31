@@ -1,5 +1,6 @@
 /**        
  * @author: 焦祥宇 
+
  * @date:   createDate：2017年5月22日 上午10:44:08   
  * @Description:  
  * 
@@ -7,6 +8,7 @@
 package com.future.order.service;
 
 import java.util.List;
+
 
 import com.future.order.entity.Menu;
 import com.future.order.util.PageCut;
@@ -16,13 +18,16 @@ import com.future.order.util.PageCut;
  *
  */
 public interface IMenuService {
+	//wqj查看所有菜单
+	public List<Menu> getAll();
 
-	public Menu Doorder(int id );
+	Menu Doorder(int id);
 
+	List<Menu> unfinish();
 
 	public Menu get(int id);//金高用
+	public List<Menu> ByName(String typeName);
 
-	public List<Menu> getAll();
 
 	//添加菜品zjg
 	public boolean addMenu(Menu menu);

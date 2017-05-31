@@ -74,6 +74,13 @@
 		
 		<action name="StockAction_*" method="{1}" class="com.future.order.action.manager.StockAction">
 			<result name="add">/WEB-INF/admin/addstock.jsp</result>
+			<result name="select">/WEB-INF/admin/checkstock.jsp</result>
+			<result name="update">/WEB-INF/admin/updatestock.jsp</result>
+		</action>
+		
+		<action name="StockDetailsAction_*" method="{1}" class="com.future.order.action.manager.StockDetailsAction">
+			<result name="details">/WEB-INF/admin/stockdetails.jsp</result>
+			<result name="update">/WEB-INF/admin/updatestocknews.jsp</result>
 		</action>
 	</package>
 </struts>

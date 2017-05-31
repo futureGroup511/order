@@ -1,6 +1,7 @@
 package com.future.order.base;
 
 import java.lang.reflect.ParameterizedType;
+
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+
+import com.future.order.entity.Menu;
 
 public class BaseDao<T> {
 	@Resource//注入session工厂

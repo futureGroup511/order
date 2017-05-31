@@ -9,6 +9,7 @@ package com.future.order.service;
 import java.util.List;
 
 import com.future.order.entity.OrderDetails;
+import com.future.order.util.PageCut;
 
 
 /**
@@ -21,4 +22,6 @@ public interface IOrderDetailsService {
 	public boolean DeletDetails(int detailid);
 	public OrderDetails CheckById(int detailid);
 	public boolean UpdateOrder(OrderDetails details);
+	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid);
+
 }

@@ -1,9 +1,9 @@
 package com.future.order.action.manager;
 
 import com.future.order.base.BaseAction;
-import com.future.order.dao.OrderDao;
 import com.future.order.entity.Order;
 import com.future.order.entity.User;
+import com.future.order.util.PageCut;
 
 import java.util.List;
 
@@ -13,32 +13,36 @@ import java.util.List;
  *
  *         2017年5月28日上午11:02:16
  */
+@SuppressWarnings("unused")
 public class OrderAction extends BaseAction {
 
 	private static final long serialVersionUID = 834511442318917043L;
+	private int page = 1;
 	private int id;
 	private Order orders;
+	private String sign="one";
 
-	public String execute() {//获得全部订单信息
-		List<Order> list = orderService.Check();
-		request.put("alllist", list);
+	public String execute() {
+		PageCut<Order> pCut = new PageCut<Order>();
+		if(sign.equals("one")){
+			//获得全部订单信息
+			pCut=orderService.getPageCut(page,10);
+		}
+		else if(sign.equals("two")){
+			//获得全部没有结账的订单信息
+			 pCut=orderService.getNoPageCut(page,10);
+		}
+		else if(sign.equals("there")){
+			pCut=orderService.getPage(page,10);
+		}
+		if(pCut.getData().size()==0){
+			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("marknews", mark);
+		}
+		request.put("sign", sign);
+		request.put("pc", pCut);
 		return "check";
 	}
-
-	public String ChecknoPoy() {//获得全部没有结账的订单信息
-		List<Order> list = orderService.CheckNoOrder();
-		request.put("alllist", list);
-		return "check";
-
-	}
-
-	public String CheckPay() {//获得已结账的订单信息
-		List<Order> list = orderService.CheckOrder();
-		request.put("alllist", list);
-		return "check";
-
-	}
-
 	public String Delet() {//从前台获得ID用于根据账号删除订单信息和订单详细信息
 		boolean sign = orderService.DeletOrder(id);
 		boolean signs = orderDetailsService.DeletOrderDetails(id);
@@ -99,6 +103,22 @@ public class OrderAction extends BaseAction {
 
 	public void setOrders(Order orders) {
 		this.orders = orders;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public String getSign() {
+		return sign;
+	}
+
+	public void setSign(String sign) {
+		this.sign = sign;
 	}
 
 }

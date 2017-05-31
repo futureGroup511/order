@@ -12,14 +12,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
+import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.service.IOrderDetailsService;
+import com.future.order.util.PageCut;
 
 @Service
 public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDetailsService {
 
 	@Override
-	public List<OrderDetails> CheckDetails(int id) {
+	public List<OrderDetails> CheckDetails(int id) {//根据订单id查询所有该订单的详细信息
 		@SuppressWarnings("unused")
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		try{
@@ -28,11 +30,12 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(list);
 		return list;
 	}
 
 	@Override
-	public boolean DeletOrderDetails(int id) {
+	public boolean DeletOrderDetails(int id) {//根据订单ID删除所有该订单所有详细信息
 		boolean sign = false;
 		try{
 			String hql="delete from OrderDetails o Where o.orderId='"+id+"'";
@@ -50,7 +53,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 
 	@Override
-	public boolean DeletDetails(int detailid) {
+	public boolean DeletDetails(int detailid) {//根据详细信息的ID删除信息
 		boolean sign = false;
 		try{
 			String hql="delete from OrderDetails o Where o.id='"+detailid+"'";
@@ -90,6 +93,17 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 			e.printStackTrace();
 		}
 		return sign;
+	}
+
+	@Override
+	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid) {
+		String hql ;
+		int count=0;
+		hql = "select count(*) from OrderDetails o where o.orderId='"+orderid+"'";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList("from OrderDetails o where o.orderId='"+orderid+"'", (currentPage-1)*pageSize, pageSize));
+		return pc;
 	}
 
 }
