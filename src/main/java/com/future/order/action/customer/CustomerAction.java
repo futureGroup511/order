@@ -29,6 +29,18 @@ public class CustomerAction extends BaseAction {
 
 	private int ingId;
 	private String name;
+	//进入首页
+	public String toIndex() throws Exception{
+		//获得推荐的菜品
+		List<Menu> menus=menuService.getRecommend(8);
+		request.put("menus", menus);
+		return "toIndex";
+	}
+	//根据菜品获得
+	
+	
+	
+	
 	public int getId() {
 		return id;
 	}

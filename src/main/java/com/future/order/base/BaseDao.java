@@ -105,6 +105,17 @@ public class BaseDao<T> {
 		}
 		return sQuery.list();
 	}
+	@SuppressWarnings("unchecked")
+	protected final List<T> executeSQLQuery(String sql, Object ...objects){
+		SQLQuery sQuery = sessionFactory.getCurrentSession().createSQLQuery(sql);
+		if(clazz!=null){//这样可以直接的将投影查询之后可以将数组包装成实体类型的数据格式
+			sQuery.addEntity(clazz);
+		}
+		for(int i=0;i<objects.length;i++){
+			sQuery.setParameter(i, objects[i]);
+		}
+		return sQuery.list();
+	}
 	/*执行无返回值的sql语句*/
 	protected final void executeSQL(String sql, Object ...objects){
 		SQLQuery sQuery = getSession().createSQLQuery(sql);

@@ -37,4 +37,8 @@ public interface IMenuService {
 	public boolean updateUser(Menu menu);
 	//删除菜品
 	public boolean deleteMenu(Menu menu);
+	
+	//焦祥宇加
+	//获得num条推荐菜品
+	public List<Menu> getRecommend(int num);
 }

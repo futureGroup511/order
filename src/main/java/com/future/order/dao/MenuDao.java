@@ -128,4 +128,11 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		
 		return flag;
 	}
+	/* jxy
+	 */
+	@Override
+	public List<Menu> getRecommend(int num) {
+		String sql="select * from tb_menu order by num desc limt "+num;
+		return this.executeSQLQuery(sql);
+	}
 }
