@@ -10,6 +10,7 @@ import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
 import com.future.order.entity.MenuType;
 import com.future.order.entity.Order;
+import com.future.order.entity.ShopCart;
 import com.future.order.entity.StockDetails;
 
 /**
@@ -26,20 +27,47 @@ public class CustomerAction extends BaseAction {
 	
 	
 	private int id;
-
-	private int ingId;
-	private String name;
+		
 	//进入首页
 	public String toIndex() throws Exception{
+		//把顾客桌号存在session
+		session.put("tableId", id);
+		System.out.println("桌号:"+id);
 		//获得推荐的菜品
 		List<Menu> menus=menuService.getRecommend(8);
-		request.put("menus", menus);
+		session.put("menus", menus);
 		return "toIndex";
 	}
-	//根据菜品获得
-	
-	
-	
+	//根据菜品类型id获得菜品
+	public String getMenuByTypeId() throws Exception{
+		List<Menu> menus=menuService.getByTypeId(id);
+		session.put("menus", menus);
+		return "getMenuByTypeId";
+	}
+	//获得菜品详情和菜品配料
+	public String getMenuMaterial() throws Exception {		
+		Menu menu =menuService.get(id);
+		request.put("menu", menu);
+		List<MenuMaterial> menumaterials=menuMaterialService.getByMenuId(id);		
+		request.put("menumaterials",menumaterials);	
+		return "getMenuMaterial";
+	}
+	//获得进货时间列表
+	public String getStockDate() throws Exception {
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id);
+		request.put("stockDetails", stockDetails);
+		return "getStockDate";
+	}
+	//加入购物车
+	public String joinCart() throws Exception {
+		Menu menu=menuService.get(id);
+		int tableId=(int) session.get("tableId");
+		String tableName=tablesService.get(tableId).getName();		
+		ShopCart shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());
+		Boolean bool=shopCartService.add(shopCart);
+		
+		return "joinCart";
+	}
 	
 	public int getId() {
 		return id;
@@ -50,24 +78,9 @@ public class CustomerAction extends BaseAction {
 	}
 	
 	
-	public int getIngId() {
-		return ingId;
-	}
-
-	public void setIngId(int ingId) {
-		this.ingId = ingId;
-	}
 	
-	
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getMenuMaterial() throws Exception {
+/*	public String getMenuMaterial() throws Exception {
 		List<MenuMaterial> list=menuMaterialService.getAll();
 		request.put("MenuMaterial",list);
 		System.out.println(list);
@@ -111,16 +124,12 @@ public class CustomerAction extends BaseAction {
 		request.put("list",list);
 		return "menu";
 	}
-	public String MenuMaterial() throws Exception {
-		MenuMaterial menumaterial=menuMaterialService.get(id);
-		request.put("menumaterial",menumaterial);
-		return "MenuMaterial";
-	}
+	
 	public String StockDetails() throws Exception {
 		List<StockDetails> list1=stockDetailsService.getBycreateDate(ingId);
 		request.put("list1",list1);
 		System.out.println(list1);
 		return "StockDetails";
 	}
-
+*/
 }

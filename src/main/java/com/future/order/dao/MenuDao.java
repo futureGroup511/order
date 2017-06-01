@@ -50,8 +50,8 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	}
 	@Override
 	public Menu get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.getEntity(id);
 	}
 
 
@@ -128,11 +128,17 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		
 		return flag;
 	}
-	/* jxy
+	/* 一下方法焦祥宇加
 	 */
 	@Override
 	public List<Menu> getRecommend(int num) {
-		String sql="select * from tb_menu order by num desc limt "+num;
+		String sql="select * from tb_menu order by num desc limit "+num;
 		return this.executeSQLQuery(sql);
+	}
+	
+	@Override
+	public List<Menu> getByTypeId(int typeId) {
+		String hql ="from Menu m where m.typeId="+typeId;
+		return this.getEntityList(hql);
 	}
 }

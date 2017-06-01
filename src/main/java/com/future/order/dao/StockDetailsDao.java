@@ -107,4 +107,12 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 		return sign;
 	}
 
+	/* 焦祥宇加
+	 */
+	@Override
+	public List<StockDetails> getByIngId(int ingId) {
+		String hql="from StockDetails s where s.ingId="+ingId;
+		return this.getEntityList(hql);
+	}
+
 }
