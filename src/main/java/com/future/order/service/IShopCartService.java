@@ -25,5 +25,8 @@ public interface IShopCartService {
 	public boolean delete(int id);
 
 	public boolean deleteAll(ShopCart shopcart);
-
+	
+	//焦祥宇加
+	//把菜品加入购物车
+	public boolean add(ShopCart shopCart);	
 }

@@ -31,7 +31,9 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		String hql = "from User where phone='"+user.getPhone()+"'";
 		User userDataBase = (User) this.uniqueResult(hql);
 		if(userDataBase==null){
-			user.setCreateDate(new Date());
+			Date date  = new Date();
+			//System.out.println(date+"date");
+			user.setCreateDate(date);
 			this.saveEntity(user);
 			return true;
 		}

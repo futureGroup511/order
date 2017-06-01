@@ -6,8 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script language="javascript">
+        //防止页面后退
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+        window.location.href="${rootPath}manage/Change_out";
+    </script>
 </head>
 <body>
+<<<<<<< HEAD:src/main/webapp/WEB-INF/customer/success.jsp
 删除成功！pretty good boy.
 <%-- <table width="100%" border="1">
 <tr>
@@ -35,5 +44,8 @@
 </tr>
 </c:forEach>
 </table> --%>
+=======
+
+>>>>>>> 3a83ffce9b3c4e9e1fcfd6d2d7c0209cc68bf35a:src/main/webapp/WEB-INF/admin/logoff.jsp
 </body>
 </html>

@@ -20,8 +20,8 @@
 	</details>
 	<details>
 		<summary>菜品管理</summary>
-		<a href="">增加菜品</a><br>
-		<a href="">管理菜品</a>
+		<a href="${rootPath}manage/Change_addMenu">增加菜品</a><br>
+		<a href="${rootPath}manage/MenuManager">管理菜品</a>
 	</details>
 	<details>
 		<summary>订单管理</summary>
@@ -30,12 +30,12 @@
 	<details>
 		<summary>进货管理</summary>
 		<a href="${rootPath}manage/Change_addStocks">增加进货</a><br>
-		<a href="">管理进货</a>
+		<a href="${rootPath}manage/StockAction">管理进货</a>
 	</details>
 	<details>
 		<summary>个人中心</summary>
-		<a href="">查看个人资料</a><br>
-		<a href="">退出登录</a>
+		<a href="${rootPath}manage/Change_getMyself">查看个人资料</a><br>
+		<a href="${rootPath}manage/Change_logOff">退出登录</a>
 	</details>
 	</div>
 	<div style="width:90%;float: right">

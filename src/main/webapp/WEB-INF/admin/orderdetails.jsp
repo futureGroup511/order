@@ -27,7 +27,7 @@
          <th>备注</th>
          <th>操作</th>
 	</tr>
-       	 <c:forEach items="${alldetails}" var="item">  
+       	 <c:forEach items="${detailspc.data}" var="item">  
 	            <tr>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
@@ -44,5 +44,29 @@
 	            </tr>  
         	</c:forEach>
 	</table>
+	<ul class="pagination">
+						<li><a
+							href="${rootPath}manage/OrderDetailsAction?page=${detailspc.prePage}">上一页</a></li>
+						<c:if test="${1 < detailspc.currentPage -3}">
+							<li><a href="#">1</a></li>
+						</c:if>
+
+						<c:forEach var="i"
+							begin="${detailspc.currentPage-3>0?detailspc.currentPage-3:1 }"
+							end="${detailspc.currentPage+3>detailspc.pageNum?detailspc.pageNum:detailspc.currentPage+3  }">
+							<c:choose>
+								<c:when test="${i>0 && i == detailspc.currentPage }">
+									<li class="active"><a
+										href="${rootPath}manage/OrderDetailsAction?page=${i}">${i}</a></li>
+								</c:when>
+
+								<c:when test="${i>0 && i != postPS.currentPage }">
+									<li><a href="${rootPath}manage/OrderDetailsAction?page=${i }">${i}</a></li>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<li><a
+							href="${rootPath}manage/OrderDetailsAction?page=${detailspc.nextPage}">下一页</a></li>
+					</ul>
 </body>
 </html>

@@ -8,17 +8,21 @@
 package com.future.order.dao;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
-import com.future.order.entity.Ingredient;
-import com.future.order.entity.Menu;
 
+
+
+
+import com.future.order.entity.Menu;
 import com.future.order.service.IMenuService;
+import com.future.order.util.PageCut;
 
 @Service
 public class MenuDao extends BaseDao<Menu> implements IMenuService {
@@ -32,15 +36,15 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	}
 	@Override
 	public List<Menu> getAll() {
-			List<Menu> list = new ArrayList<Menu>();
-			try{
-				String hql="from Menu";
-				list=this.getEntityList(hql);
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-			return list;
+		List<Menu> list = new ArrayList<Menu>();
+		try{
+			String hql="from Menu";
+			list=this.getEntityList(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
+		return list;
+	}
 	@Override
 	public List<Menu> unfinish(){
 		List<Menu> list = new ArrayList<Menu>();
@@ -73,6 +77,40 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		return this.getEntityList(hql);
 	}
 
+
+	@Override
+	public boolean addMenu(Menu menu) {//根据菜品判断数据库里是否已存在该菜
+		String hql = "from Menu where name='"+menu.getName()+"'";
+		Menu menuDataBase = (Menu) this.uniqueResult(hql);
+		if(menuDataBase==null){
+			menu.setCreateDate(new Date());
+			return this.saveEntity(menu);
+		}
+		return false;
+	}
+
+
+	@Override
+	public PageCut<Menu> getPageCut(int curr, int pageSize) {
+		String hql = "select count(*) from Menu";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Menu> pc = new PageCut<Menu>(curr,pageSize,count);
+		pc.setData(this.getEntityLimitList("from Menu", (curr-1)*pageSize, pageSize));
+		return pc;
+	}
+
+
+	@Override
+	public boolean updateUser(Menu menu) {
+		return this.updateEntity(menu);
+	}
+
+
+	@Override
+	public boolean deleteMenu(Menu menu) {
+		return this.deleteEntity(menu);
+	}
+
 	/**
 	 * @author 丁赵雷
 	 * @date 2017/5/30 21:17
@@ -94,5 +132,18 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		}
 		
 		return flag;
+	}
+	/* 一下方法焦祥宇加
+	 */
+	@Override
+	public List<Menu> getRecommend(int num) {
+		String sql="select * from tb_menu order by num desc limit "+num;
+		return this.executeSQLQuery(sql);
+	}
+	
+	@Override
+	public List<Menu> getByTypeId(int typeId) {
+		String hql ="from Menu m where m.typeId="+typeId;
+		return this.getEntityList(hql);
 	}
 }

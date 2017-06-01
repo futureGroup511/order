@@ -44,16 +44,22 @@ public class UserManagerAction extends BaseAction {
 		return "toUpdateUser";
 	}
 	
-	public String updateUser(){	//确认修改信息
+	public String updateUser(){	//确认修改信息,修改个人资料
 		boolean boo = userService.updateUser(user);
+		String result = "updateUser";
 		if(boo){
 			request.put("updateUserMsg", "修改成功");
 		} else {
 			request.put("updateUserMsg", "修改失败");
 		}
-		List<User> list = userService.selectAllUser();
-		request.put("allUser", list);
-		return "updateUser";
+		if(userId==2){
+			User userData = userService.viewUser(user.getId());
+			session.put("user", userData);
+			result = "updateMyself";
+		}
+		PageCut<User> pCut=userService.getPageCut(page,3);
+		request.put("allUser", pCut);
+		return result;
 	}
 
 	public String deleteUser() {	//删除该用户，并查询出生于用户

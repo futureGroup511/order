@@ -20,8 +20,7 @@
 	<th>数量</th>
 	<th>是否存在</th>
 	<th>时间</th>
-	<th>评论</th>
-	<th>加入购物车</th>
+
 	</tr>
 		<tr>
 		<td>${menu.name}</td>
@@ -33,7 +32,7 @@
 		<td>${menu.num}</td>
 		<td>${menu.exist}</td>
 		<td>${menu.createDate}</td>
-		<td>${menu.remark}<a href="${rootPath}customer/cart_addcart?id=${menu.id}">加入购物车</a>&nbsp;</td>
+		
 		</tr>
 </table>
 <table align="center" width="100%" border="1">
@@ -45,16 +44,20 @@
 	<th>需求量</th>
 	<th>进货时间</th>
 	</tr>
-	<c:forEach items="${list}" var="menumaterial">
+	<c:forEach items="${menumaterials}" var="m">
 		<tr>
-			<td>${menumaterial.menuId}</td>
-			<td>${menumaterial.menuName}</td>
-			<td>${menumaterial.ingId}</td>
-			<td>${menumaterial.ingName}</td>
-			<td>${menumaterial.num}</td>
-			<td>${menumaterial.stockDate}<a href="${rootPath}customer/customer_StockDetails?ingId=${menumaterial.ingId}">更多进货时间信息</a>&nbsp;</td>
+			<td>${m.menuId}</td>
+			<td>${m.menuName}</td>
+			<td>${m.ingId}</td>
+			<td>${m.ingName}</td>
+			<td>${m.num}</td>
+			<td>${m.stockDate}<a href="${rootPath}customer/customer_getStockDate?id=${m.ingId}">更多进货时间信息</a>&nbsp;</td>
 		</tr>
 	</c:forEach>	
 </table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3a83ffce9b3c4e9e1fcfd6d2d7c0209cc68bf35a
 </body>
 </html>

@@ -10,7 +10,7 @@
 <body>
 	<center>
 	${updateUserMsg}
-	<form action="${rootPath}manage/UserManager_updateUser?user.id=${updateUser.id}&user.password=${updateUser.password}" method="post">
+	<form action="${rootPath}manage/UserManager_updateUser?user.id=${updateUser.id}" method="post">
 		<table>
 			<tr>	
 				<td>账号：</td>
