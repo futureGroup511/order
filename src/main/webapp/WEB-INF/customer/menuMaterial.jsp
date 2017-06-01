@@ -56,17 +56,5 @@
 		</tr>
 	</c:forEach>	
 </table>
-<table align="center" width="100%" border="1">
-	<tr>
-	<th>配料名称</th>
-	<th>进货时间</th>
-	</tr>
-	<c:forEach items="${list1}" var="StockDetails">
-		<tr>
-		<td>${StockDetails.ingName}</td>
-		<td>${StockDetails.createDate}</td>
-		</tr>
-	 </c:forEach>
-</table>
 </body>
 </html>

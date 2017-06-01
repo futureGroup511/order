@@ -3,7 +3,6 @@ package com.future.order.action.customer;
 
 import java.util.List;
 
-
 import com.future.order.base.BaseAction;
 
 import com.future.order.entity.Menu;
@@ -54,26 +53,12 @@ public class CustomerAction extends BaseAction {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getMenuMaterial() throws Exception {
-		List<MenuMaterial> list=menuMaterialService.getAll();
-		request.put("MenuMaterial",list);
-		System.out.println(list);
-		return "getMenuMaterial";
-	}
 	
-	
-	public String getMenu() throws Exception {
-		List<Menu> list=menuService.getAll();
-		request.put("menu",list);
-		System.out.println(list);
-		return "getMenu";
-	}
 	public String getMenuType() throws Exception{
-		System.out.println("446545");
 		List<MenuType> list=menuTypeService.getAllMenuType();
 		request.put("list",list);
-		System.out.println(list);
+		List<Menu> list1=menuService.getAll();
+		request.put("menu1",list1);
 		return "getMenuType";
 	}
 	
@@ -89,25 +74,17 @@ public class CustomerAction extends BaseAction {
 		request.put("menu",menu);
 		return "ByName";
 	}
-
-
-
 	public String menu() throws Exception {				
-		Menu menu=menuService.get(id);		
+		Menu menu=menuService.get(id);
 		List<MenuMaterial> list=menuMaterialService.getByMenuId(id);
 		request.put("menu",menu);
 		request.put("list",list);
 		return "menu";
 	}
-	public String MenuMaterial() throws Exception {
-		MenuMaterial menumaterial=menuMaterialService.get(id);
-		request.put("menumaterial",menumaterial);
-		return "MenuMaterial";
-	}
+	
 	public String StockDetails() throws Exception {
 		List<StockDetails> list1=stockDetailsService.getBycreateDate(ingId);
 		request.put("list1",list1);
-		System.out.println(list1);
 		return "StockDetails";
 	}
 

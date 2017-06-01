@@ -13,7 +13,7 @@
 		<action name="customer_*" class="com.future.order.action.customer.CustomerAction" method="{1}">
 			<result name="getMenuType">/WEB-INF/customer/firstmenu.jsp</result>			
 			<result name="menu">/WEB-INF/customer/menuMaterial.jsp</result>
-			<result name="getMenu">/WEB-INF/customer/menu.jsp</result>
+			<!-- <result name="getMenu">/WEB-INF/customer/menu.jsp</result> -->
 			<result name="getOrder">/WEB-INF/customer/order.jsp</result>
 			<result name="StockDetails">/WEB-INF/customer/createDate.jsp</result>
 			<result name="ByName">/WEB-INF/customer/menu.jsp</result>
@@ -22,7 +22,7 @@
 			<result name="addcart">/WEB-INF/customer/cart.jsp</result>
 			<result name="selectAll">/WEB-INF/customer/shopcart.jsp</result>
 			<result name="delete">/WEB-INF/customer/success.jsp</result>
-			<result name="deleteAll">/WEB-INF/customer/success.jsp</result>
+			<result name="nullbasket">/WEB-INF/customer/success.jsp</result>
 		</action>
 		<action name="enter">
 			<result>/WEB-INF/customer/index.jsp</result>
