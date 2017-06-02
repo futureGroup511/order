@@ -50,8 +50,9 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	}
 	@Override
 	public Menu get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String hql="from Menu m where m.id='"+id+"'";
+		Menu menu=(Menu) this.uniqueResult(hql);
+		return menu;
 	}
 
 
