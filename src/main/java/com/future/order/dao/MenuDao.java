@@ -143,7 +143,7 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	
 	@Override
 	public List<Menu> getByTypeId(int typeId) {
-		String hql ="from Menu m where m.typeId="+typeId;
+		String hql ="from Menu m where m.typeId="+typeId+" order by m.id desc";
 		return this.getEntityList(hql);
 	}
 }

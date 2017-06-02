@@ -55,9 +55,8 @@
 		</tr>
 	</c:forEach>	
 </table>
-<<<<<<< HEAD
-=======
-
->>>>>>> 3a83ffce9b3c4e9e1fcfd6d2d7c0209cc68bf35a
+<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
+<a href="${rootPath}customer/cart_getCart">购物车</a>
+<a href="">我的订单</a>
 </body>
 </html>

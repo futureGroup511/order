@@ -30,7 +30,7 @@ public class CustomerAction extends BaseAction {
 	//进入首页
 	public String toIndex() throws Exception{
 		//把顾客桌号存在session
-		session.put("tableId", id);
+		session.put("userId", id);
 		System.out.println("桌号:"+id);
 		//获得推荐的菜品
 		List<Menu> menus=menuService.getRecommend(8);
@@ -53,16 +53,22 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得进货时间列表
 	public String getStockDate() throws Exception {
-		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id);
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id,5);
 		request.put("stockDetails", stockDetails);
 		return "getStockDate";
 	}
 	//加入购物车
 	public String joinCart() throws Exception {
 		Menu menu=menuService.get(id);
-		int tableId=(int) session.get("tableId");
-		String tableName=tablesService.get(tableId).getName();		
-		ShopCart shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());
+		int tableId=(int) session.get("userId");		
+		String tableName=tablesService.get(tableId).getName();	
+		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());
+		if(shopCart==null){
+			shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());
+		
+		}else{
+			
+		}
 		Boolean bool=shopCartService.add(shopCart);
 		
 		return "joinCart";
@@ -76,53 +82,4 @@ public class CustomerAction extends BaseAction {
 		this.id = id;
 	}
 	
-	
-	
-
-
-	/*public void setName(String name) {
-		this.name = name;
-	}*/
-/*	public String getMenuMaterial() throws Exception {
-		List<MenuMaterial> list=menuMaterialService.getAll();
-		request.put("MenuMaterial",list);
-		System.out.println(list);
-		return "getMenuMaterial";
->>>>>>> 3a83ffce9b3c4e9e1fcfd6d2d7c0209cc68bf35a
-	}
-	
-	public String getMenuType() throws Exception{
-		List<MenuType> list=menuTypeService.getAllMenuType();
-		request.put("list",list);
-		List<Menu> list1=menuService.getAll();
-		request.put("menu1",list1);
-		return "getMenuType";
-	}
-	
-	public String getOrder() throws Exception {
-		List<Order> list=orderService.getAll();
-		request.put("order",list);
-		return "getOrder";
-	}
-
-	
-	public String ByName() throws Exception{
-		List<Menu> menu=menuService.ByName(name);
-		request.put("menu",menu);
-		return "ByName";
-	}
-	public String menu() throws Exception {				
-		Menu menu=menuService.get(id);
-		List<MenuMaterial> list=menuMaterialService.getByMenuId(id);
-		request.put("menu",menu);
-		request.put("list",list);
-		return "menu";
-	}
-	
-	public String StockDetails() throws Exception {
-		List<StockDetails> list1=stockDetailsService.getBycreateDate(ingId);
-		request.put("list1",list1);
-		return "StockDetails";
-	}
-*/
 }

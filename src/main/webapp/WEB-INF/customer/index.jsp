@@ -8,10 +8,6 @@
 <title>顾客首页</title>
 </head>
 <body>
-<script>
-	location.replace("${rootPath}customer/customer_getMenuType");
-</script>
-<body>
 <a href="${rootPath}customer/customer_getMenuByTypeId?id=1">菜品类型1</a>
 <a href="${rootPath}customer/customer_getMenuByTypeId?id=2">菜品类型2</a>
 <a href="${rootPath}customer/customer_getMenuByTypeId?id=3">菜品类型3</a>
@@ -24,5 +20,9 @@
 	名称：${m.name}  价格：${m.price} <a href="${rootPath}customer/customer_getMenuMaterial?id=${m.id}">详情</a> 
 	<a href="${rootPath}customer/customer_joinCart?id=${m.id}">加入购物车</a><br>
 </c:forEach> 
+
+<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
+<a href="${rootPath}customer/cart_getCart">购物车</a>
+<a href="">我的订单</a>
 </body>
 </html>

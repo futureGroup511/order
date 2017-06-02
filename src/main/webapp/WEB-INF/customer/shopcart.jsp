@@ -5,37 +5,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>购物车</title>
 </head>
 <body>
 <table width="100%">
-	<tr>
-		<th>餐桌id</th>
-		<th>餐桌名称</th>
-		<th>菜品id</th>
+	<tr>		
+		<th>餐桌名称</th>		
 		<th>菜品名称</th>
-		<th>该菜品数量</th>
-		<th>单价</th>
 		<th>数量</th>
-		<th>备注</th>
+		<th>单价</th>		
 		<th>管理</th>
 	</tr>
-	<c:forEach items="${shopcart}" var="shopcart">
-		<tr>
-			<td>${shopcart.tableId}</td>
-			<td>${shopcart.tableName}</td>
-			<td>${shopcart.menuId}</td>
-			<td>${shopcart.menuName}</td>
-			<td>${shopcart.menuNum}</td>
-			<td>${shopcart.price}</td>
-			<td>${shopcart.num}</td>
-			<td>${shopcart.remark}</td>
+	<c:forEach items="${shopCarts}" var="s">
+		<tr>			
+			<td>${s.tableName}</td>		
+			<td>${s.menuName}</td>
+			<td>${s.menuNum}</td>
+			<td>${s.price}</td>
+			<td>${s.remark}</td>
 			<td>
-				<a href="cart_delete.action?id=${shopcart.id} ">删除</a>
+				<a href="${rootPath}customer/customer_deleteCart?id=${s.id} ">删除</a>
 			</td>
 		</tr>
 	</c:forEach>
 </table>
-<a href="cart_deleteAll.action">清空购物车</a>
+<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
+<a href="${rootPath}customer/cart_getCart">购物车</a>
+<a href="">我的订单</a>
 </body>
 </html>

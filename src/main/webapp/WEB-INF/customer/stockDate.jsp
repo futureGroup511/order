@@ -20,5 +20,8 @@
 		</tr>
 	 </c:forEach>
 </table>
+<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
+<a href="${rootPath}customer/cart_getCart">购物车</a>
+<a href="">我的订单</a>
 </body>
 </html>

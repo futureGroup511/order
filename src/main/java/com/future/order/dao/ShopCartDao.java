@@ -64,4 +64,23 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 	public boolean add(ShopCart shopCart) {		
 		return this.saveEntity(shopCart);
 	}
+
+	
+	@Override
+	public List<ShopCart> getByTableId(int tableId) {
+		String hql="from ShopCart s where s.tableId="+tableId;
+		return this.getEntityList(hql);
+	}
+	
+	@Override
+	public ShopCart getByT_M_Id(int tableId, int menuId) {
+		String hql="from ShopCart s where s.tableId="+tableId+" and s.menuId="+menuId;
+		List<ShopCart> shopCarts=this.getEntityList(hql);
+		if(shopCarts.size()>0){
+			return (ShopCart)shopCarts.toArray()[0];
+		}
+		else{
+			return null;
+		}	
+	}
 }

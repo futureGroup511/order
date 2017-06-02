@@ -36,5 +36,5 @@ public interface IStockDetailsService {
 	
 	//焦祥宇加
 	//根据配料id获得进货详情
-	public List<StockDetails> getByIngId(int ingId);
+	public List<StockDetails> getByIngId(int ingId,int num);
 }
