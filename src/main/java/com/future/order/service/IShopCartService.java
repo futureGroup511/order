@@ -28,7 +28,7 @@ public interface IShopCartService {
 	
 	//焦祥宇加
 	//把菜品加入购物车
-	public boolean add(ShopCart shopCart);
+	public boolean update(ShopCart shopCart);
 	//根据桌号id获得购物车菜品
 	public List<ShopCart> getByTableId(int tableId);
 	//根据桌号id和菜品id

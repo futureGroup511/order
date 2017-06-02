@@ -61,7 +61,7 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 	/* 焦祥宇加
 	 */
 	@Override
-	public boolean add(ShopCart shopCart) {		
+	public boolean update(ShopCart shopCart) {		
 		return this.saveEntity(shopCart);
 	}
 

@@ -20,7 +20,7 @@
 	名称：${m.name}  价格：${m.price} <a href="${rootPath}customer/customer_getMenuMaterial?id=${m.id}">详情</a> 
 	<a href="${rootPath}customer/customer_joinCart?id=${m.id}">加入购物车</a><br>
 </c:forEach> 
-
+<h3>${addMeg}</h3>
 <a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
 <a href="${rootPath}customer/cart_getCart">购物车</a>
 <a href="">我的订单</a>

@@ -64,13 +64,16 @@ public class CustomerAction extends BaseAction {
 		String tableName=tablesService.get(tableId).getName();	
 		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());
 		if(shopCart==null){
-			shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());
-		
+			shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());		
 		}else{
-			
+			shopCart.setMenuNum(shopCart.getMenuNum());
 		}
-		Boolean bool=shopCartService.add(shopCart);
-		
+		Boolean bool=shopCartService.update(shopCart);
+		if(bool==true){
+			request.put("addMeg", "添加成功！");
+		}else{
+			request.put("addMeg", "添加失败！");
+		}
 		return "joinCart";
 	}
 	
