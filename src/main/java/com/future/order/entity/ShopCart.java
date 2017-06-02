@@ -31,11 +31,37 @@ public class ShopCart {
 	@Column(length=5)
 	private int menuNum;//该菜品数量
 	@Column(length=10)
-	private double price;//单价
-	@Column(length=5)
-	private int num;//数量（待定）
+	private double price;//单价	
 	@Column(length=255)
 	private String remark;//备注
+	
+	/**
+	 * 
+	 */
+	public ShopCart() {
+		super();
+	}
+	
+	/**
+	 * @param tableId
+	 * @param tableName
+	 * @param menuId
+	 * @param menuName
+	 * @param menuNum
+	 * @param price
+	 * @param num
+	 * @param remark
+	 */
+	public ShopCart(int tableId, String tableName, int menuId, String menuName, int menuNum, double price) {
+		super();
+		this.tableId = tableId;
+		this.tableName = tableName;
+		this.menuId = menuId;
+		this.menuName = menuName;
+		this.menuNum = menuNum;
+		this.price = price;
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -108,18 +134,7 @@ public class ShopCart {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	/**
-	 * @return the num
-	 */
-	public int getNum() {
-		return num;
-	}
-	/**
-	 * @param num the num to set
-	 */
-	public void setNum(int num) {
-		this.num = num;
-	}
+	
 	/**
 	 * @return the remark
 	 */
@@ -151,7 +166,7 @@ public class ShopCart {
 	@Override
 	public String toString() {
 		return "ShopCart [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", menuId=" + menuId
-				+ ", menuName=" + menuName + ", menuNum=" + menuNum + ", price=" + price + ", num=" + num + ", remark="
+				+ ", menuName=" + menuName + ", menuNum=" + menuNum + ", price=" + price + ", remark="
 				+ remark + "]";
 	}
 		

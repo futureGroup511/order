@@ -57,4 +57,40 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 	public boolean deleteAll(ShopCart shopcart) {
 		return deleteEntity(shopcart);//返回底层方法，底层中有与数据库连接的增删改查的方法。
 	}
+
+	/* 焦祥宇加
+	 */
+	@Override
+	public boolean update(ShopCart shopCart) {		
+		return this.updateEntity(shopCart);
+	}
+
+	
+	@Override
+	public List<ShopCart> getByTableId(int tableId) {
+		String hql="from ShopCart s where s.tableId="+tableId;
+		return this.getEntityList(hql);
+	}
+	
+	@Override
+	public ShopCart getByT_M_Id(int tableId, int menuId) {
+		String hql="from ShopCart s where s.tableId="+tableId+" and s.menuId="+menuId;
+		List<ShopCart> shopCarts=this.getEntityList(hql);
+		if(shopCarts.size()>0){
+			return (ShopCart)shopCarts.toArray()[0];
+		}
+		else{
+			return null;
+		}	
+	}
+
+	/* (non-Javadoc)
+	 * @see com.future.order.service.IShopCartService#add(com.future.order.entity.ShopCart)
+	 */
+	@Override
+	public boolean add(ShopCart shopCart) {
+		
+		return this.saveEntity(shopCart);
+	}
+	
 }

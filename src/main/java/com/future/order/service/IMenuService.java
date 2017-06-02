@@ -39,6 +39,9 @@ public interface IMenuService {
 	public boolean deleteMenu(Menu menu);
 	
 	//焦祥宇加
+	
 	//获得num条推荐菜品
 	public List<Menu> getRecommend(int num);
+	//根据菜品类型id获得菜品
+	public List<Menu> getByTypeId(int typeId);
 }

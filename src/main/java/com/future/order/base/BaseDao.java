@@ -51,7 +51,7 @@ public class BaseDao<T> {
 	}
 	//修改信息
 	protected final boolean updateEntity(T t){
-		this.getSession().update(t);
+		this.getSession().saveOrUpdate(t);
 		return true;
 	}
 	//删除对象
