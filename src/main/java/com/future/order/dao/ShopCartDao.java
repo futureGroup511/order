@@ -62,7 +62,7 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 	 */
 	@Override
 	public boolean update(ShopCart shopCart) {		
-		return this.saveEntity(shopCart);
+		return this.updateEntity(shopCart);
 	}
 
 	
@@ -83,4 +83,14 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 			return null;
 		}	
 	}
+
+	/* (non-Javadoc)
+	 * @see com.future.order.service.IShopCartService#add(com.future.order.entity.ShopCart)
+	 */
+	@Override
+	public boolean add(ShopCart shopCart) {
+		
+		return this.saveEntity(shopCart);
+	}
+	
 }

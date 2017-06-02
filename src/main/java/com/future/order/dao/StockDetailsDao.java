@@ -111,7 +111,7 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	 */
 	@Override
 	public List<StockDetails> getByIngId(int ingId,int num) {
-		String sql="select from tb_stockdetails s where s.ingId="+ingId+" limit "+num;
+		String sql="select * from tb_stockdetails s where s.ingId="+ingId+" limit "+num;
 		return this.executeSQLQuery(sql);
 	}
 
