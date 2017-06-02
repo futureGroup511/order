@@ -66,7 +66,7 @@ public class CustomerAction extends BaseAction {
 		if(shopCart==null){
 			shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());		
 		}else{
-			shopCart.setMenuNum(shopCart.getMenuNum());
+			shopCart.setMenuNum(shopCart.getMenuNum()+1);
 		}
 		Boolean bool=shopCartService.update(shopCart);
 		if(bool==true){
