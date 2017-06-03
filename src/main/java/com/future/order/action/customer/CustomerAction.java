@@ -60,8 +60,8 @@ public class CustomerAction extends BaseAction {
 	//加入购物车
 	public String joinCart() throws Exception {
 		Menu menu=menuService.get(id);
-		int tableId=(int) session.get("tableId");
-		String tableName=tablesService.get(tableId).getName();		
+		int tableId=(int) session.get("tableId");//从session中取出桌子编号
+		String tableName=tablesService.get(tableId).getName();//根据桌子编号获得桌子的名称		
 		ShopCart shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());
 		Boolean bool=shopCartService.add(shopCart);
 		
