@@ -6,10 +6,13 @@
  */  
 package com.future.order.service;
 
+
+import com.future.order.entity.Tables;
+
 /**
  * @author Administrator
  *
  */
 public interface ITablesService {
-
+	public Tables get(int id);
 }

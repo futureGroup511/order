@@ -13,6 +13,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Menu;
+import com.future.order.entity.MenuType;
 import com.future.order.util.PageCut;
 
 public class MenuManagerAction extends BaseAction {
@@ -32,12 +33,38 @@ public class MenuManagerAction extends BaseAction {
 		request.put("allMenu", pCut);
 		return SUCCESS;
 	}
-
-	// 查看菜品详情
-	public String toUpdateMenu() {
+	
+	public String addMenu() throws Exception{
+		String typeName=menu.getTypeName();
+		List<MenuType> list=(List<MenuType>) session.get("Typelist");
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getName().equals(typeName)){
+				menu.setTypeId(list.get(i).getId());
+			}
+		}
+		for (int i = 0; i < file.size(); i++) {
+			// 循环上传每个文件
+			uploadFile(i);
+		}
+		boolean boo = menuService.addMenu(menu);
+		if(boo){
+			request.put("addMsg", "添加成功");
+		} else {
+			request.put("addMsg", "添加失败！该菜已被添加过");
+		}
+		return "addMenu";
+	}
+	
+	//查看菜品详情
+	public String toUpdateMenu(){
 		int id = menu.getId();
-		System.out.println(id + "id");
 		Menu menu = menuService.get(id);
+		List<MenuType> list = (List<MenuType>) session.get("Typelist");
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).equals(menu.getTypeName())){
+				request.put("select", i);
+			}
+		}
 		request.put("updateMenu", menu);
 		return "toUpdateMenu";
 	}
@@ -57,7 +84,12 @@ public class MenuManagerAction extends BaseAction {
 
 	// 删除菜品
 	public String deleteMenu() {
+		String imgPath = ServletActionContext.getRequest().getRealPath("uploadImg")+"/"+menu.getImgUrl();
 		boolean boo = menuService.deleteMenu(menu);
+		File imgFile = new File(imgPath);
+		if(imgFile.exists()){
+			imgFile.delete(); 		//删除该记录时删除对应的图片
+		}
 		if (boo) {
 			request.put("deleteMenuMsg", "删除成功");
 		} else {
@@ -66,21 +98,6 @@ public class MenuManagerAction extends BaseAction {
 		PageCut<Menu> pCut = menuService.getPageCut(page, 3);
 		request.put("allMenu", pCut);
 		return "deleteUser";
-	}
-
-	// 上传图片
-	public String addMenu() throws Exception {
-		for (int i = 0; i < file.size(); i++) {
-			// 循环上传每个文件
-			uploadFile(i);
-		}
-		 boolean boo = menuService.addMenu(menu);
-		 if(boo){
-			 request.put("addMsg", "添加成功");
-		 } else {
-			 request.put("addMsg", "添加失败！该菜已被添加过");
-		 }
-		return "addMenu";
 	}
 
 	// 执行上传功能

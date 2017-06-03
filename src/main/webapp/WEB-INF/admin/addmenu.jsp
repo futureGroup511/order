@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +18,11 @@
 			 	</tr>
 			 	<tr>
 			 		<td>类型名称：</td>
-			 		<td><input type="text" name="menu.typeName"></td>
+					<td><select name="menu.typeName">
+						 <c:forEach items="${Typelist}" var="item"> 
+	           				<option value="${item.name}">${item.name}</option>
+        				</c:forEach>
+					</select><td>
 			 	</tr>
 			 	<tr>
 			 		<td>价格：</td>
@@ -42,7 +47,7 @@
 			 	</tr>
 			 	<tr>
 			 		<td>示例图片</td>
-			 		<td><input type="file" name="file" accept="image/*"></td>
+			 		<td><input type="file" name="file" accept="image/*" value="选择图片"></td>
 			 	</tr>
 			 	<tr>
 			 		<td><input type="submit" value="添加"></td>

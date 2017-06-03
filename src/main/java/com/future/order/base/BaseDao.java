@@ -51,7 +51,7 @@ public class BaseDao<T> {
 	}
 	//修改信息
 	protected final boolean updateEntity(T t){
-		this.getSession().update(t);
+		this.getSession().saveOrUpdate(t);
 		return true;
 	}
 	//删除对象
@@ -96,6 +96,17 @@ public class BaseDao<T> {
 	}
 	//执行返回列表的sql查询语句
 	protected final List executeSQLQuery(Class clazz,String sql, Object ...objects){
+		SQLQuery sQuery = sessionFactory.getCurrentSession().createSQLQuery(sql);
+		if(clazz!=null){//这样可以直接的将投影查询之后可以将数组包装成实体类型的数据格式
+			sQuery.addEntity(clazz);
+		}
+		for(int i=0;i<objects.length;i++){
+			sQuery.setParameter(i, objects[i]);
+		}
+		return sQuery.list();
+	}
+	@SuppressWarnings("unchecked")
+	protected final List<T> executeSQLQuery(String sql, Object ...objects){
 		SQLQuery sQuery = sessionFactory.getCurrentSession().createSQLQuery(sql);
 		if(clazz!=null){//这样可以直接的将投影查询之后可以将数组包装成实体类型的数据格式
 			sQuery.addEntity(clazz);

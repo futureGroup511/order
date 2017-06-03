@@ -14,13 +14,6 @@
 		<action name="manager">
 			<result>/WEB-INF/admin/index.jsp</result>
 		</action>
-		
-		<action name="test">
-			<result>/WEB-INF/admin/NewFile.jsp</result>
-		</action>
-		<action name="Test_*" method="{1}" class="com.future.order.action.manager.Test">
-			<result>/WEB-INF/admin/NewFile.jsp</result>
-		</action>
 
 		<action name="loginAction" class="com.future.order.action.LoginAction">
 			<result name="manager">/WEB-INF/admin/index.jsp</result>

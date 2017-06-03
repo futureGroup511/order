@@ -14,7 +14,7 @@
 		<table>
 			<c:forEach items="${allMenu.data}" var="data"> 
 				<tr>
-					<td><img alt="加载中" src="${rootPath}uploadImg/${data.imgUrl}" height="20" width="50px"></td>
+					<td><img alt="加载中" src="${rootPath}uploadImg/${data.imgUrl}" height="50px" width="70px"></td>
 				</tr>
 				<tr>
 					<td><a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a></td>
