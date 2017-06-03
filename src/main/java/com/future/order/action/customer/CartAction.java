@@ -24,9 +24,11 @@ public class CartAction extends BaseAction{
 	
 	//获得购物车菜品
 	public String getCart() throws Exception{
+		System.out.println("**************");
 		int tableId=(int) session.get("userId");
 		List<ShopCart> shopCarts=shopCartService.getByTableId(tableId);
 		request.put("shopCarts", shopCarts);
+		System.out.println(shopCarts);
 		return "getCart";
 	}
 	
