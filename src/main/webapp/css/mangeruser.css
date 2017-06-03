@@ -1,0 +1,30 @@
+*{margin: 0;padding: 0}
+body{width: 100%}
+a{
+    text-decoration: none;
+}
+table{
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 90%;
+    text-align: center;
+}
+thead td{
+    font-size:1.2vw; 
+    font-weight: bold;
+    height: 40px;
+    border: 1px solid #c6c6c6;
+    background-color: #e8e7e3;
+    
+}
+tbody td{
+    border-right: 1px solid #c6c6c6;
+    border-left: 1px solid #c6c6c6;
+    border-bottom: 1px solid #c6c6c6;
+    background-color: #fefefe;
+    height: 35px;
+}
+.page{
+    margin-left: 45%;
+    width: 20%;
+}  

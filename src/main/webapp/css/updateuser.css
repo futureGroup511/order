@@ -1,0 +1,29 @@
+*{margin:0;padding: 0; }
+body{width: 100%;}
+.text{
+    font-weight:bold; 
+    margin-top:2%; 
+    font-size:1.2vw; 
+    padding-left: 5%;
+    line-height: 40px;
+    vertical-align: middle;
+}
+input{
+  width: 15%;
+   height:20px; 
+   margin-right: 50px;
+   vertical-align: middle     
+}
+ 
+select{
+  width: 7%
+}
+.button input{
+    color: white;
+    width: 5%;
+    font-size: 0.5vw;
+    background: #1bafe0;
+    margin-left: 10%;
+    margin-top: 20px;
+    box-shadow: 2px 1px 1px rgba(50,154,242)
+}

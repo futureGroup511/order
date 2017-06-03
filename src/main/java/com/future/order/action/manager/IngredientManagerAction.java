@@ -46,8 +46,8 @@ public class IngredientManagerAction extends BaseAction {
 		} else {
 			request.put("updateIngredientMsg", "修改失败");
 		}
-		List<Ingredient> list = ingerdientService.getAll();
-		request.put("allIngredient", list);
+		PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,3);
+		request.put("allIngredient", pCut);
 		return "updateIngredient";
 	}
 	//删除配料
