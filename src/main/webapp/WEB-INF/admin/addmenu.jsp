@@ -9,15 +9,11 @@
 <body>
 	<center>
 		${addMsg}
-		<form action="${rootPath}manage/MenuManager_addMenu" method="post">
+		<form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
 			 <table>
 			 	<tr>
 			 		<td>菜名：</td>
 			 		<td><input type="text" name="menu.name"></td>
-			 	</tr>
-			 	<tr>
-			 		<td>类型id：</td>
-			 		<td><input type="text" name="menu.typeId"></td>
 			 	</tr>
 			 	<tr>
 			 		<td>类型名称：</td>
@@ -43,6 +39,10 @@
 			 	<tr>
 			 		<td>简介：</td>
 			 		<td><textarea rows="10" cols="40" name="menu.introduce"></textarea></td>
+			 	</tr>
+			 	<tr>
+			 		<td>示例图片</td>
+			 		<td><input type="file" name="file" accept="image/*"></td>
 			 	</tr>
 			 	<tr>
 			 		<td><input type="submit" value="添加"></td>
