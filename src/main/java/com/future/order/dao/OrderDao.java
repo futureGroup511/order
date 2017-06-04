@@ -14,12 +14,13 @@ import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
 
 import com.future.order.entity.Ingredient;
-
+import com.future.order.entity.Menu;
 import com.future.order.entity.Order;
+import com.future.order.entity.OrderDetails;
 import com.future.order.service.IOrderService;
 import com.future.order.util.PageCut;
 
-import ognl.OgnlContext;
+
 
 @Service
 public class OrderDao extends BaseDao<Order> implements IOrderService {
@@ -73,7 +74,24 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		}
 		return sign;
 	}
-
+//wqj
+	@Override
+	public boolean updetemenu(int id){
+		Order order = this.getEntity(id);
+		String status="已处理";
+		order.setStatus(status);
+		boolean menus = this.updateEntity(order);
+		return true;
+	}
+	@Override
+	public List<Order> finish(){
+		List<Order> list = new ArrayList<Order>();
+		 String status="已付款";
+		String hql="from Order o where o.status='"+status+"'";
+		list=this.getEntityList(hql);
+		return list;
+	}
+	
 	@Override
 	public Order CheckById(int id) {
 		@SuppressWarnings("unused")

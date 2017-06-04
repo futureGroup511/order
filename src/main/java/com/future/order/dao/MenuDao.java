@@ -12,10 +12,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Menu;
+import com.future.order.entity.OrderDetails;
 import com.future.order.service.IMenuService;
 import com.future.order.util.PageCut;
 
@@ -43,17 +45,26 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	@Override
 	public List<Menu> unfinish(){
 		List<Menu> list = new ArrayList<Menu>();
-		 int exist=1;
+		 int exist=0;
 		String hql="from Menu m where m.exist='"+exist+"'";
 		list=this.getEntityList(hql);
 		return list;
 	}
 	@Override
-	public Menu get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Menu> CheckDetails(int id) {//根据订单id查询所有该菜单的详细信息
+		@SuppressWarnings("unused")
+		List<Menu> list = new ArrayList<Menu>();
+		try{
+			String hql="from Menu m where m.id='"+id+"'";
+			list=this.getEntityList(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(list);
+		return list;
 	}
-
+	
+		
 
 	@Override
 	public List<Menu> ByName(String typeName) {
@@ -71,6 +82,7 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		String hql="from Menu m where m.typeName='"+typeName+"'";		
 		return this.getEntityList(hql);
 	}
+	
 
 
 	@Override
@@ -93,8 +105,7 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		pc.setData(this.getEntityLimitList("from Menu", (curr-1)*pageSize, pageSize));
 		return pc;
 	}
-
-
+	
 	@Override
 	public boolean updateUser(Menu menu) {
 		return this.updateEntity(menu);
@@ -134,5 +145,15 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	public List<Menu> getRecommend(int num) {
 		String sql="select * from tb_menu order by num desc limt "+num;
 		return this.executeSQLQuery(sql);
+	}
+	@Override
+	public Menu get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean updatemenu(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

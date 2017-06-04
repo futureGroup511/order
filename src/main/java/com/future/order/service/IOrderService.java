@@ -25,4 +25,6 @@ public interface IOrderService {
 	public PageCut<Order> getPageCut(int currentPage, int pageSize);
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize);
 	public PageCut<Order> getPage(int currentPage, int pageSize);
+	public boolean updetemenu(int id);//wqj
+	public List<Order> finish();
 }
