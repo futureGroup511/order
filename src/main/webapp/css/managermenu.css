@@ -1,0 +1,16 @@
+*{margin: 0;padding: 0}
+body{width: 100%}
+p{
+    font-weight: bold;
+    font-size: 1vw;
+    margin-left: 1%;
+    width: 10%;
+    text-align: left;
+}
+.photowall{
+    line-height: 20px
+}
+.page{
+    margin-left: 45%;
+    width: 20%;
+} 

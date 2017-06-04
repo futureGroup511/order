@@ -8,6 +8,7 @@
 package com.future.order.dao;
 
 import java.io.UnsupportedEncodingException;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,10 @@ import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
+
+
+
+
 import com.future.order.entity.Menu;
 import com.future.order.entity.OrderDetails;
 import com.future.order.service.IMenuService;
@@ -62,6 +67,11 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		}
 		System.out.println(list);
 		return list;
+	}
+	public Menu get(int id) {
+		String hql="from Menu m where m.id='"+id+"'";
+		Menu menu=(Menu) this.uniqueResult(hql);
+		return menu;
 	}
 	
 		
@@ -139,17 +149,17 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		
 		return flag;
 	}
-	/* jxy
+	/* 一下方法焦祥宇加
 	 */
 	@Override
 	public List<Menu> getRecommend(int num) {
-		String sql="select * from tb_menu order by num desc limt "+num;
+		String sql="select * from tb_menu order by num desc limit "+num;
 		return this.executeSQLQuery(sql);
 	}
 	@Override
-	public Menu get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Menu> getByTypeId(int typeId) {
+		String hql ="from Menu m where m.typeId="+typeId+" order by m.id desc";
+		return this.getEntityList(hql);
 	}
 	@Override
 	public boolean updatemenu(int id) {

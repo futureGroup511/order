@@ -27,6 +27,8 @@ public interface IMenuService {
 	List<Menu> unfinish();
 
 	public Menu get(int id);//金高用
+	
+	
 	public List<Menu> ByName(String typeName);
 
 
@@ -46,4 +48,5 @@ public interface IMenuService {
 	public List<Menu> CheckDetails(int id);
 
 	public boolean updatemenu(int id);
+	public List<Menu> getByTypeId(int id);
 }

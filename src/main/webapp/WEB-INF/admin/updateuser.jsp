@@ -6,43 +6,70 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/updateuser.css">
 </head>
 <body>
-	<center>
-	${updateUserMsg}
-	<form action="${rootPath}manage/UserManager_updateUser?user.id=${updateUser.id}" method="post">
-		<table>
-			<tr>	
-				<td>账号：</td>
-				<td><input type="text" name="user.phone" value="${updateUser.phone}"></td>
-			</tr>
-			<tr>
-				<td>密码：</td>
-				<td><input type="text" name="user.password" value="${updateUser.password}"></td>
-			</tr>
-			<tr>
-				<td>姓名：</td>
+<center>
+${updateUserMsg}
+ <div class="updateuser">
+       <div class="text">
+          <form action="${rootPath}manage/UserManager_updateUser?user.id=${updateUser.id}" method="post">
+              <lable >账&nbsp;&nbsp;&nbsp;&nbsp;号：</lable>
+              <input type="text" placeholder="请输入正确账号" name="user.phone" value="${updateUser.phone}" ><br>
+               <lable>密&nbsp;&nbsp;&nbsp;&nbsp;码：</lable>
+              <input type="text" placeholder="请输入密码" name="user.password" value="${updateUser.password}"><br>
+              <lable>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</lable>
+              <input type="text" placeholder="请输入姓名" name="user.name" value="${updateUser.name}"><br>
+              <lable>注册时间：</lable>
+              <input type="text" placeholder="请输入时间" class="time" name="user.createDate" value="${updateUser.createDate}" readonly="readonly"><br>
+                                  身&nbsp;&nbsp;&nbsp;&nbsp;份:&nbsp;
+	          <select name="user.sort"> 
+				<option value="cook" <c:if test='${updateUser.sort eq "cook"}'>selected="selected"</c:if>>cook</option>
+	 		  	<option value="manager" <c:if test='${updateUser.sort eq "manager"}'>selected="selected"</c:if>>manager</option>
+	 		  </select> 
+                    
+       </div>
+       <div class="button">
+          <input type="submit" value="确认修改" >   
+       </div>        
+    </div>
+     </form>
+    </center>
+<%-- 	<center> --%>
+<%-- 	${updateUserMsg} --%>
+<%-- 	<form action="${rootPath}manage/UserManager_updateUser?user.id=${updateUser.id}" method="post"> --%>
+<!-- 		<table> -->
+<!-- 			<tr>	 -->
+<!-- 				<td>账号：</td> -->
+<%-- 				<td><input type="text" name="user.phone" value="${updateUser.phone}"></td> --%>
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td>密码：</td> -->
+<%-- 				<td><input type="text" name="user.password" value="${updateUser.password}"></td> --%>
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td>姓名：</td> -->
 				
-				<td><input type="text" name="user.name" value="${updateUser.name}"></td>
-			</tr>
-			<tr>
-				<td>注册时间：</td>
-				<td><input type="text" name="user.createDate" value="${updateUser.createDate}" readonly="readonly"></td>
-			</tr>
-			<tr>
-				<td>身份：</td>
-				<td>
-					<select name="user.sort">
-						<option value="cook" <c:if test='${updateUser.sort eq "cook"}'>selected="selected"</c:if>>cook</option>
-						<option value="manager" <c:if test='${updateUser.sort eq "manager"}'>selected="selected"</c:if>>manager</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="修改"></td>
-			</tr>
-		</table>
-	</form>
-	</center>
+<%-- 				<td><input type="text" name="user.name" value="${updateUser.name}"></td> --%>
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td>注册时间：</td> -->
+<%-- 				<td><input type="text" name="user.createDate" value="${updateUser.createDate}" readonly="readonly"></td> --%>
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td>身份：</td> -->
+<!-- 				<td> -->
+<!-- 					<select name="user.sort"> -->
+<%-- 						<option value="cook" <c:if test='${updateUser.sort eq "cook"}'>selected="selected"</c:if>>cook</option> --%>
+<%-- 						<option value="manager" <c:if test='${updateUser.sort eq "manager"}'>selected="selected"</c:if>>manager</option> --%>
+<!-- 					</select> -->
+<!-- 				</td> -->
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td><input type="submit" value="修改"></td> -->
+<!-- 			</tr> -->
+<!-- 		</table> -->
+<!-- 	</form> -->
+<%-- 	</center> --%>
 </body>
 </html>

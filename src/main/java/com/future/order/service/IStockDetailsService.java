@@ -33,4 +33,8 @@ public interface IStockDetailsService {
 	public StockDetails CheckById(int stocksid);
 
 	public boolean Updatestocks(StockDetails details);
+	
+	//焦祥宇加
+	//根据配料id获得进货详情
+	public List<StockDetails> getByIngId(int ingId,int num);
 }

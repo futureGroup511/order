@@ -32,7 +32,6 @@ public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService 
 		}
 		return list;
 	}
-
 	/*@Override
 	public List<MenuType> ByName(String typeName) {
 		System.out.println(typeName);
