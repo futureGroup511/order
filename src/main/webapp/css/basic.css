@@ -3,7 +3,7 @@
     BASIC  STYLES    
     =============================================*/
 body {
-    font-family: 'Open Sans', sans-serif;
+    
     line-height:25px;
 }
 /*顶部*/
@@ -23,7 +23,7 @@ body {
   font-family: 楷体;
   position: absolute;
   top: 47px;
-  left: 20%;
+  left: 37%;
   color: white;
 }
   #ifr{
@@ -53,6 +53,7 @@ body {
     content: "\f107";
 }
  .sidebar-collapse{
+      font-size:1vw;
       border: 0px solid black;
       width: 13%;
       margin-left:-15px; 
@@ -86,21 +87,18 @@ body {
     border-bottom: 1px solid #2F2E31;
 }
 .nav-second-level > li > a{
-    background-color: #40e1e7;
+    background-color: #9eebfd;
 }
  .sidebar-collapse > .nav > li > a {
         padding: 15px 10px;
     }
-}
-}
-}
+
 .sidebar-collapse .nav > li > a:hover{
 
-        background: #2e6fbd;
+        background: #208FDE;
         outline: 0;
     }
 
- 
  ul>li>a>span{
       margin-right: 8px;
      }
