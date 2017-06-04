@@ -18,11 +18,12 @@
 	<details>
 		<summary>订单中心</summary>
 		<a href="${rootPath}cook/orderCenter_checkorder">查看所有订单</a><br>
-		<a href="${rootPath}cook/orderCenter_finishd">已完成订单</a><br>
+		<a href="${rootPath}cook/orderCenter_finish">已完成订单</a><br>
 		<a href="${rootPath}cook/orderCenter_unfinishd">未完成订单</a><br>
+		<a href="${rootPath}cook/orderCenter_unmenu">所有未完成菜品</a><br>
 	</details>
 	<details>
-		<summary><a href="${rootPath}cook/Cookdetail_updateUser"">退出登录</a></summary>
+		<summary><a href="index.jsp">退出登录</a></summary>
 	</details>
 	</div>
 	<div style="width:90%;float: right">

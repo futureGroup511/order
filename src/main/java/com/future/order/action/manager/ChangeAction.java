@@ -25,9 +25,6 @@ public class ChangeAction extends BaseAction{
 	}
 	//菜品模块中转站
 	public String addMenu(){
-		List<MenuType> list=menuTypeService.getAllMenuType();
-		System.out.println(list);
-		session.put("Typelist",list);
 		return "addMenu";
 	}
 	//获得个人资料

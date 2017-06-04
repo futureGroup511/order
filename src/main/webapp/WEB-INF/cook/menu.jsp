@@ -14,8 +14,8 @@
 				<td colspan="11" align="center">订单信息</td>
 	</tr>
 	<tr>
-	  	<th>id</th>
-         <th>餐桌id</th>
+	  	 <th>id</th>
+         <th>餐桌Id</th>
          <th>餐桌名称</th>
          <th>订单ID</th>
          <th>菜品ID</th>
@@ -23,13 +23,11 @@
          <th>菜品数量</th>
          <th>菜品状态</th>
          <th>下单时间</th>
-         <th>厨师ID</th>
-         <th>厨师名称</th>
-         <td>备注</td>
-         <th>操作</th>
+         <td>厨师ID</td>
+         <td>厨师名称</td>
          
 	</tr>
-	<c:forEach items="${menu}" var="item">
+		<c:forEach items="${menu}" var="item">
 	            <tr>  
 	                <td>${item.id}</td>
 	                <td>${item.tableId}</td>
@@ -39,13 +37,15 @@
 	                <td>${item.menuName}</td>
 	                <td>${item.menuNum}</td>
 	                <td>${item.status}</td>
+	                <%-- <td>
+	                	<c:if test="${item.exist eq '1'}">完成</c:if>
+	                	<c:if test="${item.exist eq '0'}">未完成</c:if>
+	                </td> --%>
 	                <td>${item.creatDate}</td>
 	                <td>${item.cookId}</td>
-	                <td>${item.cookName}</td>
-	                <td>${item.remark}</td>
-	                <td><a href="${rootPath}cook/orderCenter_domenu?orderId=${items.id}">完成</a></td>
-	            </tr>
-	            </c:forEach>  
+	                 <td>${item.cookName}</td>
+	            </tr> 
+	            </c:forEach> 
 	</table>
 </body>
 </html>

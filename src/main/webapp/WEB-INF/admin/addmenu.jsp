@@ -9,10 +9,9 @@
 <link rel="stylesheet" type="text/css" href="../css/addmenu.css">
 </head>
 <body>
-<center>
  <div class="addmenu">
  <h4>${addMsg}</h4>
-   <form action="${rootPath}manage/MenuManager_addMenu" method="post">
+   <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
      <lable>菜名：</lable><input type="text" name="menu.name"><br>
      <lable>类型名称：</lable>
      <select name="menu.typeName"> 
@@ -29,6 +28,8 @@
      </select><br>
      <label>简介：</label>
      <textarea rows="10" cols="30" name="menu.introduce"></textarea>
+     <label>示例图片：</label>
+     <input type="file" name="file" accept="image/*" value="选择图片">
       <div class="button">
         <input type="submit" value="添加">          
       </div>
