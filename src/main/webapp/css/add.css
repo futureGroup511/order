@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding: 0
+}
+.add{
+    width: 100%;
+    font-size:1em; 
+}
+.text{
+  line-height: 170%
+}
+form input{
+    height: 24px;
+    width: 10%
+}
+select{
+    margin-top: 1%;
+    font-size: 0.9vw
+}
+.submit{
+    margin-top: 2%;
+    margin-left: 2%
+}
+.submit input{
+    background-color: rgba(243,16,69,.8);
+    color: black;
+    font-size: bold;
+    border: 1px red solid;
+    box-shadow: 1px 1px 1px 1px black
+}

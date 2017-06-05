@@ -6,65 +6,90 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/updatedetails.css">
 </head>
 <body>
-	<form action="${rootPath}manage/OrderDetailsAction_Update" method="post"> 
-	<center>
-	<tr>
-		<td>id:</td>
-		<td><input name="details.id" value="${ordernews.id}" type="text" readonly="readonly"></td>
-	</tr>
-	<tr>
-		<td>餐桌id:</td>
-		<td><input name="details.tableId" value="${ordernews.tableId}" type="text"><br></td>
-		</tr>
-	<tr>
-		<td>餐桌名称:</td>
-		<td><input name="details.tableName" value="${ordernews.tableName}" type="text"></td>
-	</tr>
-	<tr>
-		<td>订单id:</td>
-		<td> <input name="details.orderId" value="${ordernews.orderId}" type="text" readonly="readonly"><br></td>
-	</tr>
-	<tr>
-		<td> 菜品id:</td>
-		<td><input name="details.menuId" value="${ordernews.menuId}" type="text"></td>
-	</tr>
-	<tr>
-		<td>菜品名称:</td>
-		<td><input name="details.menuName" value="${ordernews.menuName}" type="text"><br></td>
-	</tr>
-	<tr>
-		<td>数量:</td>
-		<td><input name="details.menuNum" value="${ordernews.menuNum}" type="text" readonly="readonly"></td>
-	</tr>
-	<tr>
-		<td>菜品状态:</td>
-<%-- 		<td><input name="details.status" value="${ordernews.status}" type="text" readonly="readonly"><br></td> --%>
-		<select name="details.status">
-			<option value="未完成" <c:if test='${ordernews.status eq "未完成"}'> selected="selected"</c:if>>未完成</option>
-			<option value="已处理" <c:if test='${ordernews.status eq "已处理"}'> selected="selected"</c:if>>已处理</option>
-			<option value="已完成" <c:if test='${ordernews.status eq "已完成"}'> selected="selected"</c:if>>已完成</option>
-		</select><br>
-	</tr>
-	<tr>
-		<td>订单时间:</td>
-		<td><input name="details.creatDate" value="${ordernews.creatDate}" type="text" readonly="readonly"></td>
-	</tr>
-	<tr>
-		<td>厨师id:</td>
-		<td><input name="details.cookId" value="${ordernews.cookId}" type="text"><br></td>
-	</tr>
-	<tr>
-		<td>厨师姓名:</td>
-		<td> <input name="details.cookName" value="${ordernews.cookName}" type="text"></td>
-	</tr>
-	<tr>
-		<td>备注:</td>
-		<td> <input name="details.remark" value="${ordernews.remark}" type="text"><br></td>
-	</tr>
-	         <button type="submit" value="修改">修改</button>
-	</center>
-	</form>
+<div class="updatedetails">
+    <form action="${rootPath}manage/OrderDetailsAction_Update" method="post">
+        <lable id="text">id:</lable><input name="details.id" value="${ordernews.id}" type="text" readonly="readonly">
+        <lable id="text">餐桌id:</lable><input name="details.tableId" value="${ordernews.tableId}" type="text"><br>
+        <lable id="text">餐桌名称:</lable><input name="details.tableName" value="${ordernews.tableName}" type="text">
+        <lable id="text">订单id:</lable><input name="details.orderId" value="${ordernews.orderId}" type="text" readonly="readonly"><br>
+        <lable id="text">菜品id:</lable><input name="details.menuId" value="${ordernews.menuId}" type="text">
+        <lable id="text">菜品名称:</lable><input name="details.menuName" value="${ordernews.menuName}" type="text"><br>
+        <lable id="text">数量:</lable><input name="details.menuNum" value="${ordernews.menuNum}" type="text">
+        <lable id="text">状态:</lable>
+       <select name="details.status">
+            <option value="未完成" <c:if test='${ordernews.status eq "未完成"}'> selected="selected"</c:if>>未完成</option>
+            <option value="已处理" <c:if test='${ordernews.status eq "已处理"}'> selected="selected"</c:if>>已处理</option>
+            <option value="已完成" <c:if test='${ordernews.status eq "已完成"}'> selected="selected"</c:if>>已完成</option>
+        </select><br>
+        <lable id="text">订单时间:</lable><input name="details.creatDate" value="${ordernews.creatDate}" type="text" readonly="readonly">
+        <lable id="text">厨师id:</lable><input name="details.cookId" value="${ordernews.cookId}" type="text"><br>
+        <lable id="text">厨师姓名:</lable><input name="details.cookName" value="${ordernews.cookName}" type="text">
+        <lable id="text">备注:</lable><input name="details.remark" value="${ordernews.remark}" type="text"> 
+    <div class="button">
+      <input type="submit" value="修改">        
+    </div>
+   </form>     
+  </div>  
+<%-- 	<form action="${rootPath}manage/OrderDetailsAction_Update" method="post">  --%>
+<%-- 	<center> --%>
+<!-- 	<tr> -->
+<!-- 		<td>id:</td> -->
+<%-- 		<td><input name="details.id" value="${ordernews.id}" type="text" readonly="readonly"></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>餐桌id:</td> -->
+<%-- 		<td><input name="details.tableId" value="${ordernews.tableId}" type="text"><br></td> --%>
+<!-- 		</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>餐桌名称:</td> -->
+<%-- 		<td><input name="details.tableName" value="${ordernews.tableName}" type="text"></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>订单id:</td> -->
+<%-- 		<td> <input name="details.orderId" value="${ordernews.orderId}" type="text" readonly="readonly"><br></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td> 菜品id:</td> -->
+<%-- 		<td><input name="details.menuId" value="${ordernews.menuId}" type="text"></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>菜品名称:</td> -->
+<%-- 		<td><input name="details.menuName" value="${ordernews.menuName}" type="text"><br></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>数量:</td> -->
+<%-- 		<td><input name="details.menuNum" value="${ordernews.menuNum}" type="text" readonly="readonly"></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>菜品状态:</td> -->
+<%-- <%-- 		<td><input name="details.status" value="${ordernews.status}" type="text" readonly="readonly"><br></td> --%> --%>
+<!-- 		<select name="details.status"> -->
+<%-- 			<option value="未完成" <c:if test='${ordernews.status eq "未完成"}'> selected="selected"</c:if>>未完成</option> --%>
+<%-- 			<option value="已处理" <c:if test='${ordernews.status eq "已处理"}'> selected="selected"</c:if>>已处理</option> --%>
+<%-- 			<option value="已完成" <c:if test='${ordernews.status eq "已完成"}'> selected="selected"</c:if>>已完成</option> --%>
+<!-- 		</select><br> -->
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>订单时间:</td> -->
+<%-- 		<td><input name="details.creatDate" value="${ordernews.creatDate}" type="text" readonly="readonly"></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>厨师id:</td> -->
+<%-- 		<td><input name="details.cookId" value="${ordernews.cookId}" type="text"><br></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>厨师姓名:</td> -->
+<%-- 		<td> <input name="details.cookName" value="${ordernews.cookName}" type="text"></td> --%>
+<!-- 	</tr> -->
+<!-- 	<tr> -->
+<!-- 		<td>备注:</td> -->
+<%-- 		<td> <input name="details.remark" value="${ordernews.remark}" type="text"><br></td> --%>
+<!-- 	</tr> -->
+<!-- 	         <button type="submit" value="修改">修改</button> -->
+<%-- 	</center> --%>
+<!-- 	</form> -->
 </body>
 </html>

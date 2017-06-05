@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="../css/mangeruser.css">
-    <link href="../css/bootstrap1.css" rel="stylesheet" />
+    <link href="../css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 <center>

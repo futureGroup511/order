@@ -11,6 +11,7 @@ import java.util.List;
 
 
 import com.future.order.entity.Menu;
+import com.future.order.entity.OrderDetails;
 import com.future.order.util.PageCut;
 
 /**
@@ -44,5 +45,8 @@ public interface IMenuService {
 	//获得num条推荐菜品
 	public List<Menu> getRecommend(int num);
 
+	public List<Menu> CheckDetails(int id);
+
+	public boolean updatemenu(int id);
 	public List<Menu> getByTypeId(int id);
 }

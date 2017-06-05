@@ -3,7 +3,6 @@
     BASIC  STYLES    
     =============================================*/
 body {
-    font-family: 'Open Sans', sans-serif;
     line-height:25px;
 }
 /*顶部*/
@@ -18,14 +17,23 @@ body {
    height: 150px;
    max-width: 100%
 }
-.header span{
+.span1{
   font-size: 4vw;
   font-family: 楷体;
   position: absolute;
   top: 47px;
-  left: 20%;
+  left: 30%;
   color: white;
 }
+.span2{
+  font-size: 1.5vw;
+  font-family: 楷体;
+  position: absolute;
+  top: 80px;
+  left: 70%;
+  color:white;
+}
+
   #ifr{
     border: none;
       width: 87%;
@@ -34,6 +42,7 @@ body {
       top: 125px;
       left:13%;
 }
+
 
 .container{
     margin: 0 auto;
@@ -53,11 +62,13 @@ body {
     content: "\f107";
 }
  .sidebar-collapse{
+      overflow: hidden;
       border: 0px solid black;
       width: 13%;
       margin-left:-15px; 
+      font-size: 0.9vw;
       height: 600px;
-      background-color: #75c7ed;
+      background-color: #005dfa;
 }
  .sidebar-collapse span{
   margin-left: 2%
@@ -68,8 +79,9 @@ body {
 }
 
 .nav-second-level li a {
+
      font-weight: bold;
-    padding-left: 30px;
+    padding-left: 20px;
  }
 .nav-second-level li:hover{
     
@@ -86,17 +98,15 @@ body {
     border-bottom: 1px solid #2F2E31;
 }
 .nav-second-level > li > a{
-    background-color: #40e1e7;
+    background-color: #48acfb;
 }
  .sidebar-collapse > .nav > li > a {
         padding: 15px 10px;
     }
-}
-}
-}
+
 .sidebar-collapse .nav > li > a:hover{
 
-        background: #2e6fbd;
+        background: blue;
         outline: 0;
     }
 

@@ -14,7 +14,6 @@
 				<td colspan="11" align="center">订单信息</td>
 	</tr>
 	<tr>
-
 	  	 <th>id</th>
          <th>餐桌id</th>
          <th>餐桌名称</th>
@@ -28,11 +27,10 @@
          <th>厨师名称</th>
          <td>备注</td>
          <th>操作</th>
-         
 	</tr>
        	 <c:forEach items="${orderdetail}" var="item"> 
 	            <tr>  
-	                <td><intput >${item.id}</td>
+	                <td>${item.id}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
 	                <td>${item.orderId}</td>
@@ -48,5 +46,29 @@
 	            </tr>  
         	</c:forEach>
 	</table>
+<%-- 	<ul class="pagination">
+						<li><a
+							href="${rootPath}manage/OrderDetailsAction?p                               wwage=${detailspc.prePage}">上一页</a></li>
+						<c:if test="${1 < detailspc.currentPage -3}">
+							<li><a href="#">1</a></li>
+						</c:if>
+
+						<c:forEach var="i"
+							begin="${detailspc.currentPage-3>0?detailspc.currentPage-3:1 }"
+							end="${detailspc.currentPage+3>detailspc.pageNum?detailspc.pageNum:detailspc.currentPage+3  }">
+							<c:choose>
+								<c:when test="${i>0 && i == detailspc.currentPage }">
+									<li class="active"><a
+										href="${rootPath}manage/OrderDetailsAction?page=${i}">${i}</a></li>
+								</c:when>
+
+								<c:when test="${i>0 && i != postPS.currentPage }">
+									<li><a href="${rootPath}manage/OrderDetailsAction?page=${i }">${i}</a></li>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+						<li><a
+							href="${rootPath}manage/OrderDetailsAction?page=${detailspc.nextPage}">下一页</a></li>
+					</ul> --%>
 </body>
 </html>

@@ -21,6 +21,9 @@
 		<result name="allOrder">/WEB-INF/cook/ordercenter.jsp</result>
 		<result name="orderdetail">/WEB-INF/cook/orderdetail.jsp</result>
 		<result name="menu">/WEB-INF/cook/doorder.jsp</result>
+		<result name ="update">/WEB-INF/cook/menu.jsp</result>
+		<result name="unmenu">/WEB-INF/cook/menu.jsp</result>
+		<result name="finish">/WEB-INF/cook/ordercenter.jsp</result>
 		</action>
 	</package>
 </struts>

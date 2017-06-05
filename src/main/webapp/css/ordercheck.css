@@ -1,0 +1,41 @@
+ *{margin: 0;padding: 0}
+ a{
+    text-decoration: none;
+ }
+ body{width: 100%}
+ h4{
+    text-align: center;
+    margin-top:1%;
+    font-size: 1.3vw 
+}
+.button{
+    margin-left:1%;
+    font-size: 0.5vw 
+}
+ table{
+    margin-top: 1%;
+    margin-left: 5%;  
+    width: 90%;
+    text-align: center;
+}
+thead td{
+    font-weight: bold;
+    height: 40px;
+    border: 1px solid #c6c6c6;
+    background-color: #e8e7e3;
+    font-size: 1.3vw;
+}
+tbody td{
+    border: 1px solid #c6c6c6;
+    background-color: #fefefe;
+    height: 35px;
+}
+.page{
+    margin-left: 45%;
+    width: 20%;
+}  
+.button input{
+  width: 5%;
+  background-color: #1bafe0;
+  color:white;
+}       
