@@ -29,6 +29,8 @@ public class CustomerAction extends BaseAction {
 		
 	//进入首页
 	public String toIndex() throws Exception{
+		//假定桌号为1,金高加
+		id = 1;
 		//把顾客桌号存在session
 		session.put("userId", id);
 		System.out.println("桌号:"+id);
@@ -60,7 +62,7 @@ public class CustomerAction extends BaseAction {
 	//加入购物车
 	public String joinCart() throws Exception {
 		Menu menu=menuService.get(id);
-		int tableId=(int) session.get("userId");		
+		int tableId=(int) session.get("userId");	
 		String tableName=tablesService.get(tableId).getName();	
 		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());
 		if(shopCart==null){
