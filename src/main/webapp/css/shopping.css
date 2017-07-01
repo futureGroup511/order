@@ -1,0 +1,90 @@
+header{
+	width:100%;
+	height:40px;
+	text-align:center;
+	position: fixed;
+	background-color:#F7B940;
+	border-radius:0px 0px 10px 10px;
+	font-size: 18px;
+	line-height: 40px;
+	padding: 0px 20px;
+}
+header a{
+	color:#000;
+}
+header .center{
+     display: inline-block;
+}
+header .button{
+	font-size:14px;
+	line-height:30px;
+	width:45px;
+	border:0.3px solid #000;
+	margin-top: 5px;
+}
+.body{
+	width:100%;
+}
+.body .food{
+	padding: 5px 20px;
+	width: 100%;
+	height: 60px;
+	border-bottom: 5px solid #eaeaea;
+}
+.body .food>.left{
+	width:23%;
+	height:100%;
+}
+.body .food>.left img{
+	width:50;
+	height:100%;
+}
+.body .food>.left p{
+	font-size: 12px;
+	padding-top: 2px;
+}
+.body .food>.right{
+	width:150px;
+	height: 100%;
+	margin-right: 10px;
+}
+.body .food>.right div{
+	text-align: center;
+	margin-right:0px;
+    width:60px;
+    height:100%;
+    border: 10px solid #F7B940;
+    float: left;
+}
+.body .food>.right input{
+	width:45px;
+	height:100%;
+	background-color: #F7B940;
+	border: 0px;
+}
+.zuo{
+	border-radius: 5px 0px 0px 5px;
+}
+.you{
+	border-radius: 0px 5px 5px 0px;
+}
+.end{
+	width:100%;
+	height:40px;
+	padding: 4px 40px; 
+}
+.end .left{
+	width:40%;
+	text-align:left;
+	height:100%;
+}
+.end .right{
+    width:60%;
+    height:100%;
+}
+.end .right input{
+	background-color:#DB2E0C;
+	border: 0;
+	color: #dadada;
+	border-radius:5px;
+}

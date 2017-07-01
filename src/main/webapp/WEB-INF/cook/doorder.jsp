@@ -14,30 +14,35 @@
 				<td colspan="11" align="center">订单信息</td>
 	</tr>
 	<tr>
-	  	 <th>id</th>
+	  	<th>id</th>
+         <th>餐桌id</th>
+         <th>餐桌名称</th>
+         <th>订单ID</th>
+         <th>菜品ID</th>
          <th>菜品名称</th>
-         <th>图片</th>
-         <th>简介</th>
-         <th>菜品类型Id</th>
-         <th>类型名称</th>
-         <th>价格</th>
-         <th>被订次数</th>
-         <th>是否可以做</th>
-         <th>创建时间</th>
+         <th>菜品数量</th>
+         <th>菜品状态</th>
+         <th>下单时间</th>
+         <th>厨师ID</th>
+         <th>厨师名称</th>
+         <td>备注</td>
+         <th>操作</th>
          
 	</tr>
-	<c:forEach items="${menu}" var="items">
+	<c:forEach items="${menu}" var="item">
 	            <tr>  
-	                <td>${items.id}</td>
-	                <td>${items.name}</td>
-	                <td>${items.imgUrl}</td>
-	                <td>${items.introduce}</td>
-	                <td>${items.typeId}</td>
-	                <td>${items.typeName}</td>
-	                <td>${items.price}</td>
-	                <td>${items.num}</td> 
-	                <td>${items.exist}</td>
-	                <td>${items.createDate}</td>
+	                <td>${item.id}</td>
+	                <td>${item.tableId}</td>
+	                <td>${item.tableName}</td>
+	                <td>${item.orderId}</td>
+	                <td>${item.menuId}</td>
+	                <td>${item.menuName}</td>
+	                <td>${item.menuNum}</td>
+	                <td>${item.status}</td>
+	                <td>${item.creatDate}</td>
+	                <td>${item.cookId}</td>
+	                <td>${item.cookName}</td>
+	                <td>${item.remark}</td>
 	                <td><a href="${rootPath}cook/orderCenter_domenu?orderId=${items.id}">完成</a></td>
 	            </tr>
 	            </c:forEach>  

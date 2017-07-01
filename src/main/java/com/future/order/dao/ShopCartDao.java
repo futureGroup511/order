@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
+import com.future.order.entity.Order;
 import com.future.order.entity.ShopCart;
 import com.future.order.service.IShopCartService;
 
@@ -124,5 +125,38 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 
 	
 	
+<<<<<<< HEAD
 
+=======
+	//   张金高加
+	@Override
+	public boolean deleteShopCart(ShopCart shopCart) {
+		return this.deleteEntity(shopCart);
+	}
+
+	@Override
+	public boolean submitToOrder(int tableId) {
+		List<ShopCart> list = this.getByTableId(tableId);
+		String hql = "from Order where tableId = "+tableId;
+	//	List<Order> orderList = this.getEntityList(hql);		//查找出所有的order
+		return false;
+	}
+
+	@Override
+	public boolean updeteNum(int id, String msg) {
+		ShopCart shopCart = this.getEntity(id);
+		boolean boo = false;						//如果只剩一份，就不能减，只能加
+		if(msg.equals("reduce")&&shopCart.getMenuNum()!=1){
+			shopCart.setMenuNum(shopCart.getMenuNum()-1);
+			boo = true;
+		}
+		if(msg.equals("add")){
+			shopCart.setMenuNum(shopCart.getMenuNum()+1);
+			boo = true;
+		}
+		return boo;
+	}
+
+	
+>>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
 }

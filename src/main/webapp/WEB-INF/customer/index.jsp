@@ -29,7 +29,12 @@
 </c:forEach> 
 <h3>${addMeg}</h3>
 <a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
+<<<<<<< HEAD
 <a href="${rootPath}customer/cart_getCart">购物车</a>
 <a href="${rootPath}customer/cart_getOrder">我的订单</a>
+=======
+<a href="${rootPath}customer/shopcart">购物车</a>
+<a href="">我的订单</a>
+>>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
 </body>
 </html>

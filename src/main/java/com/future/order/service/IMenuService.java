@@ -11,6 +11,7 @@ import java.util.List;
 
 
 import com.future.order.entity.Menu;
+import com.future.order.entity.OrderDetails;
 import com.future.order.util.PageCut;
 
 /**
@@ -26,6 +27,8 @@ public interface IMenuService {
 	List<Menu> unfinish();
 
 	public Menu get(int id);//金高用
+	
+	
 	public List<Menu> ByName(String typeName);
 
 
@@ -39,9 +42,11 @@ public interface IMenuService {
 	public boolean deleteMenu(Menu menu);
 	
 	//焦祥宇加
-	
 	//获得num条推荐菜品
 	public List<Menu> getRecommend(int num);
-	//根据菜品类型id获得菜品
-	public List<Menu> getByTypeId(int typeId);
+
+	public List<Menu> CheckDetails(int id);
+
+	public boolean updatemenu(int id);
+	public List<Menu> getByTypeId(int id);
 }

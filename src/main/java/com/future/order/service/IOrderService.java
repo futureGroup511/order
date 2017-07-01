@@ -26,9 +26,14 @@ public interface IOrderService {
 	public PageCut<Order> getPageCut(int currentPage, int pageSize);
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize);
 	public PageCut<Order> getPage(int currentPage, int pageSize);
+<<<<<<< HEAD
 	public Order get(int tableId);
 	public Boolean update(Order order);
 	public Boolean save(Order order);
 	public List<Order> getAll();
 	public boolean deleteOrder(int tableId);
+=======
+	public boolean updetemenu(int id);//wqj
+	public List<Order> finish();
+>>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
 }

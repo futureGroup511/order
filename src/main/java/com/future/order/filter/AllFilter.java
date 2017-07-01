@@ -42,10 +42,13 @@ public class AllFilter implements Filter {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf8");
 		((HttpServletResponse)response).setHeader("Cache-Control","no-cache");
-		
+		 
+//		String url = ((HttpServletRequest) request).getRequestURI();
+//	        if (url.indexOf("/uploadImg") >= 0) {
+//	        	System.out.println("使用自定义的过滤器,图片放行");
+//	            chain.doFilter(request, response);
+//	        }
 		HttpServletRequest request2 = (HttpServletRequest)request;
-
-
 		System.out.println("url:"+request2.getRequestURL());
 		chain.doFilter(request, response);
 	}

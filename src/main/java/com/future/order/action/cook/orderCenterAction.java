@@ -16,20 +16,33 @@ public class orderCenterAction extends BaseAction {
 		request.put("allOrder", list);
 		return "allOrder";
 	}
-
 	public String unfinishd() {
-		List menu = (List) menuService.unfinish();
+		List menu = (List) orderDetailsService.unfinish();
 		request.put("menu", menu);
 		return "menu";
 	}
+	public String finish(){
+		List <Order> list=orderService.finish();
+		request.put("allOrder", list);
+		return "finish";
+		
+	}
 	public String DoOrder(){
-		System.out.println(OrderId);
+		boolean menu=orderService.updetemenu(OrderId);
 		List order=orderDetailsService.CheckDetails(OrderId);
 		request.put("orderdetail", order);
 		return "orderdetail";
 	}
-	public String finishOrder(){
-		return null;
+	public String doOrder(){
+		boolean m=orderDetailsService.updet(OrderId);
+		List menu=orderDetailsService.getAll(OrderId);
+		request.put("menu", menu);
+		return "update";
+	}
+	public String unmenu(){
+		List list=orderDetailsService.unfinish();
+		request.put("menu", list);
+		return "unmenu";
 	}
 	
 	public int getOrderId() {
