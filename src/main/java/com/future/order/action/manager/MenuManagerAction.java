@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Menu;
+import com.future.order.entity.MenuType;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
@@ -20,6 +21,13 @@ public class MenuManagerAction extends BaseAction {
 	}
 	
 	public String addMenu(){
+		String typeName=menu.getTypeName();
+		List<MenuType> list=(List<MenuType>) session.get("Typelist");
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getName().equals(typeName)){
+				menu.setTypeId(list.get(i).getId());
+			}
+		}
 		boolean boo = menuService.addMenu(menu);
 		if(boo){
 			request.put("addMsg", "添加成功");

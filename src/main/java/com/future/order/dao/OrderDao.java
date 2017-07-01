@@ -16,6 +16,7 @@ import com.future.order.base.BaseDao;
 import com.future.order.entity.Ingredient;
 
 import com.future.order.entity.Order;
+import com.future.order.entity.ShopCart;
 import com.future.order.service.IOrderService;
 import com.future.order.util.PageCut;
 
@@ -132,6 +133,47 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
+	}
+	@Override
+	public Order get(int tableId) {
+		String hql="from Order s where s.tableId="+tableId;
+		List<Order> order=this.getEntityList(hql);
+		if(order.size()>0){
+			return (Order)order.toArray()[0];
+		}
+		else{
+			return null;
+		}	
+	}
+	@Override
+	public Boolean update(Order order) {
+		return this.updateEntity(order);
+	}
+	@Override
+	public Boolean save(Order order) {
+		return this.saveEntity(order);
+	}
+	@Override
+	public List<Order> getFinal(int tableId,int num) {
+		String sql="select * from tb_order s where s.tableId="+tableId+" order by total desc limit "+num;
+		return this.executeSQLQuery(sql);
+	}
+	@Override
+	public boolean deleteOrder(int tableId) {
+		boolean li = false;
+		try{
+			String hql="delete from Order o Where o.tableId='"+tableId+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			li=true;
+		}else{
+			li=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return li;//返回底层方法，底层中有与数据库连接的增删改查的方法。
 	}
 
 }

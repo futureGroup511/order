@@ -3,12 +3,12 @@ package com.future.order.action.customer;
 
 import java.util.List;
 
+
 import com.future.order.base.BaseAction;
 
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
-import com.future.order.entity.MenuType;
-import com.future.order.entity.Order;
+
 import com.future.order.entity.ShopCart;
 import com.future.order.entity.StockDetails;
 
@@ -30,7 +30,7 @@ public class CustomerAction extends BaseAction {
 	//进入首页
 	public String toIndex() throws Exception{
 		//把顾客桌号存在session
-		session.put("tableId", id);
+		session.put("userId", id);
 		System.out.println("桌号:"+id);
 		//获得推荐的菜品
 		List<Menu> menus=menuService.getRecommend(8);
@@ -53,18 +53,28 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得进货时间列表
 	public String getStockDate() throws Exception {
-		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id);
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id,5);
 		request.put("stockDetails", stockDetails);
 		return "getStockDate";
 	}
 	//加入购物车
 	public String joinCart() throws Exception {
 		Menu menu=menuService.get(id);
-		int tableId=(int) session.get("tableId");//从session中取出桌子编号
-		String tableName=tablesService.get(tableId).getName();//根据桌子编号获得桌子的名称		
-		ShopCart shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());
-		Boolean bool=shopCartService.add(shopCart);
-		
+		int tableId=(int) session.get("userId");//获得顾客桌号		
+		String tableName=tablesService.get(tableId).getName();//根据顾客桌号取得桌子的名称	
+		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());//根据顾客的桌号和菜单的id获得购物车中的对应信息
+		if(shopCart==null){
+			shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());		
+		}else{
+			shopCart.setMenuNum(shopCart.getMenuNum()+1);
+		}
+		Boolean bool=shopCartService.update(shopCart);
+		if(bool==true){
+			request.put("addMeg", "添加成功！");
+		}else{
+			request.put("addMeg", "添加失败！");
+		}
+
 		return "joinCart";
 	}
 	
@@ -76,53 +86,4 @@ public class CustomerAction extends BaseAction {
 		this.id = id;
 	}
 	
-	
-	
-
-
-	/*public void setName(String name) {
-		this.name = name;
-	}*/
-/*	public String getMenuMaterial() throws Exception {
-		List<MenuMaterial> list=menuMaterialService.getAll();
-		request.put("MenuMaterial",list);
-		System.out.println(list);
-		return "getMenuMaterial";
->>>>>>> 3a83ffce9b3c4e9e1fcfd6d2d7c0209cc68bf35a
-	}
-	
-	public String getMenuType() throws Exception{
-		List<MenuType> list=menuTypeService.getAllMenuType();
-		request.put("list",list);
-		List<Menu> list1=menuService.getAll();
-		request.put("menu1",list1);
-		return "getMenuType";
-	}
-	
-	public String getOrder() throws Exception {
-		List<Order> list=orderService.getAll();
-		request.put("order",list);
-		return "getOrder";
-	}
-
-	
-	public String ByName() throws Exception{
-		List<Menu> menu=menuService.ByName(name);
-		request.put("menu",menu);
-		return "ByName";
-	}
-	public String menu() throws Exception {				
-		Menu menu=menuService.get(id);
-		List<MenuMaterial> list=menuMaterialService.getByMenuId(id);
-		request.put("menu",menu);
-		request.put("list",list);
-		return "menu";
-	}
-	
-	public String StockDetails() throws Exception {
-		List<StockDetails> list1=stockDetailsService.getBycreateDate(ingId);
-		request.put("list1",list1);
-		return "StockDetails";
-	}
-*/
 }

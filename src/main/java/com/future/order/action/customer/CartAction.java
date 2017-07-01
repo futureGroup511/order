@@ -1,8 +1,12 @@
 package com.future.order.action.customer;
+
 import java.util.*;
+
 import com.future.order.base.BaseAction;
-import com.future.order.entity.Menu;
+import com.future.order.entity.Order;
+import com.future.order.entity.OrderDetails;
 import com.future.order.entity.ShopCart;
+
 /**
  * @author 安李杰
  *
@@ -17,10 +21,85 @@ public class CartAction extends BaseAction{
 	 * 对购物车进行操作
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	private int id;
 	
+	//获得购物车菜品
+	public String getCart() throws Exception{
+		int tableId=(int) session.get("userId");
+		List<ShopCart> shopCarts=shopCartService.getByTableId(tableId);
+		double total = 0.0;
+		for(ShopCart item:shopCarts){
+			total += item.getMenuNum() * item.getPrice();
+		}
+		for(ShopCart item:shopCarts){
+			OrderDetails orderDetails=new OrderDetails();
+			orderDetails.setTableName(item.getTableName());
+			orderDetails.setMenuName(item.getMenuName());
+			orderDetails.setMenuNum(item.getMenuNum());
+			Boolean bool=orderDetailsService.save(orderDetails);
+		}
+		System.out.println(total);
+		request.put("total",total);
+		request.put("shopCarts", shopCarts);
+		return "getCart";
+	}
+	//购物车的菜品数量update
+	public String updateCart() throws Exception{
+		
+		return "updateCart";
+	}
+
+	//删除购物车的菜品
+	public String deleteCart() throws Exception{
+		int tableId=(int) session.get("userId");
+		boolean bool=shopCartService.delete(id);
+		boolean bool1=orderService.deleteOrder(tableId);
+		return "deleteCart";
+	}
+	//查询订单
+	public String getOrder() throws Exception{
+		int tableId=(int) session.get("userId");
+		List<Order> order=orderService.getFinal(tableId,1);
+		
+		request.put("order",order);
+		return "getOrder";
+	}
+	//查询订单详情
+	public String getOrderDetails() throws Exception{
+		int tableId=(int) session.get("userId");
+		List<OrderDetails> orderDetails=orderDetailsService.getDetails(tableId);
+		request.put("orderDetails",orderDetails);
+		return "getOrderDetails";
+	}
+	
+	
+	//菜品数量的增加
+	public String add() throws Exception{
+		ShopCart shopCart=shopCartService.getOne(id);
+		shopCart.setMenuNum(shopCart.getMenuNum()+1);
+		Boolean bool=shopCartService.update(shopCart);
+		List<ShopCart> shopCarts=shopCartService.getByAll();
+		request.put("shopCarts", shopCarts);
+		return "add";
+	}
+	//菜品数量的减少
+	public String reduce() throws Exception{
+		ShopCart shopCart=shopCartService.getOne(id);
+		if(shopCart.getMenuNum()>=1){
+			shopCart.setMenuNum(shopCart.getMenuNum()-1);
+		}/*else{
+			
+		}*/
+		Boolean bool=shopCartService.update(shopCart);
+		List<ShopCart> shopCarts=shopCartService.getByAll();
+		request.put("shopCarts", shopCarts);
+		return "reduce";
+	}
+	/*public String delete() throws Exception{
+		List<ShopCart> shopcart=shopCartService.deleteA(shopcart);
+		return null;
+	}*/
 	public int getId() {
 		return id;
 	}
@@ -28,46 +107,5 @@ public class CartAction extends BaseAction{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String addcart() throws Exception{
-		Menu menu=menuService.get(id);
-		request.put("menu",menu);
-		return "addcart";
-	}
-	public String add() throws Exception{
-		
-		return null;
-	}
-	public String selectAll() throws Exception{
-		List<ShopCart> shopcart=shopCartService.getAll();
-		request.put("shopcart",shopcart);
-		return "selectAll";
-		
-	}
-	//根据id删除一条信息
-	public String delete() throws Exception{
-		boolean bool=shopCartService.delete(id);
-		if(bool==true){
-			request.put("meg", "添加成功");//这是从action的RequestAware获得的request，只有put，get方法
-		}else{
-			request.put("meg", "添加失败");
-		}
-		return "delete";
-	}
-	/*//清空购物车
-	public String nullbasket() throws Exception{
-		boolean bool=shopCartService.deleteAll(shopcart);
-		if(bool==true){
-			request.put("meg", "添加成功");//这是从action的RequestAware获得的request，只有put，get方法
-		}else{
-			request.put("meg", "添加失败");
-		}
-		session.put("list",null);
-		return "nullbasket";
-	}*/
-	/*private List basket;
-	private int id=-1;
-	private int num=0;
-	private String isdelete="";
-	private float allprice=0;
-	private ShopCart shopcart;*/
+
 }

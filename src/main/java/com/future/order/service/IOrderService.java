@@ -21,8 +21,14 @@ public interface IOrderService {
 	public boolean PayOrder(int id);
 	public Order CheckById(int id);
 	public boolean UpdateOrder(Order orders);
-	public List<Order> getAll();
+	
+	public List<Order> getFinal(int tableId,int num);
 	public PageCut<Order> getPageCut(int currentPage, int pageSize);
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize);
 	public PageCut<Order> getPage(int currentPage, int pageSize);
+	public Order get(int tableId);
+	public Boolean update(Order order);
+	public Boolean save(Order order);
+	public List<Order> getAll();
+	public boolean deleteOrder(int tableId);
 }

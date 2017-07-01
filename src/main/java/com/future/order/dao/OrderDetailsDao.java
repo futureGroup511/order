@@ -106,4 +106,15 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		return pc;
 	}
 
+	@Override
+	public Boolean save(OrderDetails orderDetails) {
+		return this.saveEntity(orderDetails);
+	}
+
+	@Override
+	public List<OrderDetails> getDetails(int tableId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
