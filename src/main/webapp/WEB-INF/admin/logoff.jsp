@@ -44,8 +44,5 @@
 </tr>
 </c:forEach>
 </table> --%>
-=======
-
->>>>>>> 3a83ffce9b3c4e9e1fcfd6d2d7c0209cc68bf35a:src/main/webapp/WEB-INF/admin/logoff.jsp
 </body>
 </html>

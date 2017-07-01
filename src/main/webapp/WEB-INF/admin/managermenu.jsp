@@ -31,10 +31,10 @@ ${updateMsg}${deleteMenuMsg }
      		<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
  					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }"> 
  					<c:choose> 
-						<c:when test="${i>0 && i == allMenu.currentPage }"> 
+						<c:when test="${i>0 && i == allMenu.currentPage &&i<=3}"> 
  							<li class="active"><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
  						</c:when>
- 						<c:when test="${i>0 && i != allMenu.currentPage }"> 
+ 						<c:when test="${i>0 && i != allMenu.currentPage &&i<=3}"> 
  							<li><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
  						</c:when> 
 					</c:choose> 

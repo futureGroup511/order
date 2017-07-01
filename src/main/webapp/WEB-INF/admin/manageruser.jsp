@@ -44,10 +44,10 @@ ${deleteUserMsg}
         <c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"
 					end="${allUser.currentPage+3>allUser.pageNum?allUser.pageNum:allUser.currentPage+3  }">
 					<c:choose>
-						<c:when test="${i>0 && i == allUser.currentPage }">
+						<c:when test="${i>0 && i == allUser.currentPage &&i<=3}">
 							<li class="active"><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
 						</c:when>
-						<c:when test="${i>0 && i != allUser.currentPage }">
+						<c:when test="${i>0 && i != allUser.currentPage &&i<=3}">
 							<li><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>

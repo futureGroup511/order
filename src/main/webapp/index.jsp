@@ -11,8 +11,8 @@
 			document.getElementById("imagecode").src="${rootPath}manage/CodeAction.action?d="+time;
  	}
 </script>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/login.css">
 </head>
 <body>
 <div class="login">
@@ -34,7 +34,8 @@
 			     </div>
 			     <div class="in2">
 			     	<button type="submit" class="btn btn-info left" onclick="goout()">登录</button>
-			     	<button type="reset" class="btn btn-info right" onclick="overset()">重置</button>
+			     	<button type="reset" class="btn btn-info right" onclick="overset()">重置</button><br>
+			     	 <h4>${loginMeg}</h4>
 			     </div>
 			     </form>
 			 </div>	

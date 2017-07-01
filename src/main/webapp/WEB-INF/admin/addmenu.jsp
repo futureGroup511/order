@@ -16,7 +16,7 @@
      <lable>类型名称：</lable>
      <select name="menu.typeName"> 
  			<c:forEach items="${Typelist}" var="item">  
- 	           	<option value="${item.name }">${item.name}</option> 
+ 	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
      <lable>价格：</lable><input type="text" name="menu.price"><br>

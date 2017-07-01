@@ -55,12 +55,12 @@
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
  							<c:choose> 
- 								<c:when test="${i>0 && i == pc.currentPage }"> 
+ 								<c:when test="${i>0 && i == pc.currentPage &&i<=3}"> 
 									<li class="active"><a
  										href="${rootPath}manage/StockAction?page=${i }">${i}</a></li>
  								</c:when>
 
- 								<c:when test="${i>0 && i != postPS.currentPage }"> 
+ 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
  									<li><a href="${rootPath}manage/StockAction?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose> 
