@@ -37,7 +37,7 @@ public interface IShopCartService {
 	public ShopCart getByT_M_Id(int tableId,int menuId);
 	//把菜品加入购物车
 	public boolean update(ShopCart shopCart);
-<<<<<<< HEAD
+
 
 	public ShopCart getBy(int tableId);
 	//安李杰加
@@ -49,7 +49,7 @@ public interface IShopCartService {
 
 
 
-=======
+
 	
 	//金高加
 	//删除某一种菜
@@ -58,5 +58,5 @@ public interface IShopCartService {
 	public boolean  submitToOrder(int tableId);
 	//更改菜的数量
 	public boolean updeteNum(int id,String msg);
->>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
+
 }

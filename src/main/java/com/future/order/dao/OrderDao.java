@@ -7,6 +7,7 @@
 package com.future.order.dao;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -16,11 +17,11 @@ import com.future.order.base.BaseDao;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.Order;
-<<<<<<< HEAD
+
 import com.future.order.entity.ShopCart;
-=======
+
 import com.future.order.entity.OrderDetails;
->>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
+
 import com.future.order.service.IOrderService;
 import com.future.order.util.PageCut;
 

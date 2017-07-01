@@ -23,7 +23,6 @@ public class CartAction extends BaseAction{
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-	
 	//获得购物车菜品
 	public String getCart() throws Exception{
 		System.out.println("**************");
@@ -38,7 +37,9 @@ public class CartAction extends BaseAction{
 			orderDetails.setTableName(item.getTableName());
 			orderDetails.setMenuName(item.getMenuName());
 			orderDetails.setMenuNum(item.getMenuNum());
+			orderDetails.setTableId(item.getTableId());
 			Boolean bool=orderDetailsService.save(orderDetails);
+			System.out.println(orderDetails);
 		}
 		System.out.println(total);
 		request.put("total",total);

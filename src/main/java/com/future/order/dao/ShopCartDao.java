@@ -125,9 +125,9 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 
 	
 	
-<<<<<<< HEAD
 
-=======
+
+
 	//   张金高加
 	@Override
 	public boolean deleteShopCart(ShopCart shopCart) {
@@ -156,7 +156,4 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 		}
 		return boo;
 	}
-
-	
->>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
 }

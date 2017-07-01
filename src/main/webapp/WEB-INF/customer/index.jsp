@@ -6,14 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>顾客首页</title>
-<!-- <script type="text/javascript">
- 		function selAll(){
-			var selall = document.getElementsByName("productIds");
-			for(var i=0;i<selall.length;i++){
-				selall[i].checked=document.getElementById("call").checked;
-			}
-		}
-</script> -->
 </head>
 <body>
 <a href="${rootPath}customer/customer_getMenuByTypeId?id=1">菜品类型1</a>
@@ -29,12 +21,8 @@
 </c:forEach> 
 <h3>${addMeg}</h3>
 <a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
-<<<<<<< HEAD
 <a href="${rootPath}customer/cart_getCart">购物车</a>
-<a href="${rootPath}customer/cart_getOrder">我的订单</a>
-=======
 <a href="${rootPath}customer/shopcart">购物车</a>
-<a href="">我的订单</a>
->>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
+<a href="${rootPath}customer/cart_getOrderDetails">我的订单</a>
 </body>
 </html>
