@@ -62,15 +62,12 @@ public class CustomerAction extends BaseAction {
 	//加入购物车
 	public String joinCart() throws Exception {
 		Menu menu=menuService.get(id);
-<<<<<<< HEAD
 		int tableId=(int) session.get("userId");//获得顾客桌号		
 		String tableName=tablesService.get(tableId).getName();//根据顾客桌号取得桌子的名称	
 		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());//根据顾客的桌号和菜单的id获得购物车中的对应信息
-=======
-		int tableId=(int) session.get("userId");	
+	/*	int tableId=(int) session.get("userId");	
 		String tableName=tablesService.get(tableId).getName();	
-		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());
->>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
+		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());*/
 		if(shopCart==null){
 			shopCart=new ShopCart(tableId, tableName, id, menu.getName(), 1, menu.getPrice());		
 		}else{

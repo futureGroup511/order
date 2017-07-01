@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD:src/main/webapp/WEB-INF/customer/shopCart.jsp
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-=======
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
->>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041:src/main/webapp/WEB-INF/customer/shopcart.jsp
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

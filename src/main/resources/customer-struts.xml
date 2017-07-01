@@ -37,7 +37,6 @@
 			<result name="deleteShopCart">/WEB-INF/customer/shopcart.jsp</result>
 			<result name="updateNum">/WEB-INF/customer/shopcart.jsp</result>
 		</action>
-<<<<<<< HEAD
 		<action name="cart_*" class="com.future.order.action.customer.CartAction" method="{1}">
 			<result name="getCart">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="updateCart">/WEB-INF/customer/shopCart.jsp</result>
@@ -48,7 +47,6 @@
 			<result name="delete">/WEB-INF/customer/shopCart.jsp</result>
 		</action>
 			
-=======
 		
 <!-- 		<action name="cart_*" class="com.future.order.action.customer.CartAction" method="{1}"> -->
 <!-- 			<result name="getCart">/WEB-INF/customer/shopCart.jsp</result> -->
@@ -56,7 +54,6 @@
 <!-- 			<result name="deleteCart">/WEB-INF/customer/shopCart.jsp</result> -->
 			
 <!-- 		</action>		 -->
->>>>>>> 16a25f24e8b093782a2c8ae8ec4e7dc44c940041
 	</package>
 	 
 </struts>
