@@ -115,4 +115,9 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 		return this.executeSQLQuery(sql);
 	}
 
+	@Override
+	public boolean addDetails(StockDetails details) {
+		return this.saveEntity(details);
+	}
+
 }

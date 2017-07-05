@@ -8,14 +8,13 @@
 <link rel="stylesheet" type="text/css" href="../css/adduser.css">
 </head>
 <body>
-	<center>
 	${addMsg }
 	<div class="adduser">
    <form action="${rootPath}manage/UserManager_addUser" method="post">
      <lable>账号：</lable><input type="text" name="user.phone" maxlength="11" placeholder="请输入手机号/账号"><br>
      <lable>密码：</lable><input type="text" type="password" name="user.password" maxlength="10"><br>
      <lable>姓名：</lable><input type="text" name="user.name"><br>
-      身份：<select name="user.sort">
+      身份：<select name="user.sort" style='width:40%' class="select">
         <option value="cook">厨师</option>
         <option value="manager">管理员</option>
       </select>
@@ -37,6 +36,5 @@
 <!-- 			</select><br><br><br> -->
 <!-- 		<input type="submit" value="添加"> -->
 <!-- 	</form> -->
-	</center>
 </body>
 </html>

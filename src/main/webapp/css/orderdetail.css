@@ -3,10 +3,11 @@ body{width: 100%}
 a{
     text-decoration: none;
 }
-h4{
+.fonts{
     text-align: center;
-    margin-top: 2%;
+    margin-top: 1%;
     font-weight: bold;
+	font-size:35px
 }
 table{
     margin-top: 2%;
@@ -15,11 +16,11 @@ table{
     text-align: center;
 }
 thead td{
-    font-size:1.2vw; 
+    font-size:1.4vw; 
     font-weight: bold;
     height: 40px;
     border: 1px solid #c6c6c6;
-    background-color: #e8e7e3;
+    background-color: #75c7ed;
 }
 tbody td{
     border-right: 1px solid #c6c6c6;
@@ -28,3 +29,7 @@ tbody td{
     background-color: #fefefe;
     height: 35px;
 }
+.page{
+    margin-left: 45%;
+    width: 20%;
+}  

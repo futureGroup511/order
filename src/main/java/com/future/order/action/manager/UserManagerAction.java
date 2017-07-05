@@ -25,6 +25,10 @@ public class UserManagerAction extends BaseAction {
 	public String execute(){
 		PageCut<User> pCut=userService.getPageCut(page,3);
 		request.put("allUser", pCut);
+		if(pCut.getData().size()==0){
+			String mark="没有其他用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("deleteUserMsg", mark);
+		}
 		return SUCCESS;
 	}
 	

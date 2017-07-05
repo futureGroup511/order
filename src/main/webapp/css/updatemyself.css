@@ -1,29 +1,35 @@
 *{margin:0;padding: 0; }
+.fonts{ font-size:35px;
+        margin-left:5%;
+      margin-bottom:3%;}
 #text{
     display: inline-block;
-    width: 8%;
+    width: 12%;
     text-align: left;
 }
 .updatemyself{
+	width:70%;
     font-weight:bold; 
-    margin-top:2%; 
-    padding-left: 5%;
-    line-height: 40px;
-    font-size: 1.2vw
+    margin-top:5%; 
+    padding-left: 30%;
+    line-height: 50px;
+    font-size: 1.5vw
 }
 input{
-  width: 15%;
-   height:20px; 
-   margin-right: 50px;    
+  width: 16%;
+   height:25px; 
+   margin-right: 50px;   
+   border-radius: 5px; 
 }
 
 
 .button input{
     color: white;
-    width: 5%;
-    font-size: 0.5vw;
+    width: 8%;
+	height:25px;
+    font-size: 0.8vw;
     background: #1bafe0;
-    margin-left: 10%;
-    margin-top: 20px;
+    margin-left: 12%;
+    margin-top: 4%;
     box-shadow: 2px 1px 1px rgba(50,154,242)
 }

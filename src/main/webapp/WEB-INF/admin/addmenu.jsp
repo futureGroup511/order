@@ -12,24 +12,24 @@
  <div class="addmenu">
  <h4>${addMsg}</h4>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
-     <lable>菜名：</lable><input type="text" name="menu.name"><br>
+     <lable>菜&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</lable><input type="text" name="menu.name"><br>
      <lable>类型名称：</lable>
-     <select name="menu.typeName"> 
+     <select name="menu.typeName" class="select"> 
  			<c:forEach items="${Typelist}" var="item">  
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable>价格：</lable><input type="text" name="menu.price"><br>
+     <lable>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格&thinsp;：</lable><input type="text" name="menu.price"><br>
      <lable>被定次数：</lable><input type="text" name="menu.num"><br>
      <lable>是否可以做：</lable>
-     <select name="menu.exist">
+     <select name="menu.exist" class="select">
       <option value="1">可做</option>
        <option value="0">暂缺</option>
      </select><br>
      <label>简介：</label>
      <textarea rows="10" cols="30" name="menu.introduce"></textarea>
      <label>示例图片：</label>
-     <input type="file" name="file" accept="image/*" value="选择图片">
+     <input type="file" name="file" accept="image/*" value="选择图片" style="border:none; outline:none;margin-left:2.5%">
       <div class="button">
         <input type="submit" value="添加">          
       </div>

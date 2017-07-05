@@ -8,17 +8,16 @@
 <link rel="stylesheet" type="text/css" href="../css/addingredient.css">
 </head>
 <body>
-	<center>
 		${addIngerdientMsg}
 		<div class="addingredient">
 			<form action="Ingredient_addIngredient" method="post">
-				<lable id="text">名称：</lable>
-				<input type="text" name="ingredient.name"><br>
+				<lable id="text">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&thinsp;&nbsp;&nbsp;&nbsp;&nbsp;：</lable>
+				<input type="text" class="a1" name="ingredient.name"><br>
 				<lable id="text">单价(元/kg)：</lable>
-				<input type="text" name="ingredient.price"><br>
-				<lable id="text">库存量(kg)：</lable>
-				<input type="text" name="ingredient.num"><br>
-				<lable id="text">类型：</lable>
+				<input type="text" class="a2" name="ingredient.price"><br>
+				<lable id="text">库存量&nbsp;&thinsp;(kg)：</lable>
+				<input type="text" class="a3" name="ingredient.num"><br>
+				<lable id="text">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</lable>
 				<select name="ingredient.type">
 					<option value="原料">原料</option>
 					<option value="配料">配料</option>
@@ -30,7 +29,6 @@
 				</div>
 			</form>
 		</div>
-	</center>
 	<!-- 	<center> -->
 	<%-- 	${addIngerdientMsg} --%>
 	<!-- 		<form action="Ingredient_addIngredient" method="post"> -->

@@ -1,19 +1,26 @@
 *{margin:0;padding: 0; }
 body{width: 100%;}
-h4{
+.fonts{
     font-weight: normal;
+	margin-left:10%;
+	margin-bottom:4%;
+	margin-top:5%;
+	font-size:35px;
+	font-weight:800;
 }
 .addstock{
-    font-weight:bold; 
+    font-weight:bold;
+	
     margin-top:2%; 
-    padding-left: 5%;
-    line-height: 40px;
-    font-size: 1.2vw
+    padding-left: 35%;
+    line-height: 50px;
+    font-size: 1.5vw
 }
 input{
-  width: 15%;
+   width: 20%;
    height:20px; 
-   margin-right: 50px;    
+   margin-right: 50px; 
+   border-radius: 5px;   
 }
  
 select{
@@ -21,10 +28,17 @@ select{
 }
 .button input{
     color: white;
-    width: 5%;
+    width: 8%;
+	height:30px;
     font-size: 0.5vw;
     background: #1bafe0;
-    margin-left: 10%;
+    margin-left: 13%;
     margin-top: 20px;
     box-shadow: 2px 1px 1px rgba(50,154,242)
 }
+.a1{ margin-left:-2px;}
+.a2{ margin-left:-1px;}
+.a3{ margin-left:1.5px;}
+.a4{
+	margin-left:-4.5px;
+	}

@@ -4,6 +4,7 @@ package com.future.order.action;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Ingredient;
 import com.future.order.entity.MenuType;
 import com.future.order.entity.User;
 
@@ -29,6 +30,8 @@ public class LoginAction extends BaseAction {
 		if(userDataBase!=null){
 			session.put("user", userDataBase);//将用户对象session
 			List<MenuType> list=menuTypeService.getAllMenuType();
+			List<Ingredient> list1 = ingerdientService.getAll();
+			session.put("Ientlist",list1);	//将配料放进session
 			session.put("Typelist",list);	//将菜品类型和id放进session
 			if(userDataBase.getSort().equals("cook")){
 				session.put("userSort", "cook");	//将用户身份放进session
