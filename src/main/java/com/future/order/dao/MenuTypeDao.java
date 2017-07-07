@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.MenuType;
+import com.future.order.entity.Order;
 import com.future.order.service.IMenuTypeService;
+import com.future.order.util.PageCut;
 
 @Service
 public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService {
@@ -72,6 +74,59 @@ public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService 
 		return flag;
 	}
 	*/
-	
+
+	@Override
+	public boolean AddType(MenuType menutype) {
+		return this.saveEntity(menutype);
+	}
+	@Override
+	public PageCut<MenuType> getPageCut(int currentPage, int pageSize) {
+		String hql ;
+		int count=0;
+		hql = "select count(*) from MenuType";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<MenuType> pc = new PageCut<MenuType>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList("from MenuType", (currentPage-1)*pageSize, pageSize));
+		return pc;
+	}
+	@Override
+	public MenuType CheckById(int id) {
+		@SuppressWarnings("unused")
+		MenuType menutype = new MenuType();
+		try{
+			String hql="from MenuType o where o.id='"+id+"'";
+			menutype=(MenuType) this.uniqueResult(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return menutype;
+	}
+	@Override
+	public boolean UpdateType(MenuType type) {
+		boolean sign=false;
+		try{
+			sign=this.updateEntity(type);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
+	}
+	@Override
+	public boolean DeletType(int id) {
+		boolean sign = false;
+		try{
+			String hql="delete from MenuType o Where o.id='"+id+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			sign=true;
+		}else{
+			sign=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
+	}
 	
 }

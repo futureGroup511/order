@@ -74,11 +74,9 @@ public class OrderAction extends BaseAction {
 		System.out.println(order);
 		request.put("order", order);
 		return "update";
-
 	}
 	public String Update() {//接收修改后的订单信息用于修改
 		boolean sign = orderService.UpdateOrder(orders);
-		System.out.println(orders);
 		String mark = "操作失败";
 		if (sign == true) {
 			mark = "修改成功";

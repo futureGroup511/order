@@ -24,7 +24,7 @@
 				<input type="text" name="ingredient.num"
 					value="${updateIngredient.num}"><br>
 				<lable id="text">类型：</lable>
-				<select name="ingredient.type">
+				<select name="ingredient.type" >
 					<option value="配料"
 						<c:if test='${order.status eq "配料"}'>selected="selected"</c:if>>配料</option>
 					<option value="原料"

@@ -50,7 +50,7 @@ public class UserManagerAction extends BaseAction {
 		return "toUpdateUser";
 	}
 	
-	public String updateUser() throws ParseException{	//确认修改信息,修改个人资料
+	public String updateUser() {	//确认修改信息,修改个人资料
 		boolean boo = userService.updateUser(user);
 		String result = "updateUser";
 		if(boo){

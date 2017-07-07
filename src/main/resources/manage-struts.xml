@@ -27,6 +27,7 @@
 
 		<action name="Change_*" method="{1}"
 			class="com.future.order.action.manager.ChangeAction">
+			<result name="addMenuType">/WEB-INF/admin/addmenutype.jsp</result>
 			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
 			<result name="managerUser">/WEB-INF/admin/manageruser.jsp</result>
 			<result name="addstock">/WEB-INF/admin/addstock.jsp</result>
@@ -82,6 +83,11 @@
 			<result name="add">/WEB-INF/admin/addstockdetails.jsp</result>
 			<result name="details">/WEB-INF/admin/stockdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatestocknews.jsp</result>
+		</action>
+		<action name="MenuTypeAction_*" method="{1}" class="com.future.order.action.manager.MenuTypeAction">
+			<result name="add">/WEB-INF/admin/addmenutype.jsp</result>
+			<result name="check">/WEB-INF/admin/checkmenutype.jsp</result>
+			<result name="update">/WEB-INF/admin/updatetype.jsp</result>
 		</action>
 	</package>
 </struts>
