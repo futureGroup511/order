@@ -91,7 +91,7 @@
         <iframe src="${rootPath}manage/Change_getMyself"   id="ifr" name="mainFrame"></iframe>
     </div><!-- 左侧菜单和iframe标签的内容结束 -->
     <div class="footer">
-       <a href="">技术支持:河南艾未特网络有限公司</a> 
+       <a href="">技术支持:河南艾未特网络有限公司</a>  
     </div>
    
    <script src="../js/jquery-1.10.2.js"></script>

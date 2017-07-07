@@ -62,8 +62,8 @@ public class IngredientManagerAction extends BaseAction {
 		} else {
 			request.put("deleteIngredientMsg", "删除失败");
 		}
-		List<Ingredient> list = ingerdientService.getAll();
-		request.put("allIngredient", list);
+		PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,3);
+		request.put("allIngredient", pCut);
 		return "deleteIngredient";
 	}
 	

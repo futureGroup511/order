@@ -28,7 +28,7 @@ public class LoginAction extends BaseAction {
 //		}
 		User userDataBase = userService.login(user.getPhone(),user.getPassword());
 		if(userDataBase!=null){
-			session.put("user", userDataBase);//将用户对象session
+			session.put("user", userDataBase);//将用户对象放进session
 			List<MenuType> list=menuTypeService.getAllMenuType();
 			List<Ingredient> list1 = ingerdientService.getAll();
 			session.put("Ientlist",list1);	//将配料放进session

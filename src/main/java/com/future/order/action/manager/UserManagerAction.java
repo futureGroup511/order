@@ -1,7 +1,9 @@
 package com.future.order.action.manager;
 
 
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.User;
@@ -48,7 +50,7 @@ public class UserManagerAction extends BaseAction {
 		return "toUpdateUser";
 	}
 	
-	public String updateUser(){	//确认修改信息,修改个人资料
+	public String updateUser() throws ParseException{	//确认修改信息,修改个人资料
 		boolean boo = userService.updateUser(user);
 		String result = "updateUser";
 		if(boo){
@@ -56,25 +58,35 @@ public class UserManagerAction extends BaseAction {
 		} else {
 			request.put("updateUserMsg", "修改失败");
 		}
-		if(userId==2){
+		User users = (User)session.get("user");
+		if(users.getId()==user.getId()){	//当修改的是自己本人的时候，将修改后信息存入session
 			User userData = userService.viewUser(user.getId());
+			System.out.println("userManager示例2："+userData.getCreateDate());
 			session.put("user", userData);
-			result = "updateMyself";
 		}
-		PageCut<User> pCut=userService.getPageCut(page,3);
-		request.put("allUser", pCut);
+		if(userId==2){		//当执行修改个人信息时在个人资料界面时
+			result = "toUpdateMyself";
+		} else {
+			PageCut<User> pCut=userService.getPageCut(page,3);
+			request.put("allUser", pCut);
+		}
 		return result;
 	}
 
-	public String deleteUser() {	//删除该用户，并查询出生于用户
-		boolean boo = userService.deleteUser(user);
-		if(boo){
-			request.put("deleteUserMsg", "删除成功");
-		} else {
-			request.put("deleteUserMsg", "删除失败");
+	public String deleteUser() {	//删除该用户，并查询所有用户
+		User me = (User) session.get("user");
+		if(me.getId()==user.getId()){
+			request.put("deleteUserMsg", "删除失败,不能删除自己");
+		} else { 
+			boolean boo = userService.deleteUser(user);
+			if(boo){
+				request.put("deleteUserMsg", "删除成功");
+			} else {
+				request.put("deleteUserMsg", "删除失败");
+			}
 		}
-		List<User> list = userService.selectAllUser();
-		request.put("allUser", list);
+		PageCut<User> pCut=userService.getPageCut(page,3);
+		request.put("allUser", pCut);
 		return "deleteUser";
 	}
 	
@@ -101,5 +113,5 @@ public class UserManagerAction extends BaseAction {
 	public void setPage(int page) {
 		this.page = page;
 	}
-	
+
 }

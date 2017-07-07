@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="../css/adduser.css">
 </head>
 <body>
-	${addMsg }
+	<center><h4>${addMsg}</h4></center>
 	<div class="adduser">
    <form action="${rootPath}manage/UserManager_addUser" method="post">
      <lable>账号：</lable><input type="text" name="user.phone" maxlength="11" placeholder="请输入手机号/账号"><br>

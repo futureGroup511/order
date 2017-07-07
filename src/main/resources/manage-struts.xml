@@ -43,7 +43,7 @@
 			<result name="toUpdateUser">/WEB-INF/admin/updateuser.jsp</result>
 			<result name="updateUser">/WEB-INF/admin/manageruser.jsp</result>
 			<result name="deleteUser">/WEB-INF/admin/manageruser.jsp</result>
-			<result name="updateMyself">/WEB-INF/admin/updatemyself.jsp</result>
+			<result name="toUpdateMyself">/WEB-INF/admin/toupdatemyself.jsp</result>
 		</action>
 		
 		<action name="MenuManager_*" method="{1}" class="com.future.order.action.manager.MenuManagerAction">
