@@ -27,6 +27,9 @@ public class ChangeAction extends BaseAction{
 	public String addMenu(){
 		return "addMenu";
 	}
+	public String addMenuType(){
+		return "addMenuType";
+	}
 	//获得个人资料
 	public String getMyself(){
 		return "getMyself";

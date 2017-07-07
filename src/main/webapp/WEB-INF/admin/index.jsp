@@ -53,6 +53,12 @@
                       <li>
                           <a href="${rootPath}manage/MenuManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品</a>
                       </li>
+                       <li>
+                           <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜品类型</a>
+                      </li>
+                        <li>
+                          <a href="${rootPath}manage/MenuTypeAction" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品类型</a>
+                      </li>
                   </ul> 
               </li>
               <li><!-- 第四个父目录 -->
