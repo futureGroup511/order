@@ -82,7 +82,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("updateMsg", "修改失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 3);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		request.put("allMenu", pCut);
 		return "updateMenu";
 	}
@@ -100,7 +100,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("deleteMenuMsg", "删除失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 3);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		request.put("allMenu", pCut);
 		return "deleteUser";
 	}

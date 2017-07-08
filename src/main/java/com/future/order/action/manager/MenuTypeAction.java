@@ -1,5 +1,7 @@
 package com.future.order.action.manager;
 
+import java.util.List;
+
 import com.future.order.base.BaseAction;
 import com.future.order.entity.MenuType;
 import com.future.order.entity.Order;
@@ -27,6 +29,8 @@ public class MenuTypeAction extends BaseAction {
 		String mark = "操作失败";
 		if (sign == true) {
 			mark = "添加成功";
+			List<MenuType> list = (List<MenuType>) session.get("Typelist");	//金高改
+			list.add(menutype);		//
 		} else {
 			mark = "添加失败";
 		}
