@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +10,6 @@
 	href="../css/updateingredient.css">
 </head>
 <body>
-	<center>
 		<div class="updateingredient">
 			<form
 				action="${rootPath}manage/Ingredient_updateIngredient?ingredient.id=${updateIngredient.id}"
@@ -24,7 +24,7 @@
 				<input type="text" name="ingredient.num"
 					value="${updateIngredient.num}"><br>
 				<lable id="text">类型：</lable>
-				<select name="ingredient.type">
+				<select name="ingredient.type" >
 					<option value="配料"
 						<c:if test='${order.status eq "配料"}'>selected="selected"</c:if>>配料</option>
 					<option value="原料"
@@ -43,7 +43,6 @@
 				</div>
 			</form>
 		</div>
-	</center>
 	<!-- 	<center> -->
 	<%-- 	<form action="${rootPath}manage/Ingredient_updateIngredient?ingredient.id=${updateIngredient.id}" method="post"> --%>
 	<%-- 		名称：<input type="text" name="ingredient.name" value="${updateIngredient.name}"><br> --%>

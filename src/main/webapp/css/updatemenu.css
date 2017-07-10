@@ -1,34 +1,59 @@
 *{margin:0;padding: 0; }
 #text{
     display: inline-block;
-    width: 10%;
+    width: 17%;
+	
     text-align: left;
 }
+form{
+      width:60%;
+	  margin:0 auto;}
 .updatemenu{
     font-weight:bold; 
-    margin-top:2%; 
+    margin-top:3%; 
     padding-left: 5%;
-    line-height: 40px;
-    font-size: 1.2vw
+    line-height: 45px;
+    font-size: 1.5vw;
 }
+select{ width:22%;
+        height:25px;
+		border-radius:5px;
+		margin-left:-1.5%;
+		 margin-right: 40px;}
 input{
-  width: 15%;
+   width: 22%;
    height:20px; 
-   margin-right: 50px;    
+   margin-right: 40px;
+   border-radius:5px;    
 }
  img{
   margin-left: 20%;
   margin-top: 10px
  }
+ textarea{ margin-top:3%;
+           margin-left:3.5%;}
 .button{
   margin-left: 5%
 }
-.button input{
+.input1{
     color: white;
-    width: 5%;
-    font-size: 0.5vw;
+    width: 8%;
+	height:25px;
     background: #1bafe0;
-    margin-left: 10%;
-    margin-top: 20px;
+    margin-left: 31%;
+    margin-top: 3%;
     box-shadow: 2px 1px 1px rgba(50,154,242)
+}
+.input2{
+    color: white;
+    width: 8%;
+	height:25px;
+    background: #1bafe0;
+    margin-left:5%;
+    margin-top: 3%;
+    box-shadow: 2px 1px 1px rgba(50,154,242)	
+	}
+#a{
+  float:left;
+  margin-top:3%;
 }

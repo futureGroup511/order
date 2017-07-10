@@ -1,29 +1,36 @@
 *{margin:0;padding: 0; }
 body{width: 100%;}
+form{ 
+     width:30%;
+	 margin:0 auto;}
 .text{
     font-weight:bold; 
-    margin-top:2%; 
-    font-size:1.2vw; 
+    margin-top:5%; 
+    font-size:1.5vw; 
     padding-left: 5%;
-    line-height: 40px;
+    line-height: 50px;
     vertical-align: middle;
 }
 input{
-  width: 15%;
-   height:20px; 
+   width: 38%;
+   height:25px; 
    margin-right: 50px;
-   vertical-align: middle     
+   vertical-align: middle ;  
+   border-radius:4px;  
 }
- 
-select{
-  width: 7%
+.inputs{ margin-left:1%;} 
+ select{
+  width: 38%;
+  border-radius:4px;
+  border:1px solid #000;
 }
 .button input{
     color: white;
     width: 5%;
+	height:25px;
     font-size: 0.5vw;
     background: #1bafe0;
-    margin-left: 10%;
-    margin-top: 20px;
+    margin-left:45%;
+    margin-top: 4%;
     box-shadow: 2px 1px 1px rgba(50,154,242)
 }

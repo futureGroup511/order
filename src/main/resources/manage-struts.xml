@@ -27,6 +27,7 @@
 
 		<action name="Change_*" method="{1}"
 			class="com.future.order.action.manager.ChangeAction">
+			<result name="addMenuType">/WEB-INF/admin/addmenutype.jsp</result>
 			<result name="addUser">/WEB-INF/admin/adduser.jsp</result>
 			<result name="managerUser">/WEB-INF/admin/manageruser.jsp</result>
 			<result name="addstock">/WEB-INF/admin/addstock.jsp</result>
@@ -43,7 +44,7 @@
 			<result name="toUpdateUser">/WEB-INF/admin/updateuser.jsp</result>
 			<result name="updateUser">/WEB-INF/admin/manageruser.jsp</result>
 			<result name="deleteUser">/WEB-INF/admin/manageruser.jsp</result>
-			<result name="updateMyself">/WEB-INF/admin/updatemyself.jsp</result>
+			<result name="toUpdateMyself">/WEB-INF/admin/toupdatemyself.jsp</result>
 		</action>
 		
 		<action name="MenuManager_*" method="{1}" class="com.future.order.action.manager.MenuManagerAction">
@@ -73,14 +74,20 @@
 		</action>
 		
 		<action name="StockAction_*" method="{1}" class="com.future.order.action.manager.StockAction">
-			<result name="add">/WEB-INF/admin/addstock.jsp</result>
+			<result name="add">/WEB-INF/admin/addstockdetails.jsp</result>
 			<result name="select">/WEB-INF/admin/checkstock.jsp</result>
 			<result name="update">/WEB-INF/admin/updatestock.jsp</result>
 		</action>
 		
 		<action name="StockDetailsAction_*" method="{1}" class="com.future.order.action.manager.StockDetailsAction">
+			<result name="add">/WEB-INF/admin/addstockdetails.jsp</result>
 			<result name="details">/WEB-INF/admin/stockdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatestocknews.jsp</result>
+		</action>
+		<action name="MenuTypeAction_*" method="{1}" class="com.future.order.action.manager.MenuTypeAction">
+			<result name="add">/WEB-INF/admin/addmenutype.jsp</result>
+			<result name="check">/WEB-INF/admin/checkmenutype.jsp</result>
+			<result name="update">/WEB-INF/admin/updatetype.jsp</result>
 		</action>
 	</package>
 </struts>

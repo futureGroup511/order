@@ -1,29 +1,33 @@
 
 #text{
     display: inline-block;
-    width: 10%;
+    width: 25%;
     text-align: left;
 }
-
-.updatestocknews{ 
+form{ 
+      width:40%;
+	  margin:0 auto;}
+.updatestocknews{
     font-weight:bold; 
-    margin-top:2%; 
+    margin-top:5%; 
     padding-left: 5%;
-    line-height: 40px;
-    font-size: 1.2vw
+    line-height: 50px;
+    font-size: 1.5vw
 }
 input{
-  width: 15%;
+   width: 30%;
    height:20px; 
-   margin-right: 50px;    
+   margin-right: 50px;
+   border-radius:5px;    
 }
 
 .button input{
     color: white;
-    width: 5%;
+    width: 6%;
+	height:25px;
     font-size: 0.5vw;
     background: #1bafe0;
-    margin-left: 10%;
-    margin-top: 20px;
+    margin-left: 37%;
+    margin-top: 5%;
     box-shadow: 2px 1px 1px rgba(50,154,242)
 }

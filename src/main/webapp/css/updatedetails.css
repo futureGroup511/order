@@ -2,32 +2,39 @@
 body{width: 100%;}
 #text{
     display: inline-block;
-    width: 10%;
-    text-align: right;
+    width: 8%;
+    text-align: left;
 }
+
 .updatedetails{
     font-weight:bold; 
-    margin-top:2%; 
-    padding-left: 5%;
+    margin-top:5%; 
+    padding-left:25%;
     line-height: 40px;
-    font-size: 1.2vw
+    font-size: 1.2vw;
 }
 input{
-  width: 15%;
+   width:15%;
    height:20px; 
-   margin-right: 50px;    
+   border-radius:5px;
+   margin-right: 50px;  
+   margin-left:2%;  
 }
  
 select{
-  width: 7%;
-  height: 20px
+  width: 15%;
+  height: 20px;
+  margin-left:1.2%;
+  border-radius:5px;
+  border:1px solid #000;
 }
 .button input{
     color: white;
-    width: 5%;
+    width: 8%;
+	height:25px;
     font-size: 0.5vw;
     background: #1bafe0;
-    margin-left: 30%;
-    margin-top: 20px;
-    box-shadow: 2px 1px 1px rgba(50,154,242)
+    margin-left: 25%;
+    margin-top: 4%;
+    box-shadow: 2px 1px 1px rgba(50,154,242);
 }

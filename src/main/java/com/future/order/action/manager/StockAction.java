@@ -1,7 +1,8 @@
 package com.future.order.action.manager;
 
+import java.util.Date;
+
 import com.future.order.base.BaseAction;
-import com.future.order.entity.Order;
 import com.future.order.entity.Stock;
 import com.future.order.util.PageCut;
 
@@ -37,6 +38,12 @@ public class StockAction extends BaseAction {
 			mark = "添加失败";
 		}
 		request.put("stocknews", mark);
+		@SuppressWarnings("unused")
+		int stockId = stock.getId();
+		@SuppressWarnings("unused")
+		Date createDate = stock.getCreateDate();
+		session.put("stockId", stockId);
+		session.put("createDate", createDate);
 		return "add";
 	}
 

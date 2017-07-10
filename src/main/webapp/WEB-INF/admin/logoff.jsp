@@ -13,11 +13,9 @@
             history.pushState(null, null, document.URL);
         });
         window.location.href="${rootPath}manage/Change_out";
-    </script>
+</script>
 </head>
 <body>
-<<<<<<< HEAD:src/main/webapp/WEB-INF/customer/success.jsp
-删除成功！pretty good boy.
 <%-- <table width="100%" border="1">
 <tr>
 	<th>菜名</th>
