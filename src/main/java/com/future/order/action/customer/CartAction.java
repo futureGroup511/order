@@ -39,8 +39,8 @@ public class CartAction extends BaseAction{
 	public String getHand() throws Exception{
 		int tableId=(int) session.get("userId");
 		List<ShopCart> shopCarts=shopCartService.getByTableId(tableId);
-			for(ShopCart item:shopCarts){
-				OrderDetails orderDetails=new OrderDetails();
+				for(ShopCart item:shopCarts){
+					OrderDetails orderDetails=new OrderDetails();
 					orderDetails.setMenuId(item.getMenuId());
 					orderDetails.setTableName(item.getTableName());
 					orderDetails.setMenuName(item.getMenuName());
@@ -48,7 +48,8 @@ public class CartAction extends BaseAction{
 					orderDetails.setTableId(item.getTableId());
 					orderDetails.setStatus("未付款");
 					Boolean bool=orderDetailsService.save(orderDetails);
-		}
+					System.out.println("666");
+				}
 		List<OrderDetails> orderDetails=orderDetailsService.getDetails(tableId);
 		request.put("orderDetails",orderDetails);
 		boolean bool=shopCartService.deleteAllCart(tableId);
@@ -121,12 +122,14 @@ public class CartAction extends BaseAction{
 		inform.setTableId(tableId);
 		inform.setTableName(tableName);
 		Boolean bool=informService.save(inform);
+		System.out.println("233323");
 		if(bool==true){
 			request.put("addMeg","催单成功");
 		}else{
 			request.put("addMeg","催单失败");
 		}
-		return "getReminder";
+		System.out.println("23333");
+		return getHand();
 	}
 	public int getId() {
 		return id;
