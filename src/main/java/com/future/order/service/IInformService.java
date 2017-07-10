@@ -6,10 +6,17 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
+import com.future.order.entity.Inform;
+import com.future.order.entity.Order;
+
 /**
  * @author Administrator
  *
  */
 public interface IInformService {
+
+	public List<Inform> getAll();
 
 }

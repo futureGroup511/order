@@ -5,37 +5,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>已完成菜品</title>
-     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
-  <style>
-      .aa{
-        width: 90%;
-        margin: 0 auto;
-        position: absolute;
-        left: 5%;
-        z-index: 100;
-      }
-     .aa p{
+    <title>催单</title>
+         <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrapwqj.css">
+
+    <style>
+   
+    .aa{
+          width: 90%;
+          margin: 0 auto;
+          position: absolute;
+          left: 5%;
+          z-index: 100;
+    }
+    .aa p{
         margin-top:30px;
         float: right; 
-        margin-right:60px; 
+         margin-right:60px; 
         cursor: pointer;
-      }
-       .pag{
-        float: right;
-        margin-top:-90px; 
-        margin-right:60px; 
-     }  
-       table{
+    }
+     .pag{
+        position: relative;
+        top:-50px;
+        left:800px;
+        /*float: right;
+        margin-top: -90px;
+        margin-right:60px; */
+     }
+        table{
+        /*  position: relative;
+          top: 10px;
+          left: 10px;*/
             width: 100%;
             text-align: center;
             margin:100px auto; 
             font-family: 微软雅黑;
          }
+        
         #table1 thead td{
+
             border: 1px solid #c6c6c6;
             background-color: #e8e7e3;
-            height: 40px;
+             height: 40px;
+           
         }
          #table1 tbody td{
             border: 1px solid #c6c6c6;
@@ -54,50 +65,33 @@
 </head>
 <body>
 <div class="aa">
- <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;未完成订单&nbsp;>></p>
+ <p>查看所有订单&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;未完成订单&nbsp;>></p>
     <table id="table1">
       <thead>
         <tr>
-            <td colspan="13">订单信息</td>
+            <td colspan="10">订单信息</td>
         </tr>
       </thead>
         <tbody>
           <tr>
              <td>ID</td>
-             <td>餐桌id</td>
+             <td>通知时间</td>
+             <td>餐桌ID</td>
              <td>餐桌名称</td>
-             <td>订单id</td>
-             <td>菜品id</td>
-             <td>菜品名称</td>
-             <td>菜品数量</td>
-             <td>菜品状态</td>
-             <td>下单时间</td>
-             <td>厨师id</td>
-             <td>厨师名称</td>
-			  <td>备注</td>
-			   <td>操作</td>
+             <td>通知内容</td>
           </tr>
-      	<c:forEach items="${menu}" var="item">
+         <c:forEach items="${inform}" var="item"> 
 	            <tr>  
 	                <td>${item.id}</td>
+	                <td>${item.createDate}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
-	                <td>${item.orderId}</td>
-	                <td>${item.menuId}</td>
-	                <td>${item.menuName}</td>
-	                <td>${item.menuNum}</td>
-	                <td>${item.status}</td>
-	                <td>${item.creatDate}</td>
-	                <td>${item.cookId}</td>
-	                <td>${item.cookName}</td>
-	                <td>${item.remark}</td>
-	                
-	                <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td>
-	            </tr>
-	            </c:forEach>  
+	                <td>${item.content}</td>
+	            </tr>  
+        	</c:forEach>
         </tbody>
     </table>
-       <div class="pag">
+      <div class="pag">
          <ul class="pagination">
                    <li><a href="">&laquo;</a></li>
                    <li class="active"><a href="">1</a></li>
@@ -107,8 +101,9 @@
                    <li><a href="">&raquo;</a></li>
                </ul>
     </div>
-    </div>
-    <div class="footer">
+    
+</div>
+<div class="footer">
              <a href="">技术支持:河南艾未特网络有限公司</a> 
         </div> 
 </body>

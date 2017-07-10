@@ -38,7 +38,7 @@ ${updateMsg}${deleteMenuMsg }
  							<li><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
  						</c:when> 
 					</c:choose> 
-- 				</c:forEach> 
+ 				</c:forEach> 
       <li><a href="${rootPath }manage/MenuManager?page=${allMenu.nextPage}">下一页</a></li>
     </ul>
    </div>
