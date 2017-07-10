@@ -21,6 +21,7 @@ ${updateIngredientMsg}${deleteIngredientMsg}
              <td>单价</td> 
              <td>库存</td>
              <td>注册时间</td>
+             <td>类型</td>
              <td>简介</td>
              <td>操作</td>
              <td>操作</td>
@@ -32,7 +33,8 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 				<td>${ingredient.name}</td>
 				<td>${ingredient.price}</td>
 				<td>${ingredient.num}</td>
-				<td>${ingredient.createDate}</td> 
+				<td>${ingredient.createDate}</td>
+				<td>${ingredient.type}</td>
 				<td>${ingredient.introduce}</td>
 				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>
 				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
@@ -47,10 +49,10 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 		 		<c:forEach var="i" begin="${allIngredient.currentPage-3>0?allIngredient.currentPage-3:1 }" 
  					end="${allIngredient.currentPage+3>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+3  }">
  					<c:choose>
- 						<c:when test="${i>0 && i == allIngredient.currentPage }"> 
+ 						<c:when test="${i>0 && i == allIngredient.currentPage &&i<=3}"> 
  							<li class="active"><a href="${rootPath }manage/Ingredient?page=${i }">${i}</a></li> 
 						</c:when> 
- 						<c:when test="${i>0 && i != allIngredient.currentPage }"> 
+ 						<c:when test="${i>0 && i != allIngredient.currentPage &&i<=3}"> 
  							<li><a href="${rootPath }manage/Ingredient?page=${i }">${i}</a></li> 
 						</c:when> 
  					</c:choose> 

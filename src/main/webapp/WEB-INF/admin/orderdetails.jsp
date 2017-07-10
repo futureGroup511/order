@@ -62,12 +62,12 @@
 							begin="${detailspc.currentPage-3>0?detailspc.currentPage-3:1 }"
  							end="${detailspc.currentPage+3>detailspc.pageNum?detailspc.pageNum:detailspc.currentPage+3  }"> 
  							<c:choose> 
- 								<c:when test="${i>0 && i == detailspc.currentPage }">
+ 								<c:when test="${i>0 && i == detailspc.currentPage &&i<=3}">
  									<li class="active"><a 
  										href="${rootPath}manage/OrderDetailsAction?page=${i}">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != postPS.currentPage }"> 
+ 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
  									<li><a href="${rootPath}manage/OrderDetailsAction?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose>

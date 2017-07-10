@@ -6,10 +6,14 @@
  */  
 package com.future.order.service;
 
+import com.future.order.entity.Inform;
+
 /**
  * @author Administrator
  *
  */
 public interface IInformService {
+
+	Boolean save(Inform inform);
 
 }

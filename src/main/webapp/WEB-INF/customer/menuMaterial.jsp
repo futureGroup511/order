@@ -44,7 +44,7 @@
 	<th>需求量</th>
 	<th>进货时间</th>
 	</tr>
-	<c:forEach items="${menumaterials}" var="m">
+	<c:forEach items="${menuMaterial}" var="m">
 		<tr>
 			<td>${m.menuId}</td>
 			<td>${m.menuName}</td>

@@ -5,15 +5,10 @@
  * 
  */  
 package com.future.order.dao;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Ingredient;
-import com.future.order.entity.User;
 import com.future.order.service.IIngerdientService;
 import com.future.order.util.PageCut;
 
@@ -57,5 +52,11 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 		PageCut<Ingredient> pc = new PageCut<Ingredient>(curr,pageSize,count);
 		pc.setData(this.getEntityLimitList("from Ingredient", (curr-1)*pageSize, pageSize));
 		return pc;
+	}
+
+	@Override
+	public List<Ingredient> getByMenuId(int menuId) {
+		String hql="from Ingredient m where m.menuId="+menuId;		
+		return this.getEntityList(hql);
 	}
 }

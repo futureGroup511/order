@@ -8,6 +8,8 @@ package com.future.order.dao;
 
 import org.springframework.stereotype.Service;
 
+import com.future.order.base.BaseDao;
+import com.future.order.entity.Inform;
 import com.future.order.service.IInformService;
 
 /**
@@ -15,6 +17,11 @@ import com.future.order.service.IInformService;
  *
  */
 @Service
-public class InformDao implements IInformService {
+public class InformDao extends BaseDao<Inform> implements IInformService {
+
+	@Override
+	public Boolean save(Inform inform) {
+		return this.saveEntity(inform);
+	}
 
 }

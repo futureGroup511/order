@@ -23,13 +23,10 @@ public interface IOrderDetailsService {
 	public OrderDetails CheckById(int detailid);
 	public boolean UpdateOrder(OrderDetails details);
 	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid);
-
 	public Boolean save(OrderDetails orderDetails);
 	public List<OrderDetails> getDetails(int tableId);
-
 	public List<OrderDetails> unfinish();
 	public boolean updet(int id);
 	public List<OrderDetails> getAll(int id);
-
-
+	public OrderDetails getByTableId(int tableId);
 }

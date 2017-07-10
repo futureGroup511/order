@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
 import com.future.order.entity.OrderDetails;
+import com.future.order.entity.ShopCart;
 import com.future.order.service.IOrderDetailsService;
 import com.future.order.util.PageCut;
 
@@ -142,9 +143,20 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	@Override
 	public List<OrderDetails> getDetails(int tableId) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		String hql="from OrderDetails s where s.tableId="+tableId+" and (s.status='未付款' or s.status='处理中'  )";
+		String hql="from OrderDetails s where s.tableId="+tableId+" and (s.status='未付款' or s.status='处理中')";
 		list=this.getEntityList(hql);
 		return list;
+	}
+	@Override
+	public OrderDetails getByTableId(int tableId) {
+		String hql="from OrderDetails s where s.tableId="+tableId;
+		List<OrderDetails> orderDetails=this.getEntityList(hql);
+		if(orderDetails.size()>0){
+			return (OrderDetails)orderDetails.toArray()[0];
+		}
+		else{
+			return null;
+		}	
 	}
 	
 }

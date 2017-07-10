@@ -26,5 +26,8 @@
 				</tr>	
 			</c:forEach>	
 </table>
+<a href="${rootPath}customer/cart_getCart">购物车</a>
+<a href="${rootPath}customer/cart_getReminder">催单</a>
+<h3>${addMeg}</h3>
 </body>
 </html>
