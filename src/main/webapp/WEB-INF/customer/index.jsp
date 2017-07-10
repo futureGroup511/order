@@ -68,7 +68,7 @@
    	 <div class="show">
        <!-- 以下层级每一个块   都会是一道菜 -->
 	    <div class="food">
-		    <a href="">
+		    <a href="${rootPath}customer/customer_getMenuMaterial?id=${m.id}">
 	            <div class="left photo">
 	              <img src="../images/chuan.jpg" alt="" width="100px" height="90px">	
 	            </div>
