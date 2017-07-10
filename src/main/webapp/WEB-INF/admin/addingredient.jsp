@@ -23,7 +23,7 @@
 					<option value="配料">配料</option>
 				</select><br>
 				<lable id="text">简介：</lable>
-				<textarea rows="10" cols="30" name="ingredient.introduce"></textarea>
+				<textarea rows="5" cols="35" name="ingredient.introduce"></textarea>
 				<div class="button">
 					<input type="submit" value="添加">
 				</div>

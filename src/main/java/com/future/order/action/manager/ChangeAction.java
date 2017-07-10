@@ -59,25 +59,4 @@ public class ChangeAction extends BaseAction{
 	public String addStocks(){
 		return "addstock";
 	}
-	public void ad() throws IOException{
-		 HttpServletResponse response = ServletActionContext.getResponse();
-        ByteArrayOutputStream out = QRCode.from("scsf").to(  
-                ImageType.PNG).stream();
-        response.setContentType("image/png");  
-        response.setContentLength(out.size());  
-        FileOutputStream fout = new FileOutputStream(new File("D:\\123.jpg"));
-
-		fout.write(out.toByteArray());
-
-		fout.flush();
-		fout.close();
-        
-        OutputStream outStream = response.getOutputStream();  
-   
-        outStream.write(out.toByteArray());  
-   
-        outStream.flush();  
-        outStream.close(); 
-        System.out.println("结束");
-	}
 }

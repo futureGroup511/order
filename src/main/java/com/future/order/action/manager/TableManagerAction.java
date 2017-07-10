@@ -1,14 +1,31 @@
 package com.future.order.action.manager;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+import org.hibernate.mapping.Array;
+
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Tables;
 import com.future.order.util.PageCut;
+
+import net.glxn.qrgen.QRCode;
+import net.glxn.qrgen.image.ImageType;
 
 public class TableManagerAction extends BaseAction {
 	
 	private Tables table;
 	private int page=1;
-	
+	private int id;
 	@Override
 	public String execute() throws Exception {
 		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
@@ -68,7 +85,42 @@ public class TableManagerAction extends BaseAction {
 		}
 		return "deleteTable";
 	}
-	
+	public void AllCard() throws IOException{
+		List<Tables> list = tablesService.CheckName();
+		HttpServletResponse response = ServletActionContext.getResponse();
+		 for(int i=0;i<list.size();i++){
+			 int j=list.get(i).getId();
+			  ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+j).to(  
+		               ImageType.PNG).stream();
+		       response.setContentType("image/png");  
+		       response.setContentLength(out.size());  
+		       FileOutputStream fout = new FileOutputStream(new File("D:\\餐桌"+j+".jpg"));
+				fout.write(out.toByteArray());
+				fout.flush();
+				fout.close();      
+		       OutputStream outStream = response.getOutputStream();  
+		       outStream.write(out.toByteArray());
+		       outStream.flush();  
+		       outStream.close(); 
+		       System.out.println("结束");
+		 }
+	}
+	 public void SomeCard() throws IOException{
+		 HttpServletResponse response = ServletActionContext.getResponse();
+		 ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+id).to(  
+	               ImageType.PNG).stream();
+	       response.setContentType("image/png");  
+	       response.setContentLength(out.size());  
+	       FileOutputStream fout = new FileOutputStream(new File("D:\\餐桌"+id+".jpg"));
+			fout.write(out.toByteArray());
+			fout.flush();
+			fout.close();      
+	       OutputStream outStream = response.getOutputStream();  
+	       outStream.write(out.toByteArray());
+	       outStream.flush();  
+	       outStream.close(); 
+	       System.out.println("结束");
+	 }
 	public Tables getTable() {
 		return table;
 	}
@@ -83,6 +135,14 @@ public class TableManagerAction extends BaseAction {
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

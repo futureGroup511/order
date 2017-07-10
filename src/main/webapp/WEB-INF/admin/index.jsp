@@ -30,9 +30,6 @@
                     <li>
                       <a href="${rootPath}manage/UserManager" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp管理用户</a>
                     </li>
-                    <li>
-                      <a href="${rootPath}manage/Change_ad" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp生成二维码</a>
-                    </li>
                   </ul>
                 
               </li>
@@ -79,6 +76,9 @@
                       <li>
                           <a href="${rootPath}manage/TableManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理餐桌</a>
                       </li>
+                       <li>
+                      <a href="${rootPath}manage/TableManager_AllCard" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp生成二维码</a>
+                    </li>
                   </ul> 
               </li>
               <li><!-- 第四个父目录 -->

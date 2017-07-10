@@ -7,6 +7,8 @@
 package com.future.order.service;
 
 
+import java.util.List;
+
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Tables;
 import com.future.order.util.PageCut;
@@ -28,4 +30,6 @@ public interface ITablesService {
 	public boolean deleteTable(Tables table);
 	//修改餐桌信息
 	public boolean updateTables(Tables table);
+
+	public List<Tables> CheckName();
 }

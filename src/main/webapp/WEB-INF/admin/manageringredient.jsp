@@ -11,7 +11,6 @@
 </head>
 <body>
 <center>
-共有数据${allIngredient.count}条
 ${updateIngredientMsg}${deleteIngredientMsg}
 <div class="manageringredient">
      <table cellspacing="0">
@@ -36,8 +35,8 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 				<td>${ingredient.createDate}</td>
 				<td>${ingredient.type}</td>
 				<td>${ingredient.introduce}</td>
-				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>
-				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 			</tr> 
 		</c:forEach>
          </tbody>

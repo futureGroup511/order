@@ -6,6 +6,8 @@
  */  
 package com.future.order.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
@@ -51,6 +53,11 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 	@Override
 	public boolean updateTables(Tables table) {
 		return this.updateEntity(table);
+	}
+
+	@Override
+	public List<Tables> CheckName() {
+		return selectAll();
 	}
 
 }
