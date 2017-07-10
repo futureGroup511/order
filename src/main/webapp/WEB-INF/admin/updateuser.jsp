@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/updateuser.css">
+<link rel="stylesheet" type="text/css" href="${rootPath}css/updateuser.css">
 </head>
 <body>
 <center>

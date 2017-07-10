@@ -5,13 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-   <link href="../css/bootstrap.css" rel="stylesheet" />
-    <link href="../css/font-awesome.css" rel="stylesheet" />
-    <link href="../css/basic.css" rel="stylesheet" />
+   <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
+    <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
+    <link href="${rootPath}css/basic.css" rel="stylesheet" />
 </head>
 <body>
 <div class="header"><!-- 头部 -->
-            <img src="../images/beijing.jpg" style="width:100%;height:125px;">
+            <img src="${rootPath}images/beijing.jpg" style="width:100%;height:125px;">
            <span class="span1">订餐管理系统</span>
             <span class="span2">欢迎管理员登录</span>
     </div>
@@ -100,10 +100,10 @@
        <a href="">技术支持:河南艾未特网络有限公司</a>  
     </div>
    
-   <script src="../js/jquery-1.10.2.js"></script>
-   <script src="../js/bootstrap.js"></script>  
-   <script src="../js/jquery.metisMenu.js"></script>
-   <script src="../js/custom.js"></script>
+   <script src="${rootPath}js/jquery-1.10.2.js"></script>
+   <script src="${rootPath}js/bootstrap.js"></script>  
+   <script src="${rootPath}js/jquery.metisMenu.js"></script>
+   <script src="${rootPath}js/custom.js"></script>
 
 
 <!-- 	<div style="width: 10%;float: left;"> -->
