@@ -27,6 +27,13 @@
 	    <scope>provided</scope>
     </dependency>
     
+      <!-- 二维码删除QRGen依赖 -->
+    <dependency>  
+         <groupId>net.glxn</groupId>  
+         <artifactId>qrgen</artifactId>  
+         <version>1.2</version>  
+    </dependency>
+    
     <dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>jstl</artifactId>

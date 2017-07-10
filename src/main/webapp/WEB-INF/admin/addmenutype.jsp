@@ -5,13 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/addmenutype.css">
 </head>
 <body>
+ <div class="wall">
 	 <h4>${typenews}</h4>
 	 <form action="${rootPath}manage/MenuTypeAction_Add" method="post" enctype="multipart/form-data">
-	  <lable>菜品类型名称：</lable><input type="text" name="menutype.name"></input>
-	  <lable>备注：</lable><input type="text" name="menutype.remark"></input>
-	  <input type="submit" value="添加"></input>
+	  <lable id="text">类型名称：</lable><input type="text" name="menutype.name"></input><br>
+	  <lable id="textarea">备注：</lable><textarea cols="23" rows="2" name="menutype.remark"></textarea><br>
+	  <button type="submit">添加</button>
 	 </form>
+	 </div>
 </body>
 </html>

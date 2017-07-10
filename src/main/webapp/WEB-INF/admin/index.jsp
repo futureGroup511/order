@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +14,7 @@
 <div class="header"><!-- 头部 -->
             <img src="${rootPath}images/beijing.jpg" style="width:100%;height:125px;">
            <span class="span1">订餐管理系统</span>
-            <span class="span2">欢迎管理员登录</span>
+            <span class="span2">欢迎${user.phone}登录</span>
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->
@@ -28,6 +29,9 @@
                     </li>
                     <li>
                       <a href="${rootPath}manage/UserManager" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp管理用户</a>
+                    </li>
+                    <li>
+                      <a href="${rootPath}manage/Change_ad" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp生成二维码</a>
                     </li>
                   </ul>
                 
@@ -53,6 +57,11 @@
                       <li>
                           <a href="${rootPath}manage/MenuManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品</a>
                       </li>
+                  </ul> 
+              </li>
+              <li><!-- 第三个父目录 -->
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp菜品类型管理</a>
+                    <ul class="nav nav-second-level" >
                        <li>
                            <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜品类型</a>
                       </li>
@@ -75,7 +84,6 @@
               <li><!-- 第四个父目录 -->
                    <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp&nbsp&nbsp订单中心</a>
                    <ul class="nav nav-second-level">
-                      
                        <li>
                           <a href="${rootPath}manage/OrderAction" target="mainFrame"><span class="glyphicon glyphicon-glass"></span>&nbsp&nbsp&nbsp管理订单</a>
                       </li>

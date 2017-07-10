@@ -1,0 +1,34 @@
+*{
+ margin:0;
+ padding: 0;
+ }
+ .wall{
+    width: 25%;
+    height: 300px;
+    margin:0 auto;
+    margin-top: 8%;
+ }
+ #text{
+    width: 35%;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 50px;
+    vertical-align: middle;
+
+ }
+ input{
+    width: 55%;
+    height: 26px;
+    vertical-align: middle;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+ }
+ button{
+    width:80px;
+    height: 25px;
+    margin-left: 40%;
+    margin-top: 8%;
+    font-size: 16px;
+ }
