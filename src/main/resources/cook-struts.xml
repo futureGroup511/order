@@ -24,6 +24,7 @@
 		<result name ="update">/WEB-INF/cook/menu.jsp</result>
 		<result name="unmenu">/WEB-INF/cook/menu.jsp</result>
 		<result name="finish">/WEB-INF/cook/ordercenter.jsp</result>
+		<result name="inform">/WEB-INF/cook/inform.jsp</result>
 		</action>
 	</package>
 </struts>

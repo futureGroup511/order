@@ -39,10 +39,21 @@ public class orderCenterAction extends BaseAction {
 		request.put("menu", menu);
 		return "update";
 	}
+	public String domenu() {
+		boolean m=orderDetailsService.updateOrerDetails(OrderId);
+		List menu=orderDetailsService.getAll(OrderId);
+		request.put("menu", menu);
+		return "update";
+	}
 	public String unmenu(){
 		List list=orderDetailsService.unfinish();
 		request.put("menu", list);
 		return "unmenu";
+	}
+	public String reminder() {
+		List list=informService.getAll();
+		request.put("inform", list);
+		return "inform";
 	}
 	
 	public int getOrderId() {

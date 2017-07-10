@@ -45,43 +45,62 @@
     height:40px;
     margin: 0 auto;
     border-radius: 100px;
-    background-color:red;
+}
+.classification div p{
+	font-size:12px;
+
 }
 .show{
 	width:100%;
-
 }
 .show .food{
 	width:100%;
-	height:70px;
-	padding: 10px 20px; 
+	height:110px;
+	padding: 10px 10px; 
 	border: 1px solid #dadada;
 }
-.show .food a{
+.show a{
 	color:#000;
 }
-.show .food .left{
-	width:30%;
-	hiehgt:100%;
+.show .food .photo{
+   width:35%;
+   height:100%;
 }
-.show .food .left img{
-	width:50px;
-	hieght: 50px;
+.show .food .indu{
+	width:65%;
+	height:100%；
 }
-.show .food .left p{
-	line-height: 25px;
-	font-size: 16px;
+.show .food .indu div{
+	padding:2px 0px;
+	width:100%;
+    height:30%;
 }
-.show .food .right{
-	width: 40%;
-	height:100%
+.show .food .indu name{
+    font-size:16px;
+    line-height: 100%;
 }
-.show .food .right input{
-	width:80%;
-    height:40px;
-    border: 0px;
-    background-color:#F7B940;
-    float:right;
+.show .food .indu .indu2{
+	font-size:12px;
+}
+.show .food .indu .di p{
+	display: inline-block;
+}
+.show .food .indu .di input{
+	border:0px;
+	background-color:#DE432F;
+	width:25px;
+	height:25px;
+	border-radius: 2px;
+}
+.p1{
+	width:25%;
+	display: inline-block;
+    color:#DE432F;
+}
+.p2{
+	display: inline-block;
+    color:#C4C6B4;
+    width:40%;
 }
 // .show a{
 // 	color:#222;
