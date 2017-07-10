@@ -28,25 +28,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/java/apache-maven-3.5.0/repository/com/google/zxing/core/2.0/core-2.0.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="org.eclipse.jst.component.archivename" value="core-2.0.jar"/>
-			<attribute name="maven.groupId" value="com.google.zxing"/>
-			<attribute name="maven.artifactId" value="core"/>
-			<attribute name="maven.version" value="2.0"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="D:/java/apache-maven-3.5.0/repository/net/glxn/qrgen/1.2/qrgen-1.2.jar" sourcepath="D:/java/apache-maven-3.5.0/repository/net/glxn/qrgen/1.2/qrgen-1.2-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="org.eclipse.jst.component.archivename" value="qrgen-1.2.jar"/>
-			<attribute name="maven.groupId" value="net.glxn"/>
-			<attribute name="maven.artifactId" value="qrgen"/>
-			<attribute name="maven.version" value="1.2"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
