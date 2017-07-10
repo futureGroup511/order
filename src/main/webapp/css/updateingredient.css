@@ -1,33 +1,40 @@
 *{margin:0;padding: 0; }
-body{width: 100%;}
+
 #text{
     display: inline-block;
-    width: 15%;
-    text-align: right;
+    width: 30%;
+    text-align: left;
+	font-size:24px;
 }
-
+form{
+     width:50%;
+	 margin-left:10%;}
 .updateingredient{ 
+	wdith:70%;
     font-weight:bold; 
     margin-top:2%; 
-    padding-left: 5%;
-    line-height: 40px;
+    padding-left: 20%;
+    line-height: 50px;
     font-size: 1.2vw
 }
 input{
-  width: 15%;
-   height:20px; 
+   width: 35%;
+   height:25px; 
+   border-radius:5px;
    margin-right: 50px;    
 }
- 
-select{
-  width: 7%
-}
+select{ width:22%;
+        height:25px;
+		border-radius:5px;
+		margin-left:-1.5%;
+		 margin-right: 40px;}
 .button input{
     color: white;
-    width: 5%;
+    width: 8%;
+	height:25px;
     font-size: 0.5vw;
     background: #1bafe0;
-    margin-left: 10%;
-    margin-top: 20px;
+    margin-left: 25%;
+    margin-top: 3%;
     box-shadow: 2px 1px 1px rgba(50,154,242)
 }

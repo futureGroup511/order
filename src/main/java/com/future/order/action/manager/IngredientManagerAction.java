@@ -16,6 +16,10 @@ public class IngredientManagerAction extends BaseAction {
 	public String execute(){
 		PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,3);
 		request.put("allIngredient", pCut);
+		if(pCut.getData().size()==0){
+			String mark="没有配料了，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("deleteIngredientMsg", mark);
+		}
 		return SUCCESS;
 	}
 	
@@ -58,8 +62,8 @@ public class IngredientManagerAction extends BaseAction {
 		} else {
 			request.put("deleteIngredientMsg", "删除失败");
 		}
-		List<Ingredient> list = ingerdientService.getAll();
-		request.put("allIngredient", list);
+		PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,3);
+		request.put("allIngredient", pCut);
 		return "deleteIngredient";
 	}
 	

@@ -13,6 +13,15 @@ function CheckPay(){
 function Check(){
 	window.location.href="${rootPath}manage/OrderAction?sign=one";
 	}
+function search(){
+	alter("lmkm");
+    var status = document.getElementById('status').value;
+	if(status=="已付款"){
+		alter("该用户已付款");
+	}
+//     obj.href = obj.href + "&gjz="+key;
+
+}
 	</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,7 +38,7 @@ function Check(){
       <input type="button" onclick="return Check();" value="查看全部">      
       </div>  
       <div class="order">
-       <table cellspacing="0">
+       <table cellspacing="0" border="1">
          <thead>
           <tr>
              <td colspan="11">订单信息</td>
@@ -55,12 +64,12 @@ function Check(){
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
 	                <td>${item.total}</td>
-	                <td>${item.status}</td>
+	                <td  id="status">${item.status}</td>
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
-	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}">付款</a></td>      
+	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}"  onclick="javascript:search();">付款</a></td>      
 	                <td  class="four"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
 	            </tr>  
         	</c:forEach>                         

@@ -30,4 +30,5 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> getAll(int id);
 	public boolean updateOrerDetails(int id);
 
+	public OrderDetails getByTableId(int tableId);
 }

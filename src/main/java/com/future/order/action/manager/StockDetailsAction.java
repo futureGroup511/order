@@ -1,6 +1,11 @@
 package com.future.order.action.manager;
 
+import java.util.Date;
+import java.util.List;
+
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Ingredient;
+import com.future.order.entity.MenuType;
 import com.future.order.entity.StockDetails;
 import com.future.order.util.PageCut;
 
@@ -18,12 +23,34 @@ public class StockDetailsAction extends BaseAction{
 		int stockid=(int) session.get("stockid");
 		PageCut<StockDetails> pCut=stockDetailsService.getPageCut(page,2,stockid);
 		if(pCut.getData().size()==0){
-			String mark="订单详细信息为空(*^o^)人(^o^*)";
+			String mark="进货详细信息为空(*^o^)人(^o^*)";
 			request.put("markinfo", mark);
 		}
 		request.put("pc", pCut);		
 		return "details";
 		}
+	public String AddDetails(){
+		String ingName = details.getIngName();
+		Date createDate = (Date) session.get("createDate");
+		int stockId = (int) session.get("stockId");
+		details.setCreateDate(createDate);
+		details.setStockId(stockId);
+		@SuppressWarnings("unchecked")
+		List<Ingredient> list=(List<Ingredient>) session.get("Ientlist");
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getName().equals(ingName)){
+				details.setIngId(list.get(i).getId());
+			}
+		}
+		boolean boo = stockDetailsService.addDetails(details);
+		if(boo){
+			request.put("addMsg", "添加成功");
+		} else {
+			request.put("addMsg", "添加失败！");
+		}
+		return "add";
+		
+	}
 	public String Delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
 		boolean sign = stockDetailsService.DeletDetails(stocksid);
 		String mark = "操作失败";

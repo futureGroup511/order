@@ -29,8 +29,12 @@ public class MenuManagerAction extends BaseAction {
 	private List<String> fileContentType;
 
 	public String execute() {
-		PageCut<Menu> pCut = menuService.getPageCut(page, 3);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		request.put("allMenu", pCut);
+		if(pCut.getData().size()==0){
+			String mark="没有菜品了，着急着急(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("deleteMenuMsg", mark);
+		}
 		return SUCCESS;
 	}
 	
@@ -59,6 +63,7 @@ public class MenuManagerAction extends BaseAction {
 	public String toUpdateMenu(){
 		int id = menu.getId();
 		Menu menu = menuService.get(id);
+		@SuppressWarnings("unchecked")
 		List<MenuType> list = (List<MenuType>) session.get("Typelist");
 		for(int i=0;i<list.size();i++){
 			if(list.get(i).equals(menu.getTypeName())){
@@ -77,7 +82,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("updateMsg", "修改失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 3);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		request.put("allMenu", pCut);
 		return "updateMenu";
 	}
@@ -95,7 +100,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("deleteMenuMsg", "删除失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 3);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		request.put("allMenu", pCut);
 		return "deleteUser";
 	}

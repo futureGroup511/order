@@ -41,7 +41,7 @@
 			</select>
           <lable id="text">简介：</lable><input type="text" name="menu.introduce" value="${updateMenu.introduce}"><br>
            <lable id="text">图片：</lable><br>
-           <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}" width="70" height="50">
+           <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}" width="260" height="120">
       <div class="button">
        <input type="submit" value="修改">&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/MenuManager_deleteMenu?menu.id=${updateMenu.id}&menu.imgUrl=${updateMenu.imgUrl}">删除</a>
       </div>

@@ -1,16 +1,20 @@
-*{margin: 0;padding: 0}
-body{width: 100%}
-p{
-    font-weight: bold;
-    font-size: 1vw;
-    margin-left: 1%;
-    width: 10%;
-    text-align: left;
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;}
+.picture_wall{ width:60%;
+               height:500px;
+			   background:#FCC;
+			   margin:0 auto;
+			   margin-top:2%;}
+.picture_wall div{
+	width:25%;
+	height:250px;
+	float:left;
+	margin-right:8%;
 }
-.photowall{
-    line-height: 20px
+.picture_wall div img{
+	height:200px;
+	width:250px;
+	
+	
 }
-.page{
-    margin-left: 45%;
-    width: 20%;
-} 

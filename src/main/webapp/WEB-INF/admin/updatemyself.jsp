@@ -9,14 +9,19 @@
 </head>
 <body>
 <div class="updatemyself">
-   <form action="${rootPath}manage/UserManager_updateUser?user.id=${user.id}&userId=2" method="post">
+   <form action="${rootPath}manage/UserManager_updateUser" method="post">
+   	 
+   	<input type="hidden" name="user.id" value="${user.id}">
+   	<input type="hidden" name="userId" value="2">
      <lable id="text">姓名：</lable><input type="text" name="user.name" value="${user.name}"><br>
      <lable id="text">账号：</lable><input type="text" name="user.phone" value="${user.phone}"><br>
      <lable id="text">密码：</lable><input type="text" name="user.password" value="${user.password}"><br>
      <lable id="text">身份：</lable><input type="text" name="user.sort" value="${user.sort}" readonly="readonly"><br>
+     
      <lable id="text">注册时间：</lable><input type="text"  name="user.createDate" value="${user.createDate}" readonly="readonly"><br>
+     
       <div class="button">
-        <input type="submit" value="确认修改">          
+        <input type="submit" value="确认修改">
       </div>
     </form>   
    </div> 

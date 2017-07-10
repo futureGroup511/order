@@ -13,18 +13,16 @@
 <center>
 ${updateMsg}${deleteMenuMsg }
 共有数据${allMenu.count}条
- <div class="photowall">
-    <div class="photo1">
+  <div class="photowall"> 
+    <div class="picture_wall">
    			<c:forEach items="${allMenu.data}" var="data"> 
-				<tr>
-					<td><img src="${rootPath}uploadImg/${data.imgUrl}" height="50px" width="70px"></td><br>
-				</tr>
-				<tr>
-					<td><a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a></td><br>
-				</tr>
+				<div>
+					<img src="${rootPath}uploadImg/${data.imgUrl}">
+					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a>
+			     </div>  
 			</c:forEach>
     </div>
-  </div> 
+ </div>   
    <div class="page">
     <ul class="pagination">
       <li><a href="${rootPath }manage/MenuManager?page=${allMenu.prePage}">上一页</a></li>

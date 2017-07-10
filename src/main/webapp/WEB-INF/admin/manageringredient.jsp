@@ -45,7 +45,7 @@ ${updateIngredientMsg}${deleteIngredientMsg}
     </div>
     <div class="page">
     <ul class="pagination">
-      <li><a href="${rootPath }manage/Ingredient?page=${allIngredient.prePage}">上一页</a></li>
+      <li><a href="${rootPath}manage/Ingredient?page=${allIngredient.prePage}">上一页</a></li>
 		 		<c:forEach var="i" begin="${allIngredient.currentPage-3>0?allIngredient.currentPage-3:1 }" 
  					end="${allIngredient.currentPage+3>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+3  }">
  					<c:choose>

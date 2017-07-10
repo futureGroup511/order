@@ -122,7 +122,6 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 		}
 		return list;
 	}
-
 	//   张金高加
 	@Override
 	public boolean deleteShopCart(ShopCart shopCart) {
@@ -150,5 +149,23 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 			boo = true;
 		}
 		return boo;
+	}
+
+	@Override
+	public boolean deleteAllCart(int tableId) {
+		boolean sign = false;
+		try{
+			String hql="delete from ShopCart o Where o.tableId='"+tableId+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			sign=true;
+		}else{
+			sign=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
 	}
 }

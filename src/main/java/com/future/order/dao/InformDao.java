@@ -13,7 +13,10 @@ import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Inform;
+<<<<<<< HEAD
 import com.future.order.entity.Order;
+=======
+>>>>>>> 6a500d537cfb03347a74b650b309ade91aaeb3aa
 import com.future.order.service.IInformService;
 
 /**
@@ -34,6 +37,11 @@ public class InformDao extends BaseDao<Inform>  implements IInformService {
 			e.printStackTrace();
 		}
 		return list;
+public class InformDao extends BaseDao<Inform> implements IInformService {
+
+	@Override
+	public Boolean save(Inform inform) {
+		return this.saveEntity(inform);
 	}
 
 }
