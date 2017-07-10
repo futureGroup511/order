@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wall{
+    width: 40%;
+    height: 300px;
+    margin:0 auto;
+    margin-top: 8%;
+}
+#text{
+    width: 30%;
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 80px;
+    margin-left: 10%;
+}
+#textarea{
+	  width: 30%;
+	  font-size: 25px;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 60px;
+      margin-left: 10%;
+}
+input{
+    width: 40%;
+    height: 25px;
+    vertical-align: middle;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+textarea{
+    vertical-align: middle;
+}
+button{
+    width: 85px;
+    height: 28px;
+    margin-left: 37%;
+    margin-top: 8%;
+    font-size: 16px;
+}

@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wall{
+    width: 35%;
+    height: 350px;
+    margin:0 auto;
+    margin-top: 8%;
+}
+
+table{
+    width: 75%;
+    text-align: center;
+    height: 250px;
+    margin-left: 12%;
+}
+table th{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.page{
+      margin-left: 37%;
+      margin-top: 8%;
+}
