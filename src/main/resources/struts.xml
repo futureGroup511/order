@@ -7,7 +7,6 @@
 
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
-			
 	<!--引入其他xml文件-->
 	<include file="manage-struts.xml"></include>
 	<include file="cook-struts.xml"></include>
@@ -15,6 +14,10 @@
 
 	<package name="default" extends="struts-default,json-default" namespace="/"  strict-method-invocation="false">
 		<!-- 这里放全局的映射 -->
-		
+		<action name="loginAction" class="com.future.order.action.LoginAction">
+			<result name="manager">/WEB-INF/admin/index.jsp</result>
+			<result name="cook">/WEB-INF/cook/index.jsp</result>
+			<result name="login">/index.jsp</result>
+		</action>
 	</package>
 </struts>

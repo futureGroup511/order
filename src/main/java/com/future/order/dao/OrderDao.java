@@ -8,21 +8,11 @@ package com.future.order.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.future.order.base.BaseDao;
-
-import com.future.order.entity.Ingredient;
-import com.future.order.entity.Menu;
 import com.future.order.entity.Order;
-import com.future.order.entity.ShopCart;
-import com.future.order.entity.OrderDetails;
 import com.future.order.service.IOrderService;
 import com.future.order.util.PageCut;
-
-
-
 @Service
 public class OrderDao extends BaseDao<Order> implements IOrderService {
 
@@ -31,11 +21,13 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 
 		List<Order> list = new ArrayList<Order>();
 		try{
-			String hql="from Order";
+			String hql="from Order as a order by a.createDate asc";
 			list=this.getEntityList(hql);
+			System.out.println(list);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println(list);   
 		return list;
 
 	}
@@ -79,7 +71,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	@Override
 	public boolean updetemenu(int id){
 		Order order = this.getEntity(id);
-		String status="已处理";
+		String status="处理中";
 		order.setStatus(status);
 		boolean menus = this.updateEntity(order);
 		return true;
@@ -89,7 +81,9 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		List<Order> list = new ArrayList<Order>();
 		 String status="已付款";
 		String hql="from Order o where o.status='"+status+"'";
+		String hql1="from Order as a order by a.createDate asc ";
 		list=this.getEntityList(hql);
+		list=this.getEntityList(hql1);
 		return list;
 	}
 	

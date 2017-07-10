@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/addingredient.css">
+<link rel="stylesheet" type="text/css" href="${rootPath}css/addingredient.css">
 </head>
 <body>
 		${addIngerdientMsg}

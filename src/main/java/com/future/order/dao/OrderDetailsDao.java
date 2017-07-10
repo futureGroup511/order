@@ -5,16 +5,12 @@
  * 
  */  
 package com.future.order.dao;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.future.order.base.BaseDao;
-import com.future.order.entity.Menu;
-import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
+import com.future.order.entity.ShopCart;
 import com.future.order.service.IOrderDetailsService;
 import com.future.order.util.PageCut;
 
@@ -40,17 +36,26 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		 String status="未完成";
 		String hql="from OrderDetails o where o.status='"+status+"'";
+		String hql1="from OrderDetails as a order by a.creatDate asc";
 		list=this.getEntityList(hql);
+		list=this.getEntityList(hql1);
 		return list;
 	}
-	
+	@Override
+	public boolean updateOrerDetails(int id){
+		OrderDetails orderdetails = this.getEntity(id);
+		String status="已完成"; 
+		orderdetails.setStatus(status);
+		boolean menus = this.updateEntity(orderdetails);
+		return true;
+	}
 	
 	@Override
 	public List<OrderDetails> getAll(int id) {
 		@SuppressWarnings("unused")
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		try{
-			String hql="from OrderDetails ";
+			String hql="from OrderDetails as a order by a.creatDate asc";
 			list=this.getEntityList(hql);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -109,10 +114,10 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 	@Override
 	public boolean updet(int id){
-		OrderDetails order = this.getEntity(id);
+		OrderDetails orderdetails = this.getEntity(id);
 		String status="完成";
-		order.setStatus(status);
-		boolean menus = this.updateEntity(order);
+		orderdetails.setStatus(status);
+		boolean menus = this.updateEntity(orderdetails);
 		return true;
 	}
 
@@ -146,8 +151,21 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 
 	@Override
 	public List<OrderDetails> getDetails(int tableId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		String hql="from OrderDetails s where s.tableId="+tableId+" and (s.status='未付款' or s.status='处理中')";
+		list=this.getEntityList(hql);
+		return list;
 	}
-
+	@Override
+	public OrderDetails getByTableId(int tableId) {
+		String hql="from OrderDetails s where s.tableId="+tableId;
+		List<OrderDetails> orderDetails=this.getEntityList(hql);
+		if(orderDetails.size()>0){
+			return (OrderDetails)orderDetails.toArray()[0];
+		}
+		else{
+			return null;
+		}	
+	}
+	
 }

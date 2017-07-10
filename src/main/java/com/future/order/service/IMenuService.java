@@ -49,4 +49,6 @@ public interface IMenuService {
 
 	public boolean updatemenu(int id);
 	public List<Menu> getByTypeId(int id);
+
+
 }

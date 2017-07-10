@@ -23,7 +23,7 @@
 			     <p class="">登录</p>
 			 </div>
 			 <div class="zlogin" id="zlogin">
-			 <form action="${rootPath}manage/loginAction" method="post">
+			 <form action="${rootPath}loginAction" method="post">
 			     <div class="in1">
 			     	<p class="left">账户</p>
 			     	 <input type="text" class="form-control" id="inputText" placeholder="请输入账号" name="user.phone">

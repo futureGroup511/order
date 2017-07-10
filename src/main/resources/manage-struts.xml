@@ -15,11 +15,6 @@
 			<result>/WEB-INF/admin/index.jsp</result>
 		</action>
 
-		<action name="loginAction" class="com.future.order.action.LoginAction">
-			<result name="manager">/WEB-INF/admin/index.jsp</result>
-			<result name="cook">/WEB-INF/cook/index.jsp</result>
-			<result name="login">/index.jsp</result>
-		</action>
 
 		<action name="CodeAction" class="com.future.order.action.CodeAction">
 			<result>/WEB-INF/admin/index.jsp</result>

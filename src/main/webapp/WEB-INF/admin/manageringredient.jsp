@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="../css/manageringredient.css">
-     <link href="../css/bootstrap.css" rel="stylesheet" />
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/manageringredient.css">
+     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 <center>

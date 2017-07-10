@@ -1,33 +1,80 @@
-</html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Responsive Bootstrap Advance Admin Template</title>
+    
+    <link href="${rootPath}css/bootstrapwqj.css" rel="stylesheet" />
+    <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
+    <link href="${rootPath}css/basicwqj.css" rel="stylesheet" />
+    <link href='http:/fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' >
 </head>
 <body>
-欢迎登陆本系统 
-<div style="width: 10%;float: left;">
-	<details>
-		<summary>个人中心</summary>
-		<a href="${rootPath}cook/Cookdetail_viewUser">查看资料</a><br>
-		<a href="${rootPath}cook/Cookdetail_updateUser"">修改资料</a><br>
-	</details>
-	<details>
-		<summary>订单中心</summary>
-		<a href="${rootPath}cook/orderCenter_checkorder">查看所有订单</a><br>
-		<a href="${rootPath}cook/orderCenter_finish">已完成订单</a><br>
-		<a href="${rootPath}cook/orderCenter_unfinishd">未完成订单</a><br>
-		<a href="${rootPath}cook/orderCenter_unmenu">所有未完成菜品</a><br>
-	</details>
-	<details>
-		<summary><a href="index.jsp">退出登录</a></summary>
-	</details>
-	</div>
-	<div style="width:90%;float: right">
-		<iframe height="400px" width="100%" name="mainFrame" src="" ></iframe> 
-	</div>
+    <div class="header"><!-- 头部 -->
+            <img src="../images/b-1.jpg" style="width:100%;height:125px;">
+            <span>订餐管理系统</span>
+    </div>
+    <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
+        <div class="sidebar-collapse"><!-- 左边的菜单栏 -->
+          <ul class="nav" id="main-menu">
+          
+              <li><!-- 第一个父目录 -->
+                   <a onclick=""><span class="glyphicon glyphicon-book"></span>订单中心<span class="fa arrow"></span></a>
+                   <ul class="nav nav-second-level">
+                      <li>
+                          <a href="${rootPath}cook/orderCenter_checkorder" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>查看所有订单</a>
+                      </li>
+                       <li>
+                          <a href="${rootPath}cook/orderCenter_finish" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>已完成订单</a>
+                      </li>
+                       <li>
+                          <a href="${rootPath}cook/orderCenter_unfinishd" target="mainFrame"><span class="glyphicon glyphicon-repeat"></span>未完成订单</span></a>
+                      </li>
+                      <li>
+                          <a href="${rootPath}cook/orderCenter_unmenu" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>未完成菜品</a>
+                      </li>
+                      <li>
+                          <a href="${rootPath}cook/orderCenter_reminder" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>催单信息</a>
+                      </li>
+                   </ul> 
+              </li>
+              <li> <!-- 第二个父目录 -->
+                <a href="#"><span class="glyphicon glyphicon-map-marker"></span>个人中心<span class="fa arrow"></span></a>
+                 <ul class="nav nav-second-level">
+                    <li>
+                        <a href="${rootPath}cook/Cookdetail_viewUser"  target="mainFrame"><span class="glyphicon glyphicon-eye-open"></span>查看个人资料</a>
+                    </li>
+                    <li>
+                        <a href="${rootPath}cook/Cookdetail_updateUser"  target="mainFrame"><span class="glyphicon glyphicon-eye-open"></span>修改个人资料</a>
+                    </li>
+                   
+                      <li>
+                       <a href="${rootPath}manage/Change_logOff"><span class="glyphicon glyphicon-off"></span>退出</a>
+                  </li>
+                  </ul>
+              </li>
+                
+            </ul><!-- 总父目录结束 -->
+        </div><!-- 左边的菜单栏结束 -->
+         <iframe name="mainFrame" src="" id="ifr">
+		 
+		 </iframe>
+          
+        </div>
+ 
+   <script src="${rootPath}js/jquery-1.10.2.js"></script>
+   <script src="${rootPath}js/bootstrapwqj.js"></script>  
+   <script src="${rootPath}js/jquery.metisMenu.js"></script>
+   <script src="${rootPath}js/customwqj.js"></script>
 </body>
+<script>
+  var ifr = document.getElementById('ifr');
+  function aa(a){
+     ifr.src = a + '.html';
+  }
+</script>
 </html>
+
