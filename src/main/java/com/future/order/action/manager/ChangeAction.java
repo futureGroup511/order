@@ -23,6 +23,10 @@ public class ChangeAction extends BaseAction{
 	public String addMenuType(){
 		return "addMenuType";
 	}
+	//餐桌中转站
+	public String addTable(){
+		return "addTable";
+	}
 	//获得个人资料
 	public String getMyself(){
 		return "getMyself";

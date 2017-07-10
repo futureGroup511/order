@@ -61,6 +61,17 @@
                       </li>
                   </ul> 
               </li>
+              <li><!-- 追加父目录 -->
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp餐桌管理</a>
+                    <ul class="nav nav-second-level" >
+                      <li>
+                           <a href="${rootPath}manage/Change_addTable" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加餐桌</a>
+                      </li>
+                      <li>
+                          <a href="${rootPath}manage/TableManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理餐桌</a>
+                      </li>
+                  </ul> 
+              </li>
               <li><!-- 第四个父目录 -->
                    <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp&nbsp&nbsp订单中心</a>
                    <ul class="nav nav-second-level">

@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="header"><!-- 头部 -->
-            <img src="../images/b-1.jpg" style="width:100%;height:125px;">
+            <img src="${rootPath}images/b-1.jpg" style="width:100%;height:125px;">
             <span>订餐管理系统</span>
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
