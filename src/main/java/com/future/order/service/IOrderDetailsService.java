@@ -31,4 +31,7 @@ public interface IOrderDetailsService {
 	public boolean updateOrerDetails(int id);
 
 	public OrderDetails getByTableId(int tableId);
+	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
+	public List Check(int detailid);
+	
 }
