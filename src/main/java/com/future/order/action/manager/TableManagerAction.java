@@ -97,7 +97,7 @@ public class TableManagerAction extends BaseAction {
 		       FileOutputStream fout = new FileOutputStream(new File("D:\\餐桌"+j+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
-				fout.close();      
+				fout.close();
 		       OutputStream outStream = response.getOutputStream();  
 		       outStream.write(out.toByteArray());
 		       outStream.flush();  

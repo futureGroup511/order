@@ -28,3 +28,24 @@ tbody td{
     margin-left: 45%;
     width: 20%;
 }  
+p{
+ text-align:center;
+ font-size:18px;	
+	}
+input{ width:13%;
+      border-radius:5px;
+	   -webkit-border-radius:5px;
+	   -moz-border-radius:5px;
+   }
+ form{ margin-left:5%;margin-top: 1%;}
+ .btnForm{  
+ 	   margin-right:55%;
+ 	   wight:9%;
+       height:29px;
+	   background:#75c7ed;
+	   margin-top:1%;}
+.select{margin-top:-30px;float: right;margin-right: 5%;}
+ .btn{
+       height:29px;
+	   background:#75c7ed;
+/* 	   margin-top:1%;} */}

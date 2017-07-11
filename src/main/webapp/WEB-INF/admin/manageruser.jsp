@@ -8,11 +8,25 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/mangeruser.css">
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript">
+	function inquiryByName() {
+		document.inquiry.action="${rootPath}manage/UserManager?ask=phone";
+		document.getElementById("inquiry").submit();
+	}
+</script>
 </head>
 <body>
-<center>
+
 ${deleteUserMsg}
-	共有数据${allUser.count}条
+	<form name="inquiry" method="post" id="inquiry">
+		<input type="text" name="inquiry">
+		<button class="btnForm" onclick="inquiryByName()">账号查询</button>	
+	</form>
+<div class="select">
+	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=manager';">所有管理员</button>
+	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=cook';">所有厨师</button>
+	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=all';">所有员工</button>
+</div>
 <div class="mangeruser" >
      <table cellspacing="0">
          <thead>

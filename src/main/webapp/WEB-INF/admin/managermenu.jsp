@@ -16,7 +16,7 @@
 	function inquiryByType() {
 		document.inquiry.action="${rootPath}manage/MenuManager?ask=type";
 		document.getElementById("inquiry").submit();
-	}    
+	}
 	function inquiryAll() {
 		document.inquiry.action="${rootPath}manage/MenuManager?ask=all";
 		document.getElementById("inquiry").submit();
