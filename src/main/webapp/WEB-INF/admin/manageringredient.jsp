@@ -11,7 +11,6 @@
 </head>
 <body>
 <center>
-共有数据${allIngredient.count}条
 ${updateIngredientMsg}${deleteIngredientMsg}
 <div class="manageringredient">
      <table cellspacing="0">
