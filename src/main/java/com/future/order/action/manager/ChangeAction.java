@@ -1,6 +1,23 @@
 package com.future.order.action.manager;
 
+import java.io.ByteArrayOutputStream;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.future.order.base.BaseAction;
+
+
+
+
+
 /**
  * 
  * @author 金高
@@ -22,6 +39,10 @@ public class ChangeAction extends BaseAction{
 	}
 	public String addMenuType(){
 		return "addMenuType";
+	}
+	//餐桌中转站
+	public String addTable(){
+		return "addTable";
 	}
 	//获得个人资料
 	public String getMyself(){

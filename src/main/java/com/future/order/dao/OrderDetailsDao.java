@@ -36,17 +36,26 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		 String status="未完成";
 		String hql="from OrderDetails o where o.status='"+status+"'";
+		String hql1="from OrderDetails as a order by a.creatDate asc";
 		list=this.getEntityList(hql);
+		list=this.getEntityList(hql1);
 		return list;
 	}
-	
+	@Override
+	public boolean updateOrerDetails(int id){
+		OrderDetails orderdetails = this.getEntity(id);
+		String status="已完成"; 
+		orderdetails.setStatus(status);
+		boolean menus = this.updateEntity(orderdetails);
+		return true;
+	}
 	
 	@Override
 	public List<OrderDetails> getAll(int id) {
 		@SuppressWarnings("unused")
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		try{
-			String hql="from OrderDetails ";
+			String hql="from OrderDetails as a order by a.creatDate asc";
 			list=this.getEntityList(hql);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -105,10 +114,10 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 	@Override
 	public boolean updet(int id){
-		OrderDetails order = this.getEntity(id);
+		OrderDetails orderdetails = this.getEntity(id);
 		String status="完成";
-		order.setStatus(status);
-		boolean menus = this.updateEntity(order);
+		orderdetails.setStatus(status);
+		boolean menus = this.updateEntity(orderdetails);
 		return true;
 	}
 

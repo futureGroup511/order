@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="../css/managermenu.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/managermenu.css">
+    <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
 <body>
 <center>
@@ -29,14 +29,14 @@ ${updateMsg}${deleteMenuMsg }
      		<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
  					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }"> 
  					<c:choose> 
-						<c:when test="${i>0 && i == allMenu.currentPage &&i<=3}"> 
+						<c:when test="${i>0 && i == allMenu.currentPage &&i<=3}">
  							<li class="active"><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
  						</c:when>
  						<c:when test="${i>0 && i != allMenu.currentPage &&i<=3}"> 
  							<li><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
  						</c:when> 
 					</c:choose> 
-- 				</c:forEach> 
+ 				</c:forEach> 
       <li><a href="${rootPath }manage/MenuManager?page=${allMenu.nextPage}">下一页</a></li>
     </ul>
    </div>

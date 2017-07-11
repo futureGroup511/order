@@ -15,11 +15,6 @@
 			<result>/WEB-INF/admin/index.jsp</result>
 		</action>
 
-		<action name="loginAction" class="com.future.order.action.LoginAction">
-			<result name="manager">/WEB-INF/admin/index.jsp</result>
-			<result name="cook">/WEB-INF/cook/index.jsp</result>
-			<result name="login">/index.jsp</result>
-		</action>
 
 		<action name="CodeAction" class="com.future.order.action.CodeAction">
 			<result>/WEB-INF/admin/index.jsp</result>
@@ -33,6 +28,7 @@
 			<result name="addstock">/WEB-INF/admin/addstock.jsp</result>
 			<result name="addIngredient">/WEB-INF/admin/addingredient.jsp</result>
 			<result name="addMenu">/WEB-INF/admin/addmenu.jsp</result>
+			<result name="addTable">/WEB-INF/admin/addtable.jsp</result>
 			<result name="getMyself">/WEB-INF/admin/updatemyself.jsp</result>
 			<result name="logOff">/WEB-INF/admin/logoff.jsp</result>
 			<result name="out">/index.jsp</result>
@@ -53,6 +49,14 @@
 			<result name="toUpdateMenu">/WEB-INF/admin/updatemenu.jsp</result>
 			<result name="updateMenu">/WEB-INF/admin/managermenu.jsp</result>
 			<result name="deleteUser">/WEB-INF/admin/managermenu.jsp</result>
+		</action>
+		
+		<action name="TableManager_*" method="{1}" class="com.future.order.action.manager.TableManagerAction">
+			<result>/WEB-INF/admin/managertables.jsp</result>
+			<result name="addTable">/WEB-INF/admin/addtable.jsp</result>
+			<result name="toUpdateTables">/WEB-INF/admin/updatetable.jsp</result>
+			<result name="updateTable">/WEB-INF/admin/managertables.jsp</result>
+			<result name="deleteTable">/WEB-INF/admin/managertables.jsp</result>
 		</action>
 		
 		<action name="Ingredient_*" method="{1}" class="com.future.order.action.manager.IngredientManagerAction" >

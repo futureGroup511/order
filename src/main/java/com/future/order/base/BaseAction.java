@@ -13,7 +13,6 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-
 import com.future.order.service.IInformService;
 import com.future.order.service.IIngerdientService;
 import com.future.order.service.IMenuMaterialService;
@@ -37,7 +36,6 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	
 	protected Map<String,Object> session;
 	protected Map<String,Object> request;
-	
 	//service 注入
 	@Resource
 	protected IInformService informService;

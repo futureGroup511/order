@@ -6,12 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="../css/manageringredient.css">
-     <link href="../css/bootstrap.css" rel="stylesheet" />
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/manageringredient.css">
+     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 <center>
-共有数据${allIngredient.count}条
 ${updateIngredientMsg}${deleteIngredientMsg}
 <div class="manageringredient">
      <table cellspacing="0">
@@ -36,8 +35,8 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 				<td>${ingredient.createDate}</td>
 				<td>${ingredient.type}</td>
 				<td>${ingredient.introduce}</td>
-				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>
-				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 			</tr> 
 		</c:forEach>
          </tbody>

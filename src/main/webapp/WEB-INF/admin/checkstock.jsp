@@ -6,9 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="../css/checkstock.css">
-     <link href="../css/checkstock.css" rel="stylesheet" />
-     <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/checkstock.css">
+     <link href="${rootPath}css/checkstock.css" rel="stylesheet" />
+     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
 <body>
 <center>${stocknews }</center>

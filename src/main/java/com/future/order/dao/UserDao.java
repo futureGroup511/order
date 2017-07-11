@@ -13,6 +13,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
+import com.future.order.entity.Tables;
 import com.future.order.entity.User;
 import com.future.order.service.IUserService;
 import com.future.order.util.PageCut;
@@ -32,7 +33,6 @@ public class UserDao extends BaseDao<User> implements IUserService {
 		User userDataBase = (User) this.uniqueResult(hql);
 		if(userDataBase==null){
 			Date date  = new Date();
-			//System.out.println(date+"date");
 			user.setCreateDate(date);
 			this.saveEntity(user);
 			return true;

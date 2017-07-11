@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-   <link href="../css/bootstrap.css" rel="stylesheet" />
-    <link href="../css/font-awesome.css" rel="stylesheet" />
-    <link href="../css/basic.css" rel="stylesheet" />
+   <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
+    <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
+    <link href="${rootPath}css/basic.css" rel="stylesheet" />
 </head>
 <body>
 <div class="header"><!-- 头部 -->
-            <img src="../images/beijing.jpg" style="width:100%;height:125px;">
+            <img src="${rootPath}images/beijing.jpg" style="width:100%;height:125px;">
            <span class="span1">订餐管理系统</span>
-            <span class="span2">欢迎管理员登录</span>
+            <span class="span2">欢迎${user.phone}登录</span>
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->
@@ -53,6 +54,11 @@
                       <li>
                           <a href="${rootPath}manage/MenuManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品</a>
                       </li>
+                  </ul> 
+              </li>
+              <li><!-- 第三个父目录 -->
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp菜品类型管理</a>
+                    <ul class="nav nav-second-level" >
                        <li>
                            <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜品类型</a>
                       </li>
@@ -61,10 +67,23 @@
                       </li>
                   </ul> 
               </li>
+              <li><!-- 追加父目录 -->
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp餐桌管理</a>
+                    <ul class="nav nav-second-level" >
+                      <li>
+                           <a href="${rootPath}manage/Change_addTable" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加餐桌</a>
+                      </li>
+                      <li>
+                          <a href="${rootPath}manage/TableManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理餐桌</a>
+                      </li>
+                       <li>
+                      <a href="${rootPath}manage/TableManager_AllCard" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp生成二维码</a>
+                    </li>
+                  </ul> 
+              </li>
               <li><!-- 第四个父目录 -->
                    <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp&nbsp&nbsp订单中心</a>
                    <ul class="nav nav-second-level">
-                      
                        <li>
                           <a href="${rootPath}manage/OrderAction" target="mainFrame"><span class="glyphicon glyphicon-glass"></span>&nbsp&nbsp&nbsp管理订单</a>
                       </li>
@@ -100,10 +119,10 @@
        <a href="">技术支持:河南艾未特网络有限公司</a>  
     </div>
    
-   <script src="../js/jquery-1.10.2.js"></script>
-   <script src="../js/bootstrap.js"></script>  
-   <script src="../js/jquery.metisMenu.js"></script>
-   <script src="../js/custom.js"></script>
+   <script src="${rootPath}js/jquery-1.10.2.js"></script>
+   <script src="${rootPath}js/bootstrap.js"></script>  
+   <script src="${rootPath}js/jquery.metisMenu.js"></script>
+   <script src="${rootPath}js/custom.js"></script>
 
 
 <!-- 	<div style="width: 10%;float: left;"> -->
