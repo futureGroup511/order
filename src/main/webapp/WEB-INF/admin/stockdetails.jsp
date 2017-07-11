@@ -8,9 +8,22 @@
 <title>Insert title here</title>
 <link href="${rootPath}css/checkstock.css" rel="stylesheet" />
      <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+          <script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${pc.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
 </head>
 <body>
-<div class="checkstock">
+<div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
           <tr>
@@ -43,7 +56,7 @@
          </tbody>
      </table>        
     </div>
-    <div class="page">
+    <div class="page" id="div2">
     <ul class="pagination">
      						<li><a
 							href="${rootPath}manage/StockDetailsAction?page=${pc.prePage}">上一页</a></li>

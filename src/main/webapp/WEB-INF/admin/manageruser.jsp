@@ -8,12 +8,25 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/mangeruser.css">
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
+         <script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${allUser.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
 </head>
 <body>
 <center>
 ${deleteUserMsg}
 	共有数据${allUser.count}条
-<div class="mangeruser" >
+<div class="mangeruser" id="div1">
      <table cellspacing="0">
          <thead>
          <tr>
@@ -38,7 +51,7 @@ ${deleteUserMsg}
 		</c:forEach>
      </table>       
     </div>
- <div class="page">
+ <div class="page" id="div2">
       <ul class="pagination">
         <li><a href="${rootPath }manage/UserManager?page=${allUser.prePage}">上一页</a></li>
         <c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"

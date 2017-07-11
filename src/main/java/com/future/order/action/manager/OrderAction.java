@@ -26,14 +26,14 @@ public class OrderAction extends BaseAction {
 		PageCut<Order> pCut = new PageCut<Order>();
 		if(sign.equals("one")){
 			//获得全部订单信息
-			pCut=orderService.getPageCut(page,10);
+			pCut=orderService.getPageCut(page,1);
 		}
 		else if(sign.equals("two")){
 			//获得全部没有结账的订单信息
-			 pCut=orderService.getNoPageCut(page,10);
+			 pCut=orderService.getNoPageCut(page,1);
 		}
 		else if(sign.equals("there")){
-			pCut=orderService.getPage(page,10);
+			pCut=orderService.getPage(page,1);
 		}
 		if(pCut.getData().size()==0){
 			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";

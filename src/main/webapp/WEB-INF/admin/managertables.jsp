@@ -6,11 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+     <script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${allTables.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
 </head>
 <body>
 
-		<center>${TableMsg}共有数据${allTables.count}条</center>
-<div>
+		<center>${managerMsg}</center>
+<div id="div1">
      <table cellspacing="0" border="1" align="center">
          <thead>
          <tr>
@@ -36,7 +49,7 @@
 		</c:forEach>
      </table>       
     </div>
- <div class="page">
+ <div class="page" id="div2">
       <ul class="pagination">
         <li><a href="${rootPath }manage/TableManager?page=${allTables.prePage}">上一页</a></li>
         <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"

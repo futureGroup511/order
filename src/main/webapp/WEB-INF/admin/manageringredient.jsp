@@ -9,10 +9,23 @@
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manageringredient.css">
      <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
 </head>
+<script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${allIngredient.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
 <body>
 <center>
 ${updateIngredientMsg}${deleteIngredientMsg}
-<div class="manageringredient">
+<div class="manageringredient" id="div1">
      <table cellspacing="0">
          <thead>
           <tr class="tr1">
@@ -42,7 +55,7 @@ ${updateIngredientMsg}${deleteIngredientMsg}
          </tbody>
      </table>        
     </div>
-    <div class="page">
+    <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath}manage/Ingredient?page=${allIngredient.prePage}">上一页</a></li>
 		 		<c:forEach var="i" begin="${allIngredient.currentPage-3>0?allIngredient.currentPage-3:1 }" 
