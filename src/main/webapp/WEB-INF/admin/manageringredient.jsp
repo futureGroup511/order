@@ -23,8 +23,8 @@ ${updateIngredientMsg}${deleteIngredientMsg}
              <td>注册时间</td>
              <td>类型</td>
              <td>简介</td>
-             <td>操作</td>
-             <td>操作</td>
+             <td>修改</td>
+             <td>删除</td>
           </tr>   
          </thead>
          <tbody>
@@ -36,8 +36,8 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 				<td>${ingredient.createDate}</td>
 				<td>${ingredient.type}</td>
 				<td>${ingredient.introduce}</td>
-				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>
-				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span>删除</a></td>
+				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
 			</tr> 
 		</c:forEach>
          </tbody>
