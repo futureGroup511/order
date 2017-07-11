@@ -80,7 +80,7 @@
              <td>餐桌名称</td>
              <td>通知内容</td>
           </tr>
-         <c:forEach items="${inform}" var="item"> 
+         <c:forEach items="${paCut.data}" var="item"> 
 	            <tr>  
 	                <td>${item.id}</td>
 	                <td>${item.createDate}</td>
@@ -93,12 +93,27 @@
     </table>
       <div class="pag">
          <ul class="pagination">
-                   <li><a href="">&laquo;</a></li>
-                   <li class="active"><a href="">1</a></li>
-                   <li><a href="">2</a></li>
-                   <li><a href="">3</a></li>
-                   <li><a href="">4</a></li>
-                   <li><a href="">&raquo;</a></li>
+                  <li><a href="${rootPath}cook/orderCenter_reminder?page=${paCut.prePage}">上一页</a></li>
+ 						<c:if test="${1 < paCut.currentPage -3}"> 
+ 							<li><a href="#">1</a></li> 
+ 						</c:if>
+ 						<c:forEach var="i" 
+							begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
+ 							end="${paCut.currentPage+3>paCut.pageNum?paCut.pageNum:paCut.currentPage+3  }"> 
+ 							<c:choose> 
+ 								<c:when test="${i>0 && i == paCut.currentPage &&i<=3}">
+ 									<li class="active"><a 
+ 										href="${rootPath}cook/orderCenter_reminder?page=${i}">${i}</a></li> 
+ 								</c:when> 
+
+ 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
+ 									<li><a href="${rootPath}cook/orderCenter_reminder?page=${i }">${i}</a></li> 
+ 								</c:when> 
+ 							</c:choose>
+ 						</c:forEach> 
+ 						
+ 						<li><a 
+ 							href="${rootPath}cook/orderCenter_reminder?page=${paCut.nextPage}">下一页</a></li> 
                </ul>
     </div>
     

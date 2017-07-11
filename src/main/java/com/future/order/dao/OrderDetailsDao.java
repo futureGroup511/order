@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
+import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.entity.ShopCart;
 import com.future.order.service.IOrderDetailsService;
@@ -41,6 +42,20 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		list=this.getEntityList(hql1);
 		return list;
 	}
+	
+	@Override
+	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize) {
+		String status="未完成";
+		String hql ;
+		int count=0;
+		hql = "select count(*) from OrderDetails o where o.status='"+status+"'";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList("from OrderDetails as o order by o.creatDate asc", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='"+status+"'", (currentPage-1)*pageSize, pageSize));
+		return pc;
+	}
+	
 	@Override
 	public boolean updateOrerDetails(int id){
 		OrderDetails orderdetails = this.getEntity(id);
@@ -107,11 +122,27 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		try{
 			String hql="from OrderDetails o where o.id='"+detailid+"'";
 			orderdetails=(OrderDetails) this.uniqueResult(hql);
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		return orderdetails;
 	}
+	@Override
+	public List Check(int tableId) { 
+		@SuppressWarnings("unused")
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		try{
+			String hql="from OrderDetails o where o.tableId='"+tableId+"'";
+			list=(List) this.getEntityList(hql);
+			System.out.println(list);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return  list;
+	}
+	
+	
 	@Override
 	public boolean updet(int id){
 		OrderDetails orderdetails = this.getEntity(id);

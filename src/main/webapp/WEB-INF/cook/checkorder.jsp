@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>已完成菜品</title>
-     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrapwqj.css">
   <style>
       .aa{
         width: 90%;
@@ -28,7 +28,7 @@
      }  
        table{
             width: 100%;
-            text-align: center;
+            text-align: center;	
             margin:100px auto; 
             font-family: 微软雅黑;
          }
@@ -54,7 +54,7 @@
 </head>
 <body>
 <div class="aa">
- <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;未完成订单&nbsp;>></p>
+ <p>所有未完sa成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;未完成订单&nbsp;>></p>
     <table id="table1">
       <thead>
         <tr>
@@ -76,8 +76,7 @@
              <td>厨师名称</td>
 			  <td>备注</td>
 			   <td>操作</td>
-          </tr>
-      	<c:forEach items="${paCut.data}" var="item">
+  		</tr>
 	            <tr>  
 	                <td>${item.id}</td>
 	                <td>${item.tableId}</td>
@@ -91,35 +90,20 @@
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
-	                
-	                <td><a href="${rootPath}cook/orderCenter_unmenu?OrderId=${item.id}">完成</a></td>
-	            </tr>
-	            </c:forEach>  
+	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">处理</a></c:if>
+	                <c:if test="${item.status eq '完成'}">已完成</c:if></td>
+	                <%-- <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td> --%>
+	            </tr>  
         </tbody>
     </table>
        <div class="pag">
          <ul class="pagination">
-                   <li><a href="?page=${paCut.prePage}">上一页</a></li>
- 						<c:if test="${1 < paCut.currentPage -3}"> 
- 							<li><a href="#">1</a></li> 
- 						</c:if>
- 						<c:forEach var="i" 
-							begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
- 							end="${paCut.currentPage+3>paCut.pageNum?paCut.pageNum:paCut.currentPage+3  }"> 
- 							<c:choose> 
- 								<c:when test="${i>0 && i == paCut.currentPage &&i<=3}">
- 									<li class="active"><a 
- 										href="?page=${i}">${i}</a></li> 
- 								</c:when> 
-
- 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
- 									<li><a href="?page=${i }">${i}</a></li> 
- 								</c:when> 
- 							</c:choose>
- 						</c:forEach> 
- 						
- 						<li><a 
- 							href="?page=${paCut.nextPage}">下一页</a></li> 
+                   <li><a href="">&laquo;</a></li>
+                   <li class="active"><a href="">1</a></li>
+                   <li><a href="">2</a></li>
+                   <li><a href="">3</a></li>
+                   <li><a href="">4</a></li>
+                   <li><a href="">&raquo;</a></li>
                </ul>
     </div>
     </div>

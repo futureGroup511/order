@@ -30,6 +30,7 @@ public class MenuManagerAction extends BaseAction {
 	private List<String> fileContentType;
 
 	public String execute() {
+		
 		if(ask==null){
 			ask = (String)session.get("ask");
 		}
