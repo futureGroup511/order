@@ -113,7 +113,7 @@ public class TableManagerAction extends BaseAction {
 		 ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
 	       response.setContentType("image/png");  
-	       response.setContentLength(out.size());  
+	       response.setContentLength(out.size());
 	       FileOutputStream fout = new FileOutputStream(new File("D:\\餐桌"+id+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();

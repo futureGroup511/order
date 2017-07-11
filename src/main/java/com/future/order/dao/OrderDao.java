@@ -124,14 +124,13 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 
 	@Override
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize) {
-		String status="已处理";
 		String statuss="未付款";
 		String hql ;
 		int count=0;
-		hql = "select count(*) from Order o where o.status='"+status+"'";
+		hql = "select count(*) from Order o where o.status='"+statuss+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status+"' or o.status='"+statuss+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status='"+statuss+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 

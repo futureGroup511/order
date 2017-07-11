@@ -8,6 +8,22 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/managermenu.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+<<<<<<< HEAD
+=======
+<script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${allMenu.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
+>>>>>>> c6900c432e05f63b3fa3e882d1f35b0dd34a4bde
 <script type="text/javascript">
 	function inquiryByName() {
 		document.inquiry.action="${rootPath}manage/MenuManager?ask=name";
@@ -27,6 +43,10 @@
 <center>
 ${updateMsg}${deleteMenuMsg }
 共有数据${allMenu.count}条
+<<<<<<< HEAD
+=======
+  <div class="photowall" id="div1"> 
+>>>>>>> c6900c432e05f63b3fa3e882d1f35b0dd34a4bde
 <center>
 	<form name="inquiry" method="post" id="inquiry">
 		<input type="text" name="inquiry">
@@ -35,7 +55,11 @@ ${updateMsg}${deleteMenuMsg }
 		<input type="button" onclick="inquiryAll()" value="查看全部">
 	</form>
 </center>
+<<<<<<< HEAD
   <div class="photowall">
+=======
+<!--   <div class="photowall"> -->
+>>>>>>> c6900c432e05f63b3fa3e882d1f35b0dd34a4bde
     <div class="picture_wall">
     		${inquiryMsg}
    			<c:forEach items="${allMenu.data}" var="data"> 
@@ -46,7 +70,7 @@ ${updateMsg}${deleteMenuMsg }
 			</c:forEach>
     </div>
  </div>   
-   <div class="page">
+   <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath }manage/MenuManager?page=${allMenu.prePage}">上一页</a></li>
      		<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
