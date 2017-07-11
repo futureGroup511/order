@@ -29,4 +29,6 @@ public interface IOrderDetailsService {
 	public boolean updet(int id);
 	public List<OrderDetails> getAll(int id);
 	public OrderDetails getByTableId(int tableId);
+	public Boolean update(OrderDetails en);
+	public List<OrderDetails> getDetailsOne(int tableId);
 }

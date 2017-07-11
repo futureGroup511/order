@@ -102,7 +102,7 @@
       	<p>首页</p>
       </div>
       </a>
-      <a href="${rootPath}customer/cart_getCart">
+      <a href="${rootPath}customer/getCart">
       <div class="left">
       	<div><img src="../images/gwc.png" style="width:100%; height:100%; "></div>
       	<p>购物车</p>
@@ -114,7 +114,7 @@
       	<p>订单</p>
       </div>
       </a>
-      <h3>${addMeg}</h3>
+
    </footer>
 <%-- <a href="${rootPath}customer/customer_getMenuByTypeId?id=1">菜品类型1</a>
 <a href="${rootPath}customer/customer_getMenuByTypeId?id=2">菜品类型2</a>

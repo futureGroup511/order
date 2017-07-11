@@ -37,7 +37,7 @@
 </table>
 <h3>${addMeg}</h3>
 <a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
-<a href="${rootPath}customer/cart_getCart">购物车</a>
+<a href="${rootPath}customer/getCart">购物车</a>
 <a href="${rootPath}customer/cart_getHand">提交</a>
 <a href="${rootPath}customer/cart_getOrderDetails">我的订单</a>
 <s:property value="#request.total"/>

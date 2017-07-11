@@ -10,35 +10,19 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 管理员 -->
 	<package name="customer" extends="struts-default,json-default" namespace="/customer" strict-method-invocation="false">
-
-		<action name="customer_*" class="com.future.order.action.customer.CustomerAction" method="{1}">
-			<result name="getMenuType">/WEB-INF/customer/firstmenu.jsp</result>			
-			<result name="menu">/WEB-INF/customer/menuMaterial.jsp</result>
-			<!-- <result name="getMenu">/WEB-INF/customer/menu.jsp</result> -->
-			<result name="getOrder">/WEB-INF/customer/order.jsp</result>
-			<result name="StockDetails">/WEB-INF/customer/createDate.jsp</result>
-			<result name="ByName">/WEB-INF/customer/menu.jsp</result>
-		</action>
 		<action name="customer_*" class="com.future.order.action.customer.CustomerAction" method="{1}">			
-
-			<!-- 焦祥宇加 -->
 			<result name="toIndex">/WEB-INF/customer/index.jsp</result>	
 			<result name="getMenuByTypeId">/WEB-INF/customer/index.jsp</result>
 			<result name="getMenuMaterial">/WEB-INF/customer/menuMaterial.jsp</result>	
 			<result name="getStockDate">/WEB-INF/customer/stockDate.jsp</result>	
-			<result name="joinCart">/WEB-INF/customer/index.jsp</result>	
-			
-			<!-- 截止  -->		
+			<result name="joinCart">/WEB-INF/customer/success.jsp</result>		
 		</action>
-		
-		<!-- 金高加 -->
-		<action name="shopcart_*" class="com.future.order.action.customer.ShopCartAction" method="{1}">
+	<!-- 	<action name="shopcart_*" class="com.future.order.action.customer.ShopCartAction" method="{1}">
 			<result>/WEB-INF/customer/shopcart.jsp</result>
 			<result name="deleteShopCart">/WEB-INF/customer/shopcart.jsp</result>
 			<result name="updateNum">/WEB-INF/customer/shopcart.jsp</result>
-		</action>
+		</action> -->
 		<action name="cart_*" class="com.future.order.action.customer.CartAction" method="{1}">
-			<result name="getCart">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="updateCart">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="deleteCart">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="getOrder">/WEB-INF/customer/order.jsp</result>
@@ -48,19 +32,10 @@
 			<result name="getHand">/WEB-INF/customer/OrderDetails.jsp</result>
 			<result name="getReminder">/WEB-INF/customer/OrderDetails.jsp</result>
 		</action>
-			
-
-
-
-
+		<action name="getCart" class="com.future.order.action.customer.CartAction">
+			<result name="success">/WEB-INF/customer/shopCart.jsp</result>
+			<result name="error">/WEB-INF/customer/shopCartNull.jsp</result>
+		</action>
 		
-<!-- 		<action name="cart_*" class="com.future.order.action.customer.CartAction" method="{1}"> -->
-<!-- 			<result name="getCart">/WEB-INF/customer/shopCart.jsp</result> -->
-<!-- 			<result name="updateCart">/WEB-INF/customer/shopCart.jsp</result> -->
-<!-- 			<result name="deleteCart">/WEB-INF/customer/shopCart.jsp</result> -->
-			
-<!-- 		</action>		 -->
-
 	</package>
-	 
 </struts>
