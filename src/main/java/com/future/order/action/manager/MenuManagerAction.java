@@ -20,7 +20,8 @@ public class MenuManagerAction extends BaseAction {
 
 	private Menu menu;
 	private int page = 1;
-
+	private String inquiry;//得到查询的内容
+	private String ask;	//得到请求查询的条件
 	// 上传文件集合
 	private List<File> file;
 	// 上传文件名集合
@@ -29,12 +30,23 @@ public class MenuManagerAction extends BaseAction {
 	private List<String> fileContentType;
 
 	public String execute() {
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
-		request.put("allMenu", pCut);
+		if(ask==null){
+			ask = (String)session.get("ask");
+		}
+		if(inquiry==null){
+			inquiry = (String) session.get("inquiry");
+		}
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6,ask,inquiry);
 		if(pCut.getData().size()==0){
-			String mark="没有菜品了，着急着急(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			if(inquiry!=null){
+				mark="查询的菜不存在";
+			}
 			request.put("deleteMenuMsg", mark);
 		}
+		request.put("allMenu", pCut);
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
 		return SUCCESS;
 	}
 	
@@ -82,7 +94,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("updateMsg", "修改失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6,ask,inquiry);
 		request.put("allMenu", pCut);
 		return "updateMenu";
 	}
@@ -100,11 +112,11 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("deleteMenuMsg", "删除失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6,ask,inquiry);
 		request.put("allMenu", pCut);
 		return "deleteUser";
 	}
-
+	
 	// 执行上传功能
 	private void uploadFile(int i) throws FileNotFoundException, IOException {
 		try {
@@ -174,6 +186,21 @@ public class MenuManagerAction extends BaseAction {
 
 	public void setFileContentType(List<String> fileContentType) {
 		this.fileContentType = fileContentType;
+	}
+
+	public String getInquiry() {
+		return inquiry;
+	}
+
+	public void setInquiry(String inquiry) {
+		this.inquiry = inquiry;
+	}
+	public String getAsk() {
+		return ask;
+	}
+
+	public void setAsk(String ask) {
+		this.ask = ask;
 	}
 
 }

@@ -52,7 +52,7 @@
                            <a href="${rootPath}manage/Change_addMenu" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜品</a>
                       </li>
                       <li>
-                          <a href="${rootPath}manage/MenuManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品</a>
+                          <a href="${rootPath}manage/MenuManager?ask=all" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品</a>
                       </li>
                   </ul> 
               </li>

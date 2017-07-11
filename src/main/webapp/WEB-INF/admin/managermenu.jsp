@@ -8,18 +8,41 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/managermenu.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+<script type="text/javascript">
+	function inquiryByName() {
+		document.inquiry.action="${rootPath}manage/MenuManager?ask=name";
+		document.getElementById("inquiry").submit();
+	}
+	function inquiryByType() {
+		document.inquiry.action="${rootPath}manage/MenuManager?ask=type";
+		document.getElementById("inquiry").submit();
+	}    
+	function inquiryAll() {
+		document.inquiry.action="${rootPath}manage/MenuManager?ask=all";
+		document.getElementById("inquiry").submit();
+	}
+</script>
 </head>
 <body>
 <center>
 ${updateMsg}${deleteMenuMsg }
 共有数据${allMenu.count}条
-  <div class="photowall"> 
+<center>
+	<form name="inquiry" method="post" id="inquiry">
+		<input type="text" name="inquiry">
+		<input type="button" onclick="inquiryByName()" value="按菜名查询">
+		<input type="button" onclick="inquiryByType()" value="按菜品类型查询">
+		<input type="button" onclick="inquiryAll()" value="查看全部">
+	</form>
+</center>
+  <div class="photowall">
     <div class="picture_wall">
+    		${inquiryMsg}
    			<c:forEach items="${allMenu.data}" var="data"> 
 				<div>
 					<img src="${rootPath}uploadImg/${data.imgUrl}">
 					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a>
-			     </div>  
+			     </div>
 			</c:forEach>
     </div>
  </div>   
@@ -37,7 +60,7 @@ ${updateMsg}${deleteMenuMsg }
  						</c:when> 
 					</c:choose> 
  				</c:forEach> 
-      <li><a href="${rootPath }manage/MenuManager?page=${allMenu.nextPage}">下一页</a></li>
+      <li><a href="manage/MenuManager?page=${allMenu.nextPage}">下一页</a></li>
     </ul>
    </div>
    </center>

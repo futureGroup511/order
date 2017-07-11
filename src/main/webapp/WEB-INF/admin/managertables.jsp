@@ -17,8 +17,8 @@
             <td>餐桌名称</td>
             <td>状态</td>
             <td>操作</td>
-            <td>操作</td>
-            <td>操作</td>
+            <td>修改</td>
+            <td>删除</td>
           </tr>
          </thead>
         <tbody>
