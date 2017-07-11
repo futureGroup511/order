@@ -35,8 +35,8 @@ ${updateIngredientMsg}${deleteIngredientMsg}
              <td>注册时间</td>
              <td>类型</td>
              <td>简介</td>
-             <td>操作</td>
-             <td>操作</td>
+             <td>修改</td>
+             <td>删除</td>
           </tr>   
          </thead>
          <tbody>

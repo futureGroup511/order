@@ -34,8 +34,8 @@ ${deleteUserMsg}
             <td>姓名</td>
             <td>注册时间</td>
             <td>身份</td>
-            <td>操作</td>
-            <td>操作</td>
+            <td>修改</td>
+            <td>删除</td>
           </tr>
          </thead>
         <tbody>
@@ -45,8 +45,8 @@ ${deleteUserMsg}
 				<td>${pageCut.name }</td>
 				<td>${pageCut.createDate }</td> 
 				<td>${pageCut.sort }</td>
-				<td><a href="${rootPath}manage/UserManager_toUpdateUser?userId=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>
-				<td><a href="${rootPath}manage/UserManager_deleteUser?user.id=${pageCut.id}"><span class="glyphicon glyphicon-trash">删除</a></td>
+				<td><a href="${rootPath}manage/UserManager_toUpdateUser?userId=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+				<td><a href="${rootPath}manage/UserManager_deleteUser?user.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></a></td>
 			</tr>
 		</c:forEach>
      </table>       

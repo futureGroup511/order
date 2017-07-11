@@ -35,11 +35,14 @@ public interface IMenuService {
 	//添加菜品zjg
 	public boolean addMenu(Menu menu);
 	//分页
-	public PageCut<Menu> getPageCut(int curr,int pageSize);
+	public PageCut<Menu> getPageCut(int curr,int pageSize, String ask, String inquiry);
 	//修改菜品
 	public boolean updateUser(Menu menu);
 	//删除菜品
 	public boolean deleteMenu(Menu menu);
+	//按菜名查询
+	public Menu inquiryByName(String inquiry);
+
 	
 	//焦祥宇加
 	//获得num条推荐菜品
@@ -49,6 +52,6 @@ public interface IMenuService {
 
 	public boolean updatemenu(int id);
 	public List<Menu> getByTypeId(int id);
-
+	
 
 }
