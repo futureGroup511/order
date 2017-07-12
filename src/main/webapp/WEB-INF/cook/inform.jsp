@@ -74,9 +74,9 @@
       </thead>
         <tbody>
           <tr>
-             <td>ID</td>
+             <td>编号</td>
              <td>通知时间</td>
-             <td>餐桌ID</td>
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>通知内容</td>
           </tr>

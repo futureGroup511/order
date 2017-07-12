@@ -25,7 +25,7 @@
                    <a onclick=""><span class="glyphicon glyphicon-book"></span>订单中心<span class="fa arrow"></span></a>
                    <ul class="nav nav-second-level">
                       <li>
-                          <a href="${rootPath}cook/orderCenter_checkorder" target="mainFrame"><span class="glyphicon glyphicon-tags"></span>查看所有订单</a>
+                          <a href="${rootPath}cook/orderCenter_checkorder" target="mainFrame"><span class="glyphicon glyphicon-tags"></span>所有订单</a>
                       </li>
                        <li>
                           <a href="${rootPath}cook/orderCenter_finish" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>已完成订单</a>
@@ -49,7 +49,7 @@
                         <a href="${rootPath}cook/Cookdetail_viewUser"  target="mainFrame"><span class="glyphicon glyphicon-eye-open"></span>查看个人资料</a>
                     </li>
                     <li>
-                        <a href="${rootPath}cook/Cookdetail_updateUser"  target="mainFrame"><span class="glyphicon glyphicon-eye-open"></span>修改个人资料</a>
+                        <a href="${rootPath}cook/Cookdetail_updateUser"  target="mainFrame"><span class="glyphicon glyphicon-pencil"></span>修改个人资料</a>
                     </li>
                    
                       <li>

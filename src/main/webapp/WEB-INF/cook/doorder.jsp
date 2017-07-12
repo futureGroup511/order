@@ -58,21 +58,21 @@
     <table id="table1">
       <thead>
         <tr>
-            <td colspan="13">订单信息</td>
+            <td colspan="13">订单信息</td>	
         </tr>
       </thead>
         <tbody>
           <tr>
-             <td>ID</td>
-             <td>餐桌id</td>
+             <td>编号</td>
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
-             <td>订单id</td>
-             <td>菜品id</td>
+             <td>订单编号</td>
+             <td>菜品编号</td>
              <td>菜品名称</td>
              <td>菜品数量</td>
              <td>菜品状态</td>
              <td>下单时间</td>
-             <td>厨师id</td>
+             <td>厨师编号</td>
              <td>厨师名称</td>
 			  <td>备注</td>
 			   <td>操作</td>
