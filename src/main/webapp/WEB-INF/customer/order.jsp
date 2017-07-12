@@ -15,12 +15,14 @@
 		<th>桌子编号</th>
 		<th>桌子名称</th>
 		<th>总价</th>
+		<th>订单详情</th>
 	</tr>
-	<c:forEach items="${order}" var="order">
+	<c:forEach items="${orders}" var="order">
 		<tr>
 			<td>${order.tableId}</td>
 			<td>${order.tableName}</td>
 			<td>${order.total}</td>
+			<td><a href="${rootPath}customer/cart_getHand?id=${order.id}">订单详情</a></td>
 		</tr>
 	 </c:forEach>
 </table>

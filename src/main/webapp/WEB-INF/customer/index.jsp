@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/public.css">
 	<link rel="stylesheet" href="../css/show.css">
+	<script>
+	 alter(<h3>${addMeg}</h3>);
+	</script>
 </head>
 <body>
     <!-- 头部 店铺与联系方式-->
@@ -102,7 +105,7 @@
       	<p>首页</p>
       </div>
       </a>
-      <a href="${rootPath}customer/getCart">
+      <a href="${rootPath}customer/cart_getCart">
       <div class="left">
       	<div><img src="../images/gwc.png" style="width:100%; height:100%; "></div>
       	<p>购物车</p>
