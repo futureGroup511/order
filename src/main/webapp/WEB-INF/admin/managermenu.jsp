@@ -8,7 +8,18 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managermenu.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
-<script type="text/javascript">
+<script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${allMenu.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
 	window.onload=function(){
 		 var array = new Array();  
 		 <c:forEach items="${allMenu.data}" var="t">  
@@ -39,6 +50,8 @@
 <span class="error">${updateMsg}${deleteMenuMsg }</span>
 
  <div class="photowall" id="div1"> 
+${updateMsg}${deleteMenuMsg }
+  <div class="photowall" id="div1"> 
 <center>
 	<form name="inquiry" method="post" id="inquiry">
 		<input type="text" name="inquiry">
@@ -47,6 +60,7 @@
 		<input class="btn" type="button" onclick="inquiryAll()" value="查看全部">
 	</form>
 </center>
+<!--   <div class="photowall"> -->
 <!--   <div class="photowall"> -->
     <div class="picture_wall">
     		${inquiryMsg}

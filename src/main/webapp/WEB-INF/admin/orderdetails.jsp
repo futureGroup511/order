@@ -39,11 +39,11 @@
              <td>菜品id</td>
              <td>菜品名称</td>
              <td>数量</td>
+             <td>单价(元)</td>
              <td>菜品状态</td>
              <td>订单时间</td>
              <td>厨师id</td>
-             <td>厨师姓名</td>
-             <td>备注</td>
+             <td>厨师姓名</td>         
              <td>操作</td>
            </tr>
                   	 <c:forEach items="${detailspc.data}" var="item">  
@@ -54,11 +54,11 @@
 	                <td>${item.menuId}</td>
 	                <td>${item.menuName}</td>
 	                <td>${item.menuNum}</td>
+	                <td>${item.remark}</td>
 	                <td>${item.status}</td>
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td>${item.remark}</td>
 	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_Delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
 	            </tr>  
         	</c:forEach>          

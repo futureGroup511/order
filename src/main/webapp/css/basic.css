@@ -129,3 +129,9 @@ body {
   top: 25px;
   text-decoration: none; 
  }
+ .background_wall{
+	  background:-webkit-linear-gradient(#88c4ea 5%,#fffafa);
+	   background:-moz-linear-gradient(#88c4ea 5%,#fffafa);
+	    background:-ms-linear-gradient(#88c4ea 5%,#fffafa);
+		 background:linear-gradient(#88c4ea 5%,#fffafa);
+	 }

@@ -22,93 +22,93 @@
         <!--父目录-->
           <ul class="nav" id="main-menu">
               <li>
-                <a><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp&nbsp用户管理</a>
+                <a><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;用户管理</a>
                   <!--子目录-->
                   <ul class="nav nav-second-level" style="background-color:red">
                     <li>
-                      <a href="${rootPath}manage/Change_addUser" target="mainFrame"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp&nbsp&nbsp增加用户</a>
+                      <a href="${rootPath}manage/Change_addUser" target="mainFrame"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;&nbsp;增加用户</a>
                     </li>
                     <li>
-                      <a href="${rootPath}manage/UserManager?ask=all" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp管理用户</a>
+                      <a href="${rootPath}manage/UserManager?ask=all" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;管理用户</a>
                     </li>
                   </ul>
                 
               </li>
               <li><!-- 第二个父目录 -->
-                <a><span class="glyphicon glyphicon-fire"></span>&nbsp&nbsp&nbsp配料管理</a>
+                <a><span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;&nbsp;配料管理</a>
                 <!--子目录-->
                     <ul class="nav nav-second-level">
                       <li>
-                        <a href="${rootPath}manage/Change_addIngredient" target="mainFrame"><span class="glyphicon glyphicon-log-in"></span>&nbsp&nbsp&nbsp增加配料</a>
+                        <a href="${rootPath}manage/Change_addIngredient" target="mainFrame"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;&nbsp;增加配料</a>
                       </li>
                       <li>
-                          <a href="${rootPath}manage/Ingredient" target="mainFrame"><span class="glyphicon glyphicon-folder-close"></span>&nbsp&nbsp&nbsp管理配料</a>
+                          <a href="${rootPath}manage/Ingredient" target="mainFrame"><span class="glyphicon glyphicon-folder-close"></span>&nbsp;&nbsp;&nbsp;管理配料</a>
                       </li>
                     </ul>
               </li>
               <li><!-- 第三个父目录 -->
-                  <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp菜品管理</a>
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;菜品管理</a>
                     <ul class="nav nav-second-level" >
                       <li>
-                           <a href="${rootPath}manage/Change_addMenu" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜品</a>
+                           <a href="${rootPath}manage/Change_addMenu" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp;&nbsp;&nbsp;增加菜品</a>
                       </li>
                       <li>
-                          <a href="${rootPath}manage/MenuManager?ask=all" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品</a>
+                          <a href="${rootPath}manage/MenuManager?ask=all" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;管理菜品</a>
                       </li>
                   </ul> 
               </li>
               <li><!-- 第三个父目录 -->
-                  <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp菜品类型管理</a>
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;菜品类型管理</a>
                     <ul class="nav nav-second-level" >
                        <li>
-                           <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜品类型</a>
+                           <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp;&nbsp;&nbsp;增加菜类</a>
                       </li>
                         <li>
-                          <a href="${rootPath}manage/MenuTypeAction" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品类型</a>
+                          <a href="${rootPath}manage/MenuTypeAction" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;管理菜类</a>
                       </li>
                   </ul> 
               </li>
               <li><!-- 追加父目录 -->
-                  <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp餐桌管理</a>
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;餐桌管理</a>
                     <ul class="nav nav-second-level" >
                       <li>
-                           <a href="${rootPath}manage/Change_addTable" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加餐桌</a>
+                           <a href="${rootPath}manage/Change_addTable" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp;&nbsp;&nbsp;增加餐桌</a>
                       </li>
                       <li>
-                          <a href="${rootPath}manage/TableManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理餐桌</a>
+                          <a href="${rootPath}manage/TableManager" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;管理餐桌</a>
                       </li>
                        <li>
-                      <a href="${rootPath}manage/TableManager_AllCard" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbsp&nbsp生成二维码</a>
+                      <a href="${rootPath}manage/TableManager_AllCard" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;生成二维码</a>
                     </li>
                   </ul> 
               </li>
               <li><!-- 第四个父目录 -->
-                   <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp&nbsp&nbsp订单中心</a>
+                   <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;&nbsp;订单中心</a>
                    <ul class="nav nav-second-level">
                        <li>
-                          <a href="${rootPath}manage/OrderAction" target="mainFrame"><span class="glyphicon glyphicon-glass"></span>&nbsp&nbsp&nbsp管理订单</a>
+                          <a href="${rootPath}manage/OrderAction" target="mainFrame"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;&nbsp;管理订单</a>
                       </li>
                    </ul> 
               </li>
               <li><!-- 第五个父目录 -->
-                  <a> <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp&nbsp&nbsp进货管理</a>
+                  <a> <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;进货管理</a>
                     <ul class="nav nav-second-level">
                       <li>
-                          <a href="${rootPath}manage/Change_addStocks" target="mainFrame"> <span class="glyphicon glyphicon-plus-sign"></span>&nbsp&nbsp&nbsp增加进货</a>
+                          <a href="${rootPath}manage/Change_addStocks" target="mainFrame"> <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;&nbsp;增加进货</a>
                       </li>
                       <li>
-                          <a href="${rootPath}manage/StockAction" target="mainFrame"><span class="glyphicon glyphicon-tint"></span>&nbsp&nbsp&nbsp管理进货</a>
+                          <a href="${rootPath}manage/StockAction" target="mainFrame"><span class="glyphicon glyphicon-tint"></span>&nbsp;&nbsp;&nbsp;管理进货</a>
                        </li>
                      </ul> 
               </li>
               <li> <!-- 第六个父目录 -->
-                <a><span class="glyphicon glyphicon-folder-open"></span>&nbsp&nbsp&nbsp个人中心</a>
+                <a><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;个人中心</a>
                  <ul class="nav nav-second-level">
                     <li>
-                        <a href="${rootPath}manage/Change_getMyself" target="mainFrame"><span class="glyphicon glyphicon-phone"></span>&nbsp&nbsp&nbsp查看资料</a>
+                        <a href="${rootPath}manage/Change_getMyself" target="mainFrame"><span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;&nbsp;查看资料</a>
                     </li>
                     <li>
-                        <a href="${rootPath}manage/Change_logOff"><span class="glyphicon glyphicon-new-window"></span>&nbsp&nbsp&nbsp退出登陆</a>
+                        <a href="${rootPath}manage/Change_logOff"><span class="glyphicon glyphicon-new-window"></span>&nbsp;&nbsp;&nbsp;退出登陆</a>
                     </li>
                 </ul> <!-- 第六个子目录结束 -->
              </li> <!-- 第六个父目录结束 -->
