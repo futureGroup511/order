@@ -1,6 +1,7 @@
 package com.future.order.action.manager;
 
 import java.io.ByteArrayOutputStream;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,8 +14,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
 
-import net.glxn.qrgen.QRCode;
-import net.glxn.qrgen.image.ImageType;
+
 
 
 

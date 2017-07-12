@@ -14,6 +14,19 @@
 		document.getElementById("inquiry").submit();
 	}
 </script>
+<script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${allUser.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
 </head>
 <body>
 
@@ -28,6 +41,10 @@ ${deleteUserMsg}
 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=all';">所有员工</button>
 </div>
 <div class="mangeruser" >
+=======
+	共有数据${allUser.count}条
+<div class="mangeruser" id="div1">
+>>>>>>> 8bb6388a712ee2457a65555dc8e90c7c358066cf
      <table cellspacing="0">
          <thead>
          <tr>
@@ -52,7 +69,7 @@ ${deleteUserMsg}
 		</c:forEach>
      </table>       
     </div>
- <div class="page">
+ <div class="page" id="div2">
       <ul class="pagination">
         <li><a href="${rootPath }manage/UserManager?page=${allUser.prePage}">上一页</a></li>
         <c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"

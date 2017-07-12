@@ -1,6 +1,7 @@
 package com.future.order.action.manager;
 
 import java.io.ByteArrayOutputStream;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -20,6 +21,8 @@ import com.future.order.util.PageCut;
 
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
+
+
 
 public class TableManagerAction extends BaseAction {
 	
@@ -110,7 +113,7 @@ public class TableManagerAction extends BaseAction {
 		 ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
 	       response.setContentType("image/png");  
-	       response.setContentLength(out.size());  
+	       response.setContentLength(out.size());
 	       FileOutputStream fout = new FileOutputStream(new File("D:\\餐桌"+id+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();

@@ -25,7 +25,7 @@
                    <a onclick=""><span class="glyphicon glyphicon-book"></span>订单中心<span class="fa arrow"></span></a>
                    <ul class="nav nav-second-level">
                       <li>
-                          <a href="${rootPath}cook/orderCenter_checkorder" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>查看所有订单</a>
+                          <a href="${rootPath}cook/orderCenter_checkorder" target="mainFrame"><span class="glyphicon glyphicon-tags"></span>查看所有订单</a>
                       </li>
                        <li>
                           <a href="${rootPath}cook/orderCenter_finish" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>已完成订单</a>
@@ -34,13 +34,14 @@
                           <a href="${rootPath}cook/orderCenter_unfinishd" target="mainFrame"><span class="glyphicon glyphicon-repeat"></span>未完成订单</span></a>
                       </li>
                       <li>
-                          <a href="${rootPath}cook/orderCenter_unmenu" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>未完成菜品</a>
+                          <a href="${rootPath}cook/orderCenter_unfinishdmenu" target="mainFrame"><span class="glyphicon glyphicon-time"></span>未完成菜品</a>
                       </li>
-                      <li>
-                          <a href="${rootPath}cook/orderCenter_reminder" target="mainFrame"><span class="glyphicon glyphicon-ok"></span>催单信息</a>
-                      </li>
+                      
                    </ul> 
               </li>
+              <li>
+                   <a href="${rootPath}cook/orderCenter_reminder" target="mainFrame"><span class="glyphicon glyphicon-file"></span>催单中心<span class="fa arrow"></span></a>
+                </li>
               <li> <!-- 第二个父目录 -->
                 <a href="#"><span class="glyphicon glyphicon-map-marker"></span>个人中心<span class="fa arrow"></span></a>
                  <ul class="nav nav-second-level">
@@ -56,6 +57,7 @@
                   </li>
                   </ul>
               </li>
+              
                 
             </ul><!-- 总父目录结束 -->
         </div><!-- 左边的菜单栏结束 -->

@@ -4,6 +4,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${pc.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+  }
+
 function CheckNopay(){
 	window.location.href="${rootPath}manage/OrderAction?sign=two"; 
 	}
@@ -30,8 +42,10 @@ function search(){
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
 <body>
-<h4>${marknews}</h4> 
-<div class="ordercheck">
+<center>
+<h4>${marknews}</h4>
+</center> 
+<div class="ordercheck" id="div1">
      <div class="button">
       <input type="button" onclick="return CheckNopay();" value="未付款">
       <input type="button" onclick="return CheckPay();" value="已付款">
@@ -77,7 +91,7 @@ function search(){
      </table>      
     </div>
  </div>
-<div class="page">
+<div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderAction?page=${pc.prePage}&sign=${sign}">上一页</a></li>
   						<c:if test="${1 < pc.currentPage -3}">
@@ -87,12 +101,12 @@ function search(){
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
  							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
  							<c:choose> 
- 								<c:when test="${i>0 && i == pc.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i == pc.currentPage}"> 
  									<li class="active"><a 
  										href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i != postPS.currentPage}"> 
  									<li><a href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> 
  								</c:when> 
  							</c:choose> 

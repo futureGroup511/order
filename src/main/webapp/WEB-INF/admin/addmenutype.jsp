@@ -12,7 +12,7 @@
 	 <h4>${typenews}</h4>
 	 <form action="${rootPath}manage/MenuTypeAction_Add" method="post" enctype="multipart/form-data">
 	  <lable id="text">类型名称：</lable><input type="text" name="menutype.name"></input><br>
-	  <lable id="textarea">备注：</lable><textarea cols="23" rows="2" name="menutype.remark"></textarea><br>
+	  <lable id="textarea">备注：</lable><textarea cols="31" rows="3" name="menutype.remark"></textarea><br>
 	  <button type="submit">添加</button>
 	 </form>
 	 </div>

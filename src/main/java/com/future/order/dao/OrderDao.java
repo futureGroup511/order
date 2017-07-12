@@ -86,6 +86,32 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		list=this.getEntityList(hql1);
 		return list;
 	}
+	@Override
+	public PageCut<Order> getPagee(int currentPage, int pageSize) {
+		String status="已付款";
+		String hql ;
+		int count=0;
+		hql = "select count(*) from Order o where o.status='"+status+"'";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList("from Order as o order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status+"'", (currentPage-1)*pageSize, pageSize));
+		return pc;
+	}
+	@Override
+	public PageCut<Order> getPageee(int currentPage, int pageSize) {
+		String status1="未处理";
+		String status2="未付款";
+		String status3="处理中";
+		String hql ;
+		int count=0;
+		hql = "select count(*) from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"'";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList("from Order as o order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"'", (currentPage-1)*pageSize, pageSize));
+		return pc;
+	}
 	
 	@Override
 	public Order CheckById(int id) {
@@ -118,20 +144,20 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		hql = "select count(*) from Order";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order as o order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
+		System.out.println(pc);
 		return pc;
 	}
 
 	@Override
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize) {
-		String status="已处理";
 		String statuss="未付款";
 		String hql ;
 		int count=0;
-		hql = "select count(*) from Order o where o.status='"+status+"'";
+		hql = "select count(*) from Order o where o.status='"+statuss+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status+"' or o.status='"+statuss+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status='"+statuss+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 
