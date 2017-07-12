@@ -61,11 +61,23 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	}
 
 	@Override
-	public PageCut<User> getPageCut(int curr,int pageSize) {
+	public PageCut<User> getPageCut(int curr,int pageSize,String ask,String inquiry) {
+		System.out.println("ask"+ask+"  inquiry:"+inquiry);
 		String hql = "select count(*) from User";
+		String selectHql =  "from User";
+		if(ask!=null&&ask.equals("phone")){
+			hql = "select count(*) from User u where u.phone= '"+inquiry+"'";
+			selectHql = "from User where phone = '"+inquiry+"'";
+		} else if(ask!=null&&ask.equals("manager")) {
+			hql = "select count(*) from User u where u.sort= 'manager'";
+			selectHql = "from User where sort = 'manager'";
+		} else if(ask!=null&&ask.equals("cook")){
+			hql = "select count(*) from User u where u.sort= 'cook'";
+			selectHql = "from User where sort = 'cook'";
+		}
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<User> pc = new PageCut<User>(curr,pageSize,count);
-		pc.setData(this.getEntityLimitList("from User", (curr-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList(selectHql, (curr-1)*pageSize, pageSize));
 		return pc;
 	}
 }

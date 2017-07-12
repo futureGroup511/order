@@ -28,7 +28,7 @@ public class Order {
 	@Column(length=10)
 	private double total;//总价
 	@Column(length=10)
-	private String status;//订单状态（未付款，处理中，已付款）
+	private String status;//订单状态（未处理，处理中，未付款，已付款）
 	private Date createDate;//下单时间
 	@Column(length=255)
 	private String remark;//备注

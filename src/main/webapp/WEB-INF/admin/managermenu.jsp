@@ -29,7 +29,7 @@ window.onload=function(){
 	function inquiryByType() {
 		document.inquiry.action="${rootPath}manage/MenuManager?ask=type";
 		document.getElementById("inquiry").submit();
-	}    
+	}
 	function inquiryAll() {
 		document.inquiry.action="${rootPath}manage/MenuManager?ask=all";
 		document.getElementById("inquiry").submit();
@@ -48,6 +48,7 @@ ${updateMsg}${deleteMenuMsg }
 		<input type="button" onclick="inquiryAll()" value="查看全部">
 	</form>
 </center>
+<!--   <div class="photowall"> -->
 <!--   <div class="photowall"> -->
     <div class="picture_wall">
     		${inquiryMsg}

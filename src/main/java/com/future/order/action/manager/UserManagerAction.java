@@ -23,14 +23,24 @@ public class UserManagerAction extends BaseAction {
 	private User user;
 	private int userId;	//得到前台的传来的id
 	private int page=1;
+	private String inquiry;//得到查询的内容
+	private String ask;	//得到请求查询的条件
 	
 	public String execute(){
-		PageCut<User> pCut=userService.getPageCut(page,3);
+		if(ask==null){
+			ask = (String)session.get("ask");
+		}
+		if(inquiry==null){
+			inquiry = (String) session.get("inquiry");
+		}
+		PageCut<User> pCut=userService.getPageCut(page,6,ask,inquiry);
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有其他用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteUserMsg", mark);
 		}
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
 		return SUCCESS;
 	}
 	
@@ -67,7 +77,7 @@ public class UserManagerAction extends BaseAction {
 		if(userId==2){		//当执行修改个人信息时在个人资料界面时
 			result = "toUpdateMyself";
 		} else {
-			PageCut<User> pCut=userService.getPageCut(page,3);
+			PageCut<User> pCut=userService.getPageCut(page,3,ask,inquiry);
 			request.put("allUser", pCut);
 		}
 		return result;
@@ -85,7 +95,7 @@ public class UserManagerAction extends BaseAction {
 				request.put("deleteUserMsg", "删除失败");
 			}
 		}
-		PageCut<User> pCut=userService.getPageCut(page,3);
+		PageCut<User> pCut=userService.getPageCut(page,3,ask,inquiry);
 		request.put("allUser", pCut);
 		return "deleteUser";
 	}
@@ -112,6 +122,22 @@ public class UserManagerAction extends BaseAction {
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+
+	public String getInquiry() {
+		return inquiry;
+	}
+
+	public void setInquiry(String inquiry) {
+		this.inquiry = inquiry;
+	}
+
+	public String getAsk() {
+		return ask;
+	}
+
+	public void setAsk(String ask) {
+		this.ask = ask;
 	}
 
 }

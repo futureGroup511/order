@@ -13,8 +13,10 @@ import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Inform;
+import com.future.order.entity.Ingredient;
 import com.future.order.entity.Order;
 import com.future.order.service.IInformService;
+import com.future.order.util.PageCut;
 
 /**
  * @author Administrator
@@ -29,11 +31,19 @@ public class InformDao extends BaseDao<Inform>  implements IInformService {
 		try{
 			String hql="from Inform as a order by a.createDate asc";
 			list=this.getEntityList(hql); 
-			System.out.println(list);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	@Override
+	public PageCut<Inform> getPageCut(int curr, int pageSize) {
+		String hql = "select count(*) from Inform";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Inform> pc = new PageCut<Inform>(curr,pageSize,count);
+		pc.setData(this.getEntityLimitList("from Inform", (curr-1)*pageSize, pageSize));
+		System.out.println(pc);
+		return pc;
 	}
 		@Override
 		public Boolean save(Inform inform) {

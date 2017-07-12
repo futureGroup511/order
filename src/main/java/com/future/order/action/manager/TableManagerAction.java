@@ -1,20 +1,16 @@
 package com.future.order.action.manager;
 
 import java.io.ByteArrayOutputStream;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.mapping.Array;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Tables;
@@ -23,8 +19,10 @@ import com.future.order.util.PageCut;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 
+
+
 public class TableManagerAction extends BaseAction {
-	
+	private static final long serialVersionUID = 1L;
 	private Tables table;
 	private int page=1;
 	private String name;
@@ -90,6 +88,7 @@ public class TableManagerAction extends BaseAction {
 	}
 	public String AllCard() throws IOException{
 		List<Tables> list = tablesService.CheckName();
+		@SuppressWarnings("unused")
 		HttpServletResponse response = ServletActionContext.getResponse();
 		 for(int i=0;i<list.size();i++){
 			 int j=list.get(i).getId();//http://localhost:8080/order/customer/customer_toIndex?id="+j
@@ -101,8 +100,7 @@ public class TableManagerAction extends BaseAction {
 				fout.flush();
 				fout.close();      
 				String mark="二维码生成成功,储存地址在D盘";
-				request.put("managerMsg", mark);
-		       System.out.println("结束");
+				request.put("managerMsg", mark); 
 		 }
 		return "QR_card";
 	}

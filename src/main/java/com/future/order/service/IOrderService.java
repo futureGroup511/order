@@ -31,4 +31,6 @@ public interface IOrderService {
 	public boolean deleteOrder(int tableId);
 	public boolean updetemenu(int id);//wqj
 	public List<Order> finish();
+	public PageCut<Order> getPagee(int currentPage, int pageSize);
+	public PageCut<Order> getPageee(int currentPage, int pageSize);
 }
