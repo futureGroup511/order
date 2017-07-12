@@ -208,4 +208,16 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		list=this.getEntityList(hql);
 		return list;
 	}
+	@Override
+	public List<OrderDetails> SeeByid(int id) {
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		try{
+			String hql="from OrderDetails o where o.orderId='"+id+"'";
+			list=this.getEntityList(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(list);
+		return list;
+	}
 }

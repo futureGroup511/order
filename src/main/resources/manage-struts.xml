@@ -76,6 +76,7 @@
 		<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
 			<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatedetails.jsp</result>
+			<result name="print">/WEB-INF/admin/print.jsp</result>
 		</action>
 		
 		<action name="StockAction_*" method="{1}" class="com.future.order.action.manager.StockAction">

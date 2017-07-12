@@ -3,7 +3,12 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<script language="javascript">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/ordercheck.css">
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+ <script language="javascript">
 window.onload=function(){
 	 var array = new Array();  
 	 <c:forEach items="${pc.data}" var="t">  
@@ -35,11 +40,11 @@ function search(){
 
 }
 	</script>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="${rootPath}css/ordercheck.css">
- <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+ <script type="text/javascript">
+	function print(id) {
+		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", " top=50, left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"); //写成一行
+	}
+</script>
 </head>
 <body>
 <center>
@@ -71,6 +76,7 @@ function search(){
              <td>备注</td>
              <td>操作</td>
              <td>操作</td>
+             <td>操作</td>
            </tr>
                   	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
@@ -85,6 +91,7 @@ function search(){
 	                <td>${item.remark}</td>
 	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}"  onclick="javascript:search();">付款</a></td>      
 	                <td  class="four"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	            	<td><input type="button" onclick="print(${item.id})" value="打印"></td>
 	            </tr>  
         	</c:forEach>                         
          </tbody>

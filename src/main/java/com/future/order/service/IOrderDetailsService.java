@@ -31,4 +31,5 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> getDetailsOne(int tableId);
 	public List Check(int detailid);
 	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
+	public List<OrderDetails> SeeByid(int id);
 }
