@@ -35,8 +35,7 @@
     float: left;
     margin: 0;
     padding:0; 
-    background-image:url(../img/m-92.jpg) 
-	no-repeat; 
+    background-image:url(../images/m-91.jpg);
     /*background-color: #83c1ea;*/
   }
   .container{
@@ -103,21 +102,4 @@
       margin-right: -2px;
      }
 
- /*footer*/
-    .footer{
-      position: absolute;
-      top:570px;
-      left:15%;
-      z-index: 999;
-      width: 85%;
-      height: 124px;
-      text-align: center;
-      background-color: #f5f1f0;
-  }
-    .footer a{
-      background-color: #f5f1f0;
-      position: relative;
-      top: 35px;
-      text-decoration: none; 
-  }
-
+    

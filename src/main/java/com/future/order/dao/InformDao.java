@@ -41,8 +41,7 @@ public class InformDao extends BaseDao<Inform>  implements IInformService {
 		String hql = "select count(*) from Inform";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Inform> pc = new PageCut<Inform>(curr,pageSize,count);
-		pc.setData(this.getEntityLimitList("from Inform", (curr-1)*pageSize, pageSize));
-		System.out.println(pc);
+		pc.setData(this.getEntityLimitList("from Inform a order by a.createDate asc", (curr-1)*pageSize, pageSize));
 		return pc;
 	}
 		@Override

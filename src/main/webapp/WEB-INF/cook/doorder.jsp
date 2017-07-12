@@ -92,7 +92,7 @@
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
 	                
-	                <td><a href="${rootPath}cook/orderCenter_unmenu?OrderId=${item.id}">完成</a></td>
+	                <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td>
 	            </tr>
 	            </c:forEach>  
         </tbody>

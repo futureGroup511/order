@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>查看个人资料</title>
-    <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${rootPath}css/cook/bootstrap.css">
      <style>
       .aa{
             width: 90%;

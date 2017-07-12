@@ -62,7 +62,7 @@ public class CartAction extends BaseAction {
 					if (item.getMenuName().equals(en.getMenuName())) {
 						sign = 1;
 						en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-						Boolean bool = orderDetailsService.update(en);
+						Boolean bool = orderDetailsService.updatee(en);
 					}
 				}
 				if (sign == 0) {

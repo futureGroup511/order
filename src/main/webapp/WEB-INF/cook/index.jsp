@@ -9,7 +9,7 @@
     
     <link href="${rootPath}css/bootstrapwqj.css" rel="stylesheet" />
     <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
-    <link href="${rootPath}css/basicwqj.css" rel="stylesheet" />
+    <link href="${rootPath}css/cook/basicwqj.css" rel="stylesheet" />
     <link href='http:/fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' >
 </head>
 <body>
@@ -61,7 +61,7 @@
                 
             </ul><!-- 总父目录结束 -->
         </div><!-- 左边的菜单栏结束 -->
-         <iframe name="mainFrame" src="" id="ifr">
+         <iframe name="mainFrame" src="${rootPath}welcome.jsp"  id="ifr">
 		 
 		 </iframe>
           
