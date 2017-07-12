@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="${rootPath}css/checkstock.css" rel="stylesheet" />
+<link href="${rootPath}css/manager/checkstock.css" rel="stylesheet" />
      <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
           <script language="javascript">
 window.onload=function(){

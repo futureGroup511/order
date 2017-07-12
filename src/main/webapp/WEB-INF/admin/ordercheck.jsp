@@ -34,11 +34,11 @@ function search(){
 //     obj.href = obj.href + "&gjz="+key;
 
 }
-	</script>
+</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="${rootPath}css/ordercheck.css">
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/ordercheck.css">
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
 <body>
@@ -84,7 +84,7 @@ function search(){
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
 	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}"  onclick="javascript:search();">付款</a></td>      
-	                <td  class="four"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	                <td  class="four"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"></a><span class="glyphicon glyphicon-trash"></span></td>      
 	            </tr>  
         	</c:forEach>                         
          </tbody>

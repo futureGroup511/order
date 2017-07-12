@@ -6,25 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="${rootPath}css/managermenu.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managermenu.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
-<<<<<<< HEAD
-=======
-<script language="javascript">
-window.onload=function(){
-	 var array = new Array();  
-	 <c:forEach items="${allMenu.data}" var="t">  
-	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
-	 </c:forEach>
-	 var a = array.length;
- if(a==0){
-	 document.getElementById('div1').style.display='none';
-	 document.getElementById('div2').style.display='none';
- }
-}
-	</script>
->>>>>>> c6900c432e05f63b3fa3e882d1f35b0dd34a4bde
 <script type="text/javascript">
+	window.onload=function(){
+		 var array = new Array();  
+		 <c:forEach items="${allMenu.data}" var="t">  
+		 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+		 </c:forEach>
+		 var a = array.length;
+	 	if(a==0){
+		 document.getElementById('div1').style.display='none';
+		 document.getElementById('div2').style.display='none';
+	 	}
+	}
 	function inquiryByName() {
 		document.inquiry.action="${rootPath}manage/MenuManager?ask=name";
 		document.getElementById("inquiry").submit();
@@ -41,25 +36,18 @@ window.onload=function(){
 </head>
 <body>
 <center>
-${updateMsg}${deleteMenuMsg }
-共有数据${allMenu.count}条
-<<<<<<< HEAD
-=======
-  <div class="photowall" id="div1"> 
->>>>>>> c6900c432e05f63b3fa3e882d1f35b0dd34a4bde
+<span class="error">${updateMsg}${deleteMenuMsg }</span>
+
+ <div class="photowall" id="div1"> 
 <center>
 	<form name="inquiry" method="post" id="inquiry">
 		<input type="text" name="inquiry">
-		<input type="button" onclick="inquiryByName()" value="按菜名查询">
-		<input type="button" onclick="inquiryByType()" value="按菜品类型查询">
-		<input type="button" onclick="inquiryAll()" value="查看全部">
+		<input class="btn" type="button" onclick="inquiryByName()" value="菜名查询">
+		<input class="btn" type="button" onclick="inquiryByType()" value="菜品类型查询">
+		<input class="btn" type="button" onclick="inquiryAll()" value="查看全部">
 	</form>
 </center>
-<<<<<<< HEAD
-  <div class="photowall">
-=======
 <!--   <div class="photowall"> -->
->>>>>>> c6900c432e05f63b3fa3e882d1f35b0dd34a4bde
     <div class="picture_wall">
     		${inquiryMsg}
    			<c:forEach items="${allMenu.data}" var="data"> 

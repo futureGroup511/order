@@ -6,12 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-   <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
+   <link href="${rootPath}css/bootstrap.css"  rel="stylesheet" />
     <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
     <link href="${rootPath}css/basic.css" rel="stylesheet" />
 </head>
 <body>
 <div class="header"><!-- 头部 -->
+
             <img src="${rootPath}images/beijing.jpg" style="width:100%;height:125px;">
            <span class="span1">订餐管理系统</span>
             <span class="span2">欢迎${user.phone}登录</span>
@@ -113,7 +114,7 @@
              </li> <!-- 第六个父目录结束 -->
           </ul><!-- 总父目录结束 -->
         </div><!-- 左边的菜单栏结束 -->
-        <iframe src="${rootPath}manage/Change_getMyself"   id="ifr" name="mainFrame"></iframe>
+        <iframe src="${rootPath}welcome.jsp"   id="ifr" name="mainFrame"></iframe>
     </div><!-- 左侧菜单和iframe标签的内容结束 -->
     <div class="footer">
        <a href="">技术支持:河南艾未特网络有限公司</a>  
@@ -123,41 +124,5 @@
    <script src="${rootPath}js/bootstrap.js"></script>  
    <script src="${rootPath}js/jquery.metisMenu.js"></script>
    <script src="${rootPath}js/custom.js"></script>
-
-
-<!-- 	<div style="width: 10%;float: left;"> -->
-<!-- 	<details> -->
-<!-- 		<summary>用户管理</summary> -->
-<%-- 		<a href="${rootPath}manage/Change_addUser" target="mainFrame">增加用户</a><br> --%>
-<%-- 		<a href="${rootPath}manage/UserManager" target="mainFrame">管理用户</a> --%>
-<!-- 	</details> -->
-<!-- 	<details> -->
-<!-- 		<summary>配料管理</summary> -->
-<%-- 		<a href="${rootPath}manage/Change_addIngredient" target="mainFrame">增加配料</a><br> --%>
-<%-- 		<a href="${rootPath}manage/Ingredient" target="mainFrame">管理配料</a>           --%>
-<!-- 	</details> -->
-<!-- 	<details> -->
-<!-- 		<summary>菜品管理</summary> -->
-<%-- 		<a href="${rootPath}manage/Change_addMenu" target="mainFrame">增加菜品</a><br> --%>
-<%-- 		<a href="${rootPath}manage/MenuManager" target="mainFrame">管理菜品</a> --%>
-<!-- 	</details> -->
-<!-- 	<details> -->
-<!-- 		<summary>订单管理</summary> -->
-<%-- 		<a href="${rootPath}manage/OrderAction" target="mainFrame">管理订单</a> --%>
-<!-- 	</details> -->
-<!-- 	<details> -->
-<!-- 		<summary>进货管理</summary> -->
-<%-- 		<a href="${rootPath}manage/Change_addStocks" target="mainFrame">增加进货</a><br> --%>
-<%-- 		<a href="${rootPath}manage/StockAction" target="mainFrame">管理进货</a> --%>
-<!-- 	</details> -->
-<!-- 	<details> -->
-<!-- 		<summary>个人中心</summary> -->
-<%-- 		<a href="${rootPath}manage/Change_getMyself" target="mainFrame">查看个人资料</a><br> --%>
-<%-- 		<a href="${rootPath}manage/Change_logOff">退出登录</a> --%>
-<!-- 	</details> -->
-<!-- 	</div> -->
-<!-- 	<div style="width:90%;float: right"> -->
-<!-- 		<iframe height="400px" width="100%" name="mainFrame" src=""></iframe>  -->
-<!-- 	</div> -->
 	</body>
 </html>

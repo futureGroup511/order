@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="${rootPath}css/manageringredient.css">
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/manageringredient.css">
      <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
 </head>
 <script language="javascript">
@@ -25,6 +25,14 @@ window.onload=function(){
 <body>
 <center>
 ${updateIngredientMsg}${deleteIngredientMsg}
+</center>
+<div >
+	<form action="${rootPath}manage/Ingredient_inquiry" method="post">
+		<input class="text" type="text" name="inquiry">
+		<input class="btn" type="submit" value="查找配料">
+	</form>
+</div>
+<center>
 <div class="manageringredient" id="div1">
      <table cellspacing="0">
          <thead>
@@ -35,8 +43,7 @@ ${updateIngredientMsg}${deleteIngredientMsg}
              <td>注册时间</td>
              <td>类型</td>
              <td>简介</td>
-             <td>修改</td>
-             <td>删除</td>
+             <td>操作</td>
           </tr>   
          </thead>
          <tbody>
@@ -48,8 +55,10 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 				<td>${ingredient.createDate}</td>
 				<td>${ingredient.type}</td>
 				<td>${ingredient.introduce}</td>
-				<td><a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-				<td><a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+				<td>
+					<a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a>
+				</td>
 			</tr> 
 		</c:forEach>
          </tbody>

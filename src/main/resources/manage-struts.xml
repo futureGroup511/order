@@ -65,6 +65,7 @@
 			<result name="toUpdateIngredient">/WEB-INF/admin/updateingredient.jsp</result>
 			<result name="updateIngredient">/WEB-INF/admin/manageringredient.jsp</result>
 			<result name="deleteIngredient">/WEB-INF/admin/manageringredient.jsp</result>
+			<result name="inquiry">/WEB-INF/admin/manageringredient.jsp</result>
 		</action>
 		
 		<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">

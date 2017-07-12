@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${rootPath}css/adduser.css">
+<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/adduser.css">
 </head>
 <body>
 	<center><h4>${addMsg}</h4></center>

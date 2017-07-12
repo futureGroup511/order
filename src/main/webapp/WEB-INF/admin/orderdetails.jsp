@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="${rootPath}css/orderdetail.css">
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/orderdetail.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 <script language="javascript">
 	window.onload=function(){

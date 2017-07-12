@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="${rootPath}css/checkstock.css">
-     <link href="${rootPath}css/checkstock.css" rel="stylesheet" />
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/checkstock.css">
+     <link href="${rootPath}css/manager/checkstock.css" rel="stylesheet" />
      <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
      <script language="javascript">
 window.onload=function(){
@@ -50,7 +50,7 @@ window.onload=function(){
 	                <td>${item.createDate}</td>
 	                <td>${item.remark}</td>
 	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_CheckStockDetails()?id=${item.id}">查看详情</a></td>      
-	                <td  class="four"><a href="${rootPath}manage/StockAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	                <td  class="four"><a href="${rootPath}manage/StockAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>   
          </tbody>
