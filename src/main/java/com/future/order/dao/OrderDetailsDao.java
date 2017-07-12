@@ -197,7 +197,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}	
 	}
 	@Override
-	public Boolean update(OrderDetails en) {
+	public Boolean updatee(OrderDetails en) {
 		
 		return this.updateEntity(en);
 	}
