@@ -3,7 +3,12 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<script language="javascript">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/ordercheck.css">
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+ <script language="javascript">
 window.onload=function(){
 	 var array = new Array();  
 	 <c:forEach items="${pc.data}" var="t">  
@@ -35,10 +40,16 @@ function search(){
 
 }
 	</script>
+ <script type="text/javascript">
+	function print(id) {
+		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", " top=50, left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"); //写成一行
+	}
+</script>
+</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="${rootPath}css/ordercheck.css">
+ <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/ordercheck.css">
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
 <body>
@@ -71,6 +82,7 @@ function search(){
              <td>备注</td>
              <td>操作</td>
              <td>操作</td>
+             <td>操作</td>
            </tr>
                   	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
@@ -85,6 +97,8 @@ function search(){
 	                <td>${item.remark}</td>
 	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}"  onclick="javascript:search();">付款</a></td>      
 	                <td  class="four"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	            	<td><input type="button" onclick="print(${item.id})" value="打印"></td>
+	                <td  class="four"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"></a><span class="glyphicon glyphicon-trash"></span></td>      
 	            </tr>  
         	</c:forEach>                         
          </tbody>
@@ -114,69 +128,5 @@ function search(){
   <li><a href="${rootPath}manage/OrderAction?page=${pc.nextPage}&sign=${sign}">下一页</a></li>
 </ul>
  </div>   
-<!-- <button onclick="return CheckNopay();">未付款</button> -->
-<!-- <button onclick="return CheckPay();">已付款</button> -->
-<!-- <button onclick="return Check();">查看全部</button> -->
-<%-- 	${marknews} --%>
-<!-- 	<table width="1000px" height="100px" align="center" border="1"> -->
-<!-- 	<tr> -->
-<!-- 				<td colspan="11" align="center">订单信息</td> -->
-<!-- 	</tr> -->
-<!-- 	<tr> -->
-<!-- 	  	 <th>id</th> -->
-<!--          <th>餐桌id</th> -->
-<!--          <th>餐桌名称</th> -->
-<!--          <th>总价</th> -->
-<!--          <th>状态</th> -->
-<!--          <th>订单时间</th> -->
-<!--          <th>厨师id</th> -->
-<!--          <th>厨师姓名</th> -->
-<!--          <th>备注</th> -->
-<!--          <th>操作</th> -->
-<!--          <th>操作</th> -->
-<!-- 	</tr> -->
-<%--        	 <c:forEach items="${pc.data}" var="item">  --%>
-<!-- 	            <tr>   -->
-<%-- 	                <td><intput >${item.id}</td> --%>
-<%-- 	                <td>${item.tableId}</td> --%>
-<%-- 	                <td>${item.tableName}</td> --%>
-<%-- 	                <td>${item.total}</td> --%>
-<%-- 	                <td>${item.status}</td> --%>
-<%-- 	                <td>${item.createDate}</td> --%>
-<%-- 	                <td>${item.cookId}</td> --%>
-<%-- 	                <td>${item.cookName}</td> --%>
-<%-- 	                <td>${item.remark}</td> --%>
-<%-- 	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}">付款</a></td>       --%>
-<%-- 	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}">修改</a></td>       --%>
-<!-- 	            </tr>   -->
-<%--         	</c:forEach> --%>
-<!-- 	</table> -->
-<!-- 	<div id="list-two"> -->
-<!-- 		<ul class="pagination"> -->
-<!-- 						<li>
-<a href="${rootPath}manage/OrderAction?page=${pc.prePage}&sign=${sign}">上一页</a></li> --%>
-<%-- 						<c:if test="${1 < pc.currentPage -3}"> --%>
-<!-- 							<li><a href="#">1</a></li> -->
-<%-- 						</c:if> --%>
-
-<%-- 						<c:forEach var="i" --%>
-<%-- 							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" --%>
-<%-- 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> --%>
-<%-- 							<c:choose> --%>
-<%-- 								<c:when test="${i>0 && i == pc.currentPage }"> --%>
-<!-- 									<li class="active"><a -->
-<%-- 										href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> --%>
-<%-- 								</c:when> --%>
-
-<%-- 								<c:when test="${i>0 && i != postPS.currentPage }"> --%>
-<%-- 									<li><a href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> --%>
-<%-- 								</c:when> --%>
-<%-- 							</c:choose> --%>
-<%-- 						</c:forEach> --%>
-<!-- 						<li>
-<a href="${rootPath}manage/OrderAction?page=${pc.nextPage}&sign=${sign}">下一页</a></li> --%>
-<!-- 					</ul> -->
-	
-<!-- 	</div> -->
 </body>
 </html>

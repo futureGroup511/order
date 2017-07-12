@@ -65,17 +65,17 @@
       </thead>
         <tbody>
           <tr>
-             <td>ID</td>
-             <td>餐桌ID</td>
+             <td>编号</td>
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>总价</td>
              <td>订单状态</td>
              <td width="200">订单时间</td>
-             <td>厨师ID</td>
+             <td>厨师编号</td>
              <td>厨师名称</td>
              <td>备注</td>
              <td>处理订单</td>
-             <td>订单详情</td>
+             <td>详情</td>
           </tr>
        <c:forEach items="${paCut.data}" var="item"> 
 	            <tr>  

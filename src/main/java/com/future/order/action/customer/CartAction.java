@@ -54,8 +54,7 @@ public class CartAction extends BaseAction {
 					orderDetails.setMenuName(item.getMenuName());
 					orderDetails.setMenuNum(item.getMenuNum());
 					orderDetails.setTableId(item.getTableId());
-					orderDetails.setOrderId(it.getId());
-					orderDetails.setStatus(it.getStatus());
+					orderDetails.setStatus("未完成");
 					Boolean bool = orderDetailsService.save(orderDetails);
 				}
 			}
@@ -67,7 +66,7 @@ public class CartAction extends BaseAction {
 								if (item.getMenuName().equals(en.getMenuName())) {
 									sign = 1;
 									en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-									Boolean bool = orderDetailsService.update(en);
+									Boolean bool = orderDetailsService.updatee(en);
 								}else if (sign == 0) {
 									orderDetails.setMenuId(item.getMenuId());
 									orderDetails.setTableName(item.getTableName());
@@ -83,7 +82,7 @@ public class CartAction extends BaseAction {
 						if (item.getMenuName().equals(en.getMenuName())) {
 							sign = 1;
 							en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-							Boolean bool = orderDetailsService.update(en);
+							Boolean bool = orderDetailsService.updatee(en);
 						}else if (sign == 0) {
 							orderDetails.setMenuId(item.getMenuId());
 							orderDetails.setTableName(item.getTableName());
@@ -99,7 +98,7 @@ public class CartAction extends BaseAction {
 						if (item.getMenuName().equals(en.getMenuName())) {
 							sign = 1;
 							en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-							Boolean bool = orderDetailsService.update(en);
+							Boolean bool = orderDetailsService.updatee(en);
 						}else if (sign == 0) {
 							orderDetails.setMenuId(item.getMenuId());
 							orderDetails.setTableName(item.getTableName());

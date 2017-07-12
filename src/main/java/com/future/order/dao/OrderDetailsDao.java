@@ -75,7 +75,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(list);
 		return list;
 	}
 
@@ -135,7 +134,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		try{
 			String hql="from OrderDetails o where o.tableId='"+tableId+"'";
 			list=(List) this.getEntityList(hql);
-			System.out.println(list);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -199,7 +197,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}	
 	}
 	@Override
-	public Boolean update(OrderDetails en) {
+	public Boolean updatee(OrderDetails en) {
 		
 		return this.updateEntity(en);
 	}
@@ -208,6 +206,18 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		String hql="from OrderDetails s where s.orderId="+orderId;
 		list=this.getEntityList(hql);
+		return list;
+	}
+	@Override
+	public List<OrderDetails> SeeByid(int id) {
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		try{
+			String hql="from OrderDetails o where o.orderId='"+id+"'";
+			list=this.getEntityList(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(list);
 		return list;
 	}
 }

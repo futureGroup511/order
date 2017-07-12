@@ -63,16 +63,16 @@
       </thead>
         <tbody>
           <tr>
-             <td>ID</td>
-             <td>餐桌id</td>
+             <td>编号</td>
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
-             <td>订单id</td>
-             <td>菜品id</td>
+             <td>订单编号</td>
+             <td>菜品编号</td>
              <td>菜品名称</td>
              <td>菜品数量</td>
              <td>菜品状态</td>
              <td>下单时间</td>
-             <td>厨师id</td>
+             <td>厨师编号</td>
              <td>厨师名称</td>
 			  <td>备注</td>
 			   <td>操作</td>
@@ -92,7 +92,7 @@
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
 	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">处理</a></c:if>
-	                <c:if test="${item.status eq '已完成'}">已完成</c:if></td>
+	                <c:if test="${item.status eq '完成'}">已完成</c:if></td>
 	                <%-- <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td> --%>
 	            </tr>  
         	</c:forEach>

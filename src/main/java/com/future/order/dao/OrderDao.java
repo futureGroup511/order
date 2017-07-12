@@ -145,7 +145,6 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList("from Order as o order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
-		System.out.println(pc);
 		return pc;
 	}
 

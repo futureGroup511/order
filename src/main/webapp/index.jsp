@@ -40,18 +40,7 @@
 			     </form>
 			 </div>	
 		 </div>
-		</div>
 </div>
-<!-- 	<center> -->
-<%-- 		<form action="${rootPath}manage/loginAction" method="post"> --%>
-<!-- 			账&nbsp;号：<input type="text" name="user.phone"><br> -->
-<!-- 			密&nbsp;码：<input type="password" name="user.password"><br> -->
-<%-- <%-- 			验证码：<img alt="验证码" id="imagecode"  src="${rootPath}manage/CodeAction.action" width="120" height="40"> --%> 
-<!-- <!-- 	 			<input type="text" name="randStr"><a href="javascript:reloadCode();">看不清楚</a><br> -->
-<%-- 	 			 <h4>${loginMeg}</h4>   --%>
-<!-- 			<input type="submit" value="提交"> -->
-<!-- 		</form> -->
-<!-- 	</center> -->
 
 </body>
 <script>

@@ -34,3 +34,17 @@ tbody td{
     margin-left: 45%;
     width: 20%;
 } 
+input{ width:30%;
+      border-radius:5px;
+	   -webkit-border-radius:5px;
+	   -moz-border-radius:5px;
+   }
+.text{
+	width:40%;
+}
+ form{ margin-left:75%;margin-top: 2%;}
+
+ .btn{
+       height:29px;
+	   background:#75c7ed;
+/* 	   margin-top:1%;} */}

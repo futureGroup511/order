@@ -16,31 +16,5 @@
 </script>
 </head>
 <body>
-<%-- <table width="100%" border="1">
-<tr>
-	<th>菜名</th>
-	<th>地址</th>
-	<th>简介</th>
-	<th>类型ID</th>
-	<th>类型名称</th>
-	<th>价格</th>
-	<th>被订次数</th>
-	<th>是否可以做</th>
-	<th>创建时间</th>
-</tr>
-<c:forEach items="list" var="list">
-<tr>
-	<td>${menu.name}</td>
-	<td>${menu.imgUrl}</td>
-	<td>${menu.introduce}</td>
-	<td>${menu.typeId}</td>
-	<td>${menu.typeName}</td>
-	<td>${menu.price}</td>
-	<td>${menu.num}</td>
-	<td>${menu.exist}</td>
-	<td>${menu.createDate}</td>
-</tr>
-</c:forEach>
-</table> --%>
 </body>
 </html>
