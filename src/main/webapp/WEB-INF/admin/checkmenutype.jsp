@@ -6,10 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${rootPath}css/checkmenutype.css">
+    <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
 <body>
-${marknews}
-		<table border="1">
+<center>${marknews}</center>
+
+<div class="wall">
+       <table border="1">
 			<tr>
 				<td>编号</td>
 				<td>类型</td>
@@ -22,12 +26,14 @@ ${marknews}
 				<td>${pageCut.id}</td>
 				<td>${pageCut.name}</td>
 				<td>${pageCut.remark}</td> 
-				<td><a href="${rootPath}manage/MenuTypeAction_toUpdateType?id=${pageCut.id}">修改</a></td>
+				<td><a href="${rootPath}manage/MenuTypeAction_toUpdateType?id=${pageCut.id}"><span class="glyphicon glyphicon-pencil">修改</a></td>
 				<td><a href="${rootPath}manage/MenuTypeAction_Delet?id=${pageCut.id}">删除</a></td>
 			</tr>
 		</c:forEach>
 		</table>
-		 <li><a href="${rootPath}manage/MenuTypeAction?page=${pc.prePage}">上一页</a></li>
+   <div class="page">
+        <ul class="pagination">
+          <li><a href="${rootPath}manage/MenuTypeAction?page=${pc.prePage}">上一页</a></li>
   						<c:if test="${1 < pc.currentPage -3}">
 							<li><a href="#">1</a></li>
 						</c:if>
@@ -46,5 +52,9 @@ ${marknews}
  							</c:choose> 
  						</c:forEach> 
   <li><a href="${rootPath}manage/MenuTypeAction?page=${pc.nextPage}">下一页</a></li>
+       </ul>
+   </div>   
+
+    </div>	 
 </body>
 </html>

@@ -42,7 +42,7 @@ window.onload=function(){
 					<c:if test="${pageCut.status eq '0'}">空闲</c:if>
 					<c:if test="${pageCut.status eq '1'}">使用中</c:if>
 				</td>
-				<td><a href="${rootPath}manage/TableManager_SomeCard?id=${pageCut.id}">生成二维码</a></td>
+				<td><a href="${rootPath}manage/TableManager_SomeCard?name=${pageCut.name}&id=${pageCut.id}">生成二维码</a></td>
 				<td><a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>
 				<td><a href="${rootPath}manage/TableManager_deleteTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-trash">删除</a></td>
 			</tr>

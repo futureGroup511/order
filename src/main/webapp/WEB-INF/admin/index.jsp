@@ -60,10 +60,10 @@
                   <a><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp菜品类型管理</a>
                     <ul class="nav nav-second-level" >
                        <li>
-                           <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜品类型</a>
+                           <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp&nbsp&nbsp增加菜类</a>
                       </li>
                         <li>
-                          <a href="${rootPath}manage/MenuTypeAction" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜品类型</a>
+                          <a href="${rootPath}manage/MenuTypeAction" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp&nbsp&nbsp管理菜类</a>
                       </li>
                   </ul> 
               </li>
@@ -113,7 +113,7 @@
              </li> <!-- 第六个父目录结束 -->
           </ul><!-- 总父目录结束 -->
         </div><!-- 左边的菜单栏结束 -->
-        <iframe src="${rootPath}manage/Change_getMyself"   id="ifr" name="mainFrame"></iframe>
+        <iframe src="${rootPath}manage/Change_getMyself"   id="ifr" name="mainFrame" class="background_wall"></iframe>
     </div><!-- 左侧菜单和iframe标签的内容结束 -->
     <div class="footer">
        <a href="">技术支持:河南艾未特网络有限公司</a>  

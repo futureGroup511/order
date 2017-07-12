@@ -57,6 +57,7 @@
 			<result name="toUpdateTables">/WEB-INF/admin/updatetable.jsp</result>
 			<result name="updateTable">/WEB-INF/admin/managertables.jsp</result>
 			<result name="deleteTable">/WEB-INF/admin/managertables.jsp</result>
+			<result name="QR_card">/WEB-INF/admin/seeqr_card.jsp</result>
 		</action>
 		
 		<action name="Ingredient_*" method="{1}" class="com.future.order.action.manager.IngredientManagerAction" >

@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class TableManagerAction extends BaseAction {
 	
 	private Tables table;
 	private int page=1;
+	private String name;
 	private int id;
 	@Override
 	public String execute() throws Exception {
@@ -85,41 +88,36 @@ public class TableManagerAction extends BaseAction {
 		}
 		return "deleteTable";
 	}
-	public void AllCard() throws IOException{
+	public String AllCard() throws IOException{
 		List<Tables> list = tablesService.CheckName();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		 for(int i=0;i<list.size();i++){
-			 int j=list.get(i).getId();
-			  ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+j).to(  
-		               ImageType.PNG).stream();
-		       response.setContentType("image/png");  
-		       response.setContentLength(out.size());  
-		       FileOutputStream fout = new FileOutputStream(new File("D:\\餐桌"+j+".jpg"));
+			 int j=list.get(i).getId();//http://localhost:8080/order/customer/customer_toIndex?id="+j
+			  String name=list.get(i).getName();
+			 ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+j).to(  
+		               ImageType.PNG).stream();  
+		       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();      
-		       OutputStream outStream = response.getOutputStream();  
-		       outStream.write(out.toByteArray());
-		       outStream.flush();  
-		       outStream.close(); 
+				String mark="二维码生成成功,储存地址在D盘";
+				request.put("managerMsg", mark);
 		       System.out.println("结束");
 		 }
+		return "QR_card";
 	}
-	 public void SomeCard() throws IOException{
+	 public String SomeCard() throws IOException{
 		 HttpServletResponse response = ServletActionContext.getResponse();
 		 ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
-	       response.setContentType("image/png");  
-	       response.setContentLength(out.size());
-	       FileOutputStream fout = new FileOutputStream(new File("D:\\餐桌"+id+".jpg"));
+		 	name= new String(name.getBytes("ISO-8859-1"),"utf-8");
+	       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
-			fout.close();      
-	       OutputStream outStream = response.getOutputStream();  
-	       outStream.write(out.toByteArray());
-	       outStream.flush();  
-	       outStream.close(); 
-	       System.out.println("结束");
+			fout.close();
+			String mark="二维码生成成功,储存地址在D盘";
+			request.put("managerMsg", mark);
+			return "QR_card";
 	 }
 	public Tables getTable() {
 		return table;
@@ -135,6 +133,14 @@ public class TableManagerAction extends BaseAction {
 
 	public void setPage(int page) {
 		this.page = page;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getId() {

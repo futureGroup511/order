@@ -39,7 +39,6 @@ window.onload=function(){
 <body>
 <center>
 ${updateMsg}${deleteMenuMsg }
-共有数据${allMenu.count}条
   <div class="photowall" id="div1"> 
 <center>
 	<form name="inquiry" method="post" id="inquiry">

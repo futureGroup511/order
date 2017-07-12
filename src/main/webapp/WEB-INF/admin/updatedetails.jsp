@@ -27,7 +27,7 @@
         <lable id="text">订单时间:</lable><input name="details.creatDate" value="${ordernews.creatDate}" type="text" readonly="readonly">
         <lable id="text">厨师id:</lable><input name="details.cookId" value="${ordernews.cookId}" type="text"><br>
         <lable id="text">厨师姓名:</lable><input name="details.cookName" value="${ordernews.cookName}" type="text">
-        <lable id="text">备注:</lable><input name="details.remark" value="${ordernews.remark}" type="text"> 
+        <lable id="text">单价(元):</lable><input name="details.remark" value="${ordernews.remark}" type="text"> 
     <div class="button">
       <input type="submit" value="修改">        
     </div>
@@ -65,7 +65,7 @@
 <!-- 	</tr> -->
 <!-- 	<tr> -->
 <!-- 		<td>菜品状态:</td> -->
-<%-- <%-- 		<td><input name="details.status" value="${ordernews.status}" type="text" readonly="readonly"><br></td> --%> --%>
+<%-- <%-- 		<td><input name="details.status" value="${ordernews.status}" type="text" readonly="readonly"><br></td> --%>
 <!-- 		<select name="details.status"> -->
 <%-- 			<option value="未完成" <c:if test='${ordernews.status eq "未完成"}'> selected="selected"</c:if>>未完成</option> --%>
 <%-- 			<option value="已处理" <c:if test='${ordernews.status eq "已处理"}'> selected="selected"</c:if>>已处理</option> --%>
