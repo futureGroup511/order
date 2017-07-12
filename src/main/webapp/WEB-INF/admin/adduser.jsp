@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${rootPath}css/adduser.css">
+<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/adduser.css">
 </head>
 <body>
 	<center><h4>${addMsg}</h4></center>
@@ -24,17 +24,5 @@
       </div>
       </form> 
 </div> 
-<%-- 	${addMsg } --%>
-<%-- 	<form action="${rootPath}manage/UserManager_addUser" method="post"> --%>
-<!-- 		账&nbsp;号：<input type="text" name="user.phone" maxlength="11" placeholder="请输入手机号/账号"><br> -->
-<!-- 		密&nbsp;码:<input type="password" name="user.password" maxlength="10"><br> -->
-<!-- 		姓&nbsp;名:<input type="text" name="user.name"><br> -->
-<!-- 		身&nbsp;份： -->
-<!-- 			<select name="user.sort"> -->
-<!-- 			   <option value="cook">厨师</option> -->
-<!-- 			   <option value="manager">管理员</option> -->
-<!-- 			</select><br><br><br> -->
-<!-- 		<input type="submit" value="添加"> -->
-<!-- 	</form> -->
 </body>
 </html>

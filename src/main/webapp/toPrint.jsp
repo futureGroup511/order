@@ -5,11 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function print() {
+		window.open ("print.jsp", "newwindow", "height=400, width=200, top=50, left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"); //写成一行
+	}
+</script>
 </head>
 <body>
-<center><h1>你还没有进行点餐</h1></center>
-<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
-<a href="${rootPath}customer/cart_getCart">购物车</a>
-<a href="${rootPath}customer/cart_getOrderDetails">我的订单</a>
+	<input type="button" onclick="print()" value="打印">
 </body>
 </html>

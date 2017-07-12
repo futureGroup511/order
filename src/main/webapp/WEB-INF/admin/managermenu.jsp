@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="${rootPath}css/managermenu.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managermenu.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 <script language="javascript">
 window.onload=function(){
@@ -20,8 +20,17 @@ window.onload=function(){
 	 document.getElementById('div2').style.display='none';
  }
 }
-	</script>
-<script type="text/javascript">
+	window.onload=function(){
+		 var array = new Array();  
+		 <c:forEach items="${allMenu.data}" var="t">  
+		 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+		 </c:forEach>
+		 var a = array.length;
+	 	if(a==0){
+		 document.getElementById('div1').style.display='none';
+		 document.getElementById('div2').style.display='none';
+	 	}
+	}
 	function inquiryByName() {
 		document.inquiry.action="${rootPath}manage/MenuManager?ask=name";
 		document.getElementById("inquiry").submit();
@@ -38,14 +47,17 @@ window.onload=function(){
 </head>
 <body>
 <center>
+<span class="error">${updateMsg}${deleteMenuMsg }</span>
+
+ <div class="photowall" id="div1"> 
 ${updateMsg}${deleteMenuMsg }
   <div class="photowall" id="div1"> 
 <center>
 	<form name="inquiry" method="post" id="inquiry">
 		<input type="text" name="inquiry">
-		<input type="button" onclick="inquiryByName()" value="按菜名查询">
-		<input type="button" onclick="inquiryByType()" value="按菜品类型查询">
-		<input type="button" onclick="inquiryAll()" value="查看全部">
+		<input class="btn" type="button" onclick="inquiryByName()" value="菜名查询">
+		<input class="btn" type="button" onclick="inquiryByType()" value="菜品类型查询">
+		<input class="btn" type="button" onclick="inquiryAll()" value="查看全部">
 	</form>
 </center>
 <!--   <div class="photowall"> -->
@@ -78,34 +90,5 @@ ${updateMsg}${deleteMenuMsg }
     </ul>
    </div>
    </center>
-<%-- 	<center> --%>
-<%-- 	${updateMsg}${deleteMenuMsg } --%>
-<%-- 	共有数据${allMenu.count}条 --%>
-<!-- 		<table> -->
-<%-- 			<c:forEach items="${allMenu.data}" var="data">  --%>
-<!-- 				<tr> -->
-<%-- 					<td><img src="${rootPath}uploadImg/${data.imgUrl}" height="50px" width="70px"></td> --%>
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<%-- 					<td><a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a></td> --%>
-<!-- 				</tr> -->
-<%-- 			</c:forEach> --%>
-<!-- 		</table> -->
-		
-<%-- 		<a href="${rootPath }manage/MenuManager?page=${allMenu.prePage}">上一页</a> --%>
-		
-<%-- 		<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }" --%>
-<%-- 					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }"> --%>
-<%-- 					<c:choose> --%>
-<%-- 						<c:when test="${i>0 && i == allMenu.currentPage }"> --%>
-<%-- 							<li class="active"><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> --%>
-<%-- 						</c:when> --%>
-<%-- 						<c:when test="${i>0 && i != allMenu.currentPage }"> --%>
-<%-- 							<li><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> --%>
-<%-- 						</c:when> --%>
-<%-- 					</c:choose> --%>
-<%-- 				</c:forEach> --%>
-<%-- 			<a href="${rootPath }manage/MenuManager?page=${allMenu.nextPage}">下一页</a> --%>
-<%-- 	</center> --%>
 </body>
 </html>

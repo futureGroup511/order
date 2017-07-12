@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wall{
+    width: 30%;
+    height: 250px;
+    margin:0 auto;
+    margin-top: 10%;
+
+}
+.input{
+    height: 28px;
+    width: 45%;
+/*     margin-left: 21%; */
+/*     margin-top: 10%; */
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.button{
+    width: 70%;
+    height: 40px;
+    margin-left: 0%;
+    margin-top: 10%;
+    background:#75c7ed;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.move-font{
+    height: 30px;
+    width: 100%;
+    margin-top: 15%;
+    
+}
+p{
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+}
