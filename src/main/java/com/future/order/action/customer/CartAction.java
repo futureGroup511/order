@@ -1,6 +1,4 @@
 package com.future.order.action.customer;
-
-import java.io.ByteArrayInputStream;
 import java.util.*;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Inform;
@@ -93,25 +91,9 @@ public class CartAction extends BaseAction {
 							System.out.println("6666");
 							Boolean bool = orderDetailsService.save(orderDetails);
 						}
-					}else if(en.getStatus().equals("已处理")){
-						int sign = 0;
-						if (item.getMenuName().equals(en.getMenuName())) {
-							sign = 1;
-							en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-							Boolean bool = orderDetailsService.updatee(en);
-						}else if (sign == 0) {
-							orderDetails.setMenuId(item.getMenuId());
-							orderDetails.setTableName(item.getTableName());
-							orderDetails.setMenuName(item.getMenuName());
-							orderDetails.setMenuNum(item.getMenuNum());
-							orderDetails.setTableId(item.getTableId());
-							orderDetails.setStatus("未完成");
-							System.out.println("6666");
-							Boolean bool = orderDetailsService.save(orderDetails);
-						}
-					}
 				}
 		}
+			}
 		}
 		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(id);
 		request.put("orderDetails", orderDetailss);
@@ -135,7 +117,7 @@ public class CartAction extends BaseAction {
 			Boolean bool = orderService.save(order);
 		}
 		List<Order> orders=orderService.getOrder(tableId);
-		request.put("orders",orders);
+		System.out.println(orders+"I Love You");
 		return "getOrder";
 	}
 /*
@@ -195,7 +177,7 @@ public class CartAction extends BaseAction {
 	public String reduce() throws Exception {
 		ShopCart shopCart = shopCartService.getOne(id);
 		if (shopCart.getMenuNum() >= 1) {
-			shopCart.setMenuNum(shopCart.getMenuNum() - 1);
+			shopCart.setMenuNum(shopCart.getMenuNum() - 1 );
 		}
 		Boolean bool = shopCartService.update(shopCart);
 		List<ShopCart> shopCarts = shopCartService.getByAll();
