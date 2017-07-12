@@ -18,11 +18,12 @@ body {
    max-width: 100%
 }
 .span1{
-  font-size: 4vw;
+  font-size: 5vw;
   font-family: 楷体;
   position: absolute;
   top: 47px;
-  left: 30%;
+  left: 33%;
+  
   color: white;
 }
 .span2{
@@ -30,7 +31,7 @@ body {
   font-family: 楷体;
   position: absolute;
   top: 80px;
-  left: 70%;
+  left: 80%;
   color:white;
 }
 
@@ -128,3 +129,9 @@ body {
   top: 25px;
   text-decoration: none; 
  }
+ .background_wall{
+	  background:-webkit-linear-gradient(#88c4ea 5%,#fffafa);
+	   background:-moz-linear-gradient(#88c4ea 5%,#fffafa);
+	    background:-ms-linear-gradient(#88c4ea 5%,#fffafa);
+		 background:linear-gradient(#88c4ea 5%,#fffafa);
+	 }

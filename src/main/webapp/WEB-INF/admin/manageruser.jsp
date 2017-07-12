@@ -6,9 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="${rootPath}css/mangeruser.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/mangeruser.css">
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
-         <script language="javascript">
+    <script type="text/javascript">
+	function inquiryByName() {
+		document.inquiry.action="${rootPath}manage/UserManager?ask=phone";
+		document.getElementById("inquiry").submit();
+	}
+</script>
+<script language="javascript">
 window.onload=function(){
 	 var array = new Array();  
 	 <c:forEach items="${allUser.data}" var="t">  
@@ -23,9 +29,18 @@ window.onload=function(){
 	</script>
 </head>
 <body>
-<center>
+
 ${deleteUserMsg}
-	共有数据${allUser.count}条
+	<form name="inquiry" method="post" id="inquiry">
+		<input type="text" name="inquiry">
+		<button class="btnForm" onclick="inquiryByName()">账号查询</button>	
+	</form>
+<div class="select">
+	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=manager';">所有管理员</button>
+	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=cook';">所有厨师</button>
+	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=all';">所有员工</button>
+</div>
+<div class="mangeruser" >
 <div class="mangeruser" id="div1">
      <table cellspacing="0">
          <thead>
@@ -34,8 +49,7 @@ ${deleteUserMsg}
             <td>姓名</td>
             <td>注册时间</td>
             <td>身份</td>
-            <td>修改</td>
-            <td>删除</td>
+            <td>操作</td>
           </tr>
          </thead>
         <tbody>
@@ -45,8 +59,10 @@ ${deleteUserMsg}
 				<td>${pageCut.name }</td>
 				<td>${pageCut.createDate }</td> 
 				<td>${pageCut.sort }</td>
-				<td><a href="${rootPath}manage/UserManager_toUpdateUser?userId=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-				<td><a href="${rootPath}manage/UserManager_deleteUser?user.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></a></td>
+				<td>
+					<a href="${rootPath}manage/UserManager_toUpdateUser?userId=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
+					<a href="${rootPath}manage/UserManager_deleteUser?user.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>
+				</td>
 			</tr>
 		</c:forEach>
      </table>       
@@ -68,44 +84,6 @@ ${deleteUserMsg}
         <li><a href="${rootPath }manage/UserManager?page=${allUser.nextPage}">下一页</a></li>
       </ul>
  </div>
-<%--  </center> --%>
-<%-- 	<center> --%>
-<%-- 	${deleteUserMsg} --%>
-<%-- 	共有数据${allUser.count}条 --%>
-<!-- 		<table border="1"> -->
-<!-- 			<tr> -->
-<!-- 				<td>账号</td> -->
-<!-- 				<td>姓名</td> -->
-<!-- 				<td>注册时间</td>  -->
-<!-- 				<td>身份</td> -->
-<!-- 				<td>操作</td> -->
-<!-- 				<td>操作</td> -->
-<!-- 			</tr> -->
-<%-- 		<c:forEach items="${allUser.data}" var="pageCut"> --%>
-<!-- 			<tr> -->
-<%-- 				<td><input type="text" name="user.phone" value="${pageCut.phone}" readonly="readonly"></td> --%>
-<%-- 				<td><input type="text" name="user.name" value="${pageCut.name }" readonly="readonly"></td> --%>
-<%-- 				<td><input type="text" name="user.createDate" value="${pageCut.createDate }" readonly="readonly"></td>  --%>
-<%-- 				<td><input type="text" name="user.sort" value="${pageCut.sort }" readonly="readonly"></td> --%>
-<%-- 				<td><a href="${rootPath}manage/UserManager_toUpdateUser?userId=${pageCut.id}">修改</a></td> --%>
-<%-- 				<td><a href="${rootPath}manage/UserManager_deleteUser?user.id=${pageCut.id}">删除</a></td> --%>
-<!-- 			</tr> -->
-<%-- 		</c:forEach> --%>
-<!-- 		</table> -->
-<%-- 		<a href="${rootPath }manage/UserManager?page=${allUser.prePage}">上一页</a> --%>
-		
-<%-- 		<c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }" --%>
-<%-- 					end="${allUser.currentPage+3>allUser.pageNum?allUser.pageNum:allUser.currentPage+3  }"> --%>
-<%-- 					<c:choose> --%>
-<%-- 						<c:when test="${i>0 && i == allUser.currentPage }"> --%>
-<%-- 							<li class="active"><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li> --%>
-<%-- 						</c:when> --%>
-<%-- 						<c:when test="${i>0 && i != allUser.currentPage }"> --%>
-<%-- 							<li><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li> --%>
-<%-- 						</c:when> --%>
-<%-- 					</c:choose> --%>
-<%-- 				</c:forEach> --%>
-<%-- 			<a href="${rootPath }manage/UserManager?page=${allUser.nextPage}">下一页</a> --%>
-<%-- 	</center> --%>
+ </div>
 </body>
 </html>

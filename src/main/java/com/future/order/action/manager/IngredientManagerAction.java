@@ -5,69 +5,89 @@ import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
-import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
 public class IngredientManagerAction extends BaseAction {
+	private static final long serialVersionUID = 1L;
+	private Ingredient ingredient;
+	private int page = 1;
+	private String inquiry;
 
-	private  Ingredient ingredient;
-	private int page=1;
-	
-	public String execute(){
-		PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,3);
+	public String execute() {
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
 		request.put("allIngredient", pCut);
-		if(pCut.getData().size()==0){
-			String mark="没有配料了，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+		if (pCut.getData().size() == 0) {
+			String mark = "没有配料了，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteIngredientMsg", mark);
 		}
 		return SUCCESS;
 	}
-	
-	
-	//增加配料
-	public String addIngredient(){
+
+	// 增加配料
+	public String addIngredient() {
 		ingredient.setCreateDate(new Date());
 		boolean boo = ingerdientService.addIngredient(ingredient);
-		if(boo){
+		if (boo) {
 			request.put("addIngerdientMsg", "添加成功");
 		} else {
 			request.put("addIngerdientMsg", "添加失败");
 		}
 		return "addIngredient";
 	}
-	//查询被修改配料信息，到达修改界面
-	public String toUpdateIngredient(){
+
+	// 查找配料,按名字
+	public String inquiry() {
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
+		List<Ingredient> list = pCut.getData();
+		for (int i = 0; i < list.size(); i++) {
+			if (!list.get(i).getName().equals(inquiry)) {
+				list.remove(i);
+				i--;
+			}
+		}
+		pCut.setData(list);
+		request.put("allIngredient", pCut);
+		if (pCut.getData().size() == 0) {
+			String mark = "没有该配料，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("deleteIngredientMsg", mark);
+		}
+		return "inquiry";
+	}
+
+	// 查询被修改配料信息，到达修改界面
+	public String toUpdateIngredient() {
 		int id = ingredient.getId();
 		Ingredient ingredient = ingerdientService.getById(id);
 		request.put("updateIngredient", ingredient);
 		return "toUpdateIngredient";
 	}
-	//修改配料信息
-	public String updateIngredient(){
+
+	// 修改配料信息
+	public String updateIngredient() {
 		boolean boo = ingerdientService.updateIngredient(ingredient);
-		if(boo){
+		if (boo) {
 			request.put("updateIngredientMsg", "修改成功");
 		} else {
 			request.put("updateIngredientMsg", "修改失败");
 		}
-		PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,3);
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 3);
 		request.put("allIngredient", pCut);
 		return "updateIngredient";
 	}
-	//删除配料
-	public String deleteIngredient(){
+
+	// 删除配料
+	public String deleteIngredient() {
 		boolean boo = ingerdientService.deleteIngredient(ingredient);
-		if(boo){
+		if (boo) {
 			request.put("deleteIngredientMsg", "删除成功");
 		} else {
 			request.put("deleteIngredientMsg", "删除失败");
 		}
-		PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,3);
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 3);
 		request.put("allIngredient", pCut);
 		return "deleteIngredient";
 	}
-	
-	
+
 	public Ingredient getIngredient() {
 		return ingredient;
 	}
@@ -79,8 +99,17 @@ public class IngredientManagerAction extends BaseAction {
 	public int getPage() {
 		return page;
 	}
+
 	public void setPage(int page) {
 		this.page = page;
 	}
-	
+
+	public String getInquiry() {
+		return inquiry;
+	}
+
+	public void setInquiry(String inquiry) {
+		this.inquiry = inquiry;
+	}
+
 }

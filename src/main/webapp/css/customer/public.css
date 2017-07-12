@@ -1,0 +1,52 @@
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.ul{
+	font-size:0px;
+	list-style-type:none;
+}
+a{
+	text-decoration: none;
+}
+div, p ,a , li , ul , label{
+    padding: 0px;
+    margin: 0px;
+}
+footer {                          //公共底部
+	padding: 0 10px;
+	border-top: 1px solid #dadada;
+	width:100%;
+	height:40px;
+	position: fixed;
+	bottom: 0px;
+	background-color:#fafafa;
+}
+footer a {
+	color:#000;
+}
+footer .left{
+     width:33.3%;
+     height:40px;
+     text-align:center;
+}
+footer .left div{
+	width:25px;
+	height: 25px;
+	margin:0 auto;
+}
+.dingdan{
+	margin-top: 2px;
+}
+.dingdan p{
+	margin-top:-5px;
+}
+footer .left p{
+	font-size:12px;
+}
+.liubai{
+	width:100%;
+	height: 50px;
+}

@@ -17,7 +17,7 @@ public class OrderDetailsAction extends BaseAction{
 	private int detailid;
 	private int page=1;
 	private OrderDetails details;
-	private static final long serialVersionUID = -5868840570341763054L;
+ 	private static final long serialVersionUID = -5868840570341763054L;
 	public String CheckOrderDetails(){
 		session.put("orderid", id);
 		return  this.execute();
@@ -62,7 +62,20 @@ public class OrderDetailsAction extends BaseAction{
 		request.put("markinfo", mark);
 		return this.execute();
 	}
-	
+	public String Print(){
+	 List<OrderDetails> list=orderDetailsService.SeeByid(id);
+	 double total=0;
+	 for(int i=0;i<list.size();i++){
+		 @SuppressWarnings("unused")
+		int count=list.get(i).getMenuNum();
+		 @SuppressWarnings("unused")
+		double value = Double.parseDouble(list.get(i).getRemark());
+		 total=count*value;
+	 }
+	 request.put("total", total);
+	 request.put("orderlist", list);
+		return "print";
+	}
 	
 	public int getId() {
 		return id;
@@ -88,5 +101,4 @@ public class OrderDetailsAction extends BaseAction{
 	public void setPage(int page) {
 		this.page = page;
 	}
-	
 }

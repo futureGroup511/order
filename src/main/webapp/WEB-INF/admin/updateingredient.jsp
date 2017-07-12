@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
-	href="${rootPath}css/updateingredient.css">
+	href="${rootPath}css/manager/updateingredient.css">
 </head>
 <body>
 		<div class="updateingredient">
@@ -43,15 +43,5 @@
 				</div>
 			</form>
 		</div>
-	<!-- 	<center> -->
-	<%-- 	<form action="${rootPath}manage/Ingredient_updateIngredient?ingredient.id=${updateIngredient.id}" method="post"> --%>
-	<%-- 		名称：<input type="text" name="ingredient.name" value="${updateIngredient.name}"><br> --%>
-	<%-- 		单价(元/kg)：<input type="text" name="ingredient.price" value="${updateIngredient.price}"><br> --%>
-	<%-- 		库存(kg)：<input type="text" name="ingredient.num" value="${updateIngredient.num}"><br> --%>
-	<%-- 		简介：<input type="text" name="ingredient.introduce" value="${updateIngredient.introduce}"><br> --%>
-	<%-- 		注册时间：<input type="text" name="ingredient.createDate" value="${updateIngredient.createDate}" readonly="readonly"><br> --%>
-	<!-- 		<input type="submit" value="修改"> -->
-	<!-- 	</form> -->
-	<!-- 	</center> -->
 </body>
 </html>

@@ -57,6 +57,7 @@
 			<result name="toUpdateTables">/WEB-INF/admin/updatetable.jsp</result>
 			<result name="updateTable">/WEB-INF/admin/managertables.jsp</result>
 			<result name="deleteTable">/WEB-INF/admin/managertables.jsp</result>
+			<result name="QR_card">/WEB-INF/admin/seeqr_card.jsp</result>
 		</action>
 		
 		<action name="Ingredient_*" method="{1}" class="com.future.order.action.manager.IngredientManagerAction" >
@@ -65,6 +66,7 @@
 			<result name="toUpdateIngredient">/WEB-INF/admin/updateingredient.jsp</result>
 			<result name="updateIngredient">/WEB-INF/admin/manageringredient.jsp</result>
 			<result name="deleteIngredient">/WEB-INF/admin/manageringredient.jsp</result>
+			<result name="inquiry">/WEB-INF/admin/manageringredient.jsp</result>
 		</action>
 		
 		<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">
@@ -75,6 +77,7 @@
 		<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
 			<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatedetails.jsp</result>
+			<result name="print">/WEB-INF/admin/print.jsp</result>
 		</action>
 		
 		<action name="StockAction_*" method="{1}" class="com.future.order.action.manager.StockAction">

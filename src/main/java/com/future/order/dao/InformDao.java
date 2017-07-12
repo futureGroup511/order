@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Inform;
-import com.future.order.entity.Ingredient;
-import com.future.order.entity.Order;
 import com.future.order.service.IInformService;
 import com.future.order.util.PageCut;
 
