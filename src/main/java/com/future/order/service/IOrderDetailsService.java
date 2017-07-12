@@ -1,3 +1,4 @@
+
 /**        
  * @author: 焦祥宇 马黎明
  * @date:   createDate：2017年5月22日 上午10:42:51   
@@ -6,6 +7,10 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
+import com.future.order.entity.OrderDetails;
+import com.future.order.util.PageCut;
 import java.util.List;
 
 import com.future.order.entity.OrderDetails;
@@ -28,10 +33,11 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> unfinish();
 	public boolean updet(int id);
 	public List<OrderDetails> getAll(int id);
-	public boolean updateOrerDetails(int id);
-
 	public OrderDetails getByTableId(int tableId);
-	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
+	public Boolean update(OrderDetails en);
+	public boolean updateOrerDetails(int id);	public List<OrderDetails> getDetailsOne(int tableId);
 	public List Check(int detailid);
-	
+	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
+
 }
+

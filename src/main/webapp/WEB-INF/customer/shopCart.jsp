@@ -37,37 +37,9 @@
 </table>
 <h3>${addMeg}</h3>
 <a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
-<a href="${rootPath}customer/cart_getCart">购物车</a>
+<a href="${rootPath}customer/getCart">购物车</a>
 <a href="${rootPath}customer/cart_getHand">提交</a>
 <a href="${rootPath}customer/cart_getOrderDetails">我的订单</a>
 <s:property value="#request.total"/>
-	<%-- <center>
-		<table border="1" width="300px" height="200px">
-			<tr>
-				<th>菜品名称</th>
-				<th>单价</th>
-				<th>数量</th>
-				<th>管理</th>
-			</tr>
-			<c:forEach items="${ShopCart}" var="ShopCart">
-				<tr>
-					<td>${ShopCart.menuName}</td>
-					<td>${ShopCart.price}</td>
-					<td>
-						<a href="${rootPath}customer/shopcart_updateNum?msg=reduce&shopCart.id=${ShopCart.id}">-</a>
-						<input type="text" name="ShopCart.menuNum" value="${ShopCart.menuNum}" size="1">
-						<a href="${rootPath}customer/shopcart_updateNum?msg=add&shopCart.id=${ShopCart.id}">+</a>
-					</td>
-					<td><a href="${rootPath}customer/shopcart_deleteShopCart?shopCart.id=${ShopCart.id} ">删除</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</table>
-		目前添加的总价为${sum}
-		<a href="${rootPath}customer/shopcart_submitToOrder">确定点菜</a>
-	</center>
-	<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
-	<a href="${rootPath}customer/cart">购物车</a>
-	<a href="${rootPath}customer/cart_getOrderDetails">我的订单</a> --%>
 </body>
 </html>

@@ -181,7 +181,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	@Override
 	public List<OrderDetails> getDetails(int tableId) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		String hql="from OrderDetails s where s.tableId="+tableId+" and (s.status='未付款' or s.status='处理中')";
+		String hql="from OrderDetails s where s.tableId="+tableId+" and (s.status='未完成' or s.status='已处理')";
 		list=this.getEntityList(hql);
 		return list;
 	}
@@ -196,5 +196,16 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 			return null;
 		}	
 	}
-	
+	@Override
+	public Boolean update(OrderDetails en) {
+		
+		return this.updateEntity(en);
+	}
+	@Override
+	public List<OrderDetails> getDetailsOne(int tableId) {
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		String hql="from OrderDetails s where s.tableId="+tableId+" and (s.status='未完成')";
+		list=this.getEntityList(hql);
+		return list;
+	}
 }
