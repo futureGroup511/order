@@ -21,7 +21,6 @@
 			<result name="getCart">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="updateCart">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="deleteCart">/WEB-INF/customer/shopCart.jsp</result>
-			<result name="getOrder">/WEB-INF/customer/order.jsp</result>
 			<result name="add">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="reduce">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="getOrderDetails">/WEB-INF/customer/orderDetails.jsp</result>

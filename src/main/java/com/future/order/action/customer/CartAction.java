@@ -40,6 +40,18 @@ public class CartAction extends BaseAction {
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
+		double total = 0.0;
+		Order orde=new Order();
+		for (ShopCart item : shopCarts) {
+			total += item.getMenuNum() * item.getPrice();
+		}
+		for (ShopCart item : shopCarts) {
+			orde.setTotal(total);
+			orde.setTableName(item.getTableName());
+			orde.setTableId(item.getTableId());
+			orde.setStatus("未完成");
+		}
+		Boolean bool = orderService.save(orde);
 		List<Order> orders=orderService.getOrder(tableId);
 		Order order=orderService.CheckById(id);
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsOne(id);
@@ -52,52 +64,57 @@ public class CartAction extends BaseAction {
 					orderDetails.setMenuName(item.getMenuName());
 					orderDetails.setMenuNum(item.getMenuNum());
 					orderDetails.setTableId(item.getTableId());
-					orderDetails.setStatus("未完成");
-					Boolean bool = orderDetailsService.save(orderDetails);
+					orderDetails.setOrderId(it.getId());
+					orderDetails.setStatus(it.getStatus());
+					Boolean booll = orderDetailsService.save(orderDetails);
 				}
 			}
 		} else {
 			for (OrderDetails en : orderDetail) {
 				for (ShopCart item : shopCarts) {
-					if(en.getStatus().equals("完成")){
+					for(Order it:orders){
+						if(en.getStatus().equals("完成")){
 								int sign = 0;
 								if (item.getMenuName().equals(en.getMenuName())) {
 									sign = 1;
 									en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-									Boolean bool = orderDetailsService.updatee(en);
+									Boolean boolq = orderDetailsService.updatee(en);
 								}else if (sign == 0) {
 									orderDetails.setMenuId(item.getMenuId());
 									orderDetails.setTableName(item.getTableName());
 									orderDetails.setMenuName(item.getMenuName());
 									orderDetails.setMenuNum(item.getMenuNum());
 									orderDetails.setTableId(item.getTableId());
-									orderDetails.setStatus("未完成");
+									orderDetails.setOrderId(it.getId());
+									orderDetails.setStatus(it.getStatus());
 									System.out.println("6666");
-									Boolean bool = orderDetailsService.save(orderDetails);
+									Boolean boola = orderDetailsService.save(orderDetails);
 								}
-					}else if(en.getStatus().equals("未完成")){
-						int sign = 0;
-						if (item.getMenuName().equals(en.getMenuName())) {
-							sign = 1;
-							en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-							Boolean bool = orderDetailsService.updatee(en);
-						}else if (sign == 0) {
-							orderDetails.setMenuId(item.getMenuId());
-							orderDetails.setTableName(item.getTableName());
-							orderDetails.setMenuName(item.getMenuName());
-							orderDetails.setMenuNum(item.getMenuNum());
-							orderDetails.setTableId(item.getTableId());
-							orderDetails.setStatus("未完成");
-							System.out.println("6666");
-							Boolean bool = orderDetailsService.save(orderDetails);
+					   }else if(en.getStatus().equals("未完成")){
+						   int sign = 0;
+						   if (item.getMenuName().equals(en.getMenuName())) {
+								sign = 1;
+								en.setMenuNum(en.getMenuNum() + item.getMenuNum());
+								Boolean boold = orderDetailsService.updatee(en);
+						   }else if (sign == 0) {
+								orderDetails.setMenuId(item.getMenuId());
+								orderDetails.setTableName(item.getTableName());
+								orderDetails.setMenuName(item.getMenuName());
+								orderDetails.setMenuNum(item.getMenuNum());
+								orderDetails.setTableId(item.getTableId());
+								orderDetails.setOrderId(it.getId());
+								orderDetails.setStatus(it.getStatus());
+								System.out.println("6666");
+								Boolean boolt = orderDetailsService.save(orderDetails);
 						}
 				}
 		}
+				}
 			}
 		}
 		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(id);
 		request.put("orderDetails", orderDetailss);
-		boolean bool = shopCartService.deleteAllCart(tableId);
+		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}
 	//生成订单
@@ -105,17 +122,17 @@ public class CartAction extends BaseAction {
 		int tableId = (int) session.get("userId");
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		double total = 0.0;
+		Order order=new Order();
 		for (ShopCart item : shopCarts) {
 			total += item.getMenuNum() * item.getPrice();
 		}
 		for (ShopCart item : shopCarts) {
-			Order order=new Order();
 			order.setTotal(total);
 			order.setTableName(item.getTableName());
 			order.setTableId(item.getTableId());
 			order.setStatus("未完成");
-			Boolean bool = orderService.save(order);
 		}
+		Boolean bool = orderService.save(order);
 		List<Order> orders=orderService.getOrder(tableId);
 		System.out.println(orders+"I Love You");
 		return "getOrder";

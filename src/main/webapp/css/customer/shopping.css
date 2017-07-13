@@ -105,3 +105,30 @@ a{
 .col{
 	color:#777;
 }
+.zongjia{
+	font-size:16px;
+	margin-top:4px;
+	 color:#777;
+}
+.jiaqian{
+	font-size:22px;
+}
+@media screen and (max-width: 350px) {
+      .zu .delete{
+      	margin-left: 10px;
+      }
+}
+@media screen and (max-width: 320px) {
+      .zu .delete{
+      	margin-left: 0px;
+      	width:60px;
+      }
+}
+@media screen and (max-width: 360px){
+	.zongjia{
+	  font-size:12px;
+	}
+	.jiaqian{
+	  font-size:16px;
+	}
+}

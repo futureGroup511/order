@@ -28,7 +28,7 @@
     </div>
     <div class="right infors">
        <p><b>${o.menuName}</b></p>
-       <p class="left jia">价格：</p><p class="red">￥25.5</p>
+       <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}</p>
        <p class="left">状态：</p><p class="green">${o.status}</p>
     </div>

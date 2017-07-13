@@ -22,6 +22,7 @@
    <div class="liubai">
    </div>
  <!-- 装用户添加的每一道菜    -->
+ <c:if test="${!empty shopCarts }">
      <c:forEach items="${shopCarts}" var="s">
        <div class="food">
           <div class="left photo">
@@ -47,13 +48,17 @@
           </div>
       </div>
     </c:forEach>  
+   </c:if>
+   <c:if test="${empty shopCarts }">
+	<h1>你还没有点餐</h1>
+	</c:if>
    <div class="end">
       <div class="left">
-        <p class="left" style="font-size:16px;margin-top:4px; color:#777;"><b>总价：</b></p>
-        <p class="left" style="font-size:22px"><b>0.00</b></p>
+        <p class="left" class="zongjia"><b>总价：</b></p>
+        <p class="left" calss="jiaqian"><b><s:property value="#request.total"/></b></p>
       </div>
       <div class="right">
-      <a href="${rootPath}customer/cart_getOrder">
+      <a href="${rootPath}customer/cart_getHand">
          <input type="button" name="" value="提交订单" class="right">
       </a>
       </div>
@@ -79,7 +84,7 @@
         <p>购物车</p>
       </div>
       </a>
-      <a href="${rootPath}customer/cart_getOrder">
+      <a href="${rootPath}customer/cart_getOrderDetails">
       <div class="left dingdan">
         <div><img src="../images/dd.png" style="width:70%; height:70%;"></div>
         <p>订单</p>
