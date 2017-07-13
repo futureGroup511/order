@@ -64,7 +64,7 @@ public class UserManagerAction extends BaseAction {
 		if(userId==2){		//当执行修改个人信息时在个人资料界面时
 			result = "toUpdateMyself";
 		} else {
-			PageCut<User> pCut=userService.getPageCut(page,3);
+			PageCut<User> pCut=userService.getPageCut(page,6);
 			request.put("allUser", pCut);
 		}
 		return result;
@@ -82,7 +82,7 @@ public class UserManagerAction extends BaseAction {
 				request.put("deleteUserMsg", "删除失败");
 			}
 		}
-		PageCut<User> pCut=userService.getPageCut(page,3);
+		PageCut<User> pCut=userService.getPageCut(page,6);
 		request.put("allUser", pCut);
 		return "deleteUser";
 	}

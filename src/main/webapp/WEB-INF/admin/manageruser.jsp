@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.selectDiv{
+	
+}
+</style>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/mangeruser.css">
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript">
@@ -29,24 +34,21 @@ window.onload=function(){
 	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);"  >
+	
+	<div style="margin-left:60%;background-color: red;">
+	${deleteUserMsg}
+		<form action="${rootPath}manage/UserManager_Inquiry" method="post">
+		<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
+			<option value="phone">账号</option>
+			<option value="name">名称</option>
+			<option value="sort">身份</option>
+		</select>
+			<input style="border-radius:7px;background-color: #F0F0F0;height:25px; width:30%;" type="text" name="inquiry">
+			<button style="border-radius:7px;background-color: #F0F0F0;font-size:15px; margin-left:60%;margin-top:0%; height:26px; width:25%;" class="btnForm">查询</button>	
+		</form>
+	</div>
 
-${deleteUserMsg}
-	<form action="${rootPath}manage/UserManager_Inquiry" method="post">
-	<select name="ask">
-		<option value="phone">账号</option>
-		<option value="name">名称</option>
-		<option value="sort">身份</option>
-	</select>
-		<input type="text" name="inquiry">
-		<button class="btnForm">账号查询</button>	
-	</form>
-<!-- <div class="select"> -->
-<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=manager';">所有管理员</button> --%>
-<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=cook';">所有厨师</button> --%>
-<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=all';">所有员工</button> --%>
-<!-- </div> -->
-<div class="mangeruser" >
-<div class="mangeruser" id="div1">
+<div class="mangeruser" id="div1" style="margin-top:2%;">
      <table cellspacing="0">
          <thead>
          <tr>

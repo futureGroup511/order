@@ -26,16 +26,16 @@ window.onload=function(){
 <center>
 ${updateIngredientMsg}${deleteIngredientMsg}
 </center>
-<div >
-	<form action="${rootPath}manage/Ingredient_Inquiry" method="post">
-	<select name="ask">
+<div style="float:right;margin-right:10%;background-color: red;width:30%;">
+	<form action="${rootPath}manage/Ingredient_Inquiry" method="post"style="margin-left:10%;">
+	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:25px; ">
 		<option value="name">名称</option>
 		<option value="price">单价</option>
 		<option value="num">库存</option>
 		<option value="type">类型</option>
 	</select>
-		<input class="text" type="text" name="inquiry">
-		<input class="btn" type="submit" value="查询">
+		<input style="border-radius:7px;background-color: #F0F0F0;height:25px; width:100px;" class="text" type="text" name="inquiry">
+		<input style="border-radius:7px;background-color: #F0F0F0;font-size:15px; margin-left:50%;margin-top:-8%; height:30px; width:25%;" type="submit" value="查询">
 	</form>
 </div>
 <center>
