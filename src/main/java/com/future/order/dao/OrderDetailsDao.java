@@ -28,7 +28,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(list);
 		return list;
 	}
 	//wqj 未完成
@@ -161,7 +160,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		return sign;
 	}
 	
-
 	@Override
 	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid) {
 		String hql ;

@@ -1,14 +1,17 @@
 package com.future.order.action.cook;
 
 import java.util.List;
+import java.util.Map;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Inform;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
+import com.future.order.entity.MenuMaterial;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.util.PageCut;
+import com.opensymphony.xwork2.ActionContext;
 /**
  * @author by王青杰
  * @version 创建时间：2017年5月29日 下午3:38:38 类说明
@@ -44,12 +47,27 @@ public class orderCenterAction extends BaseAction {
 	}
 	public String doOrder(){
 		boolean m=orderDetailsService.updet(OrderId);
-		List menu=orderDetailsService.getAll(OrderId);
-		request.put("menu", menu);
-		return "update";
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		session.put("menuId",OrderId);
+		int s=(int) session.get("menuId");
+		List  menu=menuMaterialService.getMenuMaterial(s);
+		for( int i=0;i<menu.size();i++) {
+			MenuMaterial pl=(MenuMaterial) menu.get(i);
+			int id=pl.getIngId();
+			int num=(int) pl.getNum();
+			boolean k=ingerdientService.updeteNum(id, num);
+		}
+		int b=(int) session.get("sorderid");
+		List a= orderDetailsService.Check(b);
+		request.put("orderdetail", a);
+		return "orderdetail";
 	}
 	public String check() {
 		List a= orderDetailsService.Check(OrderId);
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		session.put("sorderid",OrderId);
 		request.put("orderdetail", a);
 		return "orderdetail";
 	}
@@ -70,6 +88,22 @@ public class orderCenterAction extends BaseAction {
 		request.put("paCut",pCut);
 		return "inform";
 	}
+	public String DoIngredient(int c) {
+		System.out.println(c+"adsvgjkuih");
+		if(menuMaterialService==null) {
+			System.out.println();
+		}
+		List  menu=menuMaterialService.getMenuMaterial(c);
+		for( int i=0;i<menu.size();i++) {
+			MenuMaterial pl=(MenuMaterial) menu.get(i);
+			System.out.println(pl);
+			int id=pl.getIngId();
+			int num=(int) pl.getNum();
+			boolean m=ingerdientService.updeteNum(id, num);
+			System.out.println(pl);
+		}
+		return "menu";
+	}		
 	
 	public int getOrderId() {
 		return OrderId;

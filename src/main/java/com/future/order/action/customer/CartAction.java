@@ -58,6 +58,7 @@ public class CartAction extends BaseAction {
 		OrderDetails orderDetails = new OrderDetails();
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
+
 				for(Order it:orders){
 					orderDetails.setMenuId(item.getMenuId());
 					orderDetails.setTableName(item.getTableName());
@@ -68,7 +69,16 @@ public class CartAction extends BaseAction {
 					orderDetails.setStatus(it.getStatus());
 					Boolean booll = orderDetailsService.save(orderDetails);
 				}
+
+				orderDetails.setMenuId(item.getMenuId());
+				orderDetails.setTableName(item.getTableName());
+				orderDetails.setMenuName(item.getMenuName());
+				orderDetails.setMenuNum(item.getMenuNum());
+				orderDetails.setTableId(item.getTableId());
+				orderDetails.setStatus("未完成");
+				Boolean boolq = orderDetailsService.save(orderDetails);
 			}
+		
 		} else {
 			for (OrderDetails en : orderDetail) {
 				for (ShopCart item : shopCarts) {
