@@ -12,10 +12,12 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuType;
 import com.future.order.util.PageCut;
 
+@SuppressWarnings("serial")
 public class MenuManagerAction extends BaseAction {
 
 	private Menu menu;
@@ -30,29 +32,18 @@ public class MenuManagerAction extends BaseAction {
 	private List<String> fileContentType;
 
 	public String execute() {
-		
-		if(ask==null){
-			ask = (String)session.get("ask");
-		}
-		if(inquiry==null){
-			inquiry = (String) session.get("inquiry");
-		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6,ask,inquiry);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		if(pCut.getData().size()==0){
 			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
-			if(inquiry!=null){
-				mark="查询的菜不存在";
-			}
 			request.put("deleteMenuMsg", mark);
 		}
 		request.put("allMenu", pCut);
-		session.put("ask", ask);
-		session.put("inquiry", inquiry);
 		return SUCCESS;
 	}
 	
 	public String addMenu() throws Exception{
 		String typeName=menu.getTypeName();
+		@SuppressWarnings("unchecked")
 		List<MenuType> list=(List<MenuType>) session.get("Typelist");
 		for(int i=0;i<list.size();i++){
 			if(list.get(i).getName().equals(typeName)){
@@ -64,12 +55,18 @@ public class MenuManagerAction extends BaseAction {
 			uploadFile(i);
 		}
 		boolean boo = menuService.addMenu(menu);
+		String result = "addMenu";
 		if(boo){
-			request.put("addMsg", "添加成功");
+			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
+			session.put("menu", menu);
+			PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,6);
+			List<Ingredient> lists = pCut.getData();	//暂时不要分页
+			request.put("allIngredient", lists);
 		} else {
 			request.put("addMsg", "添加失败！该菜已被添加过");
+			result = "addAgain";
 		}
-		return "addMenu";
+		return result;
 	}
 	
 	//查看菜品详情
@@ -95,7 +92,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("updateMsg", "修改失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6,ask,inquiry);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		request.put("allMenu", pCut);
 		return "updateMenu";
 	}
@@ -113,7 +110,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("deleteMenuMsg", "删除失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6,ask,inquiry);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		request.put("allMenu", pCut);
 		return "deleteUser";
 	}
@@ -148,7 +145,15 @@ public class MenuManagerAction extends BaseAction {
 			ex.printStackTrace();
 		}
 	}
-
+	public String Inquiry(){
+		PageCut<Menu> pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+		if(pCut.getData().size()==0){
+			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("deleteMenuMsg", mark);
+		}
+		request.put("allMenu", pCut);
+		return SUCCESS;
+	}
 	public Menu getMenu() {
 		return menu;
 	}

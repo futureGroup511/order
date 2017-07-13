@@ -9,7 +9,6 @@ package com.future.order.service;
 import java.util.List;
 
 import com.future.order.entity.Ingredient;
-import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
 
@@ -32,6 +31,10 @@ public interface IIngerdientService {
 	public PageCut<Ingredient> getPageCut(int curr,int pageSize);
 	
 	public List<Ingredient> getByMenuId(int menuId);
+	
+	public List<Ingredient> getnews();
+	
 	public boolean updeteNum(int id, int num);
+	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
 
 }

@@ -23,8 +23,6 @@ public class CodeAction extends BaseAction implements RequestAware, ServletRespo
 	 */
 	private static final long serialVersionUID = 1L;
 	private HttpServletResponse response;
-//	private Map<String, Object> request;
-//	private Map<String, Object> session;
 
 	/**
 	 * @author 张金高

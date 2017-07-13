@@ -244,8 +244,14 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 	@Override
 	public List<Order> getOrder(int tableId) {
-		String hql="from Order s where s.tableId="+tableId;
-		return this.getEntityList(hql);
+		String sql="from Order s where s.tableId="+tableId;
+		return this.getEntityList(sql);
+	}
+	@Override
+	public Order getOrder1(int tableId) {
+		String hql="from Order where id=(select max(id) from Order) and tableId='"+tableId+"'";
+		Order order=(Order) uniqueResult(hql);
+		return order;
 	}
 	
 

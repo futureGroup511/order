@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wall{
+    width: 30%;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+label{
+    width: 28%;
+    margin-left: 15%;
+    font-size: 24px;
+    font-weight: bold;
+    vertical-align: middle;
+    line-height: 65px;
+}
+input{
+    width: 45%;
+    height: 25px;
+    vertical-align: middle;;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+select{
+    width: 45%;
+    height: 25px;
+    margin-left: -2%;
+    vertical-align: middle;;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+button{
+    width: 80px;
+    height: 28px;
+    margin-left:40%;
+    margin-top: 8%;
+}

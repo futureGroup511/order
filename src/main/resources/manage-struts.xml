@@ -29,6 +29,7 @@
 			<result name="addIngredient">/WEB-INF/admin/addingredient.jsp</result>
 			<result name="addMenu">/WEB-INF/admin/addmenu.jsp</result>
 			<result name="addTable">/WEB-INF/admin/addtable.jsp</result>
+			<result name="addrest">/WEB-INF/admin/addrestaurant.jsp</result>
 			<result name="getMyself">/WEB-INF/admin/updatemyself.jsp</result>
 			<result name="logOff">/WEB-INF/admin/logoff.jsp</result>
 			<result name="out">/index.jsp</result>
@@ -44,11 +45,19 @@
 		</action>
 		
 		<action name="MenuManager_*" method="{1}" class="com.future.order.action.manager.MenuManagerAction">
-			<result name="addMenu">/WEB-INF/admin/addmenu.jsp</result>
+			<result name="addMenu">/WEB-INF/admin/addmenumaterial.jsp</result>
+			<result name="addAgain">/WEB-INF/admin/addmenu.jsp</result>
 			<result>/WEB-INF/admin/managermenu.jsp</result>
 			<result name="toUpdateMenu">/WEB-INF/admin/updatemenu.jsp</result>
 			<result name="updateMenu">/WEB-INF/admin/managermenu.jsp</result>
 			<result name="deleteUser">/WEB-INF/admin/managermenu.jsp</result>
+		</action>
+		
+		<action name="MenuMaterial_*" method="{1}" class="com.future.order.action.manager.MenuMaterialAction">
+			<result name="updateMaterial">/WEB-INF/admin/managermaterial.jsp</result>
+			<result name="addMenuMaterial">/WEB-INF/admin/addmenumaterial.jsp</result>
+			<result name="deleteMaterial">/WEB-INF/admin/managermaterial.jsp</result>
+
 		</action>
 		
 		<action name="TableManager_*" method="{1}" class="com.future.order.action.manager.TableManagerAction">
@@ -58,6 +67,12 @@
 			<result name="updateTable">/WEB-INF/admin/managertables.jsp</result>
 			<result name="deleteTable">/WEB-INF/admin/managertables.jsp</result>
 			<result name="QR_card">/WEB-INF/admin/seeqr_card.jsp</result>
+		</action>
+		
+		<action name="Restaurant_*" method="{1}" class="com.future.order.action.manager.RestaurantAction">
+			<result name="add">/WEB-INF/admin/addrestaurant.jsp</result>
+			<result name="check">/WEB-INF/admin/managerrestaurant.jsp</result>
+			<result name="update">/WEB-INF/admin/updaterestaurant.jsp</result>
 		</action>
 		
 		<action name="Ingredient_*" method="{1}" class="com.future.order.action.manager.IngredientManagerAction" >

@@ -27,9 +27,15 @@ window.onload=function(){
 ${updateIngredientMsg}${deleteIngredientMsg}
 </center>
 <div >
-	<form action="${rootPath}manage/Ingredient_inquiry" method="post">
+	<form action="${rootPath}manage/Ingredient_Inquiry" method="post">
+	<select name="ask">
+		<option value="name">名称</option>
+		<option value="price">单价</option>
+		<option value="num">库存</option>
+		<option value="type">类型</option>
+	</select>
 		<input class="text" type="text" name="inquiry">
-		<input class="btn" type="submit" value="查找配料">
+		<input class="btn" type="submit" value="查询">
 	</form>
 </div>
 <center>
@@ -52,11 +58,11 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 				<td>${ingredient.name}</td>
 				<td>${ingredient.price}</td>
 				<td>${ingredient.num}</td>
-				<td>${ingredient.createDate}</td>
+				<td style="width:200px;">${ingredient.createDate}</td>
 				<td>${ingredient.type}</td>
-				<td>${ingredient.introduce}</td>
-				<td>
-					<a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+				<td style="width:380px;"><textarea style="float:left;" rows="2" cols="61">${ingredient.introduce}</textarea></td>
+				<td >
+					<a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
 					<a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a>
 				</td>
 			</tr> 

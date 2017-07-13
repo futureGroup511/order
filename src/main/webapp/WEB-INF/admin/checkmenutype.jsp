@@ -16,10 +16,10 @@
 <div class="wall">
        <table border="1">
 			<tr>
-				<td>编号</td>
-				<td>类型</td>
-				<td>介绍</td>
-				<td>操作</td>
+				<th>编号</th>
+				<th>类型</th>
+				<th>介绍</th>
+				<th>操作</th>
 			</tr>
 		<c:forEach items="${pc.data}" var="pageCut">
 			<tr>

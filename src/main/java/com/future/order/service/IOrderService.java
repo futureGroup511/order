@@ -36,4 +36,5 @@ public interface IOrderService {
 	public List<Order> getOrder(int tableId);
 	public PageCut<Order> searchOrder(String input, int pageSize, int currPage);
 	
+	public Order getOrder1(int tableId);
 }

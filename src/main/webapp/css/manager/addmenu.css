@@ -8,7 +8,7 @@
     font-weight:bold; 
     margin-top:2%; 
     line-height: 40px;
-    font-size: 1.2vw;
+    font-size: 20px;;
 }
 h4{ margin-left:40%;
    font-size:35px;
@@ -20,21 +20,22 @@ h4{ margin-left:40%;
 	 font-size:22px;
 }
 input{
-  width: 30%;
+  	width: 30%;
    height:25px; 
    border: 1px solid #666;
    border-radius: 3px;
    outline-style: hidden;
+   margin-left:2%;
 }
 .a1,.a2{margin-left:2%;}
 .a3{margin-left:3.5%;
     width:30%;}
 .select{
    height: 30px;
-   width:10%;
+   width:30%;
    border: 1px solid #666;
    border-radius:3px;  
-   margin-left:2%;
+   margin-left:-1%;
 }
  #textarea{
   float: left;

@@ -49,7 +49,7 @@ public class AllFilter implements Filter {
 //	            chain.doFilter(request, response);
 //	        }
 		HttpServletRequest request2 = (HttpServletRequest)request;
-		System.out.println("url:"+request2.getRequestURL());
+		//System.out.println("url:"+request2.getRequestURL());
 		chain.doFilter(request, response);
 	}
 

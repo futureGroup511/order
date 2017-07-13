@@ -35,7 +35,7 @@ public interface IMenuService {
 	//添加菜品zjg
 	public boolean addMenu(Menu menu);
 	//分页
-	public PageCut<Menu> getPageCut(int curr,int pageSize, String ask, String inquiry);
+	public PageCut<Menu> getPageCut(int curr,int pageSize);
 	//修改菜品
 	public boolean updateUser(Menu menu);
 	//删除菜品
@@ -52,6 +52,8 @@ public interface IMenuService {
 
 	public boolean updatemenu(int id);
 	public List<Menu> getByTypeId(int id);
+//查询菜  黎明加
+	public PageCut<Menu> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
 	
 
 }
