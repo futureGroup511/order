@@ -7,7 +7,7 @@
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenutype.css">
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
  <div class="wall">
 	 <h4>${typenews}</h4>
 	 <form action="${rootPath}manage/MenuTypeAction_Add" method="post" enctype="multipart/form-data">

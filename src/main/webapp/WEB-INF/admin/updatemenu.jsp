@@ -22,7 +22,7 @@
 </script>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatemenu.css">
 </head>
-<body  onload="changeSelected()">
+<body  onload="changeSelected()"   style="background: url(${rootPath}/images/m-91.jpg);">
 <div class="updatemenu">
    <form action="${rootPath}manage/MenuManager_updateMenu?menu.id=${updateMenu.id}&menu.imgUrl=${updateMenu.imgUrl}" method="post">
           <lable id="text">菜名：</lable><input type="text" name="menu.name" value="${updateMenu.name}">

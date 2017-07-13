@@ -13,7 +13,7 @@
 
 </script>
 </head>
-<body onload="p()">
+<body onload="p()"   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 <h3>${restlist.name}</h3><br>
 **********************************<br>

@@ -22,7 +22,7 @@ window.onload=function(){
  }
 }
 	</script>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 ${updateIngredientMsg}${deleteIngredientMsg}
 </center>

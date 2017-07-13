@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center><h4>${managerMsg}</h4>
 </center>
 </body>

@@ -34,6 +34,8 @@ public interface IOrderService {
 	public PageCut<Order> getPagee(int currentPage, int pageSize);
 	public PageCut<Order> getPageee(int currentPage, int pageSize);
 	public List<Order> getOrder(int tableId);
+	public PageCut<Order> searchOrder(String input, int pageSize, int currPage);
+	
 	public Order getOrder1(int tableId);
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
 }

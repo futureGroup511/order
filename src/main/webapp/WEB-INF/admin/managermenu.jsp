@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managermenu.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+    <link href="${rootPath}css/basic.css" rel="stylesheet" />
 <script language="javascript">
 window.onload=function(){
 	 var array = new Array();  
@@ -22,7 +23,7 @@ window.onload=function(){
 }
 </script>
 </head>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 <span class="error">${updateMsg}${deleteMenuMsg }</span>
 

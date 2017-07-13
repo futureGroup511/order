@@ -49,12 +49,10 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	@Override
 	public boolean updeteNum(int id, int num) {
 		Ingredient ingredient = this.getEntity(id);
-		System.out.println(ingredient.getNum());
 		boolean boo = false;						//如果配料为，就不能减，只能加
 		if(ingredient.getNum()>0){
 			ingredient.setNum(ingredient.getNum()-num);
 			boo = true;
-			System.out.println(ingredient.getNum());
 		}
 		return boo;
 		

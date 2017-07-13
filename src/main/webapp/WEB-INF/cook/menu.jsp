@@ -52,6 +52,19 @@
     }
 </style>
 </head>
+<script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${paCut.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
 <body>
 <div class="aa">
  <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;未完成订单&nbsp;>></p>

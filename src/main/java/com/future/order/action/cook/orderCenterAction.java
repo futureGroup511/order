@@ -19,8 +19,10 @@ import com.opensymphony.xwork2.ActionContext;
 public class orderCenterAction extends BaseAction {
 	private int OrderId;//订单ID
 	private int page=1;
+	private String input;
 	public String checkorder() {
 		PageCut<Order> pCut=orderService.getPageCut(page, 5);
+		
 		request.put("paCut",pCut);
 		return "allOrder";
 	}
@@ -58,10 +60,9 @@ public class orderCenterAction extends BaseAction {
 			int num=(int) pl.getNum();
 			boolean k=ingerdientService.updeteNum(id, num);
 		}
-		int b=(int) session.get("sorderid");
-		List a= orderDetailsService.Check(b);
-		request.put("orderdetail", a);
-		return "orderdetail";
+		PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
+		request.put("paCut", pCut);
+		return "menu";
 	}
 	public String check() {
 		List a= orderDetailsService.Check(OrderId);
@@ -88,22 +89,19 @@ public class orderCenterAction extends BaseAction {
 		request.put("paCut",pCut);
 		return "inform";
 	}
-	public String DoIngredient(int c) {
-		System.out.println(c+"adsvgjkuih");
-		if(menuMaterialService==null) {
-			System.out.println();
-		}
-		List  menu=menuMaterialService.getMenuMaterial(c);
-		for( int i=0;i<menu.size();i++) {
-			MenuMaterial pl=(MenuMaterial) menu.get(i);
-			System.out.println(pl);
-			int id=pl.getIngId();
-			int num=(int) pl.getNum();
-			boolean m=ingerdientService.updeteNum(id, num);
-			System.out.println(pl);
-		}
+	public String Serach() {
+		System.out.println(input);
+		PageCut<Order> pCut=orderService.searchOrder(input, 3,page);
+		System.out.println(pCut);
+		request.put("paCut",pCut);
+		return "allOrder";
+	}
+	public String SearchDetails() {
+		PageCut<OrderDetails> pCut=orderDetailsService.searchOrder(input, 3, page);
+		request.put("paCut",pCut);
 		return "menu";
-	}		
+	}
+	
 	
 	public int getOrderId() {
 		return OrderId;
@@ -116,5 +114,11 @@ public class orderCenterAction extends BaseAction {
 	}
 	public void setPage(int page) {
 		this.page = page;
+	}
+	public String getInput() {
+		return input;
+	}
+	public void setInput(String input) {
+		this.input = input;
 	}
 }
