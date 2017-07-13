@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.MenuType;
-import com.future.order.entity.Order;
 import com.future.order.util.PageCut;
 
 public class MenuTypeAction extends BaseAction {
@@ -13,6 +12,7 @@ public class MenuTypeAction extends BaseAction {
 	private int id;
 	private MenuType menutype;
 	private MenuType menus;
+	private String inquiry;
 	public String execute() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
 		pCut=menuTypeService.getPageCut(page,5);
@@ -20,6 +20,7 @@ public class MenuTypeAction extends BaseAction {
 			String mark="没有菜品的类型哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("marknews", mark);
 		}
+		request.put("adss", "execute");
 		request.put("pc", pCut);
 		return "check";
 	}
@@ -29,6 +30,7 @@ public class MenuTypeAction extends BaseAction {
 		String mark = "操作失败";
 		if (sign == true) {
 			mark = "添加成功";
+			@SuppressWarnings("unchecked")
 			List<MenuType> list = (List<MenuType>) session.get("Typelist");	//金高改
 			list.add(menutype);		//
 		} else {
@@ -66,6 +68,23 @@ public class MenuTypeAction extends BaseAction {
 		return this.execute();
 
 	}
+   public String Inquiry(){
+	   PageCut<MenuType> pCut = new PageCut<MenuType>();
+	   if(inquiry!=null){
+		   pCut=menuTypeService.getSomePageCut(page,5,inquiry);
+			}else{
+				inquiry=(String) session.get("inquiry");
+				pCut=menuTypeService.getSomePageCut(page,5,inquiry);
+			}
+		if(pCut.getData().size()==0){
+			String mark="没有菜品的类型哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("marknews", mark);
+		}
+		request.put("adss", "Inquiry");		
+		session.put("inquiry", inquiry);
+		request.put("pc", pCut);
+		return "check";
+   }
 	public int getPage() {
 		return page;
 	}
@@ -95,5 +114,11 @@ public class MenuTypeAction extends BaseAction {
 	public void setMenus(MenuType menus) {
 		this.menus = menus;
 	}
-
+	public String getInquiry() {
+		return inquiry;
+	}
+	public void setInquiry(String inquiry) {
+		this.inquiry = inquiry;
+	}
+	
 }

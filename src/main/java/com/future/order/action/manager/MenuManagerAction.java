@@ -38,6 +38,7 @@ public class MenuManagerAction extends BaseAction {
 			request.put("deleteMenuMsg", mark);
 		}
 		request.put("allMenu", pCut);
+		request.put("adss", "execute");
 		return SUCCESS;
 	}
 	
@@ -146,11 +147,21 @@ public class MenuManagerAction extends BaseAction {
 		}
 	}
 	public String Inquiry(){
-		PageCut<Menu> pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+		PageCut<Menu> pCut=new PageCut<Menu>();
+		if(ask!=null){
+			pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+			}else{
+				ask=(String) session.get("ask");
+				inquiry=(String) session.get("inquiry");
+				pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+			}
 		if(pCut.getData().size()==0){
 			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteMenuMsg", mark);
 		}
+		request.put("adss", "Inquiry");		
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
 		request.put("allMenu", pCut);
 		return SUCCESS;
 	}

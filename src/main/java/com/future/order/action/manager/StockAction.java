@@ -18,13 +18,14 @@ public class StockAction extends BaseAction {
 	private Stock stocks;
 	private int page = 1;
 	private int id;
-
+    private String inquiry;
 	public String execute() {
-		PageCut<Stock> pCut = stockService.getPageCut(page, 2);
+		PageCut<Stock> pCut = stockService.getPageCut(page, 6);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("stocknews", mark);
 		}
+		request.put("adss", "execute");
 		request.put("pc", pCut);
 		return "select";
 	}
@@ -76,7 +77,23 @@ public class StockAction extends BaseAction {
 		request.put("stocknews", mark);
 		return this.execute();
 	}
-	
+	public String Inquiry(){
+		PageCut<Stock> pCut = new PageCut<Stock>();
+		if(inquiry!=null){
+			pCut = stockService.getSomePageCut(page, 6,inquiry);
+			}else{
+				inquiry=(String) session.get("inquiry");
+				pCut = stockService.getSomePageCut(page, 6,inquiry);
+			}
+		if (pCut.getData().size() == 0) {
+			String mark = "没有进货信息(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("stocknews", mark);
+		}
+		request.put("adss", "Inquiry");		
+		session.put("inquiry", inquiry);
+		request.put("pc", pCut);
+		return "select";
+	}
 	
 	
 	
@@ -110,6 +127,14 @@ public class StockAction extends BaseAction {
 
 	public void setStocks(Stock stocks) {
 		this.stocks = stocks;
+	}
+
+	public String getInquiry() {
+		return inquiry;
+	}
+
+	public void setInquiry(String inquiry) {
+		this.inquiry = inquiry;
 	}
 
 }

@@ -223,5 +223,15 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		Order order=(Order) uniqueResult(hql);
 		return order;
 	}
+	@Override
+	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry) {
+		String hql ;
+		int count=0;
+		hql = "select count(*) from Order";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList("from Order where "+ask+"='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));
+		return pc;
+	}
 
 }

@@ -5,9 +5,7 @@ import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
-import com.future.order.entity.MenuType;
 import com.future.order.entity.StockDetails;
-import com.future.order.service.IIngerdientService;
 import com.future.order.util.PageCut;
 
 public class StockDetailsAction extends BaseAction{

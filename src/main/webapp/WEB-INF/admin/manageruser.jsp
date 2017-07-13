@@ -38,7 +38,7 @@ ${deleteUserMsg}
 		<option value="sort">身份</option>
 	</select>
 		<input type="text" name="inquiry">
-		<button class="btnForm">账号查询</button>	
+		<button class="btnForm">查询</button>	
 	</form>
 <!-- <div class="select"> -->
 <%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=manager';">所有管理员</button> --%>
@@ -74,19 +74,19 @@ ${deleteUserMsg}
     </div>
  <div class="page" id="div2">
       <ul class="pagination">
-        <li><a href="${rootPath }manage/UserManager?page=${allUser.prePage}">上一页</a></li>
+        <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.prePage}">上一页</a></li>
         <c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"
 					end="${allUser.currentPage+3>allUser.pageNum?allUser.pageNum:allUser.currentPage+3  }">
 					<c:choose>
 						<c:when test="${i>0 && i == allUser.currentPage &&i<=3}">
-							<li class="active"><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+							<li class="active"><a href="${rootPath }manage/UserManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 						<c:when test="${i>0 && i != allUser.currentPage &&i<=3}">
-							<li><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/UserManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
-        <li><a href="${rootPath }manage/UserManager?page=${allUser.nextPage}">下一页</a></li>
+        <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.nextPage}">下一页</a></li>
       </ul>
  </div>
  </div>

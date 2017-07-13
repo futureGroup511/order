@@ -28,6 +28,7 @@ public class UserManagerAction extends BaseAction {
 			String mark="没有其他用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteUserMsg", mark);
 		}
+		request.put("adss", "execute");
 		return SUCCESS;
 	}
 	
@@ -87,12 +88,22 @@ public class UserManagerAction extends BaseAction {
 		return "deleteUser";
 	}
 	public String Inquiry(){
-		PageCut<User> pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		PageCut<User> pCut=new PageCut();
+		if(ask!=null){
+		 pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		}else{
+			ask=(String) session.get("ask");
+			inquiry=(String) session.get("inquiry");
+			pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		}
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有你查询的用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteUserMsg", mark);
 		}
+		request.put("adss", "Inquiry");
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
 		return SUCCESS;
 	}
 	public User getUser() {

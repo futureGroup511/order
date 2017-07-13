@@ -24,7 +24,13 @@ window.onload=function(){
 	</script>
 </head>
 <body>
-<center>${stocknews }</center>
+<center>
+${stocknews }<br>
+<form action="${rootPath}manage/StockAction_Inquiry" method="post">
+		<input type="text" name="inquiry">
+		<button class="btnForm">地点查询</button>	
+	</form>
+</center>
  <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
@@ -59,7 +65,7 @@ window.onload=function(){
     <div class="page" id="div2">
     <ul class="pagination">
      						<li><a
-							href="${rootPath}manage/StockAction?page=${pc.prePage}">上一页</a></li>
+							href="${rootPath}manage/StockAction_${adss}?page=${pc.prePage}">上一页</a></li>
 						<c:if test="${1 < pc.currentPage -3}">
 							<li><a href="#">1</a></li>
 						</c:if>
@@ -70,16 +76,17 @@ window.onload=function(){
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage &&i<=3}"> 
 									<li class="active"><a
- 										href="${rootPath}manage/StockAction?page=${i }">${i}</a></li>
+ 										href="${rootPath}manage/StockAction_${adss}?page=${i }">${i}</a></li>
  								</c:when>
 
  								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
- 									<li><a href="${rootPath}manage/StockAction?page=${i }">${i}</a></li> 
+ 									<li><a href="${rootPath}manage/StockAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose> 
 						</c:forEach>
 						<li><a
- 							href="${rootPath}manage/StockAction?page=${pc.nextPage}">下一页</a></li> 
+ 							href="${rootPath}manage/StockAction_${adss}?page=${pc.nextPage}">下一页</a></li> 
     </ul>
+    </div>
 </body>
 </html>

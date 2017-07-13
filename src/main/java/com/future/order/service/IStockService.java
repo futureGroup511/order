@@ -26,4 +26,6 @@ public interface IStockService {
 
 	public boolean UpdateStock(Stock stocks);
 
+	public PageCut<Stock> getSomePageCut(int currentPage, int pageSize, String inquiry);
+
 }
