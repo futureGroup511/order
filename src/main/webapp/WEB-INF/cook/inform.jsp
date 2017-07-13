@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>催单</title>
-         <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrapwqj.css">
+         <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 
     <style>
    

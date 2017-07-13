@@ -1,17 +1,5 @@
 package com.future.order.action.manager;
 
-import java.io.ByteArrayOutputStream;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.ServletActionContext;
-
 import com.future.order.base.BaseAction;
 
 
@@ -43,6 +31,10 @@ public class ChangeAction extends BaseAction{
 	//餐桌中转站
 	public String addTable(){
 		return "addTable";
+	}
+	//饭店中转站
+	public String addRest(){
+		return "addrest";
 	}
 	//获得个人资料
 	public String getMyself(){

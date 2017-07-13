@@ -16,10 +16,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author Administrator
- *
- */
 @Entity
 @Table(name="tb_orderdetails")
 public class OrderDetails {

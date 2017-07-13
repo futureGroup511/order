@@ -1,0 +1,134 @@
+header{
+	width:100%;
+	height:40px;
+	text-align:center;
+	position: fixed;
+	background-color:#D41700;
+	font-size: 16px;
+	line-height: 40px;
+	padding: 0px 20px;
+	letter-spacing: 5px;
+}
+header a{
+	color:#dadada;
+	font-size:14px;
+}
+a{
+	color:#dadada;
+}
+.food{
+	 width:100%;
+	 height:120px;
+	 background-color:#ffe;
+	 padding:0 10px;
+	 border-bottom: 2px solid #dadada;
+}
+.food .photo{
+	 width:35%;
+	 height:100%;
+	 padding:10px 10px;
+}
+.food .infors{
+     width:60%;
+     height:100%;
+     padding:10px 10px;
+}
+.food .infors p{
+    line-height:25px;
+}
+.end{
+	width:100%;
+	height:40px;
+	padding: 4px 40px; 
+}
+.end .left{
+	width:40%;
+	text-align:left;
+	height:100%;
+}
+.end .right{
+    width:60%;
+    height:100%;
+}
+.end .right input{
+	background-color:#DB2E0C;
+	border: 0;
+	color: #dadada;
+	border-radius:2px;
+}
+.red{
+    color:red;
+}
+.p3{
+   font-size:12px;
+   line-height:12px;
+   overflow : hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+}
+.zu{
+	width:100%;
+	height:40px;
+	
+}
+.zu .kong{
+	margin-top: 2px;
+    width:70px;
+    height:20px;
+    border-top:1px solid #000; 
+    border-bottom:1px solid #000; 
+    text-align:center;
+}
+.zu .kong div{
+	width:22px;
+	height:22px;
+	background-color:#aaa;
+	border: 1px solid #dadada;
+	margin-top:-1px;
+}
+.zu .delete{
+	width:80px;
+	height:20px;
+	background-color:#D41700;
+	text-align:center;
+	line-height:20px;
+	color:#dadada;
+	margin-top:2px;
+	margin-left: 30px;
+	border-radius: 2px;
+}
+.size{
+     font-size:16px;
+}
+.col{
+	color:#777;
+}
+.zongjia{
+	font-size:16px;
+	margin-top:4px;
+	 color:#777;
+}
+.jiaqian{
+	font-size:22px;
+}
+@media screen and (max-width: 350px) {
+      .zu .delete{
+      	margin-left: 10px;
+      }
+}
+@media screen and (max-width: 320px) {
+      .zu .delete{
+      	margin-left: 0px;
+      	width:60px;
+      }
+}
+@media screen and (max-width: 360px){
+	.zongjia{
+	  font-size:12px;
+	}
+	.jiaqian{
+	  font-size:16px;
+	}
+}

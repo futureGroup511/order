@@ -21,15 +21,5 @@
       </div>
     </form>   
    </div> 
-<!-- 	<center> -->
-<%-- 	${stocknews} --%>
-<%-- 	<form action="${rootPath}manage/StockAction_Add" method="post"> --%>
-<!-- 	地点:<input type="text" name="stock.site"> -->
-<!-- 	总支出(元):<input type="text" name="stock.total"><br> -->
-<!-- 	进货时间:<input type="text" name="stock.createDate"> -->
-<!-- 	备注:<input type="text" name="stock.remark"><br> -->
-<!-- 	<input type="submit" value="提交"> -->
-<!-- 	</form> -->
-<!-- 	</center> -->
 </body>
 </html>

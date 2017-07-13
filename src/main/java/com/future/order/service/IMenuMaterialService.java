@@ -18,7 +18,6 @@ public interface IMenuMaterialService {
 	public List<MenuMaterial> getAll();//金高用
 
 	public MenuMaterial get(int id);
-	public List<MenuMaterial> getByMenuId(int menuId);//金高用
 
 	//张金高加
 	//添加菜品配料
@@ -28,6 +27,8 @@ public interface IMenuMaterialService {
 	//删除菜品配料
 	public boolean deleteMaterial(MenuMaterial  menuMaterial);
 	
+	public List<MenuMaterial> getByMenuId(int menuId);
 
-	
+	public List<MenuMaterial> getMenuMaterial(int menuId);
+
 }

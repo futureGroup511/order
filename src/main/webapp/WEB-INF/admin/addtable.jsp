@@ -21,11 +21,3 @@
   </div>  
 </body>
 </html>
-<%-- 	<center>${addTableMsg}</center> --%>
-<%-- 	<form action="${rootPath}manage/TableManager_addTable" method="post"> --%>
-<!-- 		<input type="text" name="table.name"> -->
-<!-- 		<input type="submit" value="确认添加"> -->
-<!-- 	</form> -->
-<!-- 	<center>温馨提示：新添加的餐桌并没有生成二维码，请手动生成二维码</center> -->
-<!-- </body> -->
-<!-- </html> -->

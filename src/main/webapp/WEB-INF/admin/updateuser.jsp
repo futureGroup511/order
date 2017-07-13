@@ -27,7 +27,6 @@ ${updateUserMsg}
 				<option value="cook" <c:if test='${updateUser.sort eq "cook"}'>selected="selected"</c:if>>cook</option>
 	 		  	<option value="manager" <c:if test='${updateUser.sort eq "manager"}'>selected="selected"</c:if>>manager</option>
 	 		  </select> 
-                    
        </div>
        <div class="button">
           <input type="submit" value="确认修改" >   

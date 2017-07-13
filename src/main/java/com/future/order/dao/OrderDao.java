@@ -212,5 +212,16 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		}
 		return li;//返回底层方法，底层中有与数据库连接的增删改查的方法。
 	}
+	@Override
+	public List<Order> getOrder(int tableId) {
+		String sql="from Order s where s.tableId="+tableId;
+		return this.getEntityList(sql);
+	}
+	@Override
+	public Order getOrder1(int tableId) {
+		String hql="from Order where id=(select max(id) from Order) and tableId='"+tableId+"'";
+		Order order=(Order) uniqueResult(hql);
+		return order;
+	}
 
 }

@@ -7,6 +7,7 @@ import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.MenuType;
 import com.future.order.entity.StockDetails;
+import com.future.order.service.IIngerdientService;
 import com.future.order.util.PageCut;
 
 public class StockDetailsAction extends BaseAction{
@@ -42,8 +43,17 @@ public class StockDetailsAction extends BaseAction{
 				details.setIngId(list.get(i).getId());
 			}
 		}
+		List<Ingredient> alllist=ingerdientService.getnews();
+		boolean sign=false;
+		for(int i=0;i<alllist.size();i++){
+			if(details.getIngName().equals(alllist.get(i).getName())){
+				alllist.get(i).setNum(alllist.get(i).getNum()+details.getNum());
+				alllist.get(i).setPrice(details.getPrice());
+			 sign=ingerdientService.updateIngredient(alllist.get(i));
+			}
+		}
 		boolean boo = stockDetailsService.addDetails(details);
-		if(boo){
+		if(boo&&sign){
 			request.put("addMsg", "添加成功");
 		} else {
 			request.put("addMsg", "添加失败！");
