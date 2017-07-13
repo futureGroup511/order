@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
 	<center>
 	<form action="${rootPath}manage/Restaurant_Update?rest.id=${rest.id}" method="post">
 		<label>店名：</label><input type="text" name="rest.name" value="${rest.name}">

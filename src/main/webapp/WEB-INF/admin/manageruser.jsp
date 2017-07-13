@@ -28,7 +28,7 @@ window.onload=function(){
 }
 	</script>
 </head>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);"  >
 
 ${deleteUserMsg}
 	<form name="inquiry" method="post" id="inquiry">

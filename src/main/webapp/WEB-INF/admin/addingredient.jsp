@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addingredient.css">
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 		${addIngerdientMsg}
 		<div class="addingredient">
 			<form action="Ingredient_addIngredient" method="post">
@@ -22,8 +22,8 @@
 					<option value="原料">原料</option>
 					<option value="配料">配料</option>
 				</select><br>
-				<lable id="text">简介：</lable>
-				<textarea rows="5" cols="35" name="ingredient.introduce"></textarea>
+				<lable id="text">简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介：</lable>
+					<textarea style="" rows="5" cols="35" name="ingredient.introduce"></textarea>
 				<div class="button">
 					<input type="submit" value="添加">
 				</div>

@@ -23,7 +23,7 @@ window.onload=function(){
 }
 	</script>
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>${stocknews }</center>
  <div class="checkstock" id="div1">
      <table cellspacing="0">

@@ -21,7 +21,7 @@ window.onload=function(){
   }
  </script> 
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 	<div style="margin-top:1%;">
 		<div style="margin-left: 43%;margin-top:1%;">${addMaterialMsg}</div>
 		<div style="margin-left:40%;margin-top:0%;"><button class="btn" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${menu.id}'">查看已添加配料</button></div>

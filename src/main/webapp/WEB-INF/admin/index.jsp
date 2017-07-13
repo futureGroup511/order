@@ -11,7 +11,7 @@
     <link href="${rootPath}css/basic.css" rel="stylesheet" />
 </head>
 <body>
-<div class="header"><!-- 头部 -->
+<div class="header" ><!-- 头部 -->
 
             <img src="${rootPath}images/beijing.jpg" style="width:100%;height:125px;">
            <span class="span1">订餐管理系统</span>
@@ -125,7 +125,7 @@
              </li> <!-- 第六个父目录结束 -->
           </ul><!-- 总父目录结束 -->
         </div><!-- 左边的菜单栏结束 -->
-        <iframe src="${rootPath}welcome.jsp"   id="ifr" name="mainFrame"></iframe>
+        <iframe src="${rootPath}welcome.jsp"   id="ifr" name="mainFrame" ></iframe>
     </div><!-- 左侧菜单和iframe标签的内容结束 -->
     <div class="footer">
        <a href="">技术支持:河南艾未特网络有限公司</a>  

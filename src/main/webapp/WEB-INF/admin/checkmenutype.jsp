@@ -10,11 +10,11 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/checkmenutype.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>${marknews}</center>
 
 <div class="wall">
-       <table border="1">
+       <table border="1" style="border-color:#C6C6C6;background-color: white;">
 			<tr>
 				<th>编号</th>
 				<th>类型</th>

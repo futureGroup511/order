@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="${rootPath}css/updatetype.css">
+<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatetype.css">
 </head>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
 <div class="wall">
 	<form action="${rootPath}manage/MenuTypeAction_Update" method="post">
           <lable id="text">编号:</lable><input name="menus.id" value="${menutype.id}" type="text" readonly="readonly"><br>
