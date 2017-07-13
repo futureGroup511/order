@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuType;
 import com.future.order.util.PageCut;
@@ -64,12 +65,18 @@ public class MenuManagerAction extends BaseAction {
 			uploadFile(i);
 		}
 		boolean boo = menuService.addMenu(menu);
+		String result = "addMenu";
 		if(boo){
-			request.put("addMsg", "添加成功");
+			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
+			session.put("menu", menu);
+			PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,6);
+			List<Ingredient> lists = pCut.getData();	//暂时不要分页
+			request.put("allIngredient", lists);
 		} else {
 			request.put("addMsg", "添加失败！该菜已被添加过");
+			result = "addAgain";
 		}
-		return "addMenu";
+		return result;
 	}
 	
 	//查看菜品详情

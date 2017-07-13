@@ -52,11 +52,11 @@ ${updateIngredientMsg}${deleteIngredientMsg}
 				<td>${ingredient.name}</td>
 				<td>${ingredient.price}</td>
 				<td>${ingredient.num}</td>
-				<td>${ingredient.createDate}</td>
+				<td style="width:200px;">${ingredient.createDate}</td>
 				<td>${ingredient.type}</td>
-				<td>${ingredient.introduce}</td>
-				<td>
-					<a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+				<td style="width:380px;"><textarea style="float:left;" rows="2" cols="61">${ingredient.introduce}</textarea></td>
+				<td >
+					<a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
 					<a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a>
 				</td>
 			</tr> 

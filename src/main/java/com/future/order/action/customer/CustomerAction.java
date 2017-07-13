@@ -59,6 +59,7 @@ public class CustomerAction extends BaseAction {
 	public String joinCart() throws Exception {
 		Menu menu=menuService.get(id);
 		int tableId=(int) session.get("userId");//获得顾客桌号		
+		System.out.println("tableId"+tableId);
 		String tableName=tablesService.get(tableId).getName();//根据顾客桌号取得桌子的名称	
 		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());//根据顾客的桌号和菜单的id获得购物车中的对应信息
 		if(shopCart==null){

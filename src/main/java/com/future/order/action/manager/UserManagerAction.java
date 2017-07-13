@@ -27,6 +27,7 @@ public class UserManagerAction extends BaseAction {
 	private String ask;	//得到请求查询的条件
 	
 	public String execute(){
+		
 		if(ask==null){
 			ask = (String)session.get("ask");
 		}

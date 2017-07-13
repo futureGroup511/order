@@ -7,14 +7,13 @@ z· * @author: 焦祥宇
 package com.future.order.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
-
 import com.future.order.entity.MenuMaterial;
-
 import com.future.order.service.IMenuMaterialService;
 
 @Service
@@ -44,6 +43,36 @@ public class MenuMaterialDao extends BaseDao<MenuMaterial> implements IMenuMater
 	public List<MenuMaterial> getByMenuId(int menuId) {
 		String hql="from MenuMaterial m where m.menuId="+menuId;		
 		return this.getEntityList(hql);
+	}
+
+	@Override
+	public boolean addMenuMaterial(MenuMaterial menuMaterial) {
+		//判断该配料是否添加过
+		List<MenuMaterial> list = this.getByMenuId(menuMaterial.getMenuId());
+		boolean boo = true;
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getIngId()==menuMaterial.getIngId()){
+				boo = false;
+			}
+		}
+		if(boo){
+			menuMaterial.setStockDate(new Date());
+			boo = this.saveEntity(menuMaterial);
+		}
+		
+		return boo;
+	}
+
+	@Override
+	public boolean updateMaterial(MenuMaterial menuMaterial) {
+		MenuMaterial materialFromBase = this.get(menuMaterial.getId());
+		materialFromBase.setNum(menuMaterial.getNum());
+		return this.updateEntity(materialFromBase);
+	}
+
+	@Override
+	public boolean deleteMaterial(MenuMaterial menuMaterial) {
+		return this.deleteEntity(menuMaterial);
 	}
 	
 }

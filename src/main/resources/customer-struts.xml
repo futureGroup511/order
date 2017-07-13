@@ -15,7 +15,7 @@
 			<result name="getMenuByTypeId">/WEB-INF/customer/index.jsp</result>
 			<result name="getMenuMaterial">/WEB-INF/customer/menuMaterial.jsp</result>	
 			<result name="getStockDate">/WEB-INF/customer/stockDate.jsp</result>	
-			<result name="joinCart">/WEB-INF/customer/success.jsp</result>		
+			<result name="joinCart">/WEB-INF/customer/index.jsp</result>		
 		</action>
 		<action name="cart_*" class="com.future.order.action.customer.CartAction" method="{1}">
 			<result name="updateCart">/WEB-INF/customer/shopCart.jsp</result>

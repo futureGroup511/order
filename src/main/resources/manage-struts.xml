@@ -44,11 +44,19 @@
 		</action>
 		
 		<action name="MenuManager_*" method="{1}" class="com.future.order.action.manager.MenuManagerAction">
-			<result name="addMenu">/WEB-INF/admin/addmenu.jsp</result>
+			<result name="addMenu">/WEB-INF/admin/addmenumaterial.jsp</result>
+			<result name="addAgain">/WEB-INF/admin/addmenu.jsp</result>
 			<result>/WEB-INF/admin/managermenu.jsp</result>
 			<result name="toUpdateMenu">/WEB-INF/admin/updatemenu.jsp</result>
 			<result name="updateMenu">/WEB-INF/admin/managermenu.jsp</result>
 			<result name="deleteUser">/WEB-INF/admin/managermenu.jsp</result>
+		</action>
+		
+		<action name="MenuMaterial_*" method="{1}" class="com.future.order.action.manager.MenuMaterialAction">
+			<result name="updateMaterial">/WEB-INF/admin/managermaterial.jsp</result>
+			<result name="addMenuMaterial">/WEB-INF/admin/addmenumaterial.jsp</result>
+			<result name="deleteMaterial">/WEB-INF/admin/managermaterial.jsp</result>
+
 		</action>
 		
 		<action name="TableManager_*" method="{1}" class="com.future.order.action.manager.TableManagerAction">

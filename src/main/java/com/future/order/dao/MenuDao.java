@@ -31,7 +31,6 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	public Menu Doorder(int id) {
 		Menu menu = this.getEntity(id);
 		return menu;
-		// asd
 	}
 
 	@Override
@@ -118,7 +117,6 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Menu> pc = new PageCut<Menu>(curr, pageSize, count);
 		pc.setData(this.getEntityLimitList(selectHql, (curr - 1) * pageSize, pageSize));
-		System.out.println(pc);
 		return pc;
 	}
 

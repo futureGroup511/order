@@ -49,8 +49,6 @@ window.onload=function(){
 <center>
 <span class="error">${updateMsg}${deleteMenuMsg }</span>
 
- <div class="photowall" id="div1"> 
-${updateMsg}${deleteMenuMsg }
   <div class="photowall" id="div1"> 
 <center>
 	<form name="inquiry" method="post" id="inquiry">
@@ -60,8 +58,6 @@ ${updateMsg}${deleteMenuMsg }
 		<input class="btn" type="button" onclick="inquiryAll()" value="查看全部">
 	</form>
 </center>
-<!--   <div class="photowall"> -->
-<!--   <div class="photowall"> -->
     <div class="picture_wall">
     		${inquiryMsg}
    			<c:forEach items="${allMenu.data}" var="data"> 
@@ -78,10 +74,10 @@ ${updateMsg}${deleteMenuMsg }
      		<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
  					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }"> 
  					<c:choose> 
-						<c:when test="${i>0 && i == allMenu.currentPage &&i<=3}">
+						<c:when test="${i>0 && i == allMenu.currentPage}">
  							<li class="active"><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
  						</c:when>
- 						<c:when test="${i>0 && i != allMenu.currentPage &&i<=3}"> 
+ 						<c:when test="${i>0 && i != allMenu.currentPage}">
  							<li><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
  						</c:when> 
 					</c:choose> 
