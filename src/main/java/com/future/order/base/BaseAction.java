@@ -53,6 +53,8 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	@Resource
 	protected IOrderService orderService;
 	@Resource
+	protected IRestaurantService  restaurantService;
+	@Resource
 	protected IShopCartService shopCartService;
 	@Resource
 	protected IStockDetailsService stockDetailsService;
@@ -62,9 +64,6 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	protected ITablesService tablesService;
 	@Resource
 	protected IUserService userService;
-	@Resource
-	protected IRestaurantService restaurantService;
-		
 	protected HttpServletResponse getResponse(){
 		return ServletActionContext.getResponse();
 	}

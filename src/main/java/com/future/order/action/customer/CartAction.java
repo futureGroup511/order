@@ -22,7 +22,10 @@ public class CartAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-	private int menuNum;
+	private int name;
+	 
+	
+	
 	
 	// 获得购物车菜品
 	public String getCart() throws Exception {
@@ -39,90 +42,49 @@ public class CartAction extends BaseAction {
 	// 生成订单详情
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");
-		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
-		double total = 0.0;
-		Order orde=new Order();
-		for (ShopCart item : shopCarts) {
-			total += item.getMenuNum() * item.getPrice();
-		}
-		for (ShopCart item : shopCarts) {
-			orde.setTotal(total);
-			orde.setTableName(item.getTableName());
-			orde.setTableId(item.getTableId());
-			orde.setStatus("未完成");
-		}
-		Boolean bool = orderService.save(orde);
-		List<Order> orders=orderService.getOrder(tableId);
 		Order order=orderService.CheckById(id);
+		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
+		/*List<Order> orders=orderService.getOrder(tableId);*/
+		Order orderr=orderService.getOrder1(tableId);
+		System.out.println(orderr+"456");
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsOne(id);
 		OrderDetails orderDetails = new OrderDetails();
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
-
-				for(Order it:orders){
 					orderDetails.setMenuId(item.getMenuId());
 					orderDetails.setTableName(item.getTableName());
 					orderDetails.setMenuName(item.getMenuName());
 					orderDetails.setMenuNum(item.getMenuNum());
 					orderDetails.setTableId(item.getTableId());
-					orderDetails.setOrderId(it.getId());
-					orderDetails.setStatus(it.getStatus());
+					orderDetails.setOrderId(orderr.getId());
+					orderDetails.setStatus(orderr.getStatus());
 					Boolean booll = orderDetailsService.save(orderDetails);
+					System.out.println("88");
 				}
-
-				orderDetails.setMenuId(item.getMenuId());
-				orderDetails.setTableName(item.getTableName());
-				orderDetails.setMenuName(item.getMenuName());
-				orderDetails.setMenuNum(item.getMenuNum());
-				orderDetails.setTableId(item.getTableId());
-				orderDetails.setStatus("未完成");
-				Boolean boolq = orderDetailsService.save(orderDetails);
-			}
-		
 		} else {
-			for (OrderDetails en : orderDetail) {
-				for (ShopCart item : shopCarts) {
-					for(Order it:orders){
-						if(en.getStatus().equals("完成")){
-								int sign = 0;
-								if (item.getMenuName().equals(en.getMenuName())) {
-									sign = 1;
-									en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-									Boolean boolq = orderDetailsService.updatee(en);
-								}else if (sign == 0) {
-									orderDetails.setMenuId(item.getMenuId());
-									orderDetails.setTableName(item.getTableName());
-									orderDetails.setMenuName(item.getMenuName());
-									orderDetails.setMenuNum(item.getMenuNum());
-									orderDetails.setTableId(item.getTableId());
-									orderDetails.setOrderId(it.getId());
-									orderDetails.setStatus(it.getStatus());
-									System.out.println("6666");
-									Boolean boola = orderDetailsService.save(orderDetails);
-								}
-					   }else if(en.getStatus().equals("未完成")){
-						   int sign = 0;
-						   if (item.getMenuName().equals(en.getMenuName())) {
-								sign = 1;
-								en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-								Boolean boold = orderDetailsService.updatee(en);
-						   }else if (sign == 0) {
-								orderDetails.setMenuId(item.getMenuId());
-								orderDetails.setTableName(item.getTableName());
-								orderDetails.setMenuName(item.getMenuName());
-								orderDetails.setMenuNum(item.getMenuNum());
-								orderDetails.setTableId(item.getTableId());
-								orderDetails.setOrderId(it.getId());
-								orderDetails.setStatus(it.getStatus());
-								System.out.println("6666");
-								Boolean boolt = orderDetailsService.save(orderDetails);
-						}
+			for (ShopCart item : shopCarts) {
+				int sign = 0;
+				for (OrderDetails en : orderDetail) {
+					if (item.getMenuName().equals(en.getMenuName())) {
+						sign = 1;
+						en.setMenuNum(en.getMenuNum() + item.getMenuNum());
+						Boolean bool = orderDetailsService.updatee(en);
+					}
 				}
-		}
-				}
+				if (sign == 0) {
+					    orderDetails.setMenuId(item.getMenuId());
+						orderDetails.setTableName(item.getTableName());
+						orderDetails.setMenuName(item.getMenuName());
+						orderDetails.setMenuNum(item.getMenuNum());
+						orderDetails.setTableId(item.getTableId());
+						orderDetails.setOrderId(orderr.getId());
+						orderDetails.setStatus(orderr.getStatus());
+						Boolean boolt = orderDetailsService.save(orderDetails);
+						System.out.println("9999");
+				  }
 			}
 		}
-		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(id);
+		List<OrderDetails> orderDetailss = orderDetailsService.getDetails(tableId);
 		request.put("orderDetails", orderDetailss);
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
@@ -145,26 +107,9 @@ public class CartAction extends BaseAction {
 		Boolean bool = orderService.save(order);
 		List<Order> orders=orderService.getOrder(tableId);
 		System.out.println(orders+"I Love You");
+		session.put("orders", orders);
 		return "getOrder";
 	}
-/*
-	// 购物车的菜品数量update 计算总价
-	public String updateCart() throws Exception {
-		ShopCart shopCart = shopCartService.getOne(id);
-		Boolean bool = shopCartService.update(shopCart);
-		List<ShopCart> shopCarts = shopCartService.getByAll();
-		double total = 0.0;
-		for (ShopCart item : shopCarts) {
-			total += item.getMenuNum() * item.getPrice();
-		}
-		System.out.println(total);
-		session.put("total", total);
-		 //以流的形式返回新的总价格
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(total.getBytes());
-        return "stream";
-		
-	}*/
-	
 	// 删除购物车的菜品
 	public String deleteCart() throws Exception {
 		int tableId = (int) session.get("userId");
@@ -185,37 +130,36 @@ public class CartAction extends BaseAction {
 	}
 
 	// 菜品数量的增加
-	public String add() throws Exception {
+	public void add() throws Exception {
 		ShopCart shopCart = shopCartService.getOne(id);
 		shopCart.setMenuNum(shopCart.getMenuNum() + 1);
-		Boolean bool = shopCartService.update(shopCart);
-		List<ShopCart> shopCarts = shopCartService.getByAll();
+		Boolean bool=shopCartService.update(shopCart);
+		
+		int tableId=(Integer)session.get("userId");
+		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		double total = 0.0;
 		for (ShopCart item : shopCarts) {
 			total += item.getMenuNum() * item.getPrice();
 		}
+		this.getResponse().getWriter().println(total);
+		System.out.println("id"+id+bool);
 		System.out.println(total);
-		request.put("total", total);
-		request.put("shopCarts", shopCarts);
-		return "add";
+		
+		
 	}
 
 	// 菜品数量的减少
-	public String reduce() throws Exception {
-		ShopCart shopCart = shopCartService.getOne(id);
-		if (shopCart.getMenuNum() >= 1) {
-			shopCart.setMenuNum(shopCart.getMenuNum() - 1 );
-		}
-		Boolean bool = shopCartService.update(shopCart);
-		List<ShopCart> shopCarts = shopCartService.getByAll();
+	public void reduce() throws Exception {
+		ShopCart shopCart = shopCartService.getOne(id);		
+		shopCart.setMenuNum(shopCart.getMenuNum() - 1 );		
+		shopCartService.update(shopCart);
+		int tableId=(Integer)session.get("userId");
+		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		double total = 0.0;
 		for (ShopCart item : shopCarts) {
 			total += item.getMenuNum() * item.getPrice();
 		}
-		System.out.println(total);
-		request.put("total", total);
-		request.put("shopCarts", shopCarts);
-		return "reduce";
+		this.getResponse().getWriter().println(total);
 	}
 
 	// 催单
@@ -246,10 +190,11 @@ public class CartAction extends BaseAction {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getMenuNum() {
-		return menuNum;
+	public int getName() {
+		return name;
 	}
-	public void setMenuNum(int menuNum) {
-		this.menuNum = menuNum;
+	public void setName(int name) {
+		this.name = name;
 	}
+	
 }

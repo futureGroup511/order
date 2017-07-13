@@ -33,9 +33,9 @@
 			     	 <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码" name="user.password">
 			     </div>
 			     <div class="in2">
+			     <h4 style="color:red;">${loginMeg}</h4>
 			     	<button type="submit" class="btn btn-info left" onclick="goout()">登录</button>
 			     	<button type="reset" class="btn btn-info right" onclick="overset()">重置</button><br>
-			     	 <h4>${loginMeg}</h4>
 			     </div>
 			     </form>
 			 </div>	

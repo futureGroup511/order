@@ -28,7 +28,7 @@
     </div>
     <div class="right infors">
        <p><b>${o.menuName}</b></p>
-       <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
+       <%-- <p class="left jia">价格：</p><p class="red">￥${o.price}</p> --%>
        <p>数量：${o.menuNum}</p>
        <p class="left">状态：</p><p class="green">${o.status}</p>
     </div>
@@ -38,25 +38,25 @@
       <p class="right red" style="">256</p><p class="right jia">总价：</p>
    </div>
 </c:forEach>
-   <a href="" class="cd">催单</a>
+   <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 	<!--  留白处 -->
    <div class="liubai">
    </div>
    <!-- 公共底部 -->
    <footer>
-       <a href="show.html">
+       <a href="${rootPath}customer/customer_toIndex?id=${userId}">
       <div class="left">
          <div><img src="../images/sy1.png" style="width:100%; height:100%; "></div>
          <p>首页</p>
       </div>
       </a>
-      <a href="shopping.html">
+      <a href="${rootPath}customer/cart_getCart">
       <div class="left">
          <div><img src="../images/gwc.png" style="width:100%; height:100%; "></div>
          <p>购物车</p>
       </div>
       </a>
-      <a href="order.html">
+      <a href="${rootPath}customer/cart_getOrderDetails">
       <div class="left dingdan">
          <div><img src="../images/dd.png" style="height:70%;width:70%;"></div>
          <p>订单</p>
@@ -65,32 +65,3 @@
    </footer>
 </body>
 </html>
-<%-- <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h3>${addMeg}</h3>
-<table border="1" width="300px" height="200px">
-			<tr>
-				<th>菜品名称</th>
-				<th>菜品数量</th>
-				<th>状态</th>
-				<th>桌子id</th>
-				<th>桌子名称</th>
-			</tr>
-			<c:forEach items="${orderDetails}" var="o">
-				<tr>
-					<td>${o.menuName}</td>
-					<td>${o.menuNum}</td>
-					<td>${o.status}</td>
-					<td>${o.tableId}</td>
-					<td>${o.tableName}</td>
-				</tr>	
-			</c:forEach>	
-</table>
-<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
-<a href="${rootPath}customer/cart_getCart">购物车</a>
-<a href="${rootPath}customer/cart_getReminder">催单</a>
-</body>
-</html> --%>
