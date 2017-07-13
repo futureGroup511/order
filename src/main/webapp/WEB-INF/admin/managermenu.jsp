@@ -20,29 +20,6 @@ window.onload=function(){
 	 document.getElementById('div2').style.display='none';
  }
 }
-	window.onload=function(){
-		 var array = new Array();  
-		 <c:forEach items="${allMenu.data}" var="t">  
-		 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
-		 </c:forEach>
-		 var a = array.length;
-	 	if(a==0){
-		 document.getElementById('div1').style.display='none';
-		 document.getElementById('div2').style.display='none';
-	 	}
-	}
-	function inquiryByName() {
-		document.inquiry.action="${rootPath}manage/MenuManager?ask=name";
-		document.getElementById("inquiry").submit();
-	}
-	function inquiryByType() {
-		document.inquiry.action="${rootPath}manage/MenuManager?ask=type";
-		document.getElementById("inquiry").submit();
-	}
-	function inquiryAll() {
-		document.inquiry.action="${rootPath}manage/MenuManager?ask=all";
-		document.getElementById("inquiry").submit();
-	}
 </script>
 </head>
 <body>
@@ -51,13 +28,15 @@ window.onload=function(){
 
  <div class="photowall" id="div1"> 
 ${updateMsg}${deleteMenuMsg }
-  <div class="photowall" id="div1"> 
 <center>
-	<form name="inquiry" method="post" id="inquiry">
+	<form action="${rootPath}manage/MenuManager_Inquiry" method="post">
+	<select name="ask">
+		<option value="name">名称</option>
+		<option value="typeName">类型</option>
+		<option value="price">价格</option>
+	</select>
 		<input type="text" name="inquiry">
-		<input class="btn" type="button" onclick="inquiryByName()" value="菜名查询">
-		<input class="btn" type="button" onclick="inquiryByType()" value="菜品类型查询">
-		<input class="btn" type="button" onclick="inquiryAll()" value="查看全部">
+		<button type="submit">查询</button>
 	</form>
 </center>
 <!--   <div class="photowall"> -->

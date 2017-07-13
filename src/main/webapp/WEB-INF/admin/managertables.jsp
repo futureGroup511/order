@@ -22,7 +22,16 @@ window.onload=function(){
 </head>
 <body>
 
-		<center>${managerMsg}</center>
+		<center>${managerMsg}<br>
+		<form action="${rootPath}manage/TableManager_Inquiry" method="post">
+		<select name="pass">
+			<option value="name">按名称查询</option>
+			<option value="status">按状态查询</option>
+		</select>
+		<input type="text" name="replace">
+		<button type="submit">查询</button>
+	</form>
+		</center>
 <div id="div1">
      <table cellspacing="0" border="1" align="center">
          <thead>

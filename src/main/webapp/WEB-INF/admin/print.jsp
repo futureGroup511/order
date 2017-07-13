@@ -38,8 +38,9 @@
 	**********************************<br>
 	<h4>消费总金额：${total}元<h4>收银员：${user.name}<br>
 	**********************************<br>
-	${restlist.name}  欢迎下次光临<br>
-	电话：${restlist.phone}
+	${restlist.name}  欢迎您下次光临<br>
+	电话：${restlist.phone}<br>
+	地址：${restlist.address}
 	</center>
 	</body>
 </html>

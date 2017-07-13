@@ -35,5 +35,6 @@ public interface IIngerdientService {
 	public List<Ingredient> getnews();
 	
 	public boolean updeteNum(int id, int num);
+	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
 
 }

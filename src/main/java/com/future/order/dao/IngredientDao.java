@@ -86,4 +86,18 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	public List<Ingredient> getnews() {
 		return selectAll();
 	}
+
+	@Override
+	public PageCut<Ingredient> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
+		String hql = "select count(*) from Ingredient";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Ingredient> pc = new PageCut<Ingredient>(curr,pageSize,count);
+		if(ask.equals("price")||ask.equals("num")){
+			int mark=Integer.parseInt(inquiry);
+			pc.setData(this.getEntityLimitList("from Ingredient where "+ask+"='"+mark+"'", (curr-1)*pageSize, pageSize));	
+		}else{
+			pc.setData(this.getEntityLimitList("from Ingredient where "+ask+"='"+inquiry+"'", (curr-1)*pageSize, pageSize));
+		}
+		return pc;
+	}
 }

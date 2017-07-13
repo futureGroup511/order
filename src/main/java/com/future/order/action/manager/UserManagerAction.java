@@ -1,10 +1,5 @@
 package com.future.order.action.manager;
 
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import com.future.order.base.BaseAction;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
@@ -27,20 +22,12 @@ public class UserManagerAction extends BaseAction {
 	private String ask;	//得到请求查询的条件
 	
 	public String execute(){
-		if(ask==null){
-			ask = (String)session.get("ask");
-		}
-		if(inquiry==null){
-			inquiry = (String) session.get("inquiry");
-		}
-		PageCut<User> pCut=userService.getPageCut(page,6,ask,inquiry);
+		PageCut<User> pCut=userService.getPageCut(page,6);
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有其他用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteUserMsg", mark);
 		}
-		session.put("ask", ask);
-		session.put("inquiry", inquiry);
 		return SUCCESS;
 	}
 	
@@ -77,7 +64,7 @@ public class UserManagerAction extends BaseAction {
 		if(userId==2){		//当执行修改个人信息时在个人资料界面时
 			result = "toUpdateMyself";
 		} else {
-			PageCut<User> pCut=userService.getPageCut(page,3,ask,inquiry);
+			PageCut<User> pCut=userService.getPageCut(page,3);
 			request.put("allUser", pCut);
 		}
 		return result;
@@ -95,11 +82,19 @@ public class UserManagerAction extends BaseAction {
 				request.put("deleteUserMsg", "删除失败");
 			}
 		}
-		PageCut<User> pCut=userService.getPageCut(page,3,ask,inquiry);
+		PageCut<User> pCut=userService.getPageCut(page,3);
 		request.put("allUser", pCut);
 		return "deleteUser";
 	}
-	
+	public String Inquiry(){
+		PageCut<User> pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		request.put("allUser", pCut);
+		if(pCut.getData().size()==0){
+			String mark="没有你查询的用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("deleteUserMsg", mark);
+		}
+		return SUCCESS;
+	}
 	public User getUser() {
 		return user;
 	}

@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    padding:0;
+}
+.wall{
+    width: 30%;
+    height: auto;
+    margin:0 auto;
+    margin-top: 5%;
+    line-height: 48px;
+}
+label{
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 15%;
+}
+input{
+    width: 40%;
+    height: 25px;
+    border-radius: 5px;
+}
+select{
+    width: 40%;
+    height: 25px;
+    border-radius: 5px;
+}
+button{
+    width: 80px;
+    height: 25px;
+    margin-left:40%;
+    margin-top: 8%;
+}

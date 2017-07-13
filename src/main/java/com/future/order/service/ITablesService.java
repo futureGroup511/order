@@ -32,4 +32,6 @@ public interface ITablesService {
 	public boolean updateTables(Tables table);
 
 	public List<Tables> CheckName();
+
+	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace);
 }

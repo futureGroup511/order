@@ -66,7 +66,7 @@ function search(){
        <table cellspacing="0" border="1">
          <thead>
           <tr>
-             <td colspan="11">订单信息</td>
+             <td colspan="12">订单信息</td>
           </tr>   
          </thead>
          <tbody>
