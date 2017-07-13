@@ -38,7 +38,8 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> getDetailsOne(int orderId);
 	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
 	public List Check(int detailid);
-	public List<OrderDetails> SeeByid(int id);}
+	public List<OrderDetails> SeeByid(int id);
+	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);}
 //=======
 //import java.util.List;
 //

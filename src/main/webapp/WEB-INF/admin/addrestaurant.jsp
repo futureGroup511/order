@@ -10,11 +10,12 @@
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 ${addrest}
-	<form action="${rootPath}manage/Restaurant_AddRestaurant" method="post">
+	<form action="${rootPath}manage/Restaurant_AddRestaurant" method="post" enctype="multipart/form-data">
 		<label>店名：</label><input type="text" name="restaurant.name">
 		<label>电话：</label><input type="text" name="restaurant.phone"><br>
 		<label>地址：</label><input type="text" name="restaurant.address">
 		<label>简介：</label><input type="text" name="restaurant.introduce"><br>
+		<input type="file" name="file" accept="image/*" value="选择图片" style="border:none; outline:none;margin-left:2.5%"><br>
 		<button type="submit">提交</button>
 	</form>
 </center>

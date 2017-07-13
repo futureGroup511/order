@@ -32,4 +32,18 @@ input{
     font-size:17px;
     background-color: #1bafe0;
     border-radius: 5px;
+select{
+    width: 45%;
+    height: 25px;
+    margin-left: -2%;
+    vertical-align: middle;;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+button{
+    width: 80px;
+    height: 28px;
+    margin-left:40%;
+    margin-top: 8%;
 }

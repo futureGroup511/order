@@ -104,16 +104,9 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	}
 
 	@Override
-	public PageCut<Menu> getPageCut(int curr, int pageSize, String ask, String inquiry) {
+	public PageCut<Menu> getPageCut(int curr, int pageSize) {
 		String hql = "select count(*) from Menu";
 		String selectHql =  "from Menu";
-		if(ask!=null&&ask.equals("name")){
-			hql = "select count(*) from Menu m where m.name= '"+inquiry+"'";
-			selectHql = "from Menu where name = '"+inquiry+"'";
-		} else if(ask!=null&&ask.equals("type")) {
-			hql = "select count(*) from Menu m where m.typeName= '"+inquiry+"'";
-			selectHql = "from Menu where typeName = '"+inquiry+"'";
-		}
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Menu> pc = new PageCut<Menu>(curr, pageSize, count);
 		pc.setData(this.getEntityLimitList(selectHql, (curr - 1) * pageSize, pageSize));
@@ -179,6 +172,23 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	public boolean updatemenu(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public PageCut<Menu> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
+		String hql = "select count(*) from Menu";
+		String selectHql;
+		if(ask.equals("price")){
+			int mark = Integer.parseInt(inquiry);
+			 selectHql =  "from Menu where "+ask+"='"+mark+"'";
+		}else{
+			 selectHql =  "from Menu where "+ask+"='"+inquiry+"'";
+		}
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Menu> pc = new PageCut<Menu>(curr, pageSize, count);
+		pc.setData(this.getEntityLimitList(selectHql, (curr - 1) * pageSize, pageSize));
+		System.out.println(pc);
+		return pc;
 	}
 
 }

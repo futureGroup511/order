@@ -21,6 +21,8 @@ public class Restaurant {
 	private String address;
 	@Column(length=255)
 	private String introduce;
+	@Column(length=255)
+	private String imgUrl;
 	public int getId() {
 		return id;
 	}
@@ -51,10 +53,17 @@ public class Restaurant {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
+	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 	@Override
 	public String toString() {
 		return "Restaurant [id=" + id + ", name=" + name + ", phone=" + phone + ", address=" + address + ", introduce="
-				+ introduce + "]";
+				+ introduce + ", imgUrl=" + imgUrl + "]";
 	}
 	
 }

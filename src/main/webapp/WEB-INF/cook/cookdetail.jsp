@@ -62,6 +62,7 @@
         }
 </style>
 </head>
+
 <body>
   <div class="aa"> 
    <div id="a1"> <a href="">个人中心&nbsp;></a><a href="">查看个人资料&nbsp;></a></div>
@@ -90,16 +91,7 @@
 		</tr>
         </tbody>
     </table>
-        <div class="pag">
-         <ul class="pagination">
-                   <li><a href="">&laquo;</a></li>
-                   <li class="active"><a href="">1</a></li>
-                   <li><a href="">2</a></li>
-                   <li><a href="">3</a></li>
-                   <li><a href="">4</a></li>
-                   <li><a href="">&raquo;</a></li>
-               </ul>
-    </div>
+        
     <div class="footer">
       <a href="">技术支持:河南艾未特网络有限公司</a> 
     </div>  

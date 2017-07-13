@@ -31,15 +31,20 @@ window.onload=function(){
 <body  style="background: url(${rootPath}/images/m-91.jpg);"  >
 
 ${deleteUserMsg}
-	<form name="inquiry" method="post" id="inquiry">
+	<form action="${rootPath}manage/UserManager_Inquiry" method="post">
+	<select name="ask">
+		<option value="phone">账号</option>
+		<option value="name">名称</option>
+		<option value="sort">身份</option>
+	</select>
 		<input type="text" name="inquiry">
-		<button class="btnForm" onclick="inquiryByName()">账号查询</button>	
+		<button class="btnForm">账号查询</button>	
 	</form>
-<div class="select">
-	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=manager';">所有管理员</button>
-	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=cook';">所有厨师</button>
-	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=all';">所有员工</button>
-</div>
+<!-- <div class="select"> -->
+<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=manager';">所有管理员</button> --%>
+<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=cook';">所有厨师</button> --%>
+<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=all';">所有员工</button> --%>
+<!-- </div> -->
 <div class="mangeruser" >
 <div class="mangeruser" id="div1">
      <table cellspacing="0">

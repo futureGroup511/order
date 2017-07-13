@@ -134,5 +134,19 @@ public class BaseDao<T> {
 		query.setMaxResults(max);
 		return query.list();
 	}
+	/**
+	 * @param hql,可为null或者"",此时会返回总数量
+	 * @param objects
+	 * @return
+	 * 注意，此方法可能出现问题，若有问题，联系宋民举哈哈
+	 */
+	protected final int getEntityNum(String hql,Object ...objects) {
+		if(hql == null || "".equals(hql)){
+			hql = "select count(*) from " +this.clazz.getClass().toString();
+			return ((Long) this.uniqueResult(hql)).intValue();
+		}
+		return ((Long) this.uniqueResult(hql,objects)).intValue();
+	}
+
 	
 }

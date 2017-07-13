@@ -26,6 +26,18 @@ window.onload=function(){
 		<center>${managerMsg}</center>
 <div class="wall">
         <table border="1" style="border-color:#C6C6C6;background-color: white;">
+	
+			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
+				<select name="pass">
+					<option value="name">按名称查询</option>
+					<option value="status">按状态查询</option>
+				</select>
+				<input type="text" name="replace">
+				<button type="submit">查询</button>
+			</form>
+		</table>
+	<div id="div1">
+     <table cellspacing="0" border="1" align="center">
          <thead>
          <tr>
             <th style="width: 90px;">餐桌名称</th>
@@ -51,22 +63,24 @@ window.onload=function(){
 		</c:forEach>
      </table>       
     </div>
- <div class="page">
-       <ul class="pagination">
-        <li><a href="${rootPath }manage/TableManager?page=${allTables.prePage}">上一页</a></li>
-        <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
-					end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
-					<c:choose>
-						<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
-							<li class="active"><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
-						</c:when>
-						<c:when test="${i>0 && i != allTables.currentPage &&i<=3}">
-							<li><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
-						</c:when>
-					</c:choose>
-				</c:forEach>
-        <li><a href="${rootPath }manage/TableManager?page=${allTables.nextPage}">下一页</a></li>
-      </ul>
- </div>
+  
+	 <div class="page">
+	       <ul class="pagination">
+	        <li><a href="${rootPath }manage/TableManager?page=${allTables.prePage}">上一页</a></li>
+	        <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
+						end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
+						<c:choose>
+							<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
+								<li class="active"><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
+							</c:when>
+							<c:when test="${i>0 && i != allTables.currentPage &&i<=3}">
+								<li><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+	        <li><a href="${rootPath }manage/TableManager?page=${allTables.nextPage}">下一页</a></li>
+	      </ul>
+	 </div>
+</div>
 </body>
 </html>

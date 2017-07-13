@@ -12,6 +12,7 @@ public class IngredientManagerAction extends BaseAction {
 	private Ingredient ingredient;
 	private int page = 1;
 	private String inquiry;
+	private String ask;
 
 	public String execute() {
 		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
@@ -36,22 +37,14 @@ public class IngredientManagerAction extends BaseAction {
 	}
 
 	// 查找配料,按名字
-	public String inquiry() {
-		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
-		List<Ingredient> list = pCut.getData();
-		for (int i = 0; i < list.size(); i++) {
-			if (!list.get(i).getName().equals(inquiry)) {
-				list.remove(i);
-				i--;
-			}
-		}
-		pCut.setData(list);
+	public String Inquiry() {
+		PageCut<Ingredient> pCut = ingerdientService.getSomePageCut(page, 6,ask,inquiry);
 		request.put("allIngredient", pCut);
 		if (pCut.getData().size() == 0) {
-			String mark = "没有该配料，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark = "没有配料了，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteIngredientMsg", mark);
 		}
-		return "inquiry";
+		return SUCCESS;
 	}
 
 	// 查询被修改配料信息，到达修改界面
@@ -110,6 +103,14 @@ public class IngredientManagerAction extends BaseAction {
 
 	public void setInquiry(String inquiry) {
 		this.inquiry = inquiry;
+	}
+
+	public String getAsk() {
+		return ask;
+	}
+
+	public void setAsk(String ask) {
+		this.ask = ask;
 	}
 
 }

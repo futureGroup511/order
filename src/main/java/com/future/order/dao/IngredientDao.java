@@ -49,12 +49,10 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	@Override
 	public boolean updeteNum(int id, int num) {
 		Ingredient ingredient = this.getEntity(id);
-		System.out.println(ingredient.getNum());
 		boolean boo = false;						//如果配料为，就不能减，只能加
 		if(ingredient.getNum()>0){
 			ingredient.setNum(ingredient.getNum()-num);
 			boo = true;
-			System.out.println(ingredient.getNum());
 		}
 		return boo;
 		
@@ -85,5 +83,19 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	@Override
 	public List<Ingredient> getnews() {
 		return selectAll();
+	}
+
+	@Override
+	public PageCut<Ingredient> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
+		String hql = "select count(*) from Ingredient";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Ingredient> pc = new PageCut<Ingredient>(curr,pageSize,count);
+		if(ask.equals("price")||ask.equals("num")){
+			int mark=Integer.parseInt(inquiry);
+			pc.setData(this.getEntityLimitList("from Ingredient where "+ask+"='"+mark+"'", (curr-1)*pageSize, pageSize));	
+		}else{
+			pc.setData(this.getEntityLimitList("from Ingredient where "+ask+"='"+inquiry+"'", (curr-1)*pageSize, pageSize));
+		}
+		return pc;
 	}
 }

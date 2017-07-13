@@ -6,8 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addstockdetails.css">
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
+
+<div class="wall">
 	<form action="${rootPath}manage/StockDetailsAction_AddDetails" method="post">
      <h4>${addMsg}</h4>
      <lable>配料名称:</lable>
@@ -21,6 +24,7 @@
       <div class="button">
         <input type="submit" value="提交">          
       </div>
-    </form>   
+    </form>
+</div>
 </body>
 </html>

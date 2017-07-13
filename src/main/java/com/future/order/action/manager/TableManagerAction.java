@@ -27,6 +27,8 @@ public class TableManagerAction extends BaseAction {
 	private int page=1;
 	private String name;
 	private int id;
+	private String pass;
+	private String replace;
 	@Override
 	public String execute() throws Exception {
 		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
@@ -117,6 +119,16 @@ public class TableManagerAction extends BaseAction {
 			request.put("managerMsg", mark);
 			return "QR_card";
 	 }
+	public String Inquiry(){
+		PageCut<Tables> pCut=tablesService.getSomePageCut(page,3,pass,replace);
+		request.put("allTables", pCut);
+		if(pCut.getData().size()==0){
+			String mark="还没有你搜索的餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("managerMsg", mark);
+		}
+		return SUCCESS;
+		
+	}
 	public Tables getTable() {
 		return table;
 	}
@@ -147,6 +159,22 @@ public class TableManagerAction extends BaseAction {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getReplace() {
+		return replace;
+	}
+
+	public void setReplace(String replace) {
+		this.replace = replace;
 	}
 	
 }
