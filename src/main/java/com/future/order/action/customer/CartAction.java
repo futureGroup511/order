@@ -130,37 +130,36 @@ public class CartAction extends BaseAction {
 	}
 
 	// 菜品数量的增加
-	public String add() throws Exception {
+	public void add() throws Exception {
 		ShopCart shopCart = shopCartService.getOne(id);
 		shopCart.setMenuNum(shopCart.getMenuNum() + 1);
-		Boolean bool = shopCartService.update(shopCart);
-		List<ShopCart> shopCarts = shopCartService.getByAll();
+		Boolean bool=shopCartService.update(shopCart);
+		
+		int tableId=(Integer)session.get("userId");
+		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		double total = 0.0;
 		for (ShopCart item : shopCarts) {
 			total += item.getMenuNum() * item.getPrice();
 		}
+		this.getResponse().getWriter().println(total);
+		System.out.println("id"+id+bool);
 		System.out.println(total);
-		request.put("total", total);
-		request.put("shopCarts", shopCarts);
-		return "add";
+		
+		
 	}
 
 	// 菜品数量的减少
-	public String reduce() throws Exception {
-		ShopCart shopCart = shopCartService.getOne(id);
-		if (shopCart.getMenuNum() >= 1) {
-			shopCart.setMenuNum(shopCart.getMenuNum() - 1 );
-		}
-		Boolean bool = shopCartService.update(shopCart);
-		List<ShopCart> shopCarts = shopCartService.getByAll();
+	public void reduce() throws Exception {
+		ShopCart shopCart = shopCartService.getOne(id);		
+		shopCart.setMenuNum(shopCart.getMenuNum() - 1 );		
+		shopCartService.update(shopCart);
+		int tableId=(Integer)session.get("userId");
+		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		double total = 0.0;
 		for (ShopCart item : shopCarts) {
 			total += item.getMenuNum() * item.getPrice();
 		}
-		System.out.println(total);
-		request.put("total", total);
-		request.put("shopCarts", shopCarts);
-		return "reduce";
+		this.getResponse().getWriter().println(total);
 	}
 
 	// 催单

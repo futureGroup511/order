@@ -64,7 +64,6 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	protected ITablesService tablesService;
 	@Resource
 	protected IUserService userService;
-		
 	protected HttpServletResponse getResponse(){
 		return ServletActionContext.getResponse();
 	}
