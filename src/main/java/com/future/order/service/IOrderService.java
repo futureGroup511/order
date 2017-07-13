@@ -33,4 +33,5 @@ public interface IOrderService {
 	public List<Order> finish();
 	public PageCut<Order> getPagee(int currentPage, int pageSize);
 	public PageCut<Order> getPageee(int currentPage, int pageSize);
+	public List<Order> getOrder(int tableId);
 }

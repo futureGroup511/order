@@ -6,11 +6,19 @@
  */  
 package com.future.order.dao;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Ingredient;
+import com.future.order.entity.OrderDetails;
+import com.future.order.entity.ShopCart;
 import com.future.order.service.IIngerdientService;
 import com.future.order.util.PageCut;
+import com.opensymphony.xwork2.ActionContext;
 
 
 @Service
@@ -38,6 +46,20 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 		boolean boo = this.updateEntity(ingredient);
 		return boo;
 	}
+	@Override
+	public boolean updeteNum(int id, int num) {
+		Ingredient ingredient = this.getEntity(id);
+		System.out.println(ingredient.getNum());
+		boolean boo = false;						//如果配料为，就不能减，只能加
+		if(ingredient.getNum()>0){
+			ingredient.setNum(ingredient.getNum()-num);
+			boo = true;
+			System.out.println(ingredient.getNum());
+		}
+		return boo;
+		
+	}
+	
 
 	@Override
 	public boolean deleteIngredient(Ingredient ingredient) {

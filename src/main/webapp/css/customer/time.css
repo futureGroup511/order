@@ -1,0 +1,12 @@
+.panel{
+	height:100px;
+}
+.panel-title{
+	height:30px;
+	padding: 0px 20px;
+}
+.panel-body{
+    height:30px;
+    padding: 0px 40px;
+    line-height: 40px; 
+}
