@@ -58,7 +58,7 @@
         <p class="left" calss="jiaqian"><b><s:property value="#request.total"/></b></p>
       </div>
       <div class="right">
-      <a href="${rootPath}customer/cart_getHand">
+      <a href="${rootPath}customer/cart_getOrder">
          <input type="button" name="" value="提交订单" class="right">
       </a>
       </div>

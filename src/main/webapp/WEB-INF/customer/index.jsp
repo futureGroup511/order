@@ -20,10 +20,10 @@
      </div>
      <div class="information">
          <div>
-         店铺地址：河南新乡-红旗区-洪门镇
+       		地址: ${r.address}
          </div>
      	<div>
-     	联系电话：123-456789456
+     	    电话: ${r.phone}
      	</div>
      </div>
    </div>
@@ -99,7 +99,7 @@
        </div>
      <!-- 底部固定的菜单 -->
    <footer>
-       <a href="${rootPath}customer/customer_toIndex?id=${userId}">
+     <a href="${rootPath}customer/customer_toIndex?id=${userId}">
       <div class="left">
       	<div><img src="../images/sy1.png" style="width:100%; height:100%; "></div>
       	<p>首页</p>

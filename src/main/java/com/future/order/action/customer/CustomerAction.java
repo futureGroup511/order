@@ -4,6 +4,7 @@ import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
+import com.future.order.entity.Restaurant;
 import com.future.order.entity.ShopCart;
 import com.future.order.entity.StockDetails;
 /**
@@ -24,11 +25,16 @@ public class CustomerAction extends BaseAction {
 	//进入首页
 	public String toIndex() throws Exception{
 		
+		
 		//把顾客桌号存在session
 		session.put("userId", id);
 		System.out.println("桌号:"+id);
 		//获得推荐的菜品
 		List<Menu> menus=menuService.getRecommend(8);
+		//首页酒店的信息
+		Restaurant r= restaurantService.getOne();
+		session.put("r",r);
+		System.out.println(r+"88");
 		System.out.println(menus);
 		session.put("menus", menus);
 		System.out.println("123");
