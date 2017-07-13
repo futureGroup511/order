@@ -110,7 +110,7 @@
 			</p>
 		</div>
 		<div class="right">
-			<a href="${rootPath}customer/cart_getHand"> <input type="button"
+			<a href="${rootPath}customer/cart_getOrder"> <input type="button"
 				name="" value="提交订单" class="right">
 			</a>
 		</div>
@@ -119,25 +119,6 @@
    <c:if test="${empty shopCarts }">
 	<h1>你还没有点餐</h1>
 	</c:if>
-<<<<<<< HEAD
-   <div class="end">
-      <div class="left">
-        <p class="left" class="zongjia"><b>总价：</b></p>
-        <p class="left" calss="jiaqian"><b><s:property value="#request.total"/></b></p>
-      </div>
-      <div class="right">
-      <a href="${rootPath}customer/cart_getOrder">
-         <input type="button" name="" value="提交订单" class="right">
-      </a>
-      </div>
-
-   </div>
-=======
-   
->>>>>>> a4aacc3cd1aa26e317f0c892356d0b638f492b84
-
-
-
   <!--  留白处 -->
    <div class="liubai">
    </div>
@@ -166,46 +147,3 @@
 <script type="text/javascript">
 </script>
 </html>
-<%-- <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>购物车</title>
-</head>
-<body>
-<c:if test="${!empty shopCarts }">
-<table width="100%">
-	<tr>		
-		<th>餐桌名称</th>		
-		<th>菜品名称</th>
-		<th>数量</th>
-		<th>单价</th>		
-		<th>管理</th>
-		<th>数量的增减</th>
-	</tr>
-	<c:forEach items="${shopCarts}" var="s">
-		<tr>			
-			<td>${s.tableName}</td>		
-			<td>${s.menuName}</td>
-			<td>${s.menuNum}</td>
-			<td>${s.price}</td>
-			<td>${s.remark}</td>
-			<td>
-				<a href="${rootPath}customer/cart_deleteCart?id=${s.id}">删除</a>
-			</td>
-			<td><a href="${rootPath}customer/cart_add?id=${s.id}">+1</a></td>
-			<td><a href="${rootPath}customer/cart_reduce?id=${s.id}">-1</a></td>
-			
-		</tr>
-	</c:forEach>
-</table>
-</c:if>
-<c:if test="${empty shopCarts }">
-	<h1>你还没有点餐</h1>
-</c:if>
-<h3>${addMeg}</h3>
-<a href="${rootPath}customer/customer_toIndex?id=${userId}">首页</a>
-<a href="${rootPath}customer/getCart">购物车</a>
-<a href="${rootPath}customer/cart_getOrder">提交</a>
-<a href="${rootPath}customer/cart_getOrderDetails">我的订单</a>
-<s:property value="#request.total"/>
-</body>
-</html> --%>
