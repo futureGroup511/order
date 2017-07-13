@@ -59,4 +59,9 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 		String hql="from Ingredient m where m.menuId="+menuId;		
 		return this.getEntityList(hql);
 	}
+
+	@Override
+	public List<Ingredient> getnews() {
+		return selectAll();
+	}
 }

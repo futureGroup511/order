@@ -20,6 +20,7 @@ import com.future.order.service.IMenuService;
 import com.future.order.service.IMenuTypeService;
 import com.future.order.service.IOrderDetailsService;
 import com.future.order.service.IOrderService;
+import com.future.order.service.IRestaurantService;
 import com.future.order.service.IShopCartService;
 import com.future.order.service.IStockDetailsService;
 import com.future.order.service.IStockService;
@@ -61,6 +62,8 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	protected ITablesService tablesService;
 	@Resource
 	protected IUserService userService;
+	@Resource
+	protected IRestaurantService restaurantService;
 		
 	protected HttpServletResponse getResponse(){
 		return ServletActionContext.getResponse();

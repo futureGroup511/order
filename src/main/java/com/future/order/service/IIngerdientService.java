@@ -32,5 +32,7 @@ public interface IIngerdientService {
 	public PageCut<Ingredient> getPageCut(int curr,int pageSize);
 	
 	public List<Ingredient> getByMenuId(int menuId);
+	public List<Ingredient> getnews();
+	
 
 }
