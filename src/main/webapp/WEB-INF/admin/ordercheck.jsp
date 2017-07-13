@@ -27,15 +27,15 @@ function CheckNopay(){
 function CheckPay(){
 	window.location.href="${rootPath}manage/OrderAction?sign=there";
 	}
-function Check(){
-	window.location.href="${rootPath}manage/OrderAction?sign=one";
-	}
-function search(){
-	alter("lmkm");
-    var status = document.getElementById('status').value;
-	if(status=="已付款"){
-		alter("该用户已付款");
-	}
+// function Check(){
+// 	window.location.href="${rootPath}manage/OrderAction?sign=one";
+// 	}
+// function search(){
+// 	alter("lmkm");
+//     var status = document.getElementById('status').value;
+// 	if(status=="已付款"){
+// 		alter("该用户已付款");
+// 	}
 //     obj.href = obj.href + "&gjz="+key;
 
 }
@@ -55,12 +55,20 @@ function search(){
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 <h4>${marknews}</h4>
-</center> 
+</center>
 <div class="ordercheck" id="div1">
+<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
+	<select name="ask">
+		<option value="tableName">餐桌名称</option>
+		<option value="cookName">厨师名称</option>
+	</select>
+		<input type="text" name="inquiry">
+		<button class="btnForm">查询</button>	
+</form>
      <div class="button">
       <input type="button" onclick="return CheckNopay();" value="未付款">
       <input type="button" onclick="return CheckPay();" value="已付款">
-      <input type="button" onclick="return Check();" value="查看全部">      
+<!--       <input type="button" onclick="return Check();" value="查看全部">       -->
       </div>  
       <div class="order">
        <table cellspacing="0" border="1">
@@ -106,7 +114,7 @@ function search(){
  </div>
 <div class="page" id="div2">
 <ul class="pagination">
-  <li><a href="${rootPath}manage/OrderAction?page=${pc.prePage}&sign=${sign}">上一页</a></li>
+  <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.prePage}&sign=${sign}">上一页</a></li>
   						<c:if test="${1 < pc.currentPage -3}">
 							<li><a href="#">1</a></li>
 						</c:if>
@@ -116,15 +124,15 @@ function search(){
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage}"> 
  									<li class="active"><a 
- 										href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> 
+ 										href="${rootPath}manage/OrderAction_${adss }?page=${i }&sign=${sign}">${i}</a></li> 
  								</c:when> 
 
  								<c:when test="${i>0 && i != postPS.currentPage}"> 
- 									<li><a href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> 
+ 									<li><a href="${rootPath}manage/OrderAction_${adss}?page=${i }&sign=${sign}">${i}</a></li> 
  								</c:when> 
  							</c:choose> 
  						</c:forEach> 
-  <li><a href="${rootPath}manage/OrderAction?page=${pc.nextPage}&sign=${sign}">下一页</a></li>
+  <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.nextPage}&sign=${sign}">下一页</a></li>
 </ul>
  </div>   
 </body>

@@ -52,19 +52,19 @@ ${updateMsg}${deleteMenuMsg }
  </div>   
    <div class="page" id="div2">
     <ul class="pagination">
-      <li><a href="${rootPath }manage/MenuManager?page=${allMenu.prePage}">上一页</a></li>
+      <li><a href="${rootPath }manage/MenuManager_${adss}?page=${allMenu.prePage}">上一页</a></li>
      		<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
  					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }"> 
  					<c:choose> 
 						<c:when test="${i>0 && i == allMenu.currentPage}">
- 							<li class="active"><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
+ 							<li class="active"><a href="${rootPath }manage/MenuManager_${adss}?page=${i }">${i}</a></li> 
  						</c:when>
  						<c:when test="${i>0 && i != allMenu.currentPage}">
- 							<li><a href="${rootPath }manage/MenuManager?page=${i }">${i}</a></li> 
+ 							<li><a href="${rootPath }manage/MenuManager_${adss}?page=${i }">${i}</a></li> 
  						</c:when> 
 					</c:choose> 
  				</c:forEach> 
-      <li><a href="manage/MenuManager?page=${allMenu.nextPage}">下一页</a></li>
+      <li><a href="manage/MenuManager_${adss}?page=${allMenu.nextPage}">下一页</a></li>
     </ul>
    </div>
    </center>

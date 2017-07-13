@@ -37,6 +37,7 @@ public class TableManagerAction extends BaseAction {
 			String mark="还没有餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("managerMsg", mark);
 		}
+		request.put("adss", "execute");
 		return SUCCESS;
 	}
 	
@@ -120,12 +121,22 @@ public class TableManagerAction extends BaseAction {
 			return "QR_card";
 	 }
 	public String Inquiry(){
-		PageCut<Tables> pCut=tablesService.getSomePageCut(page,3,pass,replace);
+		PageCut<Tables> pCut=new PageCut<Tables>();
+		if(pass!=null){
+			pCut=tablesService.getSomePageCut(page,3,pass,replace);
+			}else{
+				pass=(String) session.get("pass");
+				replace=(String) session.get("replace");
+				pCut=tablesService.getSomePageCut(page,3,pass,replace);
+			}
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="还没有你搜索的餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("managerMsg", mark);
 		}
+		request.put("adss", "Inquiry");		
+		session.put("pass", pass);
+		session.put("replace", replace);
 		return SUCCESS;
 		
 	}

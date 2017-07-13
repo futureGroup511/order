@@ -29,7 +29,7 @@
                       <a href="${rootPath}manage/Change_addUser" target="mainFrame"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;&nbsp;增加用户</a>
                     </li>
                     <li>
-                      <a href="${rootPath}manage/UserManager?ask=all" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;管理用户</a>
+                      <a href="${rootPath}manage/UserManager" target="mainFrame"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;管理用户</a>
                     </li>
                   </ul>
                 

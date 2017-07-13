@@ -6,11 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.selectDiv{
-	
-}
-</style>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/mangeruser.css">
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript">
@@ -47,7 +42,6 @@ window.onload=function(){
 			<button style="border-radius:7px;background-color: #F0F0F0;font-size:15px; margin-left:60%;margin-top:0%; height:26px; width:25%;" class="btnForm">查询</button>	
 		</form>
 	</div>
-
 <div class="mangeruser" id="div1" style="margin-top:2%;">
      <table cellspacing="0">
          <thead>
@@ -76,21 +70,20 @@ window.onload=function(){
     </div>
  <div class="page" id="div2">
       <ul class="pagination">
-        <li><a href="${rootPath }manage/UserManager?page=${allUser.prePage}">上一页</a></li>
+        <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.prePage}">上一页</a></li>
         <c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"
 					end="${allUser.currentPage+3>allUser.pageNum?allUser.pageNum:allUser.currentPage+3  }">
 					<c:choose>
 						<c:when test="${i>0 && i == allUser.currentPage &&i<=3}">
-							<li class="active"><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+							<li class="active"><a href="${rootPath }manage/UserManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 						<c:when test="${i>0 && i != allUser.currentPage &&i<=3}">
-							<li><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/UserManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
-        <li><a href="${rootPath }manage/UserManager?page=${allUser.nextPage}">下一页</a></li>
+        <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.nextPage}">下一页</a></li>
       </ul>
- </div>
  </div>
 </body>
 </html>

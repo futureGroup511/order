@@ -63,24 +63,23 @@ window.onload=function(){
 		</c:forEach>
      </table>       
     </div>
-  
-	 <div class="page">
-	       <ul class="pagination">
-	        <li><a href="${rootPath }manage/TableManager?page=${allTables.prePage}">上一页</a></li>
-	        <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
-						end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
-						<c:choose>
-							<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
-								<li class="active"><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
-							</c:when>
-							<c:when test="${i>0 && i != allTables.currentPage &&i<=3}">
-								<li><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
-							</c:when>
-						</c:choose>
-					</c:forEach>
-	        <li><a href="${rootPath }manage/TableManager?page=${allTables.nextPage}">下一页</a></li>
-	      </ul>
-	 </div>
-</div>
+    </div>
+ <div class="page" id="div2">
+      <ul class="pagination">
+        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.prePage}">上一页</a></li>
+        <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
+					end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
+					<c:choose>
+						<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
+							<li class="active"><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
+						</c:when>
+						<c:when test="${i>0 && i != allTables.currentPage &&i<=3}">
+							<li><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.nextPage}">下一页</a></li>
+      </ul>
+ </div>
 </body>
 </html>

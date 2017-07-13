@@ -72,19 +72,19 @@ ${updateIngredientMsg}${deleteIngredientMsg}
     </div>
     <div class="page" id="div2">
     <ul class="pagination">
-      <li><a href="${rootPath}manage/Ingredient?page=${allIngredient.prePage}">上一页</a></li>
+      <li><a href="${rootPath}manage/Ingredient_${adss}?page=${allIngredient.prePage}">上一页</a></li>
 		 		<c:forEach var="i" begin="${allIngredient.currentPage-3>0?allIngredient.currentPage-3:1 }" 
  					end="${allIngredient.currentPage+3>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+3  }">
  					<c:choose>
  						<c:when test="${i>0 && i == allIngredient.currentPage &&i<=3}"> 
- 							<li class="active"><a href="${rootPath }manage/Ingredient?page=${i }">${i}</a></li> 
+ 							<li class="active"><a href="${rootPath }manage/Ingredient_${adss}?page=${i }">${i}</a></li> 
 						</c:when> 
  						<c:when test="${i>0 && i != allIngredient.currentPage &&i<=3}"> 
- 							<li><a href="${rootPath }manage/Ingredient?page=${i }">${i}</a></li> 
+ 							<li><a href="${rootPath }manage/Ingredient_${adss}?page=${i }">${i}</a></li> 
 						</c:when> 
  					</c:choose> 
  				</c:forEach>		
-      <li><a href="${rootPath }manage/Ingredient?page=${allIngredient.nextPage}">下一页</a></li>
+      <li><a href="${rootPath }manage/Ingredient_${adss}?page=${allIngredient.nextPage}">下一页</a></li>
     </ul>
 </div>
 </center>
