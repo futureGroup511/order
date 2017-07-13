@@ -47,14 +47,60 @@
             left:40%;
             top: 90%;
             }
+                 .search{
+             width:400px;
+             height:30px;
+             position:absolute;
+             top:55px;
+             left:72%;
+             display: inline-block;
+        }
+        
+        .input1{
+            float: left;
+            padding-left: 20px;
+            width:200px ;
+            height:30px ;
+            border:1px solid #cfcfcf;
+            border-radius: 4px;
+            font:400 16px/40px "微软雅黑";
+        }
+        #button1{
+            float: left;
+            border-color:white ;
+            width:70px;
+            height:30px;
+            background: #3c9df9;
+        }
+      #button1:hover{
+           background:#317ef3; 
+        }
 	html{
         background: url(../images/m-91.jpg);
     }
 </style>
 </head>
+<script language="javascript">
+window.onload=function(){
+	 var array = new Array();  
+	 <c:forEach items="${paCut.data}" var="t">  
+	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	 </c:forEach>
+	 var a = array.length;
+ if(a==0){
+	 document.getElementById('div1').style.display='none';
+	 document.getElementById('div2').style.display='none';
+ }
+}
+	</script>
 <body>
 <div class="aa">
- <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;未完成订单&nbsp;>></p>
+<div class="search">
+  <form action="${rootPath}cook/orderCenter_SearchDetails" method="post">
+    <input type="text" class="input1" name="input" placeholder="请输入" ">
+    <button class="btn btn-info"id="button1" >搜索</button>
+    </form>
+ </div >
     <table id="table1">
       <thead>
         <tr>

@@ -41,7 +41,33 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		list=this.getEntityList(hql1);
 		return list;
 	}
-	
+	@Override
+	public PageCut<OrderDetails> searchOrder( String input ,int pageSize, int currPage) {
+		StringBuilder sb = new StringBuilder("from OrderDetails as o where");
+		
+		
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" o.id like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.status like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.tableId like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.tableName like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.menuName like '%%%s%%'", input));
+		}
+		int count = this.getEntityNum("select count(*) " + sb.toString());
+		PageCut<OrderDetails> pc = new PageCut<>(currPage, pageSize, count);
+		if (count > 0) {
+			pc.setData(this.getEntityLimitList(sb.toString(), pageSize * (currPage - 1), pageSize));
+		}
+		return pc;
+	}
 	@Override
 	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize) {
 		String status="未完成";

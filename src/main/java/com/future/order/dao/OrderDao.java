@@ -13,6 +13,8 @@ import com.future.order.base.BaseDao;
 import com.future.order.entity.Order;
 import com.future.order.service.IOrderService;
 import com.future.order.util.PageCut;
+
+
 @Service
 public class OrderDao extends BaseDao<Order> implements IOrderService {
 
@@ -80,10 +82,8 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	public List<Order> finish(){
 		List<Order> list = new ArrayList<Order>();
 		 String status="已付款";
-		String hql="from Order o where o.status='"+status+"'";
-		String hql1="from Order as a order by a.createDate asc ";
+		String hql="from Order o where o.status='"+status+"' order by o.createDate asc";
 		list=this.getEntityList(hql);
-		list=this.getEntityList(hql1);
 		return list;
 	}
 	@Override
@@ -94,8 +94,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		hql = "select count(*) from Order o where o.status='"+status+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order as o order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
-		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status+"' order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	@Override
@@ -105,11 +104,10 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		String status3="处理中";
 		String hql ;
 		int count=0;
-		hql = "select count(*) from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"'";
+		hql = "select count(*) from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"' order by o.createDate asc";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order as o order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
-		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"' order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	
@@ -141,10 +139,11 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	public PageCut<Order> getPageCut(int currentPage, int pageSize) {
 		String hql ;
 		int count=0;
+		String status="未处理";
 		hql = "select count(*) from Order";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order as o order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order as o order by o.status desc", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 
@@ -171,6 +170,37 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
+	@Override
+	public PageCut<Order> searchOrder( String input ,int pageSize, int currPage) {
+		StringBuilder sb = new StringBuilder("from Order as o where");
+		System.out.println(input);
+		if(input.equals(null)) {
+			return null;
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" o.id like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.status like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.tableId like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.tableName like '%%%s%%'", input));
+		}
+		if (input != null && input.length() > 0) {
+			sb.append(String.format(" or o.cookName like '%%%s%%'", input));
+		}
+		int count = this.getEntityNum("select count(*) " + sb.toString());
+		PageCut<Order> pc = new PageCut<>(currPage, pageSize, count);
+		if (count > 0) {
+			pc.setData(this.getEntityLimitList(sb.toString(), pageSize * (currPage - 1), pageSize));
+		}
+		return pc;
+	}
+
+	
 	@Override
 	public Order get(int tableId) {
 		String hql="from Order s where s.tableId="+tableId;
@@ -217,5 +247,6 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		String hql="from Order s where s.tableId="+tableId;
 		return this.getEntityList(hql);
 	}
+	
 
 }

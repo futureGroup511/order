@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>I订餐管理系统-登陆</title>
 <script type="text/javascript">
  		function reloadCode(){
  			var time=new Date().getTime();
