@@ -37,22 +37,13 @@ input{
 }
 .input1{
     color: white;
-    width: 8%;
+    width: 28%;
 	height:25px;
     background: #1bafe0;
     margin-left: 31%;
     margin-top: 3%;
     box-shadow: 2px 1px 1px rgba(50,154,242)
 }
-.input2{
-    color: white;
-    width: 8%;
-	height:25px;
-    background: #1bafe0;
-    margin-left:5%;
-    margin-top: 3%;
-    box-shadow: 2px 1px 1px rgba(50,154,242)	
-	}
 #a{
   float:left;
   margin-top:3%;
