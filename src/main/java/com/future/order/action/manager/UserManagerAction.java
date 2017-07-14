@@ -28,6 +28,7 @@ public class UserManagerAction extends BaseAction {
 			String mark="没有其他用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteUserMsg", mark);
 		}
+		request.put("adss", "execute");
 		return SUCCESS;
 	}
 	
@@ -64,7 +65,7 @@ public class UserManagerAction extends BaseAction {
 		if(userId==2){		//当执行修改个人信息时在个人资料界面时
 			result = "toUpdateMyself";
 		} else {
-			PageCut<User> pCut=userService.getPageCut(page,3);
+			PageCut<User> pCut=userService.getPageCut(page,6);
 			request.put("allUser", pCut);
 		}
 		return result;
@@ -82,17 +83,27 @@ public class UserManagerAction extends BaseAction {
 				request.put("deleteUserMsg", "删除失败");
 			}
 		}
-		PageCut<User> pCut=userService.getPageCut(page,3);
+		PageCut<User> pCut=userService.getPageCut(page,6);
 		request.put("allUser", pCut);
 		return "deleteUser";
 	}
 	public String Inquiry(){
-		PageCut<User> pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		PageCut<User> pCut=new PageCut();
+		if(ask!=null){
+		 pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		}else{
+			ask=(String) session.get("ask");
+			inquiry=(String) session.get("inquiry");
+			pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		}
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有你查询的用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteUserMsg", mark);
 		}
+		request.put("adss", "Inquiry");
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
 		return SUCCESS;
 	}
 	public User getUser() {

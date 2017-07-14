@@ -21,24 +21,26 @@ public class OrderAction extends BaseAction {
 	private int id;
 	private Order orders;
 	private String sign="one";
-
+	private String ask;
+	private String inquiry;
 	public String execute() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		if(sign.equals("one")){
 			//获得全部订单信息
-			pCut=orderService.getPageCut(page,1);
+			pCut=orderService.getPageCut(page,6);
 		}
 		else if(sign.equals("two")){
 			//获得全部没有结账的订单信息
-			 pCut=orderService.getNoPageCut(page,1);
+			 pCut=orderService.getNoPageCut(page,6);
 		}
 		else if(sign.equals("there")){
-			pCut=orderService.getPage(page,1);
+			pCut=orderService.getPage(page,6);
 		}
 		if(pCut.getData().size()==0){
 			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("marknews", mark);
 		}
+		request.put("adss", "execute");
 		request.put("sign", sign);
 		request.put("pc", pCut);
 		return "check";
@@ -86,6 +88,26 @@ public class OrderAction extends BaseAction {
 		request.put("marknews", mark);
 		return this.execute();
 	}
+	public String Inquiry(){
+		PageCut<Order> pCut = new PageCut<Order>();
+		if(ask!=null){
+			pCut=orderService.getSomePageCut(page,6,ask,inquiry);
+			}else{
+				ask=(String) session.get("ask");
+				inquiry=(String) session.get("inquiry");
+				pCut=orderService.getSomePageCut(page,6,ask,inquiry);
+			}
+			//获得全部订单信息
+		if(pCut.getData().size()==0){
+			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			request.put("marknews", mark);
+		}
+		request.put("pc", pCut);
+		request.put("adss", "Inquiry");		
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
+		return "check";
+	}
 	
 	public int getId() {
 		return id;
@@ -118,5 +140,17 @@ public class OrderAction extends BaseAction {
 	public void setSign(String sign) {
 		this.sign = sign;
 	}
-
+	public String getAsk() {
+		return ask;
+	}
+	public void setAsk(String ask) {
+		this.ask = ask;
+	}
+	public String getInquiry() {
+		return inquiry;
+	}
+	public void setInquiry(String inquiry) {
+		this.inquiry = inquiry;
+	}
+	
 }

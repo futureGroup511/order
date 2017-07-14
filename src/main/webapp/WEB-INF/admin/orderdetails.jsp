@@ -22,7 +22,7 @@
 	}
 	</script>
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center><h4>${markinfo}</h4></center>
 <div class="orderdetailes" id="div1">
        <table  cellspacing="0">
@@ -33,7 +33,7 @@
          </thead>
          <tbody>
           <tr>
-             <td>餐桌id</td>
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>订单id</td>
              <td>菜品id</td>

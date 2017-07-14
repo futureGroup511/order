@@ -27,24 +27,21 @@ function CheckNopay(){
 function CheckPay(){
 	window.location.href="${rootPath}manage/OrderAction?sign=there";
 	}
-function Check(){
-	window.location.href="${rootPath}manage/OrderAction?sign=one";
-	}
-function search(){
-	alter("lmkm");
-    var status = document.getElementById('status').value;
-	if(status=="已付款"){
-		alter("该用户已付款");
-	}
+// function Check(){
+// 	window.location.href="${rootPath}manage/OrderAction?sign=one";
+// 	}
+// function search(){
+// 	alter("lmkm");
+//     var status = document.getElementById('status').value;
+// 	if(status=="已付款"){
+// 		alter("该用户已付款");
+// 	}
 //     obj.href = obj.href + "&gjz="+key;
-
-}
 	</script>
  <script type="text/javascript">
 	function print(id) {
 		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", " top=50, left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"); //写成一行
 	}
-</script>
 </script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -52,15 +49,23 @@ function search(){
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/ordercheck.css">
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 <h4>${marknews}</h4>
-</center> 
+</center>
 <div class="ordercheck" id="div1">
+<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
+	<select name="ask">
+		<option value="tableName">餐桌名称</option>
+		<option value="cookName">厨师名称</option>
+	</select>
+		<input type="text" name="inquiry">
+		<button class="btnForm">查询</button>	
+</form>
      <div class="button">
       <input type="button" onclick="return CheckNopay();" value="未付款">
       <input type="button" onclick="return CheckPay();" value="已付款">
-      <input type="button" onclick="return Check();" value="查看全部">      
+<!--       <input type="button" onclick="return Check();" value="查看全部">       -->
       </div>  
       <div class="order">
        <table cellspacing="0" border="1">
@@ -71,7 +76,7 @@ function search(){
          </thead>
          <tbody>
           <tr>
-             <td>id</td>
+             <td>编号</td>
              <td>餐桌id</td>
              <td>餐桌名称</td>
              <td>总价</td>
@@ -96,8 +101,8 @@ function search(){
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
 	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails()?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Pay()?id=${item.id}"  onclick="javascript:search();">付款</a></td>      
-	                <td  class="four"><a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
-	            	<td><input type="button" onclick="print(${item.id})" value="打印"></td>
+	                <td  class="four"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
+	            	<td><input style="background-color: #B1D3EC;width:40px;border-radius: 5px;" type="button" onclick="print(${item.id})" value="打印"></td>
 	            </tr>  
         	</c:forEach>                         
          </tbody>
@@ -106,7 +111,7 @@ function search(){
  </div>
 <div class="page" id="div2">
 <ul class="pagination">
-  <li><a href="${rootPath}manage/OrderAction?page=${pc.prePage}&sign=${sign}">上一页</a></li>
+  <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.prePage}&sign=${sign}">上一页</a></li>
   						<c:if test="${1 < pc.currentPage -3}">
 							<li><a href="#">1</a></li>
 						</c:if>
@@ -116,15 +121,15 @@ function search(){
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage}"> 
  									<li class="active"><a 
- 										href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> 
+ 										href="${rootPath}manage/OrderAction_${adss }?page=${i }&sign=${sign}">${i}</a></li> 
  								</c:when> 
 
  								<c:when test="${i>0 && i != postPS.currentPage}"> 
- 									<li><a href="${rootPath}manage/OrderAction?page=${i }&sign=${sign}">${i}</a></li> 
+ 									<li><a href="${rootPath}manage/OrderAction_${adss}?page=${i }&sign=${sign}">${i}</a></li> 
  								</c:when> 
  							</c:choose> 
  						</c:forEach> 
-  <li><a href="${rootPath}manage/OrderAction?page=${pc.nextPage}&sign=${sign}">下一页</a></li>
+  <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.nextPage}&sign=${sign}">下一页</a></li>
 </ul>
  </div>   
 </body>

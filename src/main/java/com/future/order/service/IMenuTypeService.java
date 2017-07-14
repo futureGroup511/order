@@ -25,4 +25,6 @@ public interface IMenuTypeService {
 	public boolean UpdateType(MenuType menutype);
 
 	public boolean DeletType(int id);
+
+	public PageCut<MenuType> getSomePageCut(int currentPage, int pageSize, String inquiry);
 }

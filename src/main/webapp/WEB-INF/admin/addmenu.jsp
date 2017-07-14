@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenu.css">
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
  <div class="addmenu">
  <h4>${addMsg}</h4>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">

@@ -7,6 +7,7 @@ import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
 
+@SuppressWarnings("serial")
 public class MenuMaterialAction extends BaseAction {
 	
 	private MenuMaterial menuMaterial;

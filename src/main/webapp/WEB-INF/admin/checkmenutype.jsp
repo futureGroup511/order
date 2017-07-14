@@ -11,10 +11,18 @@
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
 <body>
-<center>${marknews}</center>
+<center>
+${marknews}<br>
+<form action="${rootPath}manage/MenuTypeAction_Inquiry" method="post">
+		<input type="text" name="inquiry">
+		<button class="btnForm">名称查询</button>	
+	</form>
 
+</center>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
+<center>${marknews}</center>
 <div class="wall">
-       <table border="1">
+       <table border="1" style="border-color:#C6C6C6;background-color: white;">
 			<tr>
 				<th>编号</th>
 				<th>类型</th>
@@ -36,7 +44,7 @@
    </div>
    <div class="page">
         <ul class="pagination">
-          <li><a href="${rootPath}manage/MenuTypeAction?page=${pc.prePage}">上一页</a></li>
+          <li><a href="${rootPath}manage/MenuTypeAction_${adss}?page=${pc.prePage}">上一页</a></li>
   						<c:if test="${1 < pc.currentPage -3}">
 							<li><a href="#">1</a></li>
 						</c:if>
@@ -46,15 +54,15 @@
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage &&i<=3}"> 
  									<li class="active"><a 
- 										href="${rootPath}manage/MenuTypeAction?page=${i }">${i}</a></li> 
+ 										href="${rootPath}manage/MenuTypeAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
 
  								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
- 									<li><a href="${rootPath}manage/MenuTypeAction?page=${i }">${i}</a></li> 
+ 									<li><a href="${rootPath}manage/MenuTypeAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose> 
  						</c:forEach> 
-  		<li><a href="${rootPath}manage/MenuTypeAction?page=${pc.nextPage}">下一页</a></li>
+  		<li><a href="${rootPath}manage/MenuTypeAction_${adss}?page=${pc.nextPage}">下一页</a></li>
        </ul>
    </div>   
   
