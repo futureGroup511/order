@@ -37,9 +37,9 @@ public interface IOrderDetailsService {
 	public boolean updateOrerDetails(int id);
 	public List<OrderDetails> getDetailsOne(int orderId);
 	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
-	public List Check(int detailid);
 	public List<OrderDetails> SeeByid(int id);
-	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);}
+	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);}
 //=======
 //import java.util.List;
 //

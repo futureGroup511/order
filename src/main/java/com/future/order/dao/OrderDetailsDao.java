@@ -153,16 +153,14 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		return orderdetails;
 	}
 	@Override
-	public List Check(int tableId) { 
-		@SuppressWarnings("unused")
-		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		try{
-			String hql="from OrderDetails o where o.tableId='"+tableId+"'";
-			list=(List) this.getEntityList(hql);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return  list;
+		public PageCut<OrderDetails> Check(int tableId,int currentPage, int pageSize) {
+			String hql ;
+			int count=0;
+			hql = "select count(*) from OrderDetails o where o.tableId='"+tableId+"'";
+			count = ((Long) this.uniqueResult(hql)).intValue();
+			PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
+			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.tableId='"+tableId+"'", (currentPage-1)*pageSize, pageSize));
+			return pc;
 	}
 	
 	
@@ -241,7 +239,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(list);
 		return list;
 	}
 }

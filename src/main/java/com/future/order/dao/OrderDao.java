@@ -25,11 +25,9 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		try{
 			String hql="from Order as a order by a.createDate asc";
 			list=this.getEntityList(hql);
-			System.out.println(list);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(list);   
 		return list;
 
 	}
@@ -173,7 +171,6 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	@Override
 	public PageCut<Order> searchOrder( String input ,int pageSize, int currPage) {
 		StringBuilder sb = new StringBuilder("from Order as o where");
-		System.out.println(input);
 		if(input.equals(null)) {
 			return null;
 		}

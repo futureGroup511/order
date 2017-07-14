@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <title>Responsive Bootstrap Advance Admin Template</title>
+    <title>订餐管理系统-厨师后台</title>
     
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
     <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
@@ -14,8 +14,8 @@
 </head>
 <body>
     <div class="header"><!-- 头部 -->
-            <img src="${rootPath}images/b-1.jpg" style="width:100%;height:125px;">
-            <span>订餐管理系统</span>
+            <img src="${rootPath}images/top.jpg" style="width:100%;height:125px;">
+            <span>订餐管理系统</span> 
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->
