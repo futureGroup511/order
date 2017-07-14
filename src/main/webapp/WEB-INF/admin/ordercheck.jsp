@@ -37,14 +37,11 @@ function CheckPay(){
 // 		alter("该用户已付款");
 // 	}
 //     obj.href = obj.href + "&gjz="+key;
-
-}
 	</script>
  <script type="text/javascript">
 	function print(id) {
 		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", " top=50, left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"); //写成一行
 	}
-</script>
 </script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -79,7 +76,7 @@ function CheckPay(){
          </thead>
          <tbody>
           <tr>
-             <td>id</td>
+             <td>编号</td>
              <td>餐桌id</td>
              <td>餐桌名称</td>
              <td>总价</td>

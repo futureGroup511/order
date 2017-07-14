@@ -23,7 +23,6 @@ window.onload=function(){
 }
 	</script>
 </head>
-<<<<<<< HEAD
 <body>
 <center>
 ${stocknews }<br>
@@ -32,10 +31,8 @@ ${stocknews }<br>
 		<button class="btnForm">地点查询</button>	
 	</form>
 </center>
-=======
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>${stocknews }</center>
->>>>>>> 9cf466220c450a37269d6b85e3d0f81959b67252
  <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
@@ -55,7 +52,7 @@ ${stocknews }<br>
           </tr>
                  	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
-	                <td><intput >${item.id}</td>
+	                <td>${item.id}</td>
 	                <td>${item.site}</td>
 	                <td>${item.total}</td>
 	                <td>${item.createDate}</td>
