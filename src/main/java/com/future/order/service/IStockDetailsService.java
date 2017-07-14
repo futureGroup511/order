@@ -39,4 +39,6 @@ public interface IStockDetailsService {
 	public List<StockDetails> getByIngId(int ingId,int num);
 
 	boolean addDetails(StockDetails details);
+
+	PageCut<StockDetails> getSomePageCut(int currentPage, int pageSize, int stockid, String ask, String inquiry);
 }

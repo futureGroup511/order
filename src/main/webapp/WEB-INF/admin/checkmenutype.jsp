@@ -21,8 +21,7 @@
 </head>
 <body>
 <center>
-${marknews}<br>
-<div style="margin-left:50%;">
+<div style="margin-left:50%;MARGIN-TOP:2%;">
 	<form action="${rootPath}manage/MenuTypeAction_Inquiry" method="post">
 		<input class="input" type="text" name="inquiry">
 		<button class="selectBtn">名称查询</button>	
@@ -30,7 +29,6 @@ ${marknews}<br>
 </div>
 </center>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center>${marknews}</center>
 <div class="wall">
        <table border="1" style="border-color:#C6C6C6;background-color: white;">
 			<tr>
@@ -44,7 +42,7 @@ ${marknews}<br>
 			<tr>
 				<td>${pageCut.id}</td>
 				<td>${pageCut.name}</td>
-				<td><img style="height:50px;width:110px;" src="${rootPath}uploadImg/${pageCut.imgUrl}" alt="未添加图片"></td>
+				<td><img src="${rootPath}uploadImg/${pageCut.imgUrl}" alt="未添加图片" style="height:50px;width:110px;"></td>
 				<td>
 					<textarea rows="2" cols="35" readonly="readonly">${pageCut.remark}</textarea>
 				</td>

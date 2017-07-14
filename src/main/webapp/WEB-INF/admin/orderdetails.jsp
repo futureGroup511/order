@@ -23,7 +23,7 @@
 	</script>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center><h4>${markinfo}</h4></center>
+<center>${markinfo}</center>
 <div class="orderdetailes" id="div1">
        <table  cellspacing="0">
          <thead>

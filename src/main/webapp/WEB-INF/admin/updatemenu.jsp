@@ -6,6 +6,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.file {
+    position: relative;
+    display: inline-block;
+/*     background: #D0EEFF; */
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    width:160px;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.textarea{
+	margin-left:0px;margin-top:0px;border-radius: 5px;
+	font-size:15px;
+}
+.img{
+	width:260px; height:120px;
+	margin-left:0px;  
+}
+</style>
 <script type="text/JavaScript" src="js/jquery.js"></script>
 <script type="text/javascript">
 
@@ -38,14 +62,15 @@
 			<select name="menu.exist">
 			<option value="1" <c:if test="${updateMenu.exist eq '1'}">selected = selected</c:if>>可做</option>
 			<option value="0" <c:if test="${updateMenu.exist eq '0'}">selected = selected</c:if>>暂缺</option>
-			</select>
-          <lable id="text">简介：</lable><input type="text" name="menu.introduce" value="${updateMenu.introduce}"><br>
-           <input type="file" name="file" accept="image/*" class="input1" value="选择图片" style="border:none; outline:none;margin-left:35%"><br>
+			</select><br>
+          <lable id="text">简&nbsp;&nbsp;&nbsp;&nbsp;介：</lable>
+          <textarea name="menu.introduce" class="textarea" rows="3" cols="80">${updateMenu.introduce}</textarea>          
            <lable id="text">图片：</lable><br>
-           <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}" width="260" height="120">
+           <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}"  class="img">
+            <input type="file" name="file" accept="image/*" class="file" value="选择图片"><br>
       <div class="button">
-      	<input type="button" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="修改菜品详情">
-       <input type="submit" value="修改">
+      	<input type="button" style="height:30px;" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="修改菜品详情">
+       <input type="submit" style="height:30px;margin-left:14%;" value="修改">
       </div>
   </form>        
   </div> 

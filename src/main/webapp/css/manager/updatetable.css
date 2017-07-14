@@ -27,13 +27,14 @@ input{
 .button{
     width: 100px;
     height: 35px;
-    margin-left:40%;
+    margin-left:50%;
     margin-top: 8%;
     font-size:17px;
     background-color: #1bafe0;
     border-radius: 5px;
+}
 select{
-    width: 45%;
+    width:100px;
     height: 25px;
     margin-left: -2%;
     vertical-align: middle;;

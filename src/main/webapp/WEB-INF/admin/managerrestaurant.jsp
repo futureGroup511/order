@@ -41,7 +41,7 @@ table td{
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 ${addrest}
-	<div class="wall">
+	<div class="wall" >
 	<table cellspacing="0" border="1">
          <tbody>
           <tr>

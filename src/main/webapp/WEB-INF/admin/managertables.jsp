@@ -23,19 +23,21 @@ window.onload=function(){
 	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-		<center>${managerMsg}</center>
-<div class="wall">
-        <table border="1" style="border-color:#C6C6C6;background-color: white;">
+		<center>
+		${managerMsg}
+		<div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
 			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
-				<select name="pass">
+				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 					<option value="name">按名称查询</option>
 					<option value="status">按状态查询</option>
 				</select>
 				<input type="text" name="replace">
-				<button type="submit">查询</button>
+				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 			</form>
-                      &nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/TableManager_AllCard">生成全部二维码</a>
-		</table>
+		</div> 
+		</center>
+<div class="wall">
+		   &nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/TableManager_AllCard">生成全部二维码</a>
 	<div id="div1">
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
