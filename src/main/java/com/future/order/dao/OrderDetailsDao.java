@@ -244,4 +244,10 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		System.out.println(list);
 		return list;
 	}
+	@Override
+	public OrderDetails getDetaill(int tableId) {
+		String hql="from OrderDetails where id=(select max(id) from OrderDetails) and tableId='"+tableId+"'";
+		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
+		return orderDetails;
+	}
 }
