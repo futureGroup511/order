@@ -11,7 +11,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
-import com.future.order.entity.Ingredient;
 import com.future.order.entity.Tables;
 import com.future.order.service.ITablesService;
 import com.future.order.util.PageCut;
@@ -62,17 +61,19 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 
 	@Override
 	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace) {
-		String hql = "select count(*) from Tables";
-		int count = ((Long) this.uniqueResult(hql)).intValue();
-		System.out.println(pass);
-		System.out.println(replace);
-		PageCut<Tables> pc = new PageCut<Tables>(curr,pageSize,count);
+		String hql;
+		String selecthql;
 		if(pass.equals("status")){
 			int mark = Integer.parseInt(replace);
-			pc.setData(this.getEntityLimitList("from Tables where "+pass+"='"+mark+"'", (curr-1)*pageSize, pageSize));
+			hql = "select count(*) from Tables where "+pass+"='"+mark+"'";
+			selecthql="from Tables where "+pass+"='"+mark+"'";
 		}else{
-			pc.setData(this.getEntityLimitList("from Tables where "+pass+"='"+replace+"'", (curr-1)*pageSize, pageSize));
+			hql = "select count(*) from Tables where "+pass+"='"+replace+"'";
+			selecthql="from Tables where "+pass+"='"+replace+"'";			
 		}
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Tables> pc = new PageCut<Tables>(curr,pageSize,count);
+		pc.setData(this.getEntityLimitList(selecthql, (curr-1)*pageSize, pageSize));
 		return pc;
 	}
 }

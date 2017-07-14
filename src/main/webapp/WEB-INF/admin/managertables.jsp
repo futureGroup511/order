@@ -34,6 +34,7 @@ window.onload=function(){
 				<input type="text" name="replace">
 				<button type="submit">查询</button>
 			</form>
+                      &nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/TableManager_AllCard">生成全部二维码</a>
 		</table>
 	<div id="div1">
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >

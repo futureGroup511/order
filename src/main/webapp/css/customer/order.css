@@ -42,7 +42,8 @@
   width:100%;
   padding:10px 30px;
   height:40px;
-  border-bottom: 2px solid #dadada; 
+  border-bottom: 2px solid #dadada;
+  position:relative; 
 }
 .red{
   color:red;
@@ -51,16 +52,14 @@
   color:green;
 }
 .cd{
-   display: inline-block;
+   display:inline-block;
    margin-left: 10%;
    margin-top: 10px;
    width:80%;
-   float: left;
    text-align: center;
    color: #000;
    line-height: 30px;
    height:30px; 
    font-size: 16px;
    background-color: red;
- 
 }

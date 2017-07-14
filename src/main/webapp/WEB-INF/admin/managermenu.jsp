@@ -30,13 +30,14 @@ window.onload=function(){
  <div class="photowall"> 
 <center>
 	<form action="${rootPath}manage/MenuManager_Inquiry" method="post">
-	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
-		<option value="name">名称</option>
+	<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
+		<option value="name">菜名</option>
 		<option value="typeName">类型</option>
 		<option value="price">价格</option>
 	</select>
 		<input class="input" type="text" name="inquiry">
 		<button style="border-radius: 5px;width:6%;background-color: #82C0E9;" type="submit">查询</button>
+
 	</form>
 </center>
 </div>
@@ -71,12 +72,6 @@ window.onload=function(){
     			</tr>
     		</c:forEach>
     		</table>
-<%--    			<c:forEach items="${allMenu.data}" var="data">  --%>
-<!-- 				<div> -->
-<%-- 					<img src="${rootPath}uploadImg/${data.imgUrl}"> --%>
-<%-- 					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a> --%>
-<!-- 			     </div> -->
-<%-- 			</c:forEach> --%>
     </div>  
    <div class="page" id="div2">
     <ul class="pagination">

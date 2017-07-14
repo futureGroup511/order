@@ -33,7 +33,7 @@
          </thead>
          <tbody>
           <tr>
-             <td>餐桌id</td>
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>订单id</td>
              <td>菜品id</td>

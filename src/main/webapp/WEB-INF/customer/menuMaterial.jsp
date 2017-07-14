@@ -8,9 +8,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>订餐管理系统</title>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/public.css">
-	<link rel="stylesheet" href="../css/food.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/public.css">
+	<link rel="stylesheet" href="${rootPath}css/customer/food.css">
 	<script type="text/javascript">
     window.onload = function() {
    var oDiv = document.getElementById('div1');
@@ -32,7 +32,7 @@
 	<!-- 顶部菜的图片 -->
 <div class="food">
 	    <div>
-	    	   <img src="../images/xiang.jpg" alt="">
+	    	   <img src="${rootPath}images/xiang.jpg" alt="">
 	    </div>
  <!--  顶部图片的解释部分 -->
         <div class="explain">
@@ -87,19 +87,19 @@
 		  <footer>
        <a href="${rootPath}customer/customer_toIndex?id=${userId}">
       <div class="left">
-      	<div><img src="../images/sy1.png" style="width:100%; height:100%; "></div>
+      	<div><img src="${rootPath}images/sy1.png" style="width:100%; height:100%; "></div>
       	<p>首页</p>
       </div>
       </a>
       <a href="${rootPath}customer/cart_getCart">
       <div class="left">
-      	<div><img src="../images/gwc.png" style="width:100%; height:100%; "></div>
+      	<div><img src="${rootPath}images/gwc.png" style="width:100%; height:100%; "></div>
       	<p>购物车</p>
       </div>
       </a>
       <a href="${rootPath}customer/cart_getOrderDetails">
       <div class="left">
-      	<div><img src="../images/dd.png" style="width:100%; height:100%; "></div>
+      	<div><img src="${rootPath}images/dd.png" style="width:100%; height:100%; "></div>
       	<p>订单</p>
       </div>
       </a>

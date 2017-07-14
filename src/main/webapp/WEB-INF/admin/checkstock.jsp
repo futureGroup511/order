@@ -29,6 +29,7 @@ window.onload=function(){
 	</style>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
+<body>
 <center>
 ${stocknews }<br>
 <form action="${rootPath}manage/StockAction_Inquiry" method="post">
@@ -56,7 +57,7 @@ ${stocknews }<br>
           </tr>
                  	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
-	                <td><intput >${item.id}</td>
+	                <td>${item.id}</td>
 	                <td>${item.site}</td>
 	                <td>${item.total}</td>
 	                <td>${item.createDate}</td>
@@ -74,6 +75,8 @@ ${stocknews }<br>
 			<c:if test="${1 < pc.currentPage -3}">
 					<li><a href="#">1</a></li>
 					</c:if>
+<!--      						<li><a -->
+<%-- 							href="${rootPath}manage/StockAction_${adss}?page=${pc.prePage}">上一页</a></li> --%>
 						<c:forEach var="i"
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
@@ -82,7 +85,6 @@ ${stocknews }<br>
 									<li class="active"><a
  										href="${rootPath}manage/StockAction_${adss}?page=${i }">${i}</a></li>
  								</c:when>
-
  								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
  									<li><a href="${rootPath}manage/StockAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 

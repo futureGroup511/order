@@ -59,9 +59,6 @@ ${marknews}<br>
    <div class="page">
         <ul class="pagination">
           <li><a href="${rootPath}manage/MenuTypeAction_${adss}?page=${pc.prePage}">上一页</a></li>
-  						<c:if test="${1 < pc.currentPage -3}">
-							<li><a href="#">1</a></li>
-						</c:if>
  						<c:forEach var="i" 
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
  							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
@@ -69,8 +66,7 @@ ${marknews}<br>
  								<c:when test="${i>0 && i == pc.currentPage &&i<=3}"> 
  									<li class="active"><a 
  										href="${rootPath}manage/MenuTypeAction_${adss}?page=${i }">${i}</a></li> 
- 								</c:when> 
-
+ 								</c:when>
  								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
  									<li><a href="${rootPath}manage/MenuTypeAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
