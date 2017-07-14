@@ -84,7 +84,7 @@ public class StockDao extends BaseDao<Stock> implements IStockService {
 	public PageCut<Stock> getSomePageCut(int currentPage, int pageSize, String inquiry) {
 		String hql ;
 		int count=0;
-		hql = "select count(*) from Stock";
+		hql = "select count(*) from Stock where site='"+inquiry+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Stock> pc = new PageCut<Stock>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList("from Stock where site='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));

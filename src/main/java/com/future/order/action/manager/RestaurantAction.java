@@ -35,11 +35,18 @@ public class RestaurantAction extends BaseAction {
 		return "update";		
 	}
 	public String Update() throws FileNotFoundException, IOException{//修改餐厅的信息
-		for (int i = 0; i < file.size(); i++) {
-			// 循环上传每个文件
-			uploadFile(i);
+		boolean sign=false;
+		if(file==null||file.equals("")){
+			Restaurant rest=restaurantService.SelectAll();
+			restaurant.setImgUrl(rest.getImgUrl());
+			 sign = restaurantService.updateRestaurant(restaurant);			
+		}else{
+			for (int i = 0; i < file.size(); i++) {
+				// 循环上传每个文件
+				uploadFile(i);
+			}
+			 sign = restaurantService.updateRestaurant(restaurant);
 		}
-		boolean sign = restaurantService.updateRestaurant(restaurant);
 		if(sign){
 			request.put("addrest", "修改成功");
 		}else{
@@ -50,16 +57,29 @@ public class RestaurantAction extends BaseAction {
 	//添加餐厅的信息
 	public String AddRestaurant() throws FileNotFoundException, IOException{
 		int count=restaurantService.Select();
-		if(count==0){
-			for (int i = 0; i < file.size(); i++) {
-				// 循环上传每个文件
-				uploadFile(i);
-			}
-			boolean sign = restaurantService.addRestaurant(restaurant);
-				request.put("addrest", "添加成功");
+		boolean sign=false;
+		if(file==null||file.equals("")){
+			if(count==0){
+				Restaurant rest=restaurantService.SelectAll();
+				restaurant.setImgUrl(rest.getImgUrl());
+				 sign = restaurantService.updateRestaurant(restaurant);	
+					request.put("addrest", "添加成功");
+			}else{
+				request.put("addrest", "已经添加过餐厅，只能修改٩(๑❛ᴗ❛๑)۶٩(๑❛ᴗ❛๑)۶");
+			}		
 		}else{
-			request.put("addrest", "已经添加过餐厅，只能修改٩(๑❛ᴗ❛๑)۶٩(๑❛ᴗ❛๑)۶");
+			if(count==0){
+				for (int i = 0; i < file.size(); i++) {
+					// 循环上传每个文件
+					uploadFile(i);
+				}
+				 sign = restaurantService.addRestaurant(restaurant);
+					request.put("addrest", "添加成功");
+			}else{
+				request.put("addrest", "已经添加过餐厅，只能修改٩(๑❛ᴗ❛๑)۶٩(๑❛ᴗ❛๑)۶");
+			}
 		}
+		
 		return "add";		
 	}
 	// 执行图片上传功能

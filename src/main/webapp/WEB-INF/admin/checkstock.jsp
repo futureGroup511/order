@@ -68,10 +68,6 @@ ${stocknews }<br>
     <ul class="pagination">
      						<li><a
 							href="${rootPath}manage/StockAction_${adss}?page=${pc.prePage}">上一页</a></li>
-						<c:if test="${1 < pc.currentPage -3}">
-							<li><a href="#">1</a></li>
-						</c:if>
-
 						<c:forEach var="i"
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
@@ -80,7 +76,6 @@ ${stocknews }<br>
 									<li class="active"><a
  										href="${rootPath}manage/StockAction_${adss}?page=${i }">${i}</a></li>
  								</c:when>
-
  								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
  									<li><a href="${rootPath}manage/StockAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
