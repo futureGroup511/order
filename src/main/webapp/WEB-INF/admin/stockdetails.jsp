@@ -38,7 +38,7 @@ window.onload=function(){
      <table cellspacing="0">
          <thead>
           <tr>
-          <td colspan="8">进货详细信息</td>
+          <td colspan="9">进货详细信息</td>
           </tr>   
          </thead>
          <tbody>
@@ -50,6 +50,7 @@ window.onload=function(){
              <td>单价</td>
              <td>数量</td>
              <td>进货时间</td>
+             <td style="width:150px;">溯源</td>
              <td>操作</td>
           </tr>
                  	 <c:forEach items="${pc.data}" var="item"> 
@@ -61,6 +62,9 @@ window.onload=function(){
 	                <td>${item.price}</td>
 	                <td>${item.num}</td>
 	                <td>${item.createDate}</td>
+	                 <td>
+	                 <textarea rows="2" cols="40" readonly="readonly">${item.origins}</textarea>
+	                 </td>
 	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
 	            </tr>  
         	</c:forEach>   

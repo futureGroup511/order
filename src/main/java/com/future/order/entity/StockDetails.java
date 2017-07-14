@@ -32,6 +32,8 @@ public class StockDetails {
 	private double price;//单价
 	@Column(length=10)
 	private double num;//数量
+	@Column(length=255)
+	private String origins;//溯源
 	private Date createDate;//进货时间
 	/**
 	 * @return the id
@@ -118,9 +120,16 @@ public class StockDetails {
 		this.createDate = createDate;
 	}
 	
+	public String getOrigins() {
+		return origins;
+	}
+	public void setOrigins(String origins) {
+		this.origins = origins;
+	}
 	@Override
 	public String toString() {
 		return "StockDetails [id=" + id + ", stockId=" + stockId + ", ingId=" + ingId + ", ingName=" + ingName
-				+ ", price=" + price + ", num=" + num + ", createDate=" + createDate + "]";
-	}	
+				+ ", price=" + price + ", num=" + num + ", origins=" + origins + ", createDate=" + createDate + "]";
+	}
+	
 }
