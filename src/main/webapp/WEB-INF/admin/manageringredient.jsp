@@ -22,24 +22,23 @@ window.onload=function(){
  }
 }
 	</script>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 ${updateIngredientMsg}${deleteIngredientMsg}
 </center>
-<div >
-	<form action="${rootPath}manage/Ingredient_Inquiry" method="post">
-	<select name="ask">
+<div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
+	<form action="${rootPath}manage/Ingredient_Inquiry" method="post"style="margin-left:10%;">
+	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 		<option value="name">名称</option>
 		<option value="price">单价</option>
 		<option value="num">库存</option>
 		<option value="type">类型</option>
 	</select>
-		<input class="text" type="text" name="inquiry">
-		<input class="btn" type="submit" value="查询">
+		<input  class="text" type="text" name="inquiry">
+		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>
-<center>
-<div class="manageringredient" id="div1">
+<div  id="div1">
      <table cellspacing="0">
          <thead>
           <tr class="tr1">
@@ -72,19 +71,19 @@ ${updateIngredientMsg}${deleteIngredientMsg}
     </div>
     <div class="page" id="div2">
     <ul class="pagination">
-      <li><a href="${rootPath}manage/Ingredient?page=${allIngredient.prePage}">上一页</a></li>
+      <li><a href="${rootPath}manage/Ingredient_${adss}?page=${allIngredient.prePage}">上一页</a></li>
 		 		<c:forEach var="i" begin="${allIngredient.currentPage-3>0?allIngredient.currentPage-3:1 }" 
  					end="${allIngredient.currentPage+3>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+3  }">
  					<c:choose>
  						<c:when test="${i>0 && i == allIngredient.currentPage &&i<=3}"> 
- 							<li class="active"><a href="${rootPath }manage/Ingredient?page=${i }">${i}</a></li> 
+ 							<li class="active"><a href="${rootPath }manage/Ingredient_${adss}?page=${i }">${i}</a></li> 
 						</c:when> 
  						<c:when test="${i>0 && i != allIngredient.currentPage &&i<=3}"> 
- 							<li><a href="${rootPath }manage/Ingredient?page=${i }">${i}</a></li> 
+ 							<li><a href="${rootPath }manage/Ingredient_${adss}?page=${i }">${i}</a></li> 
 						</c:when> 
  					</c:choose> 
  				</c:forEach>		
-      <li><a href="${rootPath }manage/Ingredient?page=${allIngredient.nextPage}">下一页</a></li>
+      <li><a href="${rootPath }manage/Ingredient_${adss}?page=${allIngredient.nextPage}">下一页</a></li>
     </ul>
 </div>
 </center>

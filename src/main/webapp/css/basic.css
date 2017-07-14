@@ -22,7 +22,7 @@ body {
   font-family: 楷体;
   position: absolute;
   top: 47px;
-  left: 30%;
+  left: 35%;
   color: white;
 }
 .span2{
@@ -30,7 +30,7 @@ body {
   font-family: 楷体;
   position: absolute;
   top: 80px;
-  left: 70%;
+  left: 75%;
   color:white;
 }
 
@@ -40,10 +40,8 @@ body {
       height: 600px;
       position: absolute;
       top: 125px;
-      left:13%;
+      left:12%;
 }
-
-
 .container{
     margin: 0 auto;
     width: 100%;
@@ -98,7 +96,7 @@ body {
     border-bottom: 1px solid #2F2E31;
 }
 .nav-second-level > li > a{
-    background-color: #48acfb;
+    background-color: blue;
 }
  .sidebar-collapse > .nav > li > a {
         padding: 15px 10px;
@@ -106,7 +104,7 @@ body {
 
 .sidebar-collapse .nav > li > a:hover{
 
-        background: blue;
+        background:  #48ACFB;
         outline: 0;
     }
 

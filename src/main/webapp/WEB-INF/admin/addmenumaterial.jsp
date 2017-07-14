@@ -21,7 +21,7 @@ window.onload=function(){
   }
  </script> 
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 	<div style="margin-top:1%;">
 		<div style="margin-left: 43%;margin-top:1%;">${addMaterialMsg}</div>
 		<div style="margin-left:40%;margin-top:0%;"><button class="btn" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${menu.id}'">查看已添加配料</button></div>
@@ -31,7 +31,7 @@ window.onload=function(){
 			<tr>
 				<th>配料名称</th>
 				<th>类型</th>
-				<th>添加（kg）</th>
+				<th style="width:300px;">添加（kg）</th>
 			</tr>
  			<c:forEach items="${allIngredient}" var="ingredient">
  				<tr>	 

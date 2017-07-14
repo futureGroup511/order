@@ -24,6 +24,14 @@ input{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
+.button{
+    width: 100px;
+    height: 35px;
+    margin-left:40%;
+    margin-top: 8%;
+    font-size:17px;
+    background-color: #1bafe0;
+    border-radius: 5px;
 select{
     width: 45%;
     height: 25px;

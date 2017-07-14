@@ -28,33 +28,29 @@ window.onload=function(){
 }
 	</script>
 </head>
-<body>
-
-${deleteUserMsg}
-	<form action="${rootPath}manage/UserManager_Inquiry" method="post">
-	<select name="ask">
-		<option value="phone">账号</option>
-		<option value="name">名称</option>
-		<option value="sort">身份</option>
-	</select>
-		<input type="text" name="inquiry">
-		<button class="btnForm">账号查询</button>	
-	</form>
-<!-- <div class="select"> -->
-<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=manager';">所有管理员</button> --%>
-<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=cook';">所有厨师</button> --%>
-<%-- 	<button class="btn" onclick="window.location='${rootPath}manage/UserManager?ask=all';">所有员工</button> --%>
-<!-- </div> -->
-<div class="mangeruser" >
-<div class="mangeruser" id="div1">
+<body  style="background: url(${rootPath}/images/m-91.jpg);"  >
+	
+	<div style="margin-left:60%; height:30px;margin-top:1%;">
+	${deleteUserMsg}
+		<form action="${rootPath}manage/UserManager_Inquiry" method="post">
+		<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
+			<option value="phone">账号</option>
+			<option value="name">名称</option>
+			<option value="sort">身份</option>
+		</select>
+			<input style="border-radius:7px;background-color: #F0F0F0;height:25px; width:30%;" type="text" name="inquiry">
+			<input style="background-color: #82C0E9" type="submit" value="查询" >
+		</form>
+	</div>
+<div class="mangeruser" id="div1" style="margin-top:1%;">
      <table cellspacing="0">
          <thead>
          <tr>
-            <td>账号</td>
-            <td>姓名</td>
-            <td>注册时间</td>
-            <td>身份</td>
-            <td>操作</td>
+            <th>账号</th>
+            <th>姓名</th>
+            <th>注册时间</th>
+            <th>身份</th>
+            <th>操作</th>
           </tr>
          </thead>
         <tbody>
@@ -74,21 +70,20 @@ ${deleteUserMsg}
     </div>
  <div class="page" id="div2">
       <ul class="pagination">
-        <li><a href="${rootPath }manage/UserManager?page=${allUser.prePage}">上一页</a></li>
+        <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.prePage}">上一页</a></li>
         <c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"
 					end="${allUser.currentPage+3>allUser.pageNum?allUser.pageNum:allUser.currentPage+3  }">
 					<c:choose>
 						<c:when test="${i>0 && i == allUser.currentPage &&i<=3}">
-							<li class="active"><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+							<li class="active"><a href="${rootPath }manage/UserManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 						<c:when test="${i>0 && i != allUser.currentPage &&i<=3}">
-							<li><a href="${rootPath }manage/UserManager?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/UserManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
-        <li><a href="${rootPath }manage/UserManager?page=${allUser.nextPage}">下一页</a></li>
+        <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.nextPage}">下一页</a></li>
       </ul>
- </div>
  </div>
 </body>
 </html>

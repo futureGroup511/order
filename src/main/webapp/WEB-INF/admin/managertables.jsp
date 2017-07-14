@@ -6,7 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-     <script language="javascript">
+    <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managetables.css">
+    <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+<script language="javascript">
 window.onload=function(){
 	 var array = new Array();  
 	 <c:forEach items="${allTables.data}" var="t">  
@@ -20,27 +22,28 @@ window.onload=function(){
 }
 	</script>
 </head>
-<body>
-
-		<center>${managerMsg}<br>
-		<form action="${rootPath}manage/TableManager_Inquiry" method="post">
-		<select name="pass">
-			<option value="name">按名称查询</option>
-			<option value="status">按状态查询</option>
-		</select>
-		<input type="text" name="replace">
-		<button type="submit">查询</button>
-	</form>
-		</center>
-<div id="div1">
-     <table cellspacing="0" border="1" align="center">
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
+		<center>${managerMsg}</center>
+<div class="wall">
+        <table border="1" style="border-color:#C6C6C6;background-color: white;">
+			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
+				<select name="pass">
+					<option value="name">按名称查询</option>
+					<option value="status">按状态查询</option>
+				</select>
+				<input type="text" name="replace">
+				<button type="submit">查询</button>
+			</form>
+                      &nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/TableManager_AllCard">生成全部二维码</a>
+		</table>
+	<div id="div1">
+     <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
          <tr>
-            <td>餐桌名称</td>
-            <td>状态</td>
-            <td>操作</td>
-            <td>修改</td>
-            <td>删除</td>
+            <th style="width: 90px;">餐桌名称</th>
+            <th>状态</th>
+            <th>操作</th>
+            <th>操作</th>
           </tr>
          </thead>
         <tbody>
@@ -52,27 +55,30 @@ window.onload=function(){
 					<c:if test="${pageCut.status eq '1'}">使用中</c:if>
 				</td>
 				<td><a href="${rootPath}manage/TableManager_SomeCard?name=${pageCut.name}&id=${pageCut.id}">生成二维码</a></td>
-				<td><a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>
-				<td><a href="${rootPath}manage/TableManager_deleteTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-trash">删除</a></td>
+				<td>
+					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
+					<a href="${rootPath}manage/TableManager_deleteTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>
+				</td>
 			</tr>
 		</c:forEach>
      </table>       
     </div>
+    </div>
  <div class="page" id="div2">
       <ul class="pagination">
-        <li><a href="${rootPath }manage/TableManager?page=${allTables.prePage}">上一页</a></li>
+        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.prePage}">上一页</a></li>
         <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
 					end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
 					<c:choose>
 						<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
-							<li class="active"><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
+							<li class="active"><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 						<c:when test="${i>0 && i != allTables.currentPage &&i<=3}">
-							<li><a href="${rootPath }manage/TableManager?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
-        <li><a href="${rootPath }manage/TableManager?page=${allTables.nextPage}">下一页</a></li>
+        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.nextPage}">下一页</a></li>
       </ul>
  </div>
 </body>

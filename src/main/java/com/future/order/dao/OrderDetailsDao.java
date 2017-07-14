@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
-import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
-import com.future.order.entity.ShopCart;
 import com.future.order.service.IOrderDetailsService;
 import com.future.order.util.PageCut;
 
@@ -240,5 +238,11 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 			e.printStackTrace();
 		}
 		return list;
+	}
+	@Override
+	public OrderDetails getDetaill(int tableId) {
+		String hql="from OrderDetails where id=(select max(id) from OrderDetails) and tableId='"+tableId+"'";
+		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
+		return orderDetails;
 	}
 }

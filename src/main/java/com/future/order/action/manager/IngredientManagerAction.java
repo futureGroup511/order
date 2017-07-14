@@ -1,7 +1,6 @@
 package com.future.order.action.manager;
 
 import java.util.Date;
-import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
@@ -21,6 +20,7 @@ public class IngredientManagerAction extends BaseAction {
 			String mark = "没有配料了，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteIngredientMsg", mark);
 		}
+		request.put("adss", "execute");
 		return SUCCESS;
 	}
 
@@ -38,8 +38,18 @@ public class IngredientManagerAction extends BaseAction {
 
 	// 查找配料,按名字
 	public String Inquiry() {
-		PageCut<Ingredient> pCut = ingerdientService.getSomePageCut(page, 6,ask,inquiry);
+		PageCut<Ingredient> pCut = new PageCut<Ingredient>();
+		if(ask!=null){
+			pCut = ingerdientService.getSomePageCut(page, 6,ask,inquiry);
+			}else{
+				ask=(String) session.get("ask");
+				inquiry=(String) session.get("inquiry");
+				pCut = ingerdientService.getSomePageCut(page, 6,ask,inquiry);
+			}
 		request.put("allIngredient", pCut);
+		request.put("adss", "Inquiry");
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有配料了，快去添加吧(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteIngredientMsg", mark);

@@ -6,14 +6,12 @@
  */  
 package com.future.order.dao;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
-import com.future.order.entity.Tables;
 import com.future.order.entity.User;
 import com.future.order.service.IUserService;
 import com.future.order.util.PageCut;
@@ -72,7 +70,7 @@ public class UserDao extends BaseDao<User> implements IUserService {
 
 	@Override
 	public PageCut<User> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
-		String hql = "select count(*) from User";
+		String hql = "select count(*) from User where "+ask+"='"+inquiry+"'";
 		String selectHql =  "from User where "+ask+"='"+inquiry+"'";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<User> pc = new PageCut<User>(curr,pageSize,count);

@@ -9,12 +9,13 @@ table{
     width: 90%;
     text-align: center;
 }
-thead td{
+thead th{
+	text-align:center;
     font-size:1.2vw; 
     font-weight: bold;
     height: 40px;
     border: 1px solid #c6c6c6;
-    background-color: #75c7ed;
+    background-color: #E8E7E3;
     
 }
 tbody td{
@@ -43,7 +44,8 @@ input{ width:13%;
  	   wight:9%;
        height:29px;
 	   background:#75c7ed;
-	   margin-top:1%;}
+	   margin-top:1%;
+	   }
 .select{margin-top:-30px;float: right;margin-right: 5%;}
  .btn{
        height:29px;

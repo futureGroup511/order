@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managermaterial.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
-<body>
+<body style="background: url(${rootPath}/images/m-91.jpg);">
 	<div style="margin-top:1%;">
 		<div style="margin-left: 44%;margin-top:1%;font-size: 15px;">${materialMsg}</div>
 		<div style="margin-left:43%;margin-top:0%;">
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<div class="wall">
-        <table border="1" cellspacing="0">
+        <table border="1" cellspacing="0" style="background-color: white;">
 			<tr>
 				<th>菜品名称</th>
 				<th>配料名称</th>

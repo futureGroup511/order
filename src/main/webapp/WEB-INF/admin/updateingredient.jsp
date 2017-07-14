@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${rootPath}css/manager/updateingredient.css">
 </head>
-<body>
+<body  style="background: url(${rootPath}/images/m-91.jpg);">
 		<div class="updateingredient">
 			<form
 				action="${rootPath}manage/Ingredient_updateIngredient?ingredient.id=${updateIngredient.id}"

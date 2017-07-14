@@ -15,6 +15,7 @@ import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuType;
+import com.future.order.entity.Restaurant;
 import com.future.order.util.PageCut;
 
 @SuppressWarnings("serial")
@@ -38,6 +39,7 @@ public class MenuManagerAction extends BaseAction {
 			request.put("deleteMenuMsg", mark);
 		}
 		request.put("allMenu", pCut);
+		request.put("adss", "execute");
 		return SUCCESS;
 	}
 	
@@ -50,11 +52,16 @@ public class MenuManagerAction extends BaseAction {
 				menu.setTypeId(list.get(i).getId());
 			}
 		}
-		for (int i = 0; i < file.size(); i++) {
-			// 循环上传每个文件
-			uploadFile(i);
-		}
-		boolean boo = menuService.addMenu(menu);
+		boolean boo=false;
+		if(file==null||file.equals("")){		
+			 boo = menuService.addMenu(menu);		
+		}else{
+			for (int i = 0; i < file.size(); i++) {
+				// 循环上传每个文件
+				uploadFile(i);
+			}
+			 boo = menuService.addMenu(menu);
+		}		
 		String result = "addMenu";
 		if(boo){
 			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
@@ -85,8 +92,18 @@ public class MenuManagerAction extends BaseAction {
 	}
 
 	// 修改菜品
-	public String updateMenu() {
-		boolean boo = menuService.updateUser(menu);
+	public String updateMenu() throws FileNotFoundException, IOException {
+		boolean boo=false;
+		if(file==null||file.equals("")){
+			menu.setImgUrl(menu.getImgUrl());
+			boo = menuService.updateUser(menu);			
+		}else{
+			for (int i = 0; i < file.size(); i++) {
+				// 循环上传每个文件
+				uploadFile(i);
+			}
+			boo = menuService.updateUser(menu);
+		}
 		if (boo) {
 			request.put("updateMsg", "修改成功");
 		} else {
@@ -146,11 +163,21 @@ public class MenuManagerAction extends BaseAction {
 		}
 	}
 	public String Inquiry(){
-		PageCut<Menu> pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+		PageCut<Menu> pCut=new PageCut<Menu>();
+		if(ask!=null){
+			pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+			}else{
+				ask=(String) session.get("ask");
+				inquiry=(String) session.get("inquiry");
+				pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+			}
 		if(pCut.getData().size()==0){
 			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("deleteMenuMsg", mark);
 		}
+		request.put("adss", "Inquiry");		
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);
 		request.put("allMenu", pCut);
 		return SUCCESS;
 	}

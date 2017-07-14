@@ -39,8 +39,8 @@ public interface IOrderDetailsService {
 	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
 	public List<OrderDetails> SeeByid(int id);
 	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);
-	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);}
-//=======
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
+	public OrderDetails getDetaill(int tableId);}
 //import java.util.List;
 //
 //import com.future.order.entity.OrderDetails;

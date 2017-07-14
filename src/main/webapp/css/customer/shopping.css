@@ -19,7 +19,6 @@ a{
 .food{
 	 width:100%;
 	 height:120px;
-	 background-color:#ffe;
 	 padding:0 10px;
 	 border-bottom: 2px solid #dadada;
 }
@@ -40,8 +39,10 @@ a{
 	width:100%;
 	height:40px;
 	padding: 4px 40px; 
+	margin-top:8px;
 }
-.end .left{
+.end>.left{
+	line-height:40px;
 	width:40%;
 	text-align:left;
 	height:100%;
@@ -59,34 +60,39 @@ a{
 .red{
     color:red;
 }
-.p3{
-   font-size:12px;
-   line-height:12px;
-   overflow : hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 1;
-   -webkit-box-orient: vertical;
-}
 .zu{
 	width:100%;
 	height:40px;
+	margin-top:4px;
 	
 }
 .zu .kong{
+	line-height:23px;
 	margin-top: 2px;
     width:70px;
-    height:20px;
+    height:23px;
     border-top:1px solid #000; 
-    border-bottom:1px solid #000; 
+    border-bottom:1px solid #000;
+    border-radius: 20px;
     text-align:center;
+    margin-left:2px;
+    
 }
 .zu .kong div{
 	width:22px;
-	height:22px;
-	background-color:#aaa;
-	border: 1px solid #dadada;
-	margin-top:-1px;
+	height:23px;
+	margin-top:-3px;
+}
+.zu .kong .tujia img{
+	margin-top:2px; margin-left:2px;
+}
+.zu .kong .tujian img{
+	margin-top:2px; margin-right:2px;
+}
+.zu .kong div input{
+	margin-top:2px;
+	margin-right:1px;
+	border:2px solid #dadada;
 }
 .zu .delete{
 	width:80px;
@@ -95,23 +101,26 @@ a{
 	text-align:center;
 	line-height:20px;
 	color:#dadada;
-	margin-top:2px;
+	margin-top:3px;
 	margin-left: 30px;
 	border-radius: 2px;
 }
 .size{
-     font-size:16px;
+     font-size:14px;
+     color:#D41700;
 }
 .col{
+	font-size:14px;
 	color:#777;
 }
 .zongjia{
-	font-size:16px;
-	margin-top:4px;
+	font-size:20px;
 	 color:#777;
 }
 .jiaqian{
-	font-size:22px;
+	font-size:20px;
+	 color:#D41700;
+	
 }
 @media screen and (max-width: 350px) {
       .zu .delete{
@@ -124,11 +133,8 @@ a{
       	width:60px;
       }
 }
-@media screen and (max-width: 360px){
+@media screen and (max-width: 380px){
 	.zongjia{
 	  font-size:12px;
-	}
-	.jiaqian{
-	  font-size:16px;
 	}
 }
