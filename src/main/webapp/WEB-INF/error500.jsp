@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .page-500{
+            width:1200px;
+            height: 400px;
+            margin:50px auto;
+            text-align: center;
+            color:black;
+            overflow:hidden;
+        }
+        .text-1{
+            font-size: 40px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+             
+        }
+        .text-2{
+            font-size: 20px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+            margin-top:0; 
+        }
+
+    </style>
+</head>
+<body>
+<div class="page-500">
+     <p class="text-1">500.HTTP Server Error</p>
+     <p class="text-2">没有找到你要的页面</p>
+     <pre style="color:black;font-weight:900;">
+
+          .----.
+       _.'__    `.
+   .--($)($$)---/#\
+ .' @          /###\
+ :         ,   #####
+  `-..__.-' _.-\###/
+        `;_:    `"'
+      .'"""""`.
+     /,  ya ,\\
+    //  500!  \\
+    `-._______.-'
+    ___`. | .'___
+   (______|______)
+        </pre>
+        </div>
+</body>
+</html>
