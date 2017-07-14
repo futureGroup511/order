@@ -22,6 +22,8 @@ public class MenuType {
 	private int id;
 	@Column(length=10)
 	private String name;//类型名称
+	@Column(length=255)
+	private String imgUrl;//菜品类型图片
 	private String remark;//备注(备用)
 	/**
 	 * @return the id
@@ -46,6 +48,18 @@ public class MenuType {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	/**
+	 * @return the imgUrl
+	 */
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	/**
+	 * @param imgUrl the imgUrl to set
+	 */
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	/**
 	 * @return the remark

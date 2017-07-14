@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<div class="wall">
-        <table border="1" cellspacing="0">
+        <table border="1" cellspacing="0" style="background-color: white;">
 			<tr>
 				<th>菜品名称</th>
 				<th>配料名称</th>

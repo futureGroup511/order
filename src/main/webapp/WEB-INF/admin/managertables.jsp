@@ -26,7 +26,6 @@ window.onload=function(){
 		<center>${managerMsg}</center>
 <div class="wall">
         <table border="1" style="border-color:#C6C6C6;background-color: white;">
-	
 			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
 				<select name="pass">
 					<option value="name">按名称查询</option>
@@ -37,7 +36,7 @@ window.onload=function(){
 			</form>
 		</table>
 	<div id="div1">
-     <table cellspacing="0" border="1" align="center">
+     <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
          <tr>
             <th style="width: 90px;">餐桌名称</th>

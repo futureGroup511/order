@@ -30,7 +30,7 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);"  >
 	
-	<div style="margin-left:60%;background-color: red;">
+	<div style="margin-left:60%; height:30px;margin-top:1%;">
 	${deleteUserMsg}
 		<form action="${rootPath}manage/UserManager_Inquiry" method="post">
 		<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
@@ -39,18 +39,18 @@ window.onload=function(){
 			<option value="sort">身份</option>
 		</select>
 			<input style="border-radius:7px;background-color: #F0F0F0;height:25px; width:30%;" type="text" name="inquiry">
-			<button style="border-radius:7px;background-color: #F0F0F0;font-size:15px; margin-left:60%;margin-top:0%; height:26px; width:25%;" class="btnForm">查询</button>	
+			<input style="background-color: #82C0E9" type="submit" value="查询" >
 		</form>
 	</div>
-<div class="mangeruser" id="div1" style="margin-top:2%;">
+<div class="mangeruser" id="div1" style="margin-top:1%;">
      <table cellspacing="0">
          <thead>
          <tr>
-            <td>账号</td>
-            <td>姓名</td>
-            <td>注册时间</td>
-            <td>身份</td>
-            <td>操作</td>
+            <th>账号</th>
+            <th>姓名</th>
+            <th>注册时间</th>
+            <th>身份</th>
+            <th>操作</th>
           </tr>
          </thead>
         <tbody>

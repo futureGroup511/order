@@ -25,31 +25,59 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-<span class="error">${updateMsg}${deleteMenuMsg }</span>
-
- <div class="photowall" id="div1"> 
-${updateMsg}${deleteMenuMsg } 
+	<span class="error">${updateMsg}${deleteMenuMsg }</span>
+</cenetr>
+ <div class="photowall"> 
 <center>
 	<form action="${rootPath}manage/MenuManager_Inquiry" method="post">
-	<select name="ask">
+	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 		<option value="name">名称</option>
 		<option value="typeName">类型</option>
 		<option value="price">价格</option>
 	</select>
-		<input type="text" name="inquiry">
-		<button type="submit">查询</button>
+		<input class="input" type="text" name="inquiry">
+		<button style="border-radius: 5px;width:6%;background-color: #82C0E9;" type="submit">查询</button>
 	</form>
 </center>
-    <div class="picture_wall">
+</div>
+    <div class="picture_wall" id="div1">
     		${inquiryMsg}
-   			<c:forEach items="${allMenu.data}" var="data"> 
-				<div>
-					<img src="${rootPath}uploadImg/${data.imgUrl}">
-					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a>
-			     </div>
-			</c:forEach>
-    </div>
- </div>   
+    		<table>
+    			<tr>
+    				<th>菜名</th>
+    				<th style="width:95px;">图片</th>
+    				<th>类型</th>
+    				<th>价格/元</th>
+    				<th style="width:90px;">被定/次</th>
+    				<th>状态</th>
+    				<th>简介</th>
+    				<th style="width:90px;">操作</th>
+    			</tr>
+    		<c:forEach items="${allMenu.data}" var="data">
+    			<tr>
+    				<td>${data.name}</td>
+    				<td><img src="${rootPath}uploadImg/${data.imgUrl}" alt="未添加图片"></td>
+    				<td>${data.typeName}</td>
+    				<td>${data.price}</td>
+    				<td>${data.num}</td>
+    				<td><c:if test="${data.exist eq '0'}">暂缺</c:if><c:if test="${data.exist eq '1'}">可做</c:if></td>
+    				<td>
+    					<textarea rows="2" cols="14" readonly="readonly">${data.introduce}</textarea>
+    				</td>
+    				<td>
+    					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    					<a href="${rootPath}manage/MenuManager_deleteMenu?menu.id=${data.id}&menu.imgUrl=${data.imgUrl}" ><span class="glyphicon glyphicon-trash"></span></a>
+    				</td>
+    			</tr>
+    		</c:forEach>
+    		</table>
+<%--    			<c:forEach items="${allMenu.data}" var="data">  --%>
+<!-- 				<div> -->
+<%-- 					<img src="${rootPath}uploadImg/${data.imgUrl}"> --%>
+<%-- 					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}">${data.name}&nbsp;&nbsp;&nbsp;${data.typeName}</a> --%>
+<!-- 			     </div> -->
+<%-- 			</c:forEach> --%>
+    </div>  
    <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath }manage/MenuManager_${adss}?page=${allMenu.prePage}">上一页</a></li>
@@ -67,6 +95,5 @@ ${updateMsg}${deleteMenuMsg }
       <li><a href="manage/MenuManager_${adss}?page=${allMenu.nextPage}">下一页</a></li>
     </ul>
    </div>
-   </center>
 </body>
 </html>

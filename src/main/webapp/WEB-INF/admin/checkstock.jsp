@@ -22,20 +22,21 @@ window.onload=function(){
  }
 }
 	</script>
+	<style type="text/css">
+		.input{
+		border-radius:7px;background-color: #F0F0F0;height:25px; width:10%;
+		}
+	</style>
 </head>
-<<<<<<< HEAD
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
 ${stocknews }<br>
 <form action="${rootPath}manage/StockAction_Inquiry" method="post">
-		<input type="text" name="inquiry">
-		<button class="btnForm">地点查询</button>	
+		<input class="input
+		" type="text" name="inquiry">
+		<button style="background-color: #82C0E9" class="btnForm">地点查询</button>	
 	</form>
 </center>
-=======
-<body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center>${stocknews }</center>
->>>>>>> 9cf466220c450a37269d6b85e3d0f81959b67252
  <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
@@ -69,12 +70,10 @@ ${stocknews }<br>
     </div>
     <div class="page" id="div2">
     <ul class="pagination">
-     						<li><a
-							href="${rootPath}manage/StockAction_${adss}?page=${pc.prePage}">上一页</a></li>
-						<c:if test="${1 < pc.currentPage -3}">
-							<li><a href="#">1</a></li>
-						</c:if>
-
+     	<li><a href="${rootPath}manage/StockAction_${adss}?page=${pc.prePage}">上一页</a></li>
+			<c:if test="${1 < pc.currentPage -3}">
+					<li><a href="#">1</a></li>
+					</c:if>
 						<c:forEach var="i"
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
@@ -89,9 +88,8 @@ ${stocknews }<br>
  								</c:when> 
  							</c:choose> 
 						</c:forEach>
-						<li><a
- 							href="${rootPath}manage/StockAction_${adss}?page=${pc.nextPage}">下一页</a></li> 
-    </ul>
+			<li><a href="${rootPath}manage/StockAction_${adss}?page=${pc.nextPage}">下一页</a></li> 
+		</ul>
     </div>
 </body>
 </html>
