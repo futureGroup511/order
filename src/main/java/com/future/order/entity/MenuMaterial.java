@@ -32,6 +32,8 @@ public class MenuMaterial {
 	private String ingName;//配料名称	
 	@Column(length=10)
 	private double num;//需求量
+	@Column(length=255)
+	private String imgUrl;
 	private Date stockDate;//进货时间（方便查询菜品的配料进货时间）
 	/**
 	 * @return the id
@@ -105,6 +107,13 @@ public class MenuMaterial {
 	public void setNum(double num) {
 		this.num = num;
 	}
+	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 	/**
 	 * @return the stockDate
 	 */
@@ -121,7 +130,7 @@ public class MenuMaterial {
 	@Override
 	public String toString() {
 		return "MenuMaterial [id=" + id + ", menuId=" + menuId + ", menuName=" + menuName + ", ingId=" + ingId
-				+ ", ingName=" + ingName + ", num=" + num + ", stockDate=" + stockDate + "]";
+				+ ", ingName=" + ingName + ", num=" + num + ", imgUrl=" + imgUrl + ", stockDate=" + stockDate + "]";
 	}
 	
 	

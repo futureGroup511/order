@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="login">
-<p class="loginp">订餐管理系统</p>
+<p class="loginp" style="color:black;">订餐管理系统</p>
 		<div class="logincenter" >
 			 <div class="dz" id="dz">
 			    <!--  <p class="">注册</p> -->

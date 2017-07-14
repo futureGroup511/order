@@ -112,7 +112,7 @@
      <c:forEach items="${shopCarts}" var="s">
        <div class="food">
           <div class="left photo">
-             <img src="${rootPath}images/xiang.jpg" alt="" width="100px" height="100px">
+          	<img src="${rootPath}uploadImg/${s.imgUrl}" alt="" width="100px" height="100px">
           </div>
           <div class="left infors">
               <p><b>${s.menuName}</b></p>
@@ -120,11 +120,11 @@
               <div class="zu">
                  <div class="left kong">
                       <div class="left tujia" onclick="reduce(${s.id})">
-                       	<img src="../images/jian.png"  width="12px" height="12px" />
+                       	<img src="${rootPath}images/jian.png"  width="12px" height="12px" />
                       </div>  
                         <span id="menu${s.id}" >${s.menuNum}</span >                                   
                       <div class="right tujian" onclick="add(${s.id})">    
-                        <img src="../images/jia.png"  width="14px" height="14px"/>   
+                        <img src="${rootPath}images/jia.png"  width="14px" height="14px"/>   
                       </div>
                   </div>
                  <div class="left delete">
@@ -161,7 +161,7 @@
         <p>首页</p>
       </div>
       </a>
-      <a href="${rootPath}customer/getCart">
+      <a href="${rootPath}customer/cart_getCart">
       <div class="left">
         <div><img src="${rootPath}images/gwc.png" style="width:100%; height:100%; "></div>
         <p>购物车</p>

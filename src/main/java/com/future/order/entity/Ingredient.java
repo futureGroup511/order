@@ -30,8 +30,11 @@ public class Ingredient {
 	@Column(length=10)
 	private double num;//库存量	
 	private Date createDate;//创建时间
+	@Column(length=5)
 	private String type;//类别(配料、原料) 配料是油盐酱醋等，原料是肉、青菜等，配料不在顾客查询的菜品详情显示，但原料要显示
+	@Column(length=255)
 	private String source;//溯源（二维码地址（待定））
+	@Column(length=255)
 	private String remark;//备注
 	/**
 	 * @return the id
@@ -144,5 +147,7 @@ public class Ingredient {
 				+ num + ", createDate=" + createDate + ", type=" + type + ", source=" + source + ", remark=" + remark
 				+ "]";
 	}
+	
+	
 	
 }

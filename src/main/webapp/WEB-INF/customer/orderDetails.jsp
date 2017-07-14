@@ -26,7 +26,7 @@
 <c:forEach items="${orderDetails}" var="o">
  <div class="ding">
     <div class="left photo">
-       <img src="${rootPath}images/haixian.jpg" alt="" width="100px" height="90px">
+    	<img src="${rootPath}uploadImg/${o.imgUrl}" alt="" width="100px" height="90px">
     </div>
     <div class="right infors">
        <p><b>${o.menuName}</b></p>
@@ -40,6 +40,8 @@
      <p class="left">订单号：${myId}</p>
      <p class="right red" style="">${total}</p><p class="right jia">总价：</p>
 </div>
+<textarea rows="50" cols="50" placeholder="ps.输入您对口味的一些要求">
+</textarea>
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 </c:if>
  <c:if test="${empty orderDetails }">

@@ -63,3 +63,12 @@
    font-size: 16px;
    background-color: red;
 }
+ textarea{
+	    	width: 80%;
+	    	margin-left:10%;
+	    	margin-top:10px;
+	    	padding: 10px 10px;
+	    	height: 100px;
+	    	font-size: 14px;
+	    	font-family: '微软雅黑';
+	    }

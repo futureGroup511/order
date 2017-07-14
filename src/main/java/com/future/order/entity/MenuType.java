@@ -24,6 +24,7 @@ public class MenuType {
 	private String name;//类型名称
 	@Column(length=255)
 	private String imgUrl;//菜品类型图片
+	@Column(length=255)
 	private String remark;//备注(备用)
 	/**
 	 * @return the id

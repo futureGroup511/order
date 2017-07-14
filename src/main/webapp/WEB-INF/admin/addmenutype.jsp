@@ -25,7 +25,7 @@
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
  <div class="wall">
-	 <h4>${typenews}</h4>
+	 <h4><center>${typenews}</center></h4>
 	 <form action="${rootPath}manage/MenuTypeAction_addType" method="post" enctype="multipart/form-data">
 	  <lable id="text">类型名称：</lable><input type="text" name="menutype.name"></input><br>
 	  <lable id="textarea">备&nbsp;&nbsp;&nbsp;&nbsp;注：</lable><textarea cols="31" rows="3" name="menutype.remark"></textarea><br>

@@ -8,7 +8,7 @@
     <style>
         .page-500{
             width:1200px;
-            height: 400px;
+            height: 460px;
             margin:50px auto;
             text-align: center;
             color:black;
@@ -33,7 +33,8 @@
 <div class="page-500">
      <p class="text-1">500.HTTP Server Error</p>
      <p class="text-2">没有找到你要的页面</p>
-     <pre style="color:black;font-weight:900;">
+  <!--    font-size:1.5em; -->
+     <pre style="color:black;font-weight:900;font-family:'黑体'">
 
           .----.
        _.'__    `.

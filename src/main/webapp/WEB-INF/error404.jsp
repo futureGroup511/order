@@ -9,7 +9,7 @@
     <style>
         .page-404{
             width:1200px;
-            height: 500px;
+            height: 460px;
             margin:100px auto;
             text-align: center;
             color:black;
@@ -34,6 +34,8 @@
      <pre class="page-404">
      <p class="text-1">404.Not Found</p>
      <p class="text-2">没有找到你要的页面</p>
+  <!--    font-size:1.5em; -->
+     <pre style="color:black;font-weight:900;font-family:'黑体'">
           .----.
        _.'__    `.
    .--($)($$)---/#\

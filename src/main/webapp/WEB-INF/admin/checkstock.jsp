@@ -32,11 +32,13 @@ window.onload=function(){
 <body>
 <center>
 ${stocknews }<br>
-<form action="${rootPath}manage/StockAction_Inquiry" method="post">
+<div style="margin-left:50%;">
+	<form action="${rootPath}manage/StockAction_Inquiry" method="post">
 		<input class="input
-		" type="text" name="inquiry">
-		<button style="background-color: #82C0E9" class="btnForm">地点查询</button>	
+		" type="text" name="inquiry" style="width:15%;">
+		<button style="border-radius: 5px;width:15%;background-color: #82C0E9;" class="btnForm">地点查询</button>	
 	</form>
+</div>
 </center>
  <div class="checkstock" id="div1">
      <table cellspacing="0">
