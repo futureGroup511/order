@@ -13,7 +13,6 @@ public class CookdetailAction extends BaseAction{
 		User users=(User) session.get("user");
 		int id=users.getId();
 		User user=userService.viewUser(id);
-		System.out.println(user);
 		request.put("myself", user);
 		return "viewUser";
 	}

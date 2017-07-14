@@ -18,11 +18,11 @@ import com.opensymphony.xwork2.ActionContext;
  */
 public class orderCenterAction extends BaseAction {
 	private int OrderId;//订单ID
+	private int tableId;
 	private int page=1;
 	private String input;
 	public String checkorder() {
 		PageCut<Order> pCut=orderService.getPageCut(page, 5);
-		
 		request.put("paCut",pCut);
 		return "allOrder";
 	}
@@ -64,12 +64,29 @@ public class orderCenterAction extends BaseAction {
 		request.put("paCut", pCut);
 		return "menu";
 	}
+	public String recheck() {
+		boolean m=orderDetailsService.updet(OrderId);
+		ActionContext actionContext = ActionContext.getContext();
+		Map session = actionContext.getSession();
+		session.put("menuId",OrderId);
+		int s=(int) session.get("menuId");
+		List  menu=menuMaterialService.getMenuMaterial(s);
+		for( int i=0;i<menu.size();i++) {
+			MenuMaterial pl=(MenuMaterial) menu.get(i);
+			int id=pl.getIngId();
+			int num=(int) pl.getNum();
+			boolean k=ingerdientService.updeteNum(id, num);
+		}
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId,page, 4);
+		request.put("paCut", pCut);
+		return "orderdetail";
+	}
 	public String check() {
-		List a= orderDetailsService.Check(OrderId);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(OrderId, page, 4);
+		request.put("paCut",pCut);
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
 		session.put("sorderid",OrderId);
-		request.put("orderdetail", a);
 		return "orderdetail";
 	}
 	public String domenu() {
@@ -78,27 +95,35 @@ public class orderCenterAction extends BaseAction {
 		request.put("menu", menu);
 		return "update";
 	}
-	public String unmenu(){
+	/*public String unmenu(){
 		boolean m=orderDetailsService.updateOrerDetails(OrderId);
 		PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
 		request.put("paCut", pCut);
 		return "menu";
-	}
+	}*/
 	public String reminder() {
 		PageCut<Inform> pCut=informService.getPageCut(page,5);
 		request.put("paCut",pCut);
 		return "inform";
 	}
 	public String Serach() {
-		System.out.println(input);
-		PageCut<Order> pCut=orderService.searchOrder(input, 3,page);
-		System.out.println(pCut);
+		if(input.equals("")) {
+		PageCut<Order> pCut=orderService.getPageCut(page, 5);
 		request.put("paCut",pCut);
+		}else {
+		PageCut<Order> pCut=orderService.searchOrder(input, 3,page);
+		request.put("paCut",pCut);
+		}
 		return "allOrder";
 	}
 	public String SearchDetails() {
+		if(input.equals("")) {
+			PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
+			request.put("paCut",pCut);
+		}else {
 		PageCut<OrderDetails> pCut=orderDetailsService.searchOrder(input, 3, page);
 		request.put("paCut",pCut);
+		}
 		return "menu";
 	}
 	
@@ -120,5 +145,11 @@ public class orderCenterAction extends BaseAction {
 	}
 	public void setInput(String input) {
 		this.input = input;
+	}
+	public int getTableId() {
+		return tableId;
+	}
+	public void setTableId(int tableId) {
+		this.tableId = tableId;
 	}
 }
