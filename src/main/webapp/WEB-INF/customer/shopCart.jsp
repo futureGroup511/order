@@ -82,15 +82,15 @@
           </div>
           <div class="left infors">
               <p><b>${s.menuName}</b></p>
-              <p class="left col"><b>价格：</b></p><p class="red size"><b>￥${s.price}</b></p>
+              <p class="left col">价格:&nbsp;&nbsp;</p><p class="red size">￥${s.price}</p>
               <div class="zu">
                  <div class="left kong">
-                      <div class="left">
-                       	<input type="button" value="-" onclick="reduce(${s.id})">
+                      <div class="left tujia" onclick="reduce(${s.id})">
+                       	<img src="../images/jian.png"  width="12px" height="12px" />
                       </div>  
-                        <span id="menu${s.id}" >${s.menuNum}</span>                                   
-                      <div class="right">    
-                      	<input type="button" value="+" onclick="add(${s.id})">               
+                        <span id="menu${s.id}" >${s.menuNum}</span >                                   
+                      <div class="right tujian" onclick="add(${s.id})">    
+                        <img src="../images/jia.png"  width="14px" height="14px"/>   
                       </div>
                   </div>
                  <div class="left delete">
@@ -102,11 +102,8 @@
     </c:forEach>
 	<div class="end">
 		<div class="left">
-			<p class="left" class="zongjia">
-				<b>总价：</b>
-			</p>
-			<p class="left" calss="jiaqian">
-				<b id="total">${total}</b>
+			<p class="left zongjia"><b>总价：</b></p><p class="left jiaqian">
+			<b id="total">${total}</b>
 			</p>
 		</div>
 		<div class="right">
