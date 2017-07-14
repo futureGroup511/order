@@ -25,12 +25,12 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
 				var result = xmlhttp.responseText;								
 				if(parseInt(result)==1){
-					alert("添加成功");
+					show_notice('添加成功',2);
 				}else if(parseInt(result)==0){
-					alert("配料不足");
+					show_notice('配料不足',2);
 				}
 				else{
-					alert("添加失败");
+					show_notice('添加失败',2);
 				}
 							
 			}
@@ -40,6 +40,36 @@
 				"application/x-www-form-urlencoded");
 		xmlhttp.send("id="+id);
 	}
+	
+	
+	function show_notice(str,second,callback){  
+	    var box_id = 'notice_box';  
+	    var tooltipBox = document.getElementById(box_id);  
+	    if(tooltipBox){  
+	        document.body.removeChild(tooltipBox);  
+	    }  
+	    if(!second) second = 2;  
+	    tooltipBox = document.createElement('div');  
+	    tooltipBox.innerHTML = str;  
+	    tooltipBox.id = box_id;  
+	    tooltipBox.style.background='rgba(94,94,94,.8)';  
+	    tooltipBox.style.color='#fff';  
+	    tooltipBox.style.display='inline-block';  
+	    tooltipBox.style.padding = '0.4em 1.5em';  
+	    tooltipBox.style.borderRadius = '1em';  
+	    tooltipBox.style.fontSize = '0.9em';  
+	    document.body.appendChild(tooltipBox);  
+	    var vWidth = document.documentElement.clientWidth;  
+	    var vHeight = document.documentElement.clientHeight;  
+	    tooltipBox.style.position = 'fixed';  
+	    tooltipBox.style.zIndex = '9999';  
+	    tooltipBox.style.left = ((vWidth/2)-(tooltipBox.offsetWidth/2))+'px';  
+	    tooltipBox.style.top = ((vHeight/2)-(tooltipBox.offsetHeight/2))+'px';  
+	    setTimeout(function () {  
+	                    document.body.removeChild(tooltipBox);  
+	                    if(callback)    callback();  
+	                }, second*1000);  
+	}  
 </script>
 </head>
 <body>
@@ -148,7 +178,4 @@
       </a>
    </footer>
 </body>
-<script>
-alter(<h3>${addMeg}</h3>);
-</script>
 </html>
