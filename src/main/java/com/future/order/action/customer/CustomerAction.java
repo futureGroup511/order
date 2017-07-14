@@ -51,7 +51,11 @@ public class CustomerAction extends BaseAction {
 		Menu menu =menuService.get(id);
 		request.put("menu", menu);
 		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuId(id);
-		System.out.println(menuMaterial+"999999");
+		for(MenuMaterial item:menuMaterial){
+			List<Ingredient> ingredient=ingerdientService.getByIdAll(item.getIngId());
+			request.put("ingredient",ingredient);
+			System.out.println(ingredient);
+		}
 		request.put("menuMaterial",menuMaterial);	
 		return "getMenuMaterial";
 	}

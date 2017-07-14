@@ -5,6 +5,7 @@
  * 
  */  
 package com.future.order.dao;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -97,5 +98,13 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 			pc.setData(this.getEntityLimitList("from Ingredient where "+ask+"='"+inquiry+"'", (curr-1)*pageSize, pageSize));
 		}
 		return pc;
+	}
+
+	@Override
+	public List<Ingredient> getByIdAll(int id) {
+		List<Ingredient> list = new ArrayList<Ingredient>();
+		String hql="from Ingredient s where s.id="+id+" and (s.type='原料')";
+		list=this.getEntityList(hql);
+		return list;
 	}
 }

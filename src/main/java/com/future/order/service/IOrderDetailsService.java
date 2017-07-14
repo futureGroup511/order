@@ -40,7 +40,8 @@ public interface IOrderDetailsService {
 	public List Check(int detailid);
 	public List<OrderDetails> SeeByid(int id);
 	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);
-	public OrderDetails getDetaill(int tableId);}
+	public OrderDetails getDetaill(int tableId);
+	public List<OrderDetails> getDetailsTwo(int orderId);}
 //=======
 //import java.util.List;
 //

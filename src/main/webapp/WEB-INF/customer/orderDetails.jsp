@@ -40,6 +40,8 @@
      <p class="left">订单号：${myId}</p>
      <p class="right red" style="">${total}</p><p class="right jia">总价：</p>
 </div>
+<textarea rows="50" cols="50" placeholder="ps.输入您对口味的一些要求">
+</textarea>
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 </c:if>
  <c:if test="${empty orderDetails }">
