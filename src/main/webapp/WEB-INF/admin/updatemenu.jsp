@@ -29,6 +29,7 @@
 	width:260px; height:120px;
 	margin-left:0px;  
 }
+
 </style>
 <script type="text/JavaScript" src="js/jquery.js"></script>
 <script type="text/javascript">
@@ -71,7 +72,7 @@
       <div class="button">
       	<input type="button" style="height:30px;" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="修改菜品详情">
        <input type="submit" style="height:30px;margin-left:14%;" value="修改">
-      </div>
+      </div> 
   </form>        
   </div> 
 </body>

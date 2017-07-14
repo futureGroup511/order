@@ -12,7 +12,6 @@
 </head>
 <body class="login" >
 <div class="header" ><!-- 头部 -->
-
             <img src="${rootPath}images/beijing.jpg" style="width:100%;height:125px;">
            <span class="span1">订餐管理系统</span>
             <span class="span2">欢迎${user.phone}登录</span>
