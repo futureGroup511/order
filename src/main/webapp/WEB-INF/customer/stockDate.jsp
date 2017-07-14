@@ -8,9 +8,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/public.css">
-	<link rel="stylesheet" type="text/css" href="../css/time.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
+	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/time.css">
 </head>
 <body>
 <c:forEach items="${stockDetails}" var="s">
@@ -30,19 +30,19 @@
    <footer>
       <a href="${rootPath}customer/customer_toIndex?id=${userId}">
       <div class="left">
-         <div><img src="../images/sy1.png" style="width:100%; height:100%; "></div>
+         <div><img src="${rootPath}images/sy1.png" style="width:100%; height:100%; "></div>
          <p>首页</p>
       </div>
       </a>
       <a href="${rootPath}customer/cart_getCart">
       <div class="left">
-         <div><img src="../images/gwc.png" style="width:100%; height:100%; "></div>
+         <div><img src="${rootPath}images/gwc.png" style="width:100%; height:100%; "></div>
          <p>购物车</p>
       </div>
       </a>
       <a href="${rootPath}customer/cart_getOrderDetails">
       <div class="left">
-         <div><img src="../images/dd.png" height=70% width=70%></div>
+         <div><img src="${rootPath}images/dd.png" height=70% width=70%></div>
          <p>订单</p>
       </div>
       </a>
