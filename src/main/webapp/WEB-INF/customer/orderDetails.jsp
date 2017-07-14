@@ -26,7 +26,7 @@
 <c:forEach items="${orderDetails}" var="o">
  <div class="ding">
     <div class="left photo">
-       <img src="${rootPath}images/haixian.jpg" alt="" width="100px" height="90px">
+    	<img src="${rootPath}uploadImg/${o.imgUrl}" alt="" width="100px" height="90px">
     </div>
     <div class="right infors">
        <p><b>${o.menuName}</b></p>

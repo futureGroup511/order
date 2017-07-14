@@ -32,7 +32,7 @@
 	<!-- 顶部菜的图片 -->
 <div class="food">
 	    <div>
-	    	   <img src="${rootPath}images/xiang.jpg" alt="">
+	    	   <img src="${rootPath}uploadImg/${menu.imgUrl}">
 	    </div>
  <!--  顶部图片的解释部分 -->
         <div class="explain">

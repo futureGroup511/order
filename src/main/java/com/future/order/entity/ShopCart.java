@@ -31,7 +31,9 @@ public class ShopCart {
 	@Column(length=5)
 	private int menuNum;//该菜品数量
 	@Column(length=10)
-	private double price;//单价	
+	private double price;//单价
+	@Column(length=255)
+	private String imgUrl;
 	@Column(length=255)
 	private String remark;//备注
 	
@@ -52,7 +54,7 @@ public class ShopCart {
 	 * @param num
 	 * @param remark
 	 */
-	public ShopCart(int tableId, String tableName, int menuId, String menuName, int menuNum, double price) {
+	public ShopCart(int tableId, String tableName, int menuId, String menuName, int menuNum, double price,String imgUrl) {
 		super();
 		this.tableId = tableId;
 		this.tableName = tableName;
@@ -60,8 +62,8 @@ public class ShopCart {
 		this.menuName = menuName;
 		this.menuNum = menuNum;
 		this.price = price;
+		this.imgUrl = imgUrl;
 	}
-
 	/**
 	 * @return the id
 	 */
@@ -135,6 +137,14 @@ public class ShopCart {
 		this.price = price;
 	}
 	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
 	/**
 	 * @return the remark
 	 */
@@ -163,11 +173,13 @@ public class ShopCart {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+
 	@Override
 	public String toString() {
 		return "ShopCart [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", menuId=" + menuId
-				+ ", menuName=" + menuName + ", menuNum=" + menuNum + ", price=" + price + ", remark="
-				+ remark + "]";
+				+ ", menuName=" + menuName + ", menuNum=" + menuNum + ", price=" + price + ", imgUrl=" + imgUrl
+				+ ", remark=" + remark + "]";
 	}
+	
 		
 }

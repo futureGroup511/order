@@ -72,6 +72,7 @@ public class CartAction extends BaseAction {
 					orderDetails.setTableId(item.getTableId());
 					orderDetails.setOrderId(myId);
 					orderDetails.setStatus(order.getStatus());
+					orderDetails.setImgUrl(item.getImgUrl());
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -92,6 +93,7 @@ public class CartAction extends BaseAction {
 						orderDetails.setTableId(item.getTableId());
 						orderDetails.setOrderId(order.getId());
 						orderDetails.setStatus(order.getStatus());
+						orderDetails.setImgUrl(item.getImgUrl());
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
@@ -116,7 +118,7 @@ public class CartAction extends BaseAction {
 	// 查询订单详情
 	public String getOrderDetails() throws Exception {
 		int tableId = (int) session.get("userId");
-		Order orders=orderService.getOrder1(tableId);
+		/*Order orders=orderService.getOrder1(tableId);
 		if(orders==null||orders.getStatus().equals("已付款")){
 			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
 			request.put("orderDetails",orderDetails);
@@ -130,8 +132,20 @@ public class CartAction extends BaseAction {
 			request.put("orderDetails", orderDetails);
 			request.put("myId", orders.getId());
 			request.put("total", order.getTotal());
+		}*/
+		if(session.get("Id")==null){
+			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
+			request.put("orderDetails",orderDetails);
+		}else{
+			int myId=(int) session.get("Id");
+			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(myId);
+			Order order=orderService.CheckById(myId);
+			System.out.println(orderDetails);
+			request.put("orderDetails", orderDetails);
+			request.put("myId", myId);
+			request.put("total", order.getTotal());
 		}
-		return "getOrderDetails";
+			return "getOrderDetails";
 	}
 
 	// 菜品数量的增加
