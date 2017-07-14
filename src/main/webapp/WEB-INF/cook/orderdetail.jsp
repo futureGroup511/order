@@ -52,10 +52,25 @@
     }
 </style>
 </head>
-
+<script language="javascript">
+window.onload = function() {
+	var array = new Array();
+	<c:forEach items="${paCut.data}" var="t">
+	array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	</c:forEach>
+	var a = array.length;
+	if (a != 0) {
+		/*  document.getElementsByClassName('aa')[0].style.display='none'; */
+		document.getElementById('div1').style.display = 'block';
+		
+	}else{
+		alert("无数据")
+	}
+}
+	</script>
 <body>
-<div class="aa">
- <p>所有未完sa成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;订单&nbsp;>></p>
+<div class="aa" id="div1" style="display: none">
+ <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;订单&nbsp;>></p>
     <table id="table1">
       <thead>
         <tr>
@@ -78,7 +93,7 @@
 			  <td>备注</td>
 			   <td>操作</td>
   		</tr>
-  		 <c:forEach items="${orderdetail}" var="item"> 
+  		 <c:forEach items="${paCut.data}" var="item"> 
 	            <tr>  
 	                <td>${item.id}</td>
 	                <td>${item.tableId}</td>
@@ -92,7 +107,7 @@
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
-	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">处理</a></c:if>
+	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_recheck?OrderId=${item.id}&tableId=${item.tableId}">处理</a></c:if>
 	                <c:if test="${item.status eq '完成'}">已完成</c:if></td>
 	                <%-- <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td> --%>
 	            </tr>  
@@ -115,7 +130,7 @@
  								</c:when> 
 
  								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
- 									<li><a href="?page=${i }">${i}</a></li> 
+ 									<li><a href="?page=${i}">${i}</a></li> 
  								</c:when> 
  							</c:choose>
  						</c:forEach> 

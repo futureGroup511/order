@@ -64,25 +64,27 @@
 </style>
 </head>
 <script language="javascript">
-window.onload=function(){
-	 var array = new Array();  
-	 <c:forEach items="${paCut.data}" var="t">  
-	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
-	 </c:forEach>
-	 var a = array.length;
- if(a==0){
-	 document.getElementById('div1').style.display='none';
-	 document.getElementById('div2').style.display='none';
- }
+window.onload = function() {
+	var array = new Array();
+	<c:forEach items="${paCut.data}" var="t">
+	array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	</c:forEach>
+	var a = array.length;
+	if (a != 0) {
+		document.getElementById('div1').style.display = 'block';
+		
+	}else{
+		alert("无数据")
+	}
 }
 	</script>
 <body>
-<div class="aa">
+<div class="aa" id="div1" style="display: none">
  <p>催单>></p>
     <table id="table1">
       <thead>
         <tr>
-            <td colspan="10">订单信息</td>
+            <td colspan="10">催单信息</td>
         </tr>
       </thead>
         <tbody>

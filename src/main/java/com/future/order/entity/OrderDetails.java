@@ -44,6 +44,8 @@ public class OrderDetails {
 	private int cookId;//厨师id，
 	@Column(length=10)
 	private String cookName;//厨师名称
+	@Column(length=255)
+	private String imgUrl;
 	/**
 	 * @return the id
 	 */
@@ -192,12 +194,18 @@ public class OrderDetails {
 		this.cookName = cookName;
 	}
 	
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 	@Override
 	public String toString() {
 		return "OrderDetails [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", orderId=" + orderId
 				+ ", menuId=" + menuId + ", menuName=" + menuName + ", menuNum=" + menuNum + ", status=" + status
 				+ ", creatDate=" + creatDate + ", remark=" + remark + ", cookId=" + cookId + ", cookName=" + cookName
-				+ "]";
+				+ ", imgUrl=" + imgUrl + "]";
 	}
 	
 }

@@ -76,7 +76,7 @@
       <!-- 头部 店铺与联系方式-->
    <div class="header">
      <div class="banner">
-     	<img src="${rootPath}images/canting.jpg" alt="">
+     	<img src="${rootPath}uploadImg/${r.imgUrl}">
      </div>
      <div class="information">
          <div>
@@ -132,7 +132,7 @@
 	    <div class="food">
 		      <a href="${rootPath}customer/customer_getMenuMaterial?id=${m.id}">
 	            <div class="left photo">
-	              <img src="${rootPath}images/haixian.jpg" alt="" width="100px" height="90px">	
+	            	<img src="${rootPath}uploadImg/${m.imgUrl}" alt="" width="100px" height="90px">
 	            </div>
 	      	  </a>
             <div class="left indu">
@@ -161,6 +161,7 @@
      <a href="${rootPath}customer/customer_toIndex?id=${userId}">
       <div class="left">
       	<div><img src="${rootPath}images/sy1.png" style="width:100%; height:100%; "></div>
+      	
       	<p>首页</p>
       </div>
       </a>

@@ -24,14 +24,14 @@
         }
         .pag{
         float: right;
-         margin-top: -90px;
+         margin-top: 0;
         margin-right:60px; 
         }
         
         table{
             width: 100%;
             text-align: center;
-            margin:100px auto; 
+            margin:10px auto; 
             font-family: 微软雅黑;
          }
         #table1 thead td{
@@ -53,30 +53,38 @@
            .search{
              width:400px;
              height:30px;
-             position:absolute;
-             top:55px;
-             left:72%;
+             margin-top:35px;
+             margin-left:74%; 
+              
              display: inline-block;
         }
         .input1{
             float: left;
             padding-left: 20px;
-            width:200px ;
+            width:54%;
             height:30px ;
             border:1px solid #cfcfcf;
             border-radius: 4px;
             font:400 16px/40px "微软雅黑";
+            line-height:30px;
         }
-        #button1{
+          .input2{
             float: left;
-            border-color:white ;
-            width:70px;
+            width:15%;
             height:30px;
             background: #3c9df9;
+            height: 30px;
+            color: #FFF;
+            font-size: 14px;
+            text-align: center;
+            border: 2px solid #3c9df9;
+            cursor: pointer;
+            
         }
-      #button1:hover{
-           background:#317ef3; 
+        .input2:hover{
+            background: #008af5;
         }
+        
        
 	html{
         background: url(../images/m-91.jpg);
@@ -85,32 +93,27 @@
     </style>
 </head>
 <script language="javascript">
-function check(){
-	var name = document.getElementById("input");
-	if(name == ""){
-	    alert("输入不能为空！");
-	    return false;
+window.onload = function() {
+	var array = new Array();
+	<c:forEach items="${paCut.data}" var="t">
+	array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+	</c:forEach>
+	var a = array.length;
+	if (a != 0) {
+		/*  document.getElementsByClassName('aa')[0].style.display='none'; */
+		document.getElementById('div1').style.display = 'block';
+		
+	}else{
+		alert("无数据")
 	}
-	}
-	
-window.onload=function(){
-	 var array = new Array();  
-	 <c:forEach items="${paCut.data}" var="t">  
-	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
-	 </c:forEach>
-	 var a = array.length;
- if(a==0){
-	 document.getElementById('div1').style.display='none';
-	 document.getElementById('div2').style.display='none';
- }
 }
 	</script>
 <body>
-<div class="aa">
+<div class="aa" id="div1" style="display: none">
   <div class="search">
   <form action="${rootPath}cook/orderCenter_Serach" method="post"  onsubmit="return check()">
-    <input type="text" class="input1" name="input" placeholder="请输入" ">
-    <button class="btn btn-info"id="button1" >搜索</button>
+    <input type="text" class="input1" name="input" placeholder="请输入数据 ">
+    <button class="input2"  >搜&nbsp;索</button>
     </form>
  </div>
     <table id="table1">
@@ -149,7 +152,7 @@ window.onload=function(){
 	                 <c:if test="${item.status eq '处理中'}">处理中</c:if>
 	                  <c:if test="${item.status eq '未付款'}">未付款</c:if>
 	                 </td>
-	                  <td><a href="${rootPath}cook/orderCenter_check?OrderId=${item.tableId}">${item.tableName}</a></td>
+	                  <td><a href="${rootPath}cook/orderCenter_check?OrderId=${item.tableId}">详情</a></td>
 	            </tr>  
         	</c:forEach>
         </tbody>
