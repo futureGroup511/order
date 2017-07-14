@@ -31,7 +31,7 @@ window.onload=function(){
 			<tr>
 				<th>配料名称</th>
 				<th>类型</th>
-				<th>添加（kg）</th>
+				<th style="width:300px;">添加（kg）</th>
 			</tr>
  			<c:forEach items="${allIngredient}" var="ingredient">
  				<tr>	 

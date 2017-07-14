@@ -14,7 +14,7 @@
           <lable id="text">类型:</lable><input name="menus.name" value="${menutype.name}" type="text"><br>
           <lable id="text">介绍:</lable><input name="menus.remark" value="${menutype.remark}" type="text"><br>
       <div class="button">
-         <button type="submit">修改</button>
+         <button style="background-color: #75c7ed;border-radius: 5px;" type="submit">修改</button>
       </div> 
        </form> 
        </div>      

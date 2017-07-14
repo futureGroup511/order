@@ -4,18 +4,21 @@
 }
 .wall{
 	margin-left:0%;
-    width: 45%;
+    width: 60%;
     height: auto;
     margin:0 auto;
     margin-top: 2%;
 }
 table{
-    width: 100%;
+    width: 80%;
     text-align: CENTER;
+    background-color: white;
+    
+  
 }
 td input{
     height: 25px;
-    width: 68%;
+    width: 78%;
     border-radius: 3px;
     float: left;
 }
@@ -30,16 +33,16 @@ td input{
     border-radius: 10px 0 10px 0;
 }
 table td{
-    width:25%; 
     height: 32px;
-    font-weight: bold;
     font-size: 18px;
+    border-color: #E8E7E3;
 }
 table th{
     text-align: center;
-    height: 35px;
-    background-color: #8ed8fa;
+    height: 45px;
+    background-color: #E8E7E3;
     font-size:19px;
+    
 }
 .btn{
  	   hight:4%;

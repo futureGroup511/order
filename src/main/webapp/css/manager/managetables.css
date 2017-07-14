@@ -18,11 +18,12 @@ table{
     width: 100%;
     text-align: center;
     margin-left: 1%;
+    background-color: white;
 }
 table th{
     text-align: center;
     height:45px;
-    background:#75c7ed;
+    background-color: #E8E7E3;
 }
 table td{
 	height:40px;;

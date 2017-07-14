@@ -8,18 +8,12 @@ package com.future.order.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
 import com.future.order.entity.Ingredient;
-import com.future.order.entity.OrderDetails;
-import com.future.order.entity.ShopCart;
 import com.future.order.service.IIngerdientService;
 import com.future.order.util.PageCut;
-import com.opensymphony.xwork2.ActionContext;
+
 
 
 @Service
@@ -88,15 +82,20 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 
 	@Override
 	public PageCut<Ingredient> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
-		String hql = "select count(*) from Ingredient";
-		int count = ((Long) this.uniqueResult(hql)).intValue();
-		PageCut<Ingredient> pc = new PageCut<Ingredient>(curr,pageSize,count);
+		String hql;
+		String selecthql;
 		if(ask.equals("price")||ask.equals("num")){
 			int mark=Integer.parseInt(inquiry);
-			pc.setData(this.getEntityLimitList("from Ingredient where "+ask+"='"+mark+"'", (curr-1)*pageSize, pageSize));	
+			hql = "select count(*) from Ingredient where "+ask+"='"+mark+"'";
+			selecthql="from Ingredient where "+ask+"='"+mark+"'";
+			
 		}else{
-			pc.setData(this.getEntityLimitList("from Ingredient where "+ask+"='"+inquiry+"'", (curr-1)*pageSize, pageSize));
+			hql = "select count(*) from Ingredient where "+ask+"='"+inquiry+"'";
+			selecthql="from Ingredient where "+ask+"='"+inquiry+"'";
 		}
+		int count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Ingredient> pc = new PageCut<Ingredient>(curr,pageSize,count);	
+		pc.setData(this.getEntityLimitList(selecthql, (curr-1)*pageSize, pageSize));
 		return pc;
 	}
 

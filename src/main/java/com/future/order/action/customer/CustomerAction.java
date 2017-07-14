@@ -66,25 +66,41 @@ public class CustomerAction extends BaseAction {
 		return "getStockDate";
 	}
 	//加入购物车
-	public String joinCart() throws Exception {
+	public void joinCart() throws Exception {
 		Menu menu=menuService.get(id);
-		int tableId=(int) session.get("userId");//获得顾客桌号		
-		System.out.println("tableId"+tableId);
-		String tableName=tablesService.get(tableId).getName();//根据顾客桌号取得桌子的名称	
-		ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());//根据顾客的桌号和菜单的id获得购物车中的对应信息
-		if(shopCart==null){
-			shopCart=new ShopCart(tableId, tableName,id, menu.getName(), 1, menu.getPrice());		
-		}else{
-			shopCart.setMenuNum(shopCart.getMenuNum()+1);
+		int tableId=(int) session.get("userId");//获得顾客桌号	
+		//判断配料是否足够
+		ShopCart sCart=shopCartService.getByT_M_Id(tableId, id);
+		int menuNum=1;
+		if(sCart!=null){
+			menuNum=sCart.getMenuNum()+1;
 		}
-		Boolean bool=shopCartService.update(shopCart);
-		if(bool==true){
-			request.put("addMeg", "添加成功！");
-		}else{
-			request.put("addMeg", "添加失败！");
-		}
-
-		return "joinCart";
+		List<MenuMaterial> menuMaterials=menuMaterialService.getByMenuId(id);
+		System.out.println(menuMaterials);
+		Boolean enough=true;
+		for(MenuMaterial m : menuMaterials){
+			Ingredient ingredient=ingerdientService.getById(m.getIngId());
+			if(m.getNum()*menuNum>ingredient.getNum()){
+				this.getResponse().getWriter().println("0");
+				System.out.println("配料不足");				
+				enough=false;
+				break;
+			}
+			
+		}	
+		if(enough){
+			String tableName=tablesService.get(tableId).getName();//根据顾客桌号取得桌子的名称	
+			ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());//根据顾客的桌号和菜单的id获得购物车中的对应信息
+			if(shopCart==null){
+				shopCart=new ShopCart(tableId, tableName,id, menu.getName(), 1, menu.getPrice());		
+			}else{
+				shopCart.setMenuNum(shopCart.getMenuNum()+1);
+			}
+			Boolean bool=shopCartService.update(shopCart);
+			if(bool==true){
+				this.getResponse().getWriter().println("1");
+			}		
+		}			
 	}
 	
 	public int getId() {

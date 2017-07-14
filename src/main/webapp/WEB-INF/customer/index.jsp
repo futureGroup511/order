@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 	<meta charset="utf-8">
@@ -11,6 +11,66 @@
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/show.css">
+<script type="text/javascript">
+	function addShopCart(id) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			// IE6, IE5 浏览器执行代码
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+				var result = xmlhttp.responseText;								
+				if(parseInt(result)==1){
+					show_notice('添加成功',2);
+				}else if(parseInt(result)==0){
+					show_notice('配料不足',2);
+				}
+				else{
+					show_notice('添加失败',2);
+				}
+							
+			}
+		}
+		xmlhttp.open("POST", "customer_joinCart", true);
+		xmlhttp.setRequestHeader("Content-type",
+				"application/x-www-form-urlencoded");
+		xmlhttp.send("id="+id);
+	}
+	
+	
+	function show_notice(str,second,callback){  
+	    var box_id = 'notice_box';  
+	    var tooltipBox = document.getElementById(box_id);  
+	    if(tooltipBox){  
+	        document.body.removeChild(tooltipBox);  
+	    }  
+	    if(!second) second = 2;  
+	    tooltipBox = document.createElement('div');  
+	    tooltipBox.innerHTML = str;  
+	    tooltipBox.id = box_id;  
+	    tooltipBox.style.background='rgba(94,94,94,.8)';  
+	    tooltipBox.style.color='#fff';  
+	    tooltipBox.style.display='inline-block';  
+	    tooltipBox.style.padding = '0.4em 1.5em';  
+	    tooltipBox.style.borderRadius = '1em';  
+	    tooltipBox.style.fontSize = '0.9em';  
+	    document.body.appendChild(tooltipBox);  
+	    var vWidth = document.documentElement.clientWidth;  
+	    var vHeight = document.documentElement.clientHeight;  
+	    tooltipBox.style.position = 'fixed';  
+	    tooltipBox.style.zIndex = '9999';  
+	    tooltipBox.style.left = ((vWidth/2)-(tooltipBox.offsetWidth/2))+'px';  
+	    tooltipBox.style.top = ((vHeight/2)-(tooltipBox.offsetHeight/2))+'px';  
+	    setTimeout(function () {  
+	                    document.body.removeChild(tooltipBox);  
+	                    if(callback)    callback();  
+	                }, second*1000);  
+	}  
+</script>
 </head>
 <body>
       <!-- 头部 店铺与联系方式-->
@@ -32,6 +92,7 @@
      <!-- 里面每一个块都是一个类别 -->
 	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=1" title=""><div class="one left">
 	   	 	<img src="${rootPath}images/1.png" alt="">
+
 	   	 	<p>川菜</p>
 	   	 </div></a>
 	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=2" title=""><div class="one left">  
@@ -83,10 +144,8 @@
             	</div>
             	<div class="di">
             	<p class="left p1">￥${m.price}</p>
-              <p class="left p2">销量：${m.num}</p>
-              <a href="${rootPath}customer/customer_joinCart?id=${m.id}">
-            	<input type="button" name="" value="+" class="right" />
-              </a>
+              <p class="left p2">销量：${m.num}</p>           
+            	<input type="button" name="" value="+" class="right" onclick="addShopCart(${m.id})" />
             	</div>
             </div>
 	    </div>
@@ -119,7 +178,4 @@
       </a>
    </footer>
 </body>
-<script>
-alter(<h3>${addMeg}</h3>);
-</script>
 </html>
