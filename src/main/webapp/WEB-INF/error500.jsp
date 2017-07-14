@@ -26,7 +26,9 @@
             font-weight: bold;
             margin-top:0; 
         }
-
+ html{
+          background: #eaeaea;
+    }
     </style>
 </head>
 <body>
