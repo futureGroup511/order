@@ -8,9 +8,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<title>订餐管理系统</title>
-	<link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="${rootPath}css/public.css">
-	<link rel="stylesheet" href="${rootPath}css/food.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/public.css">
+	<link rel="stylesheet" href="${rootPath}css/customer/food.css">
     <script>
     	window.onload = function() {
    var oDiv = document.getElementById('div1');
@@ -26,6 +26,64 @@
      oDiv.style.position = '';
    }
   }
+    	function addShopCart(id) {
+    		var xmlhttp;
+    		if (window.XMLHttpRequest) {
+    			// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    			xmlhttp = new XMLHttpRequest();
+    		} else {
+    			// IE6, IE5 浏览器执行代码
+    			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    		}
+    		xmlhttp.onreadystatechange = function() {
+    			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+    				var result = xmlhttp.responseText;								
+    				if(parseInt(result)==1){
+    					show_notice('添加成功',2);
+    				}else if(parseInt(result)==0){
+    					show_notice('配料不足',2);
+    				}
+    				else{
+    					show_notice('添加失败',2);
+    				}
+    							
+    			}
+    		}
+    		xmlhttp.open("POST", "customer_joinCart", true);
+    		xmlhttp.setRequestHeader("Content-type",
+    				"application/x-www-form-urlencoded");
+    		xmlhttp.send("id="+id);
+    	}
+    	
+    	
+    	function show_notice(str,second,callback){  
+    	    var box_id = 'notice_box';  
+    	    var tooltipBox = document.getElementById(box_id);  
+    	    if(tooltipBox){  
+    	        document.body.removeChild(tooltipBox);  
+    	    }  
+    	    if(!second) second = 2;  
+    	    tooltipBox = document.createElement('div');  
+    	    tooltipBox.innerHTML = str;  
+    	    tooltipBox.id = box_id;  
+    	    tooltipBox.style.background='rgba(94,94,94,.8)';  
+    	    tooltipBox.style.color='#fff';  
+    	    tooltipBox.style.display='inline-block';  
+    	    tooltipBox.style.padding = '0.4em 1.5em';  
+    	    tooltipBox.style.borderRadius = '1em';  
+    	    tooltipBox.style.fontSize = '0.9em';  
+    	    document.body.appendChild(tooltipBox);  
+    	    var vWidth = document.documentElement.clientWidth;  
+    	    var vHeight = document.documentElement.clientHeight;  
+    	    tooltipBox.style.position = 'fixed';  
+    	    tooltipBox.style.zIndex = '9999';  
+    	    tooltipBox.style.left = ((vWidth/2)-(tooltipBox.offsetWidth/2))+'px';  
+    	    tooltipBox.style.top = ((vHeight/2)-(tooltipBox.offsetHeight/2))+'px';  
+    	    setTimeout(function () {  
+    	                    document.body.removeChild(tooltipBox);  
+    	                    if(callback)    callback();  
+    	                }, second*1000);  
+    	}  
     </script>
 </head>
 <body>
@@ -44,24 +102,25 @@
 				        <div class="top" id="div1">
 						     	<p class="left money">￥${menu.price}</p>
 						     	<p class="left buy">月售出：${menu.num}</p>
-						     <a href="${rootPath}customer/customer_joinCart?id=${menu.id}">
-						     	<input type="button" name="" value="+购物车" class="right">
+						     <input type="button" name="" value="+" class="right" onclick="addShopCart(${menu.id})" />
+						 
 						     </a>
 				        </div>
 				     <div class="bottom">     <!--   每一个date是一种配料 -->
-				     		<c:forEach items="${ingredient}" var="m">
+				                <div class="introduce">
+												简介：	${menu.introduce}    
+										         </div>
+				     		<c:forEach items="${menuMaterial}" var="m">
 							     <div class="date">
 										         <div class="sdate">
-															     	   	 <p class="left">配料名称：&nbsp;${m.name}</p>
+															     	   	 <p class="left">配料名称：&nbsp;${m.menuName}</p>
 										         </div>
 										         <div class="nub">
 										                                  <p class="left">用量:&nbsp;&nbsp;${m.num}</p>
 										         </div>
-										         <div class="introduce">
-																<p>	${m.introduce}</p>    
-										         </div>
+								
 										         <div class="time">
-															<a href="${rootPath}customer/customer_getStockDate?id=${m.id}">进货时间信息</a>           
+															<a href="${rootPath}customer/customer_getStockDate?ingId=${m.ingId}">进货时间信息</a>           
 										         </div>
 							                <section></section>
 							     </div>
@@ -86,8 +145,8 @@
       </div>
       </a>
       <a href="${rootPath}customer/cart_getOrderDetails">
-      <div class="left">
-      	<div><img src="${rootPath}images/dd.png" style="width:100%; height:100%; "></div>
+      <div class="left dingdan">
+      	<div><img src="${rootPath}images/dd.png" style="width:70%; height:70%; "></div>
       	<p>订单</p>
       </div>
       </a>

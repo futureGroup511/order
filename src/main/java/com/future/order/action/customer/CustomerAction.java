@@ -21,7 +21,7 @@ public class CustomerAction extends BaseAction {
 	
 	
 	private int id;
-		
+	private int ingId;	
 	//进入首页
 	public String toIndex() throws Exception{
 		
@@ -46,22 +46,21 @@ public class CustomerAction extends BaseAction {
 		session.put("menus", menus);
 		return "getMenuByTypeId";
 	}
-	//获得菜品详情和菜品配料
+	//获得菜品详情和菜品原料
 	public String getMenuMaterial() throws Exception {		
 		Menu menu =menuService.get(id);
 		request.put("menu", menu);
 		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuId(id);
-		for(MenuMaterial item:menuMaterial){
-			List<Ingredient> ingredient=ingerdientService.getByIdAll(item.getIngId());
-			request.put("ingredient",ingredient);
-			System.out.println(ingredient);
-		}
+		/*MenuMaterial menuMaterial=menuMaterialService.get(id);
+		List<Ingredient> ingredient=ingerdientService.getByIdAll(menuMaterial.getIngId());
+		request.put("ingredient",ingredient);
+		System.out.println(ingredient+"999");*/
 		request.put("menuMaterial",menuMaterial);	
 		return "getMenuMaterial";
 	}
 	//获得进货时间列表
 	public String getStockDate() throws Exception {
-		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id,5);
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,5);
 		request.put("stockDetails", stockDetails);
 		return "getStockDate";
 	}
@@ -109,6 +108,12 @@ public class CustomerAction extends BaseAction {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getIngId() {
+		return ingId;
+	}
+	public void setIngId(int ingId) {
+		this.ingId = ingId;
 	}
 	
 }
