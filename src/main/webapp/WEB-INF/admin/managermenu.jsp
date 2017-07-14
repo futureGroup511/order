@@ -31,12 +31,12 @@ window.onload=function(){
 ${updateMsg}${deleteMenuMsg } 
 <center>
 	<form action="${rootPath}manage/MenuManager_Inquiry" method="post">
-	<select name="ask">
+	<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
 		<option value="name">名称</option>
 		<option value="typeName">类型</option>
 		<option value="price">价格</option>
 	</select>
-		<input type="text" name="inquiry">
+		<input type="text" name="inquiry"  style="border-radius:7px;background-color: #F0F0F0;height:25px; width:30%;">
 		<button type="submit">查询</button>
 	</form>
 </center>
