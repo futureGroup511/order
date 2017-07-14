@@ -55,7 +55,9 @@ public class CartAction extends BaseAction {
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
 			}
-			Boolean bool = orderService.save(order);
+			Boolean bool = orderService.update(order);
+			Order orderss=orderService.getOrder1(tableId);
+			session.put("Id",orderss.getId());
 		}else{
 				session.put("Id",orders.getId());
 		}
