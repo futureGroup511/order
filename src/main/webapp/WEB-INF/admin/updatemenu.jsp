@@ -45,7 +45,7 @@
            <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}" width="260" height="120">
       <div class="button">
       	<input type="button" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="修改菜品详情">
-       <input type="submit" value="修改">&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/MenuManager_deleteMenu?menu.id=${updateMenu.id}&menu.imgUrl=${updateMenu.imgUrl}">删除</a>
+       <input type="submit" value="修改">
       </div>
   </form>        
   </div> 

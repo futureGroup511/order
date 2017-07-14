@@ -51,20 +51,22 @@ function CheckPay(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-<h4>${marknews}</h4>
+${marknews}
 </center>
-<div class="ordercheck" id="div1">
+<div  style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
 <form action="${rootPath}manage/OrderAction_Inquiry" method="post">
-	<select name="ask">
+	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 		<option value="tableName">餐桌名称</option>
 		<option value="cookName">厨师名称</option>
 	</select>
 		<input type="text" name="inquiry">
-		<button class="btnForm">查询</button>	
+		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
 </form>
+</div>
+<div class="ordercheck" id="div1">
      <div class="button">
-      <input type="button" onclick="return CheckNopay();" value="未付款">
-      <input type="button" onclick="return CheckPay();" value="已付款">
+      <input type="button" onclick="return CheckNopay();" value="未付款" style="border-radius: 5px;">
+      <input type="button" onclick="return CheckPay();" value="已付款" style="border-radius: 5px;">
 <!--       <input type="button" onclick="return Check();" value="查看全部">       -->
       </div>  
       <div class="order">

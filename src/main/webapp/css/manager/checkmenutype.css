@@ -10,18 +10,18 @@
 }
 
 table{
-    width: 100%;
+	margin-left:10%;
+    width: 80%;
     text-align: center;
     height: auto;
 }
 table th{
     text-align: center;
-	background:#75c7ed;
+    background-color: #E8E7E3;
 	font-size:18px;
 	height:35px;
 }
 table td{height: 40px;
-font-weight: bold;
 font-size:18px;}
 a{
     text-decoration: none;
