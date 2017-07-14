@@ -16,7 +16,7 @@ public class RestaurantDao extends BaseDao<Restaurant>  implements IRestaurantSe
 	@Override
 
 	public Restaurant getOne() {
-		String hql="from Restaurant where id=(select max(id) from Restaurant)";
+		String hql="from Restaurant";
 		Restaurant restaurant=(Restaurant) uniqueResult(hql);
 		return restaurant;
 	}

@@ -51,7 +51,11 @@ public class CustomerAction extends BaseAction {
 		Menu menu =menuService.get(id);
 		request.put("menu", menu);
 		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuId(id);
-		System.out.println(menuMaterial+"999999");
+		for(MenuMaterial item:menuMaterial){
+			List<Ingredient> ingredient=ingerdientService.getByIdAll(item.getIngId());
+			request.put("ingredient",ingredient);
+			System.out.println(ingredient);
+		}
 		request.put("menuMaterial",menuMaterial);	
 		return "getMenuMaterial";
 	}
@@ -88,7 +92,7 @@ public class CustomerAction extends BaseAction {
 			String tableName=tablesService.get(tableId).getName();//根据顾客桌号取得桌子的名称	
 			ShopCart shopCart=shopCartService.getByT_M_Id(tableId, menu.getId());//根据顾客的桌号和菜单的id获得购物车中的对应信息
 			if(shopCart==null){
-				shopCart=new ShopCart(tableId, tableName,id, menu.getName(), 1, menu.getPrice());		
+				shopCart=new ShopCart(tableId, tableName,id, menu.getName(), 1, menu.getPrice(),menu.getImgUrl());		
 			}else{
 				shopCart.setMenuNum(shopCart.getMenuNum()+1);
 			}

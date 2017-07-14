@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>I订餐管理系统-登陆</title>
+<title>订餐管理系统-登陆</title>
 <script type="text/javascript">
  		function reloadCode(){
  			var time=new Date().getTime();
@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="login">
-<p class="loginp">订餐管理系统</p>
+<p class="loginp" style="color:black;">订餐管理系统</p>
 		<div class="logincenter" >
 			 <div class="dz" id="dz">
 			    <!--  <p class="">注册</p> -->

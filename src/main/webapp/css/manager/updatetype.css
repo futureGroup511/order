@@ -3,7 +3,7 @@
  padding: 0;
  }
  .wall{
-    width: 25%;
+    width: 35%;
     height: 300px;
     margin:0 auto;
     margin-top: 8%;
@@ -28,7 +28,15 @@
  button{
     width:80px;
     height: 25px;
-    margin-left: 40%;
     margin-top: 8%;
     font-size: 16px;
  }
+ .input1{
+    color: white;
+    width: 44%;
+	height:25px;
+    background: #1bafe0;
+    margin-left: 31%;
+    margin-top: 3%;
+    box-shadow: 2px 1px 1px rgba(50,154,242)
+}

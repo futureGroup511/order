@@ -27,8 +27,7 @@ window.onload=function(){
 <center>
 	<span class="error">${updateMsg}${deleteMenuMsg }</span>
 </cenetr>
- <div class="photowall"> 
-<center>
+ <div class="photowall" style="margin-left:35%;"> 
 	<form action="${rootPath}manage/MenuManager_Inquiry" method="post">
 	<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
 		<option value="name">菜名</option>
@@ -38,7 +37,6 @@ window.onload=function(){
 		<input class="input" type="text" name="inquiry">
 		<button style="border-radius: 5px;width:6%;background-color: #82C0E9;" type="submit">查询</button>
 	</form>
-</center>
 </div>
     <div class="picture_wall" id="div1">
     		${inquiryMsg}

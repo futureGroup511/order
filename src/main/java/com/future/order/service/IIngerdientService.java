@@ -36,5 +36,7 @@ public interface IIngerdientService {
 	
 	public boolean updeteNum(int id, int num);
 	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
+	//执行有条件查询
+	public List<Ingredient> getByIdAll(int id);
 
 }
