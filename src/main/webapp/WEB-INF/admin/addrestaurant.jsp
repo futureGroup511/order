@@ -6,18 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addrestaurant.css">
+<style type="text/css">
+.btn{
+	width:100px;
+	background-color: #ADD2ED;
+	font-size:15px;
+	border-radius: 5px;
+	margin-left:35%;
+}
+.file{
+	border:none; outline:none;margin-left:35%;margin-top:1%;font-size:12px;
+}
+</style>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center>
-${addrest}
-	<form action="${rootPath}manage/Restaurant_AddRestaurant" method="post" enctype="multipart/form-data">
-		<label>店名：</label><input type="text" name="restaurant.name">
-		<label>电话：</label><input type="text" name="restaurant.phone"><br>
-		<label>地址：</label><input type="text" name="restaurant.address">
-		<label>简介：</label><input type="text" name="restaurant.introduce"><br>
-		<input type="file" name="file" accept="image/*" value="选择图片" style="border:none; outline:none;margin-left:2.5%"><br>
-		<button type="submit">提交</button>
-	</form>
-</center>
+	<div class="wall">
+		${addrest}
+		<form action="${rootPath}manage/Restaurant_AddRestaurant" method="post" enctype="multipart/form-data">
+			<label>店名：</label><input type="text" name="restaurant.name"><br>
+			<label>电话：</label><input type="text" name="restaurant.phone"><br>
+			<label>地址：</label><input type="text" name="restaurant.address"><br>
+			<label>简介：</label><input type="text" name="restaurant.introduce"><br>
+			<input type="file" value="选择图片" name="file" accept="image/*" class="file"><br>
+			<button type="submit" class="btn">提交</button>
+		</form>
+	</div>
 </body>
 </html>
