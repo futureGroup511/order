@@ -26,9 +26,14 @@
 		}
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
-				var result = xmlhttp.responseText;
-				document.getElementById(Id).innerHTML=num+1;
-				document.getElementById("total").innerHTML=result;				
+				var result = xmlhttp.responseText;								
+				if(parseInt(result)==0){
+					alert("配料不足！");
+				}else{
+					document.getElementById(Id).innerHTML=num+1;
+					document.getElementById("total").innerHTML=result;	
+				}
+							
 			}
 		}
 		xmlhttp.open("POST", "cart_add", true);

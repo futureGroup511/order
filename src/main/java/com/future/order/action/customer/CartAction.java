@@ -2,6 +2,8 @@ package com.future.order.action.customer;
 import java.util.*;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Inform;
+import com.future.order.entity.Ingredient;
+import com.future.order.entity.MenuMaterial;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.entity.ShopCart;
@@ -180,34 +182,52 @@ public class CartAction extends BaseAction {
 	// 菜品数量的增加
 	public void add() throws Exception {
 		ShopCart shopCart = shopCartService.getOne(id);
-		shopCart.setMenuNum(shopCart.getMenuNum() + 1);
-		Boolean bool=shopCartService.update(shopCart);
-		
-		int tableId=(Integer)session.get("userId");
-		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
-		double total = 0.0;
-		for (ShopCart item : shopCarts) {
-			total += item.getMenuNum() * item.getPrice();
-		}
-		this.getResponse().getWriter().println(total);
-		System.out.println("id"+id+bool);
-		System.out.println(total);
-		
-		
+		//判断该菜原料是否够
+		System.out.println("munuId="+shopCart.getMenuId());
+		List<MenuMaterial> menuMaterials=menuMaterialService.getByMenuId(shopCart.getMenuId());
+		System.out.println(menuMaterials);
+		Boolean enough=true;
+		for(MenuMaterial m : menuMaterials){
+			Ingredient ingredient=ingerdientService.getById(m.getIngId());
+			if(m.getNum()*(shopCart.getMenuNum() + 1)>ingredient.getNum()){
+				System.out.println("配料不足1");
+				this.getResponse().getWriter().println("0");
+				System.out.println("配料不足2");				
+				enough=false;
+				break;
+			}
+			
+		}	
+		if(enough){
+			//菜品数量加一	
+			shopCart.setMenuNum(shopCart.getMenuNum() + 1);
+			Boolean bool=shopCartService.update(shopCart);			
+			int tableId=(Integer)session.get("userId");
+			List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
+			double total = 0.0;
+			for (ShopCart item : shopCarts) {
+				total += item.getMenuNum() * item.getPrice();
+			}
+			this.getResponse().getWriter().println(total);
+			System.out.println("id"+id+bool);
+			System.out.println(total);
+		}			
 	}
 
 	// 菜品数量的减少
 	public void reduce() throws Exception {
-		ShopCart shopCart = shopCartService.getOne(id);		
-		shopCart.setMenuNum(shopCart.getMenuNum() - 1 );		
-		shopCartService.update(shopCart);
-		int tableId=(Integer)session.get("userId");
-		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
-		double total = 0.0;
-		for (ShopCart item : shopCarts) {
-			total += item.getMenuNum() * item.getPrice();
-		}
-		this.getResponse().getWriter().println(total);
+		ShopCart shopCart = shopCartService.getOne(id);	
+		if(shopCart.getMenuNum()>1){
+			shopCart.setMenuNum(shopCart.getMenuNum() - 1 );		
+			shopCartService.update(shopCart);
+			int tableId=(Integer)session.get("userId");
+			List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
+			double total = 0.0;
+			for (ShopCart item : shopCarts) {
+				total += item.getMenuNum() * item.getPrice();
+			}
+			this.getResponse().getWriter().println(total);
+		}		
 	}
 
 	// 催单

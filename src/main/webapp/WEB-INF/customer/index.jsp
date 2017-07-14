@@ -11,6 +11,36 @@
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/show.css">
+<script type="text/javascript">
+	function addShopCart(id) {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			// IE6, IE5 浏览器执行代码
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+				var result = xmlhttp.responseText;								
+				if(parseInt(result)==1){
+					alert("添加成功");
+				}else if(parseInt(result)==0){
+					alert("配料不足");
+				}
+				else{
+					alert("添加失败");
+				}
+							
+			}
+		}
+		xmlhttp.open("POST", "customer_joinCart", true);
+		xmlhttp.setRequestHeader("Content-type",
+				"application/x-www-form-urlencoded");
+		xmlhttp.send("id="+id);
+	}
+</script>
 </head>
 <body>
       <!-- 头部 店铺与联系方式-->
@@ -84,10 +114,8 @@
             	</div>
             	<div class="di">
             	<p class="left p1">￥${m.price}</p>
-              <p class="left p2">销量：${m.num}</p>
-              <a href="${rootPath}customer/customer_joinCart?id=${m.id}">
-            	<input type="button" name="" value="+" class="right" />
-              </a>
+              <p class="left p2">销量：${m.num}</p>           
+            	<input type="button" name="" value="+" class="right" onclick="addShopCart(${m.id})" />
             	</div>
             </div>
 	    </div>
