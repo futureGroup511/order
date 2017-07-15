@@ -24,9 +24,9 @@ select{
     height: 25px;
     border-radius: 5px;
 }
-button{
-    width: 80px;
+.button{
+    width: 200px;
     height: 25px;
     margin-left:40%;
-    margin-top: 8%;
+    margin-bottom:15%;
 }

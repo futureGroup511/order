@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
 import com.future.order.entity.MenuType;
-import com.future.order.entity.Order;
 import com.future.order.service.IMenuTypeService;
 import com.future.order.util.PageCut;
 
@@ -137,6 +136,11 @@ public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService 
 		PageCut<MenuType> pc = new PageCut<MenuType>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList("from MenuType where name='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
+	}
+	//得到菜品类型数据的条数
+	@Override
+	public int getCount() {
+		return getNum();
 	}
 	
 }

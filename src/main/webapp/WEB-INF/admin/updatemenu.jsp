@@ -24,6 +24,7 @@
 .textarea{
 	margin-left:0px;margin-top:0px;border-radius: 5px;
 	font-size:15px;
+	border-color: blue;
 }
 .img{
 	width:260px; height:120px;

@@ -57,7 +57,7 @@
                   </ul> 
               </li>
               <li><!-- 第三个父目录 -->
-                  <a><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;菜品类型管理</a>
+                  <a><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;菜类管理</a>
                     <ul class="nav nav-second-level" >
                        <li>
                            <a href="${rootPath}manage/Change_addMenuType" target="mainFrame"><span class="glyphicon glyphicon-move"></span>&nbsp;&nbsp;&nbsp;增加菜类</a>

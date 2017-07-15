@@ -23,7 +23,9 @@
 					<option value="配料">配料</option>
 				</select><br>
 				<lable id="text">简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介：</lable>
+				<div style="margin-left:20%;margin-top:-10%;">
 					<textarea style="" rows="5" cols="35" name="ingredient.introduce"></textarea>
+					</div>
 				<div class="button">
 					<input type="submit" value="添加">
 				</div>
