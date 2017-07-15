@@ -13,9 +13,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
-
   <filter>
-  
     <filter-name>struts2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
   </filter>
@@ -26,25 +24,17 @@
   <filter>
     <filter-name>allFilter</filter-name>
     <filter-class>com.future.order.filter.AllFilter</filter-class>
-    <!-- 张金高修改 -->
-     <init-param>
-      <param-name>noPath</param-name>
-      <param-value>webapp</param-value>
-    </init-param>  
   </filter>
-  
   <filter-mapping>
     <filter-name>allFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
-  <error-page>
-	<error-code>404</error-code>
-	<location>/WEB-INF/error404.jsp</location>
-	</error-page>
-	<error-page>
-	 <error-code>500</error-code>  
-	<location>/WEB-INF/error500.jsp</location>
-</error-page>
->>>>>>> 917f3255eac7333f2b7734b5a2228c0b5bebfe6a
+  <filter>
+  	<filter-name>loginFile</filter-name>
+  	<filter-class>com.future.order.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>loginFile</filter-name>
+  	<url-pattern>/manage/*</url-pattern>
+  </filter-mapping>
 </web-app>
