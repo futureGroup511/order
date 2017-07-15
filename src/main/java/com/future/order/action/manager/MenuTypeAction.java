@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Menu;
 import com.future.order.entity.MenuType;
 import com.future.order.util.PageCut;
 
@@ -20,7 +21,6 @@ public class MenuTypeAction extends BaseAction {
 	private int page = 1;
 	private int id;
 	private MenuType menutype;
-	private MenuType menus;
 	private String inquiry;
 	// 上传文件集合
 	private List<File> file;
@@ -69,13 +69,22 @@ public class MenuTypeAction extends BaseAction {
 
 	public String toUpdateType() {// 根据ID获得需要修改的订单信息
 		MenuType menutype = menuTypeService.CheckById(id);
-		System.out.println(menutype);
 		request.put("menutype", menutype);
 		return "update";
 	}
 
-	public String Update() {
-		boolean sign = menuTypeService.UpdateType(menus);
+	public String Update() throws FileNotFoundException, IOException {	
+		boolean sign=false;
+		if(file==null||file.equals("")){
+			menutype.setImgUrl(menutype.getImgUrl());
+			sign = menuTypeService.UpdateType(menutype);			
+		}else{
+			for (int i = 0; i < file.size(); i++) {
+				// 循环上传每个文件
+				uploadFile(i);
+			}
+			sign = menuTypeService.UpdateType(menutype);
+		}
 		String mark = "操作失败";
 		if (sign == true) {
 			mark = "修改成功";
@@ -170,14 +179,6 @@ public class MenuTypeAction extends BaseAction {
 
 	public void setMenutype(MenuType menutype) {
 		this.menutype = menutype;
-	}
-
-	public MenuType getMenus() {
-		return menus;
-	}
-
-	public void setMenus(MenuType menus) {
-		this.menus = menus;
 	}
 
 	public String getInquiry() {
