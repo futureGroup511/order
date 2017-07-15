@@ -121,7 +121,12 @@
 	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=1" title=""><div class="one left">  
 	   	 	<img src="${rootPath}images/8.png" alt="">
 	   	 	<p>粤菜</p>
+    <c:forEach items="${menuType}" var="mT">
+    <a href="${rootPath}customer/customer_getMenuByTypeId?id=${mT.id}" title=""><div class="one left">
+	   	 	<img src="${rootPath}uploadImg/${mT.imgUrl}">
+	   	 	<p>${mT.name}</p>
 	   	 </div></a>
+   </c:forEach>
    	</div>
    <!-- 菜品的展示 -->
    <c:forEach items="${menus}" var="m" >

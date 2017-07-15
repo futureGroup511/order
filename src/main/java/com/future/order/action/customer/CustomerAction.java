@@ -32,12 +32,12 @@ public class CustomerAction extends BaseAction {
 		List<Menu> menus=menuService.getRecommend(8);
 		//首页酒店的信息
 		Restaurant r= restaurantService.getOne();
-		session.put("r",r);
+		request.put("r",r);
 		List<MenuType> menuType=menuTypeService.getAllMenuType();
-		session.put("menuType",menuType);
+		request.put("menuType",menuType);
 		System.out.println(r+"88");
 		System.out.println(menus);
-		session.put("menus", menus);
+		request.put("menus", menus);
 		System.out.println("123");
 		return "toIndex";
 	}
@@ -61,8 +61,9 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得进货时间列表
 	public String getStockDate() throws Exception {
-		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,5);
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,3);
 		request.put("stockDetails", stockDetails);
+		System.out.println(stockDetails+"5555");
 		return "getStockDate";
 	}
 	//加入购物车

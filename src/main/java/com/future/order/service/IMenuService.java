@@ -52,6 +52,8 @@ public interface IMenuService {
 	public List<Menu> getByTypeId(int id);
 //查询菜  黎明加
 	public PageCut<Menu> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
+
+	public Boolean update(Menu m);
 	
 
 }

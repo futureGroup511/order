@@ -13,37 +13,47 @@
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/time.css">
 </head>
 <body>
+<body>
+<ul class="list-group">
+  <%-- <li class="list-group-item  active">${ingName}</li><!-- 顶部的  配料名 --> --%>
+   <li class="list-group-item">aaaa</li>  <!--  制空的 一个  没有实际用处的快 -->
+   <!-- <li class="list-group-item list-group-item-success">第一次进货</li> -->
+   <!--  此处  每出现一个   第几次进货  就是一个快  -->
 <c:forEach items="${stockDetails}" var="s">
-	<div class="panel panel-info">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">第一次进货时间</h3>
-		  </div>
-		  <div class="panel-body">
-		       ${s.createDate}
-		  </div>
-	</div>
+  <li class="list-group-item">
+	    <span class="badge">${s.createDate}</span>
+	    进货时间
+  </li>
+  <li class="list-group-item">
+  	<span class="badge">${s.place}</span>
+	    进货地点
+  </li>
+      <li class="list-group-item"><textarea rows="5" cols="40" readonly="readonly">${s.origins}</textarea>
+</li>
 </c:forEach>
+</ul>
 	<!--  留白处 -->
    <div class="liubai">
    </div>
    <!-- 公共底部 -->
    <footer>
-      <a href="${rootPath}customer/customer_toIndex?id=${userId}">
+     <a href="${rootPath}customer/customer_toIndex?id=${userId}">
       <div class="left">
-         <div><img src="${rootPath}images/sy1.png" style="width:100%; height:100%; "></div>
-         <p>首页</p>
+      	<div><img src="${rootPath}images/sy1.png" style="width:100%; height:100%; "></div>
+      	
+      	<p>首页</p>
       </div>
       </a>
       <a href="${rootPath}customer/cart_getCart">
       <div class="left">
-         <div><img src="${rootPath}images/gwc.png" style="width:100%; height:100%; "></div>
-         <p>购物车</p>
+      	<div><img src="${rootPath}images/gwc.png" style="width:100%; height:100%; "></div>
+      	<p>购物车</p>
       </div>
       </a>
       <a href="${rootPath}customer/cart_getOrderDetails">
       <div class="left">
-         <div><img src="${rootPath}images/dd.png" height=70% width=70%></div>
-         <p>订单</p>
+      	<div><img src="${rootPath}images/dd.png" style="width:70%; height:70%;"></div>
+      	<p>订单</p>
       </div>
       </a>
    </footer>

@@ -1,6 +1,4 @@
 package com.future.order.entity;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

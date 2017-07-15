@@ -3,6 +3,7 @@ import java.util.*;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Inform;
 import com.future.order.entity.Ingredient;
+import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
@@ -22,7 +23,6 @@ public class CartAction extends BaseAction {
 	 * 对购物车进行操作
 	 */
 	private static final long serialVersionUID = 1L;
-
 	private int id;
 	private String name;
 	// 获得购物车菜品
@@ -37,8 +37,6 @@ public class CartAction extends BaseAction {
 			request.put("shopCarts", shopCarts);
 			return "getCart";
 	}
-	
-	
 	// 生成订单详情
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");	
@@ -47,6 +45,7 @@ public class CartAction extends BaseAction {
 		}
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		Order orders=orderService.getOrder1(tableId);
+		Date d = new Date();
 		double total = 0.0;
 		if(orders==null||orders.getStatus().equals("已付款")){
 			Order order=new Order();
@@ -59,6 +58,7 @@ public class CartAction extends BaseAction {
 				order.setTableId(item.getTableId());
 				order.setRemark(name);
 				order.setStatus("未处理");
+				order.setCreateDate(d);
 			}
 			Boolean bool = orderService.update(order);
 			Order orderss=orderService.getOrder1(tableId);
@@ -82,6 +82,7 @@ public class CartAction extends BaseAction {
 					orderDetails.setPrice(item.getPrice());
 					orderDetails.setImgUrl(item.getImgUrl());
 					orderDetails.setRemark(order.getRemark());
+					orderDetails.setCreatDate(d);
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -105,18 +106,26 @@ public class CartAction extends BaseAction {
 						orderDetails.setPrice(item.getPrice());
 						orderDetails.setImgUrl(item.getImgUrl());
 						orderDetails.setRemark(order.getRemark());
+						orderDetails.setCreatDate(d);
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
 		}
 		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(myId);
+		List<Menu> menu=menuService.getAll();
 		double totall=0;
 		for(OrderDetails it:orderDetailss){
 			totall+=it.getPrice()*it.getMenuNum();
+			for(Menu m:menu){
+				if(m.getName().equals(it.getMenuName())){
+					m.setNum(m.getNum()+it.getMenuNum());
+					Boolean bool =menuService.update(m);
+				}
+			}
 		}
 		request.put("order",order.getStatus());
 		request.put("myId", myId);
-		request.put("totall", totall);
+		session.put("totall", totall);
 		request.put("orderDetails", orderDetailss);
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
@@ -134,7 +143,6 @@ public class CartAction extends BaseAction {
 		request.put("shopCarts", shopCarts);
 		return "deleteCart";
 	}
-	
 	// 查询订单详情
 	public String getOrderDetails() throws Exception {
 		int tableId = (int) session.get("userId");
@@ -145,11 +153,11 @@ public class CartAction extends BaseAction {
 			int myId=(int) session.get("Id");
 			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(myId);
 			Order order=orderService.CheckById(myId);
-			System.out.println(orderDetails);
 			request.put("order",order.getStatus());
 			request.put("orderDetails", orderDetails);
 			request.put("myId", myId);
-			request.put("totall", order.getTotal());
+			double totall=(double) session.get("totall");
+			request.put("totall",totall);
 		}
 			return "getOrderDetails";
 	}

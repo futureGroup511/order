@@ -19,7 +19,6 @@ import com.future.order.entity.User;
 
 public class AllFilter implements Filter {
 
-	private FilterConfig Config;
     /**
      * Default constructor. 
      */
@@ -46,7 +45,6 @@ public class AllFilter implements Filter {
 		response.setContentType("text/html;charset=utf8");
 		((HttpServletResponse)response).setHeader("Cache-Control","no-cache");
 		
-		
 		chain.doFilter(request, response);
 	}
 
@@ -54,7 +52,6 @@ public class AllFilter implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		Config = fConfig;
 	}
 
 }
