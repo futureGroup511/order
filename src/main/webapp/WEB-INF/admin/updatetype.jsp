@@ -25,13 +25,13 @@
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <div class="wall">
-	<form action="${rootPath}manage/MenuTypeAction_Update" method="post">
-          <lable id="text">编号:</lable><input name="menus.id" value="${menutype.id}" type="text" readonly="readonly"><br>
-          <lable id="text">类型:</lable><input name="menus.name" value="${menutype.name}" type="text"><br>
-          <lable id="text">介绍:</lable><input name="menus.remark" value="${menutype.remark}" type="text"><br>
+	<form action="${rootPath}manage/MenuTypeAction_Update?menutype.imgUrl=${menutype.imgUrl}" method="post" enctype="multipart/form-data">
+          <lable id="text">编号:</lable><input name="menutype.id" value="${menutype.id}" type="text" readonly="readonly"><br>
+          <lable id="text">类型:</lable><input name="menutype.name" value="${menutype.name}" type="text"><br>
+          <lable id="text">介绍:</lable><input name="menutype.remark" value="${menutype.remark}" type="text"><br>
           <lable id="text">图片：</lable><br>
           <img alt="加载中" src="${rootPath}uploadImg/${menutype.imgUrl}" style="width:240px;height:120px;">
-          <input type="file" name="file" accept="image/*"  value="选择图片" class="file"><br>
+         <input type="file" name="file" accept="image/*" class="file" value="选择图片"><br>
       <div class="button">
          <input style="background-color: #75c7ed;border-radius: 5px;width:150px;margin-left: 10%;" type="submit" value="修改">
       </div> 
