@@ -98,16 +98,17 @@
 	width:25px;
 	height:25px;
 	border-radius: 2px;
+	margin-right:10px;
 }
 .p1{
-	width:25%;
+	width:30%;
 	display: inline-block;
     color:#DE432F;
 }
 .p2{
 	display: inline-block;
     color:#C4C6B4;
-    width:40%;
+    width:30%;
 }
 // .show a{
 // 	color:#222;
@@ -137,4 +138,4 @@
 // .show .food .right p{
 // 	line-height:20px;
 // 	height:20px;
-// }
+// } s

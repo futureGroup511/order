@@ -143,7 +143,7 @@
             	</div>
             	<div class="di">
             	<p class="left p1">￥${m.price}</p>
-              <p class="left p2">销量：${m.num}</p>           
+              <p class="left p2">销量: ${m.num}</p>           
             	<input type="button" name="" value="+" class="right" onclick="addShopCart(${m.id})" />
             	</div>
             </div>

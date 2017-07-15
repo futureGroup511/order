@@ -63,7 +63,7 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得进货时间列表
 	public String getStockDate() throws Exception {
-		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id,5);
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,5);
 		request.put("stockDetails", stockDetails);
 		return "getStockDate";
 	}

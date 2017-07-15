@@ -101,30 +101,32 @@
 		  <div class="information">
 				        <div class="top" id="div1">
 						     	<p class="left money">￥${menu.price}</p>
-						     	<p class="left buy">月售出：${menu.num}</p>
-						     <input type="button" name="" value="+" class="right" onclick="addShopCart(${menu.id})" />
+						     	<p class="left buy">月售出: ${menu.num}</p>
+						     <input type="button" name="" value="+购物车" class="right" onclick="addShopCart(${menu.id})" />
 						 
 						     </a>
 				        </div>
 				     <div class="bottom">     <!--   每一个date是一种配料 -->
+
 				              
 				     		<c:forEach items="${ingredient}" var="m">
 							     <div class="date">
 										         <div class="sdate">
 															     	   	 <p class="left">配料名称：&nbsp;${m.name}</p>
-										         </div>
+												</div>
 										         <div class="nub">
-										                                  <p class="left">用量:&nbsp;&nbsp;${m.num}</p>
+										                                  <p class="left"><b>用量:</b>&nbsp;&nbsp;${m.num}</p>
 										         </div>
 												   <div class="introduce">
 												简介：	${m.introduce}    
 										         </div>
-										         <div class="time">
-															<a href="${rootPath}customer/customer_getStockDate?id=${m.id}">进货时间信息</a>           
-										         </div>
+										         
 							                <section></section>
 							     </div>
 							 </c:forEach>
+							 <div class="time">
+									<a href="${rootPath}customer/customer_getStockDate?ingId=${menuMaterial.ingId}">进货时间信息</a>           
+							 </div>
 				     </div>
 		    </div>
 		         <!-- 留白  -->
