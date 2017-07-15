@@ -43,6 +43,7 @@
      <p class="left">订单号：${myId}</p>
      <p class="right red" style="">${totall}</p><p class="right jia">总价：</p>
 </div>
+${order}
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 ${addMeg}
 </c:if>
