@@ -53,17 +53,17 @@ public class CustomerAction extends BaseAction {
 	public String getMenuMaterial() throws Exception {		
 		Menu menu =menuService.get(id);
 		request.put("menu", menu);
-		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuId(id);
-		/*MenuMaterial menuMaterial=menuMaterialService.get(id);
+		/*List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuId(id);*/
+		MenuMaterial menuMaterial=menuMaterialService.get(id); 
 		List<Ingredient> ingredient=ingerdientService.getByIdAll(menuMaterial.getIngId());
 		request.put("ingredient",ingredient);
-		System.out.println(ingredient+"999");*/
+		System.out.println(ingredient+"999");
 		request.put("menuMaterial",menuMaterial);	
 		return "getMenuMaterial";
 	}
 	//获得进货时间列表
 	public String getStockDate() throws Exception {
-		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,5);
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(id,5);
 		request.put("stockDetails", stockDetails);
 		return "getStockDate";
 	}

@@ -107,20 +107,20 @@
 						     </a>
 				        </div>
 				     <div class="bottom">     <!--   每一个date是一种配料 -->
-				                <div class="introduce">
-												简介：	${menu.introduce}    
-										         </div>
-				     		<c:forEach items="${menuMaterial}" var="m">
+				              
+				     		<c:forEach items="${ingredient}" var="m">
 							     <div class="date">
 										         <div class="sdate">
-															     	   	 <p class="left">配料名称：&nbsp;${m.menuName}</p>
+															     	   	 <p class="left">配料名称：&nbsp;${m.name}</p>
 										         </div>
 										         <div class="nub">
 										                                  <p class="left">用量:&nbsp;&nbsp;${m.num}</p>
 										         </div>
-								
+												   <div class="introduce">
+												简介：	${m.introduce}    
+										         </div>
 										         <div class="time">
-															<a href="${rootPath}customer/customer_getStockDate?ingId=${m.ingId}">进货时间信息</a>           
+															<a href="${rootPath}customer/customer_getStockDate?id=${m.id}">进货时间信息</a>           
 										         </div>
 							                <section></section>
 							     </div>

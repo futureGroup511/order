@@ -141,9 +141,6 @@
 			</p>
 		</div>
 		<div class="right">
-			<%-- <a href="${rootPath}customer/cart_getHand"> <input type="button"
-				name="" value="提交订单" class="right">
-			</a> --%>
 			<form action="${rootPath}customer/cart_getHand" method="post">
 				<tr>
 					<td>

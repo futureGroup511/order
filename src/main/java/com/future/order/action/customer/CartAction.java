@@ -41,7 +41,6 @@ public class CartAction extends BaseAction {
 	
 	// 生成订单详情
 	public String getHand() throws Exception {
-		
 		int tableId = (int) session.get("userId");	
 		if(name==null){
 			name="原味";
@@ -118,8 +117,12 @@ public class CartAction extends BaseAction {
 	public String deleteCart() throws Exception {
 		int tableId = (int) session.get("userId");
 		boolean bool = shopCartService.delete(id);
-		boolean bool1 = orderService.deleteOrder(tableId);
 		List<ShopCart> shopCarts = shopCartService.getByAll();
+		double total = 0.0;
+		for(ShopCart item:shopCarts){
+			total += item.getMenuNum() * item.getPrice();
+		}
+		request.put("total",total);
 		request.put("shopCarts", shopCarts);
 		return "deleteCart";
 	}

@@ -50,30 +50,14 @@
     color:
 }
 .information .top input{
-	width:25px;
+	width:80px;
 	hiehgt: 25px;
 	background-color:#F7B940;
 	border-radius: 2px; 
 	border: 0px;
-	text-algin:center;
-	margin-right:20px;
 }
 .information .bottom{
 	width:100%;
-}
-.information .bottom .introduce{
-	width: 100%;
-	border-bottom:5px solid #eaeaea;
-	padding: 0px 30px;
-	line-hight:22px;
-	font-size:14px;
-	overflow : hidden;
-    text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 10;
-   -webkit-box-orient: vertical;
-   margin: 10px 0;
-	
 }
 .information .bottom .date{
 	width:100%;
