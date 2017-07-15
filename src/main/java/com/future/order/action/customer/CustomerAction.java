@@ -25,8 +25,6 @@ public class CustomerAction extends BaseAction {
 	private int ingId;	
 	//进入首页
 	public String toIndex() throws Exception{
-		
-		
 		//把顾客桌号存在session
 		session.put("userId", id);
 		System.out.println("桌号:"+id);

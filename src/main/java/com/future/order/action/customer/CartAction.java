@@ -58,7 +58,7 @@ public class CartAction extends BaseAction {
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
 				order.setRemark(name);
-				order.setStatus("未完成");
+				order.setStatus("未处理");
 			}
 			Boolean bool = orderService.update(order);
 			Order orderss=orderService.getOrder1(tableId);
@@ -78,7 +78,8 @@ public class CartAction extends BaseAction {
 					orderDetails.setMenuNum(item.getMenuNum());
 					orderDetails.setTableId(item.getTableId());
 					orderDetails.setOrderId(myId);
-					orderDetails.setStatus(order.getStatus());
+					orderDetails.setStatus("未完成");
+					orderDetails.setPrice(item.getPrice());
 					orderDetails.setImgUrl(item.getImgUrl());
 					orderDetails.setRemark(order.getRemark());
 					Boolean booll = orderDetailsService.save(orderDetails);
@@ -100,7 +101,8 @@ public class CartAction extends BaseAction {
 						orderDetails.setMenuNum(item.getMenuNum());
 						orderDetails.setTableId(item.getTableId());
 						orderDetails.setOrderId(order.getId());
-						orderDetails.setStatus(order.getStatus());
+						orderDetails.setStatus("未完成");
+						orderDetails.setPrice(item.getPrice());
 						orderDetails.setImgUrl(item.getImgUrl());
 						orderDetails.setRemark(order.getRemark());
 						Boolean boolt = orderDetailsService.save(orderDetails);
@@ -108,8 +110,13 @@ public class CartAction extends BaseAction {
 			}
 		}
 		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(myId);
+		double totall=0;
+		for(OrderDetails it:orderDetailss){
+			totall+=it.getPrice()*it.getMenuNum();
+		}
+		request.put("order",order.getStatus());
 		request.put("myId", myId);
-		request.put("total", total);
+		request.put("totall", totall);
 		request.put("orderDetails", orderDetailss);
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
@@ -139,6 +146,7 @@ public class CartAction extends BaseAction {
 			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(myId);
 			Order order=orderService.CheckById(myId);
 			System.out.println(orderDetails);
+			request.put("order",order.getStatus());
 			request.put("orderDetails", orderDetails);
 			request.put("myId", myId);
 			request.put("total", order.getTotal());
