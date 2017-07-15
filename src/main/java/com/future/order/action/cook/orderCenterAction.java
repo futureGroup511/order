@@ -43,8 +43,8 @@ public class orderCenterAction extends BaseAction {
 	}
 	public String DoOrder(){
 		boolean menu=orderService.updetemenu(OrderId);
-		List order=orderDetailsService.CheckDetails(OrderId);
-		request.put("orderdetail", order);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 4);
+		request.put("paCut",pCut);
 		return "orderdetail";
 	}
 	public String doOrder(){
@@ -82,6 +82,7 @@ public class orderCenterAction extends BaseAction {
 		return "orderdetail";
 	}
 	public String check() {
+		System.out.println(OrderId+"4635645456");
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(OrderId, page, 4);
 		request.put("paCut",pCut);
 		ActionContext actionContext = ActionContext.getContext();
@@ -107,16 +108,23 @@ public class orderCenterAction extends BaseAction {
 		return "inform";
 	}
 	public String Serach() {
+		if(input==null) {
+			input = (String) session.get("inp");
+		}
 		if(input.equals("")) {
-		PageCut<Order> pCut=orderService.getPageCut(page, 5);
+		PageCut<Order> pCut=orderService.getPageCut(page, 1);
 		request.put("paCut",pCut);
 		}else {
-		PageCut<Order> pCut=orderService.searchOrder(input, 3,page);
+		PageCut<Order> pCut=orderService.searchOrder(input, 1,page);
 		request.put("paCut",pCut);
 		}
+		session.put("inp", input);
 		return "allOrder";
 	}
 	public String SearchDetails() {
+		if(input==null) {
+			input = (String) session.get("inp");
+		}
 		if(input.equals("")) {
 			PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
 			request.put("paCut",pCut);
@@ -124,6 +132,7 @@ public class orderCenterAction extends BaseAction {
 		PageCut<OrderDetails> pCut=orderDetailsService.searchOrder(input, 3, page);
 		request.put("paCut",pCut);
 		}
+		session.put("inp", input);
 		return "menu";
 	}
 	

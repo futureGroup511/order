@@ -177,7 +177,7 @@ html {
 							<li class="active"><a href="?page=${i}">${i}</a></li>
 						</c:when>
 
-						<c:when test="${i>0 && i != postPS.currentPage &&i<=3}">
+						<c:when test="${i>0 && i != paCut.currentPage &&i<=3}">
 							<li><a href="?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>

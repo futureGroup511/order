@@ -92,7 +92,6 @@
      <!-- 里面每一个块都是一个类别 -->
 	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=1" title=""><div class="one left">
 	   	 	<img src="${rootPath}images/1.png" alt="">
-
 	   	 	<p>川菜</p>
 	   	 </div></a>
 	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=2" title=""><div class="one left">  
@@ -144,7 +143,7 @@
             	</div>
             	<div class="di">
             	<p class="left p1">￥${m.price}</p>
-              <p class="left p2">销量：${m.num}</p>           
+              <p class="left p2">销量: ${m.num}</p>           
             	<input type="button" name="" value="+" class="right" onclick="addShopCart(${m.id})" />
             	</div>
             </div>

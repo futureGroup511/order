@@ -148,7 +148,7 @@ window.onload = function() {
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
 	                 <td><c:if test="${item.status eq '已付款'}">已完成</c:if>
-	                 <c:if test="${item.status eq '未处理'}"><a href="${rootPath}cook/orderCenter_DoOrder?OrderId=${item.id}">处理订单</a></c:if>
+	                 <c:if test="${item.status eq '未处理'}"><a href="${rootPath}cook/orderCenter_DoOrder?OrderId=${item.id}&tableId=${item.tableId}">处理订单</a></c:if>
 	                 <c:if test="${item.status eq '处理中'}">处理中</c:if>
 	                  <c:if test="${item.status eq '未付款'}">未付款</c:if>
 	                 </td>
@@ -160,9 +160,6 @@ window.onload = function() {
          <div class="pag">
          <ul class="pagination">
                    <li><a href="?page=${paCut.prePage}">上一页</a></li>
- 						<c:if test="${1 < paCut.currentPage -3}"> 
- 							<li><a href="#">1</a></li> 
- 						</c:if>
  						<c:forEach var="i" 
 							begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
  							end="${paCut.currentPage+3>paCut.pageNum?paCut.pageNum:paCut.currentPage+3  }"> 
@@ -172,7 +169,7 @@ window.onload = function() {
  										href="?page=${i}">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i != paCut.currentPage &&i<=3}"> 
  									<li><a href="?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose>

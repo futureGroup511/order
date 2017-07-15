@@ -4,6 +4,7 @@ import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
+import com.future.order.entity.MenuType;
 import com.future.order.entity.Restaurant;
 import com.future.order.entity.ShopCart;
 import com.future.order.entity.StockDetails;
@@ -24,8 +25,6 @@ public class CustomerAction extends BaseAction {
 	private int ingId;	
 	//进入首页
 	public String toIndex() throws Exception{
-		
-		
 		//把顾客桌号存在session
 		session.put("userId", id);
 		System.out.println("桌号:"+id);
@@ -34,6 +33,8 @@ public class CustomerAction extends BaseAction {
 		//首页酒店的信息
 		Restaurant r= restaurantService.getOne();
 		session.put("r",r);
+		List<MenuType> menuType=menuTypeService.getAllMenuType();
+		session.put("menuType",menuType);
 		System.out.println(r+"88");
 		System.out.println(menus);
 		session.put("menus", menus);
@@ -50,11 +51,11 @@ public class CustomerAction extends BaseAction {
 	public String getMenuMaterial() throws Exception {		
 		Menu menu =menuService.get(id);
 		request.put("menu", menu);
-		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuId(id);
-		/*MenuMaterial menuMaterial=menuMaterialService.get(id);
+		/*List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuId(id);*/
+		MenuMaterial menuMaterial=menuMaterialService.get(id); 
 		List<Ingredient> ingredient=ingerdientService.getByIdAll(menuMaterial.getIngId());
 		request.put("ingredient",ingredient);
-		System.out.println(ingredient+"999");*/
+		System.out.println(ingredient+"999");
 		request.put("menuMaterial",menuMaterial);	
 		return "getMenuMaterial";
 	}

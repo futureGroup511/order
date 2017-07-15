@@ -154,10 +154,14 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		public PageCut<OrderDetails> Check(int tableId,int currentPage, int pageSize) {
 			String hql ;
 			int count=0;
+			System.out.println(tableId+"vfsudigv asld");
 			hql = "select count(*) from OrderDetails o where o.tableId='"+tableId+"'";
 			count = ((Long) this.uniqueResult(hql)).intValue();
 			PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
 			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.tableId='"+tableId+"'", (currentPage-1)*pageSize, pageSize));
+			System.out.println("asdfsfas"+count);
+			System.out.println("---"+pc);
+			System.out.println();
 			return pc;
 	}
 	
@@ -248,7 +252,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	@Override
 	public List<OrderDetails> getDetailsTwo(int orderId) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		String hql="from OrderDetails s where s.orderId="+orderId+" and (s.status='未处理')";
+		String hql="from OrderDetails s where s.orderId="+orderId+" and (s.status='未完成')";
 		list=this.getEntityList(hql);
 		return list;
 	}
