@@ -49,14 +49,16 @@
      <p class="left jia">总价: </p>
      <p class="left red" style="font-size:18px; margin-bottom:10px;">${totall}</p>
      </div>
-
 </div>
+<<<<<<< HEAD
+=======
 ${order}
+>>>>>>> 78217e5acde11f6aedb553ed2973c493b5459e36
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 ${addMeg}
 </c:if>
  <c:if test="${empty orderDetails }">
-	<h1>你还没有下订单</h1>
+	<center><h1>你还没有下订单</h1></center>
  </c:if>
 	<!--  留白处 -->
    <div class="liubai">

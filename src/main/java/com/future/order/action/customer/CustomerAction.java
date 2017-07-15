@@ -61,8 +61,9 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得进货时间列表
 	public String getStockDate() throws Exception {
-		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,5);
+		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,3);
 		request.put("stockDetails", stockDetails);
+		System.out.println(stockDetails+"5555");
 		return "getStockDate";
 	}
 	//加入购物车

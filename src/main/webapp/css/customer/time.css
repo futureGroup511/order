@@ -1,12 +1,11 @@
-.panel{
-	height:100px;
+.list-group .active{
+	text-align: center;
+	position:fixed;
+	width:100%;
+	letter-spacing: 5px;
 }
-.panel-title{
-	height:30px;
-	padding: 0px 20px;
-}
-.panel-body{
-    height:30px;
-    padding: 0px 40px;
-    line-height: 40px; 
+.list-group-item .badge{
+    background-color: #428BCA;
+    color: #fff;
+    font-weight:normal;
 }

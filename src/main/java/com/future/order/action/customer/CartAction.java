@@ -23,7 +23,6 @@ public class CartAction extends BaseAction {
 	 * 对购物车进行操作
 	 */
 	private static final long serialVersionUID = 1L;
-
 	private int id;
 	private String name;
 	// 获得购物车菜品
@@ -38,8 +37,6 @@ public class CartAction extends BaseAction {
 			request.put("shopCarts", shopCarts);
 			return "getCart";
 	}
-	
-	
 	// 生成订单详情
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");	
@@ -156,15 +153,11 @@ public class CartAction extends BaseAction {
 			int myId=(int) session.get("Id");
 			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(myId);
 			Order order=orderService.CheckById(myId);
-			System.out.println(orderDetails);
 			request.put("order",order.getStatus());
 			request.put("orderDetails", orderDetails);
-			Date CreateDate=(Date)session.get("CreateDate");
-			session.put("CreateDate",CreateDate);
 			request.put("myId", myId);
 			double totall=(double) session.get("totall");
 			request.put("totall",totall);
-			request.put("totall", order.getTotal());
 		}
 			return "getOrderDetails";
 	}
