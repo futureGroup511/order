@@ -42,6 +42,9 @@
               <li>
                    <a href="${rootPath}cook/orderCenter_reminder" target="mainFrame"><span class="glyphicon glyphicon-file"></span>催单中心<span class="fa arrow"></span></a>
                 </li>
+                <li>
+                   <a href="${rootPath}cook/orderCenter_reminer" target="mainFrame"><span class="glyphicon glyphicon-file"></span>调试错误<span class="fa arrow"></span></a>
+                </li>
                  
               <li> <!-- 第二个父目录 -->
                 <a href="#"><span class="glyphicon glyphicon-map-marker"></span>个人中心<span class="fa arrow"></span></a>
