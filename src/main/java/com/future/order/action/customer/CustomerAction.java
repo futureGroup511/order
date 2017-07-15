@@ -32,12 +32,12 @@ public class CustomerAction extends BaseAction {
 		List<Menu> menus=menuService.getRecommend(8);
 		//首页酒店的信息
 		Restaurant r= restaurantService.getOne();
-		session.put("r",r);
+		request.put("r",r);
 		List<MenuType> menuType=menuTypeService.getAllMenuType();
-		session.put("menuType",menuType);
+		request.put("menuType",menuType);
 		System.out.println(r+"88");
 		System.out.println(menus);
-		session.put("menus", menus);
+		request.put("menus", menus);
 		System.out.println("123");
 		return "toIndex";
 	}

@@ -189,4 +189,10 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		return pc;
 	}
 
+	@Override
+	public Boolean update(Menu m) {
+		
+		return this.updateEntity(m);
+	}
+
 }

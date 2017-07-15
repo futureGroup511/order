@@ -12,9 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/order.css">
-<%-- <javaScript>
-	alter(${addMeg})
-</javaScript> --%>
 </head>
 <body>
  <div class="header">
@@ -35,6 +32,7 @@
        <p><b>${o.menuName}</b></p>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}</p>
+       <p>数量：${o.menuNum}</p>       
        <p class="left">状态：</p><p class="green">${o.status}</p>
     </div>
  </div>
@@ -53,7 +51,7 @@
      </div>
 
 </div>
-
+${order}
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 ${addMeg}
 </c:if>
