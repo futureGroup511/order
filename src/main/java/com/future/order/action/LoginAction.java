@@ -27,7 +27,6 @@ public class LoginAction extends BaseAction {
 //			request.put("loginMeg", "验证码错误");
 //			return "login";
 //		}
-		System.out.println("loginaction");
 		User userDataBase;
 		if(user!=null){
 			userDataBase = userService.login(user.getPhone(),user.getPassword());

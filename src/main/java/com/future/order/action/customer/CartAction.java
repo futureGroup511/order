@@ -127,7 +127,6 @@ public class CartAction extends BaseAction {
 		request.put("myId", myId);
 		session.put("totall", totall);
 		request.put("orderDetails", orderDetailss);
-		System.out.println( orderDetailss+"110");
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}
@@ -144,7 +143,6 @@ public class CartAction extends BaseAction {
 		request.put("shopCarts", shopCarts);
 		return "deleteCart";
 	}
-	
 	// 查询订单详情
 	public String getOrderDetails() throws Exception {
 		int tableId = (int) session.get("userId");

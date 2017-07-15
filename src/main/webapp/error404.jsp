@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>404.Error</title>
     <style>
         .page-404{
             width:1200px;

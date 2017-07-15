@@ -69,12 +69,13 @@ window.onload = function() {
 }
 	</script>
 <body>
-<div class="aa" id="div1" style="display: none">
- <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;订单&nbsp;>></p>
+<div class="aa" id="div1" style="display: none" >
+ 
+ <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;订单&nbsp;></p>
     <table id="table1">
       <thead>
         <tr>
-            <td colspan="13">订单信息</td>
+            <td colspan="13">订单详情</td>
         </tr>
       </thead>
         <tbody>
@@ -107,8 +108,8 @@ window.onload = function() {
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
-	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_recheck?OrderId=${item.id}&tableId=${item.tableId}">处理</a></c:if>
-	                <c:if test="${item.status eq '完成'}">已完成</c:if></td>
+	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_recheck?OrderId=${item.id}&tableId=${item.tableId}">完成</a></c:if>
+	                <c:if test="${item.status eq '已完成'}">已完成</c:if></td>
 	                <%-- <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td> --%>
 	            </tr>  
         	</c:forEach>
@@ -116,27 +117,25 @@ window.onload = function() {
     </table>
        <div class="pag">
          <ul class="pagination">
-                  <li><a href="?page=${paCut.prePage}">上一页</a></li>
- 						<c:if test="${1 < paCut.currentPage -3}"> 
- 							<li><a href="#">1</a></li> 
- 						</c:if>
+                   <li><a href="?page=${paCut.prePage}&OrderId=${paCut.data[0].tableId}">上一页</a></li>
+ 						
  						<c:forEach var="i" 
 							begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
  							end="${paCut.currentPage+3>paCut.pageNum?paCut.pageNum:paCut.currentPage+3  }"> 
  							<c:choose> 
  								<c:when test="${i>0 && i == paCut.currentPage &&i<=3}">
  									<li class="active"><a 
- 										href="?page=${i}">${i}</a></li> 
+ 										href="?page=${i}&OrderId=${paCut.data[0].tableId}">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
- 									<li><a href="?page=${i}">${i}</a></li> 
+ 								<c:when test="${i>0 && i != paCut.currentPage &&i<=3}"> 
+ 									<li><a href="?page=${i }&OrderId=${paCut.data[0].tableId}">${i}</a></li> 
  								</c:when> 
  							</c:choose>
  						</c:forEach> 
  						
  						<li><a 
- 							href="?page=${paCut.nextPage}">下一页</a></li> 
+ 							href="?page=${paCut.nextPage}&OrderId=${paCut.data[0].tableId}">下一页</a></li> 
                </ul>
     </div>
     </div>

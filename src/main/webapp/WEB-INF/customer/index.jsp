@@ -89,6 +89,38 @@
    </div>
    <!-- 菜品的分类 -->
    <div class="classification">
+     <!-- 里面每一个块都是一个类别 -->
+	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=1" title=""><div class="one left">
+	   	 	<img src="${rootPath}images/1.png" alt="">
+	   	 	<p>川菜</p>
+	   	 </div></a>
+	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=2" title=""><div class="one left">  
+	   	 	<img src="${rootPath}images/2.png" alt="">
+	   	 	<p>京菜</p>
+	   	 </div></a>
+	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=3" title=""><div class="one left">  
+	   	 	<img src="${rootPath}images/3.png" alt="">
+	   	 	<p>豫菜</p>
+	   	 </div></a>
+	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=4" title=""><div class="one left">  
+	   	 	<img src="${rootPath}images/4.png" alt="">
+	   	 	<p>闽菜</p>
+	   	 </div></a>
+	   	<a href="${rootPath}customer/customer_getMenuByTypeId?id=5" title=""><div class="one left">  
+	   	 	<img src="${rootPath}images/5.png" alt="">
+	   	 	<p>海鲜</p>
+	   	 </div></a>
+	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=6" title=""><div class="one left">  
+	   	 	<img src="${rootPath}images/6.png" alt="">
+	   	 	<p>湘菜</p>
+	   	 </div></a>
+	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=7" title=""><div class="one left">  
+	   	 	<img src="${rootPath}images/7.png" alt="">
+	   	 	<p>豫菜</p>
+	   	 </div></a>
+	   	 <a href="${rootPath}customer/customer_getMenuByTypeId?id=1" title=""><div class="one left">  
+	   	 	<img src="${rootPath}images/8.png" alt="">
+	   	 	<p>粤菜</p>
     <c:forEach items="${menuType}" var="mT">
     <a href="${rootPath}customer/customer_getMenuByTypeId?id=${mT.id}" title=""><div class="one left">
 	   	 	<img src="${rootPath}uploadImg/${mT.imgUrl}">
