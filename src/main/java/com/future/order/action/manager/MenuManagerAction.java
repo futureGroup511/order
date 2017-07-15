@@ -15,7 +15,6 @@ import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuType;
-import com.future.order.entity.Restaurant;
 import com.future.order.util.PageCut;
 
 @SuppressWarnings("serial")
@@ -33,6 +32,8 @@ public class MenuManagerAction extends BaseAction {
 	private List<String> fileContentType;
 
 	public String execute() {
+		List<MenuType> typelist=menuTypeService.getAllMenuType();
+		session.put("Typelist",typelist);	//将菜品类型和id放进session
 		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		if(pCut.getData().size()==0){
 			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";

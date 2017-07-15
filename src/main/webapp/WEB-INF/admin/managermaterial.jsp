@@ -21,7 +21,7 @@
 			<tr>
 				<th>菜品名称</th>
 				<th>配料名称</th>
-				<th>用量(kg)</th>
+				<th>用量(g)</th>
 				<th style="width: 160px;">操作</th>
 			</tr>
 			<c:forEach items="${allMenuMaterial}" var="menuMaterial">

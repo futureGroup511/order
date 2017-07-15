@@ -40,12 +40,26 @@
     </div>
  </div>
 </c:forEach>
-<div class="num">
-     <p class="left">订单号：${myId}</p>
-     <p class="right red" style="">${totall}</p><p class="right jia">总价：</p>
+<div class="num">    
+     <div>
+     <p class="left">订单号:${myId}</p>
+     </div>
+     <div>
+        <p class="left">状态:</p>
+        <p class="left green"  style="margin-right:30px;">${order}</p>
+     </div>
+     <div>
+     <p class="left jia">总价: </p>
+     <p class="left red" style="font-size:18px; margin-bottom:10px;">${totall}</p>
+     </div>
+
 </div>
+<<<<<<< HEAD
 ${order}
 ${CreateDate}
+=======
+
+>>>>>>> 08548aa337b5f9f7114804fba0d43b24048f0c71
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 ${addMeg}
 </c:if>

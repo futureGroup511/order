@@ -21,7 +21,10 @@
  	</select><br>
      <lable>重量(kg):</lable><input type="text" name="details.num"><br>
      <lable>价格(kg):</lable><input type="text"  name="details.price"><br>
-     <lable>溯源:</lable><textarea style="" rows="5" cols="35" name="details.origins"></textarea><br>
+     <lable>溯源:</lable>
+     <div style="margin-left:15%;margin-top:-10%;">
+     <textarea style="" rows="5" cols="35" name="details.origins"></textarea><br>
+     </div>
       <div class="button">
         <input type="submit" value="提交">          
       </div>

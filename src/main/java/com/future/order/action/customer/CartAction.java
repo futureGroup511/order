@@ -167,6 +167,7 @@ public class CartAction extends BaseAction {
 			request.put("myId", myId);
 			double totall=(double) session.get("totall");
 			request.put("totall",totall);
+			request.put("totall", order.getTotal());
 		}
 			return "getOrderDetails";
 	}

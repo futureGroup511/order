@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Menu;
 import com.future.order.entity.MenuType;
 import com.future.order.util.PageCut;
 
@@ -20,7 +21,6 @@ public class MenuTypeAction extends BaseAction {
 	private int page = 1;
 	private int id;
 	private MenuType menutype;
-	private MenuType menus;
 	private String inquiry;
 	// 上传文件集合
 	private List<File> file;
@@ -31,7 +31,7 @@ public class MenuTypeAction extends BaseAction {
 
 	public String execute() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
-		pCut = menuTypeService.getPageCut(page, 5);
+		pCut = menuTypeService.getPageCut(page, 4);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有菜品的类型哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("marknews", mark);
@@ -42,36 +42,49 @@ public class MenuTypeAction extends BaseAction {
 	}
 
 	public String addType() throws FileNotFoundException, IOException {
-		if(file!=null){
-			for (int i = 0; i < file.size(); i++) {
-				// 循环上传每个文件
-				uploadFile(i);
-			}
-		}
-		boolean sign = menuTypeService.AddType(menutype);
-		System.out.println(menutype);
+		int count=menuTypeService.getCount();
 		String mark = "操作失败";
-		if (sign == true) {
-			mark = "添加成功";
-			@SuppressWarnings("unchecked")
-			List<MenuType> list = (List<MenuType>) session.get("Typelist"); // 金高改
-			list.add(menutype); //
-		} else {
-			mark = "添加失败";
-		}
+		if(count<8){
+			if(file!=null){
+				for (int i = 0; i < file.size(); i++) {
+					// 循环上传每个文件
+					uploadFile(i);
+				}
+			}
+			boolean sign = menuTypeService.AddType(menutype);
+			if (sign == true) {
+				mark = "添加成功";
+				@SuppressWarnings("unchecked")
+				List<MenuType> list = (List<MenuType>) session.get("Typelist"); // 金高改
+				list.add(menutype); //
+			} else {
+				mark = "添加失败";
+			}
+		}else{
+			mark="已有八条数据，只能修改，不可添加了╮(╯﹏╰）╭╮(╯﹏╰）╭";
+		}		
 		request.put("typenews", mark);
 		return "add";
 	}
 
 	public String toUpdateType() {// 根据ID获得需要修改的订单信息
 		MenuType menutype = menuTypeService.CheckById(id);
-		System.out.println(menutype);
 		request.put("menutype", menutype);
 		return "update";
 	}
 
-	public String Update() {
-		boolean sign = menuTypeService.UpdateType(menus);
+	public String Update() throws FileNotFoundException, IOException {	
+		boolean sign=false;
+		if(file==null||file.equals("")){
+			menutype.setImgUrl(menutype.getImgUrl());
+			sign = menuTypeService.UpdateType(menutype);			
+		}else{
+			for (int i = 0; i < file.size(); i++) {
+				// 循环上传每个文件
+				uploadFile(i);
+			}
+			sign = menuTypeService.UpdateType(menutype);
+		}
 		String mark = "操作失败";
 		if (sign == true) {
 			mark = "修改成功";
@@ -166,14 +179,6 @@ public class MenuTypeAction extends BaseAction {
 
 	public void setMenutype(MenuType menutype) {
 		this.menutype = menutype;
-	}
-
-	public MenuType getMenus() {
-		return menus;
-	}
-
-	public void setMenus(MenuType menus) {
-		this.menus = menus;
 	}
 
 	public String getInquiry() {

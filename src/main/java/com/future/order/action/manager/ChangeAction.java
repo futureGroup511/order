@@ -46,6 +46,7 @@ public class ChangeAction extends BaseAction{
 	}
 	//退出登录
 	public String out(){
+		session.remove("user");//清除session中得user
 		return "out";
 	}
 	public String addStocks(){
