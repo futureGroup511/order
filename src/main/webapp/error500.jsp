@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>500.Error</title>
     <style>
         .page-500{
             width:1200px;
