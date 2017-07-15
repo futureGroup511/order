@@ -46,5 +46,4 @@
 	 <error-code>500</error-code>  
 	<location>/error500.jsp</location>
 </error-page>
->>>>>>> 917f3255eac7333f2b7734b5a2228c0b5bebfe6a
 </web-app>
