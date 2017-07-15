@@ -149,7 +149,7 @@ public class CartAction extends BaseAction {
 			request.put("order",order.getStatus());
 			request.put("orderDetails", orderDetails);
 			request.put("myId", myId);
-			request.put("total", order.getTotal());
+			request.put("totall", order.getTotal());
 		}
 			return "getOrderDetails";
 	}
