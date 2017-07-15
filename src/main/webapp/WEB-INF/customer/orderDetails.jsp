@@ -36,7 +36,6 @@
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}</p>       
        <p class="left">状态：</p><p class="green">${o.status}</p>
-       <p>订单时间：${o.creatDate}</p>
     </div>
  </div>
 </c:forEach>
@@ -52,19 +51,12 @@
      <p class="left jia">总价: </p>
      <p class="left red" style="font-size:18px; margin-bottom:10px;">${totall}</p>
      </div>
-
 </div>
-<<<<<<< HEAD
-${order}
-${CreateDate}
-=======
-
->>>>>>> 08548aa337b5f9f7114804fba0d43b24048f0c71
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 ${addMeg}
 </c:if>
  <c:if test="${empty orderDetails }">
-	<h1>你还没有下订单</h1>
+	<center><h1>你还没有下订单</h1></center>
  </c:if>
 	<!--  留白处 -->
    <div class="liubai">

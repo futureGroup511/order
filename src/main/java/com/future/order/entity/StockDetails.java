@@ -41,6 +41,8 @@ public class StockDetails {
 	@Column(name="origins", nullable=true) 
 	private String origins;//溯源
 	private Date createDate;//进货时间
+	@Column(length=255)
+	private String place;//进货地点
 	/**
 	 * @return the id
 	 */
@@ -132,10 +134,18 @@ public class StockDetails {
 	public void setOrigins(String origins) {
 		this.origins = origins;
 	}
+	
+	public String getPlace() {
+		return place;
+	}
+	public void setPlace(String place) {
+		this.place = place;
+	}
 	@Override
 	public String toString() {
 		return "StockDetails [id=" + id + ", stockId=" + stockId + ", ingId=" + ingId + ", ingName=" + ingName
-				+ ", price=" + price + ", num=" + num + ", origins=" + origins + ", createDate=" + createDate + "]";
+				+ ", price=" + price + ", num=" + num + ", origins=" + origins + ", createDate=" + createDate
+				+ ", place=" + place + "]";
 	}
 	
 }

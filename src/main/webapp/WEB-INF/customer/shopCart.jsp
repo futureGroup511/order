@@ -156,7 +156,7 @@
 	</div>
 	</c:if>
    <c:if test="${empty shopCarts }">
-	<h1>你还没有点餐</h1>
+	<center><h1>你还没有点餐</h1></center>
 	</c:if>
   <!--  留白处 -->
    <div class="liubai">
