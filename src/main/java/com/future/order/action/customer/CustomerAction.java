@@ -4,6 +4,7 @@ import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
 import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
+import com.future.order.entity.MenuType;
 import com.future.order.entity.Restaurant;
 import com.future.order.entity.ShopCart;
 import com.future.order.entity.StockDetails;
@@ -34,6 +35,8 @@ public class CustomerAction extends BaseAction {
 		//首页酒店的信息
 		Restaurant r= restaurantService.getOne();
 		session.put("r",r);
+		List<MenuType> menuType=menuTypeService.getAllMenuType();
+		session.put("menuType",menuType);
 		System.out.println(r+"88");
 		System.out.println(menus);
 		session.put("menus", menus);

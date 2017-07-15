@@ -12,6 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/order.css">
+<%-- <javaScript>
+	alter(${addMeg})
+</javaScript> --%>
 </head>
 <body>
  <div class="header">
@@ -40,9 +43,8 @@
      <p class="left">订单号：${myId}</p>
      <p class="right red" style="">${total}</p><p class="right jia">总价：</p>
 </div>
-<textarea rows="50" cols="50" placeholder="ps.输入您对口味的一些要求">
-</textarea>
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
+${addMeg}
 </c:if>
  <c:if test="${empty orderDetails }">
 	<h1>你还没有下订单</h1>
