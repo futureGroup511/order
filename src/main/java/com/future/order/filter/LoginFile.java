@@ -53,24 +53,25 @@ public class LoginFile implements Filter {
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
 		System.out.println(returnUrl);
 		System.out.println("------------a");
-		if (user != null || id != 0 || path.equals(returnUrl)) {
-			System.out.println("------------b");
-			chain.doFilter(request, response);
-			return;
-		} else {
-			System.out.println("重新登录");
-//			hResponse.sendRedirect(returnUrl);
-			request.setCharacterEncoding("UTF-8");
-			response.setContentType("text/html; charset=UTF-8"); // 转码
-			response.getWriter().println(
-							"<script language=\"javascript\">"
-							+ "if(window.opener==null){window.top.location.href=\""
-									+ returnUrl+ "\";}else{window.opener.top.location.href=\""
-									+ returnUrl
-									+ "\";window.close();}</script>");
-			return;
-		}
-		
+//		if (user != null || id != 0 || path.equals(returnUrl)) {
+//			System.out.println("------------b");
+//			return;
+//		}
+		System.out.println("-----c");
+		chain.doFilter(request, response);
+//		else {
+//			System.out.println("重新登录");
+////			hResponse.sendRedirect(returnUrl);
+//			request.setCharacterEncoding("UTF-8");
+//			response.setContentType("text/html; charset=UTF-8"); // 转码
+//			response.getWriter().println(
+//							"<script language=\"javascript\">"
+//							+ "if(window.opener==null){window.top.location.href=\""
+//									+ returnUrl+ "\";}else{window.opener.top.location.href=\""
+//									+ returnUrl
+//									+ "\";window.close();}</script>");
+//			return;
+//		}
 	}
 
 	/**
