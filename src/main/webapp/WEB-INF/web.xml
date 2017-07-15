@@ -26,11 +26,18 @@
   <filter>
     <filter-name>allFilter</filter-name>
     <filter-class>com.future.order.filter.AllFilter</filter-class>
+    <!-- 张金高修改 -->
+     <init-param>
+      <param-name>noPath</param-name>
+      <param-value>webapp</param-value>
+    </init-param>  
   </filter>
+  
   <filter-mapping>
     <filter-name>allFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
   <error-page>
 	<error-code>404</error-code>
 	<location>/error404.jsp</location>
@@ -39,4 +46,5 @@
 	 <error-code>500</error-code>  
 	<location>/error500.jsp</location>
 </error-page>
+>>>>>>> 917f3255eac7333f2b7734b5a2228c0b5bebfe6a
 </web-app>
