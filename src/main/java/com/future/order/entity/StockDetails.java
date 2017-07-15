@@ -9,12 +9,16 @@ package com.future.order.entity;
 
 import java.util.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="tb_stockdetails")
@@ -32,7 +36,9 @@ public class StockDetails {
 	private double price;//单价
 	@Column(length=10)
 	private double num;//数量
-	@Column(length=255)
+	@Basic(fetch = FetchType.LAZY)   
+	@Type(type="text")  
+	@Column(name="origins", nullable=true) 
 	private String origins;//溯源
 	private Date createDate;//进货时间
 	/**
