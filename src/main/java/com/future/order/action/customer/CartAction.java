@@ -24,7 +24,7 @@ public class CartAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-	private int name;
+	private String name;
 	// 获得购物车菜品
 	public String getCart() throws Exception {
 		int tableId = (int) session.get("userId");
@@ -42,6 +42,9 @@ public class CartAction extends BaseAction {
 	// 生成订单详情
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");	
+		if(name==null){
+			name="原味";
+		}
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		Order orders=orderService.getOrder1(tableId);
 		double total = 0.0;
@@ -54,6 +57,8 @@ public class CartAction extends BaseAction {
 				order.setTotal(total);
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
+				order.setRemark(name);
+				order.setStatus("未处理");
 			}
 			Boolean bool = orderService.update(order);
 			Order orderss=orderService.getOrder1(tableId);
@@ -73,8 +78,10 @@ public class CartAction extends BaseAction {
 					orderDetails.setMenuNum(item.getMenuNum());
 					orderDetails.setTableId(item.getTableId());
 					orderDetails.setOrderId(myId);
-					orderDetails.setStatus(order.getStatus());
+					orderDetails.setStatus("未完成");
+					orderDetails.setPrice(item.getPrice());
 					orderDetails.setImgUrl(item.getImgUrl());
+					orderDetails.setRemark(order.getRemark());
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -94,15 +101,22 @@ public class CartAction extends BaseAction {
 						orderDetails.setMenuNum(item.getMenuNum());
 						orderDetails.setTableId(item.getTableId());
 						orderDetails.setOrderId(order.getId());
-						orderDetails.setStatus(order.getStatus());
+						orderDetails.setStatus("未完成");
+						orderDetails.setPrice(item.getPrice());
 						orderDetails.setImgUrl(item.getImgUrl());
+						orderDetails.setRemark(order.getRemark());
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
 		}
 		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(myId);
+		double totall=0;
+		for(OrderDetails it:orderDetailss){
+			totall+=it.getPrice()*it.getMenuNum();
+		}
+		request.put("order",order.getStatus());
 		request.put("myId", myId);
-		request.put("total", total);
+		request.put("totall", totall);
 		request.put("orderDetails", orderDetailss);
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
@@ -111,8 +125,12 @@ public class CartAction extends BaseAction {
 	public String deleteCart() throws Exception {
 		int tableId = (int) session.get("userId");
 		boolean bool = shopCartService.delete(id);
-		boolean bool1 = orderService.deleteOrder(tableId);
 		List<ShopCart> shopCarts = shopCartService.getByAll();
+		double total = 0.0;
+		for(ShopCart item:shopCarts){
+			total += item.getMenuNum() * item.getPrice();
+		}
+		request.put("total",total);
 		request.put("shopCarts", shopCarts);
 		return "deleteCart";
 	}
@@ -128,9 +146,10 @@ public class CartAction extends BaseAction {
 			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(myId);
 			Order order=orderService.CheckById(myId);
 			System.out.println(orderDetails);
+			request.put("order",order.getStatus());
 			request.put("orderDetails", orderDetails);
 			request.put("myId", myId);
-			request.put("total", order.getTotal());
+			request.put("totall", order.getTotal());
 		}
 			return "getOrderDetails";
 	}
@@ -204,7 +223,7 @@ public class CartAction extends BaseAction {
 			request.put("addMeg", "催单失败");
 		}
 		System.out.println("23333");
-		return getHand();
+		return getOrderDetails();
 	}
 
 	public int getId() {
@@ -214,11 +233,16 @@ public class CartAction extends BaseAction {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getName() {
+
+
+	public String getName() {
 		return name;
 	}
-	public void setName(int name) {
+
+
+	public void setName(String name) {
 		this.name = name;
 	}
+	
 	
 }

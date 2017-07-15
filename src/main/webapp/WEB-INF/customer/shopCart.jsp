@@ -141,9 +141,17 @@
 			</p>
 		</div>
 		<div class="right">
-			<a href="${rootPath}customer/cart_getHand"> <input type="button"
-				name="" value="提交订单" class="right">
-			</a>
+			<form action="${rootPath}customer/cart_getHand" method="post">
+				<tr>
+					<td>
+					  <textarea name="name" rows="50" cols="50" placeholder="ps.输入您对口味的一些要求">
+					  </textarea>
+					</td>
+				</tr>
+				<tr>
+					<td><s:submit value="提交订单" class="right"/></td>
+				</tr>
+			<form>
 		</div>
 	</div>
 	</c:if>

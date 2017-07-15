@@ -46,6 +46,8 @@ public class OrderDetails {
 	private String cookName;//厨师名称
 	@Column(length=255)
 	private String imgUrl;
+	@Column(length=20)
+	private double price;//价格
 	/**
 	 * @return the id
 	 */
@@ -200,12 +202,19 @@ public class OrderDetails {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
+	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
 		return "OrderDetails [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", orderId=" + orderId
 				+ ", menuId=" + menuId + ", menuName=" + menuName + ", menuNum=" + menuNum + ", status=" + status
 				+ ", creatDate=" + creatDate + ", remark=" + remark + ", cookId=" + cookId + ", cookName=" + cookName
-				+ ", imgUrl=" + imgUrl + "]";
+				+ ", imgUrl=" + imgUrl + ", price=" + price + "]";
 	}
 	
 }
