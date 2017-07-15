@@ -12,19 +12,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.future.order.entity.User;
-
 /**
- * Servlet Filter implementation class LoginFile
+ * @张金高
  */
-@WebFilter("/LoginFile")
-public class LoginFile implements Filter {
+/**
+ * Servlet Filter implementation class LoginFilter
+ */
 
-    /**
-     * Default constructor. 
-     */
-    public LoginFile() {
-        // TODO Auto-generated constructor stub
-    }
+public class LoginFilter implements Filter {
+	
+	private FilterConfig Config;
+	 
+	/**
+	 * Default constructor.
+	 */
+	public LoginFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -38,47 +42,49 @@ public class LoginFile implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		
-		// 张金高修改
+
+	
 		HttpServletRequest hRequest = (HttpServletRequest) request;
 		HttpServletResponse hResponse = (HttpServletResponse) response;
-		System.out.println(hRequest.getRequestURI());
 		User user = (User) hRequest.getSession().getAttribute("user");// 获得登陆用户
 		int id = 0;
 		if (hRequest.getSession().getAttribute("userId") != null) {
 			id = (int) hRequest.getSession().getAttribute("userId");// 获得顾客桌号
 		}
 		String path = hRequest.getRequestURI();
-
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
-		System.out.println(returnUrl);
-		System.out.println("------------a");
-//		if (user != null || id != 0 || path.equals(returnUrl)) {
-//			System.out.println("------------b");
-//			return;
-//		}
-		System.out.println("-----c");
-		chain.doFilter(request, response);
-//		else {
-//			System.out.println("重新登录");
-////			hResponse.sendRedirect(returnUrl);
-//			request.setCharacterEncoding("UTF-8");
-//			response.setContentType("text/html; charset=UTF-8"); // 转码
-//			response.getWriter().println(
-//							"<script language=\"javascript\">"
-//							+ "if(window.opener==null){window.top.location.href=\""
-//									+ returnUrl+ "\";}else{window.opener.top.location.href=\""
-//									+ returnUrl
-//									+ "\";window.close();}</script>");
-//			return;
-//		}
+		String noPath =  Config.getInitParameter("noPath");		//获得不过滤的url
+		if(noPath!=null){
+			String []str = noPath.split(";");
+			for (int i = 0; i < str.length; i++) {
+				if(str[i]==null||str[i]==""){
+					continue;
+				}
+				if(hRequest.getRequestURI().indexOf(str[i])!=-1){
+					chain.doFilter(hRequest, hResponse);
+					return;						//若此时页面为不过滤页面则过滤器放行，不执行下面代码
+				}
+			}
+		}
+		if (user != null || id != 0 || path.equals("/order/index.jsp")) {
+			chain.doFilter(request, response);
+			return;
+		} else {
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8"); // 转码
+			response.getWriter()
+					.println("<script language=\"javascript\">" + "if(window.opener==null){window.top.location.href=\""
+							+ returnUrl + "\";}else{window.opener.top.location.href=\"" + returnUrl
+							+ "\";window.close();}</script>");
+			return;
+		}
 	}
 
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
+		Config = fConfig;
 	}
 
 }
