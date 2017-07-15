@@ -53,22 +53,23 @@ function CheckPay(){
 <center>
 ${marknews}
 </center>
-<div  style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
-<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
-	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
-		<option value="tableName">餐桌名称</option>
-		<option value="cookName">厨师名称</option>
-	</select>
-		<input type="text" name="inquiry">
-		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
-</form>
-</div>
 <div class="ordercheck" id="div1">
+
      <div class="button">
       <input type="button" onclick="return CheckNopay();" value="未付款" style="border-radius: 5px;">
       <input type="button" onclick="return CheckPay();" value="已付款" style="border-radius: 5px;">
 <!--       <input type="button" onclick="return Check();" value="查看全部">       -->
       </div>  
+      <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
+<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
+	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
+		<option value="tableName">餐桌名称</option>
+		<option value="cookName">厨师名称</option>
+	</select>
+		<input type="text" name="inquiry" style="border-radius:7px;">
+		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
+</form>
+</div>
       <div class="order">
        <table cellspacing="0" border="1">
          <thead>

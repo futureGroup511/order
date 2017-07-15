@@ -23,7 +23,7 @@ window.onload=function(){
 	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-<div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
+<div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;margin-top:2%;">
 	<form action="${rootPath}manage/StockDetailsAction_Inquiry" method="post"style="margin-left:10%;">
 	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 		<option value="ingName">名称</option>

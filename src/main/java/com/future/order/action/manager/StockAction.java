@@ -41,9 +41,11 @@ public class StockAction extends BaseAction {
 		request.put("stocknews", mark);
 		@SuppressWarnings("unused")
 		int stockId = stock.getId();
+		String site=stock.getSite();
 		@SuppressWarnings("unused")
 		Date createDate = stock.getCreateDate();
 		session.put("stockId", stockId);
+		session.put("site", site);
 		session.put("createDate", createDate);
 		return "add";
 	}

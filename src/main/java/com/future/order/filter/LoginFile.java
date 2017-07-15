@@ -7,7 +7,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,7 +15,7 @@ import com.future.order.entity.User;
 /**
  * Servlet Filter implementation class LoginFile
  */
-@WebFilter("/LoginFile")
+
 public class LoginFile implements Filter {
 
     /**

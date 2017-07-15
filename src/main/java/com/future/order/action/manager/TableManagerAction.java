@@ -8,6 +8,8 @@ import java.io.IOException;
 
 import java.util.List;
 
+import javax.servlet.ServletContextEvent;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
@@ -97,7 +99,9 @@ public class TableManagerAction extends BaseAction {
 		 for(int i=0;i<list.size();i++){
 			 int j=list.get(i).getId();//http://localhost:8080/order/customer/customer_toIndex?id="+j
 			  String name=list.get(i).getName();
-			 ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+j).to(  
+			  HttpServletRequest quest = ServletActionContext.getRequest();
+			  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
+			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
 		               ImageType.PNG).stream();  
 		       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
 				fout.write(out.toByteArray());
@@ -110,7 +114,9 @@ public class TableManagerAction extends BaseAction {
 	}
 	 public String SomeCard() throws IOException{
 		 HttpServletResponse response = ServletActionContext.getResponse();
-		 ByteArrayOutputStream out = QRCode.from("http://localhost:8080/order/customer/customer_toIndex?id="+id).to(  
+		 HttpServletRequest quest = ServletActionContext.getRequest();
+		  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
+		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
 		 	name= new String(name.getBytes("ISO-8859-1"),"utf-8");
 	       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
