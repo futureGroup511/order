@@ -6,9 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 <style type="text/css">
 .wall{
-	width: 40%;
+	width: 80%;
     height: auto;
     margin: 0 auto;
     margin-top: 2%;
@@ -47,16 +48,16 @@ ${addrest}
           <tr>
              <th>名称</th>
              <th>电话</th>
-             <th>地址</th>
-             <th>简介</th>
+             <th style="width:300px;">地址</th>
+             <th style="width:300px;">简介</th>
              <th>操作</th>	
            </tr>
 	       <tr>  
 	         <td>${restaurants.name}</td>
 	         <td>${restaurants.phone}</td>
-	         <td>${restaurants.address}</td>
-	         <td>${restaurants.introduce}</td>
-	         <td  class="four"><a href="${rootPath}manage/Restaurant_toUpdate?id=${restaurants.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>            
+	         <td style="width:300px;">${restaurants.address}</td>
+	         <td><textarea rows="2" cols="40" readonly="readonly">${restaurants.introduce}</textarea></td>
+	         <td  class="four"><a href="${rootPath}manage/Restaurant_toUpdate?id=${restaurants.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>            
 	       </tr>                        
          </tbody>
      </table>
