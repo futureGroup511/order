@@ -11,6 +11,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.future.order.entity.User;
+
 /**
  * Servlet Filter implementation class AllFilter
  */
@@ -42,14 +44,17 @@ public class AllFilter implements Filter {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf8");
 		((HttpServletResponse)response).setHeader("Cache-Control","no-cache");
-		 
-//		String url = ((HttpServletRequest) request).getRequestURI();
-//	        if (url.indexOf("/uploadImg") >= 0) {
-//	        	System.out.println("使用自定义的过滤器,图片放行");
-//	            chain.doFilter(request, response);
-//	        }
-		HttpServletRequest request2 = (HttpServletRequest)request;
-		//System.out.println("url:"+request2.getRequestURL());
+		
+		//张金高修改
+		HttpServletRequest hRequest = (HttpServletRequest)request;
+		User user = (User) hRequest.getSession().getAttribute("user");
+		System.out.println("User "+user);
+		String path = hRequest.getRequestURI();
+		System.out.println("returnUri:----"+hRequest.getRequestURI()+" url");
+		if(user!=null||path.equals("/order/")){
+			chain.doFilter(request, response);
+			return ;
+		}
 		chain.doFilter(request, response);
 	}
 

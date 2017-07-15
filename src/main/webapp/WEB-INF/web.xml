@@ -26,9 +26,16 @@
   <filter>
     <filter-name>allFilter</filter-name>
     <filter-class>com.future.order.filter.AllFilter</filter-class>
+    <!-- 张金高修改 -->
+     <init-param>
+      <param-name>noPath</param-name>
+      <param-value>login.jsp;webapp</param-value>
+    </init-param>  
   </filter>
+  
   <filter-mapping>
     <filter-name>allFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>*.jsp</url-pattern>
   </filter-mapping>
+  
 </web-app>
