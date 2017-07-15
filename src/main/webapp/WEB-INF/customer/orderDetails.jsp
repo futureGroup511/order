@@ -34,8 +34,9 @@
     <div class="right infors">
        <p><b>${o.menuName}</b></p>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
-       <p>数量：${o.menuNum}</p>
+       <p>数量：${o.menuNum}</p>       
        <p class="left">状态：</p><p class="green">${o.status}</p>
+       <p>订单时间：${o.creatDate}</p>
     </div>
  </div>
 </c:forEach>
@@ -44,6 +45,7 @@
      <p class="right red" style="">${totall}</p><p class="right jia">总价：</p>
 </div>
 ${order}
+${CreateDate}
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 ${addMeg}
 </c:if>

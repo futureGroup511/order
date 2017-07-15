@@ -3,6 +3,7 @@ import java.util.*;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Inform;
 import com.future.order.entity.Ingredient;
+import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
@@ -47,6 +48,7 @@ public class CartAction extends BaseAction {
 		}
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		Order orders=orderService.getOrder1(tableId);
+		Date d = new Date();
 		double total = 0.0;
 		if(orders==null||orders.getStatus().equals("已付款")){
 			Order order=new Order();
@@ -59,6 +61,7 @@ public class CartAction extends BaseAction {
 				order.setTableId(item.getTableId());
 				order.setRemark(name);
 				order.setStatus("未处理");
+				order.setCreateDate(d);
 			}
 			Boolean bool = orderService.update(order);
 			Order orderss=orderService.getOrder1(tableId);
@@ -82,6 +85,7 @@ public class CartAction extends BaseAction {
 					orderDetails.setPrice(item.getPrice());
 					orderDetails.setImgUrl(item.getImgUrl());
 					orderDetails.setRemark(order.getRemark());
+					orderDetails.setCreatDate(d);
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -105,19 +109,29 @@ public class CartAction extends BaseAction {
 						orderDetails.setPrice(item.getPrice());
 						orderDetails.setImgUrl(item.getImgUrl());
 						orderDetails.setRemark(order.getRemark());
+						orderDetails.setCreatDate(d);
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
 		}
 		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(myId);
+		List<Menu> menu=menuService.getAll();
 		double totall=0;
 		for(OrderDetails it:orderDetailss){
 			totall+=it.getPrice()*it.getMenuNum();
+			for(Menu m:menu){
+				if(m.getName().equals(it.getMenuName())){
+					m.setNum(m.getNum()+it.getMenuNum());
+					Boolean bool =menuService.update(m);
+				}
+			}
 		}
 		request.put("order",order.getStatus());
 		request.put("myId", myId);
-		request.put("totall", totall);
+		session.put("totall", totall);
+		session.put("CreateDate",order.getCreateDate());
 		request.put("orderDetails", orderDetailss);
+		System.out.println( orderDetailss+"110");
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}
@@ -148,8 +162,11 @@ public class CartAction extends BaseAction {
 			System.out.println(orderDetails);
 			request.put("order",order.getStatus());
 			request.put("orderDetails", orderDetails);
+			Date CreateDate=(Date)session.get("CreateDate");
+			session.put("CreateDate",CreateDate);
 			request.put("myId", myId);
-			request.put("total", order.getTotal());
+			double totall=(double) session.get("totall");
+			request.put("totall",totall);
 		}
 			return "getOrderDetails";
 	}
