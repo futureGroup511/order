@@ -58,6 +58,7 @@ public class CartAction extends BaseAction {
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
 				order.setRemark(name);
+				order.setStatus("未完成");
 			}
 			Boolean bool = orderService.update(order);
 			Order orderss=orderService.getOrder1(tableId);
@@ -79,7 +80,7 @@ public class CartAction extends BaseAction {
 					orderDetails.setOrderId(myId);
 					orderDetails.setStatus(order.getStatus());
 					orderDetails.setImgUrl(item.getImgUrl());
-					orderDetails.setImgUrl(order.getRemark());
+					orderDetails.setRemark(order.getRemark());
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -101,7 +102,7 @@ public class CartAction extends BaseAction {
 						orderDetails.setOrderId(order.getId());
 						orderDetails.setStatus(order.getStatus());
 						orderDetails.setImgUrl(item.getImgUrl());
-						orderDetails.setImgUrl(order.getRemark());
+						orderDetails.setRemark(order.getRemark());
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
