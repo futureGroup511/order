@@ -44,6 +44,13 @@
   height:40px;
   border-bottom: 2px solid #dadada;
   position:relative; 
+  line-height:18px;
+}
+.num div{
+	float:left;
+	width:33%;
+	height:100%;
+	text-algin:center;
 }
 .red{
   color:red;
@@ -63,12 +70,17 @@
    font-size: 16px;
    background-color: red;
 }
- textarea{
-	    	width: 80%;
-	    	margin-left:10%;
-	    	margin-top:10px;
-	    	padding: 10px 10px;
-	    	height: 100px;
-	    	font-size: 14px;
-	    	font-family: '微软雅黑';
-	    }
+@media screen and (max-width: 400px){
+	.num div p{
+	 font-size:14px;
+	}
+	.num div:first-child{
+	width:25%;
+	}
+	.num div:nth-child(2){
+	width:40%;
+	}
+	.nmu div:last-child:{
+	width:35%;
+	}
+}

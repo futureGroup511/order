@@ -27,7 +27,11 @@
 			<label>店名：</label><input type="text" name="restaurant.name"><br>
 			<label>电话：</label><input type="text" name="restaurant.phone"><br>
 			<label>地址：</label><input type="text" name="restaurant.address"><br>
-			<label>简介：</label><input type="text" name="restaurant.introduce"><br>
+			<label>简介：</label>
+			<div style="margin-left:35%;margin-top:-5%;">
+			<textarea rows="5" cols="40" name="restaurant.introduce"></textarea>
+			</div>
+<!-- 			<input type="text" name="restaurant.introduce"><br> -->
 			<input type="file" value="选择图片" name="file" accept="image/*" class="file"><br>
 			<button type="submit" class="btn">提交</button>
 		</form>

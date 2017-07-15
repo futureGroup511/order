@@ -31,7 +31,7 @@ public class MenuTypeAction extends BaseAction {
 
 	public String execute() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
-		pCut = menuTypeService.getPageCut(page, 5);
+		pCut = menuTypeService.getPageCut(page, 4);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有菜品的类型哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
 			request.put("marknews", mark);
@@ -42,23 +42,27 @@ public class MenuTypeAction extends BaseAction {
 	}
 
 	public String addType() throws FileNotFoundException, IOException {
-		if(file!=null){
-			for (int i = 0; i < file.size(); i++) {
-				// 循环上传每个文件
-				uploadFile(i);
-			}
-		}
-		boolean sign = menuTypeService.AddType(menutype);
-		System.out.println(menutype);
+		int count=menuTypeService.getCount();
 		String mark = "操作失败";
-		if (sign == true) {
-			mark = "添加成功";
-			@SuppressWarnings("unchecked")
-			List<MenuType> list = (List<MenuType>) session.get("Typelist"); // 金高改
-			list.add(menutype); //
-		} else {
-			mark = "添加失败";
-		}
+		if(count<8){
+			if(file!=null){
+				for (int i = 0; i < file.size(); i++) {
+					// 循环上传每个文件
+					uploadFile(i);
+				}
+			}
+			boolean sign = menuTypeService.AddType(menutype);
+			if (sign == true) {
+				mark = "添加成功";
+				@SuppressWarnings("unchecked")
+				List<MenuType> list = (List<MenuType>) session.get("Typelist"); // 金高改
+				list.add(menutype); //
+			} else {
+				mark = "添加失败";
+			}
+		}else{
+			mark="已有八条数据，只能修改，不可添加了╮(╯﹏╰）╭╮(╯﹏╰）╭";
+		}		
 		request.put("typenews", mark);
 		return "add";
 	}

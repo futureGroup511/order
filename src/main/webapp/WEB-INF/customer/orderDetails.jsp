@@ -12,6 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/order.css">
+<%-- <javaScript>
+	alter(${addMeg})
+</javaScript> --%>
 </head>
 <body>
  <div class="header">
@@ -30,19 +33,29 @@
     </div>
     <div class="right infors">
        <p><b>${o.menuName}</b></p>
-       <%-- <p class="left jia">价格：</p><p class="red">￥${o.price}</p> --%>
+       <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}</p>
        <p class="left">状态：</p><p class="green">${o.status}</p>
     </div>
  </div>
 </c:forEach>
-<div class="num">
-     <p class="left">订单号：${myId}</p>
-     <p class="right red" style="">${total}</p><p class="right jia">总价：</p>
+<div class="num">    
+     <div>
+     <p class="left">订单号:${myId}</p>
+     </div>
+     <div>
+        <p class="left">状态:</p>
+        <p class="left green"  style="margin-right:30px;">${order}</p>
+     </div>
+     <div>
+     <p class="left jia">总价: </p>
+     <p class="left red" style="font-size:18px; margin-bottom:10px;">${totall}</p>
+     </div>
+
 </div>
-<textarea rows="50" cols="50" placeholder="ps.输入您对口味的一些要求">
-</textarea>
+
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
+${addMeg}
 </c:if>
  <c:if test="${empty orderDetails }">
 	<h1>你还没有下订单</h1>

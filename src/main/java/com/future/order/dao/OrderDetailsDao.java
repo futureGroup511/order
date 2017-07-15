@@ -248,7 +248,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	@Override
 	public List<OrderDetails> getDetailsTwo(int orderId) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		String hql="from OrderDetails s where s.orderId="+orderId+" and (s.status='未处理')";
+		String hql="from OrderDetails s where s.orderId="+orderId+" and (s.status='未完成')";
 		list=this.getEntityList(hql);
 		return list;
 	}
