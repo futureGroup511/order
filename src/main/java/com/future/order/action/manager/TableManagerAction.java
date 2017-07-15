@@ -64,6 +64,7 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			updateTableMsg = "修改成功";
 		}
+		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
 		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
 		request.put("allTables", pCut);

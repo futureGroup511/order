@@ -36,7 +36,6 @@ window.onload=function(){
 	</select>
 		<input class="input" type="text" name="inquiry">
 		<button style="border-radius: 5px;width:6%;background-color: #82C0E9;" type="submit">查询</button>
-
 	</form>
 </div>
     <div class="picture_wall" id="div1">

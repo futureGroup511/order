@@ -17,10 +17,11 @@
           <lable id="text">配料名称：</lable><input type="text" name="details.ingName" value="${stockDetails.ingName}"><br>
           <lable id="text">单价（元）：</lable><input type="text" name="details.price" value="${stockDetails.price}" ><br>
           <lable id="text">数量：</lable><input type="text" name="details.num" value="${stockDetails.num}"><br>
-          <lable id="text">进货时间：</lable><input type="text" name="details.createDate" value="${stockDetails.createDate}" class="sang_Calender">
+          <lable id="text">进货时间：</lable><input type="text" name="details.createDate" value="${stockDetails.createDate}" class="sang_Calender"><br>
           	<script type="text/javascript" src="../js/datetime.js"></script>
+      	<lable>溯源:</lable><textarea style="" rows="5" cols="35" name="details.origins">${stockDetails.origins}</textarea><br>
       <div class="button">
-         <input type="submit" value="修改">
+         <input type="submit" value="修改" style="width:80px;">
       </div>
       </form>        
     </div>

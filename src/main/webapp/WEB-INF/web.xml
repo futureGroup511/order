@@ -29,13 +29,22 @@
     <!-- 张金高修改 -->
      <init-param>
       <param-name>noPath</param-name>
-      <param-value>login.jsp;webapp</param-value>
+      <param-value>webapp</param-value>
     </init-param>  
   </filter>
   
   <filter-mapping>
     <filter-name>allFilter</filter-name>
-    <url-pattern>*.jsp</url-pattern>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  <error-page>
+	<error-code>404</error-code>
+	<location>/WEB-INF/error404.jsp</location>
+	</error-page>
+	<error-page>
+	 <error-code>500</error-code>  
+	<location>/WEB-INF/error500.jsp</location>
+</error-page>
+>>>>>>> 917f3255eac7333f2b7734b5a2228c0b5bebfe6a
 </web-app>

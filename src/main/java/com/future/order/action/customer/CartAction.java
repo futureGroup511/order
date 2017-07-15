@@ -55,7 +55,9 @@ public class CartAction extends BaseAction {
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
 			}
-			Boolean bool = orderService.save(order);
+			Boolean bool = orderService.update(order);
+			Order orderss=orderService.getOrder1(tableId);
+			session.put("Id",orderss.getId());
 		}else{
 				session.put("Id",orders.getId());
 		}
@@ -118,21 +120,6 @@ public class CartAction extends BaseAction {
 	// 查询订单详情
 	public String getOrderDetails() throws Exception {
 		int tableId = (int) session.get("userId");
-		/*Order orders=orderService.getOrder1(tableId);
-		if(orders==null||orders.getStatus().equals("已付款")){
-			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
-			request.put("orderDetails",orderDetails);
-			System.out.println(orderDetails);
-			System.out.println("1232");
-		}else{
-			Order orderss=orderService.getOrder1(tableId);
-			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orderss.getId());
-			Order order=orderService.CheckById(orders.getId());
-			System.out.println(orderDetails);
-			request.put("orderDetails", orderDetails);
-			request.put("myId", orders.getId());
-			request.put("total", order.getTotal());
-		}*/
 		if(session.get("Id")==null){
 			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
 			request.put("orderDetails",orderDetails);

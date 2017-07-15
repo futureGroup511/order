@@ -14,6 +14,8 @@ public class StockDetailsAction extends BaseAction{
 	private int stocksid;
 	private int page=1;
 	private StockDetails details;
+	private String ask;
+	private String inquiry;
 	public String CheckStockDetails(){
 		session.put("stockid", id);
 		return  this.execute();	
@@ -25,6 +27,7 @@ public class StockDetailsAction extends BaseAction{
 			String mark="进货详细信息为空(*^o^)人(^o^*)";
 			request.put("markinfo", mark);
 		}
+		request.put("adss", "execute");
 		request.put("pc", pCut);		
 		return "details";
 		}
@@ -88,6 +91,27 @@ public class StockDetailsAction extends BaseAction{
 		request.put("markinfo", mark);
 		return this.execute();
 	}
+	public String Inquiry (){
+		int stockid=(int) session.get("stockid");
+		PageCut<StockDetails> pCut = new PageCut<StockDetails>();
+		if(ask!=null){
+			pCut=stockDetailsService.getSomePageCut(page,2,stockid,ask,inquiry);
+			}else{
+				ask=(String) session.get("ask");
+				inquiry=(String) session.get("inquiry");
+				pCut=stockDetailsService.getSomePageCut(page,2,stockid,ask,inquiry);
+			}
+			//获得全部订单信息
+		if(pCut.getData().size()==0){
+			String mark="进货详细信息为空(*^o^)人(^o^*)";
+			request.put("markinfo", mark);
+		}
+		request.put("pc", pCut);
+		request.put("adss", "Inquiry");		
+		session.put("ask", ask);
+		session.put("inquiry", inquiry);	
+		return "details";
+	}
 	public int getId() {
 		return id;
 	}
@@ -111,6 +135,18 @@ public class StockDetailsAction extends BaseAction{
 	}
 	public void setDetails(StockDetails details) {
 		this.details = details;
+	}
+	public String getAsk() {
+		return ask;
+	}
+	public void setAsk(String ask) {
+		this.ask = ask;
+	}
+	public String getInquiry() {
+		return inquiry;
+	}
+	public void setInquiry(String inquiry) {
+		this.inquiry = inquiry;
 	}
 	
 }
