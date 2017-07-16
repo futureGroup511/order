@@ -30,6 +30,9 @@
 	  <lable id="text">类型名称：</lable><input type="text" name="menutype.name"></input><br>
 	  <lable id="textarea">备&nbsp;&nbsp;&nbsp;&nbsp;注：</lable><textarea cols="31" rows="3" name="menutype.remark"></textarea><br>
 	  <label id="text">类型图片：</label><input class="file" type="file" name="file" value="选择图片" />
+	    <div class="move-font">
+        <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
+    </div>
 	  <button style="background-color: #1BAFE0;border-radius: 5px;width:130px;" type="submit">添加</button>
 	 </form>
 	 </div>

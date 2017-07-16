@@ -3,55 +3,36 @@
     padding:0;
 }
 .wall{
-	margin-left:0%;
-    width: 60%;
+    width: 400px;
     height: auto;
-    margin:0 auto;
-    margin-top: 2%;
+    margin:5% auto;
+    line-height: 50px;
 }
-table{
-    width: 80%;
-    text-align: CENTER;
-    background-color: white;
-    
-  
+label{
+    font-size: 25px;
+    width: 30%;
+    font-weight: bold;
+    vertical-align: middle;
+    padding-left: 5%;
 }
-td input{
+.input1{
+    width: 40%;
     height: 25px;
-    width: 78%;
-    border-radius: 3px;
-    float: left;
+    vertical-align: middle;
+    border-radius: 5px;
 }
-.button{
-	width:50PX;;
-    padding:5px 4px;
-     background-color: #fff;
-    float: left;
-    color:#191970; 
-    border: 1px solid #8ed8fa;
-    margin-left: 2%;
-    border-radius: 10px 0 10px 0;
+button{
+	 margin-left: 6%;
+    height: 30px;
 }
-table td{
-    height: 32px;
-    font-size: 18px;
-    border-color: #E8E7E3;
+.bt1{
+    margin-left: 30%;
+    width: 160px;
+    margin-bottom: 15%;
 }
-table th{
-    text-align: center;
-    height: 45px;
-    background-color: #E8E7E3;
-    font-size:19px;
-    
-}
-.btn{
- 	   hight:4%;
- 	   width:30%;
-       height:29px;
-	   background:#75c7ed;
-	   border-radius:5px; 
-	   font-size:15px;
-/* 	   margin-top:1%;} */}
-.btn_wall{
-    width: 50px;
+.bt2{
+	 height: 30px;
+    margin-left: 32%;
+    width: 80px;
+    margin-top: 8%;
 }

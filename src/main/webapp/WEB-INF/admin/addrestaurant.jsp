@@ -33,6 +33,9 @@
 			</div>
 <!-- 			<input type="text" name="restaurant.introduce"><br> -->
 			<input type="file" value="选择图片" name="file" accept="image/*" class="file"><br>
+			 <div class="move-font">
+        <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
+    </div>
 			<button type="submit" class="btn">提交</button>
 		</form>
 	</div>

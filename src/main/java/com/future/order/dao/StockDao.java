@@ -6,6 +6,8 @@
  */  
 package com.future.order.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
@@ -89,6 +91,11 @@ public class StockDao extends BaseDao<Stock> implements IStockService {
 		PageCut<Stock> pc = new PageCut<Stock>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList("from Stock where site='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
+	}
+
+	@Override
+	public List<Stock> getSomestock() {
+		return selectAll();
 	}
 
 }
