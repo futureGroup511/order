@@ -51,12 +51,6 @@ public class LoginFilter implements Filter {
 		HttpServletRequest hRequest = (HttpServletRequest) request;
 		HttpServletResponse hResponse = (HttpServletResponse) response;
 		User user = (User) hRequest.getSession().getAttribute("user");// 获得登陆用户
-		int id = 0;
-		if(hRequest.getParameter("id")!=null&&hRequest.getParameter("id")!=""){			//获得顾客桌号
-			id = Integer.parseInt(hRequest.getParameter("id"));
-		} else {
-			id= (int) hRequest.getSession().getAttribute("userId");
-		}
 		String path = hRequest.getRequestURI();
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
 		String noPath =  Config.getInitParameter("noPath");		//获得不过滤的url
@@ -74,18 +68,6 @@ public class LoginFilter implements Filter {
 		}
 		if (user != null || path.equals("/order/index.jsp")) {
 			chain.doFilter(request, response);
-			return;
-		} else if(id!=0){
-			chain.doFilter(request, response);
-			return;
-		} else if(hRequest.getRequestURI().indexOf("toIndex")!=-1){
-			if(id==0){
-				String errorPath = hRequest.getContextPath()+"/error404.jsp";
-				response.getWriter()
-				.println("<script language=\"javascript\">" + "if(window.opener==null){window.top.location.href=\""
-						+ errorPath + "\";}else{window.opener.top.location.href=\"" + errorPath
-						+ "\";window.close();}</script>");
-			}
 			return;
 		} else {
 			response.getWriter()
