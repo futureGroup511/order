@@ -31,7 +31,6 @@
     <div class="right infors">
        <p><b>${o.menuName}</b></p>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
-       <p>数量：${o.menuNum}</p>
        <p>数量：${o.menuNum}</p>       
        <p class="left">状态：</p><p class="green">${o.status}</p>
     </div>
@@ -50,10 +49,6 @@
      <p class="left red" style="font-size:18px; margin-bottom:10px;">${totall}</p>
      </div>
 </div>
-<<<<<<< HEAD
-=======
-${order}
->>>>>>> 78217e5acde11f6aedb553ed2973c493b5459e36
 <a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
 ${addMeg}
 </c:if>
