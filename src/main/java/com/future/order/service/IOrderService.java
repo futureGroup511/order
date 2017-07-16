@@ -6,6 +6,7 @@ z * @author: 焦祥宇 马黎明
  */  
 package com.future.order.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.future.order.entity.Order;
@@ -38,4 +39,5 @@ public interface IOrderService {
 	
 	public Order getOrder1(int tableId);
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
+	public List<Order> getSomenews();
 }

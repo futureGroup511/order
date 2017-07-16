@@ -117,6 +117,9 @@
                     <li>
                         <a href="${rootPath}manage/Change_logOff"><span class="glyphicon glyphicon-new-window"></span>&nbsp;&nbsp;&nbsp;退出登陆</a>
                     </li>
+                     <li>
+                        <a href="${rootPath}manage/Change_finance"><span class="glyphicon glyphicon-new-window"></span>&nbsp;&nbsp;&nbsp;财务统计</a>
+                    </li>
                 </ul> <!-- 第六个子目录结束 -->
              </li> <!-- 第六个父目录结束 -->
           </ul><!-- 总父目录结束 -->

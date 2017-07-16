@@ -32,6 +32,9 @@
      </div>
      <label>示例图片：</label>
      <input type="file" name="file" accept="image/*" value="选择图片" style="border:none; outline:none;margin-left:2.5%">
+       <div class="move-font">
+        <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
+    </div>
       <div class="button">
         <input type="submit" value="添加">          
       </div>

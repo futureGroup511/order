@@ -35,8 +35,10 @@ public class StockDetailsAction extends BaseAction{
 		String ingName = details.getIngName();
 		Date createDate = (Date) session.get("createDate");
 		int stockId = (int) session.get("stockId");
+		String place = (String) session.get("site");
 		details.setCreateDate(createDate);
 		details.setStockId(stockId);
+		details.setPlace(place);
 		@SuppressWarnings("unchecked")
 		List<Ingredient> list=(List<Ingredient>) session.get("Ientlist");
 		for(int i=0;i<list.size();i++){

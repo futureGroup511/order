@@ -54,7 +54,7 @@ public class MenuManagerAction extends BaseAction {
 			}
 		}
 		boolean boo=false;
-		if(file==null||file.equals("")){		
+		if(file==null||file.equals("")){
 			 boo = menuService.addMenu(menu);		
 		}else{
 			for (int i = 0; i < file.size(); i++) {

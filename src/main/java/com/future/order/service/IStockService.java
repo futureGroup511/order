@@ -6,6 +6,8 @@
  */  
 package com.future.order.service;
 
+import java.util.List;
+
 import com.future.order.entity.Stock;
 import com.future.order.util.PageCut;
 
@@ -27,5 +29,7 @@ public interface IStockService {
 	public boolean UpdateStock(Stock stocks);
 
 	public PageCut<Stock> getSomePageCut(int currentPage, int pageSize, String inquiry);
+
+	public List<Stock> getSomestock();
 
 }
