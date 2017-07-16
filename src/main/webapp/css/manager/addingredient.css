@@ -3,6 +3,7 @@ body{ width:100%;}
 #text{
     display: inline-block;
     text-align: left;
+    width:32%; 
 	
 }
 .addingredient{ 
@@ -16,7 +17,7 @@ body{ width:100%;}
 }
 select{ width:41%;
        height:27px;
-	   margin-left:3%;
+	   margin-left:2%;
 	   border-radius:3px;
 	   border:1px solid #999;}
 input{
@@ -27,7 +28,7 @@ input{
 }
 .a1,.a2,.a3{ margin-left:3%;}
 textarea{
-    margin-left:3%;
+    margin-left:4%;
 	margin-top:3%;
 }
 #textarea{
