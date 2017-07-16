@@ -125,7 +125,7 @@ public class CartAction extends BaseAction {
 		}
 		request.put("order",order.getStatus());
 		request.put("myId", myId);
-		session.put("totall", totall);
+		request.put("totall", totall);
 		request.put("orderDetails", orderDetailss);
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
@@ -143,20 +143,23 @@ public class CartAction extends BaseAction {
 		request.put("shopCarts", shopCarts);
 		return "deleteCart";
 	}
+	
 	// 查询订单详情
 	public String getOrderDetails() throws Exception {
 		int tableId = (int) session.get("userId");
-		if(session.get("Id")==null){
+		Order orders=orderService.getOrder1(tableId);
+		if(orders==null||orders.getStatus().equals("已付款")){
 			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
 			request.put("orderDetails",orderDetails);
 		}else{
-			int myId=(int) session.get("Id");
-			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(myId);
-			Order order=orderService.CheckById(myId);
-			request.put("order",order.getStatus());
+			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orders.getId());
+			request.put("order",orders.getStatus());
 			request.put("orderDetails", orderDetails);
-			request.put("myId", myId);
-			double totall=(double) session.get("totall");
+			request.put("myId", orders.getId());
+			double totall=0;
+			for(OrderDetails it:orderDetails){
+				totall+=it.getPrice()*it.getMenuNum();
+			}
 			request.put("totall",totall);
 		}
 			return "getOrderDetails";
@@ -196,7 +199,9 @@ public class CartAction extends BaseAction {
 			System.out.println(total);
 		}			
 	}
-
+	
+	
+	
 	// 菜品数量的减少
 	public void reduce() throws Exception {
 		ShopCart shopCart = shopCartService.getOne(id);	
@@ -212,7 +217,7 @@ public class CartAction extends BaseAction {
 			this.getResponse().getWriter().println(total);
 		}		
 	}
-
+	
 	// 催单
 	public String getReminder() throws Exception {
 		int tableId = (int) session.get("userId");

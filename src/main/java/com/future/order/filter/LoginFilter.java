@@ -55,6 +55,7 @@ public class LoginFilter implements Filter {
 		if(hRequest.getParameter("id")!=null&&hRequest.getParameter("id")!=""){			//获得顾客桌号
 			id = Integer.parseInt(hRequest.getParameter("id"));
 		}
+		System.out.println("id ---"+id);
 		String path = hRequest.getRequestURI();
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
 		String noPath =  Config.getInitParameter("noPath");		//获得不过滤的url
