@@ -219,8 +219,8 @@ public class CartAction extends BaseAction {
 		}		
 	}
 	
-	// 催单
-	public String getReminder() throws Exception {
+	//利用ajax实现催单功能
+	public void Reminder() throws Exception {
 		int tableId = (int) session.get("userId");
 		String tableName = tablesService.get(tableId).getName();
 		Date d = new Date();
@@ -230,14 +230,12 @@ public class CartAction extends BaseAction {
 		inform.setTableId(tableId);
 		inform.setTableName(tableName);
 		Boolean bool = informService.save(inform);
-		System.out.println("233323");
-		if (bool == true) {
-			request.put("addMeg", "催单成功");
-		} else {
-			request.put("addMeg", "催单失败");
+		List<Inform> informm=informService.getAll();
+		if(!informm.isEmpty()){
+			this.getResponse().getWriter().println(1);
+		}else{
+			this.getResponse().getWriter().println(0);
 		}
-		System.out.println("23333");
-		return getOrderDetails();
 	}
 
 	public int getId() {
