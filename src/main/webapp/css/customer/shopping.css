@@ -48,7 +48,7 @@ a{
 	text-align:left;
 	height:100%;
 	position:absolute;
-	top:90px;
+	top:50px;
 }
 .end>.right{
     width:100%;
@@ -127,15 +127,7 @@ a{
 	 color:#D41700;
 	
 }
-textarea{
-	    	width: 100%;
-	    	margin-top:10px;
-	    	padding: 10px 10px;
-	    	height: 80px;
-	    	font-size: 14px;
-	    	font-family: '微软雅黑';
-	   
-	    }
+
 @media screen and (max-width: 350px) {
       .zu .delete{
       	margin-left: 10px;
@@ -152,3 +144,28 @@ textarea{
 	  font-size:12px;
 	}
 }
+#aa{
+	width:100%;
+	height:20px;
+	text-align:center;
+    color:red;
+    cursor:pointer;
+}
+#bb{
+   width:100p%;
+   height:0px;
+   overflow:hidden;
+}
+textarea{
+   width:80%;
+   height:50px;
+   border:1px solid #000;
+   margin-left:10%;
+   font-family: '微软雅黑';
+   font-size:14px;
+}
+@media screen and (max-height: 400px){
+	 footer{
+	   display:none;
+	 }
+	}
