@@ -12,6 +12,63 @@
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/order.css">
+<script type="text/javascript">
+	function Reminder() {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			// IE6, IE5 浏览器执行代码
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+				var result = xmlhttp.responseText;								
+				if(parseInt(result)==1){
+					show_notice('催单成功',2);
+				}else if(parseInt(result)==0){
+					show_notice('催单失败',2);
+				}
+							
+			}
+		}
+		xmlhttp.open("POST", "cart_Reminder", true);
+		xmlhttp.setRequestHeader("Content-type",
+				"application/x-www-form-urlencoded");
+		xmlhttp.send();
+	}
+	
+	
+	function show_notice(str,second,callback){  
+	    var box_id = 'notice_box';  
+	    var tooltipBox = document.getElementById(box_id);  
+	    if(tooltipBox){  
+	        document.body.removeChild(tooltipBox);  
+	    }  
+	    if(!second) second = 2;  
+	    tooltipBox = document.createElement('div');  
+	    tooltipBox.innerHTML = str;  
+	    tooltipBox.id = box_id;  
+	    tooltipBox.style.background='rgba(94,94,94,.8)';  
+	    tooltipBox.style.color='#fff';  
+	    tooltipBox.style.display='inline-block';  
+	    tooltipBox.style.padding = '0.4em 1.5em';  
+	    tooltipBox.style.borderRadius = '1em';  
+	    tooltipBox.style.fontSize = '0.9em';  
+	    document.body.appendChild(tooltipBox);  
+	    var vWidth = document.documentElement.clientWidth;  
+	    var vHeight = document.documentElement.clientHeight;  
+	    tooltipBox.style.position = 'fixed';  
+	    tooltipBox.style.zIndex = '9999';  
+	    tooltipBox.style.left = ((vWidth/2)-(tooltipBox.offsetWidth/2))+'px';  
+	    tooltipBox.style.top = ((vHeight/2)-(tooltipBox.offsetHeight/2))+'px';  
+	    setTimeout(function () {  
+	                    document.body.removeChild(tooltipBox);  
+	                    if(callback)    callback();  
+	                }, second*1000);  
+	}  
+</script>
 </head>
 <body>
  <div class="header">
@@ -31,7 +88,6 @@
     <div class="right infors">
        <p><b>${o.menuName}</b></p>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
-       <p>数量：${o.menuNum}</p>
        <p>数量：${o.menuNum}</p>       
        <p class="left">状态：</p><p class="green">${o.status}</p>
     </div>
@@ -50,11 +106,7 @@
      <p class="left red" style="font-size:18px; margin-bottom:10px;">${totall}</p>
      </div>
 </div>
-<<<<<<< HEAD
-=======
-${order}
->>>>>>> 78217e5acde11f6aedb553ed2973c493b5459e36
-<a href="${rootPath}customer/cart_getReminder" class="cd">催单</a>
+<input type="button" name="" value="催单"  class="cd" onclick="Reminder()" />
 ${addMeg}
 </c:if>
  <c:if test="${empty orderDetails }">

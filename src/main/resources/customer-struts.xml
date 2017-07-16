@@ -25,7 +25,7 @@
 			<result name="reduce">/WEB-INF/customer/shopCart.jsp</result>
 			<result name="getOrderDetails">/WEB-INF/customer/orderDetails.jsp</result>
 			<result name="getHand">/WEB-INF/customer/orderDetails.jsp</result>
-			<result name="getReminder">/WEB-INF/customer/orderDetails.jsp</result>
+			<!-- <result name="getReminder">/WEB-INF/customer/orderDetails.jsp</result> -->
 		</action>
 	</package>
 </struts>

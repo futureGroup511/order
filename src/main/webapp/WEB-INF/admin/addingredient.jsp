@@ -11,18 +11,18 @@
 		${addIngerdientMsg}
 		<div class="addingredient">
 			<form action="Ingredient_addIngredient" method="post">
-				<lable id="text">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</lable>
-				<input type="text" class="a1" name="ingredient.name"><br>
+				<lable id="text"><span style="padding-right:50%">名</span>称：</lable>
+				<input type="text" style="margin-left:2%;" class="a1" name="ingredient.name"><br>
 				<lable id="text">单价(元/kg)：</lable>
 				<input style="margin-left:7px;" type="text" class="a2" name="ingredient.price"><br>
 				<lable id="text">库存量&nbsp;&thinsp;(kg)：</lable>
 				<input style="margin-left:8px;" type="text" class="a3" name="ingredient.num"><br>
-				<lable id="text">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&thinsp;&thinsp;型：</lable>
+				<lable id="text"><span style="padding-right:50%">类</span>型：</lable>
 				<select name="ingredient.type">
 					<option value="原料">原料</option>
 					<option value="配料">配料</option>
 				</select><br>
-				<lable id="text">简&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;介：</lable>
+				<lable id="text"><span style="padding-right:50%">简</span>介：</lable>
 				<div style="margin-left:20%;margin-top:-10%;">
 					<textarea style="margin-left:70px;" rows="5" cols="35" name="ingredient.introduce"></textarea>
 					</div>

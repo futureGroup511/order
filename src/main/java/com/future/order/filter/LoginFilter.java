@@ -46,18 +46,14 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
-	
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8"); // 转码
 		HttpServletRequest hRequest = (HttpServletRequest) request;
 		HttpServletResponse hResponse = (HttpServletResponse) response;
 		User user = (User) hRequest.getSession().getAttribute("user");// 获得登陆用户
-		int id = 0;
-		if(hRequest.getParameter("id")!=null){			//获得顾客桌号
-			id = Integer.parseInt(hRequest.getParameter("id"));
-		}
 		String path = hRequest.getRequestURI();
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
 		String noPath =  Config.getInitParameter("noPath");		//获得不过滤的url
-		System.out.println("判断外id--"+id);
 		if(noPath!=null){
 			String []str = noPath.split(";");
 			for (int i = 0; i < str.length; i++) {
@@ -70,23 +66,8 @@ public class LoginFilter implements Filter {
 				}
 			}
 		}
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8"); // 转码
 		if (user != null || path.equals("/order/index.jsp")) {
 			chain.doFilter(request, response);
-			return;
-		} else if(hRequest.getRequestURI().indexOf("toIndex")!=-1){
-			System.out.println("id----------");
-			if(id==0){
-				String errorPath = hRequest.getContextPath()+"/error404.jsp";
-				System.out.println("id"+id+" errorPath"+errorPath);
-				response.getWriter()
-				.println("<script language=\"javascript\">" + "if(window.opener==null){window.top.location.href=\""
-						+ errorPath + "\";}else{window.opener.top.location.href=\"" + errorPath
-						+ "\";window.close();}</script>");
-			} else {
-				chain.doFilter(request, response);
-			}
 			return;
 		} else {
 			response.getWriter()
