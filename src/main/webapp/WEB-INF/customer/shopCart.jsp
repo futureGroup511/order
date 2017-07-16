@@ -134,10 +134,10 @@
               </div>
           </div>
       </div>
-       <div id="aa" onclick="cc()">
+    </c:forEach>
+    <div id="aa" onclick="cc()">
                 点击添加备注
        </div>
-    </c:forEach>
 	<div class="end">
 		<div class="right">
 			<form action="${rootPath}customer/cart_getHand" method="post">
