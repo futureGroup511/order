@@ -35,16 +35,17 @@ public class CustomerAction extends BaseAction {
 		request.put("r",r);
 		List<MenuType> menuType=menuTypeService.getAllMenuType();
 		request.put("menuType",menuType);
-		System.out.println(r+"88");
-		System.out.println(menus);
 		request.put("menus", menus);
-		System.out.println("123");
 		return "toIndex";
 	}
 	//根据菜品类型id获得菜品
 	public String getMenuByTypeId() throws Exception{
 		List<Menu> menus=menuService.getByTypeId(id);
-		session.put("menus", menus);
+		Restaurant r= restaurantService.getOne();
+		request.put("r",r);
+		List<MenuType> menuType=menuTypeService.getAllMenuType();
+		request.put("menuType",menuType);
+		request.put("menus", menus);
 		return "getMenuByTypeId";
 	}
 	//获得菜品详情和菜品原料
@@ -55,7 +56,6 @@ public class CustomerAction extends BaseAction {
 		MenuMaterial menuMaterial=menuMaterialService.get(id); 
 		List<Ingredient> ingredient=ingerdientService.getByIdAll(menuMaterial.getIngId());
 		request.put("ingredient",ingredient);
-		System.out.println(ingredient+"999");
 		request.put("menuMaterial",menuMaterial);	
 		return "getMenuMaterial";
 	}
@@ -63,7 +63,6 @@ public class CustomerAction extends BaseAction {
 	public String getStockDate() throws Exception {
 		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,3);
 		request.put("stockDetails", stockDetails);
-		System.out.println(stockDetails+"5555");
 		return "getStockDate";
 	}
 	//加入购物车

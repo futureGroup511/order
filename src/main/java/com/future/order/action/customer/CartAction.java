@@ -57,6 +57,7 @@ public class CartAction extends BaseAction {
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
 				order.setRemark(name);
+				order.setCookName("");
 				order.setStatus("未处理");
 				order.setCreateDate(d);
 			}
