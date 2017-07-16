@@ -21,16 +21,8 @@
     <filter-name>allFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-<!--   <filter> -->
-<!--   	<filter-name>loginFile</filter-name> -->
-<!--   	<filter-class>com.future.order.filter.LoginFile</filter-class> -->
-<!--   </filter> -->
-<!--   <filter-mapping> -->
-<!--   	<filter-name>loginFile</filter-name> -->
-<!--   	<url-pattern>/manage/*</url-pattern> -->
-<!--   </filter-mapping> -->
   <filter>
-  	<filter-name>loginFile</filter-name>
+  	<filter-name>loginFilter</filter-name>
   	<filter-class>com.future.order.filter.LoginFilter</filter-class>
   	<init-param>
   		<param-name>noPath</param-name>
@@ -38,7 +30,7 @@
   	</init-param>
   </filter>
   <filter-mapping>
-  	<filter-name>loginFile</filter-name>
+  	<filter-name>loginFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
   <filter>
