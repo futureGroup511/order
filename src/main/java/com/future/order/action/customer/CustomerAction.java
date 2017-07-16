@@ -103,10 +103,10 @@ public class CustomerAction extends BaseAction {
 		}			
 	}
 	
+
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
