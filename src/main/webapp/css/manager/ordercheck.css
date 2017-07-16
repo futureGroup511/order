@@ -10,18 +10,18 @@
 	font-weight:800;
 }
 .button{
+	 float:right;
     height: 20px;
-    width:25%;
-    font-size: 0.6vw;
-	float:float;
-	margin-bottom:1%;
+    width:20%;
+     margin-top:2%;
+    font-size: 1.0vw;
 }
 .button input{
   width: 18%;
   height:25px;
   background-color: #1bafe0;
   margin-right:10%;
-  color:white;
+ background-color: #82C0E9;
 }       
  table{
  
