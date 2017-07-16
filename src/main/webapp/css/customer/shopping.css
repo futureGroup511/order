@@ -157,10 +157,10 @@ a{
    overflow:hidden;
 }
 textarea{
-   width:80%;
+   width:100%;
    height:50px;
    border:1px solid #000;
-   margin-left:10%;
+   margin-left:0%;
    font-family: '微软雅黑';
    font-size:14px;
 }
