@@ -70,9 +70,19 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 //wqj
 	@Override
-	public boolean updetemenu(int id){
+	public boolean updetemenu(int id,int idd,String UserName){
 		Order order = this.getEntity(id);
 		String status="处理中";
+		order.setCookId(idd);
+		order.setCookName(UserName);
+		order.setStatus(status);
+		boolean menus = this.updateEntity(order);
+		return true;
+	}
+	@Override
+	public boolean upd(int id){
+		Order order = this.getEntity(id);
+		String status="未付款";
 		order.setStatus(status);
 		boolean menus = this.updateEntity(order);
 		return true;
