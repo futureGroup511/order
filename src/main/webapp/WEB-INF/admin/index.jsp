@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>订餐管理系统</title>
    <link href="${rootPath}css/bootstrap.css"  rel="stylesheet" />
     <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
     <link href="${rootPath}css/basic.css" rel="stylesheet" />
@@ -13,8 +13,8 @@
 <body class="login" >
 <div class="header" ><!-- 头部 -->
             <img src="${rootPath}images/header.jpg" style="width:100%;height:125px;">
-           <span class="span1">订餐管理系统</span>
-            <span class="span2">欢迎${user.name}登录</span>
+           <span class="span1">餐饮管理系统</span>
+            <span class="span2">欢迎${userIndex.name}登录</span>
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->

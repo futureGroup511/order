@@ -55,7 +55,7 @@ public class CustomerFilter implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}  else {
-			String errorPath = hRequest.getContextPath()+"/error404.jsp";
+			String errorPath = hRequest.getContextPath()+"/overtime.jsp";
 			response.getWriter()
 			.println("<script language=\"javascript\">" + "if(window.opener==null){window.top.location.href=\""
 					+ errorPath + "\";}else{window.opener.top.location.href=\"" + errorPath
