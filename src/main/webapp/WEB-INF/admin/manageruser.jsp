@@ -71,8 +71,9 @@ window.onload=function(){
  <div class="page" id="div2">
       <ul class="pagination">
         <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.prePage}">上一页</a></li>
-        <c:forEach var="i" begin="${allUser.currentPage-3>0?allUser.currentPage-3:1 }"
-					end="${allUser.currentPage+3>allUser.pageNum?allUser.pageNum:allUser.currentPage+3  }">
+        		<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
+ 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+
 					<c:choose>
 						<c:when test="${i>0 && i == allUser.currentPage &&i<=3}">
 							<li class="active"><a href="${rootPath }manage/UserManager_${adss}?page=${i }">${i}</a></li>
