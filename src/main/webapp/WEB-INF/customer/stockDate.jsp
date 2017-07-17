@@ -15,8 +15,8 @@
 <body>
 <body>
 <ul class="list-group">
-  <li class="list-group-item  active">${ingName}</li><!-- 顶部的  配料名 -->
-   <li class="list-group-item"></li>  <!--  制空的 一个  没有实际用处的快 -->
+  <li class="list-group-item">${ingName}</li><!-- 顶部的  配料名 -->
+   <li class="list-group-item">aaa</li>  <!--  制空的 一个  没有实际用处的快 -->
    <!--  此处  每出现一个   第几次进货  就是一个快  -->
 <c:forEach items="${stockDetails}" var="s" varStatus="status">
 	<c:if test="${status.index==0 }">
@@ -29,7 +29,9 @@
 		  	<span class="badge">${s.place}</span>
 			    进货地点
 		  </li>
-		      <li class="list-group-item"><textarea rows="5" cols="40" readonly="readonly">${s.origins}</textarea>
+		      <li class="list-group-item">
+		      溯源：
+		      <pre>${s.origins}</pre>
 		</li>
 	</c:if>
 	<c:if test="${status.index==1 }">
@@ -42,7 +44,8 @@
 		  	<span class="badge">${s.place}</span>
 			    进货地点
 		  </li>
-		      <li class="list-group-item"><textarea rows="5" cols="40" readonly="readonly">${s.origins}</textarea>
+		     <li class="list-group-item">
+		    <pre> ${s.origins}</pre>
 		</li>
 	</c:if>
 </c:forEach>
