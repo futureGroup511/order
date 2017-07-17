@@ -69,8 +69,8 @@ public class OrderDetailsAction extends BaseAction{
 		 @SuppressWarnings("unused")
 		int count=list.get(i).getMenuNum();
 		 @SuppressWarnings("unused")
-		double value = Double.parseDouble(list.get(i).getRemark());
-		 total=count*value;
+		double value =list.get(i).getPrice();
+		 total+=count*value;
 	 }
 	 request.put("total", total);
 	 request.put("orderlist", list);

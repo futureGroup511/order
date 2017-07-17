@@ -92,7 +92,7 @@ public class TableManagerAction extends BaseAction {
 		}
 		return "deleteTable";
 	}
-	public String AllCard() throws IOException{
+	public String allCard() throws IOException{
 		List<Tables> list = tablesService.CheckName();
 		@SuppressWarnings("unused")
 		HttpServletResponse response = ServletActionContext.getResponse();
