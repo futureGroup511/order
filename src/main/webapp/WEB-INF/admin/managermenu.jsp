@@ -43,10 +43,9 @@ window.onload=function(){
     		<table>
     			<tr>
     				<th>菜名</th>
-    				<th style="width:95px;">图片</th>
+    				<th style="width:115px;">图片</th>
     				<th>类型</th>
-    				<th>价格/元</th>
-    				<th style="width:90px;">被定/次</th>
+    				<th style="width:85px;">价格/元</th>
     				<th>状态</th>
     				<th>简介</th>
     				<th style="width:90px;">操作</th>
@@ -57,10 +56,9 @@ window.onload=function(){
     				<td><img src="${rootPath}uploadImg/${data.imgUrl}" alt="未添加图片"></td>
     				<td>${data.typeName}</td>
     				<td>${data.price}</td>
-    				<td>${data.num}</td>
     				<td><c:if test="${data.exist eq '0'}">暂缺</c:if><c:if test="${data.exist eq '1'}">可做</c:if></td>
     				<td>
-    					<textarea rows="2" cols="14" readonly="readonly">${data.introduce}</textarea>
+    					<textarea rows="2" cols="20" readonly="readonly">${data.introduce}</textarea>
     				</td>
     				<td>
     					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;

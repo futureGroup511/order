@@ -67,8 +67,8 @@ public class MenuManagerAction extends BaseAction {
 		if(boo){
 			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
 			session.put("menu", menu);
-			PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,6);
-			List<Ingredient> lists = pCut.getData();	//暂时不要分页
+		//	PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,6);
+			List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
 			request.put("allIngredient", lists);
 		} else {
 			request.put("addMsg", "添加失败！该菜已被添加过");

@@ -31,10 +31,10 @@ public class MenuTypeAction extends BaseAction {
 
 	public String execute() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
-		pCut = menuTypeService.getPageCut(page, 4);
+		pCut = menuTypeService.getPageCut(page, 6);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有菜品的类型哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
-			request.put("marknews", mark);
+			request.put("mark", mark);
 		}
 		request.put("adss", "execute");
 		request.put("pc", pCut);
@@ -63,7 +63,7 @@ public class MenuTypeAction extends BaseAction {
 		}else{
 			mark="已有八条数据，只能修改，不可添加了╮(╯﹏╰）╭╮(╯﹏╰）╭";
 		}		
-		request.put("typenews", mark);
+		request.put("mark", mark);
 		return "add";
 	}
 
@@ -91,7 +91,7 @@ public class MenuTypeAction extends BaseAction {
 		} else {
 			mark = "修改失败";
 		}
-		request.put("marknews", mark);
+		request.put("mark", mark);
 		return this.execute();
 	}
 
@@ -103,7 +103,7 @@ public class MenuTypeAction extends BaseAction {
 		} else {
 			mark = "删除失败";
 		}
-		request.put("marknews", mark);
+		request.put("mark", mark);
 		return this.execute();
 
 	}
@@ -118,7 +118,7 @@ public class MenuTypeAction extends BaseAction {
 		}
 		if (pCut.getData().size() == 0) {
 			String mark = "没有菜品的类型哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
-			request.put("marknews", mark);
+			request.put("mark", mark);
 		}
 		request.put("adss", "Inquiry");
 		session.put("inquiry", inquiry);

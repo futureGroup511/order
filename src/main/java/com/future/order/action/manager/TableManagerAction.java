@@ -33,7 +33,7 @@ public class TableManagerAction extends BaseAction {
 	private String replace;
 	@Override
 	public String execute() throws Exception {
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,6);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="还没有餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
@@ -83,7 +83,7 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			deleteTableMsg = "删除成功";
 		}
-		request.put("TableMsg", deleteTableMsg);
+		request.put("managerMsg", deleteTableMsg);
 		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
@@ -92,7 +92,7 @@ public class TableManagerAction extends BaseAction {
 		}
 		return "deleteTable";
 	}
-	public String AllCard() throws IOException{
+	public String allCard() throws IOException{
 		List<Tables> list = tablesService.CheckName();
 		@SuppressWarnings("unused")
 		HttpServletResponse response = ServletActionContext.getResponse();

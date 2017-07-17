@@ -2,7 +2,7 @@
 
 #text{
     display: inline-block;
-    width: 30%;
+    width: 40%;
     text-align: left;
 	font-size:24px;
 }
@@ -17,6 +17,9 @@ form{
     line-height: 50px;
     font-size: 1.2vw
 }
+lable{
+	vertical-align: middle;
+}
 input{
    width: 35%;
    height:25px; 
@@ -26,7 +29,7 @@ input{
 select{ width:22%;
         height:25px;
 		border-radius:5px;
-		margin-left:-1.5%;
+		margin-left:0%;
 		 margin-right: 40px;}
 .button input{
     color: white;

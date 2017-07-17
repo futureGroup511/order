@@ -18,7 +18,7 @@
           	<script type="text/javascript" src="../js/datetime.js"></script><br>
           <lable id="text">备&nbsp;&nbsp;&nbsp;注：</lable><input name="stocks.remark" value="${stock.remark}" type="text">
       <div class="button">
-         <input type="submit" value="添加">
+         <input style="width:100px;margin-left: 10%;height:30px;" type="submit" value="添加">
       </div> 
        </form>       
     </div>
