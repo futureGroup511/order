@@ -24,7 +24,7 @@ public class StockDetailsAction extends BaseAction{
 		int stockid=(int) session.get("stockid");
 		PageCut<StockDetails> pCut=stockDetailsService.getPageCut(page,2,stockid);
 		if(pCut.getData().size()==0){
-			String mark="进货详细信息为空(*^o^)人(^o^*)";
+			String mark="进货详细信息为空";
 			request.put("markinfo", mark);
 		}
 		request.put("adss", "execute");
@@ -105,7 +105,7 @@ public class StockDetailsAction extends BaseAction{
 			}
 			//获得全部订单信息
 		if(pCut.getData().size()==0){
-			String mark="进货详细信息为空(*^o^)人(^o^*)";
+			String mark="进货详细信息为空";
 			request.put("markinfo", mark);
 		}
 		request.put("pc", pCut);

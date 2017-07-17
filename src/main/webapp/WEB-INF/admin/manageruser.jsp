@@ -31,7 +31,7 @@ window.onload=function(){
 <body  style="background: url(${rootPath}/images/m-91.jpg);"  >
 	
 	<div style="margin-left:60%; height:30px;margin-top:1%;">
-	${deleteUserMsg}
+		<div style="margin-left:-30%;font-weight: bold;">${deleteUserMsg}</div>
 		<form action="${rootPath}manage/UserManager_Inquiry" method="post">
 		<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
 			<option value="phone">账号</option>

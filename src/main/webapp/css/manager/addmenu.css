@@ -31,11 +31,11 @@ input{
 .a3{margin-left:3.5%;
     width:30%;}
 .select{
-   height: 30px;
-   width:30%;
+   height: 29px;
+   width:31%;
    border: 1px solid #666;
    border-radius:3px;  
-   margin-left:-1%;
+   margin-left:0%;
 }
  #textarea{
   float: left;
@@ -47,10 +47,10 @@ textarea{ margin-left:4%;
           margin-top:1.5%;}
 .button input{
     color: white;
-    width: 12%;
+    width: 16%;
     font-size: 0.5px;
     background: #1bafe0;
-    margin-left: 50%;
-    margin-top: 20px;
+    margin-left: 35%;
+    margin-top: 30px;
     box-shadow: 2px 1px 1px rgba(50,154,242)
 }

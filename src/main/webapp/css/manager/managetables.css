@@ -10,9 +10,9 @@ p{
 }
 .wall{
     width: 40%;
-    height: 350px;
+/*     height: 350px; */
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 table{
     width: 100%;
@@ -39,3 +39,12 @@ a{
 .page a{
     color: #000;
 }
+.font{
+/* 	padding:5px 10px; */
+	border-radius:5px;
+	background-color:#83C1EA;
+ 	color:#000;
+ 	width:100px;
+ 	height:24px;
+}
+form a:hover{text-decoration:none;color:#fff}

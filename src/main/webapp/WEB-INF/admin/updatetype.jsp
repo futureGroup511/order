@@ -20,6 +20,14 @@
     text-decoration: none;
     text-indent: 0;
     line-height: 20px;
+    margin-left: 35%;
+    margin-top:1%;
+}
+.img{
+	width:240px;
+	height:120px;
+	margin-left:-1%;
+	vertical-align:middle;
 }
 </style>
 </head>
@@ -29,8 +37,8 @@
           <lable id="text">编号:</lable><input name="menutype.id" value="${menutype.id}" type="text" readonly="readonly"><br>
           <lable id="text">类型:</lable><input name="menutype.name" value="${menutype.name}" type="text"><br>
           <lable id="text">介绍:</lable><input name="menutype.remark" value="${menutype.remark}" type="text"><br>
-          <lable id="text">图片：</lable><br>
-          <img alt="加载中" src="${rootPath}uploadImg/${menutype.imgUrl}" style="width:240px;height:120px;">
+          <lable id="text" >图片：</lable>
+          <img alt="加载中" src="${rootPath}uploadImg/${menutype.imgUrl}" class="img" >
          <input type="file" name="file" accept="image/*" class="file" value="选择图片"><br>
       <div class="button">
          <input style="background-color: #75c7ed;border-radius: 5px;width:150px;margin-left: 10%;" type="submit" value="修改">

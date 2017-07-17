@@ -44,7 +44,6 @@ public class AllFilter implements Filter {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf8");
 		((HttpServletResponse)response).setHeader("Cache-Control","no-cache");
-		
 		chain.doFilter(request, response);
 	}
 

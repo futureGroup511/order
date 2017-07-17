@@ -2,7 +2,7 @@
 #text{
     display: inline-block;
     width: 17%;
-	
+	vertical-align:middle;
     text-align: left;
 }
 form{
@@ -26,14 +26,20 @@ input{
    margin-right: 40px;
    border-radius:5px;    
 }
- img{
-  margin-left: 20%;
-  margin-top: 10px
+ .img{
+ margin-left:-1%;
+  margin-top: 10px;
+  vertical-align:middle;
+  border-radius:5px;
  }
- textarea{ margin-top:3%;
-           margin-left:3.5%;}
+ 
+ .textarea{
+ 	vertical-align:middle;
+ 	margin-left:-1.5%;
+ }
 .button{
-  margin-left: 5%
+  margin-left: 5%;
+  margin-top:3%;
 }
 .input1{
     color: white;
