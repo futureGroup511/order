@@ -22,7 +22,7 @@ public class Tables {
 	@Column(length=10)
 	private String name;
 	@Column(length=1)
-	private int status;//是否有人（待定）,1：有人，0：空闲
+	private String status;//是否有人（有人、空闲）
 	@Column(length=255)
 	private String remark;//备注（备用）
 	/**
@@ -52,13 +52,13 @@ public class Tables {
 	/**
 	 * @return the status
 	 */
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 	/**
 	 * @param status the status to set
 	 */
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	/**

@@ -33,7 +33,6 @@ public class MenuMaterialDao extends BaseDao<MenuMaterial> implements IMenuMater
 	}
 	@Override
 	public List<MenuMaterial> getMenuMaterial(int menuId) {
-		System.out.println(menuId+"225566");
 		List<MenuMaterial> list = new ArrayList<MenuMaterial>();
 		try{
 			String hql="from MenuMaterial m where m.menuId="+menuId;	

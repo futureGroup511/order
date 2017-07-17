@@ -22,15 +22,16 @@ public class orderCenterAction extends BaseAction {
 	private int OrderId;//订单ID
 	private int tableId;
 	private int page=1;
-	public int getOrderid() {
-		return Orderid;
-	}
-	public void setOrderid(int orderid) {
-		Orderid = orderid;
-	}
 	private int ID;
 	private int Orderid;
 	private String UserName;
+	private int i;
+	public int getI() {
+		return i;
+	}
+	public void setI(int i) {
+		this.i = i;
+	}
 	ActionContext actionContext = ActionContext.getContext();
 	Map session = actionContext.getSession();
 	private String input;
@@ -58,10 +59,12 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("user");
 		ID = me.getId();
 		UserName = me.getName();
-		session.put("ordeID", OrderId);
-		boolean menu=orderService.updetemenu(OrderId,ID,UserName);
-		session.put("itemid", OrderId);
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 4);
+		System.out.println(Orderid+"第一次传过来的参数");
+		session.put("ordeID", Orderid);
+		System.out.println(Orderid+"第二次传过来的参数");
+		boolean menu=orderService.updetemenu(Orderid,ID,UserName);
+		session.put("itemid", Orderid);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 5);
 		request.put("paCut",pCut);
 		return "orderdetail";
 	}
@@ -89,7 +92,9 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("user");
 		ID = me.getId();
 		UserName = me.getName();
-		boolean m=orderDetailsService.updet(Orderid,ID,UserName);
+		System.out.println("第一次传参"+i);
+		System.out.println("第二次传参"+i);
+		boolean m=orderDetailsService.updet(i,ID,UserName);
 		List <OrderDetails> list = orderDetailsService.CheckDe(tableId);
 		List n = new ArrayList();
 		for(int i=0;i<list.size();i++) {
@@ -101,8 +106,8 @@ public class orderCenterAction extends BaseAction {
 				boolean g=orderService.upd((int) session.get("itemid"));
 			}
 		}
-		session.put("Orderid",Orderid);
-		int s=(int) session.get("Orderid");
+		session.put("id",OrderId);
+		int s=(int) session.get("id");
 		List  menu=menuMaterialService.getMenuMaterial(s);
 		for( int i=0;i<menu.size();i++) {
 			MenuMaterial pl=(MenuMaterial) menu.get(i);
@@ -110,7 +115,7 @@ public class orderCenterAction extends BaseAction {
 			int num=(int) pl.getNum();
 			boolean k=ingerdientService.updeteNum(id, num);
 		}
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId,page, 4);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId,page, 5);
 		request.put("paCut", pCut);
 		return "orderdetail";
 	}
@@ -144,7 +149,7 @@ public class orderCenterAction extends BaseAction {
 		return "check";
 	}
 	public String check() {
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 4);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 5);
 		request.put("paCut",pCut);
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
@@ -162,10 +167,10 @@ public class orderCenterAction extends BaseAction {
 			input = (String) session.get("inp");
 		}
 		if(input.equals("")) {
-		PageCut<Order> pCut=orderService.getPageCut(page, 1);
+		PageCut<Order> pCut=orderService.getPageCut(page, 5);
 		request.put("paCut",pCut);
 		}else {
-		PageCut<Order> pCut=orderService.searchOrder(input, 1,page);
+		PageCut<Order> pCut=orderService.searchOrder(input, 5,page);
 		request.put("paCut",pCut);
 		}
 		session.put("inp", input);
@@ -179,7 +184,7 @@ public class orderCenterAction extends BaseAction {
 			PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
 			request.put("paCut",pCut);
 		}else {
-		PageCut<OrderDetails> pCut=orderDetailsService.searchOrder(input, 3, page);
+		PageCut<OrderDetails> pCut=orderDetailsService.searchOrder(input, 5, page);
 		request.put("paCut",pCut);
 		}
 		session.put("inp", input);
@@ -222,5 +227,11 @@ public class orderCenterAction extends BaseAction {
 	}
 	public void setUserName(String userName) {
 		UserName = userName;
+	}
+	public int getOrderid() {
+		return Orderid;
+	}
+	public void setOrderid(int orderid) {
+		Orderid = orderid;
 	}
 }

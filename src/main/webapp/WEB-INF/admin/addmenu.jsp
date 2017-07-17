@@ -41,6 +41,7 @@ display:inline-block;
      </div>
       <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
      <input type="file" name="file" class="file" accept="image/*" value="选择图片">
+       <div class="move-font">
         <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
     </div>
       <div class="button">
