@@ -141,7 +141,7 @@ public class CartAction extends BaseAction {
 	public String deleteCart() throws Exception {
 		int tableId = (int) session.get("userId");
 		boolean bool = shopCartService.delete(id);
-		List<ShopCart> shopCarts = shopCartService.getByAll();
+		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		double total = 0.0;
 		for(ShopCart item:shopCarts){
 			total += item.getMenuNum() * item.getPrice();
