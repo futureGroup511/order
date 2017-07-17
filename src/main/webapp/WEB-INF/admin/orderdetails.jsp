@@ -68,8 +68,8 @@
   <center>  <div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderDetailsAction?page=${detailspc.prePage}">上一页</a></li>
-  		<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
- 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+  		<c:forEach var="i" begin="${detailspc.currentPage-1>0?detailspc.currentPage-1:1 }"
+ 					end="${detailspc.currentPage+1>detailspc.pageNum?detailspc.pageNum:allIngredient.currentPage+1  }">
 
  							<c:choose> 
  								<c:when test="${i>0 && i == detailspc.currentPage &&i<=3}">
