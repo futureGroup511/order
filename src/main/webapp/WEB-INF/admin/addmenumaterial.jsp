@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -24,32 +25,22 @@ window.onload=function(){
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 	<div style="margin-top:1%;">
 		<div style="margin-left: 43%;margin-top:1%;">${addMaterialMsg}</div>
-		<div style="margin-left:40%;margin-top:0%;"><button class="btn" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${menu.id}'">查看已添加配料</button></div>
+		<div style="margin-left:40%;margin-top:0%;"><button style="background-color: #1BAFE0;border-radius: 5px;" class="btn" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${menu.id}'">查看已添加配料</button></div>
 	</div>
 	 <div class="wall" id="div1">
-        <table border="1" cellspacing="0">
-			<tr>
-				<th>配料名称</th>
-				<th>类型</th>
-				<th style="width:300px;">添加（kg）</th>
-			</tr>
- 			<c:forEach items="${allIngredient}" var="ingredient">
- 				<tr>	 
- 					<td>${ingredient.name}</td>
- 					<td>${ingredient.type}</td>
- 					<td>
- 						<form action="${rootPath}manage/MenuMaterial_addMenuMaterial" method="post">
- 							<input type="hidden" name="menuMaterial.menuId" value="${menu.id}">
- 							<input type="hidden" name="menuMaterial.menuName" value="${menu.name}">
- 							<input type="hidden" name="menuMaterial.ingId" value="${ingredient.id}">
- 							<input type="hidden" name="menuMaterial.ingName" value="${ingredient.name}">
- 							<input type="text" name="menuMaterial.num">
- 							<input class="button" type="submit" value="添加">
- 						</form>
- 					</td>
- 				</tr>
- 			</c:forEach>
-		</table>
+<form action="${rootPath}manage/MenuMaterial_addMenuMaterial" method="post">
+     <lable>配料名称:</lable>
+      <select name="menuMaterial.ingName" class="input1"> 
+ 			<c:forEach items="${allIngredient}" var="ingredient">  
+ 	           	<option value="${ingredient.name}">${ingredient.name}</option> 
+         	</c:forEach> 
+ 	</select><br>
+     <lable>用量(g):</lable>
+ 		<input type="text" name="menuMaterial.num"  class="input1"><br>
+      <div class="button">
+        <input type="submit" value="提交" class="bt2" style="background-color: #1BAFE0;border-radius: 5px;">          
+      </div>
+    </form>
 	</div>
 </body>
 </html>

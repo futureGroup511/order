@@ -7,6 +7,7 @@
 package com.future.order.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
@@ -69,9 +70,19 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 //wqj
 	@Override
-	public boolean updetemenu(int id){
+	public boolean updetemenu(int id,int idd,String UserName){
 		Order order = this.getEntity(id);
 		String status="处理中";
+		order.setCookId(idd);
+		order.setCookName(UserName);
+		order.setStatus(status);
+		boolean menus = this.updateEntity(order);
+		return true;
+	}
+	@Override
+	public boolean upd(int id){
+		Order order = this.getEntity(id);
+		String status="未付款";
 		order.setStatus(status);
 		boolean menus = this.updateEntity(order);
 		return true;
@@ -258,5 +269,9 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList("from Order where "+ask+"='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
+	}
+	@Override
+	public List<Order> getSomenews() {
+		return selectAll();
 	}
 }

@@ -69,6 +69,7 @@
 		}
 	}
 	
+	
 	function show_notice(str,second,callback){  
 	    var box_id = 'notice_box';  
 	    var tooltipBox = document.getElementById(box_id);  
@@ -134,22 +135,23 @@
           </div>
       </div>
     </c:forEach>
+    <div id="aa" onclick="cc()">
+                点击添加备注
+       </div>
 	<div class="end">
-		<div class="left">
-			<p class="left zongjia"><b>总价：</b></p><p class="left jiaqian">
-			<b id="total">${total}</b>
-			</p>
-		</div>
 		<div class="right">
 			<form action="${rootPath}customer/cart_getHand" method="post">
 				<tr>
 					<td>
-					  <textarea name="name" rows="50" cols="50" placeholder="ps.输入您对口味的一些要求">
-					  </textarea>
+					<div id="bb">
+					  <textarea name="name" rows="50" cols="50" id='dd' placeholder="请输入你的选择"></textarea>
+					  </div>
 					</td>
 				</tr>
 				<tr>
 					<td><s:submit value="提交订单" class="right"/></td>
+					<p class="left zongjia"><b>总价：</b></p><p class="left jiaqian">
+			       <b id="total">${total}</b>
 				</tr>
 			<form>
 		</div>
@@ -184,5 +186,28 @@
    </footer>
 </body>
 <script type="text/javascript">
+      function $(b){
+          return document.getElementById(b);
+       }
+       var a1 = $('aa');
+       var text = $('bb');
+       var te2 = $('dd');
+       var time1;
+       var c = text.offsetHeight;
+       function cc(){
+             a1.style.display='none';
+             time1 =  setInterval(function(){
+                  c = c + 1;
+                  text.style.height = c+'px';
+                  if(c == 60){
+                    clearInterval(time1);
+                    te2.focus();
+                  }
+              },1);
+           }
+       cl.addEventListener('click',function(){
+    	    ipt.focus()
+
+    	})
 </script>
 </html>

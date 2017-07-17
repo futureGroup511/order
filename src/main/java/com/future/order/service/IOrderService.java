@@ -6,6 +6,7 @@ z * @author: 焦祥宇 马黎明
  */  
 package com.future.order.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.future.order.entity.Order;
@@ -29,7 +30,6 @@ public interface IOrderService {
 	public Boolean save(Order order);
 	public List<Order> getAll();
 	public boolean deleteOrder(int tableId);
-	public boolean updetemenu(int id);//wqj
 	public List<Order> finish();
 	public PageCut<Order> getPagee(int currentPage, int pageSize);
 	public PageCut<Order> getPageee(int currentPage, int pageSize);
@@ -38,4 +38,7 @@ public interface IOrderService {
 	
 	public Order getOrder1(int tableId);
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
+	public List<Order> getSomenews();
+	public boolean updetemenu(int id, int idd, String UserName);
+	public boolean upd(int id);
 }

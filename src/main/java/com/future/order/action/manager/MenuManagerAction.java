@@ -36,7 +36,7 @@ public class MenuManagerAction extends BaseAction {
 		session.put("Typelist",typelist);	//将菜品类型和id放进session
 		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
 		if(pCut.getData().size()==0){
-			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有菜品";
 			request.put("deleteMenuMsg", mark);
 		}
 		request.put("allMenu", pCut);
@@ -54,7 +54,7 @@ public class MenuManagerAction extends BaseAction {
 			}
 		}
 		boolean boo=false;
-		if(file==null||file.equals("")){		
+		if(file==null||file.equals("")){
 			 boo = menuService.addMenu(menu);		
 		}else{
 			for (int i = 0; i < file.size(); i++) {
@@ -173,7 +173,7 @@ public class MenuManagerAction extends BaseAction {
 				pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
 			}
 		if(pCut.getData().size()==0){
-			String mark="没有菜品(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有菜品";
 			request.put("deleteMenuMsg", mark);
 		}
 		request.put("adss", "Inquiry");		

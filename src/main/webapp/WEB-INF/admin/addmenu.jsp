@@ -39,8 +39,16 @@ display:inline-block;
      <div style="margin-left:16%;margin-top:-5%;">
      	<textarea rows="5" cols="50" name="menu.introduce"></textarea>
      </div>
+<<<<<<< HEAD
       <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
      <input type="file" name="file" class="file" accept="image/*" value="选择图片">
+=======
+     <label>示例图片：</label>
+     <input type="file" name="file" accept="image/*" value="选择图片" style="border:none; outline:none;margin-left:2.5%">
+       <div class="move-font">
+        <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
+    </div>
+>>>>>>> 559a5aca1c3fc4bd528c46bb49b904d346138cf2
       <div class="button">
         <input type="submit" value="添加">          
       </div>

@@ -46,7 +46,7 @@ window.onload=function(){
 		</div> 
 		</center>
 <div class="wall">
-		   
+		   &nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/TableManager_allCard">生成全部二维码</a>
 	<div id="div1">
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>

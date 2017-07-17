@@ -24,7 +24,7 @@ public class StockDetailsAction extends BaseAction{
 		int stockid=(int) session.get("stockid");
 		PageCut<StockDetails> pCut=stockDetailsService.getPageCut(page,2,stockid);
 		if(pCut.getData().size()==0){
-			String mark="进货详细信息为空(*^o^)人(^o^*)";
+			String mark="进货详细信息为空";
 			request.put("markinfo", mark);
 		}
 		request.put("adss", "execute");
@@ -35,8 +35,10 @@ public class StockDetailsAction extends BaseAction{
 		String ingName = details.getIngName();
 		Date createDate = (Date) session.get("createDate");
 		int stockId = (int) session.get("stockId");
+		String place = (String) session.get("site");
 		details.setCreateDate(createDate);
 		details.setStockId(stockId);
+		details.setPlace(place);
 		@SuppressWarnings("unchecked")
 		List<Ingredient> list=(List<Ingredient>) session.get("Ientlist");
 		for(int i=0;i<list.size();i++){
@@ -103,7 +105,7 @@ public class StockDetailsAction extends BaseAction{
 			}
 			//获得全部订单信息
 		if(pCut.getData().size()==0){
-			String mark="进货详细信息为空(*^o^)人(^o^*)";
+			String mark="进货详细信息为空";
 			request.put("markinfo", mark);
 		}
 		request.put("pc", pCut);

@@ -57,10 +57,16 @@ public class CartAction extends BaseAction {
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
 				order.setRemark(name);
+				order.setCookName("");
 				order.setStatus("未处理");
 				order.setCreateDate(d);
 			}
 			Boolean bool = orderService.update(order);
+			Order orderss=orderService.getOrder1(tableId);
+			session.put("Id",orderss.getId());
+		}else if(orders.getStatus().equals("未付款")){
+			orders.setStatus("未处理");
+			Boolean bool = orderService.update(orders);
 			Order orderss=orderService.getOrder1(tableId);
 			session.put("Id",orderss.getId());
 		}else{
@@ -130,6 +136,7 @@ public class CartAction extends BaseAction {
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}
+	
 	// 删除购物车的菜品
 	public String deleteCart() throws Exception {
 		int tableId = (int) session.get("userId");
@@ -151,6 +158,7 @@ public class CartAction extends BaseAction {
 		if(orders==null||orders.getStatus().equals("已付款")){
 			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
 			request.put("orderDetails",orderDetails);
+		
 		}else{
 			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orders.getId());
 			request.put("order",orders.getStatus());
@@ -218,8 +226,8 @@ public class CartAction extends BaseAction {
 		}		
 	}
 	
-	// 催单
-	public String getReminder() throws Exception {
+	//利用ajax实现催单功能
+	public void Reminder() throws Exception {
 		int tableId = (int) session.get("userId");
 		String tableName = tablesService.get(tableId).getName();
 		Date d = new Date();
@@ -229,14 +237,12 @@ public class CartAction extends BaseAction {
 		inform.setTableId(tableId);
 		inform.setTableName(tableName);
 		Boolean bool = informService.save(inform);
-		System.out.println("233323");
-		if (bool == true) {
-			request.put("addMeg", "催单成功");
-		} else {
-			request.put("addMeg", "催单失败");
+		List<Inform> informm=informService.getAll();
+		if(!informm.isEmpty()){
+			this.getResponse().getWriter().println(1);
+		}else{
+			this.getResponse().getWriter().println(0);
 		}
-		System.out.println("23333");
-		return getOrderDetails();
 	}
 
 	public int getId() {

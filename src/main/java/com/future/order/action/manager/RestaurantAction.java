@@ -60,12 +60,15 @@ public class RestaurantAction extends BaseAction {
 		boolean sign=false;
 		if(file==null||file.equals("")){
 			if(count==0){
-				Restaurant rest=restaurantService.SelectAll();
-				restaurant.setImgUrl(rest.getImgUrl());
+//				Restaurant rest=restaurantService.SelectAll();
+//				if(rest.getImgUrl()!=null||!(rest.getImgUrl().equals(""))){
+//					System.out.println("656566454654654654654465");
+//					restaurant.setImgUrl(rest.getImgUrl());
+//				}				
 				 sign = restaurantService.updateRestaurant(restaurant);	
 					request.put("addrest", "添加成功");
 			}else{
-				request.put("addrest", "已经添加过餐厅，只能修改٩(๑❛ᴗ❛๑)۶٩(๑❛ᴗ❛๑)۶");
+				request.put("addrest", "已经添加过餐厅，只能修改");
 			}		
 		}else{
 			if(count==0){
@@ -76,7 +79,7 @@ public class RestaurantAction extends BaseAction {
 				 sign = restaurantService.addRestaurant(restaurant);
 					request.put("addrest", "添加成功");
 			}else{
-				request.put("addrest", "已经添加过餐厅，只能修改٩(๑❛ᴗ❛๑)۶٩(๑❛ᴗ❛๑)۶");
+				request.put("addrest", "已经添加过餐厅，只能修改");
 			}
 		}
 		

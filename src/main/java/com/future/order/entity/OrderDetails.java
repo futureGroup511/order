@@ -47,7 +47,7 @@ public class OrderDetails {
 	private String cookName;//厨师名称
 	@Column(length=255)
 	private String imgUrl;
-	@Column(length=20)
+	@Column(length=4)
 	private double price;//价格
 	/**
 	 * @return the id

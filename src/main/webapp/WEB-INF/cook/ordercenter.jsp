@@ -147,12 +147,13 @@ window.onload = function() {
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
+	                
 	                 <td><c:if test="${item.status eq '已付款'}">已完成</c:if>
 	                 <c:if test="${item.status eq '未处理'}"><a href="${rootPath}cook/orderCenter_DoOrder?OrderId=${item.id}&tableId=${item.tableId}">处理订单</a></c:if>
 	                 <c:if test="${item.status eq '处理中'}">处理中</c:if>
 	                  <c:if test="${item.status eq '未付款'}">未付款</c:if>
 	                 </td>
-	                  <td><a href="${rootPath}cook/orderCenter_check?OrderId=${item.tableId}">详情</a></td>
+	                  <td><a href="${rootPath}cook/orderCenter_check?tableId=${item.tableId}">详情</a></td>
 	            </tr>  
         	</c:forEach>
         </tbody>

@@ -67,6 +67,18 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		return pc;
 	}
 	@Override
+	public List<OrderDetails> CheckDe(int id) {//根据订单id查询所有该订单的详细信息
+		@SuppressWarnings("unused")
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		try{
+			String hql="from OrderDetails o where o.tableId='"+id+"'";
+			list=this.getEntityList(hql);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
 	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize) {
 		String status="未完成";
 		String hql ;
@@ -154,22 +166,20 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		public PageCut<OrderDetails> Check(int tableId,int currentPage, int pageSize) {
 			String hql ;
 			int count=0;
-			System.out.println(tableId+"vfsudigv asld");
 			hql = "select count(*) from OrderDetails o where o.tableId='"+tableId+"'";
 			count = ((Long) this.uniqueResult(hql)).intValue();
 			PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
 			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.tableId='"+tableId+"'", (currentPage-1)*pageSize, pageSize));
-			System.out.println("asdfsfas"+count);
-			System.out.println("---"+pc);
-			System.out.println();
 			return pc;
 	}
 	
 	
 	@Override
-	public boolean updet(int id){
+	public boolean updet(int id,int idd,String UserName){
 		OrderDetails orderdetails = this.getEntity(id);
 		String status="已完成";
+		orderdetails.setCookId(idd);
+		orderdetails.setCookName(UserName);
 		orderdetails.setStatus(status);
 		boolean menus = this.updateEntity(orderdetails);
 		return true;

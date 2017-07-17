@@ -26,7 +26,7 @@ public class OrderDetailsAction extends BaseAction{
 		int orderid=(int) session.get("orderid");
 		PageCut<OrderDetails> pCut=orderDetailsService.getPageCut(page,2,orderid);
 		if(pCut.getData().size()==0){
-			String mark="订单详细信息为空(*^o^)人(^o^*)";
+			String mark="订单详细信息为空";
 			request.put("markinfo", mark);
 		}
 		request.put("detailspc", pCut);		
@@ -69,8 +69,8 @@ public class OrderDetailsAction extends BaseAction{
 		 @SuppressWarnings("unused")
 		int count=list.get(i).getMenuNum();
 		 @SuppressWarnings("unused")
-		double value = Double.parseDouble(list.get(i).getRemark());
-		 total=count*value;
+		double value =list.get(i).getPrice();
+		 total+=count*value;
 	 }
 	 request.put("total", total);
 	 request.put("orderlist", list);

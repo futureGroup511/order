@@ -1,5 +1,6 @@
 package com.future.order.action.cook;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.future.order.entity.Menu;
 import com.future.order.entity.MenuMaterial;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
+import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 import com.opensymphony.xwork2.ActionContext;
 /**
@@ -20,6 +22,17 @@ public class orderCenterAction extends BaseAction {
 	private int OrderId;//订单ID
 	private int tableId;
 	private int page=1;
+	public int getOrderid() {
+		return Orderid;
+	}
+	public void setOrderid(int orderid) {
+		Orderid = orderid;
+	}
+	private int ID;
+	private int Orderid;
+	private String UserName;
+	ActionContext actionContext = ActionContext.getContext();
+	Map session = actionContext.getSession();
 	private String input;
 	public String checkorder() {
 		PageCut<Order> pCut=orderService.getPageCut(page, 5);
@@ -34,7 +47,7 @@ public class orderCenterAction extends BaseAction {
 	public String unfinishdmenu() {
 		PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
 		request.put("paCut",pCut);
-		return "menu";
+		return "check";
 	}
 	public String finish(){
 		PageCut<Order> pCut=orderService.getPagee(page, 5);
@@ -42,13 +55,21 @@ public class orderCenterAction extends BaseAction {
 		return "finish";
 	}
 	public String DoOrder(){
-		boolean menu=orderService.updetemenu(OrderId);
+		User me = (User) session.get("user");
+		ID = me.getId();
+		UserName = me.getName();
+		session.put("ordeID", OrderId);
+		boolean menu=orderService.updetemenu(OrderId,ID,UserName);
+		session.put("itemid", OrderId);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 4);
 		request.put("paCut",pCut);
 		return "orderdetail";
 	}
 	public String doOrder(){
-		boolean m=orderDetailsService.updet(OrderId);
+		User me = (User) session.get("user");
+		ID = me.getId();
+		UserName = me.getName();
+		boolean m=orderDetailsService.updet(OrderId ,ID,UserName);
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
 		session.put("menuId",OrderId);
@@ -65,11 +86,23 @@ public class orderCenterAction extends BaseAction {
 		return "menu";
 	}
 	public String recheck() {
-		boolean m=orderDetailsService.updet(OrderId);
-		ActionContext actionContext = ActionContext.getContext();
-		Map session = actionContext.getSession();
-		session.put("menuId",OrderId);
-		int s=(int) session.get("menuId");
+		User me = (User) session.get("user");
+		ID = me.getId();
+		UserName = me.getName();
+		boolean m=orderDetailsService.updet(Orderid,ID,UserName);
+		List <OrderDetails> list = orderDetailsService.CheckDe(tableId);
+		List n = new ArrayList();
+		for(int i=0;i<list.size();i++) {
+			String a=list.get(i).getStatus();
+			if(a.equals("已完成")) {
+				n.add(a);
+			}
+			if(list.size()==n.size()) {
+				boolean g=orderService.upd((int) session.get("itemid"));
+			}
+		}
+		session.put("Orderid",Orderid);
+		int s=(int) session.get("Orderid");
 		List  menu=menuMaterialService.getMenuMaterial(s);
 		for( int i=0;i<menu.size();i++) {
 			MenuMaterial pl=(MenuMaterial) menu.get(i);
@@ -81,27 +114,44 @@ public class orderCenterAction extends BaseAction {
 		request.put("paCut", pCut);
 		return "orderdetail";
 	}
+	public String checko() {
+		User me = (User) session.get("user");
+		ID = me.getId();
+		UserName = me.getName();
+		boolean m=orderDetailsService.updet(Orderid,ID,UserName);
+		List <OrderDetails> list = orderDetailsService.CheckDe(tableId);
+		List n = new ArrayList();
+		for(int i=0;i<list.size();i++) {
+			String a=list.get(i).getStatus();
+			if(a.equals("已完成")) {
+				n.add(a);
+			}
+			if(list.size()==n.size()) {
+				boolean g=orderService.upd((int) session.get("itemid"));
+			}
+		}
+		session.put("Orderid",Orderid);
+		int s=(int) session.get("Orderid");
+		List  menu=menuMaterialService.getMenuMaterial(s);
+		for( int i=0;i<menu.size();i++) {
+			MenuMaterial pl=(MenuMaterial) menu.get(i);
+			int id=pl.getIngId();
+			int num=(int) pl.getNum();
+			boolean k=ingerdientService.updeteNum(id, num);
+		}
+		PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
+		request.put("paCut", pCut);
+		return "check";
+	}
 	public String check() {
-		System.out.println(OrderId+"4635645456");
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(OrderId, page, 4);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 4);
 		request.put("paCut",pCut);
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();
 		session.put("sorderid",OrderId);
 		return "orderdetail";
 	}
-	public String domenu() {
-		boolean m=orderDetailsService.updateOrerDetails(OrderId);
-		List menu=orderDetailsService.getAll(OrderId);
-		request.put("menu", menu);
-		return "update";
-	}
-	/*public String unmenu(){
-		boolean m=orderDetailsService.updateOrerDetails(OrderId);
-		PageCut<OrderDetails> pCut=orderDetailsService.getPagee(page, 5);
-		request.put("paCut", pCut);
-		return "menu";
-	}*/
+
 	public String reminder() {
 		PageCut<Inform> pCut=informService.getPageCut(page,5);
 		request.put("paCut",pCut);
@@ -160,5 +210,17 @@ public class orderCenterAction extends BaseAction {
 	}
 	public void setTableId(int tableId) {
 		this.tableId = tableId;
+	}
+	public int getID() {
+		return ID;
+	}
+	public void setID(int iD) {
+		ID = iD;
+	}
+	public String getUserName() {
+		return UserName;
+	}
+	public void setUserName(String userName) {
+		UserName = userName;
 	}
 }

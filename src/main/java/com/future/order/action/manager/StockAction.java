@@ -22,7 +22,7 @@ public class StockAction extends BaseAction {
 	public String execute() {
 		PageCut<Stock> pCut = stockService.getPageCut(page, 6);
 		if (pCut.getData().size() == 0) {
-			String mark = "没有进货信息(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
 		request.put("adss", "execute");
@@ -88,7 +88,7 @@ public class StockAction extends BaseAction {
 				pCut = stockService.getSomePageCut(page, 6,inquiry);
 			}
 		if (pCut.getData().size() == 0) {
-			String mark = "没有进货信息(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
 		request.put("adss", "Inquiry");		

@@ -20,6 +20,19 @@ public class MenuMaterialAction extends BaseAction {
 			Menu menu = menuService.get(menuId);
 			session.put("menu", menu);
 		} else {
+			Menu menu=(Menu) session.get("menu");
+			int  menuid=menu.getId();
+			String menuName=menu.getName();
+			menuMaterial.setMenuId(menuid);
+			menuMaterial.setMenuName(menuName);
+			@SuppressWarnings("unchecked")
+			List<Ingredient> list=(List<Ingredient>) session.get("Ientlist");
+			String name=menuMaterial.getIngName();
+			for(int i=0;i<list.size();i++){
+				if(list.get(i).getName().equals(name)){
+					menuMaterial.setIngId(list.get(i).getId());
+				}
+			}
 			boolean boo = menuMaterialService.addMenuMaterial(menuMaterial);
 			if(boo){
 				request.put("addMaterialMsg", "添加成功");

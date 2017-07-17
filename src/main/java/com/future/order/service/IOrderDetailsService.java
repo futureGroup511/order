@@ -30,7 +30,6 @@ public interface IOrderDetailsService {
 	public Boolean save(OrderDetails orderDetails);
 	public List<OrderDetails> getDetails(int tableId);
 	public List<OrderDetails> unfinish();
-	public boolean updet(int id);
 	public List<OrderDetails> getAll(int id);
 	public OrderDetails getByTableId(int tableId);
 	public Boolean updatee(OrderDetails en);
@@ -43,7 +42,9 @@ public interface IOrderDetailsService {
 	public OrderDetails getDetaill(int tableId);
 	public List<OrderDetails> getDetailsTwo(int orderId);
 
-	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
+	public boolean updet(int id, int idd, String UserName);
+	public List<OrderDetails> CheckDe(int id);
 }
 	
 

@@ -2,9 +2,11 @@ package com.future.order.action.manager;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Order;
+import com.future.order.entity.Stock;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,8 +25,14 @@ public class OrderAction extends BaseAction {
 	private String sign="one";
 	private String ask;
 	private String inquiry;
+	private Date starttime;
+	private Date endtime;
 	public String execute() {
 		PageCut<Order> pCut = new PageCut<Order>();
+		double sumprice=0;
+		if(sign==null){
+			sign=(String) session.get("sign");
+		}
 		if(sign.equals("one")){
 			//获得全部订单信息
 			pCut=orderService.getPageCut(page,6);
@@ -35,11 +43,16 @@ public class OrderAction extends BaseAction {
 		}
 		else if(sign.equals("there")){
 			pCut=orderService.getPage(page,6);
+		}	
+		for(int i=0;i<pCut.getData().size();i++){
+			sumprice+=pCut.getData().get(i).getTotal();
 		}
 		if(pCut.getData().size()==0){
-			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有订单";
 			request.put("marknews", mark);
 		}
+		request.put("sumprice", sumprice);
+		session.put("sign", sign);
 		request.put("adss", "execute");
 		request.put("sign", sign);
 		request.put("pc", pCut);
@@ -99,7 +112,7 @@ public class OrderAction extends BaseAction {
 			}
 			//获得全部订单信息
 		if(pCut.getData().size()==0){
-			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有订单";
 			request.put("marknews", mark);
 		}
 		request.put("pc", pCut);
@@ -108,7 +121,28 @@ public class OrderAction extends BaseAction {
 		session.put("inquiry", inquiry);
 		return "check";
 	}
-	
+	public String count(){
+		List<Order> list =orderService.getSomenews();
+		double sum=0;
+		for(int i=0;i<list.size();i++){
+			int sign=list.get(i).getCreateDate().compareTo(endtime);
+			System.out.println(sign);
+		int mark=list.get(i).getCreateDate().compareTo(starttime);
+		System.out.println(mark);
+			if(sign==-1&&mark==1){
+//				somelist.add(list.get(i));
+				 sum+=list.get(i).getTotal();
+			}
+		}
+		if(sum!=0){
+			request.put("sum",sum);
+			request.put("sums","所查询的总收入(元):");
+		}else{
+			request.put("sums","所查询的这段时间的总收入为零");
+		}
+		return execute();
+		
+	}
 	public int getId() {
 		return id;
 	}
@@ -151,6 +185,18 @@ public class OrderAction extends BaseAction {
 	}
 	public void setInquiry(String inquiry) {
 		this.inquiry = inquiry;
+	}
+	public Date getStarttime() {
+		return starttime;
+	}
+	public void setStarttime(Date starttime) {
+		this.starttime = starttime;
+	}
+	public Date getEndtime() {
+		return endtime;
+	}
+	public void setEndtime(Date endtime) {
+		this.endtime = endtime;
 	}
 	
 }
