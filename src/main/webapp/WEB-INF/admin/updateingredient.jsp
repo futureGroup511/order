@@ -30,7 +30,7 @@
 					<option value="原料"
 						<c:if test='${order.status eq "原料"}'>selected="selected"</c:if>>原料</option>
 				</select><br>
-				<lable id="text">简介：</lable>
+				<lable id="text"  style="margin-top:-50px;"><span>简介：</span></lable>
 				<textarea rows="4" cols="30" name="ingredient.introduce">${updateIngredient.introduce}</textarea>
 				<br>
 				<lable id="text">注册时间：</lable>

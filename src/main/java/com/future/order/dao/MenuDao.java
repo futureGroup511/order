@@ -156,7 +156,7 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	 */
 	@Override
 	public List<Menu> getRecommend(int num) {
-		String sql = "select * from tb_menu order by num desc limit " + num;
+		String sql = "select * from tb_menu where typeId not in(6,7,8) order by num desc limit " + num ;
 		return this.executeSQLQuery(sql);
 	}
 

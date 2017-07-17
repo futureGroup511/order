@@ -78,8 +78,9 @@ window.onload=function(){
  <div class="page" id="div2">
       <ul class="pagination">
         <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.prePage}">上一页</a></li>
-        <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
-					end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
+       			<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
+ 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+
 					<c:choose>
 						<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
 							<li class="active"><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
