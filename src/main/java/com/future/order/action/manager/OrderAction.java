@@ -48,7 +48,7 @@ public class OrderAction extends BaseAction {
 			sumprice+=pCut.getData().get(i).getTotal();
 		}
 		if(pCut.getData().size()==0){
-			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有订单";
 			request.put("marknews", mark);
 		}
 		request.put("sumprice", sumprice);
@@ -112,7 +112,7 @@ public class OrderAction extends BaseAction {
 			}
 			//获得全部订单信息
 		if(pCut.getData().size()==0){
-			String mark="没有订单(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有订单";
 			request.put("marknews", mark);
 		}
 		request.put("pc", pCut);

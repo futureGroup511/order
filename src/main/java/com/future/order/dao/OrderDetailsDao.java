@@ -178,7 +178,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	public boolean updet(int id,int idd,String UserName){
 		OrderDetails orderdetails = this.getEntity(id);
 		String status="已完成";
-		System.out.println(idd+"忘情水的看法和");
 		orderdetails.setCookId(idd);
 		orderdetails.setCookName(UserName);
 		orderdetails.setStatus(status);

@@ -26,7 +26,7 @@ public class StockAction extends BaseAction {
 		double sumprice=0;
 		PageCut<Stock> pCut = stockService.getPageCut(page, 6);
 		if (pCut.getData().size() == 0) {
-			String mark = "没有进货信息(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
 		for(int i=0;i<pCut.getData().size();i++){
@@ -96,7 +96,7 @@ public class StockAction extends BaseAction {
 				pCut = stockService.getSomePageCut(page, 6,inquiry);
 			}
 		if (pCut.getData().size() == 0) {
-			String mark = "没有进货信息(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
 		request.put("adss", "Inquiry");		

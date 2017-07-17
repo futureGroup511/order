@@ -153,7 +153,7 @@ window.onload = function() {
 	                 <c:if test="${item.status eq '处理中'}">处理中</c:if>
 	                  <c:if test="${item.status eq '未付款'}">未付款</c:if>
 	                 </td>
-	                  <td><a href="${rootPath}cook/orderCenter_check?OrderId=${item.tableId}">详情</a></td>
+	                  <td><a href="${rootPath}cook/orderCenter_check?tableId=${item.tableId}">详情</a></td>
 	            </tr>  
         	</c:forEach>
         </tbody>

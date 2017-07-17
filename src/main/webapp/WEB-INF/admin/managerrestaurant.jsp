@@ -41,7 +41,7 @@ table td{
 </style>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-${addrest}
+<div style="margin-left: 40%;font-weight: bold;">${addrest}</div>
 	<div class="wall" >
 	<table cellspacing="0" border="1">
          <tbody>
@@ -59,6 +59,7 @@ ${addrest}
 	         <td><img src="${rootPath}uploadImg/${restaurants.imgUrl}"  style="width:95px;"></td>
 	         <td style="width:300px;">${restaurants.address}</td>
 	         <td><textarea rows="4" cols="45" readonly="readonly">${restaurants.introduce}</textarea></td>
+	         <td><textarea rows="2" cols="43" readonly="readonly">${restaurants.introduce}</textarea></td>
 	         <td  class="four"><a href="${rootPath}manage/Restaurant_toUpdate?id=${restaurants.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>            
 	       </tr>                        
          </tbody>

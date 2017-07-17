@@ -7,34 +7,48 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenu.css">
+<style type="text/css">
+.file {
+margin-left:-1%;
+border: 1px solid #99D3F5;
+}
+.txt{
+margin-top:-5%;
+display:inline-block;
+}
+</style>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
  <div class="addmenu">
  <h4>${addMsg}</h4>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
-     <lable>菜&nbsp;&nbsp;&nbsp;&nbsp;名：</lable><input type="text" name="menu.name"><br>
-     <lable>类型名称&nbsp;：</lable>
+     <lable><span style="padding-right:9%">菜</span>名：</lable><input type="text" name="menu.name"><br>
+     <lable><span style="padding-right:1%">类</span><span style="padding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
      <select name="menu.typeName" class="select"> 
  			<c:forEach items="${Typelist}" var="item">  
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable>价&nbsp;&nbsp;&nbsp;&nbsp;格&thinsp;：</lable><input type="text" name="menu.price"><br>
-     <lable>被定次数&nbsp;：</lable><input type="text" name="menu.num"><br>
+     <lable><span style="padding-right:9%">价</span>格：</lable><input style="width:205px;" type="text" name="menu.price"><br>
      <lable>是否可以做：</lable>
      <select name="menu.exist" class="select">
       <option value="1">可做</option>
        <option value="0">暂缺</option>
      </select><br>
-     <label>简介：</label>
-     <div style="margin-left:15%;margin-top:-5%;">
+     <label><span style="padding-right:9%">简</span>介：</label>
+     <div style="margin-left:16%;margin-top:-5%;">
      	<textarea rows="5" cols="50" name="menu.introduce"></textarea>
      </div>
+<<<<<<< HEAD
+      <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
+     <input type="file" name="file" class="file" accept="image/*" value="选择图片">
+=======
      <label>示例图片：</label>
      <input type="file" name="file" accept="image/*" value="选择图片" style="border:none; outline:none;margin-left:2.5%">
        <div class="move-font">
         <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
     </div>
+>>>>>>> 559a5aca1c3fc4bd528c46bb49b904d346138cf2
       <div class="button">
         <input type="submit" value="添加">          
       </div>

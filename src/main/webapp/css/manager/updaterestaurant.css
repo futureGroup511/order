@@ -5,7 +5,7 @@
 .wall{
     width: 40%;
     height: auto;
-    margin: 0 auto;
+    margin-left: 20%;
     margin-top: 5%;
 }
 label{
@@ -14,19 +14,21 @@ label{
     margin-left: 25%;
     line-height: 50px;
 }
+
 input{
     width: 35%;
     height: 25px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 .input1{
     margin-left: 25%;
 }
 .btn{
-    padding:8px 2px;
-    border: 2px solid #1751d7;
+/*     padding:8px 2px; */
+/*     border: 2px solid ; */
+	background-color:#1BAFE0;
     width: 100px;
-    height:35px;
+    height:30px;
     border-radius:5px; 
     margin:5% 0 0 40%;
     font-size: 15px;
@@ -40,14 +42,16 @@ input{
     background:linear-gradient(#fff,#b3b3b4)
 }
 .picture-wall{
-    width: 30%;
-    height: auto;
-    margin:0 auto;
-    margin-top: 3%;
+    width: 120px;
+    height:100px;
+    margin-left:55%;
+    margin-top: -13%;
+   border-radius:100px;
 }
 .picture-wall img{
-    width: 90%;
-    border: 5px solid #f9c028;
+    width: 100%;
+    height:100%;
+/*     border: 5px solid ; */
     border-radius: 5px;
 
 

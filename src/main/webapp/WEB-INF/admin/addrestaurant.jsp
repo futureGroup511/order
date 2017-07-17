@@ -10,27 +10,29 @@
 <style type="text/css">
 .btn{
 	width:100px;
-	background-color: #ADD2ED;
+ 	background-color: #1BAFE0;
 	font-size:15px;
 	border-radius: 5px;
 	margin-left:35%;
+	height:30px;
 }
 .file{
-	border:none; outline:none;margin-left:35%;margin-top:1%;font-size:12px;
+	border:none; outline:none;margin-left:200px;margin-top:1%;font-size:12px;
 }
+
 </style>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 	<div class="wall">
-		${addrest}
+		<div style="margin-left: 35%;font-weight: bold;">${addrest}</div>
 		<form action="${rootPath}manage/Restaurant_AddRestaurant" method="post" enctype="multipart/form-data">
 			<label>店名：</label><input type="text" name="restaurant.name"><br>
 			<label>电话：</label><input type="text" name="restaurant.phone"><br>
 			<label>地址：</label><input type="text" name="restaurant.address"><br>
-			<label>简介：</label>
-			<div style="margin-left:35%;margin-top:-5%;">
-			<textarea rows="5" cols="40" name="restaurant.introduce"></textarea>
-			</div>
+			<labe><span class="txt" style="padding-top:22px;display:block">简介: </span></label>
+<!-- 			<div style="margin-left:200px;margin-top:-5%;"> -->
+			<textarea style="margin-left:200px;" rows="6" cols="38" name="restaurant.introduce"></textarea>
+<!-- 			</div> -->
 <!-- 			<input type="text" name="restaurant.introduce"><br> -->
 			<input type="file" value="选择图片" name="file" accept="image/*" class="file"><br>
 			 <div class="move-font">

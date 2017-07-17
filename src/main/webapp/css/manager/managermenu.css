@@ -15,7 +15,7 @@
 }
 .picture_wall img{
 	height:50px;
-	width:95px;
+	width:115px;
 }
 p{
  text-align:center;
@@ -37,7 +37,7 @@ p{
 .error{
 	  margin-top:10%;
 	  font-size:20px;
-	  color: blue;
+/* 	  color: blue; */
 }
 table{
     margin-top: 2%;

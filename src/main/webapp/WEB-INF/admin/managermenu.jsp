@@ -43,10 +43,9 @@ window.onload=function(){
     		<table>
     			<tr>
     				<th>菜名</th>
-    				<th style="width:95px;">图片</th>
+    				<th style="width:115px;">图片</th>
     				<th>类型</th>
-    				<th>价格/元</th>
-    				<th style="width:90px;">被定/次</th>
+    				<th style="width:85px;">价格/元</th>
     				<th>状态</th>
     				<th>简介</th>
     				<th style="width:90px;">操作</th>
@@ -57,10 +56,9 @@ window.onload=function(){
     				<td><img src="${rootPath}uploadImg/${data.imgUrl}" alt="未添加图片"></td>
     				<td>${data.typeName}</td>
     				<td>${data.price}</td>
-    				<td>${data.num}</td>
     				<td><c:if test="${data.exist eq '0'}">暂缺</c:if><c:if test="${data.exist eq '1'}">可做</c:if></td>
     				<td>
-    					<textarea rows="2" cols="14" readonly="readonly">${data.introduce}</textarea>
+    					<textarea rows="2" cols="20" readonly="readonly">${data.introduce}</textarea>
     				</td>
     				<td>
     					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -73,8 +71,9 @@ window.onload=function(){
    <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath }manage/MenuManager_${adss}?page=${allMenu.prePage}">上一页</a></li>
-     		<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
- 					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }"> 
+     			<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
+ 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+
  					<c:choose> 
 						<c:when test="${i>0 && i == allMenu.currentPage}">
  							<li class="active"><a href="${rootPath }manage/MenuManager_${adss}?page=${i }">${i}</a></li> 

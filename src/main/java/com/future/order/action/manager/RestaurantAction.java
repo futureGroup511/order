@@ -68,7 +68,7 @@ public class RestaurantAction extends BaseAction {
 				 sign = restaurantService.updateRestaurant(restaurant);	
 					request.put("addrest", "添加成功");
 			}else{
-				request.put("addrest", "已经添加过餐厅，只能修改٩(๑❛ᴗ❛๑)۶٩(๑❛ᴗ❛๑)۶");
+				request.put("addrest", "已经添加过餐厅，只能修改");
 			}		
 		}else{
 			if(count==0){
@@ -79,7 +79,7 @@ public class RestaurantAction extends BaseAction {
 				 sign = restaurantService.addRestaurant(restaurant);
 					request.put("addrest", "添加成功");
 			}else{
-				request.put("addrest", "已经添加过餐厅，只能修改٩(๑❛ᴗ❛๑)۶٩(๑❛ᴗ❛๑)۶");
+				request.put("addrest", "已经添加过餐厅，只能修改");
 			}
 		}
 		
