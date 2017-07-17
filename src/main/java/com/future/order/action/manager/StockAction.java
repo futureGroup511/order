@@ -1,6 +1,7 @@
 package com.future.order.action.manager;
 
 import java.util.Date;
+import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Stock;
@@ -19,12 +20,19 @@ public class StockAction extends BaseAction {
 	private int page = 1;
 	private int id;
     private String inquiry;
+	private Date starttime;
+	private Date endtime;
 	public String execute() {
+		double sumprice=0;
 		PageCut<Stock> pCut = stockService.getPageCut(page, 6);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
+		for(int i=0;i<pCut.getData().size();i++){
+			sumprice+=pCut.getData().get(i).getTotal();
+		}
+		request.put("sumprice", sumprice);
 		request.put("adss", "execute");
 		request.put("pc", pCut);
 		return "select";
@@ -96,8 +104,21 @@ public class StockAction extends BaseAction {
 		request.put("pc", pCut);
 		return "select";
 	}
-	
-	
+	public String count(){
+		List<Stock> stocklist =stockService.getSomestock();
+		double stocksum=0;
+		for(int i=0;i<stocklist.size();i++){
+			int sign=stocklist.get(i).getCreateDate().compareTo(endtime);
+		int mark=stocklist.get(i).getCreateDate().compareTo(starttime);
+		System.out.println(mark);
+			if(sign==-1&&mark==1){
+				stocksum+=stocklist.get(i).getTotal();
+			}
+		}
+		request.put("stocksum",stocksum);
+		request.put("stocksums","所查询的时间总支出为(元):");
+		return execute();	
+	}	
 	
 	public Stock getStock() {
 		return stock;
@@ -139,4 +160,20 @@ public class StockAction extends BaseAction {
 		this.inquiry = inquiry;
 	}
 
+	public Date getStarttime() {
+		return starttime;
+	}
+
+	public void setStarttime(Date starttime) {
+		this.starttime = starttime;
+	}
+
+	public Date getEndtime() {
+		return endtime;
+	}
+
+	public void setEndtime(Date endtime) {
+		this.endtime = endtime;
+	}
+	
 }

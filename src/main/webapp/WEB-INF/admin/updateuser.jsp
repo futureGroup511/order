@@ -31,8 +31,8 @@ ${updateUserMsg}
        <div class="button">
           <input style="font-size: 15px;width:100px;" type="submit" value="确认修改" >   
        </div>        
-    </div>
      </form>
+     </div>
     </center>
 </body>
 </html>
