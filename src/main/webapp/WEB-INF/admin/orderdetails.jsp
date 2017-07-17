@@ -54,7 +54,7 @@
 	                <td>${item.menuId}</td>
 	                <td>${item.menuName}</td>
 	                <td>${item.menuNum}</td>
-	                <td>${item.remark}</td>
+	                <td>${item.price}</td>
 	                <td>${item.status}</td>
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>

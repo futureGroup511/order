@@ -54,7 +54,13 @@ function CheckPay(){
 ${marknews}
 </center>
 <div class="ordercheck" id="div1">
-
+	<div>
+	<form action="${rootPath}manage/OrderAction_count" method="post">
+		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender">
+		 <script type="text/javascript" src="../js/datetime.js"></script>
+		<button type="submit">查询</button>
+	</form>
+	</div>
      <div class="button">
       <input type="button" onclick="return CheckNopay();" value="未付款" style="border-radius: 5px;">
       <input type="button" onclick="return CheckPay();" value="已付款" style="border-radius: 5px;">
@@ -109,7 +115,9 @@ ${marknews}
 	            </tr>  
         	</c:forEach>                         
          </tbody>
-     </table>      
+     </table>
+    本页面订单的总收入为(元)：${sumprice}<br>
+            ${sums} ${sum}
     </div>
  </div>
 <div class="page" id="div2">

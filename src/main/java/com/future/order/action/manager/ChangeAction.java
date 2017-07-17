@@ -59,10 +59,6 @@ public class ChangeAction extends BaseAction{
 	public String addStocks(){
 		return "addstock";
 	}
-	public String finance(){
-		
-		return "count";
-	}
 	public String count(){
 		List<Order> list =orderService.getSomenews();
 		List<Stock> stocklist =stockService.getSomestock();

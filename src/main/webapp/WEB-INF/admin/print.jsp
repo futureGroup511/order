@@ -30,7 +30,7 @@
 	            <tr>
 	                <td>${item.menuName}</td>
 	                <td>${item.menuNum}</td>
-	                <td>${item.remark}</td>
+	                <td>${item.price}</td>
 	            </tr>  
         	</c:forEach>
 	</table>	
