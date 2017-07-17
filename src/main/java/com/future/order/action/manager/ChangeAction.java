@@ -86,7 +86,6 @@ public class ChangeAction extends BaseAction{
 		}
 		double margin=sum-stocksum;
 		request.put("sum",sum);
-		request.put("stocksum",stocksum);
 		request.put("margin",margin);
 		request.put("sums","营业额:");
 		request.put("stocksums","支出:");
