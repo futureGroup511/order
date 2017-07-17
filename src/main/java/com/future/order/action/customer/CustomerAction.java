@@ -8,6 +8,7 @@ import com.future.order.entity.MenuType;
 import com.future.order.entity.Restaurant;
 import com.future.order.entity.ShopCart;
 import com.future.order.entity.StockDetails;
+import com.future.order.entity.Tables;
 /**
  * @author 安李杰 
  *
@@ -36,6 +37,10 @@ public class CustomerAction extends BaseAction {
 		List<MenuType> menuType=menuTypeService.getAllMenuType();
 		request.put("menuType",menuType);
 		request.put("menus", menus);
+		//修改餐桌状态为有人
+		Tables table=new Tables();
+		table.setStatus("有人");
+		boolean bool=tablesService.updateTables(table);
 		return "toIndex";
 	}
 	//根据菜品类型id获得菜品
