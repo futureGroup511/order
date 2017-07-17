@@ -64,6 +64,11 @@ public class CartAction extends BaseAction {
 			Boolean bool = orderService.update(order);
 			Order orderss=orderService.getOrder1(tableId);
 			session.put("Id",orderss.getId());
+		}else if(orders.getStatus().equals("未付款")){
+			orders.setStatus("未处理");
+			Boolean bool = orderService.update(orders);
+			Order orderss=orderService.getOrder1(tableId);
+			session.put("Id",orderss.getId());
 		}else{
 				session.put("Id",orders.getId());
 		}
@@ -153,6 +158,7 @@ public class CartAction extends BaseAction {
 		if(orders==null||orders.getStatus().equals("已付款")){
 			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
 			request.put("orderDetails",orderDetails);
+		
 		}else{
 			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orders.getId());
 			request.put("order",orders.getStatus());

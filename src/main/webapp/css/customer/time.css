@@ -1,11 +1,16 @@
-.list-group .active{
+.list-group li:first-child{
 	text-align: center;
 	position:fixed;
 	width:100%;
 	letter-spacing: 5px;
+	z-index:1000;
+	background-color:#D41700;
 }
 .list-group-item .badge{
-    background-color: #428BCA;
-    color: #fff;
+    background-color: #dadada;
+    color: #999;
     font-weight:normal;
+}
+.list-group-item-success{
+	 background-color: #dadada;
 }
