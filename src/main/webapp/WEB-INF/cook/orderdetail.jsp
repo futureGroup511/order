@@ -117,7 +117,7 @@ window.onload = function() {
     </table>
        <div class="pag">
          <ul class="pagination">
-                   <li><a href="?page=${paCut.prePage}&OrderId=${paCut.data[0].tableId}">上一页</a></li>
+                   <li><a href="?page=${paCut.prePage}&OrderId=${paCut.data[0].tableId}&tableId=${paCut.data[0].tableId}">上一页</a></li>
  						
  						<c:forEach var="i" 
 							begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
@@ -125,17 +125,17 @@ window.onload = function() {
  							<c:choose> 
  								<c:when test="${i>0 && i == paCut.currentPage &&i<=3}">
  									<li class="active"><a 
- 										href="?page=${i}&OrderId=${paCut.data[0].tableId}">${i}</a></li> 
+ 										href="?page=${i}&OrderId=${paCut.data[0].tableId}&tableId=${paCut.data[0].tableId}">${i}</a></li> 
  								</c:when> 
 
  								<c:when test="${i>0 && i != paCut.currentPage &&i<=3}"> 
- 									<li><a href="?page=${i }&OrderId=${paCut.data[0].tableId}">${i}</a></li> 
+ 									<li><a href="?page=${i }&OrderId=${paCut.data[0].tableId}&tableId=${paCut.data[0].tableId}">${i}</a></li> 
  								</c:when> 
  							</c:choose>
  						</c:forEach> 
  						
  						<li><a 
- 							href="?page=${paCut.nextPage}&OrderId=${paCut.data[0].tableId}">下一页</a></li> 
+ 							href="?page=${paCut.nextPage}&OrderId=${paCut.data[0].tableId}&tableId=${paCut.data[0].tableId}">下一页</a></li> 
                </ul>
     </div>
     </div>

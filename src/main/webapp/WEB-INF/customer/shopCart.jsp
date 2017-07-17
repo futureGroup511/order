@@ -69,6 +69,7 @@
 		}
 	}
 	
+	
 	function show_notice(str,second,callback){  
 	    var box_id = 'notice_box';  
 	    var tooltipBox = document.getElementById(box_id);  

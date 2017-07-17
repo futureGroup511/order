@@ -131,6 +131,7 @@ public class CartAction extends BaseAction {
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}
+	
 	// 删除购物车的菜品
 	public String deleteCart() throws Exception {
 		int tableId = (int) session.get("userId");
