@@ -31,7 +31,7 @@
 						<c:if test='${order.status eq "原料"}'>selected="selected"</c:if>>原料</option>
 				</select><br>
 				<lable id="text">简介：</lable>
-				<textarea rows="10" cols="30" name="ingredient.introduce">${updateIngredient.introduce}</textarea>
+				<textarea rows="4" cols="30" name="ingredient.introduce">${updateIngredient.introduce}</textarea>
 				<br>
 				<lable id="text">注册时间：</lable>
 				<input type="text" name="ingredient.createDate"
@@ -39,7 +39,7 @@
 					readonly="readonly" class="sang_Calender"><br>
 				<script type="text/javascript" src="../js/datetime.js"></script>
 				<div class="button">
-					<input type="submit" value="修改">
+					<input style="width: 100px;font-size: 15px;" type="submit" value="修改">
 				</div>
 			</form>
 		</div>

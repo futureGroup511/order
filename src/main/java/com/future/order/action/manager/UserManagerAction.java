@@ -25,7 +25,7 @@ public class UserManagerAction extends BaseAction {
 		PageCut<User> pCut=userService.getPageCut(page,6);
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
-			String mark="没有其他用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有其他用户";
 			request.put("deleteUserMsg", mark);
 		}
 		request.put("adss", "execute");
@@ -98,7 +98,7 @@ public class UserManagerAction extends BaseAction {
 		}
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
-			String mark="没有你查询的用户哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有你查询的用户";
 			request.put("deleteUserMsg", mark);
 		}
 		request.put("adss", "Inquiry");

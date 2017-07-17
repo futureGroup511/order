@@ -5,22 +5,24 @@
 .wall{
     width: 30%;
     height: auto;
-    margin:0 auto;
+/*     margin:0 auto; */
+	margin-left:30%;
     margin-top: 5%;
     line-height: 48px;
 }
-label{
+lable{
     font-size: 24px;
     font-weight: bold;
     margin-left: 15%;
+    vertical-align: middle;
 }
 input{
-    width: 40%;
+    width: 50%;
     height: 25px;
     border-radius: 5px;
 }
 select{
-    width: 40%;
+    width: 50%;
     height: 25px;
     border-radius: 5px;
 }

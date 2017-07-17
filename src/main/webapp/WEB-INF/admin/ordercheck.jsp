@@ -54,11 +54,11 @@ function CheckPay(){
 ${marknews}
 </center>
 <div class="ordercheck" id="div1">
-	<div>
+	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	<form action="${rootPath}manage/OrderAction_count" method="post">
-		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender">
+		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender"  style="border-radius:7px;">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender"  style="border-radius:7px;">
 		 <script type="text/javascript" src="../js/datetime.js"></script>
-		<button type="submit">查询</button>
+		<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 	</form>
 	</div>
      <div class="button">
@@ -67,7 +67,7 @@ ${marknews}
 <!--       <input type="button" onclick="return Check();" value="查看全部">       -->
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
-<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
+	<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
 	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 		<option value="tableName">餐桌名称</option>
 		<option value="cookName">厨师名称</option>
@@ -116,19 +116,18 @@ ${marknews}
         	</c:forEach>                         
          </tbody>
      </table>
-    本页面订单的总收入为(元)：${sumprice}<br>
+     <center>
+         本页面订单的总收入为(元)：${sumprice}<br>
             ${sums} ${sum}
+     </center>
     </div>
  </div>
 <div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.prePage}&sign=${sign}">上一页</a></li>
-  						<c:if test="${1 < pc.currentPage -3}">
-							<li><a href="#">1</a></li>
-						</c:if>
- 						<c:forEach var="i" 
- 							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
- 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
+  				<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
+ 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+ 
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage}"> 
  									<li class="active"><a 

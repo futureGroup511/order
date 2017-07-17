@@ -21,7 +21,7 @@
 	            <option value="1" <c:if test='${updateTables.status eq "1"}'> selected="selected"</c:if>>使用中</option>
 	            <option value="0" <c:if test='${updateTables.status eq "0"}'> selected="selected"</c:if>>空闲</option>
 	        </select><br>
-              <button type="submit">确认修改</button>
+              <button style="background-color: #1BAFE0" type="submit">确认修改</button>
         </form>
     </div>
 </body>

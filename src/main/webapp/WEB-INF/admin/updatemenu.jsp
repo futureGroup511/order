@@ -8,20 +8,10 @@
 <title>Insert title here</title>
 <style type="text/css">
 .file {
-    position: relative;
-    display: inline-block;
-/*     background: #D0EEFF; */
-    border: 1px solid #99D3F5;
-    border-radius: 4px;
-    padding: 4px 12px;
-    overflow: hidden;
-    color: #1E88C7;
-    width:160px;
-    text-decoration: none;
-    text-indent: 0;
-    line-height: 20px;
+   margin-left:18%;
+   margin-top:3%;
 }
-.textarea{
+textarea{
 	margin-left:0px;margin-top:0px;border-radius: 5px;
 	font-size:15px;
 	border-color: blue;
@@ -59,20 +49,19 @@
           </c:forEach>
           </select><br>
           <lable id="text">价格：</lable><input type="text"name="menu.price" value="${updateMenu.price}">
-          <lable id="text">被定次数：</lable><input type="text" name="menu.num" value="${updateMenu.num}"><br>
           <lable id="text">是否可以做：</lable>
 			<select name="menu.exist">
 			<option value="1" <c:if test="${updateMenu.exist eq '1'}">selected = selected</c:if>>可做</option>
 			<option value="0" <c:if test="${updateMenu.exist eq '0'}">selected = selected</c:if>>暂缺</option>
 			</select><br>
-          <lable id="text">简&nbsp;&nbsp;&nbsp;&nbsp;介：</lable>
-          <textarea name="menu.introduce" class="textarea" rows="3" cols="80">${updateMenu.introduce}</textarea>          
-           <lable id="text">图片：</lable><br>
-           <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}"  class="img">
+          <lable id="text">简介：</lable>
+          <textarea class="textarea" name="menu.introduce"rows="3" cols="63">${updateMenu.introduce}</textarea><br>          
+           <lable id="text">图片：</lable>
+           <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}"  class="img"><br>
             <input type="file" name="file" accept="image/*" class="file" value="选择图片"><br>
       <div class="button">
-      	<input type="button" style="height:30px;" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="修改菜品详情">
-       <input type="submit" style="height:30px;margin-left:14%;" value="修改">
+      	<input type="button"  style="height:30px;background:#84C2E9;margin-left:15%;" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="修改菜品详情">
+       <input type="submit" style="height:30px;margin-left:5%;background:#84C2E9;" value="修改">
       </div> 
   </form>        
   </div> 

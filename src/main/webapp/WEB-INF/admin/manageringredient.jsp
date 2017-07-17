@@ -23,9 +23,9 @@ window.onload=function(){
 }
 	</script>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-<center>
-${updateIngredientMsg}${deleteIngredientMsg}
-</center>
+
+<div style="margin-left: 40%;font-weight: bold;">${updateIngredientMsg}${deleteIngredientMsg}</div>
+
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
 	<form action="${rootPath}manage/Ingredient_Inquiry" method="post"style="margin-left:10%;">
 	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
@@ -72,13 +72,13 @@ ${updateIngredientMsg}${deleteIngredientMsg}
     <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath}manage/Ingredient_${adss}?page=${allIngredient.prePage}">上一页</a></li>
-		 		<c:forEach var="i" begin="${allIngredient.currentPage-3>0?allIngredient.currentPage-3:1 }" 
- 					end="${allIngredient.currentPage+3>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+3  }">
+					<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
+ 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
  					<c:choose>
- 						<c:when test="${i>0 && i == allIngredient.currentPage &&i<=3}"> 
+ 						<c:when test="${i>0 && i == allIngredient.currentPage}"> 
  							<li class="active"><a href="${rootPath }manage/Ingredient_${adss}?page=${i }">${i}</a></li> 
 						</c:when> 
- 						<c:when test="${i>0 && i != allIngredient.currentPage &&i<=3}"> 
+ 						<c:when test="${i>0 && i != allIngredient.currentPage}"> 
  							<li><a href="${rootPath }manage/Ingredient_${adss}?page=${i }">${i}</a></li> 
 						</c:when> 
  					</c:choose> 

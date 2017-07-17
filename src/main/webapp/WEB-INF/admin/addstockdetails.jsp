@@ -11,22 +11,22 @@
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 
 <div class="wall">
+	<div style="margin-left:35%;font-weight: bold;">${addMsg}</div>
 	<form action="${rootPath}manage/StockDetailsAction_AddDetails" method="post">
-     <h4>${addMsg}</h4>
      <lable>配料名称:</lable>
       <select name="details.ingName"> 
  			<c:forEach items="${Ientlist}" var="item">  
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable>重量(kg):</lable><input type="text" name="details.num"><br>
-     <lable>价格(kg):</lable><input type="text"  name="details.price"><br>
+     <lable>重量(kg):</lable><input style="margin-left: 1%;" type="text" name="details.num"><br>
+     <lable>价格(kg):</lable><input style="margin-left: 1%;" type="text"  name="details.price"><br>
      <lable>溯源:</lable>
-     <div style="margin-left:15%;margin-top:-10%;">
-     <textarea style="" rows="5" cols="35" name="details.origins"></textarea><br>
+     <div style="margin-left:45%;margin-top:-10%;">
+     <textarea style="" rows="5" cols="55" name="details.origins"></textarea><br>
      </div>
       <div class="button">
-        <input type="submit" value="提交">          
+        <input style="background-color: #1BAFE0;margin-top:20%;width:100px;" type="submit" value="提交">          
       </div>
     </form>
 </div>

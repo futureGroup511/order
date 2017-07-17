@@ -9,10 +9,16 @@
     margin-top: 5%;
 }
 label{
-/*     font-weight: bold; */
+    vertical-align: middle;
+    font-weight: bold;
     font-size: 20px;
     margin-left: 25%;
     line-height: 50px;
+}
+.txt{ margin-left:25%;font-weight: bold; font-size: 20px;}
+textarea{
+	vertical-align: middle;
+	margin-top:-6%;
 }
 input{
     width: 35%;
@@ -23,8 +29,8 @@ input{
     margin-left: 25%;
 }
 .btn{
-    padding:8px 20px;
-    border: 2px solid #1751d7;
+/*     padding:8px 20px; */
+    border-color: #1BAFE0;
     width: 40px;
     border-radius:5px; 
     margin:5% 0 0 40%;

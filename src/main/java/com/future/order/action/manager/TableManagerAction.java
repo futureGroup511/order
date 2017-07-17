@@ -33,10 +33,10 @@ public class TableManagerAction extends BaseAction {
 	private String replace;
 	@Override
 	public String execute() throws Exception {
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,6);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
-			String mark="还没有餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有餐桌";
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "execute");
@@ -71,7 +71,7 @@ public class TableManagerAction extends BaseAction {
 		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
-			String mark="还没有餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有餐桌";
 			request.put("managerMsg", mark);
 		}
 		return "updateTable";
@@ -83,11 +83,11 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			deleteTableMsg = "删除成功";
 		}
-		request.put("TableMsg", deleteTableMsg);
+		request.put("managerMsg", deleteTableMsg);
 		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
-			String mark="还没有餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有餐桌";
 			request.put("managerMsg", mark);
 		}
 		return "deleteTable";
@@ -138,7 +138,7 @@ public class TableManagerAction extends BaseAction {
 			}
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
-			String mark="还没有你搜索的餐桌哦(｡•ˇ‸ˇ•｡)(｡•ˇ‸ˇ•｡)";
+			String mark="没有你搜索的餐桌";
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "Inquiry");		

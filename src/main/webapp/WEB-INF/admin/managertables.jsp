@@ -8,6 +8,13 @@
 <title>Insert title here</title>
     <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managetables.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
+    <style type="text/css">
+    .card{
+    	background-color: ;
+    	width:600px;
+    }
+    
+    </style>
 <script language="javascript">
 window.onload=function(){
 	 var array = new Array();  
@@ -24,16 +31,18 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 		<center>
-		${managerMsg}
-		<div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
+		<div style="font-weight: bold;">${managerMsg}</div>
+		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:40%; ">
 			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
 				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 					<option value="name">按名称查询</option>
 					<option value="status">按状态查询</option>
 				</select>
-				<input type="text" name="replace">
+				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace">
 				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
+				<input class="font" type="button" onclick="window.location='${rootPath}manage/TableManager_allCard';" value="生成二维码">
 			</form>
+			
 		</div> 
 		</center>
 <div class="wall">
@@ -69,8 +78,9 @@ window.onload=function(){
  <div class="page" id="div2">
       <ul class="pagination">
         <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.prePage}">上一页</a></li>
-        <c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
-					end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
+       			<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
+ 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+
 					<c:choose>
 						<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
 							<li class="active"><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
