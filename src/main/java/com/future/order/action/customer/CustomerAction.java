@@ -38,7 +38,8 @@ public class CustomerAction extends BaseAction {
 		request.put("menuType",menuType);
 		request.put("menus", menus);
 		//修改餐桌状态为有人
-		Tables table=new Tables();
+		int tableId=(int) session.get("userId");//获得顾客桌号
+		Tables table=tablesService.get(tableId);
 		table.setStatus("有人");
 		boolean bool=tablesService.updateTables(table);
 		return "toIndex";
