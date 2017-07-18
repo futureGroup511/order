@@ -19,8 +19,8 @@
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable>重量(kg):</lable><input style="margin-left: 1%;" type="text" name="details.num"><br>
-     <lable>价格(kg):</lable><input style="margin-left: 1%;" type="text"  name="details.price"><br>
+     <lable>重量(kg):</lable><input style="margin-left: 1%;" type="number" name="details.num" required="required" placeholder="请输入数字"><br>
+     <lable>价格(kg):</lable><input style="margin-left: 1%;" type="number"  name="details.price" required="required" placeholder="请输入数字"><br>
      <lable>溯源:</lable>
      <div style="margin-left:45%;margin-top:-10%;">
      <textarea style="" rows="5" cols="55" name="details.origins"></textarea><br>

@@ -7,8 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.util.List;
-
-import javax.servlet.ServletContextEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,6 +42,7 @@ public class TableManagerAction extends BaseAction {
 	}
 	
 	public String addTable(){
+		table.setStatus("无人");
 		boolean boo = tablesService.addTable(table);
 		if(boo){
 			request.put("addTableMsg", "添加成功");

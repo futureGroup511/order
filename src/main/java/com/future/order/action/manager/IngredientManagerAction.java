@@ -73,7 +73,7 @@ public class IngredientManagerAction extends BaseAction {
 		} else {
 			request.put("updateIngredientMsg", "修改失败");
 		}
-		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 3);
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
 		request.put("allIngredient", pCut);
 		return "updateIngredient";
 	}
@@ -86,7 +86,7 @@ public class IngredientManagerAction extends BaseAction {
 		} else {
 			request.put("deleteIngredientMsg", "删除失败");
 		}
-		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 3);
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
 		request.put("allIngredient", pCut);
 		return "deleteIngredient";
 	}

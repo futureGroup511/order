@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>订餐管理系统-登陆</title>
+<title>餐饮管理系统-登陆</title>
 <script type="text/javascript">
  		function reloadCode(){
  			var time=new Date().getTime();
@@ -25,7 +25,7 @@
 			 <form action="${rootPath}loginAction" method="post">
 			     <div class="in1">
 			     	<p class="left">账户</p>
-			     	 <input type="text" class="form-control" id="inputText" placeholder="请输入账号" name="user.phone">
+			     	 <input type="tel" pattern="\d{11}" class="form-control" id="inputText" placeholder="请输入账号" name="user.phone">
 			     </div>
 			     <div class="in1">
 			     	<p class="left">密码</p>

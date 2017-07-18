@@ -11,7 +11,7 @@
 <div style="font-size: 20px;margin-left:45%;">${addTableMsg}</div>
   <div class="wall"> 
     <form action="${rootPath}manage/TableManager_addTable" method="post">
-       <span style="font-size: 20px;">餐桌名称：</span><input class="input" type="text" name="table.name"><br>
+       <span style="font-size: 20px;">餐桌名称：</span><input class="input" type="text" name="table.name" required="required"><br>
 		<input class="button" type="submit" value="确认添加"> 
     </form>
     <div class="move-font">

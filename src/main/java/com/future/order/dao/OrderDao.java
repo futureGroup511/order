@@ -6,6 +6,7 @@
  */ 
 package com.future.order.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -270,8 +271,69 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		pc.setData(this.getEntityLimitList("from Order where "+ask+"='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
+//	@Override
+//	public List<Order> getSomenews() {
+//		String sql="select * from tb_order where createDate>='2017-03-01 00:00:00' and createDate<'2017-08-02 00:00:00'";
+//		return getEntityLimitList(sql);
+//	}
+//	@Override
+//	public PageCut<Order> getGain(int currentPage, int pageSize, Date starttime, Date endtime) {
+//		String hql ;
+//		int count=0;
+//		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
+//		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
+//		
+//		count = ((Long) this.uniqueResult(hql)).intValue();
+//		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
+//		pc.setData(this.getEntityLimitList(, (currentPage-1)*pageSize, pageSize));
+//		return pc;
+//	}
 	@Override
-	public List<Order> getSomenews() {
-		return selectAll();
+	public PageCut<Order> getPagegain(int currentPage, int pageSize, Date starttime, Date endtime,String sign) {
+		String status=null;
+		String hql = null ;
+		String selecthql = null ;
+		int count=0;
+		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
+		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
+		if(sign.equals("one")){
+			selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"'";
+			hql = "select count(*) from Order where createDate between '"+dateStr+"' and '"+dateend+"'";
+		}else if(sign.equals("there")){
+			 status="已付款";
+			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+			 hql = "select count(*) from Order where createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+		}else if(sign.equals("two")){
+			 status="未付款";
+			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+			 hql = "select count(*) from Order where createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+		}
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList(selecthql, (currentPage-1)*pageSize, pageSize));
+		return pc;
+	}
+	@Override
+	public List<Order> getGain(Date starttime, Date endtime, String sign) {
+		String status=null;
+		String hql = null ;
+		String selecthql = null ;
+		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
+		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
+		if(sign.equals("one")){
+			selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"'";
+		}else if(sign.equals("there")){
+			 status="已付款";
+			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+		}else if(sign.equals("two")){
+			 status="未付款";
+			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+		}
+		return getEntityList(selecthql);
+	}
+	@Override
+	public List<Order> getPrice(String ask, String inquiry) {
+		String hql="from Order where "+ask+"='"+inquiry+"'";
+		return getEntityList(hql);
 	}
 }

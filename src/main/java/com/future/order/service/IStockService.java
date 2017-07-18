@@ -6,6 +6,7 @@
  */  
 package com.future.order.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.future.order.entity.Stock;
@@ -31,5 +32,11 @@ public interface IStockService {
 	public PageCut<Stock> getSomePageCut(int currentPage, int pageSize, String inquiry);
 
 	public List<Stock> getSomestock();
+
+	public PageCut<Stock> getSomePageCut(int currentPage, int pageSize, Date starttime, Date endtime);
+
+	public List<Stock> getPrice(Date starttime, Date endtime);
+
+	public List<Stock> getTotal(String inquiry);
 
 }

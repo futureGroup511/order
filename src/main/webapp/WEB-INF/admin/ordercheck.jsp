@@ -51,12 +51,12 @@ function CheckPay(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-${marknews}
+<span style="font-weight: bold;">${marknews}</span>
 </center>
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	<form action="${rootPath}manage/OrderAction_count" method="post">
-		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender"  style="border-radius:7px;">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender"  style="border-radius:7px;">
+		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender"  style="border-radius:7px;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender"  style="border-radius:7px;" required="required">
 		 <script type="text/javascript" src="../js/datetime.js"></script>
 		<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 	</form>
@@ -72,7 +72,7 @@ ${marknews}
 		<option value="tableName">餐桌名称</option>
 		<option value="cookName">厨师名称</option>
 	</select>
-		<input type="text" name="inquiry" style="border-radius:7px;">
+		<input type="text" name="inquiry" style="border-radius:7px;" required="required">
 		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
 </form>
 </div>

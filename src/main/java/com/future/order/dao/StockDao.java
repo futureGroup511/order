@@ -6,6 +6,8 @@
  */  
 package com.future.order.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -96,6 +98,33 @@ public class StockDao extends BaseDao<Stock> implements IStockService {
 	@Override
 	public List<Stock> getSomestock() {
 		return selectAll();
+	}
+
+	@Override
+	public PageCut<Stock> getSomePageCut(int currentPage, int pageSize, Date starttime, Date endtime) {
+		String hql ;
+		int count=0;
+		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
+		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
+		hql = "select count(*) from Stock where createDate between '"+dateStr+"' and '"+dateend+"'";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<Stock> pc = new PageCut<Stock>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList("from Stock where createDate between '"+dateStr+"' and '"+dateend+"'", (currentPage-1)*pageSize, pageSize));
+		return pc;
+	}
+
+	@Override
+	public List<Stock> getPrice(Date starttime, Date endtime) {
+		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
+		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
+		String hql="from Stock where createDate between '"+dateStr+"' and '"+dateend+"'";
+		return getEntityList(hql);
+	}
+
+	@Override
+	public List<Stock> getTotal(String inquiry) {
+		String hql="from Stock where site='"+inquiry+"'";
+		return getEntityList(hql);
 	}
 
 }

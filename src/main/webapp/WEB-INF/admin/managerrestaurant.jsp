@@ -56,8 +56,8 @@ table td{
 	       <tr>  
 	         <td>${restaurants.name}</td>
 	         <td>${restaurants.phone}</td>
-	         <td><img src="${rootPath}uploadImg/${restaurants.imgUrl}"  style="width:95px;"></td>
-	         <td>${restaurants.address}</td>
+	         <td><img src="${rootPath}uploadImg/${restaurants.imgUrl}"  style="width:110px;"></td>
+	         <td style="width:300px;">${restaurants.address}</td>
 	         <td><textarea rows="4" cols="45" readonly="readonly">${restaurants.introduce}</textarea></td>
 	         <td  class="four"><a href="${rootPath}manage/Restaurant_toUpdate?id=${restaurants.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>            
 	       </tr>                        

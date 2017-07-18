@@ -13,13 +13,11 @@
    	 
    	<input type="hidden" name="user.id" value="${user.id}">
    	<input type="hidden" name="userId" value="2">
-     <lable id="text">姓名：</lable><input type="text" name="user.name" value="${user.name}"><br>
-     <lable id="text">账号：</lable><input type="text" name="user.phone" value="${user.phone}"><br>
-     <lable id="text">密码：</lable><input type="text" name="user.password" value="${user.password}"><br>
-     <lable id="text">身份：</lable><input type="text" name="user.sort" value="${user.sort}" readonly="readonly"><br>
-     
-     <lable id="text">注册时间：</lable><input type="text"  name="user.createDate" value="${user.createDate}" readonly="readonly"><br>
-     
+     <lable id="text">姓名：</lable><input type="text" name="user.name" value="${user.name}" required="required"><br>
+     <lable id="text">账号：</lable><input type="tel" pattern="\d{11}" name="user.phone" value="${user.phone}" required="required"><br>
+     <lable id="text">密码：</lable><input type="text" maxlength="10" name="user.password" value="${user.password}" required="required"><br>
+     <lable id="text">身份：</lable><input type="text" name="user.sort" value="${user.sort}" readonly="readonly"><br>    
+     <lable id="text">注册时间：</lable><input type="text"  name="user.createDate" value="${user.createDate}" readonly="readonly"><br>    
       <div class="button">
         <input type="submit" value="确认修改">
       </div>
