@@ -41,14 +41,14 @@ textarea{
 <body  onload="changeSelected()"   style="background: url(${rootPath}/images/m-91.jpg);">
 <div class="updatemenu">
    <form action="${rootPath}manage/MenuManager_updateMenu?menu.id=${updateMenu.id}&menu.imgUrl=${updateMenu.imgUrl}" method="post" enctype="multipart/form-data">
-          <lable id="text">菜名：</lable><input type="text" name="menu.name" value="${updateMenu.name}">
+          <lable id="text">菜名：</lable><input type="text" name="menu.name" value="${updateMenu.name}" required="required">
           <lable id="text">类型名称：</lable>
           <select name="menu.typeName" id="typeName">
           <c:forEach items="${Typelist}" var="item">
           <option value="${item.name}">${item.name}</option>
           </c:forEach>
           </select><br>
-          <lable id="text">价格：</lable><input type="text"name="menu.price" value="${updateMenu.price}">
+          <lable id="text">价格：</lable><input type="number" name="menu.price" value="${updateMenu.price}" required="required">
           <lable id="text">是否可以做：</lable>
 			<select name="menu.exist">
 			<option value="1" <c:if test="${updateMenu.exist eq '1'}">selected = selected</c:if>>可做</option>

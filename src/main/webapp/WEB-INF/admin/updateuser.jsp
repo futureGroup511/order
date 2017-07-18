@@ -15,9 +15,9 @@ ${updateUserMsg}
        <div class="text">
           <form action="${rootPath}manage/UserManager_updateUser?user.id=${updateUser.id}" method="post">
               <lable >账&nbsp;&nbsp;&nbsp;&nbsp;号：</lable>
-              <input type="text" placeholder="请输入正确账号" name="user.phone" value="${updateUser.phone}" ><br>
+              <input type="tel" pattern="\d{11}" placeholder="请输入正确账号" name="user.phone" value="${updateUser.phone}" ><br>
                <lable>密&nbsp;&nbsp;&nbsp;&nbsp;码：</lable>
-              <input type="text" placeholder="请输入密码" name="user.password" value="${updateUser.password}"><br>
+              <input type="text" placeholder="请输入密码" name="user.password" value="${updateUser.password}" maxlength="10"><br>
               <lable>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</lable>
               <input type="text" placeholder="请输入姓名" name="user.name" value="${updateUser.name}"><br>
               <lable>注册时间：</lable>

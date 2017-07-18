@@ -1,4 +1,4 @@
-+<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -34,7 +34,7 @@ window.onload=function(){
 ${stocknews }<br>
 	<div style="float:right;margin-right:55%;width:40%;height:30px; margin-top:0%; margin-bottom:-3%;">
 	<form action="${rootPath}manage/StockAction_count" method="post">
-		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender" style="border-radius:7px;">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender" style="border-radius:7px;">
+		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender" style="border-radius:7px;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender" style="border-radius:7px;" required="required">
 		 <script type="text/javascript" src="../js/datetime.js"></script>
 		<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 	</form>
@@ -42,7 +42,7 @@ ${stocknews }<br>
 <div style="margin-left:50%;">
 	<form action="${rootPath}manage/StockAction_Inquiry" method="post">
 		<input class="input
-		" type="text" name="inquiry" style="width:15%;">
+		" type="text" name="inquiry" style="width:15%;" required="required">
 		<button style="border-radius: 5px;width:15%;background-color: #82C0E9;" class="btnForm">地点查询</button>	
 	</form>
 </div>

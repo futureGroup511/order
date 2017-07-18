@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="login">
-<p class="loginp" style="color:black;font-family:微软雅黑; ">订餐管理系统</p>
+<p class="loginp" style="color:black;font-family:微软雅黑; "> 餐饮管理系统</p>
 		<div class="logincenter" >
 			 <div class="dz" id="dz">
 			    <!--  <p class="">注册</p> -->
@@ -26,7 +26,7 @@
 			 <form action="${rootPath}loginAction" method="post">
 			     <div class="in1">
 			     	<p class="left">账户</p>
-			     	 <input type="text" class="form-control" id="inputText" placeholder="请输入账号" name="user.phone">
+			     	 <input type="tel" pattern="\d{11}" class="form-control" id="inputText" placeholder="请输入账号" name="user.phone">
 			     </div>
 			     <div class="in1">
 			     	<p class="left">密码</p>

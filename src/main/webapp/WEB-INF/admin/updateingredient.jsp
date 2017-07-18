@@ -16,13 +16,13 @@
 				method="post">
 				<lable id="text">名称：</lable>
 				<input type="text" name="ingredient.name"
-					value="${updateIngredient.name}"><br>
+					value="${updateIngredient.name}" required="required"><br>
 				<lable id="text">单价（元/kg）：</lable>
-				<input type="text" name="ingredient.price"
-					value="${updateIngredient.price}"><br>
+				<input type="number" name="ingredient.price"
+					value="${updateIngredient.price}" required="required"><br>
 				<lable id="text">库存（kg）：</lable>
-				<input type="text" name="ingredient.num"
-					value="${updateIngredient.num}"><br>
+				<input type="number" name="ingredient.num"
+					value="${updateIngredient.num}" required="required"><br>
 				<lable id="text">类型：</lable>
 				<select name="ingredient.type" >
 					<option value="配料"

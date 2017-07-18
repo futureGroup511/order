@@ -38,7 +38,7 @@ window.onload=function(){
 					<option value="name">按名称查询</option>
 					<option value="status">按状态查询</option>
 				</select>
-				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace">
+				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace" required="required">
 				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 				<input class="font" type="button" onclick="window.location='${rootPath}manage/TableManager_allCard';" value="生成二维码">
 			</form>
@@ -46,7 +46,6 @@ window.onload=function(){
 		</div> 
 		</center>
 <div class="wall">
-		   &nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/TableManager_allCard">生成全部二维码</a>
 	<div id="div1">
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
@@ -62,8 +61,8 @@ window.onload=function(){
 			<tr>
 				<td>${pageCut.name}</td>
 				<td>
-					<c:if test="${pageCut.status eq '0'}">空闲</c:if>
-					<c:if test="${pageCut.status eq '1'}">使用中</c:if>
+					<c:if test="${pageCut.status eq '无人'}">无人</c:if>
+					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
 				</td>
 				<td><a href="${rootPath}manage/TableManager_SomeCard?name=${pageCut.name}&id=${pageCut.id}">生成二维码</a></td>
 				<td>

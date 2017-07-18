@@ -34,7 +34,7 @@ window.onload=function(){
 		<option value="num">库存</option>
 		<option value="type">类型</option>
 	</select>
-		<input  class="text" type="text" name="inquiry">
+		<input  class="text" type="text" name="inquiry" required="required">
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>

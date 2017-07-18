@@ -59,40 +59,6 @@ public class ChangeAction extends BaseAction{
 	public String addStocks(){
 		return "addstock";
 	}
-	public String count(){
-		List<Order> list =orderService.getSomenews();
-		List<Stock> stocklist =stockService.getSomestock();
-		double sum=0;
-		double stocksum=0;
-		for(int i=0;i<list.size();i++){
-			int sign=list.get(i).getCreateDate().compareTo(endtime);
-			System.out.println(sign);
-		int mark=list.get(i).getCreateDate().compareTo(starttime);
-		System.out.println(mark);
-			if(sign==-1&&mark==1){
-//				somelist.add(list.get(i));
-				 sum+=list.get(i).getTotal();
-			}
-		}
-		for(int i=0;i<stocklist.size();i++){
-			int sign=stocklist.get(i).getCreateDate().compareTo(endtime);
-			System.out.println(sign);
-		int mark=stocklist.get(i).getCreateDate().compareTo(starttime);
-		System.out.println(mark);
-			if(sign==-1&&mark==1){
-//				somelist.add(list.get(i));
-				stocksum+=stocklist.get(i).getTotal();
-			}
-		}
-		double margin=sum-stocksum;
-		request.put("sum",sum);
-		request.put("margin",margin);
-		request.put("sums","营业额:");
-		request.put("stocksums","支出:");
-		request.put("margins","盈余:");
-		return "count";
-		
-	}
 	public Date getStarttime() {
 		return starttime;
 	}

@@ -36,7 +36,7 @@ window.onload=function(){
          	</c:forEach> 
  	</select><br>
      <lable>用量(g):</lable>
- 		<input type="text" name="menuMaterial.num"  class="input1"><br>
+ 		<input type="number" name="menuMaterial.num"  class="input1" required="required" placeholder="请输入数字"><br>
       <div class="button">
         <input type="submit" value="提交" class="bt2" style="background-color: #1BAFE0;border-radius: 5px;">          
       </div>
