@@ -52,21 +52,19 @@
     color:
 }
 .information .top input{
-<<<<<<< HEAD
-	width:80px;
-=======
 	width:65px;
->>>>>>> 88a7b30216218d979e07aadbdc32f843dc93df2e
 	hiehgt: 25px;
 	background-color:#D41700;
 	border-radius: 2px; 
 	border: 0px;
-<<<<<<< HEAD
-=======
 	text-algin:center;
 	margin-right:20px;
 	color:#fff;
->>>>>>> 88a7b30216218d979e07aadbdc32f843dc93df2e
+
+}
+.information .center{
+	padding:10px 30px;
+	border-bottom:2px solid #dadada;
 }
 .information .bottom{
 	width:100%;

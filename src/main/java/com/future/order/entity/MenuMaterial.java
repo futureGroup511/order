@@ -8,6 +8,7 @@
  */  
 package com.future.order.entity;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 @Entity
 @Table(name="tb_menumaterial")
 public class MenuMaterial {
@@ -32,7 +34,11 @@ public class MenuMaterial {
 	private String ingName;//配料名称	
 	@Column(length=10)
 	private double num;//需求量
+	@Column(length=5)
+	private String type;//(顾客只查原料)	
 	private Date stockDate;//进货时间（方便查询菜品的配料进货时间）
+	@Transient
+	private String introduce;//简介（临时属性，不存数据库）
 	/**
 	 * @return the id
 	 */
@@ -119,10 +125,23 @@ public class MenuMaterial {
 		this.stockDate = stockDate;
 	}
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}	
+	public String getIntroduce() {
+		return introduce;
+	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
 	@Override
 	public String toString() {
 		return "MenuMaterial [id=" + id + ", menuId=" + menuId + ", menuName=" + menuName + ", ingId=" + ingId
-				+ ", ingName=" + ingName + ", num=" + num + ", stockDate=" + stockDate + "]";
+				+ ", ingName=" + ingName + ", num=" + num + ", type=" + type + ", introduce=" + introduce
+				+ ", stockDate=" + stockDate + "]";
 	}
 	
 	

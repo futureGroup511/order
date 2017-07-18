@@ -25,12 +25,12 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
 				var result = xmlhttp.responseText;								
 				if(parseInt(result)==1){
-					show_notice('添加成功',2);
+					show_notice('添加成功',1);
 				}else if(parseInt(result)==0){
-					show_notice('配料不足',2);
+					show_notice('配料不足',1);
 				}
 				else{
-					show_notice('添加失败',2);
+					show_notice('添加失败',1);
 				}
 							
 			}
