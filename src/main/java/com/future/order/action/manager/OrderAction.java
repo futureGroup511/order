@@ -6,6 +6,7 @@ import com.future.order.entity.Stock;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -138,6 +139,7 @@ public class OrderAction extends BaseAction {
 		request.put("adss", "Inquiry");		
 		session.put("ask", ask);
 		session.put("inquiry", inquiry);
+		request.put("dateend", inquiry);
 		return "check";
 	}
 	public String count(){
@@ -176,12 +178,17 @@ public class OrderAction extends BaseAction {
 		}
 		if(sum!=0){
 		request.put("sum",sum);
-		request.put("sums","所查询的总收入(元):");
+		request.put("sums","的总收入(元):");
 	}else{
-		request.put("sums","所查询的这段时间的总收入为零");
+		request.put("sums","的总收入为零");
 	}
+		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
+		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
 		session.put("starttime", starttime);
 		session.put("endtime", endtime);
+		request.put("dateStr", dateStr);
+		request.put("dateend", dateend);
+		request.put("mark", "--");
 		request.put("sumprice", sumprice);
 		session.put("sign", sign);
 		request.put("adss", "count");

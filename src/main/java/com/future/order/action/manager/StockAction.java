@@ -1,5 +1,6 @@
 package com.future.order.action.manager;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -121,6 +122,7 @@ public class StockAction extends BaseAction {
 		request.put("adss", "Inquiry");		
 		session.put("inquiry", inquiry);
 		request.put("pc", pCut);
+		request.put("dateend", inquiry);
 		return "select";
 	}
 	public String count(){
@@ -145,10 +147,15 @@ public class StockAction extends BaseAction {
 		}
 		if(sum!=0){
 			request.put("stocksum",sum);
-			request.put("stocksums","所查询的总收入(元):");
+			request.put("stocksums","的总收入(元):");
 		}else{
-			request.put("stocksums","所查询的这段时间的总收入为零");
+			request.put("stocksums","的总收入为零");
 		}
+		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
+		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
+		request.put("dateStr", dateStr);
+		request.put("dateend", dateend);
+		request.put("mark", "--");
 		session.put("starttime", starttime);
 		session.put("endtime", endtime);
 		request.put("sumprice", sumprice);

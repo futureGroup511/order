@@ -32,7 +32,7 @@ window.onload=function(){
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 		<center>
 		<div style="font-weight: bold;">${managerMsg}</div>
-		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:40%; ">
+		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:0%; ">
 			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
 				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 					<option value="name">按名称查询</option>
