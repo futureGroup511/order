@@ -12,9 +12,9 @@
 		<div class="addingredient">
 			<form action="Ingredient_addIngredient" method="post">
 				<lable id="text"><span style="padding-right:49%">名</span>称：</lable>
-				<input type="text" style="margin-left:1%;" class="a1" name="ingredient.name"><br>
+				<input type="text" style="margin-left:1%;" class="a1" name="ingredient.name" required="required"><br>
 				<lable id="text">单价(元/kg)：</lable>
-				<input style="margin-left:5px;" type="text" class="a2" name="ingredient.price"><br>
+				<input style="margin-left:5px;" type="number" class="a2" name="ingredient.price" required="required" placeholder="请输入数字"><br>
 				<lable id="text"><span style="padding-right:49%">类</span>型：</lable>
 				<select name="ingredient.type" style="margin-left:1%;">
 					<option value="原料">原料</option>

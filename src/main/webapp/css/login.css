@@ -50,7 +50,7 @@
    font-size: 20px;
 }
 .logincenter .dz p:hover{
-	background: #f06060;
+/* 	background: #f06060; */
 /* 	color:#fff; */
 	cursor: pointer;
 }

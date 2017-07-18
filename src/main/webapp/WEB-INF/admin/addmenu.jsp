@@ -22,14 +22,14 @@ display:inline-block;
  <div class="addmenu">
  <h4>${addMsg}</h4>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
-     <lable><span style="padding-right:9%">菜</span>名：</lable><input type="text" name="menu.name"><br>
-     <lable><span style="padding-right:1%">类</span><span style="padding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
+     <lable><span style="padding-right:9%">菜</span>名：</lable><input type="text" name="menu.name" required="required"><br>
+     <lable><span style="padding-right:1%">类</span><span stylepadding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
      <select name="menu.typeName" class="select"> 
  			<c:forEach items="${Typelist}" var="item">  
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable><span style="padding-right:9%">价</span>格：</lable><input style="width:205px;" type="text" name="menu.price"><br>
+     <lable><span style="padding-right:9%">价</span>格：</lable><input type="number" style=" name="menu.price" required="required"><br>
      <lable>是否可以做：</lable>
      <select name="menu.exist" class="select">
       <option value="1">可做</option>
@@ -41,7 +41,6 @@ display:inline-block;
      </div>
       <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
      <input type="file" name="file" class="file" accept="image/*" value="选择图片">
-       <div class="move-font">
         <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
     </div>
       <div class="button">

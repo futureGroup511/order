@@ -15,11 +15,11 @@
             <label>餐<span style="margin-right: 10px;">桌</span> id:</label>
               <input type="text" name="table.id" value="${updateTables.id}" readonly="readonly"><br>
             <label>餐桌名称:</label>
-              <input type="text" name="table.name" value="${updateTables.name}"><br>
+              <input type="text" name="table.name" value="${updateTables.name}" required="required"><br>
             <label>餐桌状态：</label>
 	        <select name="table.status">
-	            <option value="1" <c:if test='${updateTables.status eq "1"}'> selected="selected"</c:if>>使用中</option>
-	            <option value="0" <c:if test='${updateTables.status eq "0"}'> selected="selected"</c:if>>空闲</option>
+	            <option value="有人" <c:if test='${updateTables.status eq "有人"}'> selected="selected"</c:if>>有人</option>
+	            <option value="无人" <c:if test='${updateTables.status eq "无人"}'> selected="selected"</c:if>>无人</option>
 	        </select><br>
               <button style="background-color: #1BAFE0" type="submit">确认修改</button>
         </form>

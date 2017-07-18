@@ -38,7 +38,12 @@ public interface IOrderService {
 	
 	public Order getOrder1(int tableId);
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
-	public List<Order> getSomenews();
+//	public List<Order> getSomenews();
 	public boolean updetemenu(int id, int idd, String UserName);
 	public boolean upd(int id);
+//	public PageCut<Order> getGain(int currentPage, int pageSize, Date starttime, Date endtime);
+//	public PageCut<Order> getNoGain(int currentPage, int pageSize, Date starttime, Date endtime);
+	public PageCut<Order> getPagegain(int currentPage, int pageSize, Date starttime, Date endtime, String sign);
+	public List<Order> getGain(Date starttime, Date endtime, String sign);
+	public List<Order> getPrice(String ask, String inquiry);
 }

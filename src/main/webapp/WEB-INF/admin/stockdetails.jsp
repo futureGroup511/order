@@ -30,7 +30,7 @@ window.onload=function(){
 		<option value="price">单价</option>
 		<option value="num">数量</option>
 	</select>
-		<input  class="text" type="text" name="inquiry">
+		<input  class="text" type="text" name="inquiry" required="required">
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>

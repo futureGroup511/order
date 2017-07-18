@@ -1,5 +1,6 @@
 package com.future.order.action.manager;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -88,36 +89,72 @@ public class StockAction extends BaseAction {
 		return this.execute();
 	}
 	public String Inquiry(){
+		double sumprice=0;
+		double sum=0;
 		PageCut<Stock> pCut = new PageCut<Stock>();
+		List<Stock> list = new ArrayList<>();
 		if(inquiry!=null){
 			pCut = stockService.getSomePageCut(page, 6,inquiry);
+			list=stockService.getTotal(inquiry);
 			}else{
 				inquiry=(String) session.get("inquiry");
 				pCut = stockService.getSomePageCut(page, 6,inquiry);
+				list=stockService.getTotal(inquiry);
 			}
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
+		for(int i=0;i<pCut.getData().size();i++){
+			sumprice+=pCut.getData().get(i).getTotal();
+		}
+		for(int i=0;i<list.size();i++){
+			sum+=list.get(i).getTotal();
+		}
+		if(sum!=0){
+			request.put("stocksum",sum);
+			request.put("stocksums","所查询的总收入(元):");
+		}else{
+			request.put("stocksums","所查询的这段时间的总收入为零");
+		}
+		request.put("sumprice", sumprice);
 		request.put("adss", "Inquiry");		
 		session.put("inquiry", inquiry);
 		request.put("pc", pCut);
 		return "select";
 	}
 	public String count(){
-		List<Stock> stocklist =stockService.getSomestock();
-		double stocksum=0;
-		for(int i=0;i<stocklist.size();i++){
-			int sign=stocklist.get(i).getCreateDate().compareTo(endtime);
-		int mark=stocklist.get(i).getCreateDate().compareTo(starttime);
-		System.out.println(mark);
-			if(sign==-1&&mark==1){
-				stocksum+=stocklist.get(i).getTotal();
-			}
+		double sumprice=0;
+		double sum=0;
+		List<Stock> list = new ArrayList<>();
+		if(starttime==null||endtime==null||starttime==null&&endtime==null){
+			starttime=(Date) session.get("starttime");
+			endtime=(Date) session.get("endtime");
 		}
-		request.put("stocksum",stocksum);
-		request.put("stocksums","所查询的时间总支出为(元):");
-		return execute();	
+		PageCut<Stock> pCut = stockService.getSomePageCut(page, 6,starttime,endtime);
+		list = stockService.getPrice(starttime,endtime);
+		if (pCut.getData().size() == 0) {
+			String mark = "没有进货信息";
+			request.put("stocknews", mark);
+		}
+		for(int i=0;i<pCut.getData().size();i++){
+			sumprice+=pCut.getData().get(i).getTotal();
+		}
+		for(int i=0;i<list.size();i++){
+			sum+=list.get(i).getTotal();
+		}
+		if(sum!=0){
+			request.put("stocksum",sum);
+			request.put("stocksums","所查询的总收入(元):");
+		}else{
+			request.put("stocksums","所查询的这段时间的总收入为零");
+		}
+		session.put("starttime", starttime);
+		session.put("endtime", endtime);
+		request.put("sumprice", sumprice);
+		request.put("adss", "count");
+		request.put("pc", pCut);
+		return "select";	
 	}	
 	
 	public Stock getStock() {

@@ -24,7 +24,7 @@
 <div style="margin-top: 1%;font-weight: bold;">${mark}</div>
 <div style="margin-left:50%;MARGIN-TOP:2%;">
 	<form action="${rootPath}manage/MenuTypeAction_Inquiry" method="post">
-		<input class="input" type="text" name="inquiry">
+		<input class="input" type="text" name="inquiry" required="required">
 		<button class="selectBtn">名称查询</button>	
 	</form>
 </div>
