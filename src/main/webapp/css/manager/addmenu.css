@@ -31,11 +31,11 @@ input{
 .a3{margin-left:3.5%;
     width:30%;}
 .select{
-   height: 29px;
-   width:31%;
+   height: 27px;
+   width:203px;
    border: 1px solid #666;
    border-radius:3px;  
-   margin-left:0%;
+   margin-left:2px;
 }
  #textarea{
   float: left;

@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenu.css">
 <style type="text/css">
 .file {
-margin-left:0%;
+margin-left:1%;
 border: 1px solid #99D3F5;
 }
 .txt{
@@ -36,7 +36,7 @@ display:inline-block;
        <option value="0">暂缺</option>
      </select><br>
      <label><span style="padding-right:9%">简</span>介：</label>
-     <div style="margin-left:16%;margin-top:-5%;">
+     <div style="margin-left:17%;margin-top:-5%;">
      	<textarea rows="5" cols="50" name="menu.introduce"></textarea>
      </div>
       <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
