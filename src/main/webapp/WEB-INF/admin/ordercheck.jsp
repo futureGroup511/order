@@ -18,6 +18,8 @@ window.onload=function(){
  if(a==0){
 	 document.getElementById('div1').style.display='none';
 	 document.getElementById('div2').style.display='none';
+	 document.getElementById('div3').style.display='none';
+	 document.getElementById('div4').style.display='none';
  }
   }
 
@@ -116,9 +118,10 @@ function CheckPay(){
         	</c:forEach>                         
          </tbody>
      </table>
-     <center>
-         本页面订单的总收入为(元)：${sumprice}<br>
-            ${sums} ${sum}
+     
+ <center>
+      <div style="margin-top:1%;font-weight: bold;" id="div4">本页面订单的总收入为(元)：${sumprice}</div>  <br>
+      <div style="margin-top:0%;font-weight: bold;" id="div3">${dateStr}${mark}${dateend}${sums}${sum}</div>
      </center>
     </div>
  </div>

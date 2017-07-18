@@ -19,6 +19,8 @@ window.onload=function(){
  if(a==0){
 	 document.getElementById('div1').style.display='none';
 	 document.getElementById('div2').style.display='none';
+	 document.getElementById('div3').style.display='none';
+	 document.getElementById('div4').style.display='none';
  }
 }
 	</script>
@@ -78,8 +80,8 @@ window.onload=function(){
          </tbody>
      </table>
      <center>
-     本页面进货总支出为(元):${sumprice}<br>
-     ${stocksums}${stocksum}   
+      <div style="margin-top:1%;font-weight: bold;" id="div4"> 本页面进货总支出为(元):${sumprice}</div><br>
+      <div style="margin-top:1%;font-weight: bold;" id="div3"> ${dateStr}${mark}${dateend}${stocksums}${stocksum}</div>   
      </center>    
     </div>
     <div class="page" id="div2">

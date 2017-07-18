@@ -21,6 +21,7 @@
 			<tr>
 				<th>菜品名称</th>
 				<th>配料名称</th>
+				<th style="width:70px;">类型</th>
 				<th>用量(g)</th>
 				<th style="width: 160px;">操作</th>
 			</tr>
@@ -31,6 +32,7 @@
 					<tr>
 						<td>${menuMaterial.menuName}</td>
 						<td>${menuMaterial.ingName}</td>
+						<td>${menuMaterial.type}</td>
 						<td><input type="text" value="${menuMaterial.num}"name="menuMaterial.num" ></td>
 						<td>
 							<input class="tableBtn" type="submit" value="修改">
