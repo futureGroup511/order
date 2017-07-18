@@ -51,7 +51,7 @@ function CheckPay(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-${marknews}
+<span style="font-weight: bold;">${marknews}</span>
 </center>
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
@@ -125,8 +125,8 @@ ${marknews}
 <div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.prePage}&sign=${sign}">上一页</a></li>
-  				<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
- 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+  				<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }"
+ 					end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
  
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage}"> 

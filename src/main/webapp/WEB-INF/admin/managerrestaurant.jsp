@@ -49,7 +49,7 @@ table td{
              <th>名称</th>
              <th>电话</th>
              <th style="width:95px;">图片</th>
-             <th style="width:300px;">地址</th>
+             <th style="width:200px;">地址</th>
              <th style="width:300px;">简介</th>
              <th>操作</th>	
            </tr>

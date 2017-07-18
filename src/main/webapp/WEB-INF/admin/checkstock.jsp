@@ -31,7 +31,7 @@ window.onload=function(){
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 <body>
 <center>
-${stocknews }<br>
+<span style="font-weight: bold;">${stocknews }</span><br>
 	<div style="float:right;margin-right:55%;width:40%;height:30px; margin-top:0%; margin-bottom:-3%;">
 	<form action="${rootPath}manage/StockAction_count" method="post">
 		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender" style="border-radius:7px;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender" style="border-radius:7px;" required="required">

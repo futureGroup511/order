@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenu.css">
 <style type="text/css">
 .file {
-margin-left:-1%;
+margin-left:1%;
 border: 1px solid #99D3F5;
 }
 .txt{
@@ -29,21 +29,18 @@ display:inline-block;
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable><span style="padding-right:9%">价</span>格：</lable><input style="width:205px;" type="number" name="menu.price" required="required"><br>
+     <lable><span style="padding-right:9%">价</span>格：</lable><input type="number" style=" name="menu.price" required="required"><br>
      <lable>是否可以做：</lable>
      <select name="menu.exist" class="select">
       <option value="1">可做</option>
        <option value="0">暂缺</option>
      </select><br>
      <label><span style="padding-right:9%">简</span>介：</label>
-     <div style="margin-left:16%;margin-top:-5%;">
+     <div style="margin-left:17%;margin-top:-5%;">
      	<textarea rows="5" cols="50" name="menu.introduce"></textarea>
      </div>
       <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
      <input type="file" name="file" class="file" accept="image/*" value="选择图片">
-<!--      <label>示例图片：</label> -->
-<!--      <input type="file" name="file" accept="image/*" value="选择图片" style="border:none; outline:none;margin-left:2.5%"> -->
-<!--        <div class="move-font"> -->
         <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
     </div>
       <div class="button">

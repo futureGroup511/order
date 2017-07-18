@@ -29,7 +29,7 @@
         <lable id="text">备注:</lable><input name="orders.remark" value="${order.remark}" type="text">
     
     <div class="button">
-      <input type="submit" value="修改">        
+      <input style="font-size: 15px;width:100px;height:30px;" type="submit" value="修改">        
     </div>
     </form>      
   </div>  

@@ -21,6 +21,12 @@ window.onload=function(){
  	}
   }
  </script> 
+ <style type="text/css">
+ lable{
+ 	font-weight: bold;
+ 	font-size: 20px;
+ }
+ </style>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 	<div style="margin-top:1%;">
@@ -35,7 +41,7 @@ window.onload=function(){
  	           	<option value="${ingredient.name}">${ingredient.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable>用量(g):</lable>
+     <lable> <span style="margin-right:2%;">用</span>量(g):</lable>
  		<input type="number" name="menuMaterial.num"  class="input1" required="required" placeholder="请输入数字"><br>
       <div class="button">
         <input type="submit" value="提交" class="bt2" style="background-color: #1BAFE0;border-radius: 5px;">          

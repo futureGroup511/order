@@ -149,7 +149,7 @@ window.onload = function() {
 	                <td>${item.remark}</td>
 	                
 	                 <td><c:if test="${item.status eq '已付款'}">已完成</c:if>
-	                 <c:if test="${item.status eq '未处理'}"><a href="${rootPath}cook/orderCenter_DoOrder?OrderId=${item.id}&tableId=${item.tableId}">处理订单</a></c:if>
+	                 <c:if test="${item.status eq '未处理'}"><a href="${rootPath}cook/orderCenter_DoOrder?Orderid=${item.id}&tableId=${item.tableId}">处理订单</a></c:if>
 	                 <c:if test="${item.status eq '处理中'}">处理中</c:if>
 	                  <c:if test="${item.status eq '未付款'}">未付款</c:if>
 	                 </td>
@@ -160,7 +160,7 @@ window.onload = function() {
     </table>
          <div class="pag">
          <ul class="pagination">
-                   <li><a href="?page=${paCut.prePage}">上一页</a></li>
+                   <li><a href="?page=${paCut.prePage}&Orderid=${paCut.data[0].id}">上一页</a></li>
  						<c:forEach var="i" 
 							begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
  							end="${paCut.currentPage+3>paCut.pageNum?paCut.pageNum:paCut.currentPage+3  }"> 

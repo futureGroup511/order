@@ -8,6 +8,9 @@ body{width: 100%;}
 form{
       width:60%;
 	  margin:0 auto;}
+lable{
+	font-size: 18px;
+}
 .updateorder{ 
     font-weight:bold; 
     margin-top:5%; 

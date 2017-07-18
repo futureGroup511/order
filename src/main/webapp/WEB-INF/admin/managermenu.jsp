@@ -71,8 +71,8 @@ window.onload=function(){
    <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath }manage/MenuManager_${adss}?page=${allMenu.prePage}">上一页</a></li>
-     			<c:forEach var="i" begin="${allIngredient.currentPage-1>0?allIngredient.currentPage-1:1 }"
- 					end="${allIngredient.currentPage+1>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+1  }">
+     			<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
+ 					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }">
 
  					<c:choose> 
 						<c:when test="${i>0 && i == allMenu.currentPage}">
