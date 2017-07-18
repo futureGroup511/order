@@ -23,7 +23,7 @@ display:inline-block;
  <h4>${addMsg}</h4>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
      <lable><span style="padding-right:9%">菜</span>名：</lable><input type="text" name="menu.name" required="required"><br>
-     <lable><span style="padding-right:1%">类</span><span style="padding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
+     <lable><span style="padding-right:1%">类</span><span stylepadding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
      <select name="menu.typeName" class="select"> 
  			<c:forEach items="${Typelist}" var="item">  
  	           	<option value="${item.name}">${item.name}</option> 

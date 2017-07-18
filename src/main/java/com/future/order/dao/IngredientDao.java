@@ -102,7 +102,7 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	@Override
 	public List<Ingredient> getByIdAll(int id) {
 		List<Ingredient> list = new ArrayList<Ingredient>();
-		String hql="from Ingredient s where s.id="+id+" and (s.type='原料')";
+		String hql="from Ingredient s where s.id="+id;
 		list=this.getEntityList(hql);
 		return list;
 	}

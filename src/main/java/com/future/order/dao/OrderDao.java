@@ -271,23 +271,6 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		pc.setData(this.getEntityLimitList("from Order where "+ask+"='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
-//	@Override
-//	public List<Order> getSomenews() {
-//		String sql="select * from tb_order where createDate>='2017-03-01 00:00:00' and createDate<'2017-08-02 00:00:00'";
-//		return getEntityLimitList(sql);
-//	}
-//	@Override
-//	public PageCut<Order> getGain(int currentPage, int pageSize, Date starttime, Date endtime) {
-//		String hql ;
-//		int count=0;
-//		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
-//		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
-//		
-//		count = ((Long) this.uniqueResult(hql)).intValue();
-//		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-//		pc.setData(this.getEntityLimitList(, (currentPage-1)*pageSize, pageSize));
-//		return pc;
-//	}
 	@Override
 	public PageCut<Order> getPagegain(int currentPage, int pageSize, Date starttime, Date endtime,String sign) {
 		String status=null;
