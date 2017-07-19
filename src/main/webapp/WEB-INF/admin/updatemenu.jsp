@@ -48,7 +48,7 @@ textarea{
           <option value="${item.name}">${item.name}</option>
           </c:forEach>
           </select><br>
-          <lable id="text">价格：</lable><input type="number" name="menu.price" value="${updateMenu.price}" required="required">
+          <lable id="text">价格：</lable><input type="text" name="menu.price" value="${updateMenu.price}" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">
           <lable id="text">是否可以做：</lable>
 			<select name="menu.exist">
 			<option value="1" <c:if test="${updateMenu.exist eq '1'}">selected = selected</c:if>>可做</option>
