@@ -110,7 +110,7 @@
 	      	  </a>
             <div class="left indu">
             	<div class="name">
-            		<b>${m.name}</b>
+            		<b> <a href="${rootPath}customer/customer_getMenuMaterial?id=${m.id}">${m.name}</a></b>
             	</div>
             	<div class="indu2">
             		${m.introduce}

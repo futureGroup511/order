@@ -15,7 +15,7 @@
           <lable id="text">进货编号：</lable><input name="details.stockId" value="${stockDetails.stockId}" type="text" ><br>
           <lable id="text">配料编号：</lable><input type="text" name="details.ingId" value="${stockDetails.ingId}" ><br>
           <lable id="text">配料名称：</lable><input type="text" name="details.ingName" value="${stockDetails.ingName}"><br>
-          <lable id="text">单价（元）：</lable><input type="number" name="details.price" value="${stockDetails.price}" ><br>
+          <lable id="text">单价（元）：</lable><input type="text" name="details.price" value="${stockDetails.price}" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
           <lable id="text">数量：</lable><input type="number" name="details.num" value="${stockDetails.num}"><br>
           <lable id="text">进货时间：</lable><input type="text" name="details.createDate" value="${stockDetails.createDate}" class="sang_Calender"><br>
           	<script type="text/javascript" src="${rootPath}/js/datetime.js"></script>

@@ -27,7 +27,8 @@
 		<div style="margin-left: 35%;font-weight: bold;">${addrest}</div>
 		<form action="${rootPath}manage/Restaurant_AddRestaurant" method="post" enctype="multipart/form-data">
 			<label>店名：</label><input type="text" name="restaurant.name" required="required"><br>
-			<label>电话：</label><input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="12" name="restaurant.phone" required="required" placeholder="请输入手机号" ><br>
+			<label>电话：</label><input type="text" name="restaurant.phone" required="required" placeholder="请输入手机号" maxlength="12">
+<br>
 			<label>地址：</label><input type="text" name="restaurant.address" required="required" placeholder="请输入详细地址"><br>
 			<labe><span class="txt" style="padding-top:22px;display:block">简介: </span></label>
 <!-- 			<div style="margin-left:200px;margin-top:-5%;"> -->
