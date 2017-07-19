@@ -2047,3 +2047,939 @@ java.lang.NullPointerException
 [INFO] [2017-07-18 17:25:07][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
 [INFO] [2017-07-18 17:25:07][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
 [INFO] [2017-07-18 17:25:07][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-18 21:56:22][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-18 21:56:22][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Tue Jul 18 21:56:22 CST 2017]; root of context hierarchy
+[INFO] [2017-07-18 21:56:22][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-18 21:56:23][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-18 21:56:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-18 21:56:23][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-18 21:56:23][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-18 21:56:23][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-18 21:56:23][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-18 21:56:24][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-18 21:56:24][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-18 21:56:24][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-18 21:56:24][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, ingname]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 21:56:25][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-18 21:56:26][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@7a1dd2ff] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-18 21:56:26][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4068 ms
+[INFO] [2017-07-18 21:56:26][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-18 21:56:27][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-18 21:56:27][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-18 21:56:27][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-18 21:56:27][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-18 22:00:30][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-18 22:00:30][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Tue Jul 18 22:00:30 CST 2017]; root of context hierarchy
+[INFO] [2017-07-18 22:00:30][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-18 22:00:31][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-18 22:00:31][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-18 22:00:32][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-18 22:00:32][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-18 22:00:32][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-18 22:00:32][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-18 22:00:33][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-18 22:00:33][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-18 22:00:33][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-18 22:00:33][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, type, ingname]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:00:34][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-18 22:00:34][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@685b6454] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-18 22:00:34][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4404 ms
+[INFO] [2017-07-18 22:00:35][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-18 22:00:35][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-18 22:00:35][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-18 22:00:35][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-18 22:00:35][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-18 22:13:10][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-18 22:13:10][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Tue Jul 18 22:13:10 CST 2017]; root of context hierarchy
+[INFO] [2017-07-18 22:13:10][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-18 22:13:11][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-18 22:13:11][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-18 22:13:12][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-18 22:13:12][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-18 22:13:12][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-18 22:13:12][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-18 22:13:13][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-18 22:13:13][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-18 22:13:13][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-18 22:13:13][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, type, ingname]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:13:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-18 22:13:14][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@17c48c23] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-18 22:13:14][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4815 ms
+[INFO] [2017-07-18 22:13:15][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-18 22:13:15][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-18 22:13:15][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-18 22:13:15][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-18 22:13:15][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-18 22:24:38][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-18 22:24:39][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Tue Jul 18 22:24:39 CST 2017]; root of context hierarchy
+[INFO] [2017-07-18 22:24:39][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-18 22:24:39][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-18 22:24:39][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-18 22:24:40][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-18 22:24:40][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-18 22:24:40][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-18 22:24:40][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-18 22:24:41][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-18 22:24:41][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-18 22:24:41][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-18 22:24:41][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, type, ingname]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:24:42][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-18 22:24:42][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@6bed9dd6] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-18 22:24:42][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 3967 ms
+[INFO] [2017-07-18 22:24:43][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-18 22:24:43][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-18 22:24:43][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-18 22:24:43][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-18 22:24:44][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-18 22:24:44][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-18 22:24:44][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-18 22:29:20][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-18 22:29:20][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Tue Jul 18 22:29:20 CST 2017]; root of context hierarchy
+[INFO] [2017-07-18 22:29:20][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-18 22:29:21][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-18 22:29:21][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-18 22:29:22][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-18 22:29:22][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-18 22:29:22][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-18 22:29:22][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-18 22:29:23][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-18 22:29:23][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-18 22:29:23][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-18 22:29:23][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, type, ingname]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:29:24][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-18 22:29:24][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@1565205f] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-18 22:29:24][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 3904 ms
+[INFO] [2017-07-18 22:29:25][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-18 22:29:25][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-18 22:29:25][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-18 22:29:25][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-18 22:29:25][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-18 22:39:50][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-18 22:39:50][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Tue Jul 18 22:39:50 CST 2017]; root of context hierarchy
+[INFO] [2017-07-18 22:39:50][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-18 22:39:51][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-18 22:39:51][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-18 22:39:52][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-18 22:39:52][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-18 22:39:52][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-18 22:39:52][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-18 22:39:53][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-18 22:39:53][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-18 22:39:53][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-18 22:39:53][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, type, ingname]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-18 22:39:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-18 22:39:54][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@3715345b] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-18 22:39:54][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4146 ms
+[INFO] [2017-07-18 22:39:55][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-18 22:39:55][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-18 22:39:55][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-18 22:39:55][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-18 22:39:55][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-19 08:09:07][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-19 08:09:07][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Wed Jul 19 08:09:07 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 08:09:07][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-19 08:09:08][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-19 08:09:08][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 08:09:08][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-19 08:09:08][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-19 08:09:08][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 08:09:08][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 08:09:09][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 08:09:09][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-19 08:09:09][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 08:09:09][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, type, ingname]
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:09][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:09:10][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 08:09:10][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@4641e2fa] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-19 08:09:10][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 3075 ms
+[INFO] [2017-07-19 08:09:10][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-19 08:09:11][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-19 08:09:11][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-19 08:09:11][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-19 08:09:11][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
+[INFO] [2017-07-19 08:17:24][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-19 08:17:24][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Wed Jul 19 08:17:24 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 08:17:25][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-19 08:17:25][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-19 08:17:25][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 08:17:26][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+[INFO] [2017-07-19 08:17:26][org.hibernate.Version]HHH000412: Hibernate Core {4.2.4.Final}
+[INFO] [2017-07-19 08:17:26][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 08:17:26][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 08:17:27][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 08:17:27][org.hibernate.engine.jdbc.internal.LobCreatorBuilder]HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+[INFO] [2017-07-19 08:17:27][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 08:17:27][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_inform
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [createdate, tableid, id, tablename, content]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_ingredient
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [introduce, price, num, name, createdate, remark, id, source, type]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menu
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [exist, imgurl, introduce, price, num, name, createdate, remark, typeid, id, typename]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menumaterial
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menuname, ingid, num, stockdate, menuid, id, type, ingname]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_menutype
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, name, remark, id]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_order
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [total, cookid, createdate, tableid, cookname, remark, id, tablename, status]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_orderdetails
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [menunum, cookid, menuname, orderid, remark, imgurl, price, menuid, tableid, cookname, id, tablename, creatdate, status]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_restaurant
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, address, phone, introduce, name, id]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_shopcart
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [imgurl, menunum, menuname, price, menuid, tableid, remark, id, tablename]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stock
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [site, total, createdate, remark, id]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_stockdetails
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [ingid, price, num, stockid, createdate, origins, id, place, ingname]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_tables
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [name, remark, id, status]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: orderdb.tb_user
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [password, phone, name, createdate, remark, id, sort]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 08:17:28][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 08:17:28][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@311ff89f] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-19 08:17:29][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 4345 ms
+[INFO] [2017-07-19 08:17:29][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-default.xml]
+[INFO] [2017-07-19 08:17:30][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts-plugin.xml]
+[INFO] [2017-07-19 08:17:30][com.opensymphony.xwork2.config.providers.XmlConfigurationProvider]Parsing configuration file [struts.xml]
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (spring) for (com.opensymphony.xwork2.ObjectFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ActionFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ResultFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ConverterFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.InterceptorFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.ValidatorFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.factory.UnknownHandlerFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.FileManagerFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.XWorkConverter)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.CollectionConverter)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.ArrayConverter)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.DateConverter)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.NumberConverter)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.impl.StringConverter)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionPropertiesProcessor)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionFileProcessor)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ConversionAnnotationProcessor)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterCreator)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.TypeConverterHolder)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.TextProvider)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.LocaleProvider)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.ActionProxyFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.conversion.ObjectTypeDeterminer)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.mapper.ActionMapper)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (jakarta) for (org.apache.struts2.dispatcher.multipart.MultiPartRequest)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.freemarker.FreemarkerManager)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.components.UrlRenderer)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.validator.ActionValidatorManager)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.ValueStackFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionProvider)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.reflection.ReflectionContextFactory)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.PatternMatcher)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.util.ContentTypeMatcher)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.StaticContentLoader)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.UnknownHandlerManager)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.views.util.UrlHelper)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.util.TextParser)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (org.apache.struts2.dispatcher.DispatcherErrorHandler)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.ExcludedPatternsChecker)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.config.AbstractBeanSelectionProvider]Choosing bean (struts) for (com.opensymphony.xwork2.security.AcceptedPatternsChecker)
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.spring.StrutsSpringObjectFactory]Initializing Struts-Spring integration...
+[INFO] [2017-07-19 08:17:30][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
+[INFO] [2017-07-19 08:17:30][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully

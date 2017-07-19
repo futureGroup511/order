@@ -10,8 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.future.order.entity.User;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet Filter implementation class AllFilter
