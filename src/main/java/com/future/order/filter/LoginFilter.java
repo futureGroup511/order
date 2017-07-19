@@ -53,23 +53,11 @@ public class LoginFilter implements Filter {
 		User user = (User) hRequest.getSession().getAttribute("user");// 获得登陆用户
 		String path = hRequest.getRequestURI();
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
-		String noPath =  Config.getInitParameter("noPath");		//获得不过滤的url
-		if(noPath!=null){
-			String []str = noPath.split(";");
-			for (int i = 0; i < str.length; i++) {
-				if(str[i]==null||str[i]==""){
-					continue;
-				}
-				if(hRequest.getRequestURI().indexOf(str[i])!=-1){
-					chain.doFilter(request, response);
-					return;						//若此时页面为不过滤页面则过滤器放行，不执行下面代码
-				}
-			}
-		}
-		if (user != null || path.equals("/order/index.jsp")) {
+		if (user != null) {
 			chain.doFilter(request, response);
 			return;
 		} else {
+			System.out.println("-----");
 			response.getWriter()
 					.println("<script language=\"javascript\">" + "if(window.opener==null){window.top.location.href=\""
 							+ returnUrl + "\";}else{window.opener.top.location.href=\"" + returnUrl

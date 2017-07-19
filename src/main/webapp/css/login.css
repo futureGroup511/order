@@ -13,6 +13,7 @@
 	height:700px;
 /* 	height:100%; */
 	background:url(../images/bg.jpg) no-repeat 0px 0px;
+	
 	text-align:center;
 	border:1px solid #000;
 }
@@ -20,15 +21,17 @@
 	display:inline-block;
 	line-height:40px;
 	font-size:28px;
-	color: #F5E7CA;
+/* 	color: #F5E7CA; */
 	letter-spacing:20px;
 	margin-top: 40px;
 }
 .logincenter{
 	width: 400px;
 	box-shadow: 2px 2px 4px #F5E7CA;
-	margin: 0 auto;
-	background: #fff;
+/* 	margin: 0 auto; */
+	margin-top:10%;
+	margin-left:50%;
+/* 	background: #fff; */
 	z-index: 100;
 	position: relative;
 	top: 120px;
@@ -48,7 +51,7 @@
 }
 .logincenter .dz p:hover{
 	background: #f06060;
-	color:#fff;
+/* 	color:#fff; */
 	cursor: pointer;
 }
 .zlogin{

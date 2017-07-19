@@ -12,7 +12,7 @@
 
 	<div class="wall">
         <form action="${rootPath}manage/TableManager_updateTable" method="post">
-            <label>餐桌 &nbsp;id:</label>
+            <label>餐<span style="margin-right: 10px;">桌</span> id:</label>
               <input type="text" name="table.id" value="${updateTables.id}" readonly="readonly"><br>
             <label>餐桌名称:</label>
               <input type="text" name="table.name" value="${updateTables.name}"><br>

@@ -34,8 +34,8 @@
 </head>
 <body>
 <div class="page-404">
-      <p class="text-1">超时了</p>
-     <p class="text-2">请重新扫二维码</p>
+      <p class="text-1">登录已失效</p>
+     <p class="text-2">请重新扫二维码登录</p>
   <!--    font-size:1.5em; -->
      <pre style="color:black;font-weight:900;font-family:'黑体'">
 
@@ -48,7 +48,7 @@
         `;_:    `"'
       .'"""""`.
      /,  ya ,\\
-    //  超时了!  \\
+    // 登录失效!\\
     `-._______.-'
     ___`. | .'___
    (______|______)

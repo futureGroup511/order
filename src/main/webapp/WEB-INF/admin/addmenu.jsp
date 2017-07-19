@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenu.css">
 <style type="text/css">
 .file {
-margin-left:-1%;
+margin-left:0%;
 border: 1px solid #99D3F5;
 }
 .txt{

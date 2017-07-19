@@ -13,7 +13,7 @@
 	<div style="margin-top:1%;">
 		<div style="margin-left: 44%;margin-top:1%;font-size: 15px;">${materialMsg}</div>
 		<div style="margin-left:43%;margin-top:0%;">
-			<input class="btn"  type="button" onclick="window.location='${rootPath}manage/MenuMaterial_addMenuMaterial?menuId=${menu.id}';" value="添加新配料">
+			<button class="btn" onclick="window.location='${rootPath}manage/MenuMaterial_addMenuMaterial?menuId=${menu.id}';">添加新配料</button>
 		</div>
 	</div>
 	<div class="wall">
