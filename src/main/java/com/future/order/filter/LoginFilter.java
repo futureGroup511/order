@@ -54,17 +54,6 @@ public class LoginFilter implements Filter {
 		HttpServletRequest hRequest = (HttpServletRequest) request;
 		User user = (User) hRequest.getSession().getAttribute("user");// 获得登陆用户
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
-<<<<<<< HEAD
-		
-=======
-		if(hRequest.getSession(false)==null){
-			response.getWriter()
-			.println("<script language=\"javascript\">" +"alert(\"登录超时！请重新登录\");"+ "if(window.opener==null){window.top.location.href=\""
-					+ returnUrl + "\";}else{window.opener.top.location.href=\"" + returnUrl
-					+ "\";window.close();}</script>");
-			return;	
-		}
->>>>>>> 1f9781edc1d5fdafe6782bd9288b13e573c05326
 		if (user != null) {
 			chain.doFilter(request, response);
 			return;
