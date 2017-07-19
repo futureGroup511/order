@@ -16,7 +16,6 @@ import com.future.order.entity.MenuMaterial;
 public interface IMenuMaterialService {
 
 	public List<MenuMaterial> getAll();//金高用
-
 	public MenuMaterial get(int id);
 
 	//张金高加

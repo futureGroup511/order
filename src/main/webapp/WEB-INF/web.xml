@@ -33,10 +33,6 @@
   <filter>
     <filter-name>loginFilter</filter-name>
     <filter-class>com.future.order.filter.LoginFilter</filter-class>
-    <init-param>
-      <param-name>noPath</param-name>
-      <param-value>css;images;fonts;uploadImg;loginAction;error</param-value>
-    </init-param>
   </filter>
   <filter-mapping>
     <filter-name>loginFilter</filter-name>

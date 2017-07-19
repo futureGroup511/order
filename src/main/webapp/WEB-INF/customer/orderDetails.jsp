@@ -82,11 +82,13 @@
 <c:if test="${!empty orderDetails }">
 <c:forEach items="${orderDetails}" var="o">
  <div class="ding">
+ <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}">
     <div class="left photo">
     	<img src="${rootPath}uploadImg/${o.imgUrl}" alt="" width="100px" height="90px">
     </div>
+ </a>
     <div class="right infors">
-       <p><b>${o.menuName}</b></p>
+       <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}"><p style="color:#000"><b>${o.menuName}</b></p></a>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}</p>       
        <p class="left">状态：</p><p class="green">${o.status}</p>

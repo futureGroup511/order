@@ -24,6 +24,7 @@ public class CustomerAction extends BaseAction {
 	
 	private int id;
 	private int ingId;	
+	private int menuId;
 	//进入首页
 	public String toIndex() throws Exception{
 		//把顾客桌号存在session
@@ -56,7 +57,9 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得菜品详情和菜品原料
 	public String getMenuMaterial() throws Exception {		
+		
 		Menu menu =menuService.get(id);
+		System.out.println(menu);
 		request.put("menu", menu);
 		System.out.println("menuid"+id);
 		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuIdTwo(id); 

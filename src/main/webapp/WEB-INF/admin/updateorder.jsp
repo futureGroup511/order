@@ -21,7 +21,7 @@
             <option value="已处理"  <c:if test='${order.status eq "已处理"}'>selected="selected"</c:if>>已处理</option>
             <option value="已付款"  <c:if test='${order.status eq "已付款"}'>selected="selected"</c:if>>已付款</option>
         </select><br>
-        <lable id="text">总价:</lable><input name="orders.total" value="${order.total}" type="number">
+        <lable id="text">总价:</lable><input name="orders.total" value="${order.total}" type="text" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">
         <lable id="text">订单时间:</lable><input name="orders.createDate" value="${order.createDate}" type="text" readonly="readonly" class="sang_Calender">
         	<script type="text/javascript" src="../js/datetime.js"></script><br>
         <lable id="text">厨师id:</lable><input name="orders.cookId" value="${order.cookId}" type="text" readonly="readonly">
