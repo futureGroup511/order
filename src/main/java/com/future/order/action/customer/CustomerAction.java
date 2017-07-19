@@ -24,6 +24,7 @@ public class CustomerAction extends BaseAction {
 	
 	private int id;
 	private int ingId;	
+	private int menuId;
 	//进入首页
 	public String toIndex() throws Exception{
 		//把顾客桌号存在session
@@ -56,17 +57,23 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得菜品详情和菜品原料
 	public String getMenuMaterial() throws Exception {		
+		
 		Menu menu =menuService.get(id);
+		System.out.println(menu);
 		request.put("menu", menu);
+		System.out.println("menuid"+id);
 		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuIdTwo(id); 
+		System.out.println("menuMaterial-----1"+menuMaterial);
 		for(MenuMaterial item:menuMaterial){
 			int ingId=item.getIngId();
+			System.out.println("ingId"+ingId);
 			String introduce=ingerdientService.getById(ingId).getIntroduce();
+			System.out.println("introduce"+introduce);
 			item.setIntroduce(introduce);
 			
 		}
 		request.put("menuMaterial",menuMaterial);
-		System.out.println("---"+menuMaterial);
+		System.out.println("---2"+menuMaterial);
 		return "getMenuMaterial";
 	}
 	//获得进货时间列表

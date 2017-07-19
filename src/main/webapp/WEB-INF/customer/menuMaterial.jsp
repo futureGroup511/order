@@ -115,7 +115,7 @@
 				     		<c:forEach items="${menuMaterial}" var="m">
 							     <div class="date">
 										         <div class="sdate">
-															     	   	 <p class="left">配料名称：&nbsp;${m.menuName}</p>
+															     	   	 <p class="left">配料名称：&nbsp;${m.ingName}</p>
 												</div>
 										         <div class="nub">
 										                                  <p class="left"><b>用量:</b>&nbsp;&nbsp;${m.num}</p>

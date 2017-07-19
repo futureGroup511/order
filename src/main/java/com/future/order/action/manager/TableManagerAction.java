@@ -105,7 +105,7 @@ public class TableManagerAction extends BaseAction {
 		       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
-				fout.close();      
+				fout.close();
 				String mark="二维码生成成功,储存地址在D盘";
 				request.put("managerMsg", mark); 
 		 }

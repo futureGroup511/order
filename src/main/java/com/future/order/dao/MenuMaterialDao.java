@@ -89,7 +89,7 @@ public class MenuMaterialDao extends BaseDao<MenuMaterial> implements IMenuMater
 	}
 	@Override
 	public List<MenuMaterial> getByMenuIdTwo(int menuId) {
-		String hql="from MenuMaterial s where s.menuId="+menuId+" and (s.type='原料')";		
+		String hql="from MenuMaterial s where s.menuId="+menuId+" and s.type='原料' ";		
 		return this.getEntityList(hql);
 	}
 	@Override
