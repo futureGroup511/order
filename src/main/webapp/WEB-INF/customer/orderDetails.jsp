@@ -112,7 +112,6 @@
 </div>
 <input type="button" name="" value="催单"  class="cd" onclick="Reminder()" />
 ${addMeg}
-
 </c:if>
  <c:if test="${empty orderDetails }">
 	<center><h1>你还没有下订单</h1></center>
