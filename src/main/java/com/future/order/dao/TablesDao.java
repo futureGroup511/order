@@ -76,4 +76,10 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 		pc.setData(this.getEntityLimitList(selecthql, (curr-1)*pageSize, pageSize));
 		return pc;
 	}
+
+	@Override
+	public Tables getImurl(int id) {
+		String hql="from Tables where id='"+id+"'";
+		return (Tables) uniqueResult(hql);
+	}
 }

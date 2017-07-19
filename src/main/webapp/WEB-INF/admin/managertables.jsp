@@ -53,6 +53,7 @@ window.onload=function(){
             <th style="width: 90px;">餐桌名称</th>
             <th>状态</th>
             <th>操作</th>
+             <th>操作</th>
             <th>操作</th>
           </tr>
          </thead>
@@ -65,6 +66,7 @@ window.onload=function(){
 					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
 				</td>
 				<td><a href="${rootPath}manage/TableManager_SomeCard?name=${pageCut.name}&id=${pageCut.id}">生成二维码</a></td>
+				<td><a href="${rootPath}manage/TableManager_download?id=${pageCut.id}">下载</a></td>
 				<td>
 					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
 					<a href="${rootPath}manage/TableManager_deleteTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>
