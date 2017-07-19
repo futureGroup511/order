@@ -53,7 +53,7 @@ public class LoginFilter implements Filter {
 		User user = (User) hRequest.getSession().getAttribute("user");// 获得登陆用户
 		String path = hRequest.getRequestURI();
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
-		if(hRequest.getSession(false)!=null){
+		if(hRequest.getSession(false)==null){
 			response.getWriter()
 			.println("<script language=\"javascript\">" +"alert(\"登录超时！请重新登录\");"+ "if(window.opener==null){window.top.location.href=\""
 					+ returnUrl + "\";}else{window.opener.top.location.href=\"" + returnUrl
