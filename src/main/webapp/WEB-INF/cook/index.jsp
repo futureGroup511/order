@@ -15,7 +15,7 @@
 <body>
     <div class="header"><!-- 头部 -->
             <img src="${rootPath}images/top.jpg" style="width:100%;height:125px;">
-            <span>订餐管理系统</span> 
+            <span>餐饮管理系统</span> 
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->

@@ -113,7 +113,7 @@
      <c:forEach items="${shopCarts}" var="s">
        <div class="food">
           <div class="left photo">
-          	<img src="${rootPath}uploadImg/${s.imgUrl}" alt="" width="100px" height="100px">
+          	<img src="${rootPath}uploadImg/${s.imgUrl}" alt="" width="100px" height="90px">
           </div>
           <div class="left infors">
               <p><b>${s.menuName}</b></p>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenu.css">
 <style type="text/css">
 .file {
-margin-left:0%;
+margin-left:1%;
 border: 1px solid #99D3F5;
 }
 .txt{
@@ -22,26 +22,25 @@ display:inline-block;
  <div class="addmenu">
  <h4>${addMsg}</h4>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
-     <lable><span style="padding-right:9%">菜</span>名：</lable><input type="text" name="menu.name"><br>
-     <lable><span style="padding-right:1%">类</span><span style="padding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
+     <lable><span style="padding-right:9%">菜</span>名：</lable><input type="text" name="menu.name" required="required"><br>
+     <lable><span style="padding-right:1%">类</span><span stylepadding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
      <select name="menu.typeName" class="select"> 
  			<c:forEach items="${Typelist}" var="item">  
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable><span style="padding-right:9%">价</span>格：</lable><input style="width:205px;" type="text" name="menu.price"><br>
+     <lable><span style="padding-right:9%">价</span>格：</lable><input type="number" style=" name="menu.price" required="required"><br>
      <lable>是否可以做：</lable>
      <select name="menu.exist" class="select">
       <option value="1">可做</option>
        <option value="0">暂缺</option>
      </select><br>
      <label><span style="padding-right:9%">简</span>介：</label>
-     <div style="margin-left:16%;margin-top:-5%;">
+     <div style="margin-left:17%;margin-top:-5%;">
      	<textarea rows="5" cols="50" name="menu.introduce"></textarea>
      </div>
       <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
      <input type="file" name="file" class="file" accept="image/*" value="选择图片">
-       <div class="move-font">
         <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>
     </div>
       <div class="button">

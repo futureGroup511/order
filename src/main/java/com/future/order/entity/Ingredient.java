@@ -33,8 +33,6 @@ public class Ingredient {
 	@Column(length=5)
 	private String type;//类别(配料、原料) 配料是油盐酱醋等，原料是肉、青菜等，配料不在顾客查询的菜品详情显示，但原料要显示
 	@Column(length=255)
-	private String source;//溯源（二维码地址（待定））
-	@Column(length=255)
 	private String remark;//备注
 	/**
 	 * @return the id
@@ -118,18 +116,6 @@ public class Ingredient {
 	}
 	
 	/**
-	 * @return the source
-	 */
-	public String getSource() {
-		return source;
-	}
-	/**
-	 * @param source the source to set
-	 */
-	public void setSource(String source) {
-		this.source = source;
-	}
-	/**
 	 * @return the remark
 	 */
 	public String getRemark() {
@@ -144,7 +130,7 @@ public class Ingredient {
 	@Override
 	public String toString() {
 		return "Ingredient [id=" + id + ", name=" + name + ", introduce=" + introduce + ", price=" + price + ", num="
-				+ num + ", createDate=" + createDate + ", type=" + type + ", source=" + source + ", remark=" + remark
+				+ num + ", createDate=" + createDate + ", type=" + type + ",remark=" + remark
 				+ "]";
 	}
 	

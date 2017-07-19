@@ -21,8 +21,8 @@ public class Tables {
 	private int id;
 	@Column(length=10)
 	private String name;
-	@Column(length=1)
-	private String status;//是否有人（有人、空闲）
+	@Column(length=10)
+	private String status;//是否有人（有人、无人）
 	@Column(length=255)
 	private String remark;//备注（备用）
 	/**

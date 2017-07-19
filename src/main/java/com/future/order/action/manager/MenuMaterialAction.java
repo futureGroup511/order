@@ -31,6 +31,7 @@ public class MenuMaterialAction extends BaseAction {
 			for(int i=0;i<list.size();i++){
 				if(list.get(i).getName().equals(name)){
 					menuMaterial.setIngId(list.get(i).getId());
+					menuMaterial.setType(list.get(i).getType());
 				}
 			}
 			boolean boo = menuMaterialService.addMenuMaterial(menuMaterial);
@@ -46,7 +47,6 @@ public class MenuMaterialAction extends BaseAction {
 	}
 	
 	public String updateMenuMaterial(){
-		System.out.println("updateMenuMaterial");
 		List<MenuMaterial> list =  menuMaterialService.getByMenuId(menuId);
 		request.put("allMenuMaterial", list);
 		Menu menu = menuService.get(menuId);
@@ -68,7 +68,6 @@ public class MenuMaterialAction extends BaseAction {
 	}
 	
 	public String deleteMaterial(){
-		System.out.println("menu"+menuMaterial);
 		boolean boo = menuMaterialService.deleteMaterial(menuMaterial);
 		if(boo){
 			request.put("materialMsg", "操作成功");

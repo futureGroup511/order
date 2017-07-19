@@ -37,7 +37,7 @@ public class CartAction extends BaseAction {
 			request.put("shopCarts", shopCarts);
 			return "getCart";
 	}
-	// 生成订单详情
+	// 提交订单
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");	
 		if(name==null){
@@ -209,6 +209,11 @@ public class CartAction extends BaseAction {
 	}
 	
 	
+	//实验sql语句
+	public String test() throws Exception{
+		
+		return "test";
+	}
 	
 	// 菜品数量的减少
 	public void reduce() throws Exception {

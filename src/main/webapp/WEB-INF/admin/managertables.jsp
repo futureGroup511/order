@@ -32,13 +32,13 @@ window.onload=function(){
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 		<center>
 		<div style="font-weight: bold;">${managerMsg}</div>
-		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:40%; ">
+		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:0%; ">
 			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
 				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 					<option value="name">按名称查询</option>
 					<option value="status">按状态查询</option>
 				</select>
-				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace">
+				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace" required="required">
 				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 				<input class="font" type="button" onclick="window.location='${rootPath}manage/TableManager_allCard';" value="生成二维码">
 			</form>
@@ -61,8 +61,8 @@ window.onload=function(){
 			<tr>
 				<td>${pageCut.name}</td>
 				<td>
-					<c:if test="${pageCut.status eq '0'}">空闲</c:if>
-					<c:if test="${pageCut.status eq '1'}">使用中</c:if>
+					<c:if test="${pageCut.status eq '无人'}">无人</c:if>
+					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
 				</td>
 				<td><a href="${rootPath}manage/TableManager_SomeCard?name=${pageCut.name}&id=${pageCut.id}">生成二维码</a></td>
 				<td>

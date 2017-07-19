@@ -38,7 +38,7 @@ window.onload=function(){
 			<option value="name">名称</option>
 			<option value="sort">身份</option>
 		</select>
-			<input style="border-radius:7px;background-color: #F0F0F0;height:25px; width:30%;" type="text" name="inquiry">
+			<input style="border-radius:7px;background-color: #F0F0F0;height:25px; width:30%;" type="text" name="inquiry" required="required">
 			<input style="background-color: #82C0E9" type="submit" value="查询" >
 		</form>
 	</div>

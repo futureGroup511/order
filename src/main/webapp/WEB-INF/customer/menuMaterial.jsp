@@ -39,12 +39,12 @@
     			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
     				var result = xmlhttp.responseText;								
     				if(parseInt(result)==1){
-    					show_notice('添加成功',2);
+    					show_notice('添加成功',1);
     				}else if(parseInt(result)==0){
-    					show_notice('配料不足',2);
+    					show_notice('配料不足',1);
     				}
     				else{
-    					show_notice('添加失败',2);
+    					show_notice('添加失败',1);
     				}
     							
     			}
@@ -106,13 +106,16 @@
 						 
 						     </a>
 				        </div>
+				        <div class="center">
+				        	<p>简介:${menu.introduce}</p>
+				        	</div>
 				     <div class="bottom">     <!--   每一个date是一种配料 -->
 
 				              
-				     		<c:forEach items="${ingredient}" var="m">
+				     		<c:forEach items="${menuMaterial}" var="m">
 							     <div class="date">
 										         <div class="sdate">
-															     	   	 <p class="left">配料名称：&nbsp;${m.name}</p>
+															     	   	 <p class="left">配料名称：&nbsp;${m.menuName}</p>
 												</div>
 										         <div class="nub">
 										                                  <p class="left"><b>用量:</b>&nbsp;&nbsp;${m.num}</p>
@@ -120,13 +123,13 @@
 												   <div class="introduce">
 												简介：	${m.introduce}    
 										         </div>
-										         
+										         <div class="time">
+									<a href="${rootPath}customer/customer_getStockDate?ingId=${m.ingId}">进货时间信息</a>           
+							 		</div>
 							                <section></section>
 							     </div>
 							 </c:forEach>
-							 <div class="time">
-									<a href="${rootPath}customer/customer_getStockDate?ingId=${menuMaterial.ingId}">进货时间信息</a>           
-							 </div>
+							 
 				     </div>
 		    </div>
 		         <!-- 留白  -->
