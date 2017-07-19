@@ -116,7 +116,7 @@
           	<img src="${rootPath}uploadImg/${s.imgUrl}" alt="" width="100px" height="90px">
           </div>
           <div class="left infors">
-              <a href="${rootPath}customer/customer_getMenuMaterial?id=${s.menuId}"><p><b>${s.menuName}</b></p></a>
+              <a href="${rootPath}customer/customer_getMenuMaterial?id=${s.menuId}"><p style="color:#000"><b>${s.menuName}</b></p></a>
               <p class="left col">价格:&nbsp;&nbsp;</p><p class="red size">￥${s.price}</p>
               <div class="zu">
                  <div class="left kong">

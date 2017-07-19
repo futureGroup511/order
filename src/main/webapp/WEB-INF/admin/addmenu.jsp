@@ -29,7 +29,7 @@ display:inline-block;
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable><span style="padding-right:9%">价</span>格：</lable><input type="number" style=" name="menu.price" required="required"><br>
+     <lable><span style="padding-right:9%">价</span>格：</lable><input type="text" style=" name="menu.price" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''" placeholder="请输入数字"><br>
      <lable>是否可以做：</lable>
      <select name="menu.exist" class="select">
       <option value="1">可做</option>
