@@ -69,7 +69,7 @@
 		}
 	}
 	
-	
+
 	function show_notice(str,second,callback){  
 	    var box_id = 'notice_box';  
 	    var tooltipBox = document.getElementById(box_id);  
@@ -112,11 +112,9 @@
  <c:if test="${!empty shopCarts }">
      <c:forEach items="${shopCarts}" var="s">
        <div class="food">
-       <a href="${rootPath}customer/customer_getMenuMaterial?id=${s.menuId}">
           <div class="left photo">
           	<img src="${rootPath}uploadImg/${s.imgUrl}" alt="" width="100px" height="90px">
           </div>
-       </a>
           <div class="left infors">
               <a href="${rootPath}customer/customer_getMenuMaterial?id=${s.menuId}"><p style="color:#000"><b>${s.menuName}</b></p></a>
               <p class="left col">价格:&nbsp;&nbsp;</p><p class="red size">￥${s.price}</p>

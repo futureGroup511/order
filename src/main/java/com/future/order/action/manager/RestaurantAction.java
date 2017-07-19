@@ -89,6 +89,7 @@ public class RestaurantAction extends BaseAction {
 		@SuppressWarnings("deprecation")
 		private void uploadFile(int i) throws FileNotFoundException, IOException {
 			try {
+				System.out.println(file.get(i));
 				InputStream in = new FileInputStream(file.get(i));
 				String dir = ServletActionContext.getRequest().getRealPath("uploadImg");
 				File fileLocation = new File(dir);

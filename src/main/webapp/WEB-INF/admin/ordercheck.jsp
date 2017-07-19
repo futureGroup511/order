@@ -42,7 +42,9 @@ function CheckPay(){
 	</script>
  <script type="text/javascript">
 	function print(id) {
-		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", " top=50, left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"); //写成一行
+		  var xpwidth=window.screen.width-10;
+	        var xpheight=window.screen.height-35;
+		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", 'width='+(window.screen.availWidth-10)+',height='+(window.screen.availHeight-30)+ ',top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no'); //写成一行
 	}
 </script>
 <head>
