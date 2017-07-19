@@ -191,16 +191,12 @@ public class CartAction extends BaseAction {
 	public void add() throws Exception {
 		ShopCart shopCart = shopCartService.getOne(id);
 		//判断该菜原料是否够
-		System.out.println("munuId="+shopCart.getMenuId());
 		List<MenuMaterial> menuMaterials=menuMaterialService.getByMenuId(shopCart.getMenuId());
-		System.out.println(menuMaterials);
 		Boolean enough=true;
 		for(MenuMaterial m : menuMaterials){
 			Ingredient ingredient=ingerdientService.getById(m.getIngId());
 			if(m.getNum()*(shopCart.getMenuNum() + 1)>ingredient.getNum()){
-				System.out.println("配料不足1");
 				this.getResponse().getWriter().println("0");
-				System.out.println("配料不足2");				
 				enough=false;
 				break;
 			}
@@ -217,8 +213,6 @@ public class CartAction extends BaseAction {
 				total += item.getMenuNum() * item.getPrice();
 			}
 			this.getResponse().getWriter().println(total);
-			System.out.println("id"+id+bool);
-			System.out.println(total);
 		}			
 	}
 	
