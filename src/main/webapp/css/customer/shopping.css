@@ -128,7 +128,7 @@ a{
 	
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
       .zu .delete{
       	margin-left: 10px;
       }

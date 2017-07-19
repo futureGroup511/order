@@ -87,3 +87,17 @@
 	width:35%;
 	}
 }
+@media screen and (max-width: 350px){
+	.num div p{
+	 font-size:12px;
+	}
+	.num div:first-child{
+	width:28%;
+	}
+	.num div:nth-child(2){
+	width:37%;
+	}
+	.nmu div:last-child:{
+	width:35%;
+	}
+}

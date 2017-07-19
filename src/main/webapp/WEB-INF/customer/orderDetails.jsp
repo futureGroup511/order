@@ -88,7 +88,7 @@
     </div>
  </a>
     <div class="right infors">
-       <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}"><p><b>${o.menuName}</b></p></a>
+       <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}"><p style="color:#000"><b>${o.menuName}</b></p></a>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}</p>       
        <p class="left">状态：</p><p class="green">${o.status}</p>
