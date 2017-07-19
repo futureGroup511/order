@@ -59,7 +59,7 @@ public class LoginFilter implements Filter {
 			return;
 		} else {
 			response.getWriter()
-					.println("<script language=\"javascript\">" +"alert(\"登录超时！请重新登录\");"+ "if(window.opener==null){window.top.location.href=\""
+					.println("<script language=\"javascript\">" +"alert(\"登录失效！请重新登录\");"+ "if(window.opener==null){window.top.location.href=\""
 							+ returnUrl + "\";}else{window.opener.top.location.href=\"" + returnUrl
 							+ "\";window.close();}</script>");
 			return;
