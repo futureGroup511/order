@@ -136,6 +136,20 @@ public class CartAction extends BaseAction {
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}
+	//利用ajax实现删除购物车中的菜品
+	public void delete() throws Exception{
+		int tableId = (int) session.get("userId");
+		boolean bool = shopCartService.delete(id);
+		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
+		double total = 0.0;
+		for(ShopCart item:shopCarts){
+			total += item.getMenuNum() * item.getPrice();
+		}
+		request.put("total",total);
+		this.getResponse().getWriter().println(1);
+		this.getResponse().getWriter().println(total);
+		/*request.put("shopCarts", shopCarts);*/
+	}
 	
 	// 删除购物车的菜品
 	public String deleteCart() throws Exception {
@@ -209,10 +223,34 @@ public class CartAction extends BaseAction {
 	}
 	
 	
-	//实验sql语句
-	public String test() throws Exception{
+	//顾客退菜
+	public String getBack() throws Exception{
+		int tableId=(int)session.get("userId");
+		OrderDetails orderDetail=orderDetailsService.checkStatus(id);
+		if(orderDetail.getStatus().equals("完成")){
+			String info="该菜已完成,退不了";
+			request.put("stat",info);
+		}else{
+			boolean bool=orderDetailsService.back(id);
+			String info="退菜成功！";
+			request.put("stat",info);
+		}
+		Order orders=orderService.getOrder1(tableId);
+		List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orders.getId());
+		if(orderDetails.isEmpty()){
+			List<OrderDetails> orderDetaill = orderDetailsService.getDetails(0);
+			request.put("orderDetails",orderDetail);
+		}
+		request.put("order",orders.getStatus());
+		request.put("orderDetails", orderDetails);
+		request.put("myId", orders.getId());
+		double totall=0;
+		for(OrderDetails it:orderDetails){
+			totall+=it.getPrice()*it.getMenuNum();
+		}
+			request.put("totall",totall);
 		
-		return "test";
+		return "getBack";
 	}
 	
 	// 菜品数量的减少

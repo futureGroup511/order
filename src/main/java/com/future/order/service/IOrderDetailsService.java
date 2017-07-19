@@ -44,7 +44,9 @@ public interface IOrderDetailsService {
 
 	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
 	public boolean updet(int id, int idd, String UserName);
-	public List<OrderDetails> CheckDe(int id);
+	public List<OrderDetails> CheckDe(int id);
+	public boolean back(int id);
+	public OrderDetails checkStatus(int id);
 }
 	
 

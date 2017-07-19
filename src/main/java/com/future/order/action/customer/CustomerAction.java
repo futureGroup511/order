@@ -24,7 +24,6 @@ public class CustomerAction extends BaseAction {
 	
 	private int id;
 	private int ingId;	
-	private int menuId;
 	//进入首页
 	public String toIndex() throws Exception{
 		//把顾客桌号存在session
