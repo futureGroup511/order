@@ -266,4 +266,28 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		list=this.getEntityList(hql);
 		return list;
 	}
+	@Override
+	public boolean back(int id) {
+		boolean sign = false;
+		try{
+			String hql="delete from OrderDetails o Where o.id='"+id+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			sign=true;
+		}else{
+			sign=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
+	}
+	@Override
+	public OrderDetails checkStatus(int id) {
+		String hql="from OrderDetails s where s.id="+id;
+		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
+		return orderDetails;
+	}
+	
 }
