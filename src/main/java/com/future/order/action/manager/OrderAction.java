@@ -146,12 +146,12 @@ public class OrderAction extends BaseAction {
 		double sum=0;
 		double sumprice=0;
 		if(ask!=null){
-			pCut=orderService.getSomePageCut(page,6,ask,inquiry);
+			pCut=orderService.getSomePageCut(page,8,ask,inquiry);
 			list=orderService.getPrice(ask,inquiry);
 			}else{
 				ask=(String) session.get("ask");
 				inquiry=(String) session.get("inquiry");
-				pCut=orderService.getSomePageCut(page,6,ask,inquiry);
+				pCut=orderService.getSomePageCut(page,8,ask,inquiry);
 				list=orderService.getPrice(ask,inquiry);
 			}
 			//获得全部订单信息
@@ -177,6 +177,10 @@ public class OrderAction extends BaseAction {
 		session.put("ask", ask);
 		session.put("inquiry", inquiry);
 		request.put("dateend", inquiry);
+		User user = (User)session.get("user");
+		if(user.getSort().equals("cashier")){
+			return "cashierMOrder";
+		}
 		return "check";
 	}
 	public String count(){
@@ -231,6 +235,10 @@ public class OrderAction extends BaseAction {
 		request.put("adss", "count");
 		request.put("sign", sign);
 		request.put("pc", pCut);
+		User user = (User)session.get("user");
+		if(user.getSort().equals("cashier")){
+			return "cashierMOrder";
+		}
 		return "check";
 		
 	}

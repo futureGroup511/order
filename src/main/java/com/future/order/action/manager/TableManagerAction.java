@@ -34,7 +34,7 @@ public class TableManagerAction extends BaseAction {
 	private String replace;
 	@Override
 	public String execute() throws Exception {
-		PageCut<Tables> pCut=tablesService.getPageCut(page,6);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
@@ -74,7 +74,7 @@ public class TableManagerAction extends BaseAction {
 		}
 		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
@@ -90,7 +90,7 @@ public class TableManagerAction extends BaseAction {
 			deleteTableMsg = "删除成功";
 		}
 		request.put("managerMsg", deleteTableMsg);
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
@@ -137,11 +137,11 @@ public class TableManagerAction extends BaseAction {
 	public String Inquiry(){
 		PageCut<Tables> pCut=new PageCut<Tables>();
 		if(pass!=null){
-			pCut=tablesService.getSomePageCut(page,3,pass,replace);
+			pCut=tablesService.getSomePageCut(page,8,pass,replace);
 			}else{
 				pass=(String) session.get("pass");
 				replace=(String) session.get("replace");
-				pCut=tablesService.getSomePageCut(page,3,pass,replace);
+				pCut=tablesService.getSomePageCut(page,8,pass,replace);
 			}
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
@@ -151,6 +151,10 @@ public class TableManagerAction extends BaseAction {
 		request.put("adss", "Inquiry");		
 		session.put("pass", pass);
 		session.put("replace", replace);
+		User user = (User)session.get("user");
+		if(user.getSort().equals("cashier")){
+			return "cashierMTables";
+		}
 		return SUCCESS;
 		
 	}

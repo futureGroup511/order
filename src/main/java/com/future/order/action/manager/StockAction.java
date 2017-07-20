@@ -26,7 +26,7 @@ public class StockAction extends BaseAction {
 	private Date endtime;
 	public String execute() {
 		double sumprice=0;
-		PageCut<Stock> pCut = stockService.getPageCut(page, 6);
+		PageCut<Stock> pCut = stockService.getPageCut(page, 8);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息";
 			request.put("stocknews", mark);
@@ -95,11 +95,11 @@ public class StockAction extends BaseAction {
 		PageCut<Stock> pCut = new PageCut<Stock>();
 		List<Stock> list = new ArrayList<>();
 		if(inquiry!=null){
-			pCut = stockService.getSomePageCut(page, 6,inquiry);
+			pCut = stockService.getSomePageCut(page, 8,inquiry);
 			list=stockService.getTotal(inquiry);
 			}else{
 				inquiry=(String) session.get("inquiry");
-				pCut = stockService.getSomePageCut(page, 6,inquiry);
+				pCut = stockService.getSomePageCut(page, 8,inquiry);
 				list=stockService.getTotal(inquiry);
 			}
 		if (pCut.getData().size() == 0) {
@@ -133,7 +133,7 @@ public class StockAction extends BaseAction {
 			starttime=(Date) session.get("starttime");
 			endtime=(Date) session.get("endtime");
 		}
-		PageCut<Stock> pCut = stockService.getSomePageCut(page, 6,starttime,endtime);
+		PageCut<Stock> pCut = stockService.getSomePageCut(page, 8,starttime,endtime);
 		list = stockService.getPrice(starttime,endtime);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息";
