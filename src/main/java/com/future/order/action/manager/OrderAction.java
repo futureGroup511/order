@@ -1,16 +1,15 @@
 package com.future.order.action.manager;
 
-import com.future.order.base.BaseAction;
-import com.future.order.entity.Order;
-import com.future.order.entity.OrderDetails;
-import com.future.order.entity.Stock;
-import com.future.order.entity.User;
-import com.future.order.util.PageCut;
-
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import com.future.order.base.BaseAction;
+import com.future.order.entity.Order;
+import com.future.order.entity.OrderDetails;
+import com.future.order.util.PageCut;
 
 /**
  * 
@@ -107,6 +106,10 @@ public class OrderAction extends BaseAction {
 			prices = orderDb.getTotal()-straightCut;
 			favourables = orderDb.getTotal()*(1-discount)+straightCut;
 		}
+		NumberFormat nFormat=NumberFormat.getNumberInstance(); 
+		nFormat.setMaximumFractionDigits(2);//设置小数点后面位数为2
+		prices = Double.parseDouble(nFormat.format(prices));
+		favourables = Double.parseDouble(nFormat.format(favourables));
 		orderDb.setPrice(prices);
 		orderDb.setFavourable(favourables);
 		double returnPay = pay-prices;//找零
