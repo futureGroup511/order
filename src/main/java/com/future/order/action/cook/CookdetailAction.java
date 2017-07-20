@@ -10,16 +10,15 @@ import com.future.order.entity.User;
 public class CookdetailAction extends BaseAction{
 	private User user;
 	public String viewUser(){
-		User users=(User) session.get("user");
+		User users=(User) session.get("cook");
 		int id=users.getId();
 		User user=userService.viewUser(id);
 		request.put("myself", user);
 		return "viewUser";
 	}
 	public String updateUser(){
-		User users=(User) session.get("user");
-		boolean user=userService.updateUser(users);
-		request.put("updateUser", users);
+		User users=(User) session.get("cook");
+		request.put("user", users);
 		return "Updateuser";
 	}
 }

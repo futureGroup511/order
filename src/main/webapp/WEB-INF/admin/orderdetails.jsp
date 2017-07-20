@@ -28,11 +28,6 @@
        <table  cellspacing="0">
          <thead>
           <tr>
-             <td colspan="12">订单详细信息</td>
-          </tr>   
-         </thead>
-         <tbody>
-          <tr>
              <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>订单id</td>
@@ -45,8 +40,9 @@
              <td>厨师id</td>
              <td>厨师姓名</td>         
              <td>操作</td>
-           </tr>
-                  	 <c:forEach items="${detailspc.data}" var="item">  
+          </thead>
+          <tbody>
+              <c:forEach items="${detailspc.data}" var="item">  
 	            <tr>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
@@ -59,7 +55,7 @@
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_Delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_Delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>          
          </tbody>
@@ -68,8 +64,8 @@
   <center>  <div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderDetailsAction?page=${detailspc.prePage}">上一页</a></li>
-  		<c:forEach var="i" begin="${detailspc.currentPage-1>0?detailspc.currentPage-1:1 }"
- 					end="${detailspc.currentPage+1>detailspc.pageNum?detailspc.pageNum:allIngredient.currentPage+1  }">
+  		<c:forEach var="i" begin="${detailspc.currentPage-3>0?detailspc.currentPage-3:1 }"
+ 					end="${detailspc.currentPage+3>detailspc.pageNum?detailspc.pageNum:allIngredient.currentPage+3  }">
 
  							<c:choose> 
  								<c:when test="${i>0 && i == detailspc.currentPage &&i<=3}">

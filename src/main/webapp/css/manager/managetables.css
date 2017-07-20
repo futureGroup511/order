@@ -15,10 +15,11 @@ p{
     margin-top: 2%;
 }
 table{
-    width: 100%;
+    width: 70%;
     text-align: center;
-    margin-left: 1%;
+    margin-left: 14%;
     background-color: white;
+    border-color:#C6C6C6;
 }
 table th{
     text-align: center;

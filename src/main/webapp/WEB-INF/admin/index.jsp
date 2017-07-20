@@ -14,7 +14,7 @@
 <div class="header" ><!-- 头部 -->
             <img src="${rootPath}images/header.jpg" style="width:100%;height:125px;">
            <span class="span1">餐饮管理系统</span>
-            <span class="span2">欢迎${userIndex.name}登录</span>
+            <span class="span2">欢迎<span style="font-family: 微软雅黑；">${userIndex.name}</span>登录</span>
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->

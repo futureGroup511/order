@@ -19,7 +19,7 @@ import com.future.order.util.PageCut;
 public interface IOrderService {
 	public boolean DeletOrder(int id);
 	public boolean PayOrder(int id);
-	public Order CheckById(int id);
+	public Order CheckById(int id);	//张金高用
 	public boolean UpdateOrder(Order orders);
 	public List<Order> getFinal(int tableId,int num);
 	public PageCut<Order> getPageCut(int currentPage, int pageSize);

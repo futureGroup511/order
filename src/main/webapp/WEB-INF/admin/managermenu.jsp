@@ -42,9 +42,9 @@ window.onload=function(){
     		${inquiryMsg}
     		<table>
     			<tr>
-    				<th>菜名</th>
+    				<th style="width:200px;">菜名</th>
     				<th style="width:115px;">图片</th>
-    				<th>类型</th>
+    				<th >类型</th>
     				<th style="width:85px;">价格/元</th>
     				<th>状态</th>
     				<th>简介</th>

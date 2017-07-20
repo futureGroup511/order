@@ -17,10 +17,10 @@ table{
 }
 thead td{
     font-size:1.4vw; 
-    font-weight: bold;
+/*     font-weight: bold; */
     height: 40px;
-    border: 1px solid #c6c6c6;
-    background-color: #75c7ed;
+    border: 1px solid #C6C6C6;
+    background-color: #E8E7E3;
 }
 tbody td{
     border-right: 1px solid #c6c6c6;

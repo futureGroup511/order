@@ -21,14 +21,13 @@
     <filter-name>allFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
-    <filter>
-  	<filter-name>customerFilter</filter-name>
-  	<filter-class>com.future.order.filter.CustomerFilter</filter-class>
+  <filter>
+    <filter-name>customerFilter</filter-name>
+    <filter-class>com.future.order.filter.CustomerFilter</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>customerFilter</filter-name>
-	<url-pattern>/customer/*</url-pattern>
+    <filter-name>customerFilter</filter-name>
+    <url-pattern>/customer/*</url-pattern>
   </filter-mapping>
   <filter>
     <filter-name>loginFilter</filter-name>
@@ -38,21 +37,27 @@
     <filter-name>loginFilter</filter-name>
     <url-pattern>/manage/*</url-pattern>
   </filter-mapping>
-  
   <filter-mapping>
     <filter-name>loginFilter</filter-name>
     <url-pattern>/cook/*</url-pattern>
   </filter-mapping>
-
-  
-  <filter>
+    <filter>
     <filter-name>struts2</filter-name>
-    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    <filter-class>com.future.order.filter.MyStrutsFilter</filter-class>
   </filter>
   <filter-mapping>
+  
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+<!--   <filter> -->
+<!--   <filter-name>struts2</filter-name> -->
+<!--     <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class> -->
+<!--   </filter> -->
+<!--   <filter-mapping> -->
+<!--     <filter-name>struts2</filter-name> -->
+<!--     <url-pattern>/*</url-pattern> -->
+<!--   </filter-mapping> -->
   <error-page>
     <error-code>404</error-code>
     <location>/error404.jsp</location>

@@ -3,8 +3,8 @@ package com.future.order.action.manager;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
-import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
+import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 /**
  * 
@@ -13,23 +13,29 @@ import com.future.order.util.PageCut;
  * 2017年5月29日下午9:56:39
  */
 public class OrderDetailsAction extends BaseAction{
+ 	private static final long serialVersionUID = -5868840570341763054L;
+ 	
 	private int id;
 	private int detailid;
 	private int page=1;
 	private OrderDetails details;
- 	private static final long serialVersionUID = -5868840570341763054L;
+	private String sort;//判断用户的身份
 	public String CheckOrderDetails(){
 		session.put("orderid", id);
-		return  this.execute();
+		return this.execute();
 	}
 	public String execute(){//根据订单ID查询订单详细信息并分页
 		int orderid=(int) session.get("orderid");
-		PageCut<OrderDetails> pCut=orderDetailsService.getPageCut(page,2,orderid);
+		PageCut<OrderDetails> pCut=orderDetailsService.getPageCut(page,8,orderid);
 		if(pCut.getData().size()==0){
 			String mark="订单详细信息为空";
 			request.put("markinfo", mark);
 		}
-		request.put("detailspc", pCut);		
+		request.put("detailspc", pCut);	
+		if(sort!=null&&sort.equals("cashier")){
+			System.out.println("exe ");
+			return "cashierDatail";
+		}
 		return "details";
 		}
 	public String Delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
@@ -66,9 +72,7 @@ public class OrderDetailsAction extends BaseAction{
 	 List<OrderDetails> list=orderDetailsService.SeeByid(id);
 	 double total=0;
 	 for(int i=0;i<list.size();i++){
-		 @SuppressWarnings("unused")
 		int count=list.get(i).getMenuNum();
-		 @SuppressWarnings("unused")
 		double value =list.get(i).getPrice();
 		 total+=count*value;
 	 }
@@ -101,4 +105,11 @@ public class OrderDetailsAction extends BaseAction{
 	public void setPage(int page) {
 		this.page = page;
 	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+	
 }

@@ -1,14 +1,13 @@
   package com.future.order.action.manager;
 
 import java.io.ByteArrayOutputStream;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +16,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Tables;
+import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
 import net.glxn.qrgen.QRCode;
@@ -31,23 +31,30 @@ public class TableManagerAction extends BaseAction {
 	private int id;
 	private String pass;
 	private String replace;
+	private String sort;//得到用户的身份
 	@Override
 	public String execute() throws Exception {
-		PageCut<Tables> pCut=tablesService.getPageCut(page,6);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "execute");
+		if(sort!=null&&sort.equals("cashier")){
+			return "cashierMTables";
+		}
 		return SUCCESS;
 	}
 	
-	public String addTable(){
+	public String addTable() throws IOException{
 		table.setStatus("无人");
 		boolean boo = tablesService.addTable(table);
 		if(boo){
 			request.put("addTableMsg", "添加成功");
+			String tablename=table.getName();
+			System.out.println(tablename);
+			SomeCard(tablename);
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
@@ -61,15 +68,17 @@ public class TableManagerAction extends BaseAction {
 		return "toUpdateTables";
 	}
 	
-	public String updateTable(){
+	public String updateTable() throws IOException{
 		boolean boo = tablesService.updateTables(table);
 		String updateTableMsg = "修改失败";
 		if(boo){
 			updateTableMsg = "修改成功";
+			String tablename=table.getName();
+			SomeCard(tablename);
 		}
 		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
@@ -85,7 +94,7 @@ public class TableManagerAction extends BaseAction {
 			deleteTableMsg = "删除成功";
 		}
 		request.put("managerMsg", deleteTableMsg);
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
@@ -104,39 +113,40 @@ public class TableManagerAction extends BaseAction {
 			  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
 		               ImageType.PNG).stream();  
-		       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
+				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
+			 	System.out.println(realPath);
+		       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();
-				String mark="二维码生成成功,储存地址在D盘";
+				String mark="二维码生成成功,请返回下载";
 				request.put("managerMsg", mark); 
 		 }
 		return "QR_card";
 	}
-	 public String SomeCard() throws IOException{
+	 public String SomeCard(String tablename) throws IOException{
 		 HttpServletResponse response = ServletActionContext.getResponse();
 		 HttpServletRequest quest = ServletActionContext.getRequest();
 		  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
-		 	name= new String(name.getBytes("ISO-8859-1"),"utf-8");
 		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
-	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
+		 	System.out.println(realPath);
+	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+tablename+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
 			fout.close();
-			String mark="二维码生成成功,储存地址在D盘";
-			request.put("managerMsg", mark);
-			return "QR_card";
+			request.put("managerMsg", "二维码生成成功");
+			return SUCCESS;
 	 }
 	public String Inquiry(){
 		PageCut<Tables> pCut=new PageCut<Tables>();
 		if(pass!=null){
-			pCut=tablesService.getSomePageCut(page,3,pass,replace);
+			pCut=tablesService.getSomePageCut(page,8,pass,replace);
 			}else{
 				pass=(String) session.get("pass");
 				replace=(String) session.get("replace");
-				pCut=tablesService.getSomePageCut(page,3,pass,replace);
+				pCut=tablesService.getSomePageCut(page,8,pass,replace);
 			}
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
@@ -146,6 +156,9 @@ public class TableManagerAction extends BaseAction {
 		request.put("adss", "Inquiry");		
 		session.put("pass", pass);
 		session.put("replace", replace);
+		if(sort!=null&&sort.equals("cashier")){
+			return "cashierMTables";
+		}
 		return SUCCESS;
 		
 	}
@@ -159,6 +172,7 @@ public class TableManagerAction extends BaseAction {
 		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
 		//创建文件对象
 		File file = new File(realPath,fileName);
+		System.out.println(file);
 		if(!file.exists()){
 			request.put("managerMsg", "二维码不存在，请先生成二维码");
 			return execute();
@@ -219,6 +233,14 @@ public class TableManagerAction extends BaseAction {
 
 	public void setReplace(String replace) {
 		this.replace = replace;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 	
 }

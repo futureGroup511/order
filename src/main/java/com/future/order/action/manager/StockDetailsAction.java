@@ -22,7 +22,7 @@ public class StockDetailsAction extends BaseAction{
 	}
 	public String execute(){//根据订单ID查询订单详细信息并分页
 		int stockid=(int) session.get("stockid");
-		PageCut<StockDetails> pCut=stockDetailsService.getPageCut(page,2,stockid);
+		PageCut<StockDetails> pCut=stockDetailsService.getPageCut(page,8,stockid);
 		if(pCut.getData().size()==0){
 			String mark="进货详细信息为空";
 			request.put("markinfo", mark);
@@ -97,11 +97,11 @@ public class StockDetailsAction extends BaseAction{
 		int stockid=(int) session.get("stockid");
 		PageCut<StockDetails> pCut = new PageCut<StockDetails>();
 		if(ask!=null){
-			pCut=stockDetailsService.getSomePageCut(page,2,stockid,ask,inquiry);
+			pCut=stockDetailsService.getSomePageCut(page,8,stockid,ask,inquiry);
 			}else{
 				ask=(String) session.get("ask");
 				inquiry=(String) session.get("inquiry");
-				pCut=stockDetailsService.getSomePageCut(page,2,stockid,ask,inquiry);
+				pCut=stockDetailsService.getSomePageCut(page,8,stockid,ask,inquiry);
 			}
 			//获得全部订单信息
 		if(pCut.getData().size()==0){
