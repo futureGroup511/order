@@ -33,6 +33,7 @@ public class OrderAction extends BaseAction {
 	private double discount;//打折		//张金高修改
 	private double straightCut;//直减
 	private double pay;//实收
+	private String sort;//判断用户的身份
 	
 	public String execute() {
 		PageCut<Order> pCut = new PageCut<Order>();
@@ -63,8 +64,7 @@ public class OrderAction extends BaseAction {
 		request.put("adss", "execute");
 		request.put("sign", sign);
 		request.put("pc", pCut);
-		User user = (User) session.get("user");	//张金高改，添加收银员进入该功能
-		if(user.getSort().equals("cashier")){
+		if(sort!=null&&sort.equals("cashier")){
 			return "cashierMOrder";
 		}
 		return "check";
@@ -177,8 +177,7 @@ public class OrderAction extends BaseAction {
 		session.put("ask", ask);
 		session.put("inquiry", inquiry);
 		request.put("dateend", inquiry);
-		User user = (User)session.get("user");
-		if(user.getSort().equals("cashier")){
+		if(sort!=null&&sort.equals("cashier")){
 			return "cashierMOrder";
 		}
 		return "check";
@@ -235,8 +234,7 @@ public class OrderAction extends BaseAction {
 		request.put("adss", "count");
 		request.put("sign", sign);
 		request.put("pc", pCut);
-		User user = (User)session.get("user");
-		if(user.getSort().equals("cashier")){
+		if(sort!=null&&sort.equals("cashier")){
 			return "cashierMOrder";
 		}
 		return "check";
@@ -314,6 +312,12 @@ public class OrderAction extends BaseAction {
 	}
 	public void setPay(double pay) {
 		this.pay = pay;
+	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 	
 }

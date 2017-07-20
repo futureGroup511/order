@@ -1,11 +1,9 @@
 package com.future.order.action.manager;
 
 import java.util.Date;
-import java.util.List;
 
 import com.future.order.base.BaseAction;
-import com.future.order.entity.Order;
-import com.future.order.entity.Stock;
+import com.future.order.entity.User;
 
 
 
@@ -20,6 +18,7 @@ public class ChangeAction extends BaseAction{
 	
 	private Date starttime;
 	private Date endtime;
+	private String sort;
 	//用户模块中转站
 	public String addUser() {	
 		return "addUser";
@@ -45,8 +44,16 @@ public class ChangeAction extends BaseAction{
 	}
 	//获得个人资料
 	public String getMyself(){
+		if(sort!=null&&sort.equals("cashier")){
+			User cashier = (User)session.get("cashier");
+			request.put("user", cashier);
+		} else {
+			User user = (User)session.get("manager");
+			request.put("user", user);
+		}
 		return "getMyself";
 	}
+
 	//退出登录前,防倒退
 	public String logOff(){
 		return "logOff";
@@ -70,6 +77,12 @@ public class ChangeAction extends BaseAction{
 	}
 	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
+	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 
 }

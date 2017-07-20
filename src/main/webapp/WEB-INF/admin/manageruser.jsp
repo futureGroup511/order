@@ -59,7 +59,11 @@ window.onload=function(){
 				<td>${pageCut.phone}</td>
 				<td>${pageCut.name }</td>
 				<td>${pageCut.createDate }</td> 
-				<td>${pageCut.sort }</td>
+				<td>
+					<c:if test="${pageCut.sort eq 'manager' }">管理员</c:if>
+					<c:if test="${pageCut.sort eq 'cook' }">厨师</c:if>
+					<c:if test="${pageCut.sort eq 'cashier' }">收银员</c:if>	
+				</td>
 				<td>
 					<a href="${rootPath}manage/UserManager_toUpdateUser?userId=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
 					<a href="${rootPath}manage/UserManager_deleteUser?user.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>

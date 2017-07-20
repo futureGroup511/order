@@ -19,9 +19,10 @@ public class OrderDetailsAction extends BaseAction{
 	private int detailid;
 	private int page=1;
 	private OrderDetails details;
+	private String sort;//判断用户的身份
 	public String CheckOrderDetails(){
 		session.put("orderid", id);
-		return  this.execute();
+		return this.execute();
 	}
 	public String execute(){//根据订单ID查询订单详细信息并分页
 		int orderid=(int) session.get("orderid");
@@ -31,8 +32,8 @@ public class OrderDetailsAction extends BaseAction{
 			request.put("markinfo", mark);
 		}
 		request.put("detailspc", pCut);	
-		User user = (User)session.get("user");
-		if(user.getSort().equals("cashier")){
+		if(sort!=null&&sort.equals("cashier")){
+			System.out.println("exe ");
 			return "cashierDatail";
 		}
 		return "details";
@@ -104,4 +105,11 @@ public class OrderDetailsAction extends BaseAction{
 	public void setPage(int page) {
 		this.page = page;
 	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+	
 }

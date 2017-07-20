@@ -70,6 +70,18 @@ public class UserDao extends BaseDao<User> implements IUserService {
 
 	@Override
 	public PageCut<User> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
+		if(ask.equals("sort")){	//当查询条件为身份查询时
+			switch (inquiry) {
+			case "管理员":
+				inquiry="manager";
+				break;
+			case "厨师":
+				inquiry="cook";
+				break;
+			default:inquiry="cashier";
+				break;
+			}
+		}
 		String hql = "select count(*) from User where "+ask+"='"+inquiry+"'";
 		String selectHql =  "from User where "+ask+"='"+inquiry+"'";
 		int count = ((Long) this.uniqueResult(hql)).intValue();

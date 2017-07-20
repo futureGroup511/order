@@ -32,6 +32,7 @@ public class TableManagerAction extends BaseAction {
 	private int id;
 	private String pass;
 	private String replace;
+	private String sort;//得到用户的身份
 	@Override
 	public String execute() throws Exception {
 		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
@@ -41,8 +42,7 @@ public class TableManagerAction extends BaseAction {
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "execute");
-		User user = (User)session.get("user");	//张金高改，添加收银员查看餐桌情况
-		if(user.getSort().equals("cashier")){
+		if(sort!=null&&sort.equals("cashier")){
 			return "cashierMTables";
 		}
 		return SUCCESS;
@@ -151,8 +151,7 @@ public class TableManagerAction extends BaseAction {
 		request.put("adss", "Inquiry");		
 		session.put("pass", pass);
 		session.put("replace", replace);
-		User user = (User)session.get("user");
-		if(user.getSort().equals("cashier")){
+		if(sort!=null&&sort.equals("cashier")){
 			return "cashierMTables";
 		}
 		return SUCCESS;
@@ -228,6 +227,14 @@ public class TableManagerAction extends BaseAction {
 
 	public void setReplace(String replace) {
 		this.replace = replace;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 	
 }

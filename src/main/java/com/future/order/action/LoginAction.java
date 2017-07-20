@@ -30,8 +30,7 @@ public class LoginAction extends BaseAction {
 		User userDataBase;
 		if(user!=null){
 			userDataBase = userService.login(user.getPhone(),user.getPassword());
-			if(userDataBase!=null){
-				session.put("user", userDataBase);//将用户对象放进session	
+			if(userDataBase!=null){	
 				session.put("userIndex", userDataBase);	//只在首页使用，因上user与action中重名，不可用
 				List<MenuType> list=menuTypeService.getAllMenuType();
 				List<Ingredient> list1 = ingerdientService.getAll();
@@ -40,12 +39,15 @@ public class LoginAction extends BaseAction {
 				session.put("Ientlist",list1);	//将配料放进session
 				session.put("Typelist",list);	//将菜品类型和id放进session
 				if(userDataBase.getSort().equals("cook")){
+					session.put("cook", userDataBase);//将用户对象放进session
 					session.put("userSort", "cook");	//将用户身份放进session
 					return "cook";
 				} else if(userDataBase.getSort().equals("manager")) {
+					session.put("manager", userDataBase);//将用户对象放进session
 					session.put("userSort", "manager");
 					return "manager";
 				} else {
+					session.put("cashier", userDataBase);
 					return "cashier";		//添加收银员
 				}
 			} else{

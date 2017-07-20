@@ -44,7 +44,6 @@
              <td>订单时间</td>
              <td>厨师id</td>
              <td>厨师姓名</td>         
-<!--              <td>操作</td> -->
            </tr>
                   	 <c:forEach items="${detailspc.data}" var="item">  
 	            <tr>
@@ -59,7 +58,6 @@
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-<%-- 	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_Delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>       --%>
 	            </tr>  
         	</c:forEach>          
          </tbody>

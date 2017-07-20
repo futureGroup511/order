@@ -28,11 +28,6 @@
        <table  cellspacing="0">
          <thead>
           <tr>
-             <td colspan="12">订单详细信息</td>
-          </tr>   
-         </thead>
-         <tbody>
-          <tr>
              <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>订单id</td>
@@ -45,8 +40,9 @@
              <td>厨师id</td>
              <td>厨师姓名</td>         
              <td>操作</td>
-           </tr>
-                  	 <c:forEach items="${detailspc.data}" var="item">  
+          </thead>
+          <tbody>
+              <c:forEach items="${detailspc.data}" var="item">  
 	            <tr>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>

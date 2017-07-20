@@ -52,9 +52,11 @@ public class LoginFilter implements Filter {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8"); // 转码
 		HttpServletRequest hRequest = (HttpServletRequest) request;
-		User user = (User) hRequest.getSession().getAttribute("user");// 获得登陆用户
+		User cook = (User) hRequest.getSession().getAttribute("cook");// 获得登陆用户
+		User manager = (User) hRequest.getSession().getAttribute("manager");// 获得登陆用户
+		User cashier = (User) hRequest.getSession().getAttribute("cashier");// 获得登陆用户
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
-		if (user != null) {
+		if (cook != null||manager!=null||cashier!=null) {
 			chain.doFilter(request, response);
 			return;
 		} else {

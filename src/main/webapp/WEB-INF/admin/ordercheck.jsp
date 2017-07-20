@@ -64,7 +64,7 @@ function CheckPay(){
 		<input typpe="text" style="background-color: #F0F0F0;border-radius: 7px;" name="starttime" placeholder="请输入开始的时间" class="sang_Calender"  style="border-radius:7px;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender"  style="border-radius:7px;background-color: #F0F0F0;" required="required">
 		 <script type="text/javascript" src="../js/datetime.js"></script>
 		<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
-	</form>
+	</form> 
 	</div>
      <div class="button">
       <input type="button" onclick="return CheckNopay();" value="未付款" style="border-radius: 5px;">
@@ -90,14 +90,14 @@ function CheckPay(){
          <tbody>
           <tr>
              <td>编号</td>
-             <td>餐桌id</td>
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>总价</td>
              <td>状态</td>
              <td style="width:160px;">订单时间</td>
-             <td>厨师id</td>
+             <td>厨师编号</td>
              <td>厨师姓名</td>
-             <td style="width:200px;">备注</td>
+             <td style="width:260px;">备注</td>
              <td>操作</td>
              <td>操作</td>
            </tr>
@@ -111,7 +111,7 @@ function CheckPay(){
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td><textarea rows="2" cols="26" readonly="readonly">${item.remark}</textarea></td>
+	                <td><textarea rows="2" cols="38" readonly="readonly">${item.remark}</textarea></td>
 	                <td><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}">查看详情</a></td>
 	                <td  class="four"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  

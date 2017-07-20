@@ -33,7 +33,7 @@ window.onload=function(){
 		<center>
 		<div style="font-weight: bold;">${managerMsg}</div>
 		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:0%; ">
-			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
+			<form action="${rootPath}manage/TableManager_Inquiry?sort=cashier" method="post">
 				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 					<option value="name">按名称查询</option>
 					<option value="status">按状态查询</option>
@@ -68,20 +68,20 @@ window.onload=function(){
     </div>
  <div class="page" id="div2">
       <ul class="pagination">
-        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.prePage}">上一页</a></li>
+        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.prePage}&sort=cashier">上一页</a></li>
        			<c:forEach var="i" begin="${allTables.currentPage-3>0?allTables.currentPage-3:1 }"
  					end="${allTables.currentPage+3>allTables.pageNum?allTables.pageNum:allTables.currentPage+3  }">
 
 					<c:choose>
 						<c:when test="${i>0 && i == allTables.currentPage &&i<=3}">
-							<li class="active"><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
+							<li class="active"><a href="${rootPath }manage/TableManager_${adss}?page=${i }&sort=cashier">${i}</a></li>
 						</c:when>
 						<c:when test="${i>0 && i != allTables.currentPage &&i<=3}">
-							<li><a href="${rootPath }manage/TableManager_${adss}?page=${i }">${i}</a></li>
+							<li><a href="${rootPath }manage/TableManager_${adss}?page=${i }&sort=cashier">${i}</a></li>
 						</c:when>
 					</c:choose>
 				</c:forEach>
-        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.nextPage}">下一页</a></li>
+        <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.nextPage}&sort=cashier">下一页</a></li>
       </ul>
  </div>
 </body>

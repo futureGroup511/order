@@ -56,23 +56,29 @@ public class UserManagerAction extends BaseAction {
 		} else {
 			request.put("updateUserMsg", "修改失败");
 		}
-		User users = (User)session.get("user");
-		if(users.getId()==user.getId()){	//当修改的是自己本人的时候，将修改后信息存入session
+		User userM = (User)session.get("manager");
+		User userC = (User)session.get("cook");
+		if(userM.getId()==user.getId()){	//当修改的是自己本人的时候，将修改后信息存入session
 			User userData = userService.viewUser(user.getId());
-			System.out.println("userManager示例2："+userData.getCreateDate());
-			session.put("user", userData);
-		}
-		if(userId==2){		//当执行修改个人信息时在个人资料界面时
+			session.put("manager", userData);
 			result = "toUpdateMyself";
-		} else {
+		}
+		if(userC.getId()==user.getId()){
+			User userData = userService.viewUser(user.getId());
+			session.put("cook", userData);
+			result = "toUpdateMyself";
+		}
+//		if(userId==2){		//当执行修改个人信息时在个人资料界面时
+//			result = "toUpdateMyself";
+//		} else {
 			PageCut<User> pCut=userService.getPageCut(page,8);
 			request.put("allUser", pCut);
-		}
+//		}
 		return result;
 	}
 
 	public String deleteUser() {	//删除该用户，并查询所有用户
-		User me = (User) session.get("user");
+		User me = (User) session.get("manager");
 		if(me.getId()==user.getId()){
 			request.put("deleteUserMsg", "删除失败,不能删除自己");
 		} else { 

@@ -41,14 +41,13 @@
                 <a><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;个人中心</a>
                  <ul class="nav nav-second-level">
                     <li>
-                        <a href="${rootPath}manage/Change_getMyself" target="mainFrame"><span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;&nbsp;查看资料</a>
+                        <a href="${rootPath}manage/Change_getMyself?sort=cashier" target="mainFrame"><span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;&nbsp;查看资料</a>
                     </li>
                     <li>
                         <a href="${rootPath}manage/Change_logOff"><span class="glyphicon glyphicon-new-window"></span>&nbsp;&nbsp;&nbsp;退出登陆</a>
                     </li>
                 </ul> <!-- 第六个子目录结束 -->
              </li> <!-- 第六个父目录结束 -->
-          </ul><!-- 总父目录结束 -->
         </div><!-- 左边的菜单栏结束 -->
         <iframe src="${rootPath}welcome.jsp"   id="ifr" name="mainFrame"></iframe>
     </div><!-- 左侧菜单和iframe标签的内容结束 -->

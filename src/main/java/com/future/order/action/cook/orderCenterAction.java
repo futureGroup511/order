@@ -56,18 +56,18 @@ public class orderCenterAction extends BaseAction {
 		return "finish";
 	}
 	public String DoOrder(){
-		User me = (User) session.get("user");
+		User me = (User) session.get("cook");
 		ID = me.getId();
 		UserName = me.getName();
 		session.put("ordeID", Orderid);
 		boolean menu=orderService.updetemenu(Orderid,ID,UserName);
 		session.put("itemid", Orderid);
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(Order, page, 5);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
 		return "orderdetail";
 	}
 	public String doOrder(){
-		User me = (User) session.get("user");
+		User me = (User) session.get("cook");
 		ID = me.getId();
 		UserName = me.getName();
 		boolean m=orderDetailsService.updet(OrderId ,ID,UserName);
@@ -87,7 +87,7 @@ public class orderCenterAction extends BaseAction {
 		return "menu";
 	}
 	public String recheck() {
-		User me = (User) session.get("user");
+		User me = (User) session.get("cook"); 
 		ID = me.getId();
 		UserName = me.getName();
 		boolean m=orderDetailsService.updet(i,ID,UserName);
@@ -116,7 +116,7 @@ public class orderCenterAction extends BaseAction {
 		return "orderdetail";
 	}
 	public String checko() {
-		User me = (User) session.get("user");
+		User me = (User) session.get("cook");
 		ID = me.getId();
 		UserName = me.getName();
 		boolean m=orderDetailsService.updet(Orderid,ID,UserName);
