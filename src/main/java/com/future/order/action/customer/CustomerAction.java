@@ -24,12 +24,10 @@ public class CustomerAction extends BaseAction {
 	
 	private int id;
 	private int ingId;	
-	private int menuId;
 	//进入首页
 	public String toIndex() throws Exception{
 		//把顾客桌号存在session
 		session.put("userId", id);
-		System.out.println("桌号:"+id);
 		//获得推荐的菜品
 		List<Menu> menus=menuService.getRecommend(8);
 		//首页酒店的信息
@@ -59,21 +57,15 @@ public class CustomerAction extends BaseAction {
 	public String getMenuMaterial() throws Exception {		
 		
 		Menu menu =menuService.get(id);
-		System.out.println(menu);
 		request.put("menu", menu);
-		System.out.println("menuid"+id);
 		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuIdTwo(id); 
-		System.out.println("menuMaterial-----1"+menuMaterial);
 		for(MenuMaterial item:menuMaterial){
 			int ingId=item.getIngId();
-			System.out.println("ingId"+ingId);
 			String introduce=ingerdientService.getById(ingId).getIntroduce();
-			System.out.println("introduce"+introduce);
 			item.setIntroduce(introduce);
 			
 		}
 		request.put("menuMaterial",menuMaterial);
-		System.out.println("---2"+menuMaterial);
 		return "getMenuMaterial";
 	}
 	//获得进货时间列表
@@ -82,7 +74,6 @@ public class CustomerAction extends BaseAction {
 		request.put("stockDetails", stockDetails);
 		for(StockDetails item:stockDetails){
 			request.put("ingName",item.getIngName());
-			System.out.println(item.getIngName()+"---");
 		}
 		return "getStockDate";
 	}
@@ -97,13 +88,11 @@ public class CustomerAction extends BaseAction {
 			menuNum=sCart.getMenuNum()+1;
 		}
 		List<MenuMaterial> menuMaterials=menuMaterialService.getByMenuId(id);
-		System.out.println(menuMaterials);
 		Boolean enough=true;
 		for(MenuMaterial m : menuMaterials){
 			Ingredient ingredient=ingerdientService.getById(m.getIngId());
 			if(m.getNum()*menuNum>ingredient.getNum()){
 				this.getResponse().getWriter().println("0");
-				System.out.println("配料不足");				
 				enough=false;
 				break;
 			}

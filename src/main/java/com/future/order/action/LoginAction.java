@@ -42,10 +42,11 @@ public class LoginAction extends BaseAction {
 				if(userDataBase.getSort().equals("cook")){
 					session.put("userSort", "cook");	//将用户身份放进session
 					return "cook";
-					
-				} else {
+				} else if(userDataBase.getSort().equals("manager")) {
 					session.put("userSort", "manager");
 					return "manager";
+				} else {
+					return "cashier";		//添加收银员
 				}
 			} else{
 				request.put("loginMeg", "用户名和密码输入错误");

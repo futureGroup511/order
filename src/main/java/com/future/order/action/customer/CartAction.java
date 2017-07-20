@@ -75,20 +75,10 @@ public class CartAction extends BaseAction {
 		int myId=(int) session.get("Id");
 		Order order=orderService.CheckById(myId);
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsTwo(myId);
-		OrderDetails orderDetails = new OrderDetails();
+		
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
-					orderDetails.setMenuId(item.getMenuId());
-					orderDetails.setTableName(item.getTableName());
-					orderDetails.setMenuName(item.getMenuName());
-					orderDetails.setMenuNum(item.getMenuNum());
-					orderDetails.setTableId(item.getTableId());
-					orderDetails.setOrderId(myId);
-					orderDetails.setStatus("未完成");
-					orderDetails.setPrice(item.getPrice());
-					orderDetails.setImgUrl(item.getImgUrl());
-					orderDetails.setRemark(order.getRemark());
-					orderDetails.setCreatDate(d);
+				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,order.getRemark(),item.getImgUrl(),item.getPrice());
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -102,17 +92,7 @@ public class CartAction extends BaseAction {
 					}
 				}
 				if (sign == 0) {
-					    orderDetails.setMenuId(item.getMenuId());
-						orderDetails.setTableName(item.getTableName());
-						orderDetails.setMenuName(item.getMenuName());
-						orderDetails.setMenuNum(item.getMenuNum());
-						orderDetails.setTableId(item.getTableId());
-						orderDetails.setOrderId(order.getId());
-						orderDetails.setStatus("未完成");
-						orderDetails.setPrice(item.getPrice());
-						orderDetails.setImgUrl(item.getImgUrl());
-						orderDetails.setRemark(order.getRemark());
-						orderDetails.setCreatDate(d);
+					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,order.getRemark(),item.getImgUrl(),item.getPrice());
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
@@ -177,16 +157,12 @@ public class CartAction extends BaseAction {
 	public void add() throws Exception {
 		ShopCart shopCart = shopCartService.getOne(id);
 		//判断该菜原料是否够
-		System.out.println("munuId="+shopCart.getMenuId());
 		List<MenuMaterial> menuMaterials=menuMaterialService.getByMenuId(shopCart.getMenuId());
-		System.out.println(menuMaterials);
 		Boolean enough=true;
 		for(MenuMaterial m : menuMaterials){
 			Ingredient ingredient=ingerdientService.getById(m.getIngId());
 			if(m.getNum()*(shopCart.getMenuNum() + 1)>ingredient.getNum()){
-				System.out.println("配料不足1");
 				this.getResponse().getWriter().println("0");
-				System.out.println("配料不足2");				
 				enough=false;
 				break;
 			}
@@ -203,16 +179,38 @@ public class CartAction extends BaseAction {
 				total += item.getMenuNum() * item.getPrice();
 			}
 			this.getResponse().getWriter().println(total);
-			System.out.println("id"+id+bool);
-			System.out.println(total);
 		}			
 	}
 	
 	
-	//实验sql语句
-	public String test() throws Exception{
+	//顾客退菜
+	public String getBack() throws Exception{
+		int tableId=(int)session.get("userId");
+		OrderDetails orderDetail=orderDetailsService.checkStatus(id);
+		if(orderDetail.getStatus().equals("完成")){
+			String info="该菜已完成,退不了";
+			request.put("stat",info);
+		}else{
+			boolean bool=orderDetailsService.back(id);
+			String info="退菜成功！";
+			request.put("stat",info);
+		}
+		Order orders=orderService.getOrder1(tableId);
+		List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orders.getId());
+		if(orderDetails.isEmpty()){
+			List<OrderDetails> orderDetaill = orderDetailsService.getDetails(0);
+			request.put("orderDetails",orderDetail);
+		}
+		request.put("order",orders.getStatus());
+		request.put("orderDetails", orderDetails);
+		request.put("myId", orders.getId());
+		double totall=0;
+		for(OrderDetails it:orderDetails){
+			totall+=it.getPrice()*it.getMenuNum();
+		}
+			request.put("totall",totall);
 		
-		return "test";
+		return "getBack";
 	}
 	
 	// 菜品数量的减少

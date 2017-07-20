@@ -49,6 +49,26 @@ public class OrderDetails {
 	private String imgUrl;
 	@Column(length=4)
 	private double price;//价格
+	
+	
+	public OrderDetails(){
+		super();
+	}
+	public OrderDetails(int tableId, String tableName, int orderId, int menuId, String menuName, int menuNum,
+			String status, Date creatDate, String remark,String imgUrl, double price) {
+		super();
+		this.tableId = tableId;
+		this.tableName = tableName;
+		this.orderId = orderId;
+		this.menuId = menuId;
+		this.menuName = menuName;
+		this.menuNum = menuNum;
+		this.status = status;
+		this.creatDate = creatDate;
+		this.remark = remark;
+		this.imgUrl = imgUrl;
+		this.price = price;
+	}
 	/**
 	 * @return the id
 	 */

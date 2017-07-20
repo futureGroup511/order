@@ -34,4 +34,6 @@ public interface ITablesService {
 	public List<Tables> CheckName();
 
 	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace);
+
+	public Tables getImurl(int id);
 }

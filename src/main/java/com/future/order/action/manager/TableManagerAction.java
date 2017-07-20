@@ -1,24 +1,27 @@
   package com.future.order.action.manager;
 
 import java.io.ByteArrayOutputStream;
-
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.net.URLEncoder;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Tables;
+import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
-
 
 
 public class TableManagerAction extends BaseAction {
@@ -38,6 +41,10 @@ public class TableManagerAction extends BaseAction {
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "execute");
+		User user = (User)session.get("user");	//张金高改，添加收银员查看餐桌情况
+		if(user.getSort().equals("cashier")){
+			return "cashierMTables";
+		}
 		return SUCCESS;
 	}
 	
@@ -118,7 +125,8 @@ public class TableManagerAction extends BaseAction {
 		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
 		 	name= new String(name.getBytes("ISO-8859-1"),"utf-8");
-	       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
+		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
+	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
 			fout.close();
@@ -145,6 +153,30 @@ public class TableManagerAction extends BaseAction {
 		session.put("replace", replace);
 		return SUCCESS;
 		
+	}
+	public String download() throws Exception{	
+		 HttpServletResponse response = ServletActionContext.getResponse();
+		 HttpServletRequest quest = ServletActionContext.getRequest();
+		 Tables table=	 tablesService.getImurl(id);
+		String fileName = table.getName()+".jpg";
+		//解决get方式中文乱码
+		//获得文件的绝对路径
+		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
+		//创建文件对象
+		File file = new File(realPath,fileName);
+		if(!file.exists()){
+			request.put("managerMsg", "二维码不存在，请先生成二维码");
+			return execute();
+		}
+		try {
+			response.addHeader("content-disposition","attachment;filename="+URLEncoder.encode(fileName,"utf-8"));
+			IOUtils.copy(new FileInputStream(file),response.getOutputStream());
+			return null;
+		} catch (Exception e) {
+			String mark="二维码下载失败";
+			request.put("managerMsg", mark);
+			return "QR_card";
+		}		
 	}
 	public Tables getTable() {
 		return table;

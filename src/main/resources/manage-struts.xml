@@ -67,6 +67,8 @@
 			<result name="updateTable">/WEB-INF/admin/managertables.jsp</result>
 			<result name="deleteTable">/WEB-INF/admin/managertables.jsp</result>
 			<result name="QR_card">/WEB-INF/admin/seeqr_card.jsp</result>
+			<!-- 收银员部分 -->
+			<result name="cashierMTables">/WEB-INF/cashier/managertables.jsp</result>
 		</action>
 		
 		<action name="Restaurant_*" method="{1}" class="com.future.order.action.manager.RestaurantAction">
@@ -87,12 +89,17 @@
 		<action name="OrderAction_*" method="{1}" class="com.future.order.action.manager.OrderAction">
 				<result name="check">/WEB-INF/admin/ordercheck.jsp</result>
 				<result name="update">/WEB-INF/admin/updateorder.jsp</result>
+				<!-- 收银员部分 -->
+				<result name="cashierMOrder">/WEB-INF/cashier/ordercheck.jsp</result>
+				<result name="toPay">/WEB-INF/cashier/topay.jsp</result>
+				<result name="print">/WEB-INF/cashier/print.jsp</result>
 		</action>
 			
 		<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
 			<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatedetails.jsp</result>
-			<result name="print">/WEB-INF/admin/print.jsp</result>
+<!-- 			<result name="print">/WEB-INF/admin/print.jsp</result> -->
+			<result name="cashierDatail">/WEB-INF/cashier/orderdetails.jsp</result>
 		</action>
 		
 		<action name="StockAction_*" method="{1}" class="com.future.order.action.manager.StockAction">

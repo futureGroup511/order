@@ -37,6 +37,37 @@ public class Order {
 	private int cookId;//厨师id，
 	@Column(length=10)
 	private String cookName;//厨师名称
+	@Column(length=10)
+	private double favourable;//优惠金额
+	@Column(length=10)
+	private double price;//优惠后金额
+	
+	/**
+	 * @return the favourable
+	 */
+	public double getFavourable() {
+		return favourable;
+	}
+
+	/**
+	 * @param id the favourable to set
+	 */
+	public void setFavourable(double favourable) {
+		this.favourable = favourable;
+	}
+	/**
+	 * @return the price
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * @param id the price to set
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	/**
 	 * @return the id
 	 */

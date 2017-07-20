@@ -122,7 +122,7 @@
 										         </div>
 												 <div class="introduce"><b>简介：</b>${m.introduce}</div>
 										         <div class="time">
-									<a href="${rootPath}customer/customer_getStockDate?ingId=${m.ingId}">进货时间信息</a>           
+									<a href="${rootPath}customer/customer_getStockDate?ingId=${m.ingId}">进货信息</a>           
 							 		</div>
 							                <section></section>
 							     </div>
