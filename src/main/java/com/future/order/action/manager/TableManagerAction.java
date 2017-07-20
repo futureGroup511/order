@@ -43,11 +43,13 @@ public class TableManagerAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	public String addTable(){
+	public String addTable() throws IOException{
 		table.setStatus("无人");
 		boolean boo = tablesService.addTable(table);
 		if(boo){
 			request.put("addTableMsg", "添加成功");
+			String tablename=table.getName();
+			SomeCard(tablename);
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
@@ -61,11 +63,13 @@ public class TableManagerAction extends BaseAction {
 		return "toUpdateTables";
 	}
 	
-	public String updateTable(){
+	public String updateTable() throws IOException{
 		boolean boo = tablesService.updateTables(table);
 		String updateTableMsg = "修改失败";
 		if(boo){
 			updateTableMsg = "修改成功";
+			String tablename=table.getName();
+			SomeCard(tablename);
 		}
 		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
@@ -108,26 +112,24 @@ public class TableManagerAction extends BaseAction {
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();
-				String mark="二维码生成成功,储存地址在D盘";
+				String mark="二维码生成成功,请返回下载";
 				request.put("managerMsg", mark); 
 		 }
 		return "QR_card";
 	}
-	 public String SomeCard() throws IOException{
+	 public String SomeCard(String tablename) throws IOException{
 		 HttpServletResponse response = ServletActionContext.getResponse();
 		 HttpServletRequest quest = ServletActionContext.getRequest();
 		  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
-		 	name= new String(name.getBytes("ISO-8859-1"),"utf-8");
 		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
-	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
+	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+tablename+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
 			fout.close();
-			String mark="二维码生成成功,储存地址在D盘";
-			request.put("managerMsg", mark);
-			return "QR_card";
+			request.put("managerMsg", "二维码生成成功");
+			return SUCCESS;
 	 }
 	public String Inquiry(){
 		PageCut<Tables> pCut=new PageCut<Tables>();
