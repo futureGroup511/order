@@ -159,13 +159,12 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 
 	@Override
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize) {
-		String statuss="未付款";
 		String hql ;
 		int count=0;
-		hql = "select count(*) from Order o where o.status='"+statuss+"'";
+		hql = "select count(*) from Order o where o.status <> '已付款'";//当查询条件为未付款时，张金高改
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order o where o.status='"+statuss+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status<> '已付款'", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 
@@ -308,9 +307,8 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		}else if(sign.equals("there")){
 			 status="已付款";
 			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
-		}else if(sign.equals("two")){
-			 status="未付款";
-			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+		}else if(sign.equals("two")){	//当查询条件为未付款时，张金高改
+			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status <> '已付款'";
 		}
 		return getEntityList(selecthql);
 	}

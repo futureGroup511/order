@@ -34,7 +34,7 @@ public class MenuManagerAction extends BaseAction {
 	public String execute() {
 		List<MenuType> typelist=menuTypeService.getAllMenuType();
 		session.put("Typelist",typelist);	//将菜品类型和id放进session
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 8);
 		if(pCut.getData().size()==0){
 			String mark="没有菜品";
 			request.put("deleteMenuMsg", mark);
@@ -67,7 +67,7 @@ public class MenuManagerAction extends BaseAction {
 		if(boo){
 			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
 			session.put("menu", menu);
-		//	PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,6);
+		//	PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,8);
 			List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
 			request.put("allIngredient", lists);
 		} else {

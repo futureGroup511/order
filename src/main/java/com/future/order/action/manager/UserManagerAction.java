@@ -22,7 +22,7 @@ public class UserManagerAction extends BaseAction {
 	private String ask;	//得到请求查询的条件
 	
 	public String execute(){
-		PageCut<User> pCut=userService.getPageCut(page,6);
+		PageCut<User> pCut=userService.getPageCut(page,8);
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有其他用户";
@@ -65,7 +65,7 @@ public class UserManagerAction extends BaseAction {
 		if(userId==2){		//当执行修改个人信息时在个人资料界面时
 			result = "toUpdateMyself";
 		} else {
-			PageCut<User> pCut=userService.getPageCut(page,6);
+			PageCut<User> pCut=userService.getPageCut(page,8);
 			request.put("allUser", pCut);
 		}
 		return result;
@@ -83,18 +83,18 @@ public class UserManagerAction extends BaseAction {
 				request.put("deleteUserMsg", "删除失败");
 			}
 		}
-		PageCut<User> pCut=userService.getPageCut(page,6);
+		PageCut<User> pCut=userService.getPageCut(page,8);
 		request.put("allUser", pCut);
 		return "deleteUser";
 	}
 	public String Inquiry(){
 		PageCut<User> pCut=new PageCut();
 		if(ask!=null){
-		 pCut=userService.getSomePageCut(page,6,ask,inquiry);
+		 pCut=userService.getSomePageCut(page,8,ask,inquiry);
 		}else{
 			ask=(String) session.get("ask");
 			inquiry=(String) session.get("inquiry");
-			pCut=userService.getSomePageCut(page,6,ask,inquiry);
+			pCut=userService.getSomePageCut(page,8,ask,inquiry);
 		}
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){

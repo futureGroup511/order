@@ -14,7 +14,7 @@ public class IngredientManagerAction extends BaseAction {
 	private String ask;
 
 	public String execute() {
-		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 8);
 		request.put("allIngredient", pCut);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有配料了，快去添加吧";
@@ -40,11 +40,11 @@ public class IngredientManagerAction extends BaseAction {
 	public String Inquiry() {
 		PageCut<Ingredient> pCut = new PageCut<Ingredient>();
 		if(ask!=null){
-			pCut = ingerdientService.getSomePageCut(page, 6,ask,inquiry);
+			pCut = ingerdientService.getSomePageCut(page, 8,ask,inquiry);
 			}else{
 				ask=(String) session.get("ask");
 				inquiry=(String) session.get("inquiry");
-				pCut = ingerdientService.getSomePageCut(page, 6,ask,inquiry);
+				pCut = ingerdientService.getSomePageCut(page, 8,ask,inquiry);
 			}
 		request.put("allIngredient", pCut);
 		request.put("adss", "Inquiry");
@@ -73,7 +73,7 @@ public class IngredientManagerAction extends BaseAction {
 		} else {
 			request.put("updateIngredientMsg", "修改失败");
 		}
-		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 8);
 		request.put("allIngredient", pCut);
 		return "updateIngredient";
 	}
@@ -86,7 +86,7 @@ public class IngredientManagerAction extends BaseAction {
 		} else {
 			request.put("deleteIngredientMsg", "删除失败");
 		}
-		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 6);
+		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 8);
 		request.put("allIngredient", pCut);
 		return "deleteIngredient";
 	}
