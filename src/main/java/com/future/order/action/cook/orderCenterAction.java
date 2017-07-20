@@ -62,7 +62,7 @@ public class orderCenterAction extends BaseAction {
 		session.put("ordeID", Orderid);
 		boolean menu=orderService.updetemenu(Orderid,ID,UserName);
 		session.put("itemid", Orderid);
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(Order, page, 5);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
 		return "orderdetail";
 	}
