@@ -151,10 +151,10 @@ ${addMeg}
 	   !function(i){
 		   div1[i].onclick = function(){
 			   if(p1[i].innerHTML=="完成"){
-				   alert("这道菜已完成不能退！");
+				   show_notice('这道菜不能退！',3);
 			   }
 			   else{
-				   alert("退菜成功！");
+				   show_notice('退菜成功',3);
 			   }
 		   }
 	   }(i);
