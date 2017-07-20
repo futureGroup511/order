@@ -53,6 +53,7 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			request.put("addTableMsg", "添加成功");
 			String tablename=table.getName();
+			System.out.println(tablename);
 			SomeCard(tablename);
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
@@ -112,7 +113,9 @@ public class TableManagerAction extends BaseAction {
 			  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
 		               ImageType.PNG).stream();  
-		       FileOutputStream fout = new FileOutputStream(new File("D:\\"+name+".jpg"));
+				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
+			 	System.out.println(realPath);
+		       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();
@@ -128,6 +131,7 @@ public class TableManagerAction extends BaseAction {
 		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
 		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
+		 	System.out.println(realPath);
 	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+tablename+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
@@ -168,6 +172,7 @@ public class TableManagerAction extends BaseAction {
 		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
 		//创建文件对象
 		File file = new File(realPath,fileName);
+		System.out.println(file);
 		if(!file.exists()){
 			request.put("managerMsg", "二维码不存在，请先生成二维码");
 			return execute();

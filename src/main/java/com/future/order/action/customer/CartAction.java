@@ -187,7 +187,7 @@ public class CartAction extends BaseAction {
 	public String getBack() throws Exception{
 		int tableId=(int)session.get("userId");
 		OrderDetails orderDetail=orderDetailsService.checkStatus(id);
-		if(orderDetail.getStatus().equals("完成")){
+		if(orderDetail.getStatus().equals("已完成")){
 			String info="该菜已完成,退不了";
 			request.put("stat",info);
 		}else{
