@@ -69,7 +69,7 @@ public class User {
 		this.phone = phone;
 	}
 	/**
-	 * @return the password
+	 * @return the password	
 	 */
 	public String getPassword() {
 		return password;

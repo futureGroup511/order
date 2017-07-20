@@ -59,12 +59,10 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("user");
 		ID = me.getId();
 		UserName = me.getName();
-		System.out.println(Orderid+"第一次传过来的参数");
 		session.put("ordeID", Orderid);
-		System.out.println(Orderid+"第二次传过来的参数");
 		boolean menu=orderService.updetemenu(Orderid,ID,UserName);
 		session.put("itemid", Orderid);
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 5);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(Order, page, 5);
 		request.put("paCut",pCut);
 		return "orderdetail";
 	}
@@ -92,8 +90,6 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("user");
 		ID = me.getId();
 		UserName = me.getName();
-		System.out.println("第一次传参"+i);
-		System.out.println("第二次传参"+i);
 		boolean m=orderDetailsService.updet(i,ID,UserName);
 		List <OrderDetails> list = orderDetailsService.CheckDe(tableId);
 		List n = new ArrayList();
