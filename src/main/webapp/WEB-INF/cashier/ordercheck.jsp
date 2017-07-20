@@ -64,12 +64,12 @@ window.onload=function(){
          <tbody>
           <tr>
              <td>编号</td>
-<!--              <td>餐桌id</td> -->
+             <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>总价</td>
              <td>状态</td>
              <td>订单时间</td>
-<!--              <td>厨师id</td> -->
+             <td>厨师编号</td>
              <td>厨师姓名</td>
              <td style="width:240px;">备注</td>
              <td style="width:150px;">操作</td>
@@ -77,12 +77,12 @@ window.onload=function(){
                   	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
 	                <td><intput >${item.id}</td>
-<%-- 	                <td>${item.tableId}</td> --%>
+	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
 	                <td>${item.total}</td>
 	                <td  id="status">${item.status}</td>
 	                <td>${item.createDate}</td>
-<%-- 	                <td>${item.cookId}</td> --%>
+	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td><textarea rows="2" cols="36" readonly="readonly">${item.remark}</textarea></td>
 	               <td  class="four">

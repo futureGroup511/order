@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+}
+.wall{
+    height: auto;
+    margin-top: 6%;
+    margin-left: 35%;
+}
+table{
+    width: 400px;
+    height:350px;
+}
+table td p{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "微软雅黑";
+    color: #222;
+    text-align: right
+}
+.bor1{width: 140px;}
+input{height: 36px;width: 90%;margin-left: 8%;border-radius: 5px;}
+a{  color: #555;
+    font-size: 16px;
+    font-weight: bold;
+    padding:8px 20px;
+    background:linear-gradient(#eeeeed,#a19f9d);}
+button{padding:8px 20px;
+      font-size: 16px;
+      background-color: #82C0E9;
+      border-radius:7px;
+      font-weight: bold;
+      margin-left: 40%;
+     margin-top: 8%}

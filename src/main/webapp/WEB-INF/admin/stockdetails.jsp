@@ -65,7 +65,7 @@ window.onload=function(){
 	                 <td>
 	                 <textarea rows="2" cols="40" readonly="readonly">${item.origins}</textarea>
 	                 </td>
-	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash"></a></td>      
 	            </tr>  
         	</c:forEach>   
          </tbody>

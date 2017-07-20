@@ -14,29 +14,17 @@
 <div class="header" ><!-- 头部 -->
             <img src="${rootPath}images/header.jpg" style="width:100%;height:125px;">
            <span class="span1">餐饮管理系统</span>
-            <span class="span2">欢迎${userIndex.name}登录</span>
+            <span class="span2">欢迎<span style="font-family: 微软雅黑;">${userIndex.name}</span>登录</span>
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->
         <!--父目录-->
           <ul class="nav" id="main-menu">
-              <li><!-- 追加父目录 -->
-                  <a><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;餐桌管理</a>
-                    <ul class="nav nav-second-level" >
-                      <li>
-                          <a href="${rootPath}manage/TableManager?sort=cashier" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;管理餐桌</a>
-                      </li>
-                  </ul> 
-              </li>
-              <li>
-                   <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;&nbsp;订单中心</a>
-                   <ul class="nav nav-second-level">
-                       <li>
-                          <a href="${rootPath}manage/OrderAction?sort=cashier" target="mainFrame"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;&nbsp;管理订单</a>
-                      </li>
-                   </ul> 
-              </li>
-              
+                <li>
+                	<a href="${rootPath}manage/TableManager?sort=cashier" target="mainFrame"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;&nbsp;管理餐桌</a>
+         		</li>
+               <li>
+      				<a href="${rootPath}manage/OrderAction?sort=cashier" target="mainFrame"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;&nbsp;管理订单</a>              
               <li>
                 <a><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;个人中心</a>
                  <ul class="nav nav-second-level">
@@ -48,6 +36,7 @@
                     </li>
                 </ul> <!-- 第六个子目录结束 -->
              </li> <!-- 第六个父目录结束 -->
+             </ul>
         </div><!-- 左边的菜单栏结束 -->
         <iframe src="${rootPath}welcome.jsp"   id="ifr" name="mainFrame"></iframe>
     </div><!-- 左侧菜单和iframe标签的内容结束 -->
