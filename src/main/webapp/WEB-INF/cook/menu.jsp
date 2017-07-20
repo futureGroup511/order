@@ -5,7 +5,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>已完成菜品</title>
      <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
   <style>
       .aa{

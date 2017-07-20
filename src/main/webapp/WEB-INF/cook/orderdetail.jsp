@@ -70,8 +70,6 @@ window.onload = function() {
 	</script>
 <body>
 <div class="aa" id="div1" style="display: none" >
- 
- <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;订单&nbsp;></p>
     <table id="table1">
       <thead>
         <tr>
@@ -108,7 +106,7 @@ window.onload = function() {
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
-	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_recheck?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}">完成</a></c:if>
+	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_recheck?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}&menuId=${item.menuId}">完成</a></c:if>
 	                <c:if test="${item.status eq '已完成'}">已完成</c:if></td>
 	                <%-- <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td> --%>
 	            </tr>  
