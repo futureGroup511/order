@@ -27,7 +27,7 @@ public class User {
 	@Column(length=10)
 	private String password;
 	@Column(length=7)
-	private String sort;//用户类型（厨师：cook，收银：manager）	
+	private String sort;//用户类型（厨师：cook，管理员：manager，收银员：cashier）	
 	private Date createDate;//注册时间
 	@Column(length=10)
 	private String remark;//备注（备用）
@@ -69,7 +69,7 @@ public class User {
 		this.phone = phone;
 	}
 	/**
-	 * @return the password
+	 * @return the password	
 	 */
 	public String getPassword() {
 		return password;

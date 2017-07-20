@@ -59,12 +59,10 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("user");
 		ID = me.getId();
 		UserName = me.getName();
-		System.out.println(Orderid+"第一次传过来的参数");
 		session.put("ordeID", Orderid);
-		System.out.println(Orderid+"第二次传过来的参数");
 		boolean menu=orderService.updetemenu(Orderid,ID,UserName);
 		session.put("itemid", Orderid);
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 5);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
 		return "orderdetail";
 	}
@@ -92,10 +90,8 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("user");
 		ID = me.getId();
 		UserName = me.getName();
-		System.out.println("第一次传参"+i);
-		System.out.println("第二次传参"+i);
 		boolean m=orderDetailsService.updet(i,ID,UserName);
-		List <OrderDetails> list = orderDetailsService.CheckDe(tableId);
+		List <OrderDetails> list = orderDetailsService.CheckDe(Orderid);
 		List n = new ArrayList();
 		for(int i=0;i<list.size();i++) {
 			String a=list.get(i).getStatus();
@@ -115,7 +111,7 @@ public class orderCenterAction extends BaseAction {
 			int num=(int) pl.getNum();
 			boolean k=ingerdientService.updeteNum(id, num);
 		}
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId,page, 5);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid,page, 5);
 		request.put("paCut", pCut);
 		return "orderdetail";
 	}
@@ -124,7 +120,7 @@ public class orderCenterAction extends BaseAction {
 		ID = me.getId();
 		UserName = me.getName();
 		boolean m=orderDetailsService.updet(Orderid,ID,UserName);
-		List <OrderDetails> list = orderDetailsService.CheckDe(tableId);
+		List <OrderDetails> list = orderDetailsService.CheckDe(Orderid);
 		List n = new ArrayList();
 		for(int i=0;i<list.size();i++) {
 			String a=list.get(i).getStatus();
@@ -132,6 +128,7 @@ public class orderCenterAction extends BaseAction {
 				n.add(a);
 			}
 			if(list.size()==n.size()) {
+				System.out.println(session.get("itemid"));
 				boolean g=orderService.upd((int) session.get("itemid"));
 			}
 		}
@@ -149,7 +146,7 @@ public class orderCenterAction extends BaseAction {
 		return "check";
 	}
 	public String check() {
-		PageCut<OrderDetails> pCut=orderDetailsService.Check(tableId, page, 5);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
 		ActionContext actionContext = ActionContext.getContext();
 		Map session = actionContext.getSession();

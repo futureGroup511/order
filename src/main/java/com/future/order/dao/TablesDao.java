@@ -63,14 +63,14 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace) {
 		String hql;
 		String selecthql;
-		if(pass.equals("status")){
-			int mark = Integer.parseInt(replace);
-			hql = "select count(*) from Tables where "+pass+"='"+mark+"'";
-			selecthql="from Tables where "+pass+"='"+mark+"'";
-		}else{
+//		if(pass.equals("status")){
+//			int mark = Integer.parseInt(replace);
+//			hql = "select count(*) from Tables where "+pass+"='"+mark+"'";
+//			selecthql="from Tables where "+pass+"='"+mark+"'";
+//		}else{
 			hql = "select count(*) from Tables where "+pass+"='"+replace+"'";
 			selecthql="from Tables where "+pass+"='"+replace+"'";			
-		}
+//		}
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Tables> pc = new PageCut<Tables>(curr,pageSize,count);
 		pc.setData(this.getEntityLimitList(selecthql, (curr-1)*pageSize, pageSize));

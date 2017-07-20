@@ -1,7 +1,6 @@
   package com.future.order.action.manager;
 
 import java.io.ByteArrayOutputStream;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +17,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Tables;
+import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
 import net.glxn.qrgen.QRCode;
@@ -33,13 +34,17 @@ public class TableManagerAction extends BaseAction {
 	private String replace;
 	@Override
 	public String execute() throws Exception {
-		PageCut<Tables> pCut=tablesService.getPageCut(page,6);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "execute");
+		User user = (User)session.get("user");	//张金高改，添加收银员查看餐桌情况
+		if(user.getSort().equals("cashier")){
+			return "cashierMTables";
+		}
 		return SUCCESS;
 	}
 	
@@ -73,7 +78,7 @@ public class TableManagerAction extends BaseAction {
 		}
 		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
@@ -89,7 +94,7 @@ public class TableManagerAction extends BaseAction {
 			deleteTableMsg = "删除成功";
 		}
 		request.put("managerMsg", deleteTableMsg);
-		PageCut<Tables> pCut=tablesService.getPageCut(page,3);
+		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有餐桌";
@@ -134,11 +139,11 @@ public class TableManagerAction extends BaseAction {
 	public String Inquiry(){
 		PageCut<Tables> pCut=new PageCut<Tables>();
 		if(pass!=null){
-			pCut=tablesService.getSomePageCut(page,3,pass,replace);
+			pCut=tablesService.getSomePageCut(page,8,pass,replace);
 			}else{
 				pass=(String) session.get("pass");
 				replace=(String) session.get("replace");
-				pCut=tablesService.getSomePageCut(page,3,pass,replace);
+				pCut=tablesService.getSomePageCut(page,8,pass,replace);
 			}
 		request.put("allTables", pCut);
 		if(pCut.getData().size()==0){
@@ -148,6 +153,10 @@ public class TableManagerAction extends BaseAction {
 		request.put("adss", "Inquiry");		
 		session.put("pass", pass);
 		session.put("replace", replace);
+		User user = (User)session.get("user");
+		if(user.getSort().equals("cashier")){
+			return "cashierMTables";
+		}
 		return SUCCESS;
 		
 	}

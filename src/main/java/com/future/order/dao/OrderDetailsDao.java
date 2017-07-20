@@ -71,7 +71,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		@SuppressWarnings("unused")
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		try{
-			String hql="from OrderDetails o where o.tableId='"+id+"'";
+			String hql="from OrderDetails o where o.orderId='"+id+"'";
 			list=this.getEntityList(hql);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -166,10 +166,10 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		public PageCut<OrderDetails> Check(int tableId,int currentPage, int pageSize) {
 			String hql ;
 			int count=0;
-			hql = "select count(*) from OrderDetails o where o.tableId='"+tableId+"'";
+			hql = "select count(*) from OrderDetails o where o.orderId='"+tableId+"'";
 			count = ((Long) this.uniqueResult(hql)).intValue();
 			PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.tableId='"+tableId+"'", (currentPage-1)*pageSize, pageSize));
+			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.orderId='"+tableId+"'", (currentPage-1)*pageSize, pageSize));
 			return pc;
 	}
 	
@@ -266,4 +266,28 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		list=this.getEntityList(hql);
 		return list;
 	}
+	@Override
+	public boolean back(int id) {
+		boolean sign = false;
+		try{
+			String hql="delete from OrderDetails o Where o.id='"+id+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			sign=true;
+		}else{
+			sign=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
+	}
+	@Override
+	public OrderDetails checkStatus(int id) {
+		String hql="from OrderDetails s where s.id="+id;
+		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
+		return orderDetails;
+	}
+	
 }

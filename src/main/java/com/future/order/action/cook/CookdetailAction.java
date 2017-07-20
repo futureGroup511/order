@@ -18,7 +18,7 @@ public class CookdetailAction extends BaseAction{
 	}
 	public String updateUser(){
 		User users=(User) session.get("user");
-		boolean user=userService.updateUser(users);
+//		boolean user=userService.updateUser(users);
 		request.put("updateUser", users);
 		return "Updateuser";
 	}

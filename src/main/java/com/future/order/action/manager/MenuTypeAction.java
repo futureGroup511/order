@@ -31,7 +31,7 @@ public class MenuTypeAction extends BaseAction {
 
 	public String execute() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
-		pCut = menuTypeService.getPageCut(page, 6);
+		pCut = menuTypeService.getPageCut(page,8);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有菜品的类型";
 			request.put("mark", mark);
@@ -111,10 +111,10 @@ public class MenuTypeAction extends BaseAction {
 	public String Inquiry() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
 		if (inquiry != null) {
-			pCut = menuTypeService.getSomePageCut(page, 5, inquiry);
+			pCut = menuTypeService.getSomePageCut(page, 8, inquiry);
 		} else {
 			inquiry = (String) session.get("inquiry");
-			pCut = menuTypeService.getSomePageCut(page, 5, inquiry);
+			pCut = menuTypeService.getSomePageCut(page, 8, inquiry);
 		}
 		if (pCut.getData().size() == 0) {
 			String mark = "没有菜品的类型";

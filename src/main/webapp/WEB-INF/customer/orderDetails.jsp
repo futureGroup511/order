@@ -82,16 +82,18 @@
 <c:if test="${!empty orderDetails }">
 <c:forEach items="${orderDetails}" var="o">
  <div class="ding">
- <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}">
     <div class="left photo">
     	<img src="${rootPath}uploadImg/${o.imgUrl}" alt="" width="100px" height="90px">
     </div>
- </a>
     <div class="right infors">
        <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}"><p style="color:#000"><b>${o.menuName}</b></p></a>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}</p>       
-       <p class="left">状态：</p><p class="green">${o.status}</p>
+       <p class="left" style="display:inline-block">状态：</p><p class="green pppp1"  style="display:inline-block">${o.status}</p>
+       <div style="display:inline-block;"class="right divv1">
+       <a class="right" href="${rootPath}customer/cart_getBack?id=${o.id}" style="margin-right:40px;">
+                  退菜</a>
+       </div>
     </div>
  </div>
 </c:forEach>
@@ -139,4 +141,24 @@ ${addMeg}
       </a>
    </footer>
 </body>
+<script type="text/javascript">
+   function $(b){
+	   return document.getElementsByClassName(b);
+   }
+   var p1 = $('pppp1');
+   var div1 = $('divv1');
+   for(var i = 0;i<p1.length;i++){
+	   !function(i){
+		   div1[i].onclick = function(){
+			   if(p1[i].innerHTML=="完成"){
+				   alert("这道菜已完成不能退！");
+			   }
+			   else{
+				   alert("退菜成功！");
+			   }
+		   }
+	   }(i);
+   }
+   
+</script>
 </html>

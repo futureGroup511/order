@@ -8,7 +8,6 @@
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/ordercheck.css">
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
-
  <script language="javascript">
 window.onload=function(){
 	 var array = new Array();  
@@ -30,22 +29,9 @@ function CheckNopay(){
 function CheckPay(){
 	window.location.href="${rootPath}manage/OrderAction?sign=there";
 	}
-// function Check(){
-// 	window.location.href="${rootPath}manage/OrderAction?sign=one";
-// 	}
-// function search(){
-// 	alter("lmkm");
-//     var status = document.getElementById('status').value;
-// 	if(status=="已付款"){
-// 		alter("该用户已付款");
-// 	}
-//     obj.href = obj.href + "&gjz="+key;
-	</script>
  <script type="text/javascript">
 	function print(id) {
-		  var xpwidth=window.screen.width-10;
-	        var xpheight=window.screen.height-35;
-		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", 'width='+(window.screen.availWidth-10)+',height='+(window.screen.availHeight-30)+ ',top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no'); //写成一行
+		window.open ("${rootPath}manage/OrderDetailsAction_Print?id="+id, "newwindow", " top=50, left=400, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no"); //写成一行
 	}
 </script>
 <head>
@@ -56,19 +42,15 @@ function CheckPay(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-<span style="font-weight: bold;">${mark}</span>
+<span style="font-weight: bold;">${marknews}</span>
 </center>
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
-	<form action="${rootPath}manage/OrderAction_count" method="post">
-		<input typpe="text" style="background-color: #F0F0F0;border-radius: 7px;" name="starttime" placeholder="请输入开始的时间" class="sang_Calender"  style="border-radius:7px;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender"  style="border-radius:7px;background-color: #F0F0F0;" required="required">
-		 <script type="text/javascript" src="../js/datetime.js"></script>
-		<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
-	</form>
 	</div>
      <div class="button">
-      <input type="button" onclick="return CheckNopay();" value="未付款" style="border-radius: 5px;">
-      <input type="button" onclick="return CheckPay();" value="已付款" style="border-radius: 5px;">
+      <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=two';" value="未付款" style="border-radius: 5px;">
+      <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=there';" value="已付款" style="border-radius: 5px;">
+<!--       <input type="button" onclick="return Check();" value="查看全部">       -->
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
 	<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
@@ -94,16 +76,15 @@ function CheckPay(){
              <td>餐桌名称</td>
              <td>总价</td>
              <td>状态</td>
-             <td style="width:160px;">订单时间</td>
+             <td>订单时间</td>
              <td>厨师id</td>
              <td>厨师姓名</td>
-             <td style="width:200px;">备注</td>
-             <td>操作</td>
+             <td>备注</td>
              <td>操作</td>
            </tr>
                   	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
-	                <td>${item.id}</td>
+	                <td><intput >${item.id}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
 	                <td>${item.total}</td>
@@ -111,20 +92,16 @@ function CheckPay(){
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td><textarea rows="2" cols="26" readonly="readonly">${item.remark}</textarea></td>
-	                <td><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}">查看详情</a></td>
-	                <td  class="four"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
+	                <td>${item.remark}</td>
+	               <td  class="four">
+	               		<a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	               		<c:if test="${item.status ne '已付款'}"><a href="${rootPath}manage/OrderAction_toPay?id=${item.id}"  onclick="javascript:search();">付款</a></c:if>
+	               		<c:if test="${item.status eq '已付款'}">已付款</c:if>
+	               </td>      
 	            </tr>  
         	</c:forEach>                         
          </tbody>
      </table>
-     
- <center>
-      <div style="margin-top:1%;font-weight: bold;" id="div4">本页面订单的总收入为(元)：${sumprice}</div>  <br>
-      <div style="margin-top:0%;font-weight: bold;" id="div3">${dateStr}${mark}${dateend}${sums}${sum}</div>
-     </center>
-    </div>
- </div>
 <div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.prePage}&sign=${sign}">上一页</a></li>

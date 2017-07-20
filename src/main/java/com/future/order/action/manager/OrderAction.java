@@ -2,6 +2,7 @@ package com.future.order.action.manager;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Order;
+import com.future.order.entity.OrderDetails;
 import com.future.order.entity.Stock;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
@@ -29,6 +30,10 @@ public class OrderAction extends BaseAction {
 	private String inquiry;
 	private Date starttime;
 	private Date endtime;
+	private double discount;//打折		//张金高修改
+	private double straightCut;//直减
+	private double pay;//实收
+	
 	public String execute() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		double sumprice=0;
@@ -37,14 +42,14 @@ public class OrderAction extends BaseAction {
 		}
 		if(sign.equals("one")){
 			//获得全部订单信息
-			pCut=orderService.getPageCut(page,6);
+			pCut=orderService.getPageCut(page,8);
 		}
 		else if(sign.equals("two")){
 			//获得全部没有结账的订单信息
-			 pCut=orderService.getNoPageCut(page,6);
+			 pCut=orderService.getNoPageCut(page,8);
 		}
 		else if(sign.equals("there")){
-			pCut=orderService.getPage(page,6);
+			pCut=orderService.getPage(page,8);
 		}	
 		for(int i=0;i<pCut.getData().size();i++){
 			sumprice+=pCut.getData().get(i).getTotal();
@@ -58,6 +63,10 @@ public class OrderAction extends BaseAction {
 		request.put("adss", "execute");
 		request.put("sign", sign);
 		request.put("pc", pCut);
+		User user = (User) session.get("user");	//张金高改，添加收银员进入该功能
+		if(user.getSort().equals("cashier")){
+			return "cashierMOrder";
+		}
 		return "check";
 	}
 	public String Delet() {//从前台获得ID用于根据账号删除订单信息和订单详细信息
@@ -74,16 +83,44 @@ public class OrderAction extends BaseAction {
 
 	}
 
-	public String Pay() {//用于结账，把订单状态由已处理改为已结账
-		boolean sign = orderService.PayOrder(id);
-		String mark = "操作失败";
+	public String toPay(){//转发到结账界面
+		request.put("orderId", id);
+		Order order = orderService.CheckById(id);
+		System.out.println("ordertoPay"+order);
+		request.put("order", order);
+		return "toPay";
+	}
+	
+	public String Pay() {//用于结账，把订单状态由已处理改为已结账       打印发票
+		double prices = 0;//优惠后金额
+		double favourables = 0;//优惠金额
+		boolean sign = orderService.PayOrder(orders.getId());
+		String mark = "付款失败";
 		if (sign == true) {
 			mark = "付款成功";
-		} else {
-			mark = "付款失败";
 		}
+		Order orderDb = orderService.CheckById(orders.getId());
+		if(discount!=0){
+			prices = orderDb.getTotal()*discount-straightCut;
+			favourables = orderDb.getTotal()*(1-discount)+straightCut;
+		} else {
+			prices = orderDb.getTotal()-straightCut;
+			favourables = orderDb.getTotal()*(1-discount)+straightCut;
+		}
+		orderDb.setPrice(prices);
+		orderDb.setFavourable(favourables);
+		double returnPay = pay-prices;//找零
+		request.put("mark", mark);
+		request.put("discount", discount);
+		request.put("straightCut", straightCut);
 		request.put("marknews", mark);
-		return this.execute();
+		request.put("pay", pay);
+		request.put("returnPay", returnPay);
+		request.put("order", orderDb);
+		
+		List<OrderDetails> list=orderDetailsService.SeeByid(orderDb.getId());
+		request.put("orderlist", list);
+		return "print";
 	}
 
 	public String toUpdate() {//根据ID获得需要修改的订单信息
@@ -109,12 +146,12 @@ public class OrderAction extends BaseAction {
 		double sum=0;
 		double sumprice=0;
 		if(ask!=null){
-			pCut=orderService.getSomePageCut(page,6,ask,inquiry);
+			pCut=orderService.getSomePageCut(page,8,ask,inquiry);
 			list=orderService.getPrice(ask,inquiry);
 			}else{
 				ask=(String) session.get("ask");
 				inquiry=(String) session.get("inquiry");
-				pCut=orderService.getSomePageCut(page,6,ask,inquiry);
+				pCut=orderService.getSomePageCut(page,8,ask,inquiry);
 				list=orderService.getPrice(ask,inquiry);
 			}
 			//获得全部订单信息
@@ -140,6 +177,10 @@ public class OrderAction extends BaseAction {
 		session.put("ask", ask);
 		session.put("inquiry", inquiry);
 		request.put("dateend", inquiry);
+		User user = (User)session.get("user");
+		if(user.getSort().equals("cashier")){
+			return "cashierMOrder";
+		}
 		return "check";
 	}
 	public String count(){
@@ -194,6 +235,10 @@ public class OrderAction extends BaseAction {
 		request.put("adss", "count");
 		request.put("sign", sign);
 		request.put("pc", pCut);
+		User user = (User)session.get("user");
+		if(user.getSort().equals("cashier")){
+			return "cashierMOrder";
+		}
 		return "check";
 		
 	}
@@ -251,6 +296,24 @@ public class OrderAction extends BaseAction {
 	}
 	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
+	}
+	public double getDiscount() {
+		return discount;
+	}
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+	public double getStraightCut() {
+		return straightCut;
+	}
+	public void setStraightCut(double straightCut) {
+		this.straightCut = straightCut;
+	}
+	public double getPay() {
+		return pay;
+	}
+	public void setPay(double pay) {
+		this.pay = pay;
 	}
 	
 }
