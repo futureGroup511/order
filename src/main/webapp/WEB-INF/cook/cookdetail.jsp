@@ -64,7 +64,6 @@
 
 <body>
   <div class="aa"> 
-   <div id="a1"> <a href="">个人中心&nbsp;></a><a href="">查看个人资料&nbsp;></a></div>
    <table id="table1">
        <thead>
           <tr>

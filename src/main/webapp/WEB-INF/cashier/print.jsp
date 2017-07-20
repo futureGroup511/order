@@ -38,11 +38,12 @@
 	<center>
 	**********************************<br>
 	<h4>消费总金额：${order.total}元<h4>
-	<h4>优惠情况：打折：${discount}<span style="margin-left: 30px;">直减：${straightCut}元</span></h4>
-	<h4>优惠后金额：${order.price}</h4>
-	<h4>实收：${pay}</h4>
-	<h4>找零：${returnPay}</h4>
-	收银员：${user.name}<br>
+	<h4>优惠情况：<span style="margin-left: 2%;">打折：${discount}</span></h4>
+	<h4><span style="margin-left: 17%;">直减：${straightCut}元</span></h4>
+	<h4>优惠后金额：${order.price}元</h4>
+	<h4>实收：${pay}元</h4>
+	<h4>找零：${returnPay}元</h4>
+	收银员：${cashier.name}<br>
 	**********************************<br>
 	${restlist.name}  欢迎您下次光临<br>
 	电话：${restlist.phone}<br>
