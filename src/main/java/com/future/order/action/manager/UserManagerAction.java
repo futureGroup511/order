@@ -58,12 +58,12 @@ public class UserManagerAction extends BaseAction {
 		}
 		User userM = (User)session.get("manager");
 		User userC = (User)session.get("cook");
-		if(userM.getId()==user.getId()){	//当修改的是自己本人的时候，将修改后信息存入session
+		if(userM!=null&&userM.getId()==user.getId()){	//当修改的是自己本人的时候，将修改后信息存入session
 			User userData = userService.viewUser(user.getId());
 			session.put("manager", userData);
 			result = "toUpdateMyself";
 		}
-		if(userC.getId()==user.getId()){
+		if(userC!=null&&userC.getId()==user.getId()){
 			User userData = userService.viewUser(user.getId());
 			session.put("cook", userData);
 			result = "toUpdateMyself";
