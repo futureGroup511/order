@@ -106,27 +106,31 @@ public class TableManagerAction extends BaseAction {
 		}
 		return "deleteTable";
 	}
-	public String allCard() throws IOException{
-		List<Tables> list = tablesService.CheckName();
+	public String allCard() throws Exception{
+		  HttpServletRequest quest = ServletActionContext.getRequest();
+		  HttpServletResponse response = ServletActionContext.getResponse();
+			List<Tables> list = tablesService.CheckName();
 		@SuppressWarnings("unused")
 		 String paths=getLocalIP();
-		HttpServletResponse response = ServletActionContext.getResponse();
+		 String realPath = ServletActionContext.getRequest().getRealPath("uploadImg/Qrcard");
 		 for(int i=0;i<list.size();i++){
-			 int j=list.get(i).getId();//http://localhost:8080/order/customer/customer_toIndex?id="+j
-			  String name=list.get(i).getName();
-			  HttpServletRequest quest = ServletActionContext.getRequest();
+			 int j=list.get(i).getId();
+			 File f = new File(realPath+"\\No"+j+".jpg"); // 输入要删除的文件位置
+		       if(f.exists())
+		       f.delete();
+			 String name=list.get(i).getName();
 			  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
-		               ImageType.PNG).stream();  
-				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
-			       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No."+j+".jpg"));
+		               ImageType.PNG).stream();	
+//				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
+			       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No"+j+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();
 				String mark="二维码生成成功,请返回下载";
 				request.put("managerMsg", mark); 
 		 }
-		return "QR_card";
+		return execute();
 	}
 	 public String SomeCard(String tablename, int cardid) throws IOException{
 		 String paths=getLocalIP();
@@ -136,12 +140,14 @@ public class TableManagerAction extends BaseAction {
 		  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+cardid).to(  
 	               ImageType.PNG).stream();
-		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
-	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No."+cardid+".jpg"));
+			String realPath = ServletActionContext.getRequest().getRealPath("uploadImg/Qrcard");
+		 	//String realPath = quest.getServletContext().getRealPath("uploadImg/Qrcard");
+			System.out.println(realPath);
+	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No"+cardid+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
 			fout.close();
-			String sign="No."+cardid+".jpg";
+			String sign="No"+cardid+".jpg";
 			request.put("sign", sign);
 			request.put("managerMsg", "二维码生成成功");
 			return "QR_card";
@@ -173,7 +179,7 @@ public class TableManagerAction extends BaseAction {
 		 HttpServletResponse response = ServletActionContext.getResponse();
 		 HttpServletRequest quest = ServletActionContext.getRequest();
 		 Tables table=	 tablesService.getImurl(id);
-		String fileName = "No."+table.getId()+".jpg";
+		String fileName = "No"+table.getId()+".jpg";
 		//解决get方式中文乱码
 		//获得文件的绝对路径
 		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
@@ -196,7 +202,7 @@ public class TableManagerAction extends BaseAction {
 	public String selectQrcard (){
 		Tables table=	 tablesService.getImurl(id);
 		int cardid=table.getId();
-		String sign="No."+cardid+".jpg";
+		String sign="No"+cardid+".jpg";
 		request.put("sign", sign);
 		return "QR_card";
 	}
