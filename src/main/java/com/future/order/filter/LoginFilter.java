@@ -57,11 +57,6 @@ public class LoginFilter implements Filter {
 		User cashier = (User) hRequest.getSession().getAttribute("cashier");// 获得登陆用户
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
 		String path = hRequest.getRequestURI();
-		System.out.println("path  "+path);
-//		if (cook != null||manager!=null||cashier!=null) {
-//			chain.doFilter(request, response);
-//			return;
-//		}
 		if(cook!=null&&path.indexOf("cook")!=-1){
 			System.out.println("1111");
 			chain.doFilter(request, response);
@@ -71,8 +66,7 @@ public class LoginFilter implements Filter {
 		} else if(cashier!=null&&path.indexOf("manage")!=-1){
 			System.out.println("3333");
 			chain.doFilter(request, response);
-		} 
-		else {
+		} else {
 			response.getWriter()
 					.println("<script language=\"javascript\">" +"alert(\"登录失效！请重新登录\");"+ "if(window.opener==null){window.top.location.href=\""
 							+ returnUrl + "\";}else{window.opener.top.location.href=\"" + returnUrl
