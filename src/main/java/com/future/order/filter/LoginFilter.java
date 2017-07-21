@@ -58,13 +58,10 @@ public class LoginFilter implements Filter {
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
 		String path = hRequest.getRequestURI();
 		if(cook!=null&&path.indexOf("cook")!=-1){
-			System.out.println("1111");
 			chain.doFilter(request, response);
 		} else if(manager!=null&&path.indexOf("manage")!=-1){
-			System.out.println("2222");
 			chain.doFilter(request, response);
 		} else if(cashier!=null&&path.indexOf("manage")!=-1){
-			System.out.println("3333");
 			chain.doFilter(request, response);
 		} else {
 			response.getWriter()
