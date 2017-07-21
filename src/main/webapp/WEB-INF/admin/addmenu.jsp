@@ -20,16 +20,16 @@ display:inline-block;
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
  <div class="addmenu">
- <h4>${addMsg}</h4>
+ <h5 style="margin-left:20%;">${addMsg}</h5>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">
      <lable><span style="padding-right:9%">菜</span>名：</lable><input type="text" name="menu.name" required="required"><br>
      <lable><span style="padding-right:1%">类</span><span style="padding-right:1%">型</span><span style="padding-right:1%">名</span>称：</lable>
      <select name="menu.typeName" class="select"> 
- 			<c:forEach items="${Typelist}" var="item">  
+ 			<c:forEach items="${Typelist}" var="item">
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable><span style="padding-right:9%">价</span>格：</lable><input type="text" style=" name="menu.price" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''" placeholder="请输入数字"><br>
+     <lable><span style="padding-right:9%">价</span>格：</lable><input type="text" name="menu.price" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''" placeholder="请输入数字"><br>
      <lable>是否可以做：</lable>
      <select name="menu.exist" class="select">
       <option value="1">可做</option>

@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Stock;
+import com.future.order.entity.StockDetails;
 import com.future.order.util.PageCut;
 
 /**
@@ -61,14 +62,16 @@ public class StockAction extends BaseAction {
 	}
 
 	public String Delet() {
-		
-		boolean sign = stockService.DeletStock(id);
-		boolean signs = stockDetailsService.DeletStockDetails(id);
 		String mark = "操作失败";
-		if (sign == true && signs == true) {
+		boolean sign = stockService.DeletStock(id);
+		PageCut<StockDetails> pCut=stockDetailsService.getPageCut(page,8,id);
+		if(pCut.getData().size()==0&&sign==true){
 			mark = "操作成功";
 		} else {
-			mark = "删除失败";
+			boolean signs = stockDetailsService.DeletStockDetails(id);
+			if (sign == true || signs == true) {
+				mark = "操作成功";
+			}
 		}
 		request.put("stocknews", mark);
 		return this.execute();
