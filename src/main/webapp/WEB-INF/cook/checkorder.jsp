@@ -70,8 +70,6 @@ window.onload = function() {
 	</script>
 <body>
 <div class="aa" id="div1" style="display: none" >
- 
- <p>所有未完成菜品&nbsp;>&nbsp;已完成订单&nbsp;>&nbsp;订单&nbsp;></p>
     <table id="table1">
       <thead>
         <tr>

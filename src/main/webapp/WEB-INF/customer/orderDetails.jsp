@@ -155,11 +155,8 @@ ${addMeg}
 			   }
 			   else{
 				   show_notice('退菜成功',2)
-				   show_notice('这道菜不能退！',1);
 			   }
-			   else{
-				   show_notice('退菜成功',1);
-			   }
+
 		   }
 	   }(i);
    }

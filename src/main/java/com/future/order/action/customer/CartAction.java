@@ -39,6 +39,7 @@ public class CartAction extends BaseAction {
 	}
 	// 提交订单
 	public String getHand() throws Exception {
+		System.out.println("ooo");
 		int tableId = (int) session.get("userId");	
 		if(name==null){
 			name="原味";
@@ -195,21 +196,22 @@ public class CartAction extends BaseAction {
 			String info="退菜成功！";
 			request.put("stat",info);
 		}
-		Order orders=orderService.getOrder1(tableId);
-		List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orders.getId());
+		Order order=orderService.getOrder1(tableId);
+		List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(order.getId());
 		if(orderDetails.isEmpty()){
 			List<OrderDetails> orderDetaill = orderDetailsService.getDetails(0);
 			request.put("orderDetails",orderDetail);
 		}
-		request.put("order",orders.getStatus());
+		request.put("order",order.getStatus());
 		request.put("orderDetails", orderDetails);
-		request.put("myId", orders.getId());
+		request.put("myId", order.getId());
 		double totall=0;
 		for(OrderDetails it:orderDetails){
 			totall+=it.getPrice()*it.getMenuNum();
 		}
-			request.put("totall",totall);
-		
+		order.setTotal(totall);
+		boolean bool=orderService.update(order);
+		request.put("totall",totall);
 		return "getBack";
 	}
 	
