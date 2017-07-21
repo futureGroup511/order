@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center><h4>${managerMsg}</h4>
+<center>
+<h4>${managerMsg}</h4>
+  <img src="${rootPath}uploadImg/Qrcard/${sign}">
 </center>
 </body>
 </html>

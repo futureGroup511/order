@@ -44,10 +44,10 @@ public class TableManagerAction extends BaseAction {
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "execute");
-		User user = (User)session.get("user");//张金高改，添加收银员查看餐桌情况
-		if(user.getSort().equals("cashier")){
-			return "cashierMTables";
-		}
+//		User user = (User)session.get("user");//张金高改，添加收银员查看餐桌情况
+//		if(user.getSort().equals("cashier")){
+//			return "cashierMTables";
+//		}
 		return SUCCESS;
 	}
 	
@@ -62,7 +62,7 @@ public class TableManagerAction extends BaseAction {
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
-		return "addTable";
+		return "QR_card";
 	}
 	
 	public String  toUpdateTable() {
@@ -120,7 +120,7 @@ public class TableManagerAction extends BaseAction {
 			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
 		               ImageType.PNG).stream();  
 				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
-			       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
+			       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No."+j+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();
@@ -138,12 +138,14 @@ public class TableManagerAction extends BaseAction {
 		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+cardid).to(  
 	               ImageType.PNG).stream();
 		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
-	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+tablename+".jpg"));
+	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No."+cardid+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
 			fout.close();
+			String sign="No."+cardid+".jpg";
+			request.put("sign", sign);
 			request.put("managerMsg", "二维码生成成功");
-			return SUCCESS;
+			return "QR_card";
 	 }
 	public String Inquiry(){
 		PageCut<Tables> pCut=new PageCut<Tables>();
@@ -173,7 +175,7 @@ public class TableManagerAction extends BaseAction {
 		 HttpServletResponse response = ServletActionContext.getResponse();
 		 HttpServletRequest quest = ServletActionContext.getRequest();
 		 Tables table=	 tablesService.getImurl(id);
-		String fileName = table.getName()+".jpg";
+		String fileName = "No."+table.getId()+".jpg";
 		//解决get方式中文乱码
 		//获得文件的绝对路径
 		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
@@ -192,6 +194,13 @@ public class TableManagerAction extends BaseAction {
 			request.put("managerMsg", mark);
 			return "QR_card";
 		}		
+	}
+	public String selectQrcard (){
+		Tables table=	 tablesService.getImurl(id);
+		int cardid=table.getId();
+		String sign="No."+cardid+".jpg";
+		request.put("sign", sign);
+		return "QR_card";
 	}
 	public static String getLocalIP() {
 		  String sIP = "";
