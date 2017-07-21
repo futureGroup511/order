@@ -39,7 +39,6 @@ public class CartAction extends BaseAction {
 	}
 	// 提交订单
 	public String getHand() throws Exception {
-		System.out.println("ooo");
 		int tableId = (int) session.get("userId");	
 		if(name==null){
 			name="原味";

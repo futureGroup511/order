@@ -151,10 +151,34 @@ ${addMeg}
 	   !function(i){
 		   div1[i].onclick = function(){
 			   if(p1[i].innerHTML=="已完成"){
+<<<<<<< HEAD
+<<<<<<< HEAD
 				   show_notice('退菜失败,厨师已做',2)
 			   }
 			   else{
 				   show_notice('退菜成功',2)
+				   show_notice('这道菜不能退！',1);
+			   }
+			   else{
+				   show_notice('退菜成功',1);
+=======
+<<<<<<< HEAD
+				   show_notice('这道菜不能退！',1);
+			   }
+			   else{
+				   show_notice('退菜成功',1);
+=======
+=======
+>>>>>>> 9a97d4b22236bed8e2acd2e6fcfdf6d090104fa7
+				   show_notice('退菜失败,厨师已做',2)
+			   }
+			   else{
+				   show_notice('退菜成功',2)
+<<<<<<< HEAD
+>>>>>>> 07071339e76e6f778e9d338b4ff089f059d62ce9
+>>>>>>> 4edf5eafdcaff16b9428b140bd10ce1a1e2ddb65
+=======
+>>>>>>> 9a97d4b22236bed8e2acd2e6fcfdf6d090104fa7
 			   }
 
 		   }
