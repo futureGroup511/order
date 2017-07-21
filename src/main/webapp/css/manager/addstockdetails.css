@@ -28,8 +28,13 @@ select{
 }
 .button{
     width: 200px;
-    height: 25px;
+    height: 50px;
     margin-left:40%;
-    margin-bottom:15%;
     font-size: 24px;
+}
+.suyuan{
+/* 	background-color:red; */
+	width: 500px;
+    height: 300px;
+    margin-top:-90px;
 }

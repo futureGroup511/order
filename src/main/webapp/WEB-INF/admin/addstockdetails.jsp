@@ -93,13 +93,13 @@ var ue = UE.getEditor('editor', {
  	</select><br>
      <lable>重量(kg):</lable><input style="margin-left: 1%;" type="number" name="details.num" required="required" placeholder="请输入数字"><br>
      <lable>价格(kg):</lable><input style="margin-left: 1%;" type="number"  name="details.price" required="required" placeholder="请输入数字"><br>
-     <lable>溯源:</lable>
-     <div class="row">
-     <textarea rows="5" cols="55" name="details.origins" style="display:none;" id="content"></textarea><br>
-      <script id="editor" type="text/plain" style="width:100%; height: 250px;"></script>
+     <div style="font-size:20px;font-weight: bold;width:5%;margin-left:-100px;">溯源:</div>
+     <div class="suyuan">
+     <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea><br>
+      <script id="editor" type="text/plain" style="margin-top:-50px; width:100%; height: 50%;"></script>
      </div>
       <div class="button">
-        <input style="background-color: #1BAFE0;margin-top:10%;width:100px;" type="submit" value="提交">          
+        <input style="background-color: #1BAFE0;margin-top:3%;width:100px;" type="submit" value="提交">          
       </div>
     </form>
 </div>
