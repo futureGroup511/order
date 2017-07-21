@@ -34,6 +34,7 @@ window.onload=function(){
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>
+<center>${markinfo}</center>
 <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
@@ -65,7 +66,7 @@ window.onload=function(){
 	                 <td>
 	                 <textarea rows="2" cols="40" readonly="readonly">${item.origins}</textarea>
 	                 </td>
-	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash"></a></td>      
+	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
 	            </tr>  
         	</c:forEach>   
          </tbody>
