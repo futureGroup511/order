@@ -29,9 +29,9 @@ window.onload=function(){
 </script>
 <style>
 .row{
-width:400px;
-margin-left:12%;
-margin-top:-20%;
+width:300px;
+margin-left:65%;
+margin-top:-85%;
 }
 </style>
 <script type="text/javascript">
@@ -87,18 +87,20 @@ var ue = UE.getEditor('editor', {
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
  <div class="updatestocknews">
       <form action="${rootPath}manage/StockDetailsAction_Update" method="post" onsubmit="modifyContent()">
+          <div class="sow">
           <lable id="text">编号：</lable><input name="details.id" value="${stockDetails.id}" type="text" readonly="readonly"><br>
           <lable id="text">进货编号：</lable><input name="details.stockId" value="${stockDetails.stockId}" type="text" ><br>
           <lable id="text">配料编号：</lable><input type="text" name="details.ingId" value="${stockDetails.ingId}" ><br>
           <lable id="text">配料名称：</lable><input type="text" name="details.ingName" value="${stockDetails.ingName}"><br>
-          <lable id="text">单价（元）：</lable><input type="text" name="details.price" value="${stockDetails.price}" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
+          <lable id="text">单价(元)：</lable><input type="text" name="details.price" value="${stockDetails.price}" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
           <lable id="text">数量：</lable><input type="number" name="details.num" value="${stockDetails.num}"><br>
           <lable id="text">进货时间：</lable><input type="text" name="details.createDate" value="${stockDetails.createDate}" class="sang_Calender"><br>
           	<script type="text/javascript" src="${rootPath}/js/datetime.js"></script>
-      	<lable>溯源:</lable>
+      	</div>
       	<div class="row">
+      	<lable>溯源:</lable>
       	<textarea rows="5" cols="35" name="details.origins"  style="display:none;" id="content">${stockDetails.origins}</textarea><br>
-      	 <script id="editor" type="text/plain" style="width:100%; height: 200px;"></script>
+      	 <script id="editor" type="text/plain" style="width:100%; height: 160px;"></script>
       	</div>
       <div class="button">
          <input type="submit" value="修改" style="width:80px;">
