@@ -3,9 +3,13 @@
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.net.URLEncoder;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +35,6 @@ public class TableManagerAction extends BaseAction {
 	private int id;
 	private String pass;
 	private String replace;
-	private String sort;//得到用户的身份
 	@Override
 	public String execute() throws Exception {
 		PageCut<Tables> pCut=tablesService.getPageCut(page,8);
@@ -41,7 +44,8 @@ public class TableManagerAction extends BaseAction {
 			request.put("managerMsg", mark);
 		}
 		request.put("adss", "execute");
-		if(sort!=null&&sort.equals("cashier")){
+		User user = (User)session.get("user");//张金高改，添加收银员查看餐桌情况
+		if(user.getSort().equals("cashier")){
 			return "cashierMTables";
 		}
 		return SUCCESS;
@@ -53,8 +57,8 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			request.put("addTableMsg", "添加成功");
 			String tablename=table.getName();
-			System.out.println(tablename);
-			SomeCard(tablename);
+			int cardid=table.getId();
+			SomeCard(tablename,cardid);
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
@@ -74,7 +78,8 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			updateTableMsg = "修改成功";
 			String tablename=table.getName();
-			SomeCard(tablename);
+			int cardid=table.getId();
+			SomeCard(tablename,cardid);
 		}
 		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
@@ -105,17 +110,17 @@ public class TableManagerAction extends BaseAction {
 	public String allCard() throws IOException{
 		List<Tables> list = tablesService.CheckName();
 		@SuppressWarnings("unused")
+		 String paths=getLocalIP();
 		HttpServletResponse response = ServletActionContext.getResponse();
 		 for(int i=0;i<list.size();i++){
 			 int j=list.get(i).getId();//http://localhost:8080/order/customer/customer_toIndex?id="+j
 			  String name=list.get(i).getName();
 			  HttpServletRequest quest = ServletActionContext.getRequest();
-			  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
+			  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
 		               ImageType.PNG).stream();  
-				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
-			 	System.out.println(realPath);
-		       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
+				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
+			       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+name+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();
@@ -124,14 +129,15 @@ public class TableManagerAction extends BaseAction {
 		 }
 		return "QR_card";
 	}
-	 public String SomeCard(String tablename) throws IOException{
+	 public String SomeCard(String tablename, int cardid) throws IOException{
+		 String paths=getLocalIP();
+		 System.out.println(paths);
 		 HttpServletResponse response = ServletActionContext.getResponse();
 		 HttpServletRequest quest = ServletActionContext.getRequest();
-		  String path= quest.getScheme() + "://"+ quest.getServerName() + ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
-		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
+		  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
+		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+cardid).to(  
 	               ImageType.PNG).stream();
-		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
-		 	System.out.println(realPath);
+		 	String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
 	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\"+tablename+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
@@ -156,7 +162,8 @@ public class TableManagerAction extends BaseAction {
 		request.put("adss", "Inquiry");		
 		session.put("pass", pass);
 		session.put("replace", replace);
-		if(sort!=null&&sort.equals("cashier")){
+		User user = (User)session.get("user");
+		if(user.getSort().equals("cashier")){
 			return "cashierMTables";
 		}
 		return SUCCESS;
@@ -169,10 +176,9 @@ public class TableManagerAction extends BaseAction {
 		String fileName = table.getName()+".jpg";
 		//解决get方式中文乱码
 		//获得文件的绝对路径
-		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg");
+		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
 		//创建文件对象
 		File file = new File(realPath,fileName);
-		System.out.println(file);
 		if(!file.exists()){
 			request.put("managerMsg", "二维码不存在，请先生成二维码");
 			return execute();
@@ -187,6 +193,37 @@ public class TableManagerAction extends BaseAction {
 			return "QR_card";
 		}		
 	}
+	public static String getLocalIP() {
+		  String sIP = "";
+		  InetAddress ip = null;
+		  try {
+		   boolean bFindIP = false;
+		   Enumeration<NetworkInterface> netInterfaces = (Enumeration<NetworkInterface>) NetworkInterface
+		     .getNetworkInterfaces();
+		   while (netInterfaces.hasMoreElements()) {
+		    if (bFindIP) {
+		     break;
+		    }
+		    NetworkInterface ni = (NetworkInterface) netInterfaces
+		      .nextElement();
+		    Enumeration<InetAddress> ips = ni.getInetAddresses();
+		    while (ips.hasMoreElements()) {
+		     ip = (InetAddress) ips.nextElement();
+		     if (!ip.isLoopbackAddress() 
+		       && ip.getHostAddress().matches(
+		         "(\\d{1,3}\\.){3}\\d{1,3}")) {
+		      bFindIP = true;
+		      break;
+		     }
+		    }
+		   }
+		  } catch (Exception e) {
+		  }
+		  if (null != ip) {
+		   sIP = ip.getHostAddress();
+		  }
+		  return sIP;
+		 }
 	public Tables getTable() {
 		return table;
 	}
@@ -233,14 +270,6 @@ public class TableManagerAction extends BaseAction {
 
 	public void setReplace(String replace) {
 		this.replace = replace;
-	}
-
-	public String getSort() {
-		return sort;
-	}
-
-	public void setSort(String sort) {
-		this.sort = sort;
 	}
 	
 }
