@@ -158,7 +158,7 @@ html {
 						<td>${item.remark}</td>
 
 						<td><a
-							href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td>
+							href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}&menuId=${item.menuId}">完成</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

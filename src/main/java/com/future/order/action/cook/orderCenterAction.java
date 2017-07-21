@@ -26,15 +26,10 @@ public class orderCenterAction extends BaseAction {
 	private int Orderid;
 	private String UserName;
 	private int i;
-	public int getI() {
-		return i;
-	}
-	public void setI(int i) {
-		this.i = i;
-	}
+	private int menuId;
+	private String input;
 	ActionContext actionContext = ActionContext.getContext();
 	Map session = actionContext.getSession();
-	private String input;
 	public String checkorder() {
 		PageCut<Order> pCut=orderService.getPageCut(page, 5);
 		request.put("paCut",pCut);
@@ -71,11 +66,7 @@ public class orderCenterAction extends BaseAction {
 		ID = me.getId();
 		UserName = me.getName();
 		boolean m=orderDetailsService.updet(OrderId ,ID,UserName);
-		ActionContext actionContext = ActionContext.getContext();
-		Map session = actionContext.getSession();
-		session.put("menuId",OrderId);
-		int s=(int) session.get("menuId");
-		List  menu=menuMaterialService.getMenuMaterial(s);
+		List  menu=menuMaterialService.getMenuMaterial(menuId);
 		for( int i=0;i<menu.size();i++) {
 			MenuMaterial pl=(MenuMaterial) menu.get(i);
 			int id=pl.getIngId();
@@ -102,9 +93,7 @@ public class orderCenterAction extends BaseAction {
 				boolean g=orderService.upd((int) session.get("itemid"));
 			}
 		}
-		session.put("id",OrderId);
-		int s=(int) session.get("id");
-		List  menu=menuMaterialService.getMenuMaterial(s);
+		List  menu=menuMaterialService.getMenuMaterial(menuId);
 		for( int i=0;i<menu.size();i++) {
 			MenuMaterial pl=(MenuMaterial) menu.get(i);
 			int id=pl.getIngId();
@@ -132,9 +121,7 @@ public class orderCenterAction extends BaseAction {
 				boolean g=orderService.upd((int) session.get("itemid"));
 			}
 		}
-		session.put("Orderid",Orderid);
-		int s=(int) session.get("Orderid");
-		List  menu=menuMaterialService.getMenuMaterial(s);
+		List  menu=menuMaterialService.getMenuMaterial(menuId);
 		for( int i=0;i<menu.size();i++) {
 			MenuMaterial pl=(MenuMaterial) menu.get(i);
 			int id=pl.getIngId();
@@ -230,5 +217,17 @@ public class orderCenterAction extends BaseAction {
 	}
 	public void setOrderid(int orderid) {
 		Orderid = orderid;
+	}
+	public int getMenuId() {
+		return menuId;
+	}
+	public void setMenuId(int menuId) {
+		this.menuId = menuId;
+	}
+	public int getI() {
+		return i;
+	}
+	public void setI(int i) {
+		this.i = i;
 	}
 }
