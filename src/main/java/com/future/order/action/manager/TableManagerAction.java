@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
@@ -55,9 +56,8 @@ public class TableManagerAction extends BaseAction {
 		boolean boo = tablesService.addTable(table);
 		if(boo){
 			request.put("addTableMsg", "添加成功");
-			String tablename=table.getName();
-			int cardid=table.getId();
-			SomeCard(tablename,cardid);
+			id=table.getId();
+			SomeCard();
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
@@ -76,9 +76,8 @@ public class TableManagerAction extends BaseAction {
 		String updateTableMsg = "修改失败";
 		if(boo){
 			updateTableMsg = "修改成功";
-			String tablename=table.getName();
-			int cardid=table.getId();
-			SomeCard(tablename,cardid);
+			id=table.getId();
+			SomeCard();
 		}
 		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
@@ -92,6 +91,11 @@ public class TableManagerAction extends BaseAction {
 	}
 	
 	public String deleteTable() {
+		 String realPath = ServletActionContext.getRequest().getRealPath("uploadImg/Qrcard");
+		int cardid=table.getId();
+		 File f = new File(realPath+"\\No"+cardid+".jpg"); // 输入要删除的文件位置
+	       if(f.exists())
+	       f.delete();
 		boolean boo = tablesService.deleteTable(table);
 		String deleteTableMsg = "删除失败";
 		if(boo){
@@ -106,7 +110,7 @@ public class TableManagerAction extends BaseAction {
 		}
 		return "deleteTable";
 	}
-	public String allCard() throws Exception{
+	public void allCard() throws Exception{
 		  HttpServletRequest quest = ServletActionContext.getRequest();
 		  HttpServletResponse response = ServletActionContext.getResponse();
 			List<Tables> list = tablesService.CheckName();
@@ -121,36 +125,50 @@ public class TableManagerAction extends BaseAction {
 			 String name=list.get(i).getName();
 			  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
 			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
-		               ImageType.PNG).stream();	
+		               ImageType.PNG).stream();
+			 response.setContentType("image/png");  
+		        response.setContentLength(out.size()); 
 //				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
 			       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No"+j+".jpg"));
 				fout.write(out.toByteArray());
 				fout.flush();
 				fout.close();
-				String mark="二维码生成成功,请返回下载";
-				request.put("managerMsg", mark); 
+				  OutputStream outStream = response.getOutputStream();  
+				   
+			        outStream.write(out.toByteArray());  
+			   
+			        outStream.flush();  
+			        outStream.close();  
+//				String mark="二维码生成成功,请返回下载";
+//				request.put("managerMsg", mark); 
 		 }
-		return execute();
 	}
-	 public String SomeCard(String tablename, int cardid) throws IOException{
+	 public void SomeCard() throws IOException{
 		 String paths=getLocalIP();
 		 System.out.println(paths);
 		 HttpServletResponse response = ServletActionContext.getResponse();
 		 HttpServletRequest quest = ServletActionContext.getRequest();
 		  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
-		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+cardid).to(  
+		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
 	               ImageType.PNG).stream();
+		 	response.setContentType("image/png");  
+	        response.setContentLength(out.size());  
 			String realPath = ServletActionContext.getRequest().getRealPath("uploadImg/Qrcard");
 		 	//String realPath = quest.getServletContext().getRealPath("uploadImg/Qrcard");
 			System.out.println(realPath);
-	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No"+cardid+".jpg"));
+	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No"+id+".jpg"));
 			fout.write(out.toByteArray());
 			fout.flush();
 			fout.close();
-			String sign="No"+cardid+".jpg";
-			request.put("sign", sign);
-			request.put("managerMsg", "二维码生成成功");
-			return "QR_card";
+			 OutputStream outStream = response.getOutputStream();  
+			   
+		        outStream.write(out.toByteArray());  
+		   
+		        outStream.flush();  
+		        outStream.close();  
+//			String sign="No"+cardid+".jpg";
+//			request.put("sign", sign);
+//			request.put("managerMsg", "二维码生成成功");
 	 }
 	public String Inquiry(){
 		PageCut<Tables> pCut=new PageCut<Tables>();
@@ -199,13 +217,13 @@ public class TableManagerAction extends BaseAction {
 			return "QR_card";
 		}		
 	}
-	public String selectQrcard (){
-		Tables table=	 tablesService.getImurl(id);
-		int cardid=table.getId();
-		String sign="No"+cardid+".jpg";
-		request.put("sign", sign);
-		return "QR_card";
-	}
+//	public String selectQrcard (){
+//		Tables table=	 tablesService.getImurl(id);
+//		int cardid=table.getId();
+//		String sign="No"+cardid+".jpg";
+//		request.put("sign", sign);
+//		return "QR_card";
+//	}
 	public static String getLocalIP() {
 		  String sIP = "";
 		  InetAddress ip = null;

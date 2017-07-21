@@ -14,8 +14,11 @@
 <script type="text/javascript">
 window.onload=function(){
 	var value="${stockDetails.origins}";
+	alert(value);
 	UE.getEditor('editor').setContent(value);
 }
+</script>
+<script type="text/javascript">
     function modifyContent() {
         var content = document.getElementById("content");
 
