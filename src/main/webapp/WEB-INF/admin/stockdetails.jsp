@@ -56,7 +56,7 @@ window.onload=function(){
           </tr>
                  	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
-	                <td><intput >${item.id}</td>
+	                <td>${item.id}</td>
 	                <td>${item.stockId}</td>
 	                <td>${item.ingId}</td>
 	                <td>${item.ingName}</td>
@@ -84,12 +84,12 @@ window.onload=function(){
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
  							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
  							<c:choose> 
- 								<c:when test="${i>0 && i == pc.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i == pc.currentPage}"> 
 									<li class="active"><a
  										href="${rootPath}manage/StockDetailsAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i != postPS.currentPage}"> 
  									<li><a href="${rootPath}manage/StockDetailsAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose> 
