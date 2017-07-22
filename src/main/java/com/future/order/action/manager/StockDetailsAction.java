@@ -83,9 +83,19 @@ public class StockDetailsAction extends BaseAction{
 		return "update";
 	}
 	public String Update() {//接收修改后的订单信息用于修改
-		boolean sign = stockDetailsService.Updatestocks(details);
+		List<Ingredient> alllist=ingerdientService.getnews();
+		boolean sign=false;
+		for(int i=0;i<alllist.size();i++){
+			if(details.getIngName().equals(alllist.get(i).getName())){
+				alllist.get(i).setNum(alllist.get(i).getNum()+details.getNum());
+				alllist.get(i).setPrice(details.getPrice());
+			 sign=ingerdientService.updateIngredient(alllist.get(i));
+			}
+		}
+		boolean boo = stockDetailsService.Updatestocks(details);
+		
 		String mark = "操作失败";
-		if (sign == true) {
+		if (sign&&boo) {
 			mark = "修改成功";
 		} else {
 			mark = "修改失败";
