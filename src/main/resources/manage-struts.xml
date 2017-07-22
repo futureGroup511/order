@@ -19,7 +19,11 @@
 		<action name="CodeAction" class="com.future.order.action.CodeAction">
 			<result>/WEB-INF/admin/index.jsp</result>
 		</action>
-
+	
+	<action name="DomainAction_*" method="{1}" class="com.future.order.action.manager.DomainAction">
+			<result>/WEB-INF/admin/addip.jsp</result>
+		</action>
+	
 		<action name="Change_*" method="{1}"
 			class="com.future.order.action.manager.ChangeAction">
 			<result name="addMenuType">/WEB-INF/admin/addmenutype.jsp</result>
