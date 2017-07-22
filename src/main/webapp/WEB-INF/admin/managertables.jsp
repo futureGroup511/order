@@ -40,7 +40,6 @@ window.onload=function(){
 				</select>
 				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace" required="required">
 				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
-				<input class="font" type="button" onclick="window.location='${rootPath}manage/TableManager_allCard';" value="生成二维码">
 			</form>
 			
 		</div> 
@@ -50,23 +49,23 @@ window.onload=function(){
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
          <tr>
+         	<th>餐桌编号</th>
             <th style="width: 90px;">餐桌名称</th>
             <th>状态</th>
             <th>操作</th>
              <th>操作</th>
-            <th>操作</th>
           </tr>
          </thead>
         <tbody>
         <c:forEach items="${allTables.data}" var="pageCut">
 			<tr>
+				<td>${pageCut.id}</td>
 				<td>${pageCut.name}</td>
 				<td>
 					<c:if test="${pageCut.status eq '无人'}">无人</c:if>
 					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
 				</td>
-				<td><a href="${rootPath}manage/TableManager_SomeCard?id=${pageCut.id}">查看二维码</a></td>
-				<td><a href="${rootPath}manage/TableManager_download?id=${pageCut.id}">下载</a></td>
+				<td><a href="${rootPath}manage/TableManager_reWeiMa?name=${pageCut.name}&id=${pageCut.id}">查看二维码</a></td>
 				<td>
 					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
 					<a href="${rootPath}manage/TableManager_deleteTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>

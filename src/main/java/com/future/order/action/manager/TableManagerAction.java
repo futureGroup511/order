@@ -1,5 +1,7 @@
   package com.future.order.action.manager;
 
+import java.awt.image.BufferedImage;
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,12 +9,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,7 +28,10 @@ import org.apache.struts2.ServletActionContext;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Tables;
 import com.future.order.util.PageCut;
-
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
 import net.glxn.qrgen.QRCode;
 import net.glxn.qrgen.image.ImageType;
 
@@ -57,7 +66,7 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			request.put("addTableMsg", "添加成功");
 			id=table.getId();
-			SomeCard();
+			reWeiMa();
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
@@ -77,7 +86,7 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			updateTableMsg = "修改成功";
 			id=table.getId();
-			SomeCard();
+			reWeiMa();
 		}
 		request.put("managerMsg", updateTableMsg);
 		request.put("TableMsg", updateTableMsg);
@@ -110,64 +119,6 @@ public class TableManagerAction extends BaseAction {
 		}
 		return "deleteTable";
 	}
-	public void allCard() throws Exception{
-		  HttpServletRequest quest = ServletActionContext.getRequest();
-		  HttpServletResponse response = ServletActionContext.getResponse();
-			List<Tables> list = tablesService.CheckName();
-		@SuppressWarnings("unused")
-		 String paths=getLocalIP();
-		 String realPath = ServletActionContext.getRequest().getRealPath("uploadImg/Qrcard");
-		 for(int i=0;i<list.size();i++){
-			 int j=list.get(i).getId();
-			 File f = new File(realPath+"\\No"+j+".jpg"); // 输入要删除的文件位置
-		       if(f.exists())
-		       f.delete();
-			 String name=list.get(i).getName();
-			  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
-			 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+j).to(  
-		               ImageType.PNG).stream();
-			 response.setContentType("image/png");  
-		        response.setContentLength(out.size()); 
-//				String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
-			       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No"+j+".jpg"));
-				fout.write(out.toByteArray());
-				fout.flush();
-				fout.close();
-				  OutputStream outStream = response.getOutputStream();  
-				   
-			        outStream.write(out.toByteArray());  
-			   
-			        outStream.flush();  
-			        outStream.close();  
-//				String mark="二维码生成成功,请返回下载";
-//				request.put("managerMsg", mark); 
-		 }
-	}
-	 public void SomeCard() throws IOException{
-		 String paths=getLocalIP();
-		 System.out.println(paths);
-		 HttpServletResponse response = ServletActionContext.getResponse();
-		 HttpServletRequest quest = ServletActionContext.getRequest();
-		  String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
-		 ByteArrayOutputStream out = QRCode.from(path+"customer/customer_toIndex?id="+id).to(  
-	               ImageType.PNG).stream();
-		 	response.setContentType("image/png");  
-	        response.setContentLength(out.size());  
-			String realPath = ServletActionContext.getRequest().getRealPath("uploadImg/Qrcard");
-		 	//String realPath = quest.getServletContext().getRealPath("uploadImg/Qrcard");
-			System.out.println(realPath);
-	       FileOutputStream fout = new FileOutputStream(new File(realPath+"\\No"+id+".jpg"));
-			fout.write(out.toByteArray());
-			fout.flush();
-			fout.close();
-			 OutputStream outStream = response.getOutputStream();
-		        outStream.write(out.toByteArray());
-		        outStream.flush();  
-		        outStream.close();  
-//			String sign="No"+cardid+".jpg";
-//			request.put("sign", sign);
-//			request.put("managerMsg", "二维码生成成功");
-	 }
 	public String Inquiry(){
 		PageCut<Tables> pCut=new PageCut<Tables>();
 		if(pass!=null){
@@ -191,37 +142,80 @@ public class TableManagerAction extends BaseAction {
 		return SUCCESS;
 		
 	}
-	public String download() throws Exception{	
-		 HttpServletResponse response = ServletActionContext.getResponse();
-		 HttpServletRequest quest = ServletActionContext.getRequest();
-		 Tables table=	 tablesService.getImurl(id);
-		String fileName = "No"+table.getId()+".jpg";
-		//解决get方式中文乱码
-		//获得文件的绝对路径
-		String realPath = quest.getSession().getServletContext().getRealPath("uploadImg/Qrcard");
-		//创建文件对象
-		File file = new File(realPath,fileName);
-		if(!file.exists()){
-			request.put("managerMsg", "二维码不存在，请先生成二维码");
-			return execute();
+public void reWeiMa() throws IOException{
+	//设置页面不缓存
+	String paths=getInternetIp();
+	 HttpServletResponse response = ServletActionContext.getResponse();
+	 HttpServletRequest quest = ServletActionContext.getRequest();
+	response.setHeader("Pragma","No-cache");
+	response.setHeader("Cache-Control","no-cache");
+	response.setDateHeader("Expires", 0);
+
+	BufferedImage image=null;
+	ServletOutputStream stream = null;
+	//二维码的图片格式 
+	String format = "gif";
+	 String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
+	 String content=path+"customer/customer_toIndex?id="+id;
+		int width2 = 200; 
+		int height2 = 200; 
+		
+		Hashtable hints = new Hashtable(); 
+		//内容所使用编码 
+		hints.put(EncodeHintType.CHARACTER_SET, "utf-8"); 
+		
+		try{
+			BitMatrix bitMatrix = new MultiFormatWriter().encode(content,BarcodeFormat.QR_CODE, width2, height2, hints);
+			
+			int width = bitMatrix.getWidth(); 
+			int height = bitMatrix.getHeight(); 
+			image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); 
+			for (int x = 0; x < width; x++) { 
+				for (int y = 0; y < height; y++) { 
+					image.setRGB(x, y, bitMatrix.get(x, y) ? 0xFF000000 : 0xFFFFFFFF); //二维码图片为黑白两色
+				} 
+			}
+			//ImageIO.write(image,"gif",response.getOutputStream());
+		}catch (Exception e) {
+			// TODO: handle exception
 		}
-		try {
-			response.addHeader("content-disposition","attachment;filename="+URLEncoder.encode(fileName,"utf-8"));
-			IOUtils.copy(new FileInputStream(file),response.getOutputStream());
-			return null;
-		} catch (Exception e) {
-			String mark="二维码下载失败";
-			request.put("managerMsg", mark);
-			return "QR_card";
-		}		
-	}
-//	public String selectQrcard (){
-//		Tables table=	 tablesService.getImurl(id);
-//		int cardid=table.getId();
-//		String sign="No"+cardid+".jpg";
-//		request.put("sign", sign);
-//		return "QR_card";
-//	}
+	//只有用这种解码方式才不出现乱码
+	String s="attachment;filename="+new String("No"+id+".gif");
+	response.addHeader("Content-Disposition",s);
+	OutputStream os=new BufferedOutputStream(response.getOutputStream());
+	response.setContentType("image/gif");
+	ImageIO.write(image,format,os);
+	os.flush();
+	os.close();
+}
+private static String getInternetIp(){
+	  String INTERNET_IP = null ; // 外网IP
+    try{
+        Enumeration<NetworkInterface> networks = NetworkInterface.getNetworkInterfaces();
+        InetAddress ip = null;
+        Enumeration<InetAddress> addrs;
+        while (networks.hasMoreElements())
+        {
+            addrs = networks.nextElement().getInetAddresses();
+            while (addrs.hasMoreElements())
+            {
+                ip = addrs.nextElement();
+                if (ip != null
+                        && ip instanceof Inet4Address
+                        && ip.isSiteLocalAddress()
+                        && !ip.getHostAddress().equals(INTERNET_IP))
+                {
+                    return ip.getHostAddress();
+                }
+            }
+        }
+
+        // 如果没有外网IP，就返回内网IP
+        return INTERNET_IP;
+    } catch(Exception e){
+        throw new RuntimeException(e);
+    }
+}
 	public static String getLocalIP() {
 		  String sIP = "";
 		  InetAddress ip = null;
