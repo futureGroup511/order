@@ -60,7 +60,7 @@ textarea{
            <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}"  class="img"><br>
             <input type="file" name="file" accept="image/*" class="file" value="选择图片"><br>
       <div class="button">
-      	<input type="button"  style="height:30px;background:#84C2E9;margin-left:15%;" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="修改菜品详情">
+      	<input type="button"  style="height:30px;background:#84C2E9;margin-left:15%;" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${updateMenu.id}';" value="菜品配料详情">
        <input type="submit" style="height:30px;margin-left:5%;background:#84C2E9;" value="修改">
       </div> 
   </form>        

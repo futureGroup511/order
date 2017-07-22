@@ -3,10 +3,10 @@
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
@@ -160,10 +160,8 @@ public class TableManagerAction extends BaseAction {
 			fout.write(out.toByteArray());
 			fout.flush();
 			fout.close();
-			 OutputStream outStream = response.getOutputStream();  
-			   
-		        outStream.write(out.toByteArray());  
-		   
+			 OutputStream outStream = response.getOutputStream();
+		        outStream.write(out.toByteArray());
 		        outStream.flush();  
 		        outStream.close();  
 //			String sign="No"+cardid+".jpg";

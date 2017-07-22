@@ -30,11 +30,11 @@ window.onload=function(){
 		<option value="price">单价</option>
 		<option value="num">数量</option>
 	</select>
-		<input  class="text" type="text" name="inquiry" required="required">
+		<input  class="text" style="background-color: #F0F0F0;border-radius:5px;" type="text" name="inquiry" required="required">
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>
-<center>${markinfo}</center>
+<center><span style="margin-left:30%;">${markinfo}</span></center>
 <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
@@ -66,7 +66,7 @@ window.onload=function(){
 	                 <td>
 	                 <textarea rows="2" cols="40" readonly="readonly">${item.origins}</textarea>
 	                 </td>
-	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_Delet()?stocksid=${item.id}"><span class="glyphicon glyphicon-trash"></span>删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>   
          </tbody>
