@@ -15,6 +15,9 @@ public class ChangeAction extends BaseAction{
 	private Date starttime;
 	private Date endtime;
 	private String sort;
+	public String add(){
+		return "add";
+	}
 	//用户模块中转站
 	public String addUser() {	
 		return "addUser";
@@ -45,9 +48,7 @@ public class ChangeAction extends BaseAction{
 			user = (User)session.get("cashier");
 		} else if(sort.equals("manager")) {
 			user = (User)session.get("manager");
-		} else if(sort.equals("cook")){
-			user = (User)session.get("cook");
-		}
+		} 
 		request.put("user", user);
 		return "getMyself";
 	}

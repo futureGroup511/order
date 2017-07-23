@@ -77,23 +77,27 @@ public class StockDetailsAction extends BaseAction{
 	}
 	public String toUpdate() {//根据ID获得需要修改的订单信息
 		StockDetails stockDetails = stockDetailsService.CheckById(stocksid);
-		System.out.println(stockDetails);
-		System.out.println(stocksid);
+		String place= stockDetails.getPlace();
+		double Num=stockDetails.getNum();
+		session.put("place", place);
+		session.put("Num", Num);
 		request.put("stockDetails", stockDetails);
 		return "update";
 	}
 	public String Update() {//接收修改后的订单信息用于修改
 		List<Ingredient> alllist=ingerdientService.getnews();
 		boolean sign=false;
+		double num=(double) session.get("Num");
 		for(int i=0;i<alllist.size();i++){
 			if(details.getIngName().equals(alllist.get(i).getName())){
-				alllist.get(i).setNum(alllist.get(i).getNum()+details.getNum());
+				alllist.get(i).setNum(alllist.get(i).getNum()-num+details.getNum());
 				alllist.get(i).setPrice(details.getPrice());
 			 sign=ingerdientService.updateIngredient(alllist.get(i));
 			}
 		}
-		boolean boo = stockDetailsService.Updatestocks(details);
-		
+		String place= (String) request.get("stockDetails");
+		details.setPlace(place);
+		boolean boo = stockDetailsService.Updatestocks(details);		
 		String mark = "操作失败";
 		if (sign&&boo) {
 			mark = "修改成功";

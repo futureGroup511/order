@@ -86,8 +86,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		hql = "select count(*) from OrderDetails o where o.status='"+status+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from OrderDetails as o order by o.creatDate asc", (currentPage-1)*pageSize, pageSize));
-		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='"+status+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='"+status+"' order by o.creatDate asc", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	
@@ -289,5 +288,11 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
 		return orderDetails;
 	}
-	
+	@Override
+	public int getSomenum(int id) {
+		String hql ="from OrderDetails where orderId='"+id+"'";
+		List<OrderDetails> list=getEntityList(hql);
+		int num=list.size();
+		return num;
+	}
 }

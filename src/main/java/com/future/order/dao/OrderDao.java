@@ -112,12 +112,13 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		String status1="未处理";
 		String status2="未付款";
 		String status3="处理中";
+		String status="未处理";
 		String hql ;
 		int count=0;
 		hql = "select count(*) from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"' order by o.createDate asc";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"' order by o.createDate asc", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order o where o.status='"+status1+"' or o.status='"+status2+"' or o.status='"+status3+"' order by o.status desc , o.id asc", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	
@@ -153,7 +154,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		hql = "select count(*) from Order";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order as o order by o.status desc", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order as o order by o.status desc , o.createDate asc", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 
