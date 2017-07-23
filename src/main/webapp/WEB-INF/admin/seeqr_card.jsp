@@ -6,11 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${rootPath}dist/css/wangEditor.min.css">
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center>
-<h4>${managerMsg}</h4>
-  <img src="${rootPath}uploadImg/Qrcard/${sign}">
-</center>
+ <div id="editor" style="width:650px; height:500px;"></div>
+ <script type="text/javascript" src="${rootPath}dist/js/lib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${rootPath}dist/js/wangEditor.min.js"></script>
+    <script type="text/javascript">
+    var editor = new wangEditor('editor');
+    editor.create();
+//         var E = window.wangEditor
+//         var editor = new E('#editor')
+//         editor.create()      
+    </script>
 </body>
 </html>

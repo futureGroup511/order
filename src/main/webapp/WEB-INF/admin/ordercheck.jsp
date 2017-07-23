@@ -121,7 +121,7 @@ function CheckPay(){
      
  <center>
       <div style="margin-top:1%;font-weight: bold;" id="div4">本页面订单的总收入为(元)：${sumprice}</div>  <br>
-      <div style="margin-top:0%;font-weight: bold;" id="div3">${dateStr}${mark}${dateend}${sums}${sum}</div>
+      <div style="margin-top:0%;font-weight: bold;" id="div3">${dateStr}${marks}${dateend}${sums}${sum}</div>
      </center>
     </div>
  </div>

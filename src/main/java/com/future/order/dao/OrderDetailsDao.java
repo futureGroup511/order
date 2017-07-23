@@ -289,5 +289,11 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
 		return orderDetails;
 	}
-	
+	@Override
+	public int getSomenum(int id) {
+		String hql ="from OrderDetails where orderId='"+id+"'";
+		List<OrderDetails> list=getEntityList(hql);
+		int num=list.size();
+		return num;
+	}
 }

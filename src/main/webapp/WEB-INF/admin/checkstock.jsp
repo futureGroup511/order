@@ -36,7 +36,7 @@ window.onload=function(){
 <span style="font-weight: bold;">${stocknews }</span><br>
 	<div style="float:right;margin-right:55%;width:40%;height:30px; margin-top:0%; margin-bottom:-3%;">
 	<form action="${rootPath}manage/StockAction_count" method="post">
-		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender" style="border-radius:7px;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender" style="border-radius:7px;" required="required">
+		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender" style="border-radius:7px;background-color: #F0F0F0;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender" style="border-radius:7px;background-color: #F0F0F0;" required="required">
 		 <script type="text/javascript" src="../js/datetime.js"></script>
 		<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 	</form>
@@ -44,7 +44,7 @@ window.onload=function(){
 <div style="margin-left:50%;">
 	<form action="${rootPath}manage/StockAction_Inquiry" method="post">
 		<input class="input
-		" type="text" name="inquiry" style="width:15%;" required="required">
+		" type="text" name="inquiry" style="width:15%;background-color: #F0F0F0;" required="required">
 		<button style="border-radius: 5px;width:15%;background-color: #82C0E9;" class="btnForm">地点查询</button>	
 	</form>
 </div>

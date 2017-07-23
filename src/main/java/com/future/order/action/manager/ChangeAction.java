@@ -15,6 +15,9 @@ public class ChangeAction extends BaseAction{
 	private Date starttime;
 	private Date endtime;
 	private String sort;
+	public String add(){
+		return "add";
+	}
 	//用户模块中转站
 	public String addUser() {	
 		return "addUser";
