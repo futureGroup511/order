@@ -151,22 +151,13 @@ ${addMeg}
 	   !function(i){
 		   div1[i].onclick = function(){
 			   if(p1[i].innerHTML=="已完成"){
-<<<<<<< HEAD
 				   show_notice('这道菜不能退！',1);
 			   }
 			   else{
 				   show_notice('退菜成功',1);
 			   }
-=======
-				   show_notice('退菜失败,厨师已做',2)
-			   }
-			   else{
-				   show_notice('退菜成功',2)
-			   }
-
->>>>>>> bc70cfc52dc98a243010b75ba05faf79721dbc3a
 		   }
-	   }
+	   }(i);
    }
    
 </script>
