@@ -61,8 +61,7 @@ window.onload=function(){
     					<textarea rows="2" cols="20" readonly="readonly">${data.introduce}</textarea>
     				</td>
     				<td>
-    					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-    					<a href="${rootPath}manage/MenuManager_deleteMenu?menu.id=${data.id}&menu.imgUrl=${data.imgUrl}" ><span class="glyphicon glyphicon-trash"></span></a>
+    					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>
     				</td>
     			</tr>
     		</c:forEach>
