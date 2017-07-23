@@ -1,6 +1,7 @@
 package com.future.order.action.manager;
 
 import java.util.Date;
+import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
@@ -29,6 +30,8 @@ public class IngredientManagerAction extends BaseAction {
 		ingredient.setCreateDate(new Date());
 		boolean boo = ingerdientService.addIngredient(ingredient);
 		if (boo) {
+			List<Ingredient> list1 = ingerdientService.getAll();
+			session.put("Ientlist",list1);	//将配料放进session
 			request.put("addIngerdientMsg", "添加成功");
 		} else {
 			request.put("addIngerdientMsg", "添加失败");
@@ -69,6 +72,8 @@ public class IngredientManagerAction extends BaseAction {
 	public String updateIngredient() {
 		boolean boo = ingerdientService.updateIngredient(ingredient);
 		if (boo) {
+			List<Ingredient> list1 = ingerdientService.getAll();
+			session.put("Ientlist",list1);	//将配料放进session
 			request.put("updateIngredientMsg", "修改成功");
 		} else {
 			request.put("updateIngredientMsg", "修改失败");
@@ -82,6 +87,8 @@ public class IngredientManagerAction extends BaseAction {
 	public String deleteIngredient() {
 		boolean boo = ingerdientService.deleteIngredient(ingredient);
 		if (boo) {
+			List<Ingredient> list1 = ingerdientService.getAll();
+			session.put("Ientlist",list1);	//将配料放进session
 			request.put("deleteIngredientMsg", "删除成功");
 		} else {
 			request.put("deleteIngredientMsg", "删除失败");
