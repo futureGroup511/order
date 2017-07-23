@@ -8,7 +8,6 @@ package com.future.order.service;
 
 import java.util.List;
 
-import com.future.order.entity.Tables;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
