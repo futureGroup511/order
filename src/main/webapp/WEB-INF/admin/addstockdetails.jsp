@@ -32,9 +32,9 @@
      <lable>价格(kg):</lable><input style="margin-left: 1%;" type="number"  name="details.price" required="required" placeholder="请输入数字"><br>
      <div style="font-size:20px;font-weight: bold;width:5%;margin-left:-100px;">溯源:</div>
      <div class="suyuan">
-     <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea><br>
+     <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea>
          <div id="editor"></div>
-       <script type="text/javascript" src="${rootPath}wangEditor/release/wangEditor.min.js"></script>
+    <script type="text/javascript" src="${rootPath}wangEditor/release/wangEditor.min.js"></script>
     <script type="text/javascript">
         var E = window.wangEditor
         var editor = new E('#editor')

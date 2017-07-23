@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Domain;
 import com.future.order.entity.Tables;
 import com.future.order.util.PageCut;
 import com.google.zxing.BarcodeFormat;
@@ -58,7 +59,7 @@ public class TableManagerAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	public String addTable() throws IOException{
+	public String addTable() throws Exception{
 		table.setStatus("无人");
 		boolean boo = tablesService.addTable(table);
 		if(boo){
@@ -78,7 +79,7 @@ public class TableManagerAction extends BaseAction {
 		return "toUpdateTables";
 	}
 	
-	public String updateTable() throws IOException{
+	public String updateTable() throws Exception{
 		boolean boo = tablesService.updateTables(table);
 		String updateTableMsg = "修改失败";
 		if(boo){
@@ -140,79 +141,60 @@ public class TableManagerAction extends BaseAction {
 		return SUCCESS;
 		
 	}
-public void reWeiMa() throws IOException{
+public void reWeiMa() throws Exception{
 	//设置页面不缓存
-	String paths=getInternetIp();
 	 HttpServletResponse response = ServletActionContext.getResponse();
 	 HttpServletRequest quest = ServletActionContext.getRequest();
-	response.setHeader("Pragma","No-cache");
-	response.setHeader("Cache-Control","no-cache");
-	response.setDateHeader("Expires", 0);
+	Domain domain=domainService.getIp();
+	if(domain!=null){
+		String IP =domain.getIp();
+		response.setHeader("Pragma","No-cache");
+		response.setHeader("Cache-Control","no-cache");
+		response.setDateHeader("Expires", 0);
 
-	BufferedImage image=null;
-	ServletOutputStream stream = null;
-	//二维码的图片格式 
-	String format = "gif";
-	 String path= quest.getScheme() + "://"+paths+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
-	 String content=path+"customer/customer_toIndex?id="+id;
-		int width2 = 200; 
-		int height2 = 200; 
-		
-		Hashtable hints = new Hashtable(); 
-		//内容所使用编码 
-		hints.put(EncodeHintType.CHARACTER_SET, "utf-8"); 
-		
-		try{
-			BitMatrix bitMatrix = new MultiFormatWriter().encode(content,BarcodeFormat.QR_CODE, width2, height2, hints);
+		BufferedImage image=null;
+		ServletOutputStream stream = null;
+		//二维码的图片格式 
+		String format = "gif";
+		 String path= quest.getScheme() + "://"+IP+ ":" + quest.getServerPort()+ quest.getContextPath() + "/"; 
+		 String content=path+"customer/customer_toIndex?id="+id;
+			int width2 = 200; 
+			int height2 = 200; 
 			
-			int width = bitMatrix.getWidth(); 
-			int height = bitMatrix.getHeight(); 
-			image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); 
-			for (int x = 0; x < width; x++) { 
-				for (int y = 0; y < height; y++) { 
-					image.setRGB(x, y, bitMatrix.get(x, y) ? 0xFF000000 : 0xFFFFFFFF); //二维码图片为黑白两色
-				} 
+			Hashtable hints = new Hashtable(); 
+			//内容所使用编码 
+			hints.put(EncodeHintType.CHARACTER_SET, "utf-8"); 
+			
+			try{
+				BitMatrix bitMatrix = new MultiFormatWriter().encode(content,BarcodeFormat.QR_CODE, width2, height2, hints);
+				
+				int width = bitMatrix.getWidth(); 
+				int height = bitMatrix.getHeight(); 
+				image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); 
+				for (int x = 0; x < width; x++) { 
+					for (int y = 0; y < height; y++) { 
+						image.setRGB(x, y, bitMatrix.get(x, y) ? 0xFF000000 : 0xFFFFFFFF); //二维码图片为黑白两色
+					} 
+				}
+				//ImageIO.write(image,"gif",response.getOutputStream());
+			}catch (Exception e) {
+				// TODO: handle exception
 			}
-			//ImageIO.write(image,"gif",response.getOutputStream());
-		}catch (Exception e) {
-			// TODO: handle exception
+		//只有用这种解码方式才不出现乱码
+		String s="attachment;filename="+new String("No"+id+".gif");
+		response.addHeader("Content-Disposition",s);
+		OutputStream os=new BufferedOutputStream(response.getOutputStream());
+		response.setContentType("image/gif");
+		ImageIO.write(image,format,os);
+		os.flush();
+		os.close();
+	}else{
+		System.out.println("55515");
+		String returnUrl ="/order/manage/Change_addIp";
+		response.getWriter().print("<script language=\"javascript\">" +"alert(\"域名或ip未添加\");"+ "if(window.opener==null){window.location.href=\""
+							+ returnUrl + "\";}else{window.opener.location.href=\"" + returnUrl
+							+ "\";window.close();}</script>");
 		}
-	//只有用这种解码方式才不出现乱码
-	String s="attachment;filename="+new String("No"+id+".gif");
-	response.addHeader("Content-Disposition",s);
-	OutputStream os=new BufferedOutputStream(response.getOutputStream());
-	response.setContentType("image/gif");
-	ImageIO.write(image,format,os);
-	os.flush();
-	os.close();
-}
-private static String getInternetIp(){
-	  String INTERNET_IP = null ; // 外网IP
-    try{
-        Enumeration<NetworkInterface> networks = NetworkInterface.getNetworkInterfaces();
-        InetAddress ip = null;
-        Enumeration<InetAddress> addrs;
-        while (networks.hasMoreElements())
-        {
-            addrs = networks.nextElement().getInetAddresses();
-            while (addrs.hasMoreElements())
-            {
-                ip = addrs.nextElement();
-                if (ip != null
-                        && ip instanceof Inet4Address
-                        && ip.isSiteLocalAddress()
-                        && !ip.getHostAddress().equals(INTERNET_IP))
-                {
-                    return ip.getHostAddress();
-                }
-            }
-        }
-
-        // 如果没有外网IP，就返回内网IP
-        return INTERNET_IP;
-    } catch(Exception e){
-        throw new RuntimeException(e);
-    }
 }
 	public Tables getTable() {
 		return table;
