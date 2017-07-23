@@ -34,6 +34,7 @@
 			<result name="addrest">/WEB-INF/admin/addrestaurant.jsp</result>
 			<result name="getMyself">/WEB-INF/admin/updatemyself.jsp</result>
 			<result name="logOff">/WEB-INF/admin/logoff.jsp</result>
+			<result name="toUpdateMyself">/WEB-INF/admin/toupdatemyself.jsp</result>
 			<result name="out">/index.jsp</result>
 			<result name="addIp">/WEB-INF/admin/addip.jsp</result>
 		</action>

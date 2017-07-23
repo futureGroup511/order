@@ -56,24 +56,21 @@ public class UserManagerAction extends BaseAction {
 		} else {
 			request.put("updateUserMsg", "修改失败");
 		}
+		request.put("sort", user.getSort());//将用户身份存入request
 		User userM = (User)session.get("manager");
-		User userC = (User)session.get("cook");
+		User userCa = (User)session.get("cashier");
 		if(userM!=null&&userM.getId()==user.getId()){	//当修改的是自己本人的时候，将修改后信息存入session
 			User userData = userService.viewUser(user.getId());
 			session.put("manager", userData);
-			result = "toUpdateMyself";
+			return  "toUpdateMyself";
 		}
-		if(userC!=null&&userC.getId()==user.getId()){
+		if(userCa!=null&&userCa.getId()==user.getId()){
 			User userData = userService.viewUser(user.getId());
-			session.put("cook", userData);
-			result = "toUpdateMyself";
+			session.put("cashier", userData);
+			return "toUpdateMyself";
 		}
-//		if(userId==2){		//当执行修改个人信息时在个人资料界面时
-//			result = "toUpdateMyself";
-//		} else {
-			PageCut<User> pCut=userService.getPageCut(page,8);
-			request.put("allUser", pCut);
-//		}
+		PageCut<User> pCut=userService.getPageCut(page,8);
+		request.put("allUser", pCut);
 		return result;
 	}
 
