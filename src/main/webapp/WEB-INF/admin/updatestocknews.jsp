@@ -14,6 +14,17 @@ margin-top:0%;
 }
 </style>
 <script type="text/javascript">
+
+function changeSelected() {
+	var typeName = '${stockDetails.ingName}';	//获得后台的要选中的值
+	   var all_options = document.getElementById("typeName").options;
+	   for (i=0; i<all_options.length; i++){
+	      if (all_options[i].value == typeName)  // 根据option标签的value来进行判断  测试的代码这里是两个等号
+	      {
+	         all_options[i].selected = true;
+	      }
+	   }
+	}
      function modifyContent() {    	
      	        var content = document.getElementById("content");
      	        var arr = [];
@@ -22,14 +33,20 @@ margin-top:0%;
    }
 </script> 
 </head>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  onload="changeSelected()"  style="background: url(${rootPath}/images/m-91.jpg);">
  <div class="updatestocknews">
       <form action="${rootPath}manage/StockDetailsAction_Update" method="post" onsubmit="modifyContent()">
           <div class="sow">
           <lable id="text">编号：</lable><input name="details.id" value="${stockDetails.id}" type="text" readonly="readonly">
           <lable id="text">进货编号：</lable><input name="details.stockId" value="${stockDetails.stockId}" type="text" ><br>
           <lable id="text">配料编号：</lable><input type="text" name="details.ingId" value="${stockDetails.ingId}" >
-          <lable id="text">配料名称：</lable><input type="text" name="details.ingName" value="${stockDetails.ingName}"><br>
+          <lable id="text">配料名称：</lable>
+         <select name="details.ingName" id="typeName"> 
+ 			<c:forEach items="${Ientlist}" var="item">  
+ 	           	<option value="${item.name}">${item.name}</option> 
+         	</c:forEach> 
+ 	</select><br>
+<%--           <input type="text" name="details.ingName" value="${stockDetails.ingName}"><br> --%>
           <lable id="text">单价(元)：</lable><input type="text" name="details.price" value="${stockDetails.price}" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">
           <lable id="text">数量：</lable><input type="number" name="details.num" value="${stockDetails.num}"><br>
           <lable id="text">进货时间：</lable><input type="text" name="details.createDate" value="${stockDetails.createDate}" class="sang_Calender">

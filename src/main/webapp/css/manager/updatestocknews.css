@@ -15,6 +15,11 @@ form{
 /*     line-height: 50px; */
     font-size: 1.5vw
 }
+select{ width:20.5%;
+        height:25px;
+		border-radius:5px;
+		margin-left:-1.5%;
+		 margin-right: 40px;}
 input{
    width: 20%;
    height:20px; 

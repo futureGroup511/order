@@ -26,24 +26,23 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <div style="margin-left:45%;font-size:15px;font-weight: bold;">${mark}</div>
-<div class="wall"style="width:49%;">
+<div class="wall"style="width:43%;">
 	<div id="div1" >
 	
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
          <tr>
             <th style="width: 70px;">域名编号</th>
-            <th style="width: 300px;">域名</th>
+            <th style="width: 240px;">域名</th>
         	<th>操作</th>
           </tr>
          </thead>
         <tbody>
         <tr>
         	<td>${domain.id}</td>
-        	<td><textarea rows="3" cols="" style="width:100%;">${domain.ip}</textarea></td>
+        	<td><input style="width:100%;height:100%;" value="${domain.ip}" readonly="readonly"></td>
         	<td>
         		<a href="${rootPath}manage/DomainAction_toUpdateIp?"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
-				<a href="${rootPath}manage/DomainAction_deleteIp?"><span class="glyphicon glyphicon-trash"></span></a>
 			</td>
         </tr>
         
