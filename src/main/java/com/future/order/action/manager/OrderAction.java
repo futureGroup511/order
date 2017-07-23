@@ -118,6 +118,7 @@ public class OrderAction extends BaseAction {
 		orderDb.setPrice(prices);
 		orderDb.setFavourable(favourables);
 		double returnPay = pay-prices;//找零
+		returnPay = Double.parseDouble(nFormat.format(returnPay));
 		request.put("mark", mark);
 		request.put("discount", discount);
 		request.put("straightCut", straightCut);

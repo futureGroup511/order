@@ -8,7 +8,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-	<title></title>
+	<title>订餐管理系统</title>
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/bootstrap.min.css">
 	<link rel="stylesheet" href="${rootPath}css/customer/public.css">
 	<link rel="stylesheet" type="text/css" href="${rootPath}css/customer/order.css">
@@ -91,8 +91,9 @@
        <p>数量：${o.menuNum}</p>       
        <p class="left" style="display:inline-block">状态：</p><p class="green pppp1"  style="display:inline-block">${o.status}</p>
        <div style="display:inline-block;"class="right divv1">
-       <a class="right" href="${rootPath}customer/cart_getBack?id=${o.id}" style="margin-right:40px;">
-                  退菜</a>
+	       <c:if test="${o.status=='未完成'}">
+	       <a class="right" href="${rootPath}customer/cart_getBack?id=${o.id}" style="margin-right:40px;">退菜</a>
+	       </c:if>
        </div>
     </div>
  </div>
@@ -111,7 +112,6 @@
      </div>
 </div>
 <input type="button" name="" value="催单"  class="cd" onclick="Reminder()" />
-${addMeg}
 </c:if>
  <c:if test="${empty orderDetails }">
 	<center><h1>你还没有下订单</h1></center>
@@ -142,23 +142,12 @@ ${addMeg}
    </footer>
 </body>
 <script type="text/javascript">
-   function $(b){
-	   return document.getElementsByClassName(b);
-   }
-   var p1 = $('pppp1');
-   var div1 = $('divv1');
-   for(var i = 0;i<p1.length;i++){
-	   !function(i){
-		   div1[i].onclick = function(){
-			   if(p1[i].innerHTML=="已完成"){
-				   show_notice('退菜失败,厨师已做',2)
-			   }
-			   else{
-				   show_notice('退菜成功',2)
-			   }
+    function   tuicai(){
+			  
+			 show_notice('退菜成功',1);
 
-		   }
-	   }(i);
+			  
+		
    }
    
 </script>
