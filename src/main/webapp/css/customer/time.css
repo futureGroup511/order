@@ -14,3 +14,9 @@
 .list-group-item-success{
 	 background-color: #dadada;
 }
+pre{
+	overflow: hidden;
+}
+pre img{
+	width:100%;
+}

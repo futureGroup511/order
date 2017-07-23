@@ -5,10 +5,6 @@ import java.util.Date;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.User;
 
-
-
-
-
 /**
  * 
  * @author 金高
@@ -62,6 +58,10 @@ public class ChangeAction extends BaseAction{
 	public String out(){
 		session.remove("user");//清除session中得user
 		return "out";
+	}
+	//域名管理，添加ip
+	public String addIp(){
+		return "addIp";
 	}
 	public String addStocks(){
 		return "addstock";

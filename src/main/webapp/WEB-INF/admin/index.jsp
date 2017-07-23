@@ -108,6 +108,17 @@
                        </li>
                    </ul> 
               </li>
+               <li><!-- 第七个父目录 -->
+                   <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;&nbsp;域名管理</a>
+                   <ul class="nav nav-second-level">
+                       <li>
+                          <a href="${rootPath}manage/Change_addIp" target="mainFrame"> <span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;&nbsp;增加域名</a>
+                      </li>
+                      <li>
+                          <a href="${rootPath}manage/DomainAction" target="mainFrame"><span class="glyphicon glyphicon-tint"></span>&nbsp;&nbsp;&nbsp;管理域名</a>
+                       </li>
+                   </ul> 
+              </li>
               <li> <!-- 第六个父目录 -->
                 <a><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;个人中心</a>
                  <ul class="nav nav-second-level">

@@ -11,17 +11,15 @@
 	<!-- 管理员 -->
 	<package name="manage" extends="struts-default,json-default" namespace="/manage" strict-method-invocation="false">
 
-		<action name="manager">
-			<result>/WEB-INF/admin/index.jsp</result>
-		</action>
-
-
 		<action name="CodeAction" class="com.future.order.action.CodeAction">
 			<result>/WEB-INF/admin/index.jsp</result>
 		</action>
 	
-	<action name="DomainAction_*" method="{1}" class="com.future.order.action.manager.DomainAction">
-			<result>/WEB-INF/admin/addip.jsp</result>
+		<action name="DomainAction_*" method="{1}" class="com.future.order.action.manager.DomainAction">
+			<result name="addIp">/WEB-INF/admin/addip.jsp</result>
+			<result >/WEB-INF/admin/managerip.jsp</result>
+			<result name="deleteIp">/WEB-INF/admin/managerip.jsp</result>
+			<result name="toUpdateIp">/WEB-INF/admin/updateip.jsp</result>
 		</action>
 	
 		<action name="Change_*" method="{1}"
@@ -37,6 +35,7 @@
 			<result name="getMyself">/WEB-INF/admin/updatemyself.jsp</result>
 			<result name="logOff">/WEB-INF/admin/logoff.jsp</result>
 			<result name="out">/index.jsp</result>
+			<result name="addIp">/WEB-INF/admin/addip.jsp</result>
 		</action>
 		
 		<action name="UserManager_*" method="{1}" class="com.future.order.action.manager.UserManagerAction">

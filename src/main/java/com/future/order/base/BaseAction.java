@@ -2,17 +2,15 @@ package com.future.order.base;
 
 import java.util.Map;
 
-
-
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.future.order.service.IDomainService;
 import com.future.order.service.IInformService;
 import com.future.order.service.IIngerdientService;
 import com.future.order.service.IMenuMaterialService;
@@ -64,6 +62,9 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	protected ITablesService tablesService;
 	@Resource
 	protected IUserService userService;
+	@Resource
+	protected IDomainService domainService;
+	
 	protected HttpServletResponse getResponse(){
 		return ServletActionContext.getResponse();
 	}

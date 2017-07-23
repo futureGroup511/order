@@ -13,6 +13,35 @@ public class Domain {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(length=255)
-	private String IPname;//ip或域名
+	private String ip;//ip或域名
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param createDate the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	/**
+	 * @return the id
+	 */
+	public String getIp() {
+		return ip;
+	}
+	/**
+	 * @param createDate the ip to set
+	 */
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	@Override
+	public String toString() {
+		return "Domain [id=" + id + ", ip=" + ip + "]";
+	}
 	
 }
