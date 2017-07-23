@@ -46,7 +46,8 @@ public interface IOrderDetailsService {
 	public boolean updet(int id, int idd, String UserName);
 	public List<OrderDetails> CheckDe(int id);
 	public boolean back(int id);
-	public OrderDetails checkStatus(int id);
+	public OrderDetails checkStatus(int id);
+	public int getSomenum(int id);
 }
 	
 

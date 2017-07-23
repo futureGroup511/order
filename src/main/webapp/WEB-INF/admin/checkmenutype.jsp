@@ -48,8 +48,7 @@
 					<textarea rows="2" cols="35" readonly="readonly">${pageCut.remark}</textarea>
 				</td>
 				<td>
-					<a href="${rootPath}manage/MenuTypeAction_toUpdateType?id=${pageCut.id}"><span  class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-					<a href="${rootPath}manage/MenuTypeAction_Delet?id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>
+					<a href="${rootPath}manage/MenuTypeAction_toUpdateType?id=${pageCut.id}"><span  class="glyphicon glyphicon-pencil"></span></a>
 				</td>
 			</tr>
 		</c:forEach>

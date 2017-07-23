@@ -70,9 +70,14 @@ public class OrderAction extends BaseAction {
 	}
 	public String Delet() {//从前台获得ID用于根据账号删除订单信息和订单详细信息
 		boolean sign = orderService.DeletOrder(id);
+		int marks=orderDetailsService.getSomenum(id);
+		System.out.println(sign+"       "+marks);
 		boolean signs = orderDetailsService.DeletOrderDetails(id);
 		String mark = "操作失败";
-		if (sign == true && signs == true) {
+		if(sign&&marks==0){
+			mark = "操作成功";
+		}
+		else if (sign == true && signs == true) {
 			mark = "操作成功";
 		} else {
 			mark = "删除失败";
@@ -113,6 +118,7 @@ public class OrderAction extends BaseAction {
 		orderDb.setPrice(prices);
 		orderDb.setFavourable(favourables);
 		double returnPay = pay-prices;//找零
+		returnPay = Double.parseDouble(nFormat.format(returnPay));
 		request.put("mark", mark);
 		request.put("discount", discount);
 		request.put("straightCut", straightCut);
@@ -231,7 +237,7 @@ public class OrderAction extends BaseAction {
 		session.put("endtime", endtime);
 		request.put("dateStr", dateStr);
 		request.put("dateend", dateend);
-		request.put("mark", "--");
+		request.put("marks", "--");
 		request.put("sumprice", sumprice);
 		session.put("sign", sign);
 		request.put("adss", "count");

@@ -66,11 +66,14 @@ public class CartAction extends BaseAction {
 			session.put("Id",orderss.getId());
 		}else if(orders.getStatus().equals("未付款")){
 			orders.setStatus("未处理");
+			orders.setRemark(name);
 			Boolean bool = orderService.update(orders);
 			Order orderss=orderService.getOrder1(tableId);
 			session.put("Id",orderss.getId());
 		}else{
-				session.put("Id",orders.getId());
+			orders.setRemark(name);
+			Boolean bool = orderService.update(orders);
+			session.put("Id",orders.getId());
 		}
 		int myId=(int) session.get("Id");
 		Order order=orderService.CheckById(myId);
