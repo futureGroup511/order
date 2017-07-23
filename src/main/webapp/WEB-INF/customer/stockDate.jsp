@@ -31,7 +31,7 @@
 		  </li>
 		      <li class="list-group-item">
 		      溯源：
-		      <pre>${s.origins}</pre>
+		       <div class="suyuan">${s.origins}</div>
 		</li>
 	</c:if>
 	<c:if test="${status.index==1 }">
@@ -45,7 +45,8 @@
 			    进货地点
 		  </li>
 		     <li class="list-group-item">
-		    <pre> ${s.origins}</pre>
+		     溯源：
+		       <div class="suyuan">${s.origins}</div>
 		</li>
 	</c:if>
 </c:forEach>
