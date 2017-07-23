@@ -45,7 +45,7 @@ margin-top:0%;
     <script type="text/javascript">
         var E = window.wangEditor
         var editor = new E('#editor')
-        var value="${stockDetails.origins}";
+        var value='${stockDetails.origins}';
         editor.create()
          editor.txt.html(value)
     </script>

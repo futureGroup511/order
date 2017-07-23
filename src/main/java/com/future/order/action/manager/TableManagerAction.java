@@ -22,7 +22,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
@@ -32,8 +31,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
-import net.glxn.qrgen.QRCode;
-import net.glxn.qrgen.image.ImageType;
+
 
 
 public class TableManagerAction extends BaseAction {
