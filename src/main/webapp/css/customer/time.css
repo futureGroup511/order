@@ -14,3 +14,13 @@
 .list-group-item-success{
 	 background-color: #dadada;
 }
+.suyuan{
+	width:100%;
+	border:1px solid #dadada;
+	backgrooud-color:#999;
+	border-radius:2px;
+	padding: 20px 5px;
+}
+.suyuan img{
+	width:100%;
+}

@@ -30,11 +30,11 @@ window.onload=function(){
 		<option value="price">单价</option>
 		<option value="num">数量</option>
 	</select>
-		<input  class="text" type="text" name="inquiry" required="required">
+		<input  class="text" style="background-color: #F0F0F0;border-radius:5px;" type="text" name="inquiry" required="required">
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>
-<center>${markinfo}</center>
+<center><span style="margin-left:30%;">${markinfo}</span></center>
 <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
@@ -56,7 +56,7 @@ window.onload=function(){
           </tr>
                  	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
-	                <td><intput >${item.id}</td>
+	                <td>${item.id}</td>
 	                <td>${item.stockId}</td>
 	                <td>${item.ingId}</td>
 	                <td>${item.ingName}</td>
@@ -66,7 +66,7 @@ window.onload=function(){
 	                 <td>
 	                 <textarea rows="2" cols="40" readonly="readonly">${item.origins}</textarea>
 	                 </td>
-	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span>修改</a></td>      
+	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>   
          </tbody>
@@ -84,12 +84,12 @@ window.onload=function(){
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
  							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
  							<c:choose> 
- 								<c:when test="${i>0 && i == pc.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i == pc.currentPage}"> 
 									<li class="active"><a
  										href="${rootPath}manage/StockDetailsAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i != postPS.currentPage}"> 
  									<li><a href="${rootPath}manage/StockDetailsAction_${adss}?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose> 

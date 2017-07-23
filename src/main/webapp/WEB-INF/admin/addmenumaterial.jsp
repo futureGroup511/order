@@ -30,7 +30,7 @@ window.onload=function(){
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 	<div style="margin-top:1%;">
-		<div style="margin-left: 43%;margin-top:1%;">${addMaterialMsg}</div>
+		<div style="margin-left: 45%;margin-top:1%;">${addMaterialMsg}</div>
 		<div style="margin-left:40%;margin-top:0%;"><button style="background-color: #1BAFE0;border-radius: 5px;" class="btn" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${menu.id}'">查看已添加配料</button></div>
 	</div>
 	 <div class="wall" id="div1">
@@ -41,7 +41,7 @@ window.onload=function(){
  	           	<option value="${ingredient.name}">${ingredient.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable> <span style="margin-right:2%;">用</span>量(g):</lable>
+     <lable> <span style="">用</span>量(kg):</lable>
  		<input type="text" name="menuMaterial.num"  class="input1" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
       <div class="button">
         <input type="submit" value="提交" class="bt2" style="background-color: #1BAFE0;border-radius: 5px;">          

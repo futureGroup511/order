@@ -1,23 +1,27 @@
 
 #text{
     display: inline-block;
-    width: 25%;
+    width: 20%;
     text-align: left;
 }
 form{ 
-      width:40%;
+      width:60%;
 	  margin:0 auto;
 	  }
 .updatestocknews{
-	width:80%;
+	width:100%;
     font-weight:bold; 
     margin-top:1%; 
-    padding-left: 5%;
-    line-height: 50px;
+/*     line-height: 50px; */
     font-size: 1.5vw
 }
+select{ width:20.5%;
+        height:25px;
+		border-radius:5px;
+		margin-left:-1.5%;
+		 margin-right: 40px;}
 input{
-   width: 30%;
+   width: 20%;
    height:20px; 
    margin-right: 50px;
    border-radius:5px;    
@@ -29,7 +33,11 @@ input{
 	height:25px;
     font-size: 1.0vw;
     background: #1bafe0;
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: 5%;
     box-shadow: 2px 1px 1px rgba(50,154,242)
+}
+.sow{
+	width:100%;
+	padding-left: 0%;
 }

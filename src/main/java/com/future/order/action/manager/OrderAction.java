@@ -77,7 +77,7 @@ public class OrderAction extends BaseAction {
 		} else {
 			mark = "删除失败";
 		}
-		request.put("marknews", mark);
+		request.put("mark", mark);
 		return this.execute();
 
 	}
@@ -113,6 +113,7 @@ public class OrderAction extends BaseAction {
 		orderDb.setPrice(prices);
 		orderDb.setFavourable(favourables);
 		double returnPay = pay-prices;//找零
+		returnPay = Double.parseDouble(nFormat.format(returnPay));
 		request.put("mark", mark);
 		request.put("discount", discount);
 		request.put("straightCut", straightCut);
@@ -140,7 +141,7 @@ public class OrderAction extends BaseAction {
 		} else {
 			mark = "修改失败";
 		}
-		request.put("marknews", mark);
+		request.put("mark", mark);
 		return this.execute();
 	}
 	public String Inquiry(){
@@ -160,7 +161,7 @@ public class OrderAction extends BaseAction {
 			//获得全部订单信息
 		if(pCut.getData().size()==0){
 			String mark="没有订单";
-			request.put("marknews", mark);
+			request.put("mark", mark);
 		}
 		for(int i=0;i<pCut.getData().size();i++){
 			sumprice+=pCut.getData().get(i).getTotal();
@@ -217,7 +218,7 @@ public class OrderAction extends BaseAction {
 		}
 		if(pCut.getData().size()==0){
 			String mark="没有订单";
-			request.put("marknews", mark);
+			request.put("mark", mark);
 		}
 		if(sum!=0){
 		request.put("sum",sum);

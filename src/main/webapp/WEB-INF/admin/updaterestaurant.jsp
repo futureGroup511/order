@@ -11,7 +11,7 @@
 	<div class="wall">
 	<form action="${rootPath}manage/Restaurant_Update?restaurant.id=${rest.id}" method="post" enctype="multipart/form-data">
 		<label>店名：</label><input type="text" name="restaurant.name" value="${rest.name}" required="required"><br>
-		<label>电话：</label><input type="text" name="restaurant.phone" required="required" placeholder="请输入手机号" maxlength="12"><br>
+		<label>电话：</label><input type="text" name="restaurant.phone" required="required" placeholder="请输入电话号" maxlength="12" value="${rest.phone }"><br>
 		<label>地址：</label><input type="text" name="restaurant.address" value="${rest.address}" required="required"><br>
 		<label>简介：</label>
 			<textarea style="margin-left:40%;margin-top:-7%;" rows="5" cols="30" name="restaurant.introduce">${rest.introduce}</textarea>

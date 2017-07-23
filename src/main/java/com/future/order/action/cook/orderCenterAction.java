@@ -81,6 +81,7 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("cook"); 
 		ID = me.getId();
 		UserName = me.getName();
+		boolean u=orderService.updetemenu(Orderid, ID, UserName);
 		boolean m=orderDetailsService.updet(i,ID,UserName);
 		List <OrderDetails> list = orderDetailsService.CheckDe(Orderid);
 		List n = new ArrayList();
@@ -108,7 +109,7 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("cook");
 		ID = me.getId();
 		UserName = me.getName();
-		boolean m=orderDetailsService.updet(Orderid,ID,UserName);
+		boolean m=orderDetailsService.updet(i,ID,UserName);
 		List <OrderDetails> list = orderDetailsService.CheckDe(Orderid);
 		List n = new ArrayList();
 		for(int i=0;i<list.size();i++) {

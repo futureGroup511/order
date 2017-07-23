@@ -95,18 +95,18 @@ public class MenuTypeAction extends BaseAction {
 		return this.execute();
 	}
 
-	public String Delet() {// 从前台获得ID用于根据账号删除订单信息和订单详细信息
-		boolean sign = menuTypeService.DeletType(id);
-		String mark = "操作失败";
-		if (sign) {
-			mark = "删除成功";
-		} else {
-			mark = "删除失败";
-		}
-		request.put("mark", mark);
-		return this.execute();
-
-	}
+//	public String Delet() {// 从前台获得ID用于根据账号删除订单信息和订单详细信息
+//		boolean sign = menuTypeService.DeletType(id);
+//		String mark = "操作失败";
+//		if (sign) {
+//			mark = "删除成功";
+//		} else {
+//			mark = "删除失败";
+//		}
+//		request.put("mark", mark);
+//		return this.execute();
+//
+//	}
 
 	public String Inquiry() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();

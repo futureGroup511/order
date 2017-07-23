@@ -67,7 +67,6 @@ public class MenuManagerAction extends BaseAction {
 		if(boo){
 			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
 			session.put("menu", menu);
-		//	PageCut<Ingredient> pCut=ingerdientService.getPageCut(page,8);
 			List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
 			request.put("allIngredient", lists);
 		} else {
@@ -110,7 +109,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("updateMsg", "修改失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 8);
 		request.put("allMenu", pCut);
 		return "updateMenu";
 	}
@@ -128,7 +127,7 @@ public class MenuManagerAction extends BaseAction {
 		} else {
 			request.put("deleteMenuMsg", "删除失败");
 		}
-		PageCut<Menu> pCut = menuService.getPageCut(page, 6);
+		PageCut<Menu> pCut = menuService.getPageCut(page, 8);
 		request.put("allMenu", pCut);
 		return "deleteUser";
 	}
@@ -166,11 +165,11 @@ public class MenuManagerAction extends BaseAction {
 	public String Inquiry(){
 		PageCut<Menu> pCut=new PageCut<Menu>();
 		if(ask!=null){
-			pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+			pCut = menuService.getSomePageCut(page, 8,ask,inquiry);
 			}else{
 				ask=(String) session.get("ask");
 				inquiry=(String) session.get("inquiry");
-				pCut = menuService.getSomePageCut(page, 6,ask,inquiry);
+				pCut = menuService.getSomePageCut(page, 8,ask,inquiry);
 			}
 		if(pCut.getData().size()==0){
 			String mark="没有菜品";

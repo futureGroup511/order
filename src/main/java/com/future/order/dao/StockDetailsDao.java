@@ -68,7 +68,7 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	public boolean DeletDetails(int stocksid) {
 		boolean sign = false;
 		try{
-			String hql="delete from StockDetails o Where o.id='"+stocksid+"'";
+			String hql="delete from StockDetails o where o.id='"+stocksid+"'";
 			int mark=this.executeUpdate(hql);
 		if(mark==1){
 			sign=true;

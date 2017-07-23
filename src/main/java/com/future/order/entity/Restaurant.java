@@ -13,7 +13,7 @@ public class Restaurant {
 	private int id;
 	@Column(length=10)
 	private String name;
-	@Column(length=11)
+	@Column(length=12)
 	private String phone;
 	@Column(length=255)
 	private String address;
