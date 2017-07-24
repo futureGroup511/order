@@ -52,7 +52,7 @@
                     </li>
                    
                       <li>
-                       <a href="${rootPath}manage/Change_logOff"><span class="glyphicon glyphicon-off"></span>退出</a>
+                       <a href="${rootPath}cook/Cookdetail_logOff"><span class="glyphicon glyphicon-off"></span>退出</a>
                   </li>
                   </ul>
               </li>

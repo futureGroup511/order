@@ -55,8 +55,7 @@ function changeSelected() {
       	<div class="row">
       	<lable>溯源:</lable>
       	<textarea rows="5" cols="35" name="details.origins"  style="display:none;" id="content"></textarea><br>
-     <div id="editor"></div>
-       <script type="text/javascript" src="${rootPath}wangEditor/release/wangEditor.min.js"></script>
+     <div id="editor"></div><script type="text/javascript" src="${rootPath}wangEditor/release/wangEditor.min.js"></script>
     <script type="text/javascript">
         var E = window.wangEditor
         var editor = new E('#editor')

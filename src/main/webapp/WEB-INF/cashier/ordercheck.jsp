@@ -35,7 +35,7 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-<span style="font-weight: bold;">${marknews}</span>
+<span style="font-weight: bold;">${marknews}${mark}</span>
 </center>
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
@@ -45,7 +45,7 @@ window.onload=function(){
       <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=there&sort=cashier';" value="已付款" style="border-radius: 5px;">
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
-	<form action="${rootPath}manage/OrderAction_Inquiry&sort=cashier" method="post">
+	<form action="${rootPath}manage/OrderAction_Inquiry?sort=cashier" method="post">
 	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 		<option value="tableName">餐桌名称</option>
 		<option value="cookName">厨师名称</option>

@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript"> 
-	var sort = '${sort}';
-	this.location.href= "${rootPath}manage/Change_getMyself?sort="+sort+"";
+	//厨师处修改个人资料
+	this.location.href= "${rootPath}cook/Cookdetail_updateUser";
 </script>
 </head> 
 <body>

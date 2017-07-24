@@ -15,6 +15,9 @@ public class ChangeAction extends BaseAction{
 	private Date starttime;
 	private Date endtime;
 	private String sort;
+	public String add(){
+		return "add";
+	}
 	//用户模块中转站
 	public String addUser() {	
 		return "addUser";
@@ -40,23 +43,28 @@ public class ChangeAction extends BaseAction{
 	}
 	//获得个人资料
 	public String getMyself(){
-		if(sort!=null&&sort.equals("cashier")){
-			User cashier = (User)session.get("cashier");
-			request.put("user", cashier);
-		} else {
-			User user = (User)session.get("manager");
-			request.put("user", user);
-		}
+		User user = null;
+		if(sort.equals("cashier")){
+			user = (User)session.get("cashier");
+		} else if(sort.equals("manager")) {
+			user = (User)session.get("manager");
+		} 
+		request.put("user", user);
 		return "getMyself";
 	}
 
 	//退出登录前,防倒退
 	public String logOff(){
+		request.put("sort", sort);
 		return "logOff";
 	}
 	//退出登录
 	public String out(){
-		session.remove("user");//清除session中得user
+		if(sort.equals("manager")){
+			session.remove("manager");//清除session中得user	
+		} else if(sort.equals("cashier")){
+			session.remove("cashier");
+		} 
 		return "out";
 	}
 	//域名管理，添加ip
