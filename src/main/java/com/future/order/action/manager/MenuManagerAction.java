@@ -118,11 +118,12 @@ public class MenuManagerAction extends BaseAction {
 	public String deleteMenu() {
 		String imgPath = ServletActionContext.getRequest().getRealPath("uploadImg")+"/"+menu.getImgUrl();
 		boolean boo = menuService.deleteMenu(menu);
+		boolean booMater = menuMaterialService.deleteAboutMenu(menu.getId());
 		File imgFile = new File(imgPath);
 		if(imgFile.exists()){
 			imgFile.delete(); 		//删除该记录时删除对应的图片
 		}
-		if (boo) {
+		if (boo&&booMater) {
 			request.put("deleteMenuMsg", "删除成功");
 		} else {
 			request.put("deleteMenuMsg", "删除失败");
@@ -130,6 +131,7 @@ public class MenuManagerAction extends BaseAction {
 		PageCut<Menu> pCut = menuService.getPageCut(page, 8);
 		request.put("allMenu", pCut);
 		return "deleteUser";
+		
 	}
 	
 	// 执行上传功能

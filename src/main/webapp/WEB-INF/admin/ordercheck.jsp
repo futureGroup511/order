@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!-- fn标签用来判断list集合长度 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,38 +12,12 @@
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 
  <script language="javascript">
-window.onload=function(){
-	 var array = new Array();  
-	 <c:forEach items="${pc.data}" var="t">  
-	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
-	 </c:forEach>
-	 var a = array.length;
- if(a==0){
-	 document.getElementById('div1').style.display='none';
-	 document.getElementById('div2').style.display='none';
-	 document.getElementById('div3').style.display='none';
-	 document.getElementById('div4').style.display='none';
- }
-  }
-
 function CheckNopay(){
 	window.location.href="${rootPath}manage/OrderAction?sign=two"; 
 	}
 function CheckPay(){
 	window.location.href="${rootPath}manage/OrderAction?sign=there";
 	}
-// function Check(){
-// 	window.location.href="${rootPath}manage/OrderAction?sign=one";
-// 	}
-// function search(){
-// 	alter("lmkm");
-//     var status = document.getElementById('status').value;
-// 	if(status=="已付款"){
-// 		alter("该用户已付款");
-// 	}
-//     obj.href = obj.href + "&gjz="+key;
-	</script>
- <script type="text/javascript">
 	function print(id) {
 		  var xpwidth=window.screen.width-10;
 	        var xpheight=window.screen.height-35;
@@ -56,8 +32,9 @@ function CheckPay(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-<span style="font-weight: bold;">${mark}</span>
+<div style="font-weight: bold;font-size:20px;margin-top:2%;">${mark}</div>
 </center>
+<c:if test="${fn:length(pc.data) > 0 }">
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	<form action="${rootPath}manage/OrderAction_count" method="post">
@@ -145,5 +122,6 @@ function CheckPay(){
   <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.nextPage}&sign=${sign}">下一页</a></li>
 </ul>
  </div>   
+ </c:if>
 </body>
 </html>

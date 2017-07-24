@@ -2,7 +2,7 @@
 body{ width:100%;}
 #text{
     display: inline-block;
-    text-align: left;
+    text-align: right;
     width:32%; 
 	
 }

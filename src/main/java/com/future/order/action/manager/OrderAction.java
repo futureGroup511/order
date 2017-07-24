@@ -56,7 +56,7 @@ public class OrderAction extends BaseAction {
 		}
 		if(pCut.getData().size()==0){
 			String mark="没有订单";
-			request.put("marknews", mark);
+			request.put("mark", mark);
 		}
 		request.put("sumprice", sumprice);
 		session.put("sign", sign);

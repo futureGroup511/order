@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>已完成菜品</title>
+    <title>未完成菜品</title>
      <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
   <style>
       .aa{
@@ -24,7 +24,7 @@
        .pag{
         float: right;
         margin-top:-90px; 
-        margin-right:60px; 
+        margin-right:0px; 
      }  
        table{
             width: 100%;

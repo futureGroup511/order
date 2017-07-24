@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,8 +26,9 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-	<span class="error">${updateMsg}${deleteMenuMsg }</span>
+	<div class="error" style="font-weight: bold;">${updateMsg}${deleteMenuMsg }</div>
 </cenetr>
+<c:if test="${fn:length(allMenu.data)>0 }">
  <div class="photowall" style="margin-left:35%;"> 
 	<form action="${rootPath}manage/MenuManager_Inquiry" method="post">
 	<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
@@ -61,7 +63,7 @@ window.onload=function(){
     					<textarea rows="2" cols="20" readonly="readonly">${data.introduce}</textarea>
     				</td>
     				<td>
-    					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
     					<a href="${rootPath}manage/MenuManager_deleteMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-trash"></span></a>
     				</td>
     			</tr>
@@ -86,5 +88,6 @@ window.onload=function(){
       <li><a href="manage/MenuManager_${adss}?page=${allMenu.nextPage}">下一页</a></li>
     </ul>
    </div>
+  </c:if>
 </body>
 </html>

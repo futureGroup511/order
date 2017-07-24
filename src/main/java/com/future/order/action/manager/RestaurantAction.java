@@ -26,6 +26,9 @@ public class RestaurantAction extends BaseAction {
 	public String execute(){//查询餐厅的信息
 		@SuppressWarnings("unused")
 		Restaurant restaurants=restaurantService.SelectAll();
+		if(restaurants==null){
+			request.put("addrest", "还没有添加酒店");
+		}
 		request.put("restaurants", restaurants);
 		return "check";
 	}

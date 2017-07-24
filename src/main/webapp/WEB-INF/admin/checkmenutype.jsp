@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,9 +19,10 @@
     }
     </style>
 </head>
-<body>
+<body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-<div style="margin-top: 1%;font-weight: bold;">${mark}</div>
+<div style="margin-top: 1%;font-weight: bold;font-size:20px;">${mark}</div>
+<c:if test="${fn:length(pc.data)>0}">
 <div style="margin-left:40%;MARGIN-TOP:2%;">
 	<form action="${rootPath}manage/MenuTypeAction_Inquiry" method="post">
 		<input class="input" type="text" name="inquiry" required="required">
@@ -29,7 +30,6 @@
 	</form>
 </div>
 </center>
-<body   style="background: url(${rootPath}/images/m-91.jpg);">
 <div class="wall">
        <table border="1" style="border-color:#C6C6C6;background-color: white;">
 			<tr>
@@ -73,6 +73,6 @@
   		<li><a href="${rootPath}manage/MenuTypeAction_${adss}?page=${pc.nextPage}">下一页</a></li>
        </ul>
    </div>   
-  
+  </c:if>
 </body>
 </html>
