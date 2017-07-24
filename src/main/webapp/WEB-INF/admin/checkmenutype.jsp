@@ -21,8 +21,12 @@
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
+<<<<<<< HEAD
 <div style="margin-top: 1%;font-weight: bold;font-size:20px;">${mark}</div>
 <c:if test="${fn:length(pc.data)>0}">
+=======
+<div style="margin-top: 1%;font-weight: bold;">${mark}</div>
+>>>>>>> 89062d78d0a24f0a1dcfb48d7dd8555a87fd129f
 <div style="margin-left:40%;MARGIN-TOP:2%;">
 	<form action="${rootPath}manage/MenuTypeAction_Inquiry" method="post">
 		<input class="input" type="text" name="inquiry" required="required">

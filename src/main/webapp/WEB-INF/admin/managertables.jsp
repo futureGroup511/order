@@ -67,7 +67,7 @@ window.onload=function(){
 					<c:if test="${pageCut.status eq '无人'}">无人</c:if>
 					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
 				</td>
-				<td><a href="${rootPath}manage/TableManager_reWeiMa?name=${pageCut.name}&id=${pageCut.id}">查看二维码</a></td>
+				<td><a href="${rootPath}manage/TableManager_reWeiMa?name=${pageCut.name}&id=${pageCut.id}">下载二维码</a></td>
 				<td>
 					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
 					<a href="${rootPath}manage/TableManager_deleteTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>

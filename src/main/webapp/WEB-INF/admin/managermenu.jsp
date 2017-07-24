@@ -63,7 +63,11 @@ window.onload=function(){
     					<textarea rows="2" cols="20" readonly="readonly">${data.introduce}</textarea>
     				</td>
     				<td>
+<<<<<<< HEAD
     					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
+=======
+    					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+>>>>>>> 89062d78d0a24f0a1dcfb48d7dd8555a87fd129f
     					<a href="${rootPath}manage/MenuManager_deleteMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-trash"></span></a>
     				</td>
     			</tr>

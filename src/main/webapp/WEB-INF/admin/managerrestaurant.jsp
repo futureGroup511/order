@@ -24,7 +24,9 @@ table{
 table th{
     text-align: center;
     height: 35px;
-    background-color: #82C0E9;
+    border-color: #C6C6C6;
+   	background-color: #E8E7E3;
+/*     background-color: #82C0E9; */
     font-size: 18px;
 }
 table td{

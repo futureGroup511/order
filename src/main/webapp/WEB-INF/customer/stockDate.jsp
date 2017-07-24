@@ -18,6 +18,7 @@
   <li class="list-group-item">${ingName}</li><!-- 顶部的  配料名 -->
    <li class="list-group-item">aa</li>  <!--  制空的 一个  没有实际用处的快 -->
    <!--  此处  每出现一个   第几次进货  就是一个快  -->
+<c:if test="${!empty stockDetails}">
 <c:forEach items="${stockDetails}" var="s" varStatus="status">
 	<c:if test="${status.index==0 }">
 		<li class="list-group-item list-group-item-success">最近进货</li>
@@ -50,6 +51,10 @@
 		</li>
 	</c:if>
 </c:forEach>
+</c:if>
+<c:if test="${empty stockDetails}">
+	<center><h1 class="margin">暂没有进货信息</h1></center>
+</c:if>
 </ul>
 	<!--  留白处 -->
    <div class="liubai">
