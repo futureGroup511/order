@@ -35,7 +35,7 @@
 						<td>${menuMaterial.menuName}</td>
 						<td>${menuMaterial.ingName}</td>
 						<td>${menuMaterial.type}</td>
-						<td><input type="text" value="${menuMaterial.num}"name="menuMaterial.num" ></td>
+						<td><input type="text" value="${menuMaterial.num}"name="menuMaterial.num" onkeyup="this.value=/^\d+\.?\d{0,3}$/.test(this.value) ? this.value : ''" ></td>
 						<td>
 							<input class="tableBtn" type="submit" value="修改">
 							<input class="tableBtn" type="button" onclick="window.location='${rootPath}manage/MenuMaterial_deleteMaterial?menuMaterial.id=${menuMaterial.id}&menuMaterial.menuId=${menuMaterial.menuId}';" value="删除">
