@@ -98,6 +98,7 @@
    </c:forEach>
    	</div>
    <!-- 菜品的展示 -->
+   <c:if test="${!empty menus}">
    <c:forEach items="${menus}" var="m" >
    <div class="show">
        <!-- 以下层级每一个块   都会是一道菜 -->
@@ -125,6 +126,10 @@
 	    
        </div>
      </c:forEach>
+    </c:if>
+    <c:if test="${empty menus}">
+    <center><h1 class="margin">该类型暂无菜品</h1></center>
+    </c:if>
      <!-- 底部留白 -->
        <div class="liubai">
        	
