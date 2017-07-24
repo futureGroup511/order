@@ -143,4 +143,10 @@ public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService 
 		return getNum();
 	}
 	
+	@Override
+	public MenuType getByName(String name) {
+		String hql=" from MenuType m where m.name='"+name+"'";
+		return (MenuType)this.uniqueResult(hql);
+	}
+	
 }

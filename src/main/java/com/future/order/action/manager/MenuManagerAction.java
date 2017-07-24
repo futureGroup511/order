@@ -46,34 +46,29 @@ public class MenuManagerAction extends BaseAction {
 	
 	public String addMenu() throws Exception{
 		String typeName=menu.getTypeName();
-		@SuppressWarnings("unchecked")
-		List<MenuType> list=(List<MenuType>) session.get("Typelist");
-		for(int i=0;i<list.size();i++){
-			if(list.get(i).getName().equals(typeName)){
-				menu.setTypeId(list.get(i).getId());
-			}
-		}
+		int typeId=menuTypeService.getByName(typeName).getId();		
+		menu.setTypeId(typeId);		
 		boolean boo=false;
 		if(file==null||file.equals("")){
-			 boo = menuService.addMenu(menu);		
+			request.put("addMsg", "添加失败！请上传图片");
+			return "addAgain";		
 		}else{
 			for (int i = 0; i < file.size(); i++) {
 				// 循环上传每个文件
 				uploadFile(i);
 			}
-			 boo = menuService.addMenu(menu);
-		}		
-		String result = "addMenu";
-		if(boo){
-			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
-			session.put("menu", menu);
-			List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
-			request.put("allIngredient", lists);
-		} else {
-			request.put("addMsg", "添加失败！该菜已被添加过");
-			result = "addAgain";
-		}
-		return result;
+			boo = menuService.addMenu(menu);
+			if(boo){
+					request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
+					session.put("menu", menu);
+					List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
+					request.put("allIngredient", lists);
+					return "addMenu";
+			} else {
+				request.put("addMsg", "添加失败！该菜已被添加过");
+				return "addAgain";
+			}
+		}								
 	}
 	
 	//查看菜品详情
