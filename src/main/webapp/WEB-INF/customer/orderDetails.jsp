@@ -70,7 +70,7 @@
 	}  
 </script>
 </head>
-<body>
+<body onload="tuicai()">
  <div class="header">
        <img src="${rootPath}images/left.png" alt="">
       我的订单
@@ -142,13 +142,14 @@
    </footer>
 </body>
 <script type="text/javascript">
-    function   tuicai(){
-			  
-			 show_notice('退菜成功',1);
-
-			  
-		
+   function tuicai(){
+	   if('${stat}'=='退菜成功！'){
+		   show_notice('${stat}',1);
+	   }else if('${stat}'=='该菜已完成,退不了'){
+		   show_notice('${stat}',1);
+	   }
+	   
    }
-   
+     
 </script>
 </html>

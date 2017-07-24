@@ -14,8 +14,10 @@ table{
     width: 80%;
     text-align: center;
     height: auto;
+    border-color: #C6C6C6;
 }
 table th{
+	border-color: #C6C6C6;
     text-align: center;
     background-color: #E8E7E3;
 	font-size:18px;
