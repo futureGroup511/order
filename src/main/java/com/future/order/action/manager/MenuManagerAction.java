@@ -54,20 +54,21 @@ public class MenuManagerAction extends BaseAction {
 			}
 		}
 		boolean boo=false;
+		String result = "addMenu";
 		if(file==null||file.equals("")){
-			 boo = menuService.addMenu(menu);		
+			request.put("addMsg", "添加失败！请选择图片");
+			result = "addAgain";		
 		}else{
 			for (int i = 0; i < file.size(); i++) {
 				// 循环上传每个文件
 				uploadFile(i);
 			}
 			 boo = menuService.addMenu(menu);
-		}		
-		String result = "addMenu";
+		}
 		if(boo){
 			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
 			session.put("menu", menu);
-			List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
+			List<Ingredient> lists = ingerdientService.getAll();
 			request.put("allIngredient", lists);
 		} else {
 			request.put("addMsg", "添加失败！该菜已被添加过");

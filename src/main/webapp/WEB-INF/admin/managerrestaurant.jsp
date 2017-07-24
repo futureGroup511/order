@@ -45,7 +45,7 @@ table td{
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <div style="margin-left: 40%;font-weight: bold;margin-top:2%;font-size:20px;">${addrest}</div>
-<c:if test="${restaurants.name eq ''}">
+<c:if test="${restaurants ne 'null'}">
 	<div class="wall" >
 	<table cellspacing="0" border="1">
          <tbody>
