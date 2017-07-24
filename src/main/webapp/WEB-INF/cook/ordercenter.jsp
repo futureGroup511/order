@@ -16,6 +16,7 @@
             position: absolute;
             left: 5%;
             z-index: 100;
+            overflow:hidden;
         }
         .aa p{
             margin-top:30px;
@@ -25,7 +26,7 @@
         .pag{
         float: right;
          margin-top: 0;
-        margin-right:60px; 
+        margin-right:0px; 
         }
         
         table{
@@ -54,7 +55,7 @@
              width:400px;
              height:30px;
              margin-top:35px;
-             margin-left:74%; 
+             margin-left:76%; 
               
              display: inline-block;
         }

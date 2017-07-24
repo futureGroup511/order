@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,7 +34,8 @@ window.onload=function(){
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 <body>
 <center>
-<span style="font-weight: bold;">${stocknews }</span><br>
+<div style="font-weight: bold;margin-top:2%;">${stocknews }</div><br>
+<c:if test="${fn:length(pc.data)>0}">
 	<div style="float:right;margin-right:55%;width:40%;height:30px; margin-top:0%; margin-bottom:-3%;">
 	<form action="${rootPath}manage/StockAction_count" method="post">
 		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender" style="border-radius:7px;background-color: #F0F0F0;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender" style="border-radius:7px;background-color: #F0F0F0;" required="required">
@@ -90,8 +92,6 @@ window.onload=function(){
 			<c:if test="${1 < pc.currentPage -3}">
 					<li><a href="#">1</a></li>
 					</c:if>
-<!--      						<li><a -->
-<%-- 							href="${rootPath}manage/StockAction_${adss}?page=${pc.prePage}">上一页</a></li> --%>
 						<c:forEach var="i"
  							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
@@ -108,5 +108,6 @@ window.onload=function(){
 			<li><a href="${rootPath}manage/StockAction_${adss}?page=${pc.nextPage}">下一页</a></li> 
 		</ul>
     </div>
+    </c:if>
 </body>
 </html>

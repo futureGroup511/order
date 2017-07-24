@@ -28,8 +28,8 @@
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-     <lable>重量(kg):</lable><input style="margin-left: 1%;" type="number" name="details.num" required="required" placeholder="请输入数字"><br>
-     <lable>价格(kg):</lable><input style="margin-left: 1%;" type="number"  name="details.price" required="required" placeholder="请输入数字"><br>
+     <lable>重量(kg):</lable><input style="margin-left: 1%;" type="text" name="details.num" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
+     <lable>价格(kg):</lable><input style="margin-left: 1%;" type="text"  name="details.price" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
      <div style="font-size:20px;font-weight: bold;width:5%;margin-left:-100px;">溯源:</div><br>
      <div class="suyuan">
      <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea><br>
