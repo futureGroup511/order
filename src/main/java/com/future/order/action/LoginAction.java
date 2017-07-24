@@ -37,14 +37,13 @@ public class LoginAction extends BaseAction {
 				Restaurant restaurants=restaurantService.SelectAll();
 				session.put("restlist",restaurants);	//将配料放进session
 				session.put("Ientlist",list1);	//将配料放进session
-				session.put("Typelist",list);	//将菜品类型和id放进session
 				if(userDataBase.getSort().equals("cook")){
 					session.put("cook", userDataBase);//将用户对象放进session
-					session.put("userSort", "cook");	//将用户身份放进session
+//					session.put("userSort", "cook");	//将用户身份放进session
 					return "cook";
 				} else if(userDataBase.getSort().equals("manager")) {
 					session.put("manager", userDataBase);//将用户对象放进session
-					session.put("userSort", "manager");
+//					session.put("userSort", "manager");
 					return "manager";
 				} else {
 					session.put("cashier", userDataBase);

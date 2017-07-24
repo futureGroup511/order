@@ -1,8 +1,10 @@
 package com.future.order.action.manager;
 
 import java.util.Date;
+import java.util.List;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.MenuType;
 import com.future.order.entity.User;
 
 /**
@@ -28,6 +30,8 @@ public class ChangeAction extends BaseAction{
 	}
 	//菜品模块中转站
 	public String addMenu(){
+		List<MenuType> list=menuTypeService.getAllMenuType();
+		request.put("Typelist",list);
 		return "addMenu";
 	}
 	public String addMenuType(){
