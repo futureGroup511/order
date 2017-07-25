@@ -32,7 +32,8 @@
 			<result name="inform">/WEB-INF/cook/inform.jsp</result>
 		</action>
 		<action name="OrderDetail_*" method="{1}" class="com.future.order.action.cook.OrderDetailAction">
-			<result name="menu">/WEB-INF/cook/menu.jsp</result>
+			<result name="getMenuMaterial">/WEB-INF/cook/menumaterial.jsp</result>
+			<result name="printQRCode">/WEB-INF/cook/printQRCode.jsp</result>
 		</action>
 	</package>
 </struts>

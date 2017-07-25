@@ -20,5 +20,12 @@
 			<result name="cashier">/WEB-INF/cashier/index.jsp</result>
 			<result name="login">/index.jsp</result>
 		</action>
+		<!--顾客查看菜品详情页-->
+		<action name="OrderDetail_*" method="{1}" class="com.future.order.action.OrderDetailAction">
+			<result name="getMenuMaterial">/menumaterial.jsp</result>
+			<result name="printQRCode">/printQRCode.jsp</result>
+			<result name="getStockDate">/stockDate.jsp</result>
+		</action>
+		
 	</package>
 </struts>

@@ -60,26 +60,6 @@
    <div class="liubai">
    </div>
    <!-- 公共底部 -->
-   <footer>
-     <a href="${rootPath}customer/customer_toIndex?id=${userId}">
-      <div class="left">
-      	<div><img src="${rootPath}images/sy1.png" style="width:100%; height:100%; "></div>
-      	
-      	<p>首页</p>
-      </div>
-      </a>
-      <a href="${rootPath}customer/cart_getCart">
-      <div class="left">
-      	<div><img src="${rootPath}images/gwc.png" style="width:100%; height:100%; "></div>
-      	<p>购物车</p>
-      </div>
-      </a>
-      <a href="${rootPath}customer/cart_getOrderDetails">
-      <div class="left">
-      	<div><img src="${rootPath}images/dd.png" style="width:70%; height:70%;"></div>
-      	<p>订单</p>
-      </div>
-      </a>
-   </footer>
+  
 </body>
 </html>
