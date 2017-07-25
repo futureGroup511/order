@@ -37,7 +37,7 @@
     <script type="text/javascript">
         var E = window.wangEditor
         var editor = new E('#editor')
-        editor.customConfig.uploadImgServer = '${rootPath}uploadImg/source'
+        /* editor.customConfig.uploadImgServer = '${rootPath}uploadImg/source' */
         editor.create()
     </script>
      </div> 
