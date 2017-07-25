@@ -131,5 +131,7 @@
 		         <!-- 留白  -->
 		  <div class="liubai">
 		  </div>
+		       <!-- 公共脚部 -->
+		
 </body>
 </html>
