@@ -134,13 +134,13 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	public boolean DeletDetails(int detailid) {//根据详细信息的ID删除信息
 		boolean sign = false;
 		try{
-			String hql="delete from OrderDetails o Where o.id='"+detailid+"'";
+			String hql="delete from OrderDetails o Where o.id="+detailid;
 			int mark=this.executeUpdate(hql);
-		if(mark==1){
-			sign=true;
-		}else{
-			sign=false;
-		}
+			if(mark==1){
+				sign=true;
+			}else{
+				sign=false;
+			}
 		
 		}catch (Exception e) {
 			e.printStackTrace();

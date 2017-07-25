@@ -64,7 +64,7 @@ public class StockDetailsAction extends BaseAction{
 		return "add";
 		
 	}
-	public String Delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
+	public String delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
 		boolean sign = stockDetailsService.DeletDetails(stocksid);
 		String mark = "操作失败";
 		if (sign == true) {
@@ -81,6 +81,8 @@ public class StockDetailsAction extends BaseAction{
 		double Num=stockDetails.getNum();
 		session.put("place", place);
 		session.put("Num", Num);
+		System.out.println(stockDetails.getOrigins());
+		stockDetails.setOrigins(stockDetails.getOrigins().replace("'", "\""));
 		request.put("stockDetails", stockDetails);
 		return "update";
 	}
