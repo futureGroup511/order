@@ -128,6 +128,7 @@ public class StockDetailsAction extends BaseAction{
 		session.put("inquiry", inquiry);	
 		return "details";
 	}
+	
 	public int getId() {
 		return id;
 	}

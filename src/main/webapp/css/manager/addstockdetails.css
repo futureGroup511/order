@@ -31,11 +31,18 @@ select{
     height: 50px;
     margin-left:40%;
     font-size: 24px;
-     margin-top:75px;
+ 
 }
 .suyuan{
 /* 	background-color:red; */
-	width: 650px;
-    height: 300px;
-    margin-top:-130px;
+	width: 1000px;
+    height: 400px;
+    margin-left: -230px;
+    
+   
+}
+#editor{
+	margin-top: -80px;
+	width: 1000px;
+    height: 400px;
 }

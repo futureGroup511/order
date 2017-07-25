@@ -11,10 +11,8 @@
 </style>
  <script type="text/javascript">
      function modifyContent() {    	
-     	        var content = document.getElementById("content");
-     	        var arr = [];
-     	        arr.push(editor.txt.html());
-     	        content.value = arr;
+     	        var content = document.getElementById("content");   	    
+     	        content.value = editor.txt.html();
    }
 </script> 
 </head>
@@ -30,14 +28,16 @@
  	</select><br>
      <lable>重量(kg):</lable><input style="margin-left: 1%;" type="text" name="details.num" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
      <lable>价格(kg):</lable><input style="margin-left: 1%;" type="text"  name="details.price" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
-     <div style="font-size:20px;font-weight: bold;width:5%;margin-left:-100px;">溯源:</div><br>
      <div class="suyuan">
+     <div style="font-size: 20px;font-weight: bolder;">溯源:</div><br>
      <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea><br>
-         <div id="editor"></div>
+     <div id="editor"></div>
+     
     <script type="text/javascript" src="${rootPath}wangEditor/release/wangEditor.min.js"></script>
     <script type="text/javascript">
         var E = window.wangEditor
         var editor = new E('#editor')
+        editor.customConfig.uploadImgServer = '${rootPath}uploadImg/source'
         editor.create()
     </script>
      </div> 

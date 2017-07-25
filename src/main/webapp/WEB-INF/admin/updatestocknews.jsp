@@ -27,9 +27,9 @@ function changeSelected() {
 	}
      function modifyContent() {    	
      	        var content = document.getElementById("content");
-     	        var arr = [];
-     	        arr.push(editor.txt.html());
-     	        content.value = arr;
+     	       /*  var arr = [];
+     	        arr.push(editor.txt.html()); */
+     	        content.value = editor.txt.html();
    }
 </script> 
 </head>
@@ -59,9 +59,9 @@ function changeSelected() {
     <script type="text/javascript">
         var E = window.wangEditor
         var editor = new E('#editor')
-        var value='${stockDetails.origins}';
+        editor.customConfig.uploadImgServer = '${rootPath}uploadImg/source'
         editor.create()
-         editor.txt.html(value)
+         editor.txt.html('${stockDetails.origins}')
     </script>
       	</div>
       <div class="button">
