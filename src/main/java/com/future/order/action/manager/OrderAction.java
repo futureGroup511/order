@@ -56,7 +56,7 @@ public class OrderAction extends BaseAction {
 		}
 		if(pCut.getData().size()==0){
 			String mark="没有订单";
-			request.put("marknews", mark);
+			request.put("mark", mark);
 		}
 		request.put("sumprice", sumprice);
 		session.put("sign", sign);
@@ -71,7 +71,6 @@ public class OrderAction extends BaseAction {
 	public String Delet() {//从前台获得ID用于根据账号删除订单信息和订单详细信息
 		boolean sign = orderService.DeletOrder(id);
 		int marks=orderDetailsService.getSomenum(id);
-		System.out.println(sign+"       "+marks);
 		boolean signs = orderDetailsService.DeletOrderDetails(id);
 		String mark = "操作失败";
 		if(sign&&marks==0){
@@ -134,7 +133,6 @@ public class OrderAction extends BaseAction {
 
 	public String toUpdate() {//根据ID获得需要修改的订单信息
 		Order order = orderService.CheckById(id);
-		System.out.println(order);
 		request.put("order", order);
 		return "update";
 	}

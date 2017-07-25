@@ -15,6 +15,7 @@
           position: absolute;
           left: 5%;
           z-index: 100;
+          overflow:hidden;
     }
     .aa p{
         margin-top:30px;
@@ -25,7 +26,7 @@
      .pag{
         position: relative;
         top:-50px;
-        left:800px;
+        left:1000px;
         /*float: right;
         margin-top: -90px;
         margin-right:60px; */
@@ -77,9 +78,8 @@ window.onload = function() {
 	}
 }
 	</script>
-<body>
+<body style="">
 <div class="aa" id="div1" style="display: none">
- <p>催单>></p>
     <table id="table1">
       <thead>
         <tr>

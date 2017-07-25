@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +24,9 @@ table{
 table th{
     text-align: center;
     height: 35px;
-    background-color: #82C0E9;
+    border-color: #C6C6C6;
+   	background-color: #E8E7E3;
+/*     background-color: #82C0E9; */
     font-size: 18px;
 }
 table td{
@@ -41,7 +44,8 @@ table td{
 </style>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-<div style="margin-left: 40%;font-weight: bold;">${addrest}</div>
+<div style="margin-left: 40%;font-weight: bold;margin-top:2%;font-size:20px;">${addrest}</div>
+<c:if test="${restaurants ne 'null'}">
 	<div class="wall" >
 	<table cellspacing="0" border="1">
          <tbody>
@@ -64,5 +68,6 @@ table td{
          </tbody>
      </table>
 </div>
+</c:if>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <title>订餐管理系统-厨师后台</title>
+    <title>餐饮管理系统-厨师后台</title>
     
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
     <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
                     </li>
                    
                       <li>
-                       <a href="${rootPath}manage/Change_logOff"><span class="glyphicon glyphicon-off"></span>退出</a>
+                       <a href="${rootPath}cook/Cookdetail_logOff"><span class="glyphicon glyphicon-off"></span>退出</a>
                   </li>
                   </ul>
               </li>

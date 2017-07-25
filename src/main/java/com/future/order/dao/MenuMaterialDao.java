@@ -97,5 +97,16 @@ public class MenuMaterialDao extends BaseDao<MenuMaterial> implements IMenuMater
 		String hql="from MenuMaterial m where m.id="+id;		
 		return this.getEntityList(hql);
 	}
+	@Override
+	public boolean deleteAboutMenu(int id) {
+		String hql = "from MenuMaterial m where m.menuId="+id;
+		List<MenuMaterial> list = this.getEntityList(hql);
+		if(list.size()!=0){
+			for(int i=0;i<list.size();i++){
+				this.deleteEntity(list.get(i));
+			}
+		}
+		return true;
+	}
 	
 }

@@ -54,9 +54,6 @@ public class MenuTypeAction extends BaseAction {
 			boolean sign = menuTypeService.AddType(menutype);
 			if (sign == true) {
 				mark = "添加成功";
-				@SuppressWarnings("unchecked")
-				List<MenuType> list = (List<MenuType>) session.get("Typelist"); // 金高改
-				list.add(menutype); //
 			} else {
 				mark = "添加失败";
 			}

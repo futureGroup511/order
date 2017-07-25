@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,9 +24,8 @@ window.onload=function(){
 }
 	</script>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-
-<div style="margin-left: 40%;font-weight: bold;">${updateIngredientMsg}${deleteIngredientMsg}</div>
-
+<div style="margin-left: 40%;margin-top:2%;font-size:20px;font-weight: bold;">${updateIngredientMsg}${deleteIngredientMsg}</div>
+<c:if test="${fn:length(allIngredient.data)>0}">
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
 	<form action="${rootPath}manage/Ingredient_Inquiry" method="post"style="margin-left:10%;">
 	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
@@ -86,6 +86,6 @@ window.onload=function(){
       <li><a href="${rootPath }manage/Ingredient_${adss}?page=${allIngredient.nextPage}">下一页</a></li>
     </ul>
 </div>
-</center>
+</c:if>
 </body>
 </html>

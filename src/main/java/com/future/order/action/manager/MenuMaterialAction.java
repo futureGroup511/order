@@ -48,6 +48,9 @@ public class MenuMaterialAction extends BaseAction {
 	
 	public String updateMenuMaterial(){
 		List<MenuMaterial> list =  menuMaterialService.getByMenuId(menuId);
+		if(list.size()==0){
+			request.put("materialMsg", "还没有添加配料");
+		}
 		request.put("allMenuMaterial", list);
 		Menu menu = menuService.get(menuId);
 		session.put("menu", menu);

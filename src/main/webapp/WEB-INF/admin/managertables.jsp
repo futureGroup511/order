@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,7 +32,8 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 		<center>
-		<div style="font-weight: bold;">${managerMsg}</div>
+		<div style="font-weight: bold;font-size: 20px;margin-top:2%;">${managerMsg}</div>
+		<c:if test="${fn:length(allTables.data)>0 }">
 		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:0%; ">
 			<form action="${rootPath}manage/TableManager_Inquiry" method="post">
 				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
@@ -65,7 +67,7 @@ window.onload=function(){
 					<c:if test="${pageCut.status eq '无人'}">无人</c:if>
 					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
 				</td>
-				<td><a href="${rootPath}manage/TableManager_reWeiMa?name=${pageCut.name}&id=${pageCut.id}">查看二维码</a></td>
+				<td><a href="${rootPath}manage/TableManager_reWeiMa?name=${pageCut.name}&id=${pageCut.id}">下载二维码</a></td>
 				<td>
 					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
 					<a href="${rootPath}manage/TableManager_deleteTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-trash"></span></a>
@@ -93,5 +95,6 @@ window.onload=function(){
         <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.nextPage}">下一页</a></li>
       </ul>
  </div>
+ </c:if>
 </body>
 </html>

@@ -86,8 +86,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		hql = "select count(*) from OrderDetails o where o.status='"+status+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from OrderDetails as o order by o.creatDate asc", (currentPage-1)*pageSize, pageSize));
-		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='"+status+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='"+status+"' order by o.creatDate asc", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	
@@ -135,13 +134,13 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	public boolean DeletDetails(int detailid) {//根据详细信息的ID删除信息
 		boolean sign = false;
 		try{
-			String hql="delete from OrderDetails o Where o.id='"+detailid+"'";
+			String hql="delete from OrderDetails o Where o.id="+detailid;
 			int mark=this.executeUpdate(hql);
-		if(mark==1){
-			sign=true;
-		}else{
-			sign=false;
-		}
+			if(mark==1){
+				sign=true;
+			}else{
+				sign=false;
+			}
 		
 		}catch (Exception e) {
 			e.printStackTrace();

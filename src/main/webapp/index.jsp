@@ -25,7 +25,7 @@
 			 <form action="${rootPath}loginAction" method="post">
 			     <div class="in1">
 			     	<p class="left">账户</p>
-			     	 <input type="tel" pattern="\d{11}" class="form-control" id="inputText" placeholder="请输入账号" name="user.phone">
+			     	 <input type="tel" pattern="\d{11}" class="form-control" id="inputText" placeholder="请输入手机号" name="user.phone">
 			     </div>
 			     <div class="in1">
 			     	<p class="left">密码</p>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,6 +24,8 @@ window.onload=function(){
 	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
+<center><div style="margin-top:1%;font-size:20px;;">${markinfo}</span></div>
+<c:if test="${fn:length(pc.data)>0 }">
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;margin-top:2%;">
 	<form action="${rootPath}manage/StockDetailsAction_Inquiry" method="post"style="margin-left:10%;">
 	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
@@ -34,7 +37,6 @@ window.onload=function(){
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>
-<center><span style="margin-left:30%;">${markinfo}</span></center>
 <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>
@@ -98,5 +100,6 @@ window.onload=function(){
 							href="${rootPath}manage/StockDetailsAction_${adss}?page=${pc.nextPage}">下一页</a></li>
     </ul>
     </div>
+    </c:if>
 </body>
 </html>

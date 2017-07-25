@@ -8,11 +8,12 @@
 <title>Insert title here</title>
 <script language="javascript">
         //防止页面后退
+        var sort = '${sort}';
         history.pushState(null, null, document.URL);
         window.addEventListener('popstate', function () {
             history.pushState(null, null, document.URL);
         });
-        window.location.href="${rootPath}manage/Change_out";
+        window.location.href="${rootPath}manage/Change_out?sort="+sort+"";
 </script>
 </head>
 <body>

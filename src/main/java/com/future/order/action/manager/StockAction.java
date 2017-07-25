@@ -1,5 +1,7 @@
 package com.future.order.action.manager;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,7 +37,9 @@ public class StockAction extends BaseAction {
 		for(int i=0;i<pCut.getData().size();i++){
 			sumprice+=pCut.getData().get(i).getTotal();
 		}
-		request.put("sumprice", sumprice);
+		BigDecimal bg = new BigDecimal(sumprice);//保留小数，张金高改
+		double sumpriceNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		request.put("sumprice", sumpriceNew);
 		request.put("adss", "execute");
 		request.put("pc", pCut);
 		return "select";
@@ -115,13 +119,17 @@ public class StockAction extends BaseAction {
 		for(int i=0;i<list.size();i++){
 			sum+=list.get(i).getTotal();
 		}
-		if(sum!=0){
-			request.put("stocksum",sum);
+		BigDecimal bg = new BigDecimal(sumprice);//保留小数，张金高改
+		double sumpriceNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		bg = new BigDecimal(sum);
+		double sumNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		if(sumNew!=0){
+			request.put("stocksum",sumNew);
 			request.put("stocksums","所查询的总收入(元):");
 		}else{
 			request.put("stocksums","所查询的这段时间的总收入为零");
 		}
-		request.put("sumprice", sumprice);
+		request.put("sumprice", sumpriceNew);
 		request.put("adss", "Inquiry");		
 		session.put("inquiry", inquiry);
 		request.put("pc", pCut);
@@ -148,8 +156,12 @@ public class StockAction extends BaseAction {
 		for(int i=0;i<list.size();i++){
 			sum+=list.get(i).getTotal();
 		}
-		if(sum!=0){
-			request.put("stocksum",sum);
+		BigDecimal bg = new BigDecimal(sumprice);//保留小数，张金高改
+		double sumpriceNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		bg = new BigDecimal(sum);
+		double sumNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		if(sumNew!=0){
+			request.put("stocksum",sumNew);
 			request.put("stocksums","的总收入(元):");
 		}else{
 			request.put("stocksums","的总收入为零");
@@ -161,7 +173,7 @@ public class StockAction extends BaseAction {
 		request.put("mark", "--");
 		session.put("starttime", starttime);
 		session.put("endtime", endtime);
-		request.put("sumprice", sumprice);
+		request.put("sumprice", sumpriceNew);
 		request.put("adss", "count");
 		request.put("pc", pCut);
 		return "select";	

@@ -25,6 +25,8 @@ public interface IMenuMaterialService {
 	public boolean updateMaterial(MenuMaterial menuMaterial);
 	//删除菜品配料
 	public boolean deleteMaterial(MenuMaterial  menuMaterial);
+	//删除菜品时删除对应的菜品配料
+	public boolean deleteAboutMenu(int id);
 	
 	public List<MenuMaterial> getByMenuId(int menuId);
 

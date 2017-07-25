@@ -38,8 +38,7 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 
 	@Override
 	public boolean updateIngredient(Ingredient ingredient) {
-		boolean boo = this.updateEntity(ingredient);
-		return boo;
+		return this.updateEntity(ingredient);	
 	}
 	@Override
 	public boolean updeteNum(int id, int num) {

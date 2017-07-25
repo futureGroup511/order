@@ -29,4 +29,6 @@ public interface IMenuTypeService {
 	public PageCut<MenuType> getSomePageCut(int currentPage, int pageSize, String inquiry);
 
 	public int getCount();
+	
+	public MenuType getByName(String name);
 }

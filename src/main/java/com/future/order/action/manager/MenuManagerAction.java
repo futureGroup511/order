@@ -33,7 +33,7 @@ public class MenuManagerAction extends BaseAction {
 
 	public String execute() {
 		List<MenuType> typelist=menuTypeService.getAllMenuType();
-		session.put("Typelist",typelist);	//将菜品类型和id放进session
+		request.put("Typelist",typelist);
 		PageCut<Menu> pCut = menuService.getPageCut(page, 8);
 		if(pCut.getData().size()==0){
 			String mark="没有菜品";
@@ -46,42 +46,38 @@ public class MenuManagerAction extends BaseAction {
 	
 	public String addMenu() throws Exception{
 		String typeName=menu.getTypeName();
-		@SuppressWarnings("unchecked")
-		List<MenuType> list=(List<MenuType>) session.get("Typelist");
-		for(int i=0;i<list.size();i++){
-			if(list.get(i).getName().equals(typeName)){
-				menu.setTypeId(list.get(i).getId());
-			}
-		}
+		int typeId=menuTypeService.getByName(typeName).getId();		
+		menu.setTypeId(typeId);		
 		boolean boo=false;
 		if(file==null||file.equals("")){
-			 boo = menuService.addMenu(menu);		
+			request.put("addMsg", "添加失败！请上传图片");
 		}else{
 			for (int i = 0; i < file.size(); i++) {
 				// 循环上传每个文件
 				uploadFile(i);
 			}
-			 boo = menuService.addMenu(menu);
-		}		
-		String result = "addMenu";
-		if(boo){
-			request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
-			session.put("menu", menu);
-			List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
-			request.put("allIngredient", lists);
-		} else {
-			request.put("addMsg", "添加失败！该菜已被添加过");
-			result = "addAgain";
+			boo = menuService.addMenu(menu);
+			if(boo){
+					request.put("addMsg", "添加成功");	//添加完菜名后添加菜的配料
+					session.put("menu", menu);
+					List<Ingredient> lists = ingerdientService.getAll();	//暂时不要分页
+					request.put("allIngredient", lists);
+					return "addMenu";
+			} else {
+				request.put("addMsg", "添加失败！该菜已被添加过");
+			}
 		}
-		return result;
+		List<MenuType> list=menuTypeService.getAllMenuType();
+		request.put("Typelist",list);
+		return "addAgain";		
 	}
 	
 	//查看菜品详情
 	public String toUpdateMenu(){
 		int id = menu.getId();
 		Menu menu = menuService.get(id);
-		@SuppressWarnings("unchecked")
-		List<MenuType> list = (List<MenuType>) session.get("Typelist");
+		List<MenuType> list=menuTypeService.getAllMenuType();
+		request.put("Typelist",list);
 		for(int i=0;i<list.size();i++){
 			if(list.get(i).equals(menu.getTypeName())){
 				request.put("select", i);
@@ -118,11 +114,12 @@ public class MenuManagerAction extends BaseAction {
 	public String deleteMenu() {
 		String imgPath = ServletActionContext.getRequest().getRealPath("uploadImg")+"/"+menu.getImgUrl();
 		boolean boo = menuService.deleteMenu(menu);
+		boolean booMater = menuMaterialService.deleteAboutMenu(menu.getId());
 		File imgFile = new File(imgPath);
 		if(imgFile.exists()){
 			imgFile.delete(); 		//删除该记录时删除对应的图片
 		}
-		if (boo) {
+		if (boo&&booMater) {
 			request.put("deleteMenuMsg", "删除成功");
 		} else {
 			request.put("deleteMenuMsg", "删除失败");
@@ -130,6 +127,7 @@ public class MenuManagerAction extends BaseAction {
 		PageCut<Menu> pCut = menuService.getPageCut(page, 8);
 		request.put("allMenu", pCut);
 		return "deleteUser";
+		
 	}
 	
 	// 执行上传功能

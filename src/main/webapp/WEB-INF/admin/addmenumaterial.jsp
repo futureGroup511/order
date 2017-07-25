@@ -42,7 +42,7 @@ window.onload=function(){
          	</c:forEach> 
  	</select><br>
      <lable> <span style="">用</span>量(kg):</lable>
- 		<input type="text" name="menuMaterial.num"  class="input1" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
+ 		<input type="text" name="menuMaterial.num"  class="input1" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,3}$/.test(this.value) ? this.value : ''"><br>
       <div class="button">
         <input type="submit" value="提交" class="bt2" style="background-color: #1BAFE0;border-radius: 5px;">          
       </div>
