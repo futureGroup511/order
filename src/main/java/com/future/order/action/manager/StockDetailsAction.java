@@ -64,7 +64,7 @@ public class StockDetailsAction extends BaseAction{
 		return "add";
 		
 	}
-	public String Delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
+	public String delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
 		boolean sign = stockDetailsService.DeletDetails(stocksid);
 		String mark = "操作失败";
 		if (sign == true) {
