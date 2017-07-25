@@ -38,7 +38,7 @@ public class OrderDetailsAction extends BaseAction{
 		}
 		return "details";
 		}
-	public String Delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
+	public void Delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
 		boolean sign = orderDetailsService.DeletDetails(detailid);
 		String mark = "操作失败";
 		if (sign == true) {
@@ -47,7 +47,7 @@ public class OrderDetailsAction extends BaseAction{
 			mark = "删除失败";
 		}
 		request.put("markinfo", mark);
-		return this.execute();	
+		this.execute();	
 	}
 	public String toUpdate() {//根据ID获得需要修改的订单信息
 		OrderDetails orderDetails = orderDetailsService.CheckById(detailid);

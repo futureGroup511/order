@@ -81,6 +81,8 @@ public class StockDetailsAction extends BaseAction{
 		double Num=stockDetails.getNum();
 		session.put("place", place);
 		session.put("Num", Num);
+		System.out.println(stockDetails.getOrigins());
+		stockDetails.setOrigins(stockDetails.getOrigins().replace("'", "\""));
 		request.put("stockDetails", stockDetails);
 		return "update";
 	}
