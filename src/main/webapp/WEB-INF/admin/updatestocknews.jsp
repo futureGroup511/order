@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatestocknews.css">
+<link rel="stylesheet" type="text/css" href="${rootPath}wangEditor/css/wangEditor.min.css">
 <style>
 .row{
 width:800px;
@@ -26,10 +27,8 @@ function changeSelected() {
 	   }
 	}
      function modifyContent() {    	
-     	        var content = document.getElementById("content");
-     	       /*  var arr = [];
-     	        arr.push(editor.txt.html()); */
-     	        content.value = editor.txt.html();
+     	        var content = document.getElementById("content");     	      
+     	        content.value = editor.$txt.html();
    }
 </script> 
 </head>
@@ -55,13 +54,17 @@ function changeSelected() {
       	<div class="row">
       	<lable>溯源:</lable>
       	<textarea rows="5" cols="35" name="details.origins"  style="display:none;" id="content"></textarea><br>
-     <div id="editor"></div><script type="text/javascript" src="${rootPath}wangEditor/release/wangEditor.min.js"></script>
+     <div id="editor"></div>
+      <script type="text/javascript" src="${rootPath}wangEditor/js/lib/jquery-1.10.2.min.js"></script>
+     <script type="text/javascript" src="${rootPath}wangEditor/js/wangEditor.min.js"></script>
     <script type="text/javascript">
         var E = window.wangEditor
-        var editor = new E('#editor')
-       /*  editor.customConfig.uploadImgServer = '${rootPath}uploadImg/source' */
+        var editor = new E('editor')    		 
+     	editor.config.uploadImgUrl = '${rootPath}manage/StockDetailsAction_uploadImg'
+     	editor.config.uploadImgFileName = 'myFileName'
         editor.create()
-         editor.txt.html('${stockDetails.origins}')
+      	editor.$txt.html('${stockDetails.origins}')
+       
     </script>
       	</div>
       <div class="button">

@@ -117,6 +117,8 @@
 			<result name="add">/WEB-INF/admin/addstockdetails.jsp</result>
 			<result name="details">/WEB-INF/admin/stockdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatestocknews.jsp</result>
+			
+			<!-- <result name="uploadImg">/WEB-INF/admin/updatestocknews.jsp</result> -->
 		</action>
 		<action name="MenuTypeAction_*" method="{1}" class="com.future.order.action.manager.MenuTypeAction">
 			<result name="add">/WEB-INF/admin/addmenutype.jsp</result>
