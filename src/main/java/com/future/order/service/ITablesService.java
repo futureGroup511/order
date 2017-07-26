@@ -30,10 +30,14 @@ public interface ITablesService {
 	public boolean deleteTable(Tables table);
 	//修改餐桌信息
 	public boolean updateTables(Tables table);
-
+	//修改餐桌状态
+	public boolean changeStatus(int tableId);
+	
 	public List<Tables> CheckName();
 
 	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace);
 
 	public Tables getImurl(int id);
+
+	
 }
