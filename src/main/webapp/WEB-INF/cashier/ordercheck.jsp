@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,8 +36,9 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <center>
-<span style="font-weight: bold;">${marknews}${mark}</span>
+<div style="font-weight: bold;font-size:20px;margin-top:2%;">${marknews}${mark}</div>
 </center>
+<c:if test="${fn:length(pc.data)>0 }">
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	</div>
@@ -113,6 +115,7 @@ window.onload=function(){
  						</c:forEach> 
   <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.nextPage}&sign=${sign}&sort=cashier">下一页</a></li>
 </ul>
- </div>   
+ </div> 
+ </c:if>
 </body>
 </html>

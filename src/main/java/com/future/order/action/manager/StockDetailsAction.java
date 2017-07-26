@@ -72,7 +72,7 @@ public class StockDetailsAction extends BaseAction{
 		} else {
 			mark = "删除失败";
 		}
-		request.put("markinfo", mark);
+		request.put("deleteMark", mark);
 		return this.execute();	
 	}
 	public String toUpdate() {//根据ID获得需要修改的订单信息

@@ -69,7 +69,8 @@ public class TableManagerAction extends BaseAction {
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
-		return "QR_card";
+//		return "QR_card";
+		return "addTable";
 	}
 	
 	public String  toUpdateTable() {
@@ -189,7 +190,6 @@ public void reWeiMa() throws Exception{
 		os.flush();
 		os.close();
 	}else{
-		System.out.println("55515");
 		String returnUrl ="/order/manage/Change_addIp";
 		response.getWriter().print("<script language=\"javascript\">" +"alert(\"域名或ip未添加\");"+ "if(window.opener==null){window.location.href=\""
 							+ returnUrl + "\";}else{window.opener.location.href=\"" + returnUrl

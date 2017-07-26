@@ -24,7 +24,7 @@ window.onload=function(){
 	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-<center><div style="margin-top:1%;font-size:20px;;">${markinfo}</span></div>
+<center><div style="margin-top:1%;font-size:20px;;">${deleteMark}${markinfo}</span></div>
 <c:if test="${fn:length(pc.data)>0 }">
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;margin-top:2%;">
 	<form action="${rootPath}manage/StockDetailsAction_Inquiry" method="post"style="margin-left:10%;">
@@ -68,7 +68,7 @@ window.onload=function(){
 	                 <td>
 	                 <textarea rows="2" cols="40" readonly="readonly">${item.origins}</textarea>
 	                 </td>
-	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_Delet()?stockid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
+	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_Delet?stocksid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>   
          </tbody>
