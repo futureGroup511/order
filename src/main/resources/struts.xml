@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<constant name="struts.configuration.xml.reload" value="true" /><!-- 设置成开发者模式 -->
-
+	<constant name="struts.multipart.saveDir" value="/temp"/>
 	<constant name="struts.i18n.encoding" value="utf8"></constant>
 	<constant name="struts.objectFactory" value="spring" />
 	<!--引入其他xml文件-->
