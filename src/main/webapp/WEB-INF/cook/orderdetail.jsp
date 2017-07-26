@@ -116,7 +116,7 @@ html {
 						<td>${item.cookName}</td>
 						<td>${item.remark}</td>
 						<%--  --%>
-						<td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}">打印二维码</a></td>
+						<td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}&OrderId=${item.orderId}">打印二维码</a></td>
 						<td><c:if test="${item.status eq '未完成'}">
 								<a
 									href="${rootPath}cook/orderCenter_recheck?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}&menuId=${item.menuId}">完成</a>

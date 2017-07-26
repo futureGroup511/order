@@ -13,8 +13,9 @@
 
 <script type="text/javascript">
 	window.onload = function(){
-		window.print()
-		window.close()
+		window.print();
+		var t=setTimeout("window.close()",10)
+		/* window.location.href="${rootPath}cook/orderCenter_check?Orderid=${OrderId}"; */
 	}
 
 </script>

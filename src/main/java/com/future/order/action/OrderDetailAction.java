@@ -45,6 +45,13 @@ import com.google.zxing.common.BitMatrix;
 public class OrderDetailAction extends BaseAction {
 	private int menuId;
 	private int ingId;
+	private int OrderId;
+	public int getOrderId() {
+		return OrderId;
+	}
+	public void setOrderId(int orderId) {
+		OrderId = orderId;
+	}
 	public void reWeiMa() throws Exception{
 		//设置页面不缓存
 		 HttpServletResponse response = ServletActionContext.getResponse();
@@ -118,7 +125,7 @@ public String getStockDate() throws Exception {
 }
 public String printQRCode() {
 	request.put("menuId", menuId);
-	
+	request.put("OrderId", OrderId);
 	return "printQRCode";
 } 
 
