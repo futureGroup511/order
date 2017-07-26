@@ -90,6 +90,7 @@ window.onload = function() {
              <td>厨师编号</td>
              <td>厨师名称</td>
 			  <td>备注</td>
+			  <td>溯源</td>
 			   <td>操作</td>
   		</tr>
   		 <c:forEach items="${paCut.data}" var="item"> 
@@ -106,6 +107,7 @@ window.onload = function() {
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
 	                <td>${item.remark}</td>
+	                <td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}">打印二维码</a></td>
 	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_checko?i=${item.id}&tableId=${item.tableId}&ID=${user.id}&Orderid=${item.orderId}">完成</a></c:if>
 	                <c:if test="${item.status eq '已完成'}">已完成</c:if></td>
 	                <%-- <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td> --%>

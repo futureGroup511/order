@@ -4,5 +4,6 @@ encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/WEB-INF/cook/inform.jsp=UTF-8
 encoding//src/main/webapp/error404.jsp=UTF-8
 encoding//src/main/webapp/error500.jsp=UTF-8
+encoding//src/main/webapp/printQRCode.jsp=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8

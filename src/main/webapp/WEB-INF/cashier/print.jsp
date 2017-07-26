@@ -11,7 +11,6 @@
 		 window.print();
 		 window.location.href="${rootPath}manage/OrderAction?sort=cashier";
 	} 
-
 </script>
 </head>
 <body onload="p()"   style="background: url(${rootPath}/images/m-91.jpg);">
