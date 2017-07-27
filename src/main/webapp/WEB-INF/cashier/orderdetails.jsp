@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +24,8 @@
 	</script>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center>${markinfo}</center>
+<div style="font-weight: bold;font-size:20px;margin-top:2%;">${markinfo}</div>
+<c:if test="${fn:length(detailspc.data)>0 }">
 <div class="orderdetailes" id="div1">
        <table  cellspacing="0">
          <thead>
@@ -84,6 +86,7 @@
  							href="${rootPath}manage/OrderDetailsAction?page=${detailspc.nextPage}">下一页</a></li> 
 </ul>
  </div>
- </center>    
+ </center>   
+ </c:if> 
 </body>
 </html>

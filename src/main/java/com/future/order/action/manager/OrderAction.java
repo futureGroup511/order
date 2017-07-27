@@ -89,7 +89,6 @@ public class OrderAction extends BaseAction {
 	public String toPay(){//转发到结账界面
 		request.put("orderId", id);
 		Order order = orderService.CheckById(id);
-		System.out.println("ordertoPay"+order);
 		request.put("order", order);
 		return "toPay";
 	}
@@ -101,6 +100,8 @@ public class OrderAction extends BaseAction {
 		String mark = "付款失败";
 		if (sign == true) {
 			mark = "付款成功";
+			int tableId = orderService.CheckById(orders.getId()).getTableId();
+			tablesService.changeStatus(tableId);
 		}
 		Order orderDb = orderService.CheckById(orders.getId());
 		if(discount!=0){

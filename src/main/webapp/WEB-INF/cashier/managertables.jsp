@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,9 +31,9 @@ window.onload=function(){
 	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-		<center>
-		<div style="font-weight: bold;">${managerMsg}</div>
-		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:0%; ">
+		<div style="font-weight: bold;margin-left:40%;font-size: 20px;margin-top:2%;">${managerMsg}</div>
+<c:if test="${fn:length(allTables.data)>0 }">
+		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:36%; ">
 			<form action="${rootPath}manage/TableManager_Inquiry?sort=cashier" method="post">
 				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
 					<option value="name">按名称查询</option>
@@ -41,9 +42,7 @@ window.onload=function(){
 				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace" required="required">
 				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 			</form>
-			
 		</div> 
-		</center>
 <div class="wall">
 	<div id="div1">
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
@@ -84,5 +83,6 @@ window.onload=function(){
         <li><a href="${rootPath }manage/TableManager_${adss}?page=${allTables.nextPage}&sort=cashier">下一页</a></li>
       </ul>
  </div>
+ </c:if>
 </body>
 </html>

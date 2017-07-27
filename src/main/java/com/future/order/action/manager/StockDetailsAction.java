@@ -1,7 +1,20 @@
 package com.future.order.action.manager;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
@@ -16,6 +29,21 @@ public class StockDetailsAction extends BaseAction{
 	private StockDetails details;
 	private String ask;
 	private String inquiry;
+	
+	private File myFileName;
+	
+	/**
+	 * @return the myFileName
+	 */
+	public File getMyFileName() {
+		return myFileName;
+	}
+	/**
+	 * @param myFileName the myFileName to set
+	 */
+	public void setMyFileName(File myFileName) {
+		this.myFileName = myFileName;
+	}
 	public String CheckStockDetails(){
 		session.put("stockid", id);
 		return  this.execute();	
@@ -55,6 +83,9 @@ public class StockDetailsAction extends BaseAction{
 			 sign=ingerdientService.updateIngredient(alllist.get(i));
 			}
 		}
+		if(details.getOrigins().equals("<p><br></p>")){
+			details.setOrigins("<p>暂无溯源信息</p>");
+		}
 		boolean boo = stockDetailsService.addDetails(details);
 		if(boo&&sign){
 			request.put("addMsg", "添加成功");
@@ -72,7 +103,7 @@ public class StockDetailsAction extends BaseAction{
 		} else {
 			mark = "删除失败";
 		}
-		request.put("markinfo", mark);
+		request.put("deleteMark", mark);
 		return this.execute();	
 	}
 	public String toUpdate() {//根据ID获得需要修改的订单信息
@@ -99,6 +130,9 @@ public class StockDetailsAction extends BaseAction{
 		}
 		String place= (String) request.get("stockDetails");
 		details.setPlace(place);
+		if(details.getOrigins().equals("<p><br></p>")){
+			details.setOrigins("<p>暂无溯源信息</p>");
+		}
 		boolean boo = stockDetailsService.Updatestocks(details);		
 		String mark = "操作失败";
 		if (sign&&boo) {
@@ -130,7 +164,34 @@ public class StockDetailsAction extends BaseAction{
 		session.put("inquiry", inquiry);	
 		return "details";
 	}
+	public void uploadImg() throws Exception{
+
+
+		HttpServletRequest req2 = ServletActionContext.getRequest();
+		 HttpServletResponse res2 = ServletActionContext.getResponse(); 
+	       String name=myFileName.getName();
+	        // 提取文件拓展名
+	        String fileNameExtension = name.substring(name.indexOf("."), name.length() - 1);
+	        // 生成实际存储的真实文件名
+	        String realName = UUID.randomUUID().toString() + fileNameExtension;
+	        // 图片存放的真实路径
+	        String realPath = req2.getServletContext().getRealPath("/uploadImg/source") + "/" + realName;
+	        // 将文件写入指定路径下
+	        InputStream in = new FileInputStream(myFileName);
+	        File uploadFile = new File(realPath);
+			OutputStream out = new FileOutputStream(uploadFile);
+			byte[] buffer = new byte[1024 * 1024];
+			int length;
+			while ((length = in.read(buffer)) > 0) {
+				out.write(buffer, 0, length);
+			}
+			in.close();
+			out.close();
+	        
+	        // 返回图片的URL地址
+	        res2.getWriter().write(req2.getContextPath() + "/uploadImg/source/" + realName);
 	
+	}
 	public int getId() {
 		return id;
 	}

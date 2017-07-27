@@ -24,8 +24,9 @@ ${updateUserMsg}
               <input type="text" class="time" name="user.createDate" value="${updateUser.createDate}" readonly="readonly"><br>
 			  <lable style="margin-left:-55px;"><span style="margin-right: 40px;">身</span>份：</lable>
 	          <select name="user.sort"> 
-				<option value="cook" <c:if test='${updateUser.sort eq "cook"}'>selected="selected"</c:if> >cook</option>
-	 		  	<option value="manager" <c:if test='${updateUser.sort eq "manager"}'>selected="selected"</c:if>>manager</option>
+				<option value="cook" <c:if test='${updateUser.sort eq "cook"}'>selected="selected"</c:if> >厨师</option>
+	 		  	<option value="manager" <c:if test='${updateUser.sort eq "manager"}'>selected="selected"</c:if>>管理员</option>
+	 		  	<option value="cashier" <c:if test='${updateUser.sort eq "cashier"}'>selected="selected"</c:if> >收银员</option>
 	 		  </select> 
        </div>
        <div class="button">

@@ -82,4 +82,11 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 		String hql="from Tables where id='"+id+"'";
 		return (Tables) uniqueResult(hql);
 	}
+
+	@Override
+	public boolean changeStatus(int tableId) {
+		Tables table = (Tables)this.get(tableId);
+		table.setStatus("无人");
+		return this.updateEntity(table);
+	}
 }
