@@ -106,9 +106,8 @@ window.onload = function() {
 	                <td>${item.cookName}</td>
 	               <td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
 	                <td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}">打印二维码</a></td>
-	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_checko?i=${item.id}&tableId=${item.tableId}&ID=${user.id}&Orderid=${item.orderId}">完成</a></c:if>
+	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_checko?i=${item.id}&tableId=${item.tableId}&ID=${user.id}&Orderid=${item.orderId}&menuId=${item.menuId}">完成</a></c:if>
 	                <c:if test="${item.status eq '已完成'}">已完成</c:if></td>
-	                <%-- <td><a href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}">完成</a></td> --%>
 	            </tr>  
         	</c:forEach>
         </tbody>

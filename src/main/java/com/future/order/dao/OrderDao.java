@@ -98,7 +98,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 	@Override
 	public PageCut<Order> getPagee(int currentPage, int pageSize) {
-		String status="已付款";
+		String status="未付款";
 		String hql ;
 		int count=0;
 		hql = "select count(*) from Order o where o.status='"+status+"'";
@@ -317,5 +317,22 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	public List<Order> getPrice(String ask, String inquiry) {
 		String hql="from Order where "+ask+"='"+inquiry+"'";
 		return getEntityList(hql);
+	}
+	@Override
+	public boolean delete(int id) {
+		boolean sign = false;
+		try{
+			String hql="delete from Order o Where o.id='"+id+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			sign=true;
+		}else{
+			sign=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
 	}
 }
