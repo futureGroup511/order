@@ -101,9 +101,8 @@
 		</action>
 			
 		<action name="OrderDetailsAction_*" method="{1}" class="com.future.order.action.manager.OrderDetailsAction">
-			<result name="details">/WEB-INF/admin/orderdetails.jsp</result>
+			<result>/WEB-INF/admin/orderdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatedetails.jsp</result>
-<!-- 			<result name="print">/WEB-INF/admin/print.jsp</result> -->
 			<result name="cashierDatail">/WEB-INF/cashier/orderdetails.jsp</result>
 		</action>
 		
@@ -115,6 +114,7 @@
 		
 		<action name="StockDetailsAction_*" method="{1}" class="com.future.order.action.manager.StockDetailsAction">
 			<result name="add">/WEB-INF/admin/addstockdetails.jsp</result>
+			<result name="preview">/WEB-INF/admin/seeqr_card.jsp</result>
 			<result name="details">/WEB-INF/admin/stockdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatestocknews.jsp</result>
 			

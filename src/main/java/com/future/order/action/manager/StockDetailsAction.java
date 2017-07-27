@@ -3,7 +3,6 @@ package com.future.order.action.manager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
@@ -12,12 +11,12 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import org.apache.struts2.ServletActionContext;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Ingredient;
+import com.future.order.entity.OrderDetails;
 import com.future.order.entity.StockDetails;
 import com.future.order.util.PageCut;
 
@@ -112,6 +111,12 @@ public class StockDetailsAction extends BaseAction{
 		stockDetails.setOrigins(stockDetails.getOrigins().replace("'", "\""));
 		request.put("stockDetails", stockDetails);
 		return "update";
+	}
+	public String preview(){
+		StockDetails stockDetails = stockDetailsService.CheckById(stocksid);
+		stockDetails.setOrigins(stockDetails.getOrigins().replace("'", "\""));
+		request.put("stockDetails", stockDetails);
+		return "preview";	
 	}
 	public String Update() {//接收修改后的订单信息用于修改
 		List<Ingredient> alllist=ingerdientService.getnews();
