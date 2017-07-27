@@ -209,7 +209,7 @@ public class CartAction extends BaseAction {
 			Tables table=tablesService.get(tableId);
 			table.setStatus("无人");
 			boolean bool=tablesService.updateTables(table);
-			boolean booll=orderService.deleteOrder(tableId);
+			boolean boolll=orderService.delete(order.getId());
 			request.put("orderDetails",orderDetaill);
 		}else{
 			request.put("order",order.getStatus());

@@ -322,7 +322,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	public boolean delete(int id) {
 		boolean sign = false;
 		try{
-			String hql="delete from Order o Where o.orderId='"+id+"'";
+			String hql="delete from Order o Where o.id='"+id+"'";
 			int mark=this.executeUpdate(hql);
 		if(mark==1){
 			sign=true;
