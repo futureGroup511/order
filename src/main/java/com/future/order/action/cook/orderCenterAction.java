@@ -83,6 +83,13 @@ public class orderCenterAction extends BaseAction {
 		UserName = me.getName();
 		boolean u=orderService.updetemenu(Orderid, ID, UserName);
 		boolean m=orderDetailsService.updet(i,ID,UserName);
+		List  men=menuMaterialService.getMenuMaterial(menuId);
+		for( int i=0;i<men.size();i++) {
+			MenuMaterial pl=(MenuMaterial) men.get(i);
+			int id=pl.getIngId();
+			int num=(int) pl.getNum();
+			boolean k=ingerdientService.updeteNum(id, num);
+		}
 		List <OrderDetails> list = orderDetailsService.CheckDe(Orderid);
 		List n = new ArrayList();
 		for(int i=0;i<list.size();i++) {
