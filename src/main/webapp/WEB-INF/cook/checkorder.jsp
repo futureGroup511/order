@@ -9,10 +9,10 @@
      <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
   <style>
       .aa{
-        width: 90%;
+        width: 95%;
         margin: 0 auto;
         position: absolute;
-        left: 5%;
+        left: 2%;
         z-index: 100;
       }
      .aa p{
@@ -81,17 +81,16 @@ window.onload = function() {
              <td>编号</td>
              <td>餐桌编号</td>
              <td>餐桌名称</td>
-             <td>订单编号</td>
+             <td>订单号</td>
              <td>菜品编号</td>
              <td>菜品名称</td>
              <td>菜品数量</td>
              <td>菜品状态</td>
              <td>下单时间</td>
-             <td>厨师编号</td>
              <td>厨师名称</td>
 			  <td>备注</td>
 			  <td>溯源</td>
-			   <td>操作</td>
+			   <td style="width:50px;">操作</td>
   		</tr>
   		 <c:forEach items="${paCut.data}" var="item"> 
 	            <tr>  
@@ -104,9 +103,8 @@ window.onload = function() {
 	                <td>${item.menuNum}</td>
 	                <td>${item.status}</td>
 	                <td>${item.creatDate}</td>
-	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td>${item.remark}</td>
+	               <td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
 	                <td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}">打印二维码</a></td>
 	                <td><c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_checko?i=${item.id}&tableId=${item.tableId}&ID=${user.id}&Orderid=${item.orderId}">完成</a></c:if>
 	                <c:if test="${item.status eq '已完成'}">已完成</c:if></td>

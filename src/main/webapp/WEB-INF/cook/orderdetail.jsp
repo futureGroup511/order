@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>已完成菜品</title>
+<title>未完成菜品</title>
 <link rel="stylesheet" type="text/css"
 	href="${rootPath}css/bootstrap.css">
 <style>
@@ -95,11 +95,10 @@ html {
 					<td>菜品数量</td>
 					<td>菜品状态</td>
 					<td>下单时间</td>
-					<td>厨师编号</td>
 					<td>厨师名称</td>
-					<td>备注</td>
+					<td >备注</td>
 					<td>溯源</td>
-					<td>操作</td>
+					<td style="width:50px;">操作</td>
 				</tr>
 				<c:forEach items="${paCut.data}" var="item">
 					<tr>
@@ -112,10 +111,8 @@ html {
 						<td>${item.menuNum}</td>
 						<td>${item.status}</td>
 						<td>${item.creatDate}</td>
-						<td>${item.cookId}</td>
 						<td>${item.cookName}</td>
-						<td>${item.remark}</td>
-						<%--  --%>
+						 <td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
 						<td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}&OrderId=${item.orderId}">打印二维码</a></td>
 						<td><c:if test="${item.status eq '未完成'}">
 								<a
