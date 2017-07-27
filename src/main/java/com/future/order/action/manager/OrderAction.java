@@ -1,6 +1,6 @@
 package com.future.order.action.manager;
 
-import java.text.NumberFormat;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +31,7 @@ public class OrderAction extends BaseAction {
 	private Date endtime;
 	private double discount;//打折		//张金高修改
 	private double straightCut;//直减
+	private double price;//打折后应收
 	private double pay;//实收
 	private String sort;//判断用户的身份
 	
@@ -94,7 +95,6 @@ public class OrderAction extends BaseAction {
 	}
 	
 	public String Pay() {//用于结账，把订单状态由已处理改为已结账       打印发票
-		double prices = 0;//优惠后金额
 		double favourables = 0;//优惠金额
 		boolean sign = orderService.PayOrder(orders.getId());
 		String mark = "付款失败";
@@ -104,27 +104,18 @@ public class OrderAction extends BaseAction {
 			tablesService.changeStatus(tableId);
 		}
 		Order orderDb = orderService.CheckById(orders.getId());
-		if(discount!=0){
-			prices = orderDb.getTotal()*discount-straightCut;
-			favourables = orderDb.getTotal()*(1-discount)+straightCut;
-		} else {
-			prices = orderDb.getTotal()-straightCut;
-			favourables = orderDb.getTotal()*(1-discount)+straightCut;
-		}
-		NumberFormat nFormat=NumberFormat.getNumberInstance(); 
-		nFormat.setMaximumFractionDigits(2);//设置小数点后面位数为2
-		prices = Double.parseDouble(nFormat.format(prices));
-		favourables = Double.parseDouble(nFormat.format(favourables));
-		orderDb.setPrice(prices);
+		BigDecimal bg = new BigDecimal(favourables);
+		favourables = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		orderDb.setPrice(price);
 		orderDb.setFavourable(favourables);
-		double returnPay = pay-prices;//找零
-		returnPay = Double.parseDouble(nFormat.format(returnPay));
+		double returnPay = pay-price;//找零
+		returnPay = new BigDecimal(returnPay).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue(); 
 		request.put("mark", mark);
 		request.put("discount", discount);
 		request.put("straightCut", straightCut);
 		request.put("marknews", mark);
 		request.put("pay", pay);
-		request.put("returnPay", returnPay);
+		request.put("returnPay",returnPay);
 		request.put("order", orderDb);
 		
 		List<OrderDetails> list=orderDetailsService.SeeByid(orderDb.getId());
@@ -167,6 +158,8 @@ public class OrderAction extends BaseAction {
 			String mark="没有订单";
 			request.put("mark", mark);
 		}
+		BigDecimal bg = new BigDecimal(sum);
+		sum = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		for(int i=0;i<pCut.getData().size();i++){
 			sumprice+=pCut.getData().get(i).getTotal();
 		}
@@ -179,6 +172,7 @@ public class OrderAction extends BaseAction {
 		}else{
 			request.put("sums","所查询的这段时间的总收入为零");
 		}
+		sumprice = new BigDecimal(sumprice).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		request.put("sumprice", sumprice);
 		request.put("pc", pCut);
 		request.put("adss", "Inquiry");		
@@ -199,7 +193,7 @@ public class OrderAction extends BaseAction {
 			starttime=(Date) session.get("starttime");
 			endtime=(Date) session.get("endtime");
 		}
-			sign=(String) session.get("sign");
+		sign=(String) session.get("sign");
 		if(sign.equals("one")){
 			//获得全部订单信息
 			list =orderService.getGain(starttime,endtime,sign);
@@ -213,7 +207,7 @@ public class OrderAction extends BaseAction {
 		else if(sign.equals("there")){
 			list =orderService.getGain(starttime,endtime,sign);
 			pCut=orderService.getPagegain(page,6,starttime,endtime,sign);
-		}	
+		}
 		for(int i=0;i<pCut.getData().size();i++){
 			sumprice+=pCut.getData().get(i).getTotal();
 		}
@@ -224,6 +218,9 @@ public class OrderAction extends BaseAction {
 			String mark="没有订单";
 			request.put("mark", mark);
 		}
+		BigDecimal bg = new BigDecimal(sum);
+		sum = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		sumprice = new BigDecimal(sumprice).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		if(sum!=0){
 		request.put("sum",sum);
 		request.put("sums","的总收入(元):");
@@ -327,5 +324,12 @@ public class OrderAction extends BaseAction {
 	public void setSort(String sort) {
 		this.sort = sort;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	
 }
