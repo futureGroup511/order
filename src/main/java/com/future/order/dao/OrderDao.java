@@ -98,7 +98,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 	@Override
 	public PageCut<Order> getPagee(int currentPage, int pageSize) {
-		String status="已付款";
+		String status="未付款";
 		String hql ;
 		int count=0;
 		hql = "select count(*) from Order o where o.status='"+status+"'";
