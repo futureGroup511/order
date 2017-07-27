@@ -8,6 +8,7 @@ import com.future.order.entity.MenuMaterial;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.entity.ShopCart;
+import com.future.order.entity.Tables;
 
 /**
  * @author 安李杰
@@ -112,6 +113,8 @@ public class CartAction extends BaseAction {
 				}
 			}
 		}
+		order.setTotal(totall);
+		boolean bool=orderService.update(order);
 		request.put("order",order.getStatus());
 		request.put("myId", myId);
 		request.put("totall", totall);
@@ -186,6 +189,7 @@ public class CartAction extends BaseAction {
 	}
 	
 	
+
 	//顾客退菜
 	public String getBack() throws Exception{
 		int tableId=(int)session.get("userId");
@@ -202,20 +206,26 @@ public class CartAction extends BaseAction {
 		List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(order.getId());
 		if(orderDetails.isEmpty()){
 			List<OrderDetails> orderDetaill = orderDetailsService.getDetails(0);
-			request.put("orderDetails",orderDetail);
+			Tables table=tablesService.get(tableId);
+			table.setStatus("无人");
+			boolean bool=tablesService.updateTables(table);
+			boolean booll=orderService.deleteOrder(tableId);
+			request.put("orderDetails",orderDetaill);
+		}else{
+			request.put("order",order.getStatus());
+			request.put("orderDetails", orderDetails);
+			request.put("myId", order.getId());
+			double totall=0;
+			for(OrderDetails it:orderDetails){
+				totall+=it.getPrice()*it.getMenuNum();
+			}
+			order.setTotal(totall);
+			boolean bool=orderService.update(order);
+			request.put("totall",totall);
 		}
-		request.put("order",order.getStatus());
-		request.put("orderDetails", orderDetails);
-		request.put("myId", order.getId());
-		double totall=0;
-		for(OrderDetails it:orderDetails){
-			totall+=it.getPrice()*it.getMenuNum();
-		}
-		order.setTotal(totall);
-		boolean bool=orderService.update(order);
-		request.put("totall",totall);
 		return "getBack";
 	}
+	
 	
 	// 菜品数量的减少
 	public void reduce() throws Exception {
