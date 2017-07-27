@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,22 +9,10 @@
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/orderdetail.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
-<script language="javascript">
-	window.onload=function(){
-		 var array = new Array();  
-		 <c:forEach items="${detailspc.data}" var="t">  
-		 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
-		 </c:forEach>
-		 var a = array.length;
-	 if(a==0){
-		 document.getElementById('div1').style.display='none';
-		 document.getElementById('div2').style.display='none';
-	 }
-	}
-	</script>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<center>${markinfo}</center>
+<center style="font-size:20px;font-weight:bold;margin-top:2%;">${markinfo}</center>
+<c:if test="${fn:length(detailspc.data) > 0 }">
 <div class="orderdetailes" id="div1">
        <table  cellspacing="0">
          <thead>
@@ -55,7 +44,7 @@
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_Delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
+	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>          
          </tbody>
@@ -82,6 +71,7 @@
  							href="${rootPath}manage/OrderDetailsAction?page=${detailspc.nextPage}">下一页</a></li> 
 </ul>
  </div>
- </center>    
+ </center>   
+ </c:if> 
 </body>
 </html>

@@ -33,7 +33,7 @@ public class MenuTypeAction extends BaseAction {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
 		pCut = menuTypeService.getPageCut(page,8);
 		if (pCut.getData().size() == 0) {
-			String mark = "没有菜品的类型";
+			String mark = "没有菜品类型";
 			request.put("mark", mark);
 		}
 		request.put("adss", "execute");

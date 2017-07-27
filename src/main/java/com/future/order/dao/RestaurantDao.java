@@ -1,5 +1,7 @@
 package com.future.order.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.future.order.base.BaseDao;
@@ -33,9 +35,11 @@ public class RestaurantDao extends BaseDao<Restaurant>  implements IRestaurantSe
 
 	@Override
 	public Restaurant SelectAll() {
-		String hql="from Restaurant";
-		Restaurant restaurant1=(Restaurant) uniqueResult(hql);
-		return restaurant1;
+		List<Restaurant> domain = this.selectAll();
+		if(domain.size()==0){
+			return null;
+		}
+		return this.selectAll().get(0);
 	}
 
 	@Override

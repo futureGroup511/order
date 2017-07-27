@@ -78,7 +78,10 @@ public class UserDao extends BaseDao<User> implements IUserService {
 			case "厨师":
 				inquiry="cook";
 				break;
-			default:inquiry="cashier";
+			case "收银员"
+				:inquiry="cashier";
+				break;
+			default :inquiry="";
 				break;
 			}
 		}

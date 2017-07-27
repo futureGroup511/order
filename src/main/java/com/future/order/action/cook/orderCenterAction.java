@@ -116,6 +116,7 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("cook");
 		ID = me.getId();
 		UserName = me.getName();
+		session.put("itemid", Orderid);
 		boolean m=orderDetailsService.updet(i,ID,UserName);
 		List <OrderDetails> list = orderDetailsService.CheckDe(Orderid);
 		List n = new ArrayList();
@@ -125,7 +126,6 @@ public class orderCenterAction extends BaseAction {
 				n.add(a);
 			}
 			if(list.size()==n.size()) {
-				System.out.println(session.get("itemid"));
 				boolean g=orderService.upd((int) session.get("itemid"));
 			}
 		}
@@ -141,6 +141,7 @@ public class orderCenterAction extends BaseAction {
 		return "check";
 	}
 	public String check() {
+		session.put("itemid", Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
 		ActionContext actionContext = ActionContext.getContext();
