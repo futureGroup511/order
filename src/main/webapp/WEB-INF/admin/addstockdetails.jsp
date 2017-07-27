@@ -32,7 +32,7 @@
      <div class="suyuan">
    	<lable style="margin-left:0%;">溯源:</lable>
      <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea><br>
-      <div id="editor" style="width:800px;height:310px;"></div>
+      <div id="editor" style="width:100%;height:310px;"></div>
       <script type="text/javascript" src="${rootPath}wangEditor/js/lib/jquery-1.10.2.min.js"></script>
      <script type="text/javascript" src="${rootPath}wangEditor/js/wangEditor.min.js"></script>
     <script type="text/javascript">
