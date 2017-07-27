@@ -3,7 +3,7 @@
  * @date:   createDate：2017年5月22日 上午10:46:40   
  * @Description:  
  * 
- */  
+ */
 package com.future.order.dao;
 
 import java.util.ArrayList;
@@ -20,39 +20,41 @@ import com.future.order.util.PageCut;
 public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDetailsService {
 	@Override
 	public PageCut<StockDetails> getPageCut(int currentPage, int pageSize, int stockid) {
-		String hql ;
-		int count=0;
-		hql = "select count(*) from StockDetails o where o.stockId='"+stockid+"'";
+		String hql;
+		int count = 0;
+		hql = "select count(*) from StockDetails o where o.stockId='" + stockid + "'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<StockDetails> pc = new PageCut<StockDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from StockDetails o where o.stockId='"+stockid+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from StockDetails o where o.stockId='" + stockid + "'",
+				(currentPage - 1) * pageSize, pageSize));
 		return pc;
 	}
 
 	@Override
 	public boolean DeletStockDetails(int id) {
 		boolean sign = false;
-		try{
-			String hql="delete from StockDetails o Where o.stockId='"+id+"'";
-			int mark=this.executeUpdate(hql);
-		if(mark==1){
-			sign=true;
-		}else{
-			sign=false;
-		}
-		
-		}catch (Exception e) {
+		try {
+			String hql = "delete from StockDetails o Where o.stockId='" + id + "'";
+			int mark = this.executeUpdate(hql);
+			if (mark == 1) {
+				sign = true;
+			} else {
+				sign = false;
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sign;
 	}
+
 	@Override
 	public List<StockDetails> getAll() {
 		List<StockDetails> list = new ArrayList<StockDetails>();
-		try{
-			String hql="from StockDetails";
-			list=this.getEntityList(hql);
-		}catch (Exception e) {
+		try {
+			String hql = "from StockDetails";
+			list = this.getEntityList(hql);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
@@ -60,23 +62,23 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 
 	@Override
 	public List<StockDetails> getBycreateDate(int ingId) {
-		String hql="from StockDetails m where m.ingId="+ingId;		
+		String hql = "from StockDetails m where m.ingId=" + ingId;
 		return this.getEntityList(hql);
 	}
 
 	@Override
 	public boolean DeletDetails(int stocksid) {
 		boolean sign = false;
-		try{
-			String hql="delete from StockDetails o where o.id='"+stocksid+"'";
-			int mark=this.executeUpdate(hql);
-		if(mark==1){
-			sign=true;
-		}else{
-			sign=false;
-		}
-		
-		}catch (Exception e) {
+		try {
+			String hql = "delete from StockDetails o where o.id='" + stocksid + "'";
+			int mark = this.executeUpdate(hql);
+			if (mark == 1) {
+				sign = true;
+			} else {
+				sign = false;
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sign;
@@ -86,10 +88,10 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	public StockDetails CheckById(int stocksid) {
 		@SuppressWarnings("unused")
 		StockDetails stockDetails = new StockDetails();
-		try{
-			String hql="from StockDetails o where o.id='"+stocksid+"'";
-			stockDetails=(StockDetails) this.uniqueResult(hql);
-		}catch (Exception e) {
+		try {
+			String hql = "from StockDetails o where o.id='" + stocksid + "'";
+			stockDetails = (StockDetails) this.uniqueResult(hql);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return stockDetails;
@@ -97,20 +99,22 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 
 	@Override
 	public boolean Updatestocks(StockDetails details) {
-		boolean sign=false;
-		try{
-			sign=this.updateEntity(details);
-		}catch (Exception e) {
+		boolean sign = false;
+		try {
+			sign = this.updateEntity(details);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sign;
 	}
 
-	/* 焦祥宇加
+	/*
+	 * 焦祥宇加
 	 */
 	@Override
-	public List<StockDetails> getByIngId(int ingId,int num) {
-		String sql="select * from tb_stockdetails s where s.ingId="+ingId+" order by createDate desc limit "+num;
+	public List<StockDetails> getByIngId(int ingId, int num) {
+		String sql = "select * from tb_stockdetails s where s.ingId=" + ingId + " order by createDate desc limit "
+				+ num;
 		return this.executeSQLQuery(sql);
 	}
 
@@ -122,21 +126,23 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	@Override
 	public PageCut<StockDetails> getSomePageCut(int currentPage, int pageSize, int stockid, String ask,
 			String inquiry) {
-		String hql ;
+		String hql;
 		String selecthql;
-		int count=0;
-		if(ask.equals("price")||ask.equals("num")){
-			double mark=Double.valueOf(inquiry);
-			hql = "select count(*) from StockDetails o where o.stockId='"+stockid+"' and o."+ask+"='"+mark+"'";
-			selecthql="from StockDetails o where o.stockId='"+stockid+"' and o."+ask+"='"+mark+"'";
-		}else{
-			hql = "select count(*) from StockDetails o where o.stockId='"+stockid+"' and o."+ask+"='"+inquiry+"'";
-			selecthql="from StockDetails o where o.stockId='"+stockid+"' and o."+ask+"='"+inquiry+"'";
+		int count = 0;
+		if (ask.equals("price") || ask.equals("num")) {
+			double mark = Double.valueOf(inquiry);
+			hql = "select count(*) from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + mark
+					+ "'";
+			selecthql = "from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + mark + "'";
+		} else {
+			hql = "select count(*) from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + inquiry
+					+ "'";
+			selecthql = "from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + inquiry + "'";
 		}
-		
+
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<StockDetails> pc = new PageCut<StockDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList(selecthql, (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList(selecthql, (currentPage - 1) * pageSize, pageSize));
 		return pc;
 	}
 
