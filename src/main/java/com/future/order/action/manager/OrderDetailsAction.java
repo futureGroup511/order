@@ -31,14 +31,15 @@ public class OrderDetailsAction extends BaseAction{
 		if(pCut.getData().size()==0){
 			String mark="订单详细信息为空";
 			request.put("markinfo", mark);
+			System.out.println("scv[dkdogkopmhjo");
 		}
 		request.put("detailspc", pCut);	
 		if(sort!=null&&sort.equals("cashier")){
 			return "cashierDatail";
 		}
-		return "details";
+		return SUCCESS;
 		}
-	public void Delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
+	public String delet(){//根据订单详细信息的ID删除所有该订单的详细信息的一条信息
 		boolean sign = orderDetailsService.DeletDetails(detailid);
 		String mark = "操作失败";
 		if (sign == true) {
@@ -47,7 +48,7 @@ public class OrderDetailsAction extends BaseAction{
 			mark = "删除失败";
 		}
 		request.put("markinfo", mark);
-		this.execute();	
+		return this.execute();	
 	}
 	public String toUpdate() {//根据ID获得需要修改的订单信息
 		OrderDetails orderDetails = orderDetailsService.CheckById(detailid);

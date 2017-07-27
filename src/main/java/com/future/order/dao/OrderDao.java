@@ -318,4 +318,21 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		String hql="from Order where "+ask+"='"+inquiry+"'";
 		return getEntityList(hql);
 	}
+	@Override
+	public boolean delete(int id) {
+		boolean sign = false;
+		try{
+			String hql="delete from Order o Where o.id='"+id+"'";
+			int mark=this.executeUpdate(hql);
+		if(mark==1){
+			sign=true;
+		}else{
+			sign=false;
+		}
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sign;
+	}
 }

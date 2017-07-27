@@ -21,6 +21,9 @@ window.onload=function(){
 	 document.getElementById('div2').style.display='none';
  }
 }
+	function opennews(id) {
+		window.open("${rootPath}manage/StockDetailsAction_preview?stocksid="+id,"newwindow",'height=800,width=600,top=100,left=450,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no')  
+    } 
 	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
@@ -53,7 +56,7 @@ window.onload=function(){
              <td>单价</td>
              <td>数量</td>
              <td>进货时间</td>
-             <td style="width:150px;">溯源</td>
+             <td>操作</td>
              <td>操作</td>
           </tr>
                  	 <c:forEach items="${pc.data}" var="item"> 
@@ -65,10 +68,8 @@ window.onload=function(){
 	                <td>${item.price}</td>
 	                <td>${item.num}</td>
 	                <td>${item.createDate}</td>
-	                 <td>
-	                 <textarea rows="2" cols="40" readonly="readonly">${item.origins}</textarea>
-	                 </td>
-	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_Delet?stocksid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
+	                 <td><button id="target" onclick="opennews(${item.id})" style="border-radius: 5px;width:80%;background-color: #82C0E9;">预览</button></td>
+	                <td  class="four"><a href="${rootPath}manage/StockDetailsAction_toUpdate()?stocksid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/StockDetailsAction_delet?stocksid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>   
          </tbody>

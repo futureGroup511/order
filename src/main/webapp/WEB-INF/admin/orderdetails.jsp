@@ -44,7 +44,7 @@
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_Delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
+	                <td  class="four"><a href="${rootPath}manage/OrderDetailsAction_toUpdate()?detailid=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderDetailsAction_delet()?detailid=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  
         	</c:forEach>          
          </tbody>
