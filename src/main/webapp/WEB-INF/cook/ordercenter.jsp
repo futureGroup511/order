@@ -9,15 +9,13 @@
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
     <style>
     
-        .aa{
-            width: 90%;
-            height: 400px;
-            margin: 0 auto;
-            position: absolute;
-            left: 5%;
-            z-index: 100;
-            overflow:hidden;
-        }
+       .aa{
+        width: 95%;
+        margin: 0 auto;
+        position: absolute;
+        left: 2%;
+        z-index: 100;
+      }
         .aa p{
             margin-top:30px;
             float: right; 
@@ -55,7 +53,7 @@
              width:400px;
              height:30px;
              margin-top:35px;
-             margin-left:76%; 
+             margin-left:72.5%; 
               
              display: inline-block;
         }
@@ -130,10 +128,10 @@ window.onload = function() {
              <td>餐桌名称</td>
              <td>总价</td>
              <td>订单状态</td>
-             <td width="200">订单时间</td>
+             <td width="170">订单时间</td>
              <td>厨师编号</td>
              <td>厨师名称</td>
-             <td>备注</td>
+             <td >备注</td>
              <td>处理订单</td>
              <td>详情</td>
           </tr>
@@ -147,8 +145,7 @@ window.onload = function() {
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td>${item.remark}</td>
-	                
+	               <td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
 	                 <td><c:if test="${item.status eq '已付款'}">已完成</c:if>
 	                 <c:if test="${item.status eq '未处理'}"><a href="${rootPath}cook/orderCenter_DoOrder?Orderid=${item.id}&tableId=${item.tableId}">处理订单</a></c:if>
 	                 <c:if test="${item.status eq '处理中'}">处理中</c:if>

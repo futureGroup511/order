@@ -71,7 +71,7 @@ window.onload=function(){
              <td>订单时间</td>
              <td>厨师编号</td>
              <td>厨师姓名</td>
-             <td style="width:240px;">备注</td>
+             <td>备注</td>
              <td style="width:150px;">操作</td>
            </tr>
                   	 <c:forEach items="${pc.data}" var="item"> 
@@ -84,7 +84,7 @@ window.onload=function(){
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td><textarea rows="2" cols="36" readonly="readonly">${item.remark}</textarea></td>
+	                <td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
 	               <td  class="four">
 	               		<a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}&sort=cashier">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	               		<c:if test="${item.status ne '已付款'}"><a href="${rootPath}manage/OrderAction_toPay?id=${item.id}"  onclick="javascript:search();">付款</a></c:if>

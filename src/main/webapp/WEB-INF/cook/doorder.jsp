@@ -59,7 +59,7 @@ table {
              width:400px;
              height:30px;
              margin-top:35px;
-             margin-left:74%; 
+             margin-left:72.5%; 
               
              display: inline-block;
         }
@@ -123,7 +123,7 @@ html {
 		<table id="table1">
 			<thead>
 				<tr>
-					<td colspan="13">订单信息</td>
+					<td colspan="12">订单信息</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -137,9 +137,8 @@ html {
 					<td>菜品数量</td>
 					<td>菜品状态</td>
 					<td>下单时间</td>
-					<td>厨师编号</td>
 					<td>厨师名称</td>
-					<td>备注</td>
+					<td >备注</td>
 					<td>操作</td>
 				</tr>
 				<c:forEach items="${paCut.data}" var="item">
@@ -153,10 +152,8 @@ html {
 						<td>${item.menuNum}</td>
 						<td>${item.status}</td>
 						<td>${item.creatDate}</td>
-						<td>${item.cookId}</td>
 						<td>${item.cookName}</td>
-						<td>${item.remark}</td>
-
+						<td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
 						<td><a
 							href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}&menuId=${item.menuId}">完成</a></td>
 					</tr>

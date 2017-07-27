@@ -100,7 +100,7 @@ window.onload = function() {
 	                <td>${item.createDate}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
-	                <td>${item.content}</td>
+	                 <td style="width:130px;height:10px"><textarea style="width:100%;height:99%">${item.content}</textarea></td>
 	            </tr>  
         	</c:forEach>
         </tbody>
