@@ -45,7 +45,6 @@ function changeSelected() {
  	           	<option value="${item.name}">${item.name}</option> 
          	</c:forEach> 
  	</select><br>
-<%--           <input type="text" name="details.ingName" value="${stockDetails.ingName}"><br> --%>
           <lable id="text">单价(元)：</lable><input type="text" name="details.price" value="${stockDetails.price}" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">
           <lable id="text">数量：</lable><input type="number" name="details.num" value="${stockDetails.num}"><br>
           <lable id="text">进货时间：</lable><input type="text" name="details.createDate" value="${stockDetails.createDate}" class="sang_Calender">
@@ -54,7 +53,7 @@ function changeSelected() {
       	<div class="row">
       	<lable>溯源:</lable>
       	<textarea rows="5" cols="35" name="details.origins"  style="display:none;" id="content"></textarea><br>
-     <div id="editor"></div>
+     <div id="editor" style="width:800px;height:400px;"></div>
       <script type="text/javascript" src="${rootPath}wangEditor/js/lib/jquery-1.10.2.min.js"></script>
      <script type="text/javascript" src="${rootPath}wangEditor/js/wangEditor.min.js"></script>
     <script type="text/javascript">

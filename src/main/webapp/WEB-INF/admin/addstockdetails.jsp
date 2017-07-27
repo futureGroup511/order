@@ -6,13 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${rootPath}wangEditor/css/wangEditor.min.css">
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addstockdetails.css">
 <style>
 </style>
  <script type="text/javascript">
      function modifyContent() {    	
      	        var content = document.getElementById("content");   	    
-     	        content.value = editor.txt.html();
+     	        content.value = editor.$txt.html();
    }
 </script> 
 </head>
@@ -29,16 +30,17 @@
      <lable>重量(kg):</lable><input style="margin-left: 1%;" type="text" name="details.num" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
      <lable>价格(kg):</lable><input style="margin-left: 1%;" type="text"  name="details.price" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
      <div class="suyuan">
-     <div style="font-size: 20px;font-weight: bolder;">溯源:</div><br>
+   	<lable style="margin-left:0%;">溯源:</lable>
      <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea><br>
-     <div id="editor"></div>
-     
-    <script type="text/javascript" src="${rootPath}wangEditor/release/wangEditor.min.js"></script>
+      <div id="editor" style="width:800px;height:310px;"></div>
+      <script type="text/javascript" src="${rootPath}wangEditor/js/lib/jquery-1.10.2.min.js"></script>
+     <script type="text/javascript" src="${rootPath}wangEditor/js/wangEditor.min.js"></script>
     <script type="text/javascript">
         var E = window.wangEditor
-        var editor = new E('#editor')
-        /* editor.customConfig.uploadImgServer = '${rootPath}uploadImg/source' */
-        editor.create()
+        var editor = new E('editor')    		 
+     	editor.config.uploadImgUrl = '${rootPath}manage/StockDetailsAction_uploadImg'
+     	editor.config.uploadImgFileName = 'myFileName'
+        editor.create()    
     </script>
      </div> 
       <div class="button">
