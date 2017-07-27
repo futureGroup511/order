@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/topay.css">
 </head>
+<script type="text/javascript">
+ function SumNum() {
+	 var sumValue = 0;
+	 var total=document.getElementById("total").value;
+	 var discount=document.getElementById("discount").value;
+	 var straightCut= document.getElementById("straightCut").value;
+	 sumValue =total*discount-straightCut;
+	 sumValue= sumValue.toFixed(2);
+	 self['price'].value =sumValue;
+    }
+</script>
 <body style="background: url(${rootPath}/images/m-91.jpg);">
 	<div class="wall">
 		<form action="${rootPath}manage/OrderAction_Pay">
@@ -14,15 +25,19 @@
 	        <table cellspacing="0">
 	            <tr>
 	                <td class="bor1"><p>订单金额(元) :</p></td>
-	                <td><input type="text" value="${order.total}" readonly="readonly"></td>
+	                <td><input type="text" value="${order.total}" id="total" readonly="readonly" ></td>
 	            </tr>
 	            <tr>
-	                <td class="bor1"><p>打折(元) :</p></td>
-	                <td><input type="text"  name="discount" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : '';"></td>
+	                <td class="bor1"><p>打<span style="margin-left:37px;">折</span> :</p></td>
+	                <td><input type="text" id="discount"  name="discount" placeholder="输入小数,不打折为1" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();	"></td>
 	            </tr>
 	            <tr>
 	                <td class="bor1"><p>直减(元) :</p></td>
-	                <td><input type="text" name="straightCut" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"></td>
+	                <td><input type="text" id="straightCut" name="straightCut" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();"></td>
+	            </tr>
+	            <tr>
+	            	<td class="bor1"><p>合<span style="margin-left:37px;">计</span> :</td>
+	            	<td><input type="text" id="price" name="price" ></td>
 	            </tr>
 	            <tr>
 	                <td class="bor1"><p>实收(元) :</p></td>

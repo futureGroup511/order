@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addtable.css">
 </head>
 <body style="background: url(${rootPath}/images/m-91.jpg);">
-	<div style="font-size: 20px;margin-left:41%;font-weight: bold;">${mark}</div>
+	<div style="font-size: 20px;margin-left:41%;font-weight: bold;margin-top:2%;">${mark}</div>
   <div class="wall"> 
     <form action="${rootPath}manage/DomainAction_addIp" method="post">
        <span style="font-size: 20px;">域名/IP：</span><input class="input" type="text" name="domain.ip" required="required"><br>

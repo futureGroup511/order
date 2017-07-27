@@ -24,12 +24,11 @@ public class RestaurantAction extends BaseAction {
 		// 上传文件内容类型集合
 		private List<String> fileContentType;
 	public String execute(){//查询餐厅的信息
-		@SuppressWarnings("unused")
-		Restaurant restaurants=restaurantService.SelectAll();
-		if(restaurants==null){
+		Restaurant restaurantsDb=restaurantService.SelectAll();
+		if(restaurantsDb==null){
 			request.put("addrest", "还没有添加酒店");
 		}
-		request.put("restaurants", restaurants);
+		request.put("restaurants", restaurantsDb);
 		return "check";
 	}
 	public String toUpdate(){//查询餐厅的信息，用于修改

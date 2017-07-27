@@ -41,7 +41,7 @@ public class CartAction extends BaseAction {
 	// 提交订单
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");	
-		if(name==null){
+		if(name.length()==0){
 			name="原味";
 		}
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
@@ -82,7 +82,7 @@ public class CartAction extends BaseAction {
 		
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
-				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,order.getRemark(),item.getImgUrl(),item.getPrice());
+				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,name,item.getImgUrl(),item.getPrice());
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -96,7 +96,7 @@ public class CartAction extends BaseAction {
 					}
 				}
 				if (sign == 0) {
-					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,order.getRemark(),item.getImgUrl(),item.getPrice());
+					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,name,item.getImgUrl(),item.getPrice());
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
