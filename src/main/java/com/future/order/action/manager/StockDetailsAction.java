@@ -83,9 +83,6 @@ public class StockDetailsAction extends BaseAction{
 			 sign=ingerdientService.updateIngredient(alllist.get(i));
 			}
 		}
-		if(details.getOrigins().equals("<p><br></p>")){
-			details.setOrigins("<p>暂无溯源信息</p>");
-		}
 		boolean boo = stockDetailsService.addDetails(details);
 		if(boo&&sign){
 			request.put("addMsg", "添加成功");
@@ -112,7 +109,6 @@ public class StockDetailsAction extends BaseAction{
 		double Num=stockDetails.getNum();
 		session.put("place", place);
 		session.put("Num", Num);
-		System.out.println(stockDetails.getOrigins());
 		stockDetails.setOrigins(stockDetails.getOrigins().replace("'", "\""));
 		request.put("stockDetails", stockDetails);
 		return "update";
@@ -130,9 +126,6 @@ public class StockDetailsAction extends BaseAction{
 		}
 		String place= (String) request.get("stockDetails");
 		details.setPlace(place);
-		if(details.getOrigins().equals("<p><br></p>")){
-			details.setOrigins("<p>暂无溯源信息</p>");
-		}
 		boolean boo = stockDetailsService.Updatestocks(details);		
 		String mark = "操作失败";
 		if (sign&&boo) {

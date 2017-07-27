@@ -33,7 +33,6 @@ public class OrderDetailsAction extends BaseAction{
 		}
 		request.put("detailspc", pCut);	
 		if(sort!=null&&sort.equals("cashier")){
-			System.out.println("exe ");
 			return "cashierDatail";
 		}
 		return "details";
@@ -51,14 +50,12 @@ public class OrderDetailsAction extends BaseAction{
 	}
 	public String toUpdate() {//根据ID获得需要修改的订单信息
 		OrderDetails orderDetails = orderDetailsService.CheckById(detailid);
-		System.out.println(orderDetails);
 		request.put("ordernews", orderDetails);
 		return "update";
 
 	}
 	public String Update() {//接收修改后的订单信息用于修改
 		boolean sign = orderDetailsService.UpdateOrder(details);
-		System.out.println(details);
 		String mark = "操作失败";
 		if (sign == true) {
 			mark = "修改成功";

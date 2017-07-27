@@ -62,7 +62,6 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(list);
 		return list;
 	}
 
@@ -74,13 +73,10 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 
 	@Override
 	public List<Menu> ByName(String typeName) {
-		System.out.println(typeName);
 		if (XXX(typeName, "iso8859-1")) {
 			try {
 				typeName = new String(typeName.getBytes("iso8859-1"), "utf8");
-				System.out.println("eee" + typeName);
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -185,7 +181,6 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Menu> pc = new PageCut<Menu>(curr, pageSize, count);
 		pc.setData(this.getEntityLimitList(selectHql, (curr - 1) * pageSize, pageSize));
-		System.out.println(pc);
 		return pc;
 	}
 
