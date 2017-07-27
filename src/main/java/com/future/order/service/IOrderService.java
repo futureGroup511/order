@@ -46,4 +46,5 @@ public interface IOrderService {
 	public PageCut<Order> getPagegain(int currentPage, int pageSize, Date starttime, Date endtime, String sign);
 	public List<Order> getGain(Date starttime, Date endtime, String sign);
 	public List<Order> getPrice(String ask, String inquiry);
+	public boolean delete(int id);
 }
