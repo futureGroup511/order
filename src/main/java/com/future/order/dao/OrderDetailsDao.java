@@ -79,7 +79,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		return list;
 	}
 	@Override
-	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize) {
+	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize) {
 		String status="未完成";
 		String hql ;
 		int count=0;

@@ -31,8 +31,8 @@ public interface IOrderService {
 	public List<Order> getAll();
 	public boolean deleteOrder(int tableId);
 	public List<Order> finish();
-	public PageCut<Order> getPagee(int currentPage, int pageSize);
-	public PageCut<Order> getPageee(int currentPage, int pageSize);
+	public PageCut<Order> getFinishPagcut(int currentPage, int pageSize);
+	public PageCut<Order> getUnfinishPagCut(int currentPage, int pageSize);
 	public List<Order> getOrder(int tableId);
 	public PageCut<Order> searchOrder(String input, int pageSize, int currPage);
 	
@@ -40,11 +40,12 @@ public interface IOrderService {
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
 //	public List<Order> getSomenews();
 	public boolean updetemenu(int id, int idd, String UserName);
-	public boolean upd(int id);
+	public boolean updateOrder(int id);
 //	public PageCut<Order> getGain(int currentPage, int pageSize, Date starttime, Date endtime);
 //	public PageCut<Order> getNoGain(int currentPage, int pageSize, Date starttime, Date endtime);
 	public PageCut<Order> getPagegain(int currentPage, int pageSize, Date starttime, Date endtime, String sign);
 	public List<Order> getGain(Date starttime, Date endtime, String sign);
 	public List<Order> getPrice(String ask, String inquiry);
 	public boolean delete(int id);
+	
 }
