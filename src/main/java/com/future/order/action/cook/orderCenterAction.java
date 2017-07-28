@@ -3,7 +3,6 @@ package com.future.order.action.cook;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Inform;
 import com.future.order.entity.Ingredient;
@@ -20,13 +19,13 @@ import com.opensymphony.xwork2.ActionContext;
  */
 public class orderCenterAction extends BaseAction {
 	private int OrderId;//订单ID
-	private int tableId;
+	private int tableId;//餐桌id
 	private int page=1;
-	private int ID;
-	private int Orderid;
-	private String UserName;
+	private int id;//用户id
+	private int Orderid;//订单详情中订单id
+	private String username;
 	private int i;
-	private int menuId;
+	private int menuId;//菜品id
 	private String input;
 	ActionContext actionContext = ActionContext.getContext();
 	Map session = actionContext.getSession();
@@ -36,76 +35,85 @@ public class orderCenterAction extends BaseAction {
 		request.put("paCut",pCut);
 		return "allOrder";
 	}
+	
 	//查看未完成订单
 	public String unfinishd() {
 		PageCut<Order> pCut=orderService.getUnfinishPagCut(page, 5);
 		request.put("paCut",pCut);
 		return "allOrder";
 	}
+	
 	//查看未完成菜品
 	public String unfinishdmenu() {
 		PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
 		request.put("paCut",pCut);
 		return "check";
 	}
+	
 	//查看已完成菜品
 	public String finish(){
 		PageCut<Order> pCut=orderService.getFinishPagcut(page, 5);
 		request.put("paCut",pCut);
 		return "finish";
 	}
+	
 	//修改订单状态为已处理(传入订单号，厨师User)
 	public String DoOrder(){
 		User me = (User) session.get("cook");
-		ID = me.getId();
-		UserName = me.getName();
+		id = me.getId();
+		username = me.getName();
 		session.put("ordeID", Orderid);
 		session.put("itemid", Orderid);
-		boolean menu=orderService.updetemenu(Orderid,ID,UserName);
+		boolean menu=orderService.updetemenu(Orderid,id,username);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
 		return "orderdetail";
 	}
+	
 	//修改菜品状态为已完成，修改配料
 	public String recheck() {
 		User me = (User) session.get("cook"); 
-		ID = me.getId();
-		UserName = me.getName();
-		boolean u=orderService.updetemenu(Orderid, ID, UserName);
-		boolean m=orderDetailsService.updet(i,ID,UserName);
+		id = me.getId();
+		username = me.getName();
+		boolean u=orderService.updetemenu(Orderid, id, username);
+		boolean m=orderDetailsService.updet(i,id,username);
 		updateIngredient(menuId);
 		updateOrder(Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid,page, 5);
 		request.put("paCut", pCut);
 		return "orderdetail";
 	}
+	
 	//修改菜品状态(传入OrderId)
 	public String checko() {
 		User me = (User) session.get("cook");
-		ID = me.getId();
-		UserName = me.getName();
+		id = me.getId();
+		username = me.getName();
 		session.put("itemid", Orderid);
-		boolean m=orderDetailsService.updet(i,ID,UserName);
+		boolean menu=orderService.updetemenu(Orderid,id,username);
+		boolean m=orderDetailsService.updet(i,id,username);
 		updateIngredient(menuId);
 		updateOrder(Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
 		request.put("paCut", pCut);
 		return "check";
 	}
+	
 	//查看餐桌详情,传入TableId
 	public String check() {
 		session.put("itemid", Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
-		session.put("sorderid",OrderId);
 		return "orderdetail";
 	}
+	
 	//查看催单信息
 	public String reminder() {
 		PageCut<Inform> pCut=informService.getPageCut(page,5);
 		request.put("paCut",pCut);
 		return "inform";
 	}
+	
 	public String Serach() {
 		if(input==null) {
 			input = (String) session.get("inp");
@@ -120,6 +128,7 @@ public class orderCenterAction extends BaseAction {
 		session.put("inp", input);
 		return "allOrder";
 	}
+	
 	public String SearchDetails() {
 		if(input==null) {
 			input = (String) session.get("inp");
@@ -134,6 +143,7 @@ public class orderCenterAction extends BaseAction {
 		session.put("inp", input);
 		return "menu";
 	}
+	
 	public void updateIngredient(int menuId) {
 		List  men=menuMaterialService.getMenuMaterial(menuId);
 		for( int i=0;i<men.size();i++) {
@@ -143,6 +153,7 @@ public class orderCenterAction extends BaseAction {
 			boolean k=ingerdientService.updeteNum(id, num);
 		}
 	}
+	
 	public void updateOrder(int Orderid) {
 		List <OrderDetails> list = orderDetailsService.CheckDe(Orderid);
 		List n = new ArrayList();
@@ -181,17 +192,17 @@ public class orderCenterAction extends BaseAction {
 	public void setTableId(int tableId) {
 		this.tableId = tableId;
 	}
-	public int getID() {
-		return ID;
+	public int getid() {
+		return id;
 	}
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int id) {
+		this.id = id;
 	}
-	public String getUserName() {
-		return UserName;
+	public String getusername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		UserName = userName;
+	public void setusername(String username) {
+		username = username;
 	}
 	public int getOrderid() {
 		return Orderid;

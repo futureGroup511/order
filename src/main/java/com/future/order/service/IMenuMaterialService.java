@@ -30,7 +30,7 @@ public interface IMenuMaterialService {
 	
 	public List<MenuMaterial> getByMenuId(int menuId);
 
-	public List<MenuMaterial> getMenuMaterial(int menuId);
+	public List<MenuMaterial> getMenuMaterial(int menuId);//wqj 查询单个菜品
 
 	public List<MenuMaterial> getByMenuIdTwo(int menuId);
 
