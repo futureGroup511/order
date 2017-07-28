@@ -18,9 +18,9 @@ import com.future.order.entity.StockDetails;
  *
  */
 public interface IStockDetailsService {
-
+	//根据进货id查询所属的进货详情的信息，并分页
 	PageCut<StockDetails> getPageCut(int currentPage, int pageSize, int stockid);
-
+	//根据进货ID删除进货详细信息
 	boolean deletStockDetails(int id);
 
 	public List<StockDetails> getAll();
