@@ -11,7 +11,7 @@ import com.future.order.entity.Restaurant;
  */
 
 public interface IRestaurantService {
-
+	//获得酒店信息，安李杰用
 	public Restaurant getOne();
 	//添加饭店信息
 	public boolean addRestaurant(Restaurant restaurant);

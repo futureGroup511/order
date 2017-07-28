@@ -16,7 +16,7 @@ import com.future.order.service.IRestaurantService;
 public class RestaurantDao extends BaseDao<Restaurant>  implements IRestaurantService{
 
 	@Override
-
+	//获得酒店信息，安李杰用
 	public Restaurant getOne() {
 		String hql="from Restaurant";
 		Restaurant restaurant=(Restaurant) uniqueResult(hql);

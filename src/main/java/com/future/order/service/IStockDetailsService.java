@@ -33,10 +33,10 @@ public interface IStockDetailsService {
 	//修改进货详情
 	public boolean updatestocks(StockDetails details);
 
-	// 焦祥宇加
-	// 根据配料id获得进货详情
-	public List<StockDetails> getByIngId(int ingId, int num);
-	//添加进货详情信息
+	//根据配料id获得进货详情 安李杰用
+	public List<StockDetails> getByIngId(int ingId,int num);
+
+	//根据条件查询，获得符合条件的进货详细信息
 	boolean addDetails(StockDetails details);
 	//根据条件查询，获得符合条件的进货详细信息
 	PageCut<StockDetails> getSomePageCut(int currentPage, int pageSize, int stockid, String ask, String inquiry);

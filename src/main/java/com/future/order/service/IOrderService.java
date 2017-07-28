@@ -29,6 +29,7 @@ public interface IOrderService {
 	// 获得全部结账的订单信息
 	public PageCut<Order> getPage(int currentPage, int pageSize);
 	public Order get(int tableId);
+	//安李杰用
 	public Boolean update(Order order);
 	public Boolean save(Order order);
 	public List<Order> getAll();
@@ -38,7 +39,7 @@ public interface IOrderService {
 	public PageCut<Order> getUnfinishPagCut(int currentPage, int pageSize);//wqj 查看未完成订单
 	public List<Order> getOrder(int tableId);
 	public PageCut<Order> searchOrder(String input, int pageSize, int currPage);
-	
+	//安李杰用
 	public Order getOrder1(int tableId);
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
 	public boolean updetemenu(int id, int idd, String UserName);
@@ -46,6 +47,7 @@ public interface IOrderService {
 	public List<Order> getGain(String starttime, String endtime, String sign);
 	public boolean updateOrder(int id);
 	public List<Order> getPrice(String ask, String inquiry);
+	//安李杰用
 	public boolean delete(int id);
 	
 }

@@ -19,9 +19,13 @@ import com.future.order.entity.MenuType;
 import com.future.order.service.IMenuTypeService;
 import com.future.order.util.PageCut;
 
+/**
+ * @author zbjd
+ *
+ */
 @Service
 public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService {
-
+	//获得所有的菜品类型，安李杰用
 	@Override
 	public List<MenuType> getAllMenuType() {
 		List<MenuType> list = new ArrayList<MenuType>();
