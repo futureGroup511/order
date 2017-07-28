@@ -16,13 +16,17 @@ import com.future.order.util.PageCut;
  *
  */
 public interface IOrderService {
+	//根据ID删除订单信息
 	public boolean deletOrder(int id);
 	public boolean payOrder(int id);
 	public Order checkById(int id);	//张金高用
 	public boolean updateOrder(Order orders);
 	public List<Order> getFinal(int tableId,int num);
+	// 获得全部订单信息
 	public PageCut<Order> getPageCut(int currentPage, int pageSize);//wqj 查询所有订单
+	// 获得全部没有结账的订单信息
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize);
+	// 获得全部结账的订单信息
 	public PageCut<Order> getPage(int currentPage, int pageSize);
 	public Order get(int tableId);
 	public Boolean update(Order order);

@@ -17,16 +17,9 @@ public class LoginAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	
 	private User user; 
-	private String randStr;
 	
 	@Override
-	public String execute() throws Exception {
-//		String vCode=(String) session.get("randStr");
-//		session.remove("randStr");
-//		if(!vCode.equals(randStr)){
-//			request.put("loginMeg", "验证码错误");
-//			return "login";
-//		}
+	public String execute() throws Exception {	//验证用户是否存在
 		User userDataBase;
 		if(user!=null){
 			userDataBase = userService.login(user.getPhone(),user.getPassword());
@@ -60,13 +53,6 @@ public class LoginAction extends BaseAction {
 	
 	public void setUser(User user) {
 		this.user = user;
-	}
-	public String getRandStr() {
-		return randStr;
-	}
-
-	public void setRandStr(String randStr) {
-		this.randStr = randStr;
 	}
 
 }

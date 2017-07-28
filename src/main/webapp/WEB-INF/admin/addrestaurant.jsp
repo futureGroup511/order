@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>添加饭店</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addrestaurant.css">
 <style type="text/css">
 .btn{

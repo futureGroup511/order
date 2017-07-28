@@ -19,17 +19,14 @@ import com.future.order.util.PageCut;
 public class MenuTypeAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private int page = 1;
-	private int id;
-	private MenuType menutype;
-	private String inquiry;
-	// 上传文件集合
-	private List<File> file;
-	// 上传文件名集合
-	private List<String> fileFileName;
-	// 上传文件内容类型集合
-	private List<String> fileContentType;
+	private int id;	//获得菜品类型id
+	private MenuType menutype;	
+	private String inquiry;	//获得查询的内容
+	private List<File> file;	// 上传文件集合
+	private List<String> fileFileName;	// 上传文件名集合
+	private List<String> fileContentType;	// 上传文件内容类型集合
 
-	public String execute() {
+	public String execute() {		//遍历菜品类型，分页
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
 		pCut = menuTypeService.getPageCut(page,8);
 		if (pCut.getData().size() == 0) {
@@ -41,7 +38,7 @@ public class MenuTypeAction extends BaseAction {
 		return "check";
 	}
 
-	public String addType() throws FileNotFoundException, IOException {
+	public String addType() throws FileNotFoundException, IOException {	//添加菜品
 		int count=menuTypeService.getCount();
 		String mark = "操作失败";
 		if(count<8){
@@ -70,7 +67,7 @@ public class MenuTypeAction extends BaseAction {
 		return "update";
 	}
 
-	public String Update() throws FileNotFoundException, IOException {	
+	public String Update() throws FileNotFoundException, IOException {	//修改菜品
 		boolean sign=false;
 		if(file==null||file.equals("")){
 			menutype.setImgUrl(menutype.getImgUrl());
@@ -92,7 +89,7 @@ public class MenuTypeAction extends BaseAction {
 		return this.execute();
 	}
 
-	public String Inquiry() {
+	public String Inquiry() {	//条件查询
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
 		if (inquiry != null) {
 			pCut = menuTypeService.getSomePageCut(page, 8, inquiry);
@@ -110,8 +107,7 @@ public class MenuTypeAction extends BaseAction {
 		return "check";
 	}
 
-	// 执行上传功能
-	private void uploadFile(int i) throws FileNotFoundException, IOException {
+	private void uploadFile(int i) throws FileNotFoundException, IOException {	// 执行上传功能
 		try {
 			InputStream in = new FileInputStream(file.get(i));
 			String dir = ServletActionContext.getRequest().getRealPath("uploadImg");

@@ -13,15 +13,11 @@ import java.util.List;
 
 import com.future.order.entity.OrderDetails;
 
-
-import java.util.List;
-
-import com.future.order.entity.OrderDetails;
-
 import com.future.order.util.PageCut;
 
 public interface IOrderDetailsService {
 	public List<OrderDetails> CheckDetails(int id);
+	//根据ID删除订单详细信息
 	public boolean deletOrderDetails(int id);
 	public boolean deletDetails(int detailid);
 	public OrderDetails checkById(int detailid);
@@ -47,6 +43,7 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> CheckDe(int id);//wqj 根据订单id查询所有该订单的详细信息
 	public boolean back(int id);
 	public OrderDetails checkStatus(int id);
+	//根据ID判断订单详细信息有无信息
 	public int getSomenum(int id);
 }
 	

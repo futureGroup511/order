@@ -24,11 +24,11 @@ public class OrderAction extends BaseAction {
 	private int page = 1;
 	private int id;
 	private Order orders;
-	private String sign = "all";
-	private String ask;
-	private String inquiry;
-	private String starttime;
-	private String endtime;
+	private String sign = "all";//判断付款/未付款的条件
+	private String ask;//查询属性名
+	private String inquiry;//查询属性值
+	private String starttime;//开始时间
+	private String endtime;//结束时间
 	private double discount;// 打折 //张金高修改
 	private double straightCut;// 直减
 	private double price;// 打折后应收
@@ -48,6 +48,7 @@ public class OrderAction extends BaseAction {
 			// 获得全部没有结账的订单信息
 			pCut = orderService.getNoPageCut(page, 8);
 		} else if (sign.equals("yes")) {
+			// 获得全部结账的订单信息
 			pCut = orderService.getPage(page, 8);
 		}
 		for (int i = 0; i < pCut.getData().size(); i++) {
@@ -70,6 +71,7 @@ public class OrderAction extends BaseAction {
 
 	public String Delet() {// 从前台获得ID用于根据账号删除订单信息和订单详细信息
 		boolean sign = orderService.deletOrder(id);
+		//根据ID判断订单详细信息有无信息
 		int marks = orderDetailsService.getSomenum(id);
 		boolean signs = orderDetailsService.deletOrderDetails(id);
 		String mark = "操作失败";
@@ -92,7 +94,7 @@ public class OrderAction extends BaseAction {
 		return "toPay";
 	}
 
-	public String Pay() {// 用于结账，把订单状态由已处理改为已结账 打印发票
+	public String pay() {// 用于结账，把订单状态由已处理改为已结账 打印发票
 		double favourables = 0;// 优惠金额
 		boolean sign = orderService.payOrder(orders.getId());
 		String mark = "付款失败";
@@ -195,15 +197,15 @@ public class OrderAction extends BaseAction {
 			endtime = (String) session.get("endtime");
 		}
 		sign = (String) session.get("sign");
-		if (sign.equals("one")) {
+		if (sign.equals("all")) {
 			// 获得全部订单信息
 			list = orderService.getGain(starttime, endtime, sign);
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
-		} else if (sign.equals("two")) {
+		} else if (sign.equals("no")) {
 			// 获得全部没有结账的订单信息
 			list = orderService.getGain(starttime, endtime, sign);
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
-		} else if (sign.equals("there")) {
+		} else if (sign.equals("yes")) {
 			list = orderService.getGain(starttime, endtime, sign);
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
 		}
@@ -226,10 +228,6 @@ public class OrderAction extends BaseAction {
 		} else {
 			request.put("sums", "的总收入为零");
 		}
-		// String dateStr = new SimpleDateFormat("yyyy-MM-dd
-		// hh:mm:ss").format(starttime);
-		// String dateend = new SimpleDateFormat("yyyy-MM-dd
-		// hh:mm:ss").format(endtime);
 		session.put("starttime", starttime);
 		session.put("endtime", endtime);
 		request.put("dateStr", starttime);

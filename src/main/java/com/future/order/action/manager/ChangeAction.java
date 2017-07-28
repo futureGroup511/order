@@ -16,7 +16,7 @@ public class ChangeAction extends BaseAction{
 	
 	private Date starttime;
 	private Date endtime;
-	private String sort;
+	private String sort;//获得用户的身份
 	public String add(){
 		return "add";
 	}

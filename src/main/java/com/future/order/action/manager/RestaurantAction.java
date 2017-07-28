@@ -62,15 +62,11 @@ public class RestaurantAction extends BaseAction {
 
 	// 添加餐厅的信息
 	public String AddRestaurant() throws FileNotFoundException, IOException {
-		int count = restaurantService.Select();
+		//判断表中是否数据
+		int count = restaurantService.getNums();
 		boolean sign = false;
 		if (file == null || file.equals("")) {
 			if (count == 0) {
-				// Restaurant rest=restaurantService.SelectAll();
-				// if(rest.getImgUrl()!=null||!(rest.getImgUrl().equals(""))){
-				// System.out.println("656566454654654654654465");
-				// restaurant.setImgUrl(rest.getImgUrl());
-				// }
 				sign = restaurantService.updateRestaurant(restaurant);
 				request.put("addrest", "添加成功");
 			} else {

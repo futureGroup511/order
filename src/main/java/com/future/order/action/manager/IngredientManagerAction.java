@@ -10,9 +10,9 @@ import com.future.order.util.PageCut;
 public class IngredientManagerAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private Ingredient ingredient;
-	private int page = 1;
-	private String inquiry;
-	private String ask;
+	private int page = 1;	//初始页数
+	private String inquiry;	//查询内容
+	private String ask;	//查询条件
 
 	public String execute() {
 		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 8);
@@ -39,8 +39,7 @@ public class IngredientManagerAction extends BaseAction {
 		return "addIngredient";
 	}
 
-	// 查找配料,按名字
-	public String Inquiry() {
+	public String Inquiry() {			// 查找配料,按名字
 		PageCut<Ingredient> pCut = new PageCut<Ingredient>();
 		if(ask!=null){
 			pCut = ingerdientService.getSomePageCut(page, 8,ask,inquiry);
@@ -60,16 +59,14 @@ public class IngredientManagerAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	// 查询被修改配料信息，到达修改界面
-	public String toUpdateIngredient() {
+	public String toUpdateIngredient() {	// 查询被修改配料信息，到达修改界面
 		int id = ingredient.getId();
 		Ingredient ingredient = ingerdientService.getById(id);
 		request.put("updateIngredient", ingredient);
 		return "toUpdateIngredient";
 	}
 
-	// 修改配料信息
-	public String updateIngredient() {
+	public String updateIngredient() {			// 修改配料信息
 		boolean boo = ingerdientService.updateIngredient(ingredient);
 		if (boo) {
 			List<Ingredient> list1 = ingerdientService.getAll();
@@ -83,8 +80,7 @@ public class IngredientManagerAction extends BaseAction {
 		return "updateIngredient";
 	}
 
-	// 删除配料
-	public String deleteIngredient() {
+	public String deleteIngredient() {		// 删除配料
 		boolean boo = ingerdientService.deleteIngredient(ingredient);
 		if (boo) {
 			List<Ingredient> list1 = ingerdientService.getAll();

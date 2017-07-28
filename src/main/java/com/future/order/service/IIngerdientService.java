@@ -17,20 +17,20 @@ import com.future.order.util.PageCut;
  *
  */
 public interface IIngerdientService {
-	//学长加
-	public List<Ingredient> getAll();
-	//添加配料
-	public boolean addIngredient(Ingredient ingredient);
-	//根据id查找配料
-	public Ingredient getById(int id);
-	//修改配料信息
-	public boolean updateIngredient(Ingredient ingredient);
-	//删除配料
-	public boolean deleteIngredient(Ingredient ingredient);
-	//分页
-	public PageCut<Ingredient> getPageCut(int curr,int pageSize);
 	
-	public List<Ingredient> getByMenuId(int menuId);
+	public List<Ingredient> getAll();//得到全部配料
+
+	public boolean addIngredient(Ingredient ingredient);	//添加配料
+
+	public Ingredient getById(int id);	//根据id查找配料
+
+	public boolean updateIngredient(Ingredient ingredient);	//修改配料信息
+
+	public boolean deleteIngredient(Ingredient ingredient);	//删除配料
+
+	public PageCut<Ingredient> getPageCut(int curr,int pageSize);	//分页
+	
+	public List<Ingredient> getByMenuId(int menuId);//根据菜品id得到菜的配料
 	
 	public List<Ingredient> getNews();
 	
