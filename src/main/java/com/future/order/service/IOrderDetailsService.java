@@ -35,15 +35,14 @@ public interface IOrderDetailsService {
 	public Boolean updatee(OrderDetails en);
 	public boolean updateOrerDetails(int id);
 	public List<OrderDetails> getDetailsOne(int orderId);
-//	public PageCut<OrderDetails> getPagee(int currentPage, int pageSize);
+	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize);//wqj 查看未完成菜品
+	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);//wqj 模糊查询
 	public List<OrderDetails> seeByid(int id);
-	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize);
-	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);
 
 	public OrderDetails getDetaill(int tableId);
 	public List<OrderDetails> getDetailsTwo(int orderId);
 
-	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);//由餐桌ID查询餐桌信息
 	public boolean updet(int id, int idd, String UserName);
 	public List<OrderDetails> CheckDe(int id);
 	public boolean back(int id);
