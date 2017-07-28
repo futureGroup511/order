@@ -23,7 +23,7 @@ import com.future.order.util.PageCut;
 public interface IShopCartService {
 
 	public List<ShopCart> getAll();
-	//安李杰用
+	//安李杰加 删除购物车中的菜
 	public boolean delete(int id);
 
 	public boolean deleteAll(ShopCart shopcart);
@@ -31,14 +31,14 @@ public interface IShopCartService {
 	//焦祥宇加
 	
 	public boolean add(ShopCart shopCart);
-	//根据桌号id获得购物车菜品安李杰用
+	//根据桌号id获得购物车菜品安李杰加
 	public List<ShopCart> getByTableId(int tableId);//金高用
-	//根据桌号id和菜品id 安李杰用
+	//根据桌号id和菜品id 安李杰加
 	public ShopCart getByT_M_Id(int tableId,int menuId);
-	//把菜品加入购物车 安李杰用
+	//把菜品加入购物车 安李杰加
 	public boolean update(ShopCart shopCart);
 	public ShopCart getBy(int tableId);
-	//安李杰加
+	//安李杰加 根据id去查购物车
 	public ShopCart getOne(int id);
 
 	public List<ShopCart> getByAll();
@@ -49,6 +49,6 @@ public interface IShopCartService {
 	public boolean  submitToOrder(int tableId);
 	//更改菜的数量
 	public boolean updeteNum(int id,String msg);
-	//安李杰用
+	//安李杰加 清空购物车
 	public boolean deleteAllCart(int tableTd);
 }

@@ -21,7 +21,7 @@ public interface IIngerdientService {
 	public List<Ingredient> getAll();
 	//添加配料
 	public boolean addIngredient(Ingredient ingredient);
-	//根据id查找配料 安李杰用
+	//根据id查找配料 安李杰加
 	public Ingredient getById(int id);
 	//修改配料信息
 	public boolean updateIngredient(Ingredient ingredient);
