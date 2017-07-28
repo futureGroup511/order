@@ -132,7 +132,7 @@ public class StockDetailsAction extends BaseAction{
 			 sign=ingerdientService.updateIngredient(alllist.get(i));
 			}
 		}
-		String place= (String) request.get("stockDetails");
+		String place= (String) session.get("place");
 		details.setPlace(place);
 		if(details.getOrigins().equals("<p><br></p>")){
 			details.setOrigins("<p>暂无溯源信息</p>");

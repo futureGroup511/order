@@ -23,7 +23,7 @@
 					<textarea style="margin-left:80px;" rows="5" cols="35" name="ingredient.introduce"></textarea>
 					</div>
 				<div class="button">
-					<input type="submit" value="添加">
+					<input type="submit" style="font-size:20px;" value="添加">
 				</div>
 			</form>
 		</div>
