@@ -18,8 +18,11 @@ import com.future.order.util.PageCut;
 public interface IOrderService {
 	//根据ID删除订单信息
 	public boolean deletOrder(int id);
+	//用于改变订单的状态
 	public boolean payOrder(int id);
+	//根据ID获取订单信息，用于修改界面
 	public Order checkById(int id);	//张金高用
+	//修改订单的信息
 	public boolean updateOrder(Order orders);
 	public List<Order> getFinal(int tableId,int num);
 	// 获得全部订单信息
@@ -28,6 +31,7 @@ public interface IOrderService {
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize);
 	// 获得全部结账的订单信息
 	public PageCut<Order> getPage(int currentPage, int pageSize);
+	
 	public Order get(int tableId);
 	//安李杰用
 	public Boolean update(Order order);
@@ -41,11 +45,15 @@ public interface IOrderService {
 	public PageCut<Order> searchOrder(String input, int pageSize, int currPage);
 	//安李杰用
 	public Order getOrder1(int tableId);
+	//根据条件获得符合条件的数据
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
 	public boolean updetemenu(int id, int idd, String UserName);
+	//根据时间条件获得符合条件的订单
 	public PageCut<Order> getPagegain(int currentPage, int pageSize, String starttime, String endtime, String sign);
+	// 获得全部订单信息，用于计算总价
 	public List<Order> getGain(String starttime, String endtime, String sign);
 	public boolean updateOrder(int id);
+	//根据条件获得所有的订单
 	public List<Order> getPrice(String ask, String inquiry);
 	//安李杰用
 	public boolean delete(int id);

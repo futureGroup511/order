@@ -123,7 +123,7 @@ public class OrderAction extends BaseAction {
 		return "print";
 	}
 
-	public String toUpdate() {// 根据ID获得需要修改的订单信息
+	public String toUpdate() {// 根据ID获得需要修改的订单信息，跳转到修改界面
 		Order order = orderService.checkById(id);
 		request.put("order", order);
 		return "update";
@@ -140,14 +140,16 @@ public class OrderAction extends BaseAction {
 		request.put("mark", mark);
 		return this.execute();
 	}
-
+	//根据条件查询符合条件的语句
 	public String Inquiry() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		List<Order> list = new ArrayList<>();
 		double sum = 0;
 		double sumprice = 0;
 		if (ask != null) {
+			//根据条件获得符合条件的8条数订单，分页
 			pCut = orderService.getSomePageCut(page, 8, ask, inquiry);
+			//根据条件获得所有的订单，用于计算总价
 			list = orderService.getPrice(ask, inquiry);
 		} else {
 			ask = (String) session.get("ask");
@@ -186,7 +188,7 @@ public class OrderAction extends BaseAction {
 		}
 		return "check";
 	}
-
+   //根据时间条件查询符合条件的数据
 	public String count() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		List<Order> list = new ArrayList<>();
@@ -198,8 +200,9 @@ public class OrderAction extends BaseAction {
 		}
 		sign = (String) session.get("sign");
 		if (sign.equals("all")) {
-			// 获得全部订单信息
+			// 获得全部订单信息，用于计算总价
 			list = orderService.getGain(starttime, endtime, sign);
+			//获得符合条件的6条订单
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
 		} else if (sign.equals("no")) {
 			// 获得全部没有结账的订单信息
