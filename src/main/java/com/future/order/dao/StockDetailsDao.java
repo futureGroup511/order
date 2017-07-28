@@ -98,7 +98,7 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	}
 
 	@Override
-	public boolean Updatestocks(StockDetails details) {
+	public boolean updatestocks(StockDetails details) {
 		boolean sign = false;
 		try {
 			sign = this.updateEntity(details);

@@ -22,11 +22,11 @@ public class StockAction extends BaseAction {
 	private Stock stocks;
 	private int page = 1;
 	private int id = 0;
-	private String inquiry;
-	private String starttime;
-	private String endtime;
+	private String inquiry;//查询的属性值
+	private String starttime;//开始的时间
+	private String endtime;//结尾的直减
 
-	public String execute() {
+	public String execute() {//查询信息，用于分页
 		double sumprice = 0;
 		PageCut<Stock> pCut = stockService.getPageCut(page, 8);
 		if (pCut.getData().size() == 0) {
@@ -36,7 +36,7 @@ public class StockAction extends BaseAction {
 		for (int i = 0; i < pCut.getData().size(); i++) {
 			sumprice += pCut.getData().get(i).getTotal();
 		}
-		BigDecimal bg = new BigDecimal(sumprice);// 保留小数，张金高改
+		BigDecimal bg = new BigDecimal(sumprice);// 保留两位小数，张金高改
 		double sumpriceNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		request.put("sumprice", sumpriceNew);
 		request.put("adss", "execute");
@@ -44,11 +44,11 @@ public class StockAction extends BaseAction {
 		return "select";
 	}
 
-	public String Add() {
+	public String Add() {//添加进货信息，并跳转进货详情界面
 		if (id != 0) {
-			stock = stockService.getStock(id);
+			stock = stockService.getStock(id);//用于再次添加进货信息，跳转到添加进货详情的界面
 		} else {
-			boolean sign = stockService.addStock(stock);
+			boolean sign = stockService.addStock(stock);//添加进货信息
 			String mark = "操作失败";
 			if (sign == true) {
 				mark = "添加成功";
@@ -66,13 +66,15 @@ public class StockAction extends BaseAction {
 		return "add";
 	}
 
-	public String Delet() {
+	public String Delet() {//根据ID删除进货信息
 		String mark = "操作失败";
 		boolean sign = stockService.deletStock(id);
+		//判断进货详情是否为空
 		PageCut<StockDetails> pCut = stockDetailsService.getPageCut(page, 8, id);
 		if (pCut.getData().size() == 0 && sign == true) {
 			mark = "操作成功";
 		} else {
+			//根据进货ID删除进货详情
 			boolean signs = stockDetailsService.deletStockDetails(id);
 			if (sign == true || signs == true) {
 				mark = "操作成功";
@@ -81,13 +83,13 @@ public class StockAction extends BaseAction {
 		request.put("stocknews", mark);
 		return this.execute();
 	}
-
+	//获取所需修改的进货信息，并转发到修改界面
 	public String toUpdate() {
 		Stock stock = stockService.checkById(id);
 		request.put("stock", stock);
 		return "update";
 	}
-
+//修改进货信息
 	public String Update() {// 接收修改后的订单信息用于修改
 		boolean sign = stockService.updateStock(stocks);
 		String mark = "操作失败";
@@ -99,7 +101,7 @@ public class StockAction extends BaseAction {
 		request.put("stocknews", mark);
 		return this.execute();
 	}
-
+	//用于条件查询
 	public String Inquiry() {
 		double sumprice = 0;
 		double sum = 0;
@@ -140,7 +142,7 @@ public class StockAction extends BaseAction {
 		request.put("dateend", inquiry);
 		return "select";
 	}
-
+	//用于时间条件查询
 	public String count() {
 		double sumprice = 0;
 		double sum = 0;
@@ -149,6 +151,7 @@ public class StockAction extends BaseAction {
 			starttime = (String) session.get("starttime");
 			endtime = (String) session.get("endtime");
 		}
+		//用于时间条件查询
 		PageCut<Stock> pCut = stockService.getSomePageCut(page, 8, starttime, endtime);
 		list = stockService.getPrice(starttime, endtime);
 		if (pCut.getData().size() == 0) {
@@ -171,10 +174,6 @@ public class StockAction extends BaseAction {
 		} else {
 			request.put("stocksums", "的总收入为零");
 		}
-		// String dateStr = new SimpleDateFormat("yyyy-MM-dd
-		// hh:mm:ss").format(starttime);
-		// String dateend = new SimpleDateFormat("yyyy-MM-dd
-		// hh:mm:ss").format(endtime);
 		request.put("dateStr", starttime);
 		request.put("dateend", endtime);
 		request.put("mark", "--");
