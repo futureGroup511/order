@@ -57,13 +57,13 @@ public class LoginFilter implements Filter {
 		User cashier = (User) hRequest.getSession().getAttribute("cashier");// 获得登陆用户
 		String returnUrl = hRequest.getContextPath() + "/index.jsp";
 		String path = hRequest.getRequestURI();
-		if(cook!=null&&path.indexOf("cook")!=-1){
+		if(cook!=null&&path.indexOf("cook")!=-1){	//当厨师登录并访问的是厨师action时放行
 			chain.doFilter(request, response);
-		} else if(manager!=null&&path.indexOf("manage")!=-1){
+		} else if(manager!=null&&path.indexOf("manage")!=-1){	//当管理员登录并访问的是管理员action时放行
 			chain.doFilter(request, response);
-		} else if(cashier!=null&&path.indexOf("manage")!=-1){
+		} else if(cashier!=null&&path.indexOf("manage")!=-1){	//当收银员登录并访问的是收银员action时放行
 			chain.doFilter(request, response);
-		} else {
+		} else {		//当用户为登录或登录超时时提醒并跳转到登录界面
 			response.getWriter()
 					.println("<script language=\"javascript\">" +"alert(\"登录失效！请重新登录\");"+ "if(window.opener==null){window.top.location.href=\""
 							+ returnUrl + "\";}else{window.opener.top.location.href=\"" + returnUrl

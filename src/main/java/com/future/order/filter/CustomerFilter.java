@@ -54,8 +54,8 @@ public class CustomerFilter implements Filter {
 		} else if(hRequest.getRequestURI().indexOf("toIndex")!=-1&&urlId!=0){
 			chain.doFilter(request, response);
 			return;
-		}  else {
-			String errorPath = hRequest.getContextPath()+"/overtime.jsp";
+		}  else {		//当顾客没有登录或超时时跳转到超时界面
+			String errorPath = hRequest.getContextPath()+"/overtime.jsp";	
 			response.getWriter()
 			.println("<script language=\"javascript\">" + "if(window.opener==null){window.top.location.href=\""
 					+ errorPath + "\";}else{window.opener.top.location.href=\"" + errorPath
