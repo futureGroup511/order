@@ -6,9 +6,7 @@
  */ 
 package com.future.order.dao;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
@@ -276,14 +274,14 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		String hql = null ;
 		String selecthql = null ;
 		int count=0;
-		if(sign.equals("one")){
+		if(sign.equals("all")){
 			selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"'";
 			hql = "select count(*) from Order where createDate between '"+starttime+"' and '"+endtime+"'";
-		}else if(sign.equals("there")){
+		}else if(sign.equals("yes")){
 			 status="已付款";
 			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
 			 hql = "select count(*) from Order where createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
-		}else if(sign.equals("two")){
+		}else if(sign.equals("no")){
 			 status="未付款";
 			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
 			 hql = "select count(*) from Order where createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
@@ -298,12 +296,12 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		String status=null;
 		String hql = null ;
 		String selecthql = null ;
-		if(sign.equals("one")){
+		if(sign.equals("all")){
 			selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"'";
-		}else if(sign.equals("there")){
+		}else if(sign.equals("yes")){
 			 status="已付款";
 			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
-		}else if(sign.equals("two")){	//当查询条件为未付款时，张金高改
+		}else if(sign.equals("no")){	//当查询条件为未付款时，张金高改
 			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status <> '已付款'";
 		}
 		return getEntityList(selecthql);

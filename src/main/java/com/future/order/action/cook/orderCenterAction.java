@@ -85,6 +85,7 @@ public class orderCenterAction extends BaseAction {
 		ID = me.getId();
 		UserName = me.getName();
 		session.put("itemid", Orderid);
+		boolean menu=orderService.updetemenu(Orderid,ID,UserName);
 		boolean m=orderDetailsService.updet(i,ID,UserName);
 		updateIngredient(menuId);
 		updateOrder(Orderid);

@@ -43,8 +43,8 @@ window.onload=function(){
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	</div>
      <div class="button">
-      <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=two&sort=cashier';" value="未付款" style="border-radius: 5px;">
-      <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=there&sort=cashier';" value="已付款" style="border-radius: 5px;">
+      <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=no&sort=cashier';" value="未付款" style="border-radius: 5px;">
+      <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=yes&sort=cashier';" value="已付款" style="border-radius: 5px;">
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
 	<form action="${rootPath}manage/OrderAction_Inquiry?sort=cashier" method="post">

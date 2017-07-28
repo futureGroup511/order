@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>添加菜品类型</title>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addmenutype.css">
 <style type="text/css">
 .file {
