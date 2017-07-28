@@ -51,11 +51,11 @@ public class MenuTypeAction extends BaseAction {
 					uploadFile(i);
 				}
 			}
-			boolean sign = menuTypeService.AddType(menutype);
+			boolean sign = menuTypeService.addType(menutype);
 			if (sign == true) {
 				mark = "添加成功";
 			} else {
-				mark = "添加失败";
+				mark = "添加失败,名称重复";
 			}
 		}else{
 			mark="已有八条数据，只能修改，不可添加了";
@@ -91,19 +91,6 @@ public class MenuTypeAction extends BaseAction {
 		request.put("mark", mark);
 		return this.execute();
 	}
-
-//	public String Delet() {// 从前台获得ID用于根据账号删除订单信息和订单详细信息
-//		boolean sign = menuTypeService.DeletType(id);
-//		String mark = "操作失败";
-//		if (sign) {
-//			mark = "删除成功";
-//		} else {
-//			mark = "删除失败";
-//		}
-//		request.put("mark", mark);
-//		return this.execute();
-//
-//	}
 
 	public String Inquiry() {
 		PageCut<MenuType> pCut = new PageCut<MenuType>();

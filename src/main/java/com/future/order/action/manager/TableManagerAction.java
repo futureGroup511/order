@@ -2,20 +2,9 @@
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.URLEncoder;
-import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;

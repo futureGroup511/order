@@ -85,8 +85,8 @@ public class CartAction extends BaseAction {
 			session.put("Id",orders.getId());
 		}
 		int myId=(int) session.get("Id");
-		Order order=orderService.CheckById(myId);
 		//根据订单号获取订单详情中的信息
+		Order order=orderService.checkById(myId);
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsTwo(myId);
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
@@ -111,6 +111,7 @@ public class CartAction extends BaseAction {
 			}
 		}
 		List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(myId);
+		//把菜的销量改一下
 		List<Menu> menu=menuService.getAll();
 		double totall=0;
 		for(OrderDetails it:orderDetailss){
@@ -128,6 +129,7 @@ public class CartAction extends BaseAction {
 		request.put("myId", myId);
 		request.put("totall", totall);
 		request.put("orderDetails", orderDetailss);
+		//清空购物车
 		boolean bools = shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}

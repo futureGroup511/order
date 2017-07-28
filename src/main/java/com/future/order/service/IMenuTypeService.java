@@ -16,7 +16,7 @@ public interface IMenuTypeService {
 	//获得所有的菜品的类型，安李杰用
 	public List<MenuType> getAllMenuType();
 
-	public boolean AddType(MenuType menutype);
+	public boolean addType(MenuType menutype);
 
 	public PageCut<MenuType> getPageCut(int currentPage, int pageSize);
 

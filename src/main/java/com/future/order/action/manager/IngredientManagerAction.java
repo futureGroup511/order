@@ -34,7 +34,7 @@ public class IngredientManagerAction extends BaseAction {
 			session.put("Ientlist",list1);	//将配料放进session
 			request.put("addIngerdientMsg", "添加成功");
 		} else {
-			request.put("addIngerdientMsg", "添加失败");
+			request.put("addIngerdientMsg", "添加失败，名称重复");
 		}
 		return "addIngredient";
 	}

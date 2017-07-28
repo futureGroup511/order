@@ -36,12 +36,32 @@
 	</table>	
 	<center>
 	**********************************<br>
-	<h4>消费总金额：${order.total}元<h4>
-	<h4><span >打折：${discount}</span></h4>
-	<h4><span >直减：${straightCut}元</span></h4>
-	<h4>应收：${order.price}元</h4>
-	<h4>实收：${pay}元</h4>
-	<h4>找零：${returnPay}元</h4>
+	<table>
+		<tr>
+			<td>合计：</td>
+			<td>${order.total }元</td>
+		</tr>
+		<tr>
+			<td>打折：</td>
+			<td>${discount}</td>
+		</tr>
+		<tr>
+			<td>直减：</td>
+			<td>${straightCut}元</td>
+		</tr>
+		<tr>
+			<td>应收：</td>
+			<td>${order.price}元</td>
+		</tr>
+		<tr>
+			<td>实收：</td>
+			<td>${pay}元</td>
+		</tr>
+		<tr>
+			<td>找零：</td>
+			<td>${returnPay}元</td>
+		</tr>
+	</table>
 	收银员：${cashier.name}<br>
 	**********************************<br>
 	${restlist.name}  欢迎您下次光临<br>

@@ -22,19 +22,14 @@ public class RestaurantDao extends BaseDao<Restaurant>  implements IRestaurantSe
 		Restaurant restaurant=(Restaurant) uniqueResult(hql);
 		return restaurant;
 	}
-
-
-	public int Select() {
-		return getNum();
-	}
-
+	
 	@Override
 	public boolean addRestaurant(Restaurant restaurant) {
 		return this.saveEntity(restaurant);
 	}
 
 	@Override
-	public Restaurant SelectAll() {
+	public Restaurant select() {
 		List<Restaurant> domain = this.selectAll();
 		if(domain.size()==0){
 			return null;
@@ -45,6 +40,12 @@ public class RestaurantDao extends BaseDao<Restaurant>  implements IRestaurantSe
 	@Override
 	public boolean updateRestaurant(Restaurant restaurant) {
 		return this.updateEntity(restaurant);
+	}
+
+
+	@Override
+	public int getNums() {
+		return getNum();
 	}
 
 }

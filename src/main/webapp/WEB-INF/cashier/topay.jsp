@@ -20,7 +20,7 @@
 </script>
 <body style="background: url(${rootPath}/images/m-91.jpg);">
 	<div class="wall">
-		<form action="${rootPath}manage/OrderAction_Pay">
+		<form action="${rootPath}manage/OrderAction_pay">
 			<input type="hidden" name="orders.id" value="${order.id}">
 	        <table cellspacing="0">
 	            <tr>
