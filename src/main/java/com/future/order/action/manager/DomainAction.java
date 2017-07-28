@@ -44,7 +44,7 @@ public class DomainAction extends BaseAction {
 		return "deleteIp";
 	}
 
-	// 到达修改界面
+	// 获取IP信息，到达修改界面
 	public String toUpdateIp() {
 		domain = domainService.getIp();
 		request.put("domain", domain);

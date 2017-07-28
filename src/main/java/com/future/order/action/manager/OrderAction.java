@@ -24,11 +24,11 @@ public class OrderAction extends BaseAction {
 	private int page = 1;
 	private int id;
 	private Order orders;
-	private String sign = "all";
-	private String ask;
-	private String inquiry;
-	private String starttime;
-	private String endtime;
+	private String sign = "all";//判断付款/未付款的条件
+	private String ask;//查询属性名
+	private String inquiry;//查询属性值
+	private String starttime;//开始时间
+	private String endtime;//结束时间
 	private double discount;// 打折 //张金高修改
 	private double straightCut;// 直减
 	private double price;// 打折后应收
@@ -48,6 +48,7 @@ public class OrderAction extends BaseAction {
 			// 获得全部没有结账的订单信息
 			pCut = orderService.getNoPageCut(page, 8);
 		} else if (sign.equals("yes")) {
+			// 获得全部结账的订单信息
 			pCut = orderService.getPage(page, 8);
 		}
 		for (int i = 0; i < pCut.getData().size(); i++) {
@@ -70,6 +71,7 @@ public class OrderAction extends BaseAction {
 
 	public String Delet() {// 从前台获得ID用于根据账号删除订单信息和订单详细信息
 		boolean sign = orderService.deletOrder(id);
+		//根据ID判断订单详细信息有无信息
 		int marks = orderDetailsService.getSomenum(id);
 		boolean signs = orderDetailsService.deletOrderDetails(id);
 		String mark = "操作失败";
