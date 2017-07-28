@@ -17,5 +17,4 @@ public interface IDomainService {
 
 	public boolean updateIp(Domain domain);//修改域名
 	
-	
 }

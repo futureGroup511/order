@@ -1,8 +1,6 @@
 package com.future.order.action.manager;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,21 +21,22 @@ public class StockAction extends BaseAction {
 	private Stock stock;
 	private Stock stocks;
 	private int page = 1;
-	private int id;
-    private String inquiry;
-	private Date starttime;
-	private Date endtime;
+	private int id = 0;
+	private String inquiry;
+	private String starttime;
+	private String endtime;
+
 	public String execute() {
-		double sumprice=0;
+		double sumprice = 0;
 		PageCut<Stock> pCut = stockService.getPageCut(page, 8);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
-		for(int i=0;i<pCut.getData().size();i++){
-			sumprice+=pCut.getData().get(i).getTotal();
+		for (int i = 0; i < pCut.getData().size(); i++) {
+			sumprice += pCut.getData().get(i).getTotal();
 		}
-		BigDecimal bg = new BigDecimal(sumprice);//保留小数，张金高改
+		BigDecimal bg = new BigDecimal(sumprice);// 保留小数，张金高改
 		double sumpriceNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		request.put("sumprice", sumpriceNew);
 		request.put("adss", "execute");
@@ -46,18 +45,20 @@ public class StockAction extends BaseAction {
 	}
 
 	public String Add() {
-		boolean sign = stockService.AddStock(stock);
-		String mark = "操作失败";
-		if (sign == true) {
-			mark = "添加成功";
+		if (id != 0) {
+			stock = stockService.getStock(id);
 		} else {
-			mark = "添加失败";
+			boolean sign = stockService.addStock(stock);
+			String mark = "操作失败";
+			if (sign == true) {
+				mark = "添加成功";
+			} else {
+				mark = "添加失败";
+			}
+			request.put("stocknews", mark);
 		}
-		request.put("stocknews", mark);
-		@SuppressWarnings("unused")
 		int stockId = stock.getId();
-		String site=stock.getSite();
-		@SuppressWarnings("unused")
+		String site = stock.getSite();
 		Date createDate = stock.getCreateDate();
 		session.put("stockId", stockId);
 		session.put("site", site);
@@ -67,12 +68,12 @@ public class StockAction extends BaseAction {
 
 	public String Delet() {
 		String mark = "操作失败";
-		boolean sign = stockService.DeletStock(id);
-		PageCut<StockDetails> pCut=stockDetailsService.getPageCut(page,8,id);
-		if(pCut.getData().size()==0&&sign==true){
+		boolean sign = stockService.deletStock(id);
+		PageCut<StockDetails> pCut = stockDetailsService.getPageCut(page, 8, id);
+		if (pCut.getData().size() == 0 && sign == true) {
 			mark = "操作成功";
 		} else {
-			boolean signs = stockDetailsService.DeletStockDetails(id);
+			boolean signs = stockDetailsService.deletStockDetails(id);
 			if (sign == true || signs == true) {
 				mark = "操作成功";
 			}
@@ -80,13 +81,15 @@ public class StockAction extends BaseAction {
 		request.put("stocknews", mark);
 		return this.execute();
 	}
-	public String toUpdate(){
-		Stock stock = stockService.CheckById(id);
+
+	public String toUpdate() {
+		Stock stock = stockService.checkById(id);
 		request.put("stock", stock);
 		return "update";
 	}
-	public String Update() {//接收修改后的订单信息用于修改
-		boolean sign = stockService.UpdateStock(stocks);
+
+	public String Update() {// 接收修改后的订单信息用于修改
+		boolean sign = stockService.updateStock(stocks);
 		String mark = "操作失败";
 		if (sign == true) {
 			mark = "修改成功";
@@ -96,89 +99,93 @@ public class StockAction extends BaseAction {
 		request.put("stocknews", mark);
 		return this.execute();
 	}
-	public String Inquiry(){
-		double sumprice=0;
-		double sum=0;
+
+	public String Inquiry() {
+		double sumprice = 0;
+		double sum = 0;
 		PageCut<Stock> pCut = new PageCut<Stock>();
 		List<Stock> list = new ArrayList<>();
-		if(inquiry!=null){
-			pCut = stockService.getSomePageCut(page, 8,inquiry);
-			list=stockService.getTotal(inquiry);
-			}else{
-				inquiry=(String) session.get("inquiry");
-				pCut = stockService.getSomePageCut(page, 8,inquiry);
-				list=stockService.getTotal(inquiry);
-			}
+		if (inquiry != null) {
+			pCut = stockService.getSomePageCut(page, 8, inquiry);
+			list = stockService.getTotal(inquiry);
+		} else {
+			inquiry = (String) session.get("inquiry");
+			pCut = stockService.getSomePageCut(page, 8, inquiry);
+			list = stockService.getTotal(inquiry);
+		}
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
-		for(int i=0;i<pCut.getData().size();i++){
-			sumprice+=pCut.getData().get(i).getTotal();
+		for (int i = 0; i < pCut.getData().size(); i++) {
+			sumprice += pCut.getData().get(i).getTotal();
 		}
-		for(int i=0;i<list.size();i++){
-			sum+=list.get(i).getTotal();
+		for (int i = 0; i < list.size(); i++) {
+			sum += list.get(i).getTotal();
 		}
-		BigDecimal bg = new BigDecimal(sumprice);//保留小数，张金高改
+		BigDecimal bg = new BigDecimal(sumprice);// 保留小数，张金高改
 		double sumpriceNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		bg = new BigDecimal(sum);
 		double sumNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-		if(sumNew!=0){
-			request.put("stocksum",sumNew);
-			request.put("stocksums","所查询的总收入(元):");
-		}else{
-			request.put("stocksums","所查询的这段时间的总收入为零");
+		if (sumNew != 0) {
+			request.put("stocksum", sumNew);
+			request.put("stocksums", "所查询的总收入(元):");
+		} else {
+			request.put("stocksums", "所查询的这段时间的总收入为零");
 		}
 		request.put("sumprice", sumpriceNew);
-		request.put("adss", "Inquiry");		
+		request.put("adss", "Inquiry");
 		session.put("inquiry", inquiry);
 		request.put("pc", pCut);
 		request.put("dateend", inquiry);
 		return "select";
 	}
-	public String count(){
-		double sumprice=0;
-		double sum=0;
+
+	public String count() {
+		double sumprice = 0;
+		double sum = 0;
 		List<Stock> list = new ArrayList<>();
-		if(starttime==null||endtime==null||starttime==null&&endtime==null){
-			starttime=(Date) session.get("starttime");
-			endtime=(Date) session.get("endtime");
+		if (starttime == null || endtime == null || starttime == null && endtime == null) {
+			starttime = (String) session.get("starttime");
+			endtime = (String) session.get("endtime");
 		}
-		PageCut<Stock> pCut = stockService.getSomePageCut(page, 8,starttime,endtime);
-		list = stockService.getPrice(starttime,endtime);
+		PageCut<Stock> pCut = stockService.getSomePageCut(page, 8, starttime, endtime);
+		list = stockService.getPrice(starttime, endtime);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有进货信息";
 			request.put("stocknews", mark);
 		}
-		for(int i=0;i<pCut.getData().size();i++){
-			sumprice+=pCut.getData().get(i).getTotal();
+		for (int i = 0; i < pCut.getData().size(); i++) {
+			sumprice += pCut.getData().get(i).getTotal();
 		}
-		for(int i=0;i<list.size();i++){
-			sum+=list.get(i).getTotal();
+		for (int i = 0; i < list.size(); i++) {
+			sum += list.get(i).getTotal();
 		}
-		BigDecimal bg = new BigDecimal(sumprice);//保留小数，张金高改
+		BigDecimal bg = new BigDecimal(sumprice);// 保留小数，张金高改
 		double sumpriceNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		bg = new BigDecimal(sum);
 		double sumNew = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-		if(sumNew!=0){
-			request.put("stocksum",sumNew);
-			request.put("stocksums","的总收入(元):");
-		}else{
-			request.put("stocksums","的总收入为零");
+		if (sumNew != 0) {
+			request.put("stocksum", sumNew);
+			request.put("stocksums", "的总收入(元):");
+		} else {
+			request.put("stocksums", "的总收入为零");
 		}
-		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
-		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
-		request.put("dateStr", dateStr);
-		request.put("dateend", dateend);
+		// String dateStr = new SimpleDateFormat("yyyy-MM-dd
+		// hh:mm:ss").format(starttime);
+		// String dateend = new SimpleDateFormat("yyyy-MM-dd
+		// hh:mm:ss").format(endtime);
+		request.put("dateStr", starttime);
+		request.put("dateend", endtime);
 		request.put("mark", "--");
 		session.put("starttime", starttime);
 		session.put("endtime", endtime);
 		request.put("sumprice", sumpriceNew);
 		request.put("adss", "count");
 		request.put("pc", pCut);
-		return "select";	
-	}	
-	
+		return "select";
+	}
+
 	public Stock getStock() {
 		return stock;
 	}
@@ -219,20 +226,19 @@ public class StockAction extends BaseAction {
 		this.inquiry = inquiry;
 	}
 
-	public Date getStarttime() {
+	public String getStarttime() {
 		return starttime;
 	}
 
-	public void setStarttime(Date starttime) {
+	public void setStarttime(String starttime) {
 		this.starttime = starttime;
 	}
 
-	public Date getEndtime() {
+	public String getEndtime() {
 		return endtime;
 	}
 
-	public void setEndtime(Date endtime) {
+	public void setEndtime(String endtime) {
 		this.endtime = endtime;
 	}
-	
 }

@@ -12,11 +12,11 @@
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 
  <script language="javascript">
-function CheckNopay(){
-	window.location.href="${rootPath}manage/OrderAction?sign=two"; 
+function checkNopay(){
+	window.location.href="${rootPath}manage/OrderAction?sign=no"; 
 	}
-function CheckPay(){
-	window.location.href="${rootPath}manage/OrderAction?sign=there";
+function checkPay(){
+	window.location.href="${rootPath}manage/OrderAction?sign=yes";
 	}
 	function print(id) {
 		  var xpwidth=window.screen.width-10;
@@ -44,8 +44,8 @@ function CheckPay(){
 	</form> 
 	</div>
      <div class="button">
-      <input type="button" onclick="return CheckNopay();" value="未付款" style="border-radius: 5px;">
-      <input type="button" onclick="return CheckPay();" value="已付款" style="border-radius: 5px;">
+      <input type="button" onclick="return checkNopay();" value="未付款" style="border-radius: 5px;">
+      <input type="button" onclick="return checkPay();" value="已付款" style="border-radius: 5px;">
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
 	<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
