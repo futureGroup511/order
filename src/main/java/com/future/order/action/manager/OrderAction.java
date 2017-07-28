@@ -94,7 +94,7 @@ public class OrderAction extends BaseAction {
 		return "toPay";
 	}
 	
-	public String Pay() {//用于结账，把订单状态由已处理改为已结账       打印发票
+	public String pay() {//用于结账，把订单状态由已处理改为已结账       打印发票
 		double favourables = 0;//优惠金额
 		boolean sign = orderService.PayOrder(orders.getId());
 		String mark = "付款失败";

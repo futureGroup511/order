@@ -28,7 +28,7 @@
          	</c:forEach> 
  	</select><br>
      <lable>重量(kg):</lable><input style="margin-left: 1%;" type="text" name="details.num" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
-     <lable>价格(kg):</lable><input style="margin-left: 1%;" type="text"  name="details.price" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
+     <span class="span">价格(元/kg):</span><input style="margin-left: 1%;" type="text"  name="details.price" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
      <div class="suyuan">
    	<lable style="margin-left:0%;">溯源:</lable>
      <textarea rows="5" cols="100" name="details.origins" style="display:none;" id="content"></textarea><br>
