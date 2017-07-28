@@ -14,7 +14,8 @@ import com.future.order.util.PageCut;
 
 public interface IMenuTypeService {
 
-	public List<MenuType> getAllMenuType();//得到全部菜品类型
+	//获得所有的菜品的类型，安李杰加
+	public List<MenuType> getAllMenuType();
 
 	public boolean addType(MenuType menutype);//添加菜品类型
 

@@ -14,8 +14,8 @@ import com.future.order.entity.User;
  */
 public class ChangeAction extends BaseAction{
 	
-	private Date starttime;
-	private Date endtime;
+	private Date starttime;//获得查询的开始时间
+	private Date endtime;//获得查询的截止时间
 	private String sort;//获得用户的身份
 	public String add(){
 		return "add";

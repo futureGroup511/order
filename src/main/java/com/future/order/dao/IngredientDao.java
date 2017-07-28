@@ -34,7 +34,7 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 		}
 		return false;
 	}
-
+	//安李杰用
 	@Override
 	public Ingredient getById(int id) {
 		Ingredient ingredient = this.getEntity(id);

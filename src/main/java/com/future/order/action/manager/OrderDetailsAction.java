@@ -20,7 +20,7 @@ public class OrderDetailsAction extends BaseAction {
 	private int page = 1;
 	private OrderDetails details;
 	private String sort;// 判断用户的身份
-
+	//把订单ID放入session中，方便下面的方法使用
 	public String CheckOrderDetails() {
 		session.put("orderid", id);
 		return this.execute();
@@ -71,7 +71,7 @@ public class OrderDetailsAction extends BaseAction {
 		return this.execute();
 	}
 
-	public String Print() {
+	public String Print() {//有可能已无用
 		List<OrderDetails> list = orderDetailsService.seeByid(id);
 		double total = 0;
 		for (int i = 0; i < list.size(); i++) {

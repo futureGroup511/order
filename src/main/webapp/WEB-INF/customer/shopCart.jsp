@@ -144,7 +144,7 @@
 				<tr>
 					<td>
 					<div id="bb">
-					  <textarea name="name" rows="50" cols="50" id='dd' placeholder="请输入你的选择"></textarea>
+					  <textarea name="remark" rows="50" cols="50" id='dd' placeholder="请输入你的选择"></textarea>
 					  </div>
 					</td>
 				</tr>

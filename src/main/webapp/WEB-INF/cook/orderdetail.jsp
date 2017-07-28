@@ -96,7 +96,7 @@ html {
 					<td>菜品状态</td>
 					<td>下单时间</td>
 					<td>厨师名称</td>
-					<td >备注</td>
+					<td>备注</td>
 					<td>溯源</td>
 					<td style="width:50px;">操作</td>
 				</tr>

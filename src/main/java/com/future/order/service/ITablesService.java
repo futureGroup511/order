@@ -19,7 +19,7 @@ import com.future.order.util.PageCut;
  */
 public interface ITablesService {
 	
-
+	//安李杰加获得桌子的状态信息
 	public Tables get(int id);	//金高用
 	
 	//分页查询
@@ -28,15 +28,15 @@ public interface ITablesService {
 	public boolean addTable(Tables table);
 	//删除餐桌
 	public boolean deleteTable(Tables table);
-	//修改餐桌信息
+	//修改餐桌信息 安李杰加
 	public boolean updateTables(Tables table);
 	//修改餐桌状态
 	public boolean changeStatus(int tableId);
 	
 	public List<Tables> CheckName();
-
+	//根据条件查询符合条件餐桌
 	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace);
-
+	//根据id得到餐桌的图片地址
 	public Tables getImurl(int id);
 
 	
