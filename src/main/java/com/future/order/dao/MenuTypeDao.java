@@ -115,23 +115,7 @@ public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService 
 		}
 		return sign;
 	}
-	@Override
-	public boolean DeletType(int id) {
-		boolean sign = false;
-		try{
-			String hql="delete from MenuType o Where o.id='"+id+"'";
-			int mark=this.executeUpdate(hql);
-		if(mark==1){
-			sign=true;
-		}else{
-			sign=false;
-		}
-		
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return sign;
-	}
+	
 	@Override
 	public PageCut<MenuType> getSomePageCut(int currentPage, int pageSize, String inquiry) {
 		String hql ;

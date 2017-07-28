@@ -30,7 +30,7 @@ public interface IMenuService {
 	public List<Menu> ByName(String typeName);
 
 
-	//添加菜品zjg
+	//添加菜品张金高
 	public boolean addMenu(Menu menu);
 	//分页
 	public PageCut<Menu> getPageCut(int curr,int pageSize);

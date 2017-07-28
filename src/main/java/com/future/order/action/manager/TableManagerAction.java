@@ -58,7 +58,6 @@ public class TableManagerAction extends BaseAction {
 		} else {
 			request.put("addTableMsg", "添加失败,餐桌名称重复");
 		}
-//		return "QR_card";
 		return "addTable";
 	}
 	

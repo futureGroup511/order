@@ -13,6 +13,7 @@ import com.future.order.util.PageCut;
 
 /**
  * @author Administrator
+ * 张金高：此处代码差，重构时不可借鉴
  *
  */
 public interface IOrderService {

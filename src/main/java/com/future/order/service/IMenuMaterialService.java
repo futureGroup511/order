@@ -29,7 +29,6 @@ public interface IMenuMaterialService {
 	public boolean deleteAboutMenu(int id);
 	
 	public List<MenuMaterial> getByMenuId(int menuId);
-
 	public List<MenuMaterial> getMenuMaterial(int menuId);
 
 	public List<MenuMaterial> getByMenuIdTwo(int menuId);
