@@ -22,7 +22,7 @@ public interface IOrderService {
 	public Order CheckById(int id);	//张金高用
 	public boolean UpdateOrder(Order orders);
 	public List<Order> getFinal(int tableId,int num);
-	public PageCut<Order> getPageCut(int currentPage, int pageSize);
+	public PageCut<Order> getPageCut(int currentPage, int pageSize);//wqj 查询所有订单
 	public PageCut<Order> getNoPageCut(int currentPage, int pageSize);
 	public PageCut<Order> getPage(int currentPage, int pageSize);
 	public Order get(int tableId);
@@ -31,8 +31,8 @@ public interface IOrderService {
 	public List<Order> getAll();
 	public boolean deleteOrder(int tableId);
 	public List<Order> finish();
-	public PageCut<Order> getFinishPagcut(int currentPage, int pageSize);
-	public PageCut<Order> getUnfinishPagCut(int currentPage, int pageSize);
+	public PageCut<Order> getFinishPagcut(int currentPage, int pageSize);//wqj 查看已完成菜品
+	public PageCut<Order> getUnfinishPagCut(int currentPage, int pageSize);//wqj 查看未完成订单
 	public List<Order> getOrder(int tableId);
 	public PageCut<Order> searchOrder(String input, int pageSize, int currPage);
 	
