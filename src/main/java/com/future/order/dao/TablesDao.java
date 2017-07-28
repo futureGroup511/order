@@ -48,7 +48,7 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 	public boolean deleteTable(Tables table) {
 		return this.deleteEntity(table);
 	}
-
+	//修改餐桌信息 安李杰用
 	@Override
 	public boolean updateTables(Tables table) {
 		return this.updateEntity(table);

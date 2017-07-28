@@ -34,8 +34,8 @@ public interface IStockDetailsService {
 
 	public boolean Updatestocks(StockDetails details);
 	
-	//焦祥宇加
-	//根据配料id获得进货详情
+	
+	//根据配料id获得进货详情 安李杰用
 	public List<StockDetails> getByIngId(int ingId,int num);
 
 	boolean addDetails(StockDetails details);

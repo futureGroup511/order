@@ -29,7 +29,7 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	public boolean addIngredient(Ingredient ingredient) {
 		return this.saveEntity(ingredient);
 	}
-
+	//安李杰用
 	@Override
 	public Ingredient getById(int id) {
 		Ingredient ingredient = this.getEntity(id);

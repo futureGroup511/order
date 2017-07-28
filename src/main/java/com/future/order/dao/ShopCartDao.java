@@ -72,7 +72,7 @@ public class ShopCartDao extends BaseDao<ShopCart> implements IShopCartService {
 		String hql="from ShopCart s where s.tableId="+tableId;
 		return this.getEntityList(hql);
 	}
-	
+	//根据桌号id和菜品id 安李杰用
 	@Override
 	public ShopCart getByT_M_Id(int tableId, int menuId) {
 		String hql="from ShopCart s where s.tableId="+tableId+" and s.menuId="+menuId;

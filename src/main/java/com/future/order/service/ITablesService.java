@@ -19,7 +19,7 @@ import com.future.order.util.PageCut;
  */
 public interface ITablesService {
 	
-
+	//安李杰用
 	public Tables get(int id);	//金高用
 	
 	//分页查询
@@ -28,7 +28,7 @@ public interface ITablesService {
 	public boolean addTable(Tables table);
 	//删除餐桌
 	public boolean deleteTable(Tables table);
-	//修改餐桌信息
+	//修改餐桌信息 安李杰用
 	public boolean updateTables(Tables table);
 	//修改餐桌状态
 	public boolean changeStatus(int tableId);

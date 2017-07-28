@@ -64,7 +64,7 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		}
 		return list;
 	}
-
+	////根据前台传过来的id去获取每道菜的信息 安李杰用
 	public Menu get(int id) {
 		String hql = "from Menu m where m.id='" + id + "'";
 		Menu menu = (Menu) this.uniqueResult(hql);
@@ -148,14 +148,14 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	}
 
 	/*
-	 * 一下方法焦祥宇加
+	 * 获取推荐菜品除(6,7,8),安李杰用
 	 */
 	@Override
 	public List<Menu> getRecommend(int num) {
 		String sql = "select * from tb_menu where typeId not in(6,7,8) order by num desc limit " + num ;
 		return this.executeSQLQuery(sql);
 	}
-
+	//根据菜品类型id获得菜品 安李杰用
 	@Override
 	public List<Menu> getByTypeId(int typeId) {
 		String hql = "from Menu m where m.typeId=" + typeId + " order by m.id desc";

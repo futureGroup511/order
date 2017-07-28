@@ -24,13 +24,20 @@ public class CartAction extends BaseAction {
 	 * 对购物车进行操作
 	 */
 	private static final long serialVersionUID = 1L;
+	//获取前台传过来的id信息
 	private int id;
-	private String name;
+	
+	//获取前台传过来的顾客的备注
+	private String remark;
+	
 	// 获得购物车菜品
 	public String getCart() throws Exception {
+		//从session中把顾客的桌号取出来以下同
 		int tableId = (int) session.get("userId");
+		//根据桌号把购物车中的菜取出来以下同
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
-			double total = 0.0;
+		//计算总价	
+		double total = 0.0;
 			for (ShopCart item : shopCarts) {
 				total += item.getMenuNum() * item.getPrice();
 			}
@@ -40,12 +47,15 @@ public class CartAction extends BaseAction {
 	}
 	// 提交订单
 	public String getHand() throws Exception {
-		int tableId = (int) session.get("userId");	
+		int tableId = (int) session.get("userId");
+		//根据桌号获取购物车中的信息下同
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
+		//根据桌号获取订单中最近的信息下同
 		Order orders=orderService.getOrder1(tableId);
 		Date d = new Date();
 		double total = 0.0;
 		if(orders==null||orders.getStatus().equals("已付款")){
+			//没有订单就新创一个
 			Order order=new Order();
 			for (ShopCart item : shopCarts) {
 				total += item.getMenuNum() * item.getPrice();
@@ -54,35 +64,37 @@ public class CartAction extends BaseAction {
 				order.setTotal(total);
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
-				order.setRemark(name);
+				order.setRemark(remark);
 				order.setCookName("");
 				order.setStatus("未处理");
 				order.setCreateDate(d);
 			}
+			//修改订单中的信息下同
 			Boolean bool = orderService.update(order);
 			Order orderss=orderService.getOrder1(tableId);
 			session.put("Id",orderss.getId());
 		}else if(orders.getStatus().equals("未付款")){
 			orders.setStatus("未处理");
-			orders.setRemark(name);
+			orders.setRemark(remark);
 			Boolean bool = orderService.update(orders);
 			Order orderss=orderService.getOrder1(tableId);
 			session.put("Id",orderss.getId());
 		}else{
-			orders.setRemark(name);
+			orders.setRemark(remark);
 			Boolean bool = orderService.update(orders);
 			session.put("Id",orders.getId());
 		}
 		int myId=(int) session.get("Id");
 		Order order=orderService.CheckById(myId);
+		//根据订单号获取订单详情中的信息
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsTwo(myId);
-		
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
-				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,name,item.getImgUrl(),item.getPrice());
+				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice());
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
+			//判断再次加入菜品时是否名字相同
 			for (ShopCart item : shopCarts) {
 				  int sign = 0;
 				for (OrderDetails en : orderDetail) {
@@ -93,7 +105,7 @@ public class CartAction extends BaseAction {
 					}
 				}
 				if (sign == 0) {
-					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,name,item.getImgUrl(),item.getPrice());
+					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice());
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
@@ -141,7 +153,6 @@ public class CartAction extends BaseAction {
 		if(orders==null||orders.getStatus().equals("已付款")){
 			List<OrderDetails> orderDetails = orderDetailsService.getDetails(0);
 			request.put("orderDetails",orderDetails);
-		
 		}else{
 			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(orders.getId());
 			request.put("order",orders.getStatus());
@@ -244,13 +255,11 @@ public class CartAction extends BaseAction {
 	public void Reminder() throws Exception {
 		int tableId = (int) session.get("userId");
 		String tableName = tablesService.get(tableId).getName();
+		//获得当前时间
 		Date d = new Date();
-		Inform inform = new Inform();
-		inform.setContent("顾客催单，请尽快做好");
-		inform.setCreateDate(d);
-		inform.setTableId(tableId);
-		inform.setTableName(tableName);
+		Inform inform = new Inform(tableId,tableName,"顾客催单，请尽快做好",d);
 		Boolean bool = informService.save(inform);
+		//获取催单信息
 		List<Inform> informm=informService.getAll();
 		if(!informm.isEmpty()){
 			this.getResponse().getWriter().println(1);
@@ -258,7 +267,7 @@ public class CartAction extends BaseAction {
 			this.getResponse().getWriter().println(0);
 		}
 	}
-
+	//set和get方法
 	public int getId() {
 		return id;
 	}
@@ -266,16 +275,13 @@ public class CartAction extends BaseAction {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
+	
+	public String getRemark() {
+		return remark;
 	}
 	
-	
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
 }

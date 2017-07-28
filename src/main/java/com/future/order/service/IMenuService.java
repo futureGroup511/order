@@ -17,13 +17,13 @@ import com.future.order.util.PageCut;
  *
  */
 public interface IMenuService {
-	//wqj查看所有菜单
+	//wqj查看所有菜单安李杰用
 	public List<Menu> getAll();
 
 	Menu Doorder(int id);
 
 	List<Menu> unfinish();
-
+	//根据前台传过来的id去获取每道菜的信息 安李杰用
 	public Menu get(int id);//金高用
 	
 	
@@ -42,17 +42,17 @@ public interface IMenuService {
 	public Menu inquiryByName(String inquiry);
 
 	
-	//焦祥宇加
-	//获得num条推荐菜品
+	//获取推荐菜品,安李杰用
 	public List<Menu> getRecommend(int num);
 
 	public List<Menu> CheckDetails(int id);
 
 	public boolean updatemenu(int id);
+	//根据菜品类型id获得菜品 安李杰用
 	public List<Menu> getByTypeId(int id);
 //查询菜  黎明加
 	public PageCut<Menu> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
-
+	//安李杰用
 	public Boolean update(Menu m);
 	
 

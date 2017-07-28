@@ -27,11 +27,11 @@ public interface IMenuMaterialService {
 	public boolean deleteMaterial(MenuMaterial  menuMaterial);
 	//删除菜品时删除对应的菜品配料
 	public boolean deleteAboutMenu(int id);
-	
+	//安李杰用
 	public List<MenuMaterial> getByMenuId(int menuId);
 
 	public List<MenuMaterial> getMenuMaterial(int menuId);
-
+	//根据Menu中的id去获取菜单详情中的原料信息 安李杰用
 	public List<MenuMaterial> getByMenuIdTwo(int menuId);
 
 	public List<MenuMaterial> getByMenuIdOne(int id);
