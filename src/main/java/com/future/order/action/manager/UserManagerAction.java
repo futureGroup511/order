@@ -21,7 +21,7 @@ public class UserManagerAction extends BaseAction {
 	private String inquiry;//得到查询的内容
 	private String ask;	//得到请求查询的条件
 	
-	public String execute(){
+	public String execute(){		//遍历所有用户，分页
 		PageCut<User> pCut=userService.getPageCut(page,8);
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
@@ -32,7 +32,7 @@ public class UserManagerAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	public String addUser() {
+	public String addUser() {		//添加用户
 		boolean boo = userService.addUser(user);
 		if(boo){
 			request.put("addMsg", "添加成功");
@@ -90,7 +90,7 @@ public class UserManagerAction extends BaseAction {
 		request.put("allUser", pCut);
 		return "deleteUser";
 	}
-	public String Inquiry(){
+	public String Inquiry(){		//条件查询
 		PageCut<User> pCut=new PageCut();
 		if(ask!=null){
 		 pCut=userService.getSomePageCut(page,8,ask,inquiry);

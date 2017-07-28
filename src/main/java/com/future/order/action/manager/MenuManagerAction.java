@@ -21,15 +21,12 @@ import com.future.order.util.PageCut;
 public class MenuManagerAction extends BaseAction {
 
 	private Menu menu;
-	private int page = 1;
+	private int page = 1;	//获得初始页数
 	private String inquiry;//得到查询的内容
 	private String ask;	//得到请求查询的条件
-	// 上传文件集合
-	private List<File> file;
-	// 上传文件名集合
-	private List<String> fileFileName;
-	// 上传文件内容类型集合
-	private List<String> fileContentType;
+	private List<File> file;	// 上传文件集合
+	private List<String> fileFileName;	// 上传文件名集合
+	private List<String> fileContentType;	// 上传文件内容类型集合
 
 	public String execute() {
 		List<MenuType> typelist=menuTypeService.getAllMenuType();

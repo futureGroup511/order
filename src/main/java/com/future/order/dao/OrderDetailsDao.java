@@ -43,7 +43,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	public PageCut<OrderDetails> searchOrder( String input ,int pageSize, int currPage) {
 		StringBuilder sb = new StringBuilder("from OrderDetails as o where");
 		
-		
 		if (input != null && input.length() > 0) {
 			sb.append(String.format(" o.id like '%%%s%%'", input));
 		}
@@ -67,7 +66,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		return pc;
 	}
 	@Override
-	public List<OrderDetails> CheckDe(int id) {//根据订单id查询所有该订单的详细信息
+	public List<OrderDetails> CheckDe(int id) {
 		@SuppressWarnings("unused")
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		try{

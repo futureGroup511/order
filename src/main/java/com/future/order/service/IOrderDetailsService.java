@@ -43,10 +43,10 @@ public interface IOrderDetailsService {
 	//安李杰用
 	public List<OrderDetails> getDetailsTwo(int orderId);
 
-	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);//由餐桌ID查询餐桌信息
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);// wqj 由餐桌ID查询餐桌信息
 	public boolean updet(int id, int idd, String UserName);
-	public List<OrderDetails> CheckDe(int id);
 	//安李杰用
+	public List<OrderDetails> CheckDe(int id);//wqj 根据订单id查询所有该订单的详细信息
 	public boolean back(int id);
 	//获取菜单祥情中菜的状态安李杰用
 	public OrderDetails checkStatus(int id);

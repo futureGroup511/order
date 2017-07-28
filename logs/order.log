@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [INFO] [2017-07-27 17:15:50][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
 [INFO] [2017-07-27 17:15:50][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 27 17:15:50 CST 2017]; root of context hierarchy
 [INFO] [2017-07-27 17:15:50][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
@@ -2794,3 +2795,5 @@ java.lang.NoSuchMethodException: com.future.order.action.manager.OrderAction.pay
 [INFO] [2017-07-28 15:23:53][com.opensymphony.xwork2.spring.SpringObjectFactory]Setting autowire strategy to name
 [INFO] [2017-07-28 15:23:53][org.apache.struts2.spring.StrutsSpringObjectFactory]... initialized Struts-Spring integration successfully
 >>>>>>> 24dd31173d4c07639794c1c6487802b98ed2dddb
+=======
+>>>>>>> 9c70669e81070b54cd752ceb7a3e9d034c91b73c

@@ -29,8 +29,7 @@ public interface IIngerdientService {
 	public boolean deleteIngredient(Ingredient ingredient);
 	//分页
 	public PageCut<Ingredient> getPageCut(int curr,int pageSize);
-	
-	public List<Ingredient> getByMenuId(int menuId);
+	public List<Ingredient> getByMenuId(int menuId);//根据菜品id得到菜的配料
 	
 	public List<Ingredient> getNews();
 	

@@ -198,17 +198,9 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		}
 		if (input != null && input.length() > 0) {
 			sb.append(String.format(" o.id like '%%%s%%'", input));
-		}
-		if (input != null && input.length() > 0) {
 			sb.append(String.format(" or o.status like '%%%s%%'", input));
-		}
-		if (input != null && input.length() > 0) {
 			sb.append(String.format(" or o.tableId like '%%%s%%'", input));
-		}
-		if (input != null && input.length() > 0) {
 			sb.append(String.format(" or o.tableName like '%%%s%%'", input));
-		}
-		if (input != null && input.length() > 0) {
 			sb.append(String.format(" or o.cookName like '%%%s%%'", input));
 		}
 		int count = this.getEntityNum("select count(*) " + sb.toString());
