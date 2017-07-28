@@ -41,9 +41,6 @@ public class CartAction extends BaseAction {
 	// 提交订单
 	public String getHand() throws Exception {
 		int tableId = (int) session.get("userId");	
-		if(name.length()==0){
-			name="原味";
-		}
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		Order orders=orderService.getOrder1(tableId);
 		Date d = new Date();

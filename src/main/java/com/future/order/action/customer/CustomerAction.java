@@ -74,6 +74,7 @@ public class CustomerAction extends BaseAction {
 		request.put("stockDetails", stockDetails);
 		for(StockDetails item:stockDetails){
 			request.put("ingName",item.getIngName());
+			System.out.println(item.getPlace()+"55");
 		}
 		return "getStockDate";
 	}
