@@ -27,7 +27,12 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 
 	@Override
 	public boolean addIngredient(Ingredient ingredient) {
-		return this.saveEntity(ingredient);
+		String hql = "from Ingredient i where i.name ='"+ingredient.getName()+"'";
+		Ingredient ingredientDb = (Ingredient)this.uniqueResult(hql);
+		if(ingredientDb==null){
+			return this.saveEntity(ingredient);	
+		}
+		return false;
 	}
 
 	@Override
