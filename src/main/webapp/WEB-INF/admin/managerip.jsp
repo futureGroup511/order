@@ -16,18 +16,10 @@
     }
     
     </style>
-<script language="javascript">
-window.onload=function(){
-	 var a = '${domain.id}';
- 	if(a==0){
-	 document.getElementById('div1').style.display='none';
- 	}
-}
-	</script>
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 <div style="margin-left:45%;font-size:15px;font-weight: bold;margin-top:2%;">${mark}</div>
-<c:if test="${domain ne 'null'}">
+<c:if test="${domain ne null}">
 <div class="wall"style="width:43%;">
 	<div id="div1" >
 	

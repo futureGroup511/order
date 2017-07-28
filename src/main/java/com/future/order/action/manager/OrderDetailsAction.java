@@ -20,6 +20,7 @@ public class OrderDetailsAction extends BaseAction{
 	private int page=1;
 	private OrderDetails details;
 	private String sort;//判断用户的身份
+	
 	public String CheckOrderDetails(){
 		session.put("orderid", id);
 		return this.execute();

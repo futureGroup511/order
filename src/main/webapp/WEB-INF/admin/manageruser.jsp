@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,24 +15,13 @@
 		document.getElementById("inquiry").submit();
 	}
 </script>
-<script language="javascript">
-window.onload=function(){
-	 var array = new Array();  
-	 <c:forEach items="${allUser.data}" var="t">  
-	 array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
-	 </c:forEach>
-	 var a = array.length;
- if(a==0){
-	 document.getElementById('div1').style.display='none';
-	 document.getElementById('div2').style.display='none';
- }
-}
-	</script>
+
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);"  >
 	
 	<div style="margin-left:60%; height:30px;margin-top:1%;">
 		<div style="margin-left:-30%;font-weight: bold;">${updateUserMsg}${deleteUserMsg}</div>
+		<c:if test="${fn:length(allUser.data) > 0 }">
 		<form action="${rootPath}manage/UserManager_Inquiry" method="post">
 		<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
 			<option value="phone">账号</option>
@@ -89,5 +79,6 @@ window.onload=function(){
         <li><a href="${rootPath }manage/UserManager_${adss}?page=${allUser.nextPage}">下一页</a></li>
       </ul>
  </div>
+ </c:if>
 </body>
 </html>

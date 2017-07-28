@@ -24,7 +24,7 @@
 	</script>
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
-<div style="font-weight: bold;font-size:20px;margin-top:2%;">${markinfo}</div>
+<div style="font-weight: bold;font-size:20px;margin-top:2%;margin-left:43%;">${markinfo}</div>
 <c:if test="${fn:length(detailspc.data)>0 }">
 <div class="orderdetailes" id="div1">
        <table  cellspacing="0">
@@ -67,23 +67,23 @@
     </div>
   <center>  <div class="page" id="div2">
 <ul class="pagination">
-  <li><a href="${rootPath}manage/OrderDetailsAction?page=${detailspc.prePage}">上一页</a></li>
+  <li><a href="${rootPath}manage/OrderDetailsAction?page=${detailspc.prePage}&sort=cashier">上一页</a></li>
   		<c:forEach var="i" begin="${detailspc.currentPage-3>0?detailspc.currentPage-3:1 }"
  					end="${detailspc.currentPage+3>detailspc.pageNum?detailspc.pageNum:allIngredient.currentPage+3  }">
 
  							<c:choose> 
  								<c:when test="${i>0 && i == detailspc.currentPage &&i<=3}">
  									<li class="active"><a 
- 										href="${rootPath}manage/OrderDetailsAction?page=${i}">${i}</a></li> 
+ 										href="${rootPath}manage/OrderDetailsAction?page=${i}&sort=cashier">${i}</a></li> 
  								</c:when> 
 
  								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
- 									<li><a href="${rootPath}manage/OrderDetailsAction?page=${i }">${i}</a></li> 
+ 									<li><a href="${rootPath}manage/OrderDetailsAction?page=${i }&sort=cashier">${i}</a></li> 
  								</c:when> 
  							</c:choose>
  						</c:forEach> 
  						<li><a 
- 							href="${rootPath}manage/OrderDetailsAction?page=${detailspc.nextPage}">下一页</a></li> 
+ 							href="${rootPath}manage/OrderDetailsAction?page=${detailspc.nextPage}&sort=cashier">下一页</a></li> 
 </ul>
  </div>
  </center>   
