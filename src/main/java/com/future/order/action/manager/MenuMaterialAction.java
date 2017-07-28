@@ -15,7 +15,6 @@ public class MenuMaterialAction extends BaseAction {
 	private int menuMaterialId;
 	
 	public String addMenuMaterial(){
-		System.out.println("menuMaterial"+menuMaterial+"addMenu"+menuId);
 		if(menuId!=0){		//当入口为管理菜品详情添加新配料时
 			Menu menu = menuService.get(menuId);
 			session.put("menu", menu);

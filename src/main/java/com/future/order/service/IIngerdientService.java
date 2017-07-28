@@ -32,7 +32,7 @@ public interface IIngerdientService {
 	
 	public List<Ingredient> getByMenuId(int menuId);
 	
-	public List<Ingredient> getnews();
+	public List<Ingredient> getNews();
 	
 	public boolean updeteNum(int id, int num);
 	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String ask, String inquiry);

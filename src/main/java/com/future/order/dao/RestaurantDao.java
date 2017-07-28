@@ -34,7 +34,7 @@ public class RestaurantDao extends BaseDao<Restaurant>  implements IRestaurantSe
 	}
 
 	@Override
-	public Restaurant SelectAll() {
+	public Restaurant select() {
 		List<Restaurant> domain = this.selectAll();
 		if(domain.size()==0){
 			return null;

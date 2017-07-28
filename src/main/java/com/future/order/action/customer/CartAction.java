@@ -40,10 +40,7 @@ public class CartAction extends BaseAction {
 	}
 	// 提交订单
 	public String getHand() throws Exception {
-		int tableId = (int) session.get("userId");	
-		if(name.length()==0){
-			name="原味";
-		}
+		int tableId = (int) session.get("userId");
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		Order orders=orderService.getOrder1(tableId);
 		Date d = new Date();
@@ -77,7 +74,7 @@ public class CartAction extends BaseAction {
 			session.put("Id",orders.getId());
 		}
 		int myId=(int) session.get("Id");
-		Order order=orderService.CheckById(myId);
+		Order order=orderService.checkById(myId);
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsTwo(myId);
 		
 		if (orderDetail.isEmpty()) {

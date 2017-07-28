@@ -22,10 +22,10 @@ import com.future.order.util.PageCut;
 
 public interface IOrderDetailsService {
 	public List<OrderDetails> CheckDetails(int id);
-	public boolean DeletOrderDetails(int id);
-	public boolean DeletDetails(int detailid);
-	public OrderDetails CheckById(int detailid);
-	public boolean UpdateOrder(OrderDetails details);
+	public boolean deletOrderDetails(int id);
+	public boolean deletDetails(int detailid);
+	public OrderDetails checkById(int detailid);
+	public boolean updateOrder(OrderDetails details);
 	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid);
 	public Boolean save(OrderDetails orderDetails);
 	public List<OrderDetails> getDetails(int tableId);
@@ -38,6 +38,7 @@ public interface IOrderDetailsService {
 	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize);//wqj 查看未完成菜品
 	public List<OrderDetails> SeeByid(int id);
 	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);//wqj 模糊查询
+	public List<OrderDetails> seeByid(int id);
 
 	public OrderDetails getDetaill(int tableId);
 	public List<OrderDetails> getDetailsTwo(int orderId);
