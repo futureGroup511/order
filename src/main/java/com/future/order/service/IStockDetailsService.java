@@ -32,7 +32,7 @@ public interface IStockDetailsService {
 	//修改进货详情
 	public boolean updatestocks(StockDetails details);
 
-	//根据配料id获得进货详情 安李杰用
+	//根据配料id获得进货详情 安李杰加
 	public List<StockDetails> getByIngId(int ingId,int num);
 
 	//根据条件查询，获得符合条件的进货详细信息

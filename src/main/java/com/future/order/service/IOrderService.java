@@ -20,7 +20,8 @@ public interface IOrderService {
 	public boolean deletOrder(int id);
 	//用于改变订单的状态
 	public boolean payOrder(int id);
-	//根据ID获取订单信息，用于修改界面
+	
+	//根据订单号获取订单详情中的信息，根据ID获取订单信息，用于修改界面
 	public Order checkById(int id);	//张金高用
 	//修改订单的信息
 	public boolean updateOrder(Order orders);
@@ -33,7 +34,7 @@ public interface IOrderService {
 	public PageCut<Order> getPage(int currentPage, int pageSize);
 	
 	public Order get(int tableId);
-	//安李杰用
+	//安李杰加 修改订单中的信息
 	public Boolean update(Order order);
 	public Boolean save(Order order);
 	public List<Order> getAll();
@@ -43,7 +44,7 @@ public interface IOrderService {
 	public PageCut<Order> getUnfinishPagCut(int currentPage, int pageSize);//wqj 查看未完成订单
 	public List<Order> getOrder(int tableId);
 	public PageCut<Order> searchOrder(String input, int pageSize, int currPage);
-	//安李杰用
+	//安李杰加 根据桌号获取订单中最近的信息
 	public Order getOrder1(int tableId);
 	//根据条件获得符合条件的数据
 	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
@@ -55,7 +56,7 @@ public interface IOrderService {
 	public boolean updateOrder(int id);
 	//根据条件获得所有的订单
 	public List<Order> getPrice(String ask, String inquiry);
-	//安李杰用
+	//安李杰加 删除订单
 	public boolean delete(int id);
 	
 }

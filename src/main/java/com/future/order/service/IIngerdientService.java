@@ -17,9 +17,8 @@ import com.future.order.util.PageCut;
  *
  */
 public interface IIngerdientService {
-	
+	//学长加
 	public List<Ingredient> getAll();//得到全部配料
-
 	public boolean addIngredient(Ingredient ingredient);	//添加配料
 
 	public Ingredient getById(int id);	//根据id查找配料
