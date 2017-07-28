@@ -75,8 +75,13 @@ public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService 
 	*/
 
 	@Override
-	public boolean AddType(MenuType menutype) {
-		return this.saveEntity(menutype);
+	public boolean addType(MenuType menuType) {
+		String hql = "from MenuType m where m.name='"+menuType.getName()+"'";
+		MenuType menuTypeDb =(MenuType) this.uniqueResult(hql);
+		if(menuTypeDb==null){
+			return this.saveEntity(menuType);	
+		}
+		return false;
 	}
 	@Override
 	public PageCut<MenuType> getPageCut(int currentPage, int pageSize) {
