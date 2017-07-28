@@ -34,7 +34,7 @@ public class LoginAction extends BaseAction {
 				session.put("userIndex", userDataBase);	//只在首页使用，因上user与action中重名，不可用
 				List<MenuType> list=menuTypeService.getAllMenuType();
 				List<Ingredient> list1 = ingerdientService.getAll();
-				Restaurant restaurants=restaurantService.SelectAll();
+				Restaurant restaurants=restaurantService.select();
 				session.put("restlist",restaurants);	//将配料放进session
 				session.put("Ientlist",list1);	//将配料放进session
 				if(userDataBase.getSort().equals("cook")){

@@ -31,7 +31,7 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	}
 
 	@Override
-	public boolean DeletStockDetails(int id) {
+	public boolean deletStockDetails(int id) {
 		boolean sign = false;
 		try {
 			String hql = "delete from StockDetails o Where o.stockId='" + id + "'";
@@ -67,7 +67,7 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	}
 
 	@Override
-	public boolean DeletDetails(int stocksid) {
+	public boolean deletDetails(int stocksid) {
 		boolean sign = false;
 		try {
 			String hql = "delete from StockDetails o where o.id='" + stocksid + "'";
@@ -85,7 +85,7 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	}
 
 	@Override
-	public StockDetails CheckById(int stocksid) {
+	public StockDetails checkById(int stocksid) {
 		@SuppressWarnings("unused")
 		StockDetails stockDetails = new StockDetails();
 		try {

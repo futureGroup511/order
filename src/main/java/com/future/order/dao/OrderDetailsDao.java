@@ -113,7 +113,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 
 	@Override
-	public boolean DeletOrderDetails(int id) {//根据订单ID删除所有该订单所有详细信息
+	public boolean deletOrderDetails(int id) {//根据订单ID删除所有该订单所有详细信息
 		boolean sign = false;
 		try{
 			String hql="delete from OrderDetails o Where o.orderId='"+id+"'";
@@ -131,7 +131,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 
 	@Override
-	public boolean DeletDetails(int detailid) {//根据详细信息的ID删除信息
+	public boolean deletDetails(int detailid) {//根据详细信息的ID删除信息
 		boolean sign = false;
 		try{
 			String hql="delete from OrderDetails o Where o.id="+detailid;
@@ -149,7 +149,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 
 	@Override
-	public OrderDetails CheckById(int detailid) {
+	public OrderDetails checkById(int detailid) {
 		@SuppressWarnings("unused")
 		OrderDetails orderdetails = new OrderDetails();
 		try{
@@ -185,7 +185,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 
 	@Override
-	public boolean UpdateOrder(OrderDetails details) {
+	public boolean updateOrder(OrderDetails details) {
 		boolean sign=false;
 		try{
 			sign=this.updateEntity(details);
@@ -242,7 +242,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		return list;
 	}
 	@Override
-	public List<OrderDetails> SeeByid(int id) {
+	public List<OrderDetails> seeByid(int id) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
 		try{
 			String hql="from OrderDetails o where o.orderId='"+id+"'";

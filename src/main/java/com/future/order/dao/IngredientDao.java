@@ -75,7 +75,7 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	}
 
 	@Override
-	public List<Ingredient> getnews() {
+	public List<Ingredient> getNews() {
 		return selectAll();
 	}
 

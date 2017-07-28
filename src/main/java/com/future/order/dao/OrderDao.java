@@ -34,7 +34,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 
 	}
 	@Override
-	public boolean DeletOrder(int id) {
+	public boolean deletOrder(int id) {
 		boolean sign = false;
 		try{
 			String hql="delete from Order o Where o.id='"+id+"'";
@@ -52,7 +52,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 
 	@Override
-	public boolean PayOrder(int id) {
+	public boolean payOrder(int id) {
 		boolean sign=false;
 		try{
 			String status="已付款";
@@ -123,7 +123,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 	
 	@Override
-	public Order CheckById(int id) {
+	public Order checkById(int id) {
 		@SuppressWarnings("unused")
 		Order order = new Order();
 		try{
@@ -136,7 +136,7 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 
 	@Override
-	public boolean UpdateOrder(Order orders) {
+	public boolean updateOrder(Order orders) {
 		boolean sign=false;
 		try{
 			sign=this.updateEntity(orders);
@@ -272,24 +272,22 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		return pc;
 	}
 	@Override
-	public PageCut<Order> getPagegain(int currentPage, int pageSize, Date starttime, Date endtime,String sign) {
+	public PageCut<Order> getPagegain(int currentPage, int pageSize, String starttime, String endtime,String sign) {
 		String status=null;
 		String hql = null ;
 		String selecthql = null ;
 		int count=0;
-		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
-		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
 		if(sign.equals("one")){
-			selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"'";
-			hql = "select count(*) from Order where createDate between '"+dateStr+"' and '"+dateend+"'";
+			selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"'";
+			hql = "select count(*) from Order where createDate between '"+starttime+"' and '"+endtime+"'";
 		}else if(sign.equals("there")){
 			 status="已付款";
-			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
-			 hql = "select count(*) from Order where createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
+			 hql = "select count(*) from Order where createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
 		}else if(sign.equals("two")){
 			 status="未付款";
-			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
-			 hql = "select count(*) from Order where createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
+			 hql = "select count(*) from Order where createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
 		}
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
@@ -297,19 +295,17 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		return pc;
 	}
 	@Override
-	public List<Order> getGain(Date starttime, Date endtime, String sign) {
+	public List<Order> getGain(String starttime, String endtime, String sign) {
 		String status=null;
 		String hql = null ;
 		String selecthql = null ;
-		String dateStr = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(starttime);
-		String dateend = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(endtime);
 		if(sign.equals("one")){
-			selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"'";
+			selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"'";
 		}else if(sign.equals("there")){
 			 status="已付款";
-			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status='"+status+"'";
+			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status='"+status+"'";
 		}else if(sign.equals("two")){	//当查询条件为未付款时，张金高改
-			 selecthql="from Order o where o.createDate between '"+dateStr+"' and '"+dateend+"' and status <> '已付款'";
+			 selecthql="from Order o where o.createDate between '"+starttime+"' and '"+endtime+"' and status <> '已付款'";
 		}
 		return getEntityList(selecthql);
 	}

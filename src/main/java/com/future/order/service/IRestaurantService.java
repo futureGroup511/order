@@ -17,7 +17,7 @@ public interface IRestaurantService {
 
 	public boolean addRestaurant(Restaurant restaurant);
 
-	public Restaurant SelectAll();
+	public Restaurant select();
 
 	public boolean updateRestaurant(Restaurant restaurant);
 }
