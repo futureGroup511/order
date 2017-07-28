@@ -295,9 +295,4 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		int num=list.size();
 		return num;
 	}
-	@Override
-	public List<OrderDetails> SeeByid(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

@@ -1,0 +1,5 @@
+[INFO] [2017-07-28 11:16:17][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO] [2017-07-28 11:16:18][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Fri Jul 28 11:16:17 CST 2017]; root of context hierarchy
+[INFO] [2017-07-28 11:16:18][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO] [2017-07-28 11:16:18][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-07-28 11:16:18][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring

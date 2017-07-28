@@ -36,7 +36,6 @@ public interface IOrderDetailsService {
 	public boolean updateOrerDetails(int id);
 	public List<OrderDetails> getDetailsOne(int orderId);
 	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize);//wqj 查看未完成菜品
-	public List<OrderDetails> SeeByid(int id);
 	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);//wqj 模糊查询
 	public List<OrderDetails> seeByid(int id);
 
