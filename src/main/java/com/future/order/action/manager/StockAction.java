@@ -48,7 +48,7 @@ public class StockAction extends BaseAction {
 		if (id != 0) {
 			stock = stockService.getStock(id);//用于再次添加进货信息，跳转到添加进货详情的界面
 		} else {
-			boolean sign = stockService.addStock(stock);
+			boolean sign = stockService.addStock(stock);//添加进货信息
 			String mark = "操作失败";
 			if (sign == true) {
 				mark = "添加成功";
@@ -142,7 +142,7 @@ public class StockAction extends BaseAction {
 		request.put("dateend", inquiry);
 		return "select";
 	}
-//用于时间条件查询
+	//用于时间条件查询
 	public String count() {
 		double sumprice = 0;
 		double sum = 0;
@@ -151,6 +151,7 @@ public class StockAction extends BaseAction {
 			starttime = (String) session.get("starttime");
 			endtime = (String) session.get("endtime");
 		}
+		//用于时间条件查询
 		PageCut<Stock> pCut = stockService.getSomePageCut(page, 8, starttime, endtime);
 		list = stockService.getPrice(starttime, endtime);
 		if (pCut.getData().size() == 0) {

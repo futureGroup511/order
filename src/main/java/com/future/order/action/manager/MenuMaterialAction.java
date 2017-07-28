@@ -11,10 +11,10 @@ import com.future.order.entity.MenuMaterial;
 public class MenuMaterialAction extends BaseAction {
 	
 	private MenuMaterial menuMaterial;
-	private int menuId;
-	private int menuMaterialId;
+	private int menuId;		//获得menuid
+	private int menuMaterialId;		//获得菜品配料id
 	
-	public String addMenuMaterial(){
+	public String addMenuMaterial(){	//添加配料
 		if(menuId!=0){		//当入口为管理菜品详情添加新配料时
 			Menu menu = menuService.get(menuId);
 			session.put("menu", menu);
@@ -45,7 +45,7 @@ public class MenuMaterialAction extends BaseAction {
 		return "addMenuMaterial";
 	}
 	
-	public String updateMenuMaterial(){
+	public String updateMenuMaterial(){			//修改某道菜的配料信息
 		List<MenuMaterial> list =  menuMaterialService.getByMenuId(menuId);
 		if(list.size()==0){
 			request.put("materialMsg", "还没有添加配料");
@@ -56,7 +56,7 @@ public class MenuMaterialAction extends BaseAction {
 		return "updateMaterial";
 	}
 	
-	public String updateMaterial(){		//修改菜的配料
+	public String updateMaterial(){		//修改配料信息
 		boolean boo = menuMaterialService.updateMaterial(menuMaterial);
 		if(boo){
 			request.put("materialMsg", "操作成功");
@@ -69,7 +69,7 @@ public class MenuMaterialAction extends BaseAction {
 		return "updateMaterial";
 	}
 	
-	public String deleteMaterial(){
+	public String deleteMaterial(){		//删除配料
 		boolean boo = menuMaterialService.deleteMaterial(menuMaterial);
 		if(boo){
 			request.put("materialMsg", "操作成功");

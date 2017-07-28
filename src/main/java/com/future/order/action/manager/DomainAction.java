@@ -10,10 +10,11 @@ public class DomainAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Domain domain;
-	private int id;
+	private int id;	//获得要获得的域名id
+	
 
 	@Override
-	public String execute() throws Exception {
+	public String execute() throws Exception {		//查找域名
 		Domain domainDb = domainService.getIp();
 		if (domainDb == null) {
 			request.put("mark", "还没有添加域名");
@@ -22,8 +23,7 @@ public class DomainAction extends BaseAction {
 		return SUCCESS;
 	}
 
-	// 添加ip
-	public String addIp() {
+	public String addIp(){		//添加ip
 		boolean boo = domainService.addIp(domain);
 		String mark = "添加失败,已经添加过域名";
 		if (boo) {
@@ -33,8 +33,7 @@ public class DomainAction extends BaseAction {
 		return "addIp";
 	}
 
-	// 删除
-	public String deleteIp() {
+	public String deleteIp(){	//删除域名
 		boolean boo = domainService.delete();
 		String mark = "删除失败";
 		if (boo) {
@@ -44,15 +43,13 @@ public class DomainAction extends BaseAction {
 		return "deleteIp";
 	}
 
-	// 获取IP信息，到达修改界面
-	public String toUpdateIp() {
+	public String toUpdateIp(){			//到达修改界面
 		domain = domainService.getIp();
 		request.put("domain", domain);
 		return "toUpdateIp";
 	}
 
-	// 修改
-	public String updateIp() throws Exception {
+	public String updateIp() throws Exception{	//修改
 		boolean boo = domainService.updateIp(domain);
 		String mark = "修改失败";
 		if (boo) {
