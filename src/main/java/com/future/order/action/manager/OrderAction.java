@@ -92,7 +92,7 @@ public class OrderAction extends BaseAction {
 		return "toPay";
 	}
 
-	public String Pay() {// 用于结账，把订单状态由已处理改为已结账 打印发票
+	public String pay() {// 用于结账，把订单状态由已处理改为已结账 打印发票
 		double favourables = 0;// 优惠金额
 		boolean sign = orderService.payOrder(orders.getId());
 		String mark = "付款失败";
@@ -195,15 +195,15 @@ public class OrderAction extends BaseAction {
 			endtime = (String) session.get("endtime");
 		}
 		sign = (String) session.get("sign");
-		if (sign.equals("one")) {
+		if (sign.equals("all")) {
 			// 获得全部订单信息
 			list = orderService.getGain(starttime, endtime, sign);
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
-		} else if (sign.equals("two")) {
+		} else if (sign.equals("no")) {
 			// 获得全部没有结账的订单信息
 			list = orderService.getGain(starttime, endtime, sign);
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
-		} else if (sign.equals("there")) {
+		} else if (sign.equals("yes")) {
 			list = orderService.getGain(starttime, endtime, sign);
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
 		}
