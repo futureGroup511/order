@@ -43,9 +43,9 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 
 public class OrderDetailAction extends BaseAction {
-	private int menuId;
-	private int ingId;
-	private int OrderId;
+	private int menuId;//菜品ID
+	private int ingId;//配料ID
+	private int OrderId;//订单ID
 
 	public int getOrderId() {
 		return OrderId;
@@ -54,7 +54,7 @@ public class OrderDetailAction extends BaseAction {
 	public void setOrderId(int orderId) {
 		OrderId = orderId;
 	}
-
+	//生成二维码并打印
 	public void reWeiMa() throws Exception {
 		// 设置页面不缓存
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -107,7 +107,7 @@ public class OrderDetailAction extends BaseAction {
 			request.put("messige", messige);
 		}
 	}
-
+	//获取菜单详情
 	public String getMenuMaterial() throws Exception {
 		Menu menu = menuService.get(menuId);
 		request.put("menu", menu);
@@ -120,7 +120,7 @@ public class OrderDetailAction extends BaseAction {
 		request.put("menuMaterial", menuMaterial);
 		return "getMenuMaterial";
 	}
-
+	//获取进货信息
 	public String getStockDate() throws Exception {
 		List<StockDetails> stockDetails = stockDetailsService.getByIngId(ingId, 2);
 		request.put("stockDetails", stockDetails);
