@@ -7,7 +7,9 @@
  */  
 package com.future.order.service;
 
-
+/**
+ * 张金高：此处代码差，不可借鉴
+ */
 import java.util.List;
 
 
@@ -19,9 +21,13 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> CheckDetails(int id);
 	//根据ID删除订单详细信息
 	public boolean deletOrderDetails(int id);
+	//根据ID删除订单详细信息
 	public boolean deletDetails(int detailid);
+	//获取要修改的订单信息
 	public OrderDetails checkById(int detailid);
+	//修改订单详细信息
 	public boolean updateOrder(OrderDetails details);
+	//根据订单ID获取分页的订单详细信息
 	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid);
 	//安李杰加 新添加的菜
 	public Boolean save(OrderDetails orderDetails);
@@ -37,6 +43,7 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> getDetailsOne(int orderId);
 	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize);//wqj 查看未完成菜品
 	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage);//wqj 模糊查询
+	//用于获得该订单，用于打印所显示的数据
 	public List<OrderDetails> seeByid(int id);
 
 	public OrderDetails getDetaill(int tableId);

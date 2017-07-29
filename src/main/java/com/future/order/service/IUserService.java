@@ -31,6 +31,7 @@ public interface IUserService {
 	//删除
 	public boolean deleteUser(User user);
 	//分页
-	public PageCut<User> getPageCut(int curr,int pageSize);
-	public PageCut<User> getSomePageCut(int curr, int pageSize, String ask, String inquiry);
+	public PageCut<User> getPageCut(int curr,int pageSize);//得到成员，分页
+	
+	public PageCut<User> getSomePageCut(int curr, int pageSize, String ask, String inquiry);//得到符合某种条件的成员
 }

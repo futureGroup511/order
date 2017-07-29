@@ -67,7 +67,7 @@ public class MenuTypeAction extends BaseAction {
 		return "update";
 	}
 
-	public String Update() throws FileNotFoundException, IOException {	//修改菜品
+	public String Update() throws FileNotFoundException, IOException {	//修改菜品类型
 		boolean sign=false;
 		if(file==null||file.equals("")){
 			menutype.setImgUrl(menutype.getImgUrl());

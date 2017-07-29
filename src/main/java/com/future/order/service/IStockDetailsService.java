@@ -11,7 +11,6 @@ import com.future.order.util.PageCut;
 
 import java.util.List;
 
-import com.future.order.entity.StockDetails;
 
 /**
  * @author Administrator
@@ -23,7 +22,7 @@ public interface IStockDetailsService {
 	//根据进货ID删除进货详细信息
 	boolean deletStockDetails(int id);
 
-	public List<StockDetails> getAll();
+	public List<StockDetails> getAll();//获得全部进货详情
 
 	public List<StockDetails> getBycreateDate(int ingId);
 	//根据ID删除进货详情
