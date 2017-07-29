@@ -60,16 +60,16 @@
 }
 .cd{
    border:0px;
-   border-radius:2px;
+   border-radius:4px;
    display:inline-block;
    margin-left: 10%;
    margin-top: 10px;
-   width:80%;
+   width:35%;
    text-align: center;
    color: #000;
    line-height: 20px;
    letter-spacing: 10px;
-   height:30px; 
+   height:25px; 
    font-size: 16px;
    background-color: #D41700;
 }
