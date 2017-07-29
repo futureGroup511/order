@@ -36,6 +36,10 @@ public class Inform {
 		this.createDate = createDate;
 	}
 	
+	public Inform() {
+	
+	}
+
 	/**
 	 * @return the id
 	 */

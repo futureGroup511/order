@@ -40,6 +40,32 @@
 	}
 	
 	
+	function dishes() {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			// IE6, IE5 浏览器执行代码
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
+				var result = xmlhttp.responseText;								
+				if(parseInt(result)==1){
+					show_notice('即起成功',2);
+				}else if(parseInt(result)==0){
+					show_notice('叫起成功',2);
+				}
+							
+			}
+		}
+		xmlhttp.open("POST", "cart_dishes", true);
+		xmlhttp.setRequestHeader("Content-type",
+				"application/x-www-form-urlencoded");
+		xmlhttp.send();
+	}
+	
 	function show_notice(str,second,callback){  
 	    var box_id = 'notice_box';  
 	    var tooltipBox = document.getElementById(box_id);  
@@ -112,6 +138,7 @@
      </div>
 </div>
 <input type="button" name="" value="催单"  class="cd" onclick="Reminder()" />
+<input type="button" name="" value="起菜"  class="cd" onclick="dishes()" />
 </c:if>
  <c:if test="${empty orderDetails }">
  <center><h1 class="margin">你还没有下订单</h1></center>
@@ -145,7 +172,7 @@
    function tuicai(){
 	   if('${stat}'=='退菜成功！'){
 		   show_notice('${stat}',1);
-	   }else if('${stat}'=='该菜已完成,退不了'){
+	   }else if('${stat}'=='该菜已做,退不了'){
 		   show_notice('${stat}',1);
 	   }
 	   
