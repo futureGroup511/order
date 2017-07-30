@@ -51,7 +51,8 @@ public class OrderDetails {
 	private double price;//价格
 	@Column(length=4)
 	private String dishes;//起菜(状态：即起/叫起)
-	
+	@Column(length=4)
+	private String  gift;//(赠品和无)
 	public String getDishes() {
 		return dishes;
 	}
@@ -239,12 +240,22 @@ public class OrderDetails {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public String getGift() {
+		return gift;
+	}
+
+	public void setGift(String gift) {
+		this.gift = gift;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderDetails [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", orderId=" + orderId
 				+ ", menuId=" + menuId + ", menuName=" + menuName + ", menuNum=" + menuNum + ", status=" + status
 				+ ", creatDate=" + creatDate + ", remark=" + remark + ", cookId=" + cookId + ", cookName=" + cookName
-				+ ", imgUrl=" + imgUrl + ", price=" + price + "]";
+				+ ", imgUrl=" + imgUrl + ", price=" + price + ", dishes=" + dishes + ", gift=" + gift + "]";
 	}
+
 	
 }

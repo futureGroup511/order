@@ -67,9 +67,9 @@ window.onload=function(){
 					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>
 				</td>
 				<td  class="four">
-<%-- 					<c:if test="${pageCut.status eq '预定'}"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}&sort=cashier">查看详情</a></c:if> --%>
-<%-- 	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}&sort=cashier">查看详情</a></c:if> --%>
-<%-- 	               	<c:if test="${pageCut.status eq '无人'}">无详情</c:if>&nbsp;&nbsp;&nbsp;&nbsp; --%>
+					<c:if test="${pageCut.status eq '预定'}">无赠菜</c:if>
+	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderDetailsAction_giveMenu?tableid=${pageCut.id}&tablename=${pageCut.name}">赠菜</a></c:if>
+	               	<c:if test="${pageCut.status eq '无人'}">无赠菜</c:if>&nbsp;&nbsp;&nbsp;&nbsp;
 	               	<c:if test="${pageCut.status eq '预定'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}">付款</a></c:if>
 	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}">付款</a></c:if>
 	               	<c:if test="${pageCut.status eq '无人'}">无人</c:if>

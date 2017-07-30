@@ -94,7 +94,7 @@ public class OrderAction extends BaseAction {
 		List<OrderDetails> detailslist = new ArrayList<>();
 		List<Payment> list = new ArrayList<>();
 	   if(order==null){
-		   request.put("mark", "没有账单，改一下状态吧");
+		   request.put("mark", "没有账单");
 	   } else {
 			 request.put("orderId", order.getId());//订单id
 			 detailslist= orderDetailsService.selectOrderDetails(order.getId());
