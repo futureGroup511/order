@@ -70,23 +70,21 @@ public class TableManagerAction extends BaseAction {
 	}
 
 	// 修改餐桌的信息
-	public String updateTable() throws Exception {
+	public void updateTable() throws Exception {
 		boolean boo = tablesService.updateTables(table);
-		String updateTableMsg = "修改失败";
+//		int id = table.getId();
+//		Tables updateTables = tablesService.get(id);// 得到被修改的餐桌信息
+//		request.put("updateTables", updateTables);
+//		String updateTableMsg = "操作失败";
 		if (boo) {
-			updateTableMsg = "修改成功";
+//			updateTableMsg = "修改成功";
 			id = table.getId();
 			reWeiMa();
 		}
-		request.put("managerMsg", updateTableMsg);
-		request.put("TableMsg", updateTableMsg);
-		PageCut<Tables> pCut = tablesService.getPageCut(page, 8);
-		request.put("allTables", pCut);
-		if (pCut.getData().size() == 0) {
-			String mark = "没有餐桌";
-			request.put("managerMsg", mark);
-		}
-		return "updateTable";
+//		} else {
+//			updateTableMsg = "修改失败，";
+//		}
+//		request.put("TableMsg", updateTableMsg);
 	}
 
 	// 删除餐桌，同时删除餐桌所对应的二维码图片
@@ -143,16 +141,17 @@ public class TableManagerAction extends BaseAction {
 		if (domain != null) {
 			String IP = domain.getIp();
 			// 设置页面不缓存
-			response.setHeader("Pragma", "No-cache");
-			response.setHeader("Cache-Control", "no-cache");
-			response.setDateHeader("Expires", 0);
+			response.setHeader("Pragma", "No-cache");//指示请求或响应消息不能缓存，禁止浏览器缓存
+			response.setHeader("Cache-Control", "no-cache");//与上通常两者合用，Expires实体报头域给出响应过期的日期和时间
+			response.setDateHeader("Expires", 0);//设置非法的日期格式，如0
 
 			BufferedImage image = null;
 			ServletOutputStream stream = null;
 			// 二维码的图片格式
 			String format = "gif";
 			String path = quest.getScheme() + "://" + IP + ":" + quest.getServerPort() + quest.getContextPath() + "/";
-			String content = path + "customer/customer_toIndex?id=" + id;
+			String content = path + "customer/customer_toIndex?id=" + id;//二维码内容
+			//设置二维码大小
 			int width2 = 200;
 			int height2 = 200;
 
@@ -172,13 +171,16 @@ public class TableManagerAction extends BaseAction {
 						image.setRGB(x, y, bitMatrix.get(x, y) ? 0xFF000000 : 0xFFFFFFFF); // 二维码图片为黑白两色
 					}
 				}
-				// ImageIO.write(image,"gif",response.getOutputStream());
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
 			// 只有用这种解码方式才不出现乱码
-			String s = "attachment;filename=" + new String("No" + id + ".gif");
+			String s = "attachment;filename=" + new String("No" + id + ".gif");//二维码的名字
 			response.addHeader("Content-Disposition", s);
+			/*Content-Disposition为属性名
+			disposition-type是以什么方式下载，如attachment为以附件方式下载
+			disposition-parm为默认保存时的文件名 
+			服务端向客户端游览器发送文件时，使用attachment，这样浏览器会提示保存还是打开*/
 			OutputStream os = new BufferedOutputStream(response.getOutputStream());
 			response.setContentType("image/gif");
 			ImageIO.write(image, format, os);

@@ -351,4 +351,9 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		return sign;
 	}
 
+	@Override
+	public Order selectOrder(int id) {
+		String hql = "from Order o where o.status<> '已付款' and o.tableId='"+id+"'";
+			return (Order) uniqueResult(hql);
+	}
 }

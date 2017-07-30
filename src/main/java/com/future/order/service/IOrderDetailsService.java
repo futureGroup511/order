@@ -57,7 +57,9 @@ public interface IOrderDetailsService {
 	//获取菜单祥情中菜的状态安李杰用
 	public OrderDetails checkStatus(int id);
 	//根据ID判断订单详细信息有无信息
-	public int getSomenum(int id);
+	public int getSomenum(int id);
+	//根据订单ID获得订单详情，不分页
+	public List<OrderDetails> selectOrderDetails(int id);
 }
 	
 

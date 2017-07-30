@@ -294,4 +294,10 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		int num=list.size();
 		return num;
 	}
+	@Override
+	public List<OrderDetails> selectOrderDetails(int id) {
+		String hql ="from OrderDetails where orderId='"+id+"'";
+		List<OrderDetails> list=getEntityList(hql);
+		return list;
+	}
 }

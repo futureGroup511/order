@@ -18,6 +18,7 @@ import com.future.order.service.IMenuService;
 import com.future.order.service.IMenuTypeService;
 import com.future.order.service.IOrderDetailsService;
 import com.future.order.service.IOrderService;
+import com.future.order.service.IPaymentService;
 import com.future.order.service.IRestaurantService;
 import com.future.order.service.IShopCartService;
 import com.future.order.service.IStockDetailsService;
@@ -26,16 +27,16 @@ import com.future.order.service.ITablesService;
 import com.future.order.service.IUserService;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BaseAction extends ActionSupport implements SessionAware,RequestAware{
+public class BaseAction extends ActionSupport implements SessionAware, RequestAware {
 
 	/**
 	 * 这是一些对于session、request的一种定义以便在后来对其直接的引用
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	protected Map<String,Object> session;
-	protected Map<String,Object> request;
-	//service 注入
+
+	protected Map<String, Object> session;
+	protected Map<String, Object> request;
+	// service 注入
 	@Resource
 	protected IInformService informService;
 	@Resource
@@ -51,7 +52,7 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	@Resource
 	protected IOrderService orderService;
 	@Resource
-	protected IRestaurantService  restaurantService;
+	protected IRestaurantService restaurantService;
 	@Resource
 	protected IShopCartService shopCartService;
 	@Resource
@@ -64,26 +65,30 @@ public class BaseAction extends ActionSupport implements SessionAware,RequestAwa
 	protected IUserService userService;
 	@Resource
 	protected IDomainService domainService;
-	
-	protected HttpServletResponse getResponse(){
+	@Resource
+	protected IPaymentService paymentService;
+
+	protected HttpServletResponse getResponse() {
 		return ServletActionContext.getResponse();
 	}
-	
-	protected ServletContext getContext(){
+
+	protected ServletContext getContext() {
 		return ServletActionContext.getServletContext();
 	}
 
 	@Override
 	public void setSession(Map<String, Object> session) {
-		this.session=session;
+		this.session = session;
 	}
-	public Map<String,Object> getSession(){
+
+	public Map<String, Object> getSession() {
 		return session;
 	}
-	
+
 	public Map<String, Object> getRequest() {
 		return request;
 	}
+
 	@Override
 	public void setRequest(Map<String, Object> request) {
 		this.request = request;

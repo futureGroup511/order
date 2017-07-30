@@ -22,7 +22,7 @@ public class Tables {
 	@Column(length=10)
 	private String name;
 	@Column(length=10)
-	private String status;//是否有人（有人、无人）
+	private String status;//是否有人（有人、无人,预定）
 	@Column(length=255)
 	private String remark;//备注（备用）
 	/**

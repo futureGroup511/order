@@ -9,7 +9,7 @@
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatetable.css">
 </head>
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
-
+<center>${TableMsg}</center>
 	<div class="wall">
         <form action="${rootPath}manage/TableManager_updateTable" method="post">
             <label>餐<span style="margin-right: 10px;">桌</span> id:</label>
@@ -20,6 +20,7 @@
 	        <select name="table.status">
 	            <option value="有人" <c:if test='${updateTables.status eq "有人"}'> selected="selected"</c:if>>有人</option>
 	            <option value="无人" <c:if test='${updateTables.status eq "无人"}'> selected="selected"</c:if>>无人</option>
+	        	 <option value="预定" <c:if test='${updateTables.status eq "预定"}'> selected="selected"</c:if>>预定</option>
 	        </select><br>
               <button style="background-color: #1BAFE0" type="submit">确认修改</button>
         </form>
