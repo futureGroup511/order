@@ -7,7 +7,9 @@
  */  
 package com.future.order.service;
 
-
+/**
+ * 张金高：此处代码差，不可借鉴
+ */
 import java.util.List;
 
 

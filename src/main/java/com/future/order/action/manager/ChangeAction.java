@@ -12,11 +12,20 @@ import com.future.order.entity.User;
  * @author 金高
  *
  */
+<<<<<<< HEAD
 public class ChangeAction extends BaseAction {
 
 	private String sort;// 获得用户的身份
 
 	public String add() {
+=======
+public class ChangeAction extends BaseAction{
+	
+	private Date starttime;//获得查询的开始时间
+	private Date endtime;//获得查询的截止时间
+	private String sort;//获得用户的身份
+	public String add(){
+>>>>>>> 927bcf239c52996403109674f3f1e476ea814c12
 		return "add";
 	}
 
