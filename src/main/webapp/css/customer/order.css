@@ -29,6 +29,21 @@
     padding:10px 10px;
     line-height:22px;
 }
+.infors div{
+	display:inline-block;
+	background-color:#dadada;
+	border-radius:4px;
+	width:50px;
+	margin-right:20px;
+	margin-top:5px;
+}
+.infors div a{
+	line-height:15px;
+	margin-right:10px;
+	color:#000;
+	height:15px;
+	font-size:12px;
+}
 .ding .p3{
     font-size:12px;
     line-height:18px;
@@ -59,19 +74,30 @@
   color:green;
 }
 .cd{
-   border:0px;
+   width:50px;
+   line-height: 15px;
+   margin-right:20px;
+   height:15px;
+   font-size:12px;
+   padding:0px 10px;
+   margin-top:5px;
+}
+.cd2{
+    border:0px;
    border-radius:4px;
-   display:inline-block;
-   margin-left: 10%;
-   margin-top: 10px;
-   width:35%;
-   text-align: center;
+   text-align:	 center;
    color: #000;
-   line-height: 20px;
-   letter-spacing: 10px;
-   height:25px; 
-   font-size: 16px;
-   background-color: #D41700;
+}
+.cd1{
+    font-size: 14px;
+   display:inline-block;
+   width:80%;
+   line-height: 30px;
+   margin-right:20px;
+   height:30px; 
+   background-color:#D41700;
+   margin-left:10%;
+   margin-top:10px;
 }
 @media screen and (max-width: 400px){
 	.num div p{
@@ -87,7 +113,7 @@
 	width:35%;
 	}
 }
-@media screen and (max-width: 350px){
+@media screen and (max-width: 360px){
 	.num div p{
 	 font-size:12px;
 	}
