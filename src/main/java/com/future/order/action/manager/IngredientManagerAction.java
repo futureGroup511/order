@@ -14,7 +14,7 @@ public class IngredientManagerAction extends BaseAction {
 	private String inquiry;	//查询内容
 	private String ask;	//查询条件
 
-	public String execute() {
+	public String execute() {//遍历配料，分页
 		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 8);
 		request.put("allIngredient", pCut);
 		if (pCut.getData().size() == 0) {

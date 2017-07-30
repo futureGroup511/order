@@ -90,7 +90,7 @@ public class CartAction extends BaseAction {
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsTwo(myId);
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
-				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice());
+				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起");
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -105,7 +105,7 @@ public class CartAction extends BaseAction {
 					}
 				}
 				if (sign == 0) {
-					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice());
+					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起");
 						Boolean boolt = orderDetailsService.save(orderDetails);
 				  }
 			}
@@ -204,12 +204,12 @@ public class CartAction extends BaseAction {
 	public String getBack() throws Exception{
 		int tableId=(int)session.get("userId");
 		OrderDetails orderDetail=orderDetailsService.checkStatus(id);
-		if(orderDetail.getStatus().equals("已完成")){
-			String info="该菜已完成,退不了";
-			request.put("stat",info);
-		}else{
+		if(orderDetail.getStatus().equals("未完成")){
 			boolean bool=orderDetailsService.back(id);
 			String info="退菜成功！";
+			request.put("stat",info);
+		}else{
+			String info="该菜已做,退不了";
 			request.put("stat",info);
 		}
 		Order order=orderService.getOrder1(tableId);
@@ -269,6 +269,23 @@ public class CartAction extends BaseAction {
 			this.getResponse().getWriter().println(0);
 		}
 	}
+	
+	//利用ajax实现起菜的功能
+	public void dishes() throws Exception{
+		//根据订单id获取订单详情
+		OrderDetails en=orderDetailsService.checkStatus(id);
+		//修改起菜的两个状态
+			if(en.getDishes().equals("即起")){
+				en.setDishes("叫起");
+				Boolean bool = orderDetailsService.updatee(en);
+				this.getResponse().getWriter().println(0);
+			}else{
+				en.setDishes("即起");
+				Boolean bool = orderDetailsService.updatee(en);
+				this.getResponse().getWriter().println(1);
+			}
+	}
+	
 	//set和get方法
 	public int getId() {
 		return id;

@@ -17,8 +17,9 @@ import com.future.order.util.PageCut;
  *
  */
 public interface IIngerdientService {
-	//学长加
+
 	public List<Ingredient> getAll();//得到全部配料
+	
 	public boolean addIngredient(Ingredient ingredient);	//添加配料
 
 	public Ingredient getById(int id);	//根据id查找配料
@@ -30,12 +31,14 @@ public interface IIngerdientService {
 	public PageCut<Ingredient> getPageCut(int curr,int pageSize);	//分页
 	
 	public List<Ingredient> getByMenuId(int menuId);//根据菜品id得到菜的配料
+	
 	//得到所有配料，进货详情使用
 	public List<Ingredient> getNews();
 	
-	public boolean updeteNum(int id, int num);
-	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
-	//执行有条件查询
-	public List<Ingredient> getByIdAll(int id);
+	public boolean updeteNum(int id, int num);//更改配料库存量
+	
+	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String ask, String inquiry);//得到符合某种条件的配料，分页
+	
+	public List<Ingredient> getByIdAll(int id);//执行有条件查询
 
 }
