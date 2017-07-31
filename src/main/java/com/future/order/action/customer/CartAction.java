@@ -90,7 +90,7 @@ public class CartAction extends BaseAction {
 		List<OrderDetails> orderDetail = orderDetailsService.getDetailsTwo(myId);
 		if (orderDetail.isEmpty()) {
 			for (ShopCart item : shopCarts) {
-				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","无");
+				OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","赠品");
 					Boolean booll = orderDetailsService.save(orderDetails);
 			}
 		} else {
@@ -108,7 +108,7 @@ public class CartAction extends BaseAction {
 					}
 				}
 				if(mark == 0){	
-					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","无");
+					OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","赠品");
 					Boolean boolt = orderDetailsService.save(orderDetails);
 				}
 				if (mark!=1&&mark!=0) {
@@ -120,7 +120,7 @@ public class CartAction extends BaseAction {
 						}
 					}
 					if(sign == 0){
-						OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","无");
+						OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","赠品");
 							Boolean boolt = orderDetailsService.save(orderDetails);
 					}
 				}
@@ -292,21 +292,31 @@ public class CartAction extends BaseAction {
 		}
 	}
 	
-	//利用ajax实现起菜的功能
-	public void dishes() throws Exception{
-		//根据订单id获取订单详情
-		OrderDetails en=orderDetailsService.checkStatus(id);
-		//修改起菜的两个状态
-			if(en.getDishes().equals("即起")){
-				en.setDishes("叫起");
-				Boolean bool = orderDetailsService.updatee(en);
-				this.getResponse().getWriter().println(0);
-			}else{
-				en.setDishes("即起");
-				Boolean bool = orderDetailsService.updatee(en);
-				this.getResponse().getWriter().println(1);
+		//利用ajax实现起菜的功能
+		public void dishes() throws Exception{
+			int tableId = (int) session.get("userId");
+			//获取最新的订单号(本桌的)
+			Order order=orderService.getOrder1(tableId);
+			//根据订单id获取订单详情
+			List<OrderDetails> orderDetails = orderDetailsService.getDetailsOne(order.getId());
+			//修改起菜的两个状态
+			for(OrderDetails item:orderDetails){
+				List<Menu> menus=menuService.CheckDetails(item.getMenuId());
+				  	for(Menu it:menus){
+				  	  if(!it.getTypeName().equals("凉菜")){
+							if(item.getDishes().equals("即起")){
+								item.setDishes("叫起");
+								Boolean bool = orderDetailsService.updatee(item);
+								this.getResponse().getWriter().println(0);
+							}else{
+								item.setDishes("即起");
+								Boolean bool = orderDetailsService.updatee(item);
+								this.getResponse().getWriter().println(1);
+							}
+				  	  }
+				  }
 			}
-	}
+		}
 	
 	//set和get方法
 	public int getId() {
