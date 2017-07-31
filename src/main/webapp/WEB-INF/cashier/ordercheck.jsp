@@ -89,7 +89,7 @@ window.onload=function(){
 	                <td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
 	               <td  class="four">
 	               		<a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}&sort=cashier">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	               		<c:if test="${item.status ne '已付款'}"><a href="${rootPath}manage/OrderAction_toPay?id=${item.id}">付款</a></c:if>
+	               		<c:if test="${item.status ne '已付款'}"><a href="${rootPath}manage/OrderAction_toPay?id=${item.id}&IDcard=order">付款</a></c:if>
 	               		<c:if test="${item.status eq '已付款'}">已付款</c:if>
 	               </td>      
 	            </tr>  

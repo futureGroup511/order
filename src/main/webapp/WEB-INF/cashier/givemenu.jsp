@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<td><span>数量：</span></td>
-				<td><input type="text"  name="details.menuNum" id="num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></td>
+				<td><input type="text"  name="details.menuNum" id="num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"></td>
 			</tr>
 			<tr>
 			<td> <input id="btn" type="submit" value="确认赠菜"></td>

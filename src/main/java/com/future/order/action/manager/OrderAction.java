@@ -27,6 +27,7 @@ public class OrderAction extends BaseAction {
 	private int id;
 	private Order orders;
 	private String sign = "all";//判断付款/未付款的条件
+	private String IDcard;
 	private String ask;//查询属性名
 	private String inquiry;//查询属性值
 	private String starttime;//开始时间
@@ -90,7 +91,7 @@ public class OrderAction extends BaseAction {
 	}
 
 	public String toPay() {// 转发到结账界面
-		Order order = orderService.selectOrder(id);
+		Order order = orderService.selectOrder(id,sign);
 		List<OrderDetails> detailslist = new ArrayList<>();
 		List<Payment> list = new ArrayList<>();
 	   if(order==null){
@@ -365,6 +366,14 @@ public class OrderAction extends BaseAction {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public String getIDcard() {
+		return IDcard;
+	}
+
+	public void setIDcard(String iDcard) {
+		IDcard = iDcard;
 	}
 
 }

@@ -71,7 +71,7 @@ window.onload=function(){
 	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderDetailsAction_giveMenu?tableid=${pageCut.id}&tablename=${pageCut.name}">赠菜</a></c:if>
 	               	<c:if test="${pageCut.status eq '无人'}">无赠菜</c:if>&nbsp;&nbsp;&nbsp;&nbsp;
 	               	<c:if test="${pageCut.status eq '预定'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}">付款</a></c:if>
-	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}">付款</a></c:if>
+	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}&IDcard=table">付款</a></c:if>
 	               	<c:if test="${pageCut.status eq '无人'}">无人</c:if>
 	             </td>    
 			</tr>

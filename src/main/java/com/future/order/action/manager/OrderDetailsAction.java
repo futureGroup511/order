@@ -100,7 +100,7 @@ public class OrderDetailsAction extends BaseAction {
 	   int tabid = (int) session.get("tableid");
 	   String tabname = (String) session.get("tablename");
 	   tabname =  new String(tabname.getBytes("ISO-8859-1"),"utf-8");
-	   Order order = orderService.selectOrder(tabid);
+	   Order order = orderService.selectOrder(tabid,"table");
 	   if(order==null){
 		   request.put("mark", "顾客没有消费，不能赠菜");
 	   }else{

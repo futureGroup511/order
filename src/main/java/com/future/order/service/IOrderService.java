@@ -60,6 +60,6 @@ public interface IOrderService {
 	//安李杰加 删除订单
 	public boolean delete(int id);
 	//根据餐桌ID查找订单详情
-	public Order selectOrder(int id);
+	public Order selectOrder(int id, String sign);
 	
 }
