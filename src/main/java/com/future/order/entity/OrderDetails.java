@@ -51,7 +51,18 @@ public class OrderDetails {
 	private double price;//价格
 	@Column(length=4)
 	private String dishes;//起菜(状态：即起/叫起)
+	@Column(length=4)
+	private String gift;//（赠品和无)
 	
+	
+	public String getGift() {
+		return gift;
+	}
+
+	public void setGift(String gift) {
+		this.gift = gift;
+	}
+
 	public String getDishes() {
 		return dishes;
 	}
@@ -63,7 +74,7 @@ public class OrderDetails {
 		super();
 	}
 	public OrderDetails(int tableId, String tableName, int orderId, int menuId, String menuName, int menuNum,
-			String status, Date creatDate, String remark,String imgUrl, double price,String dishes) {
+			String status, Date creatDate, String remark,String imgUrl, double price,String dishes,String gift) {
 		super();
 		this.tableId = tableId;
 		this.tableName = tableName;
@@ -77,6 +88,7 @@ public class OrderDetails {
 		this.imgUrl = imgUrl;
 		this.price = price;
 		this.dishes = dishes;
+		this.gift=gift;
 	}
 	/**
 	 * @return the id

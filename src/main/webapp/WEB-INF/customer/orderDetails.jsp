@@ -112,11 +112,17 @@
     	<img src="${rootPath}uploadImg/${o.imgUrl}" alt="" width="100px" height="90px">
     </div>
     <div class="right infors">
-       <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}"><p style="color:#000"><b>${o.menuName}</b></p></a>
+       <a href="${rootPath}customer/customer_getMenuMaterial?id=${o.menuId}" style="width:60%;">
+       <p style="color:#000; width:60%;">
+       <b>${o.menuName}</b>
+       </p>
+       </a>
+        <c:if test="${o.gift == '赠品' }">
+	   	      <p class="right zengpin">${o.gift}</p>
+	    </c:if>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
        <p>数量：${o.menuNum}  <input type="button" name="" value="起菜"  class="cd cd2 right" onclick="dishes(${o.id})" />  </p>   
        <p class="left" style="display:inline-block">状态：</p><p class="green pppp1"  style="display:inline-block">${o.status}</p>
-
        <div class="right divv1">
 	       <c:if test="${o.status=='未完成'}">
 	       <a class="right" href="${rootPath}customer/cart_getBack?id=${o.id}" >退菜</a>
