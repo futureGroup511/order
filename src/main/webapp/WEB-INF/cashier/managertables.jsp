@@ -48,10 +48,10 @@ window.onload=function(){
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
          <tr>
-            <th style="width: 190px;">餐桌名称</th>
+            <th style="width: 130px;">餐桌名称</th>
             <th>状态</th>
             <th>修改</th>
-            <th>操作</th>
+            <th style="width: 130px;">操作</th>
           </tr>
          </thead>
         <tbody>

@@ -62,7 +62,7 @@ body {
  .sidebar-collapse{
       overflow: hidden;
       border: 0px solid black;
-      width: 50px;
+      width: 13%;
       margin-left:-15px; 
       font-size: 0.9vw;
       height: 600px;
