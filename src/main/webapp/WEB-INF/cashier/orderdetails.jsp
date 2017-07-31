@@ -45,7 +45,8 @@
              <td>菜品状态</td>
              <td>订单时间</td>
              <td>厨师id</td>
-             <td>厨师姓名</td>         
+             <td>厨师姓名</td>
+             <td>类别</td>        
            </tr>
                   	 <c:forEach items="${detailspc.data}" var="item">  
 	            <tr>
@@ -60,6 +61,8 @@
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
+	                <td><c:if test="${item.gift eq null}">非赠品</c:if>
+	           ${item.gift}</td>
 	            </tr>  
         	</c:forEach>          
          </tbody>

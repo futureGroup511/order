@@ -112,7 +112,9 @@
 			<result>/WEB-INF/admin/orderdetails.jsp</result>
 			<result name="update">/WEB-INF/admin/updatedetails.jsp</result>
 			<result name="cashierDatail">/WEB-INF/cashier/orderdetails.jsp</result>
+<!-- 			收银员部分 -->
 			<result name="givemenu">/WEB-INF/cashier/givemenu.jsp</result>
+			<result name="ensureGive">/WEB-INF/cashier/givemenu.jsp</result>
 		</action>
 		
 		<action name="StockAction_*" method="{1}" class="com.future.order.action.manager.StockAction">

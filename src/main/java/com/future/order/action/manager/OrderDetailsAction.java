@@ -1,5 +1,7 @@
 package com.future.order.action.manager;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
@@ -94,19 +96,38 @@ public class OrderDetailsAction extends BaseAction {
 		session.put("tablename", tablename);
  		return "givemenu";
 	}
-	public String ensureGive(){
+	public String ensureGive() throws UnsupportedEncodingException{
 	   int tabid = (int) session.get("tableid");
 	   String tabname = (String) session.get("tablename");
+	   tabname =  new String(tabname.getBytes("ISO-8859-1"),"utf-8");
 	   Order order = orderService.selectOrder(tabid);
 	   if(order==null){
 		   request.put("mark", "顾客没有消费，不能赠菜");
-	   }
+	   }else{
 		details.setTableId(tabid);
 		details.setTableName(tabname);
 		details.setGift("赠品");
+		details.setStatus("未完成");
+		details.setDishes("即起");
+		details.setCreatDate(new Date());
 		details.setOrderId(order.getId());
-		
-		return sort;
+		List<Menu> list =menuService.getAll();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getName().equals(details.getMenuName())){
+				details.setMenuId(list.get(i).getId());
+				details.setPrice(list.get(i).getPrice());
+				details.setImgUrl(list.get(i).getImgUrl());
+			}
+		}
+		if(orderDetailsService.save(details)){
+			request.put("mark", "赠送成功");
+		}else{
+			request.put("mark", "赠送失败，请重新尝试");
+		}
+	   }
+	   List<Menu> list =menuService.getAll();
+	   request.put("menulist", list);
+		return "ensureGive";
 	}
 	public int getId() {
 		return id;
