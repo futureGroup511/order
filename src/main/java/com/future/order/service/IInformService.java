@@ -22,6 +22,9 @@ public interface IInformService {
 	public List<Inform> getAll();
 	//存催单信息 安李杰用
 	Boolean save(Inform inform);
-	PageCut<Inform> getPageCut(int curr, int pageSize);
+	//wqj催单
+	public PageCut<Inform> getPageCut(int curr, int pageSize);
+	//wqj催单前三条
+	public List<Inform> getTop();
 
 }

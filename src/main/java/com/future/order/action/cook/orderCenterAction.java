@@ -45,8 +45,10 @@ public class orderCenterAction extends BaseAction {
 	
 	//查看未完成菜品
 	public String unfinishdmenu() {
+		List<Inform> inform=informService.getTop();
 		PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
 		request.put("paCut",pCut);
+		request.put("inform",inform);
 		return "check";
 	}
 	
@@ -64,9 +66,11 @@ public class orderCenterAction extends BaseAction {
 		username = me.getName();
 		session.put("ordeID", Orderid);
 		session.put("itemid", Orderid);
+		List<Inform> inform=informService.getTop();
 		boolean menu=orderService.updetemenu(Orderid,id,username);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
+		request.put("inform",inform);
 		return "orderdetail";
 	}
 	
@@ -75,14 +79,41 @@ public class orderCenterAction extends BaseAction {
 		User me = (User) session.get("cook"); 
 		id = me.getId();
 		username = me.getName();
-		boolean u=orderService.updetemenu(Orderid, id, username);
+		List<Inform> inform=informService.getTop();
 		boolean m=orderDetailsService.updet(i,id,username);
 		updateIngredient(menuId);
 		updateOrder(Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid,page, 5);
+		request.put("inform",inform);
 		request.put("paCut", pCut);
 		return "orderdetail";
 	}
+	//修改菜品状态为处理中
+	public String deal() {
+		User me = (User) session.get("cook"); 
+		id = me.getId();
+		username = me.getName();
+		List<Inform> inform=informService.getTop();
+		boolean u=orderService.updetemenu(Orderid, id, username);
+		boolean m=orderDetailsService.deal(i,id,username);
+		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid,page, 5);
+		request.put("paCut", pCut);
+		request.put("inform", inform);
+		return "orderdetail";
+	}
+	//修改菜品状态为处理中
+		public String dealUnfinish() {
+			User me = (User) session.get("cook"); 
+			id = me.getId();
+			username = me.getName();
+			List<Inform> inform=informService.getTop();
+			boolean u=orderService.updetemenu(Orderid, id, username);
+			boolean m=orderDetailsService.deal(i,id,username);
+			PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
+			request.put("paCut", pCut);
+			request.put("inform", inform);
+			return "check";
+		}
 	
 	//修改菜品状态(传入OrderId)
 	public String checko() {
@@ -90,11 +121,13 @@ public class orderCenterAction extends BaseAction {
 		id = me.getId();
 		username = me.getName();
 		session.put("itemid", Orderid);
+		List<Inform> inform=informService.getTop();
 		boolean menu=orderService.updetemenu(Orderid,id,username);
 		boolean m=orderDetailsService.updet(i,id,username);
 		updateIngredient(menuId);
 		updateOrder(Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
+		request.put("inform", inform);
 		request.put("paCut", pCut);
 		return "check";
 	}
@@ -102,8 +135,10 @@ public class orderCenterAction extends BaseAction {
 	//查看餐桌详情,传入TableId
 	public String check() {
 		session.put("itemid", Orderid);
+		List<Inform> inform=informService.getTop();
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid, page, 5);
 		request.put("paCut",pCut);
+		request.put("inform",inform);
 		return "orderdetail";
 	}
 	
@@ -163,7 +198,7 @@ public class orderCenterAction extends BaseAction {
 				n.add(a);
 			}
 			if(list.size()==n.size()) {
-				boolean g=orderService.updateOrder((int) session.get("itemid"));
+				boolean g=orderService.updateOrder(Orderid);
 			}
 		}
 	}

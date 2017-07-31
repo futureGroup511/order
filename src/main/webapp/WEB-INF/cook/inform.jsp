@@ -23,14 +23,11 @@
          margin-right:60px; 
         cursor: pointer;
     }
-     .pag{
-        position: relative;
-        top:-50px;
-        left:1000px;
-        /*float: right;
-        margin-top: -90px;
-        margin-right:60px; */
-     }
+  .pag {
+	float: right;
+	margin-top: -100px;
+	margin-right: 0px;
+}
         table{
         /*  position: relative;
           top: 10px;
@@ -42,7 +39,6 @@
          }
         
         #table1 thead td{
-
             border: 1px solid #c6c6c6;
             background-color: #e8e7e3;
              height: 40px;
