@@ -145,7 +145,7 @@
      </div>
 </div>
 <input type="button" name="" value="催单"  class="cd1" onclick="Reminder()" />
-<input type="button" name="" value="起菜"  class="cd1" onclick="dishes()" />
+<input type="button" name="" value="即起"  class="cd1" onclick="dishes()" id="ins" />
 </c:if>
  <c:if test="${empty orderDetails }">
  <center><h1 class="margin">你还没有下订单</h1></center>
@@ -184,6 +184,21 @@
 	   }
 	   
    }
+  function $(b){
+	  return document.getElementById(b);
+  }
+  var in1 = $('ins');
+  var c = true;
+  in1.addEventListener("click",function(){ 
+	  c=!c;
+	  if(c){
+		  in1.value = "即起";
+	  }
+	  else{
+		  in1.value = "叫起";
+	  }
+  }
+  )
      
 </script>
 </html>
