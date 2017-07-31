@@ -37,14 +37,17 @@ public interface IOrderDetailsService {
 
 	public OrderDetails getDetaill(int tableId);
 	public List<OrderDetails> getDetailsTwo(int orderId);
-
-	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);// wqj 由餐桌ID查询餐桌信息
+	// wqj 由餐桌ID查询餐桌信息
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
 	public boolean updet(int id, int idd, String UserName);
-	public List<OrderDetails> CheckDe(int id);//wqj 根据订单id查询所有该订单的详细信息
+	//wqj 根据订单id查询所有该订单的详细信息
+	public List<OrderDetails> CheckDe(int id);
 	public boolean back(int id);
 	public OrderDetails checkStatus(int id);
 	//根据ID判断订单详细信息有无信息
-	public int getSomenum(int id);
+	public int getSomenum(int id);
+	//wqj修改菜品状态
+	public boolean deal(int id, int idd, String UserName);
 }
 	
 

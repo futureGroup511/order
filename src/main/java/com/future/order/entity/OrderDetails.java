@@ -49,6 +49,8 @@ public class OrderDetails {
 	private String imgUrl;
 	@Column(length=4)
 	private double price;//价格
+	@Column(length=4)
+	private String dishes;//起菜(状态：即起/叫起)
 	
 	
 	public OrderDetails(){

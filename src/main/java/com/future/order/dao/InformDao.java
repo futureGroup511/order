@@ -35,6 +35,15 @@ public class InformDao extends BaseDao<Inform>  implements IInformService {
 		return list;
 	}
 	@Override
+	public List<Inform> getTop(){
+		int num = 3;
+		String sql = "select * from tb_inform order by createDate desc limit "
+				+ num;
+		return this.executeSQLQuery(sql);
+		
+		
+	}
+	@Override
 	public PageCut<Inform> getPageCut(int curr, int pageSize) {
 		String hql = "select count(*) from Inform";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
@@ -42,6 +51,7 @@ public class InformDao extends BaseDao<Inform>  implements IInformService {
 		pc.setData(this.getEntityLimitList("from Inform a order by a.createDate asc", (curr-1)*pageSize, pageSize));
 		return pc;
 	}
+	
 		@Override
 		public Boolean save(Inform inform) {
 			return this.saveEntity(inform);
