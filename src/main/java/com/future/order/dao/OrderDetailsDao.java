@@ -81,13 +81,13 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize) {
 		String status = "未完成";
 		String status1 = "处理中";
-		String dishes = "叫起";
+		String dishes = "即起";
 		String hql ;
 		int count=0;
 		hql = "select count(*) from OrderDetails o where o.status='"+status+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='" + status + "' or o.status='" + status1 +"' order by  o.dishes asc,o.creatDate asc ", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='" + status + "' or o.status='" + status1 +"' and o.dishes='" + dishes + "' order by o.creatDate asc ", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	
@@ -166,11 +166,11 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		public PageCut<OrderDetails> Check(int tableId,int currentPage, int pageSize) {
 			String hql ;
 			int count=0;
-			String dishes="叫起";
+			String dishes="即起";
 			hql = "select count(*) from OrderDetails o where o.orderId='"+tableId+"'";
 			count = ((Long) this.uniqueResult(hql)).intValue();
 			PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.orderId='"+tableId+"' order by o.dishes asc ", (currentPage-1)*pageSize, pageSize));
+			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.orderId = '" + tableId + "' and o.dishes = '" + dishes + "'", (currentPage-1)*pageSize, pageSize));
 			return pc;
 	}
 	@Override
