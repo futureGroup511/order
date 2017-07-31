@@ -30,7 +30,7 @@
   }
   #ifr{
     border: none;
-    width: 85%;
+    width: 88%;
     height: 570px;
     float: left;
     margin: 0;
@@ -58,7 +58,7 @@
   }
   .sidebar-collapse{
       border: 0px solid black;
-      width: 15%;
+      width: 150px;
       height: 600px;
       float: left;
       background-color: #008af6;
@@ -69,7 +69,8 @@
   }
  
   .sidebar-collapse .nav-second-level  li a {
-      padding-left: 35px;
+      padding-left: 25px;
+      text-index:20px;
       color: black;
       font-size: 0.9em;
     
@@ -84,13 +85,13 @@
   .sidebar-collapse .nav > li > a {
       color: #fff;
       background: #1f93ed;
-      padding: 15px 25px;
-      text-indent:10%; 
+      padding: 15px 15px;
+      text-indent:5%; 
       border-bottom: 1px solid #2F2E31;
   }
-  .sidebar-collapse > .nav > li > a {
-      padding: 15px 10px;
-  }
+  /* .sidebar-collapse > .nav > li > a {
+      padding: 15px 2px;
+  } */
   .sidebar-collapse .nav > li > a:hover{
       background: #1d5aa4;
       outline: 0;

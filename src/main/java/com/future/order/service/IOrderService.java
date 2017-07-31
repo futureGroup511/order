@@ -59,5 +59,7 @@ public interface IOrderService {
 	public List<Order> getPrice(String ask, String inquiry);
 	//安李杰加 删除订单
 	public boolean delete(int id);
+	//根据餐桌ID查找订单详情
+	public Order selectOrder(int id);
 	
 }

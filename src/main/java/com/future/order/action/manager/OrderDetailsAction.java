@@ -1,8 +1,12 @@
 package com.future.order.action.manager;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Menu;
+import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.util.PageCut;
 
@@ -18,6 +22,8 @@ public class OrderDetailsAction extends BaseAction {
 	private int id;
 	private int detailid;
 	private int page = 1;
+	private int tableid;//餐桌ID
+	private String tablename;//餐桌名称
 	private OrderDetails details;
 	private String sort;// 判断用户的身份
 	//把订单ID放入session中，方便下面的方法使用
@@ -83,7 +89,46 @@ public class OrderDetailsAction extends BaseAction {
 		request.put("orderlist", list);
 		return "print";
 	}
-
+	public String giveMenu(){
+		List<Menu> list =menuService.getAll();
+		request.put("menulist", list);
+		session.put("tableid", tableid);
+		session.put("tablename", tablename);
+ 		return "givemenu";
+	}
+	public String ensureGive() throws UnsupportedEncodingException{
+	   int tabid = (int) session.get("tableid");
+	   String tabname = (String) session.get("tablename");
+	   tabname =  new String(tabname.getBytes("ISO-8859-1"),"utf-8");
+	   Order order = orderService.selectOrder(tabid);
+	   if(order==null){
+		   request.put("mark", "顾客没有消费，不能赠菜");
+	   }else{
+		details.setTableId(tabid);
+		details.setTableName(tabname);
+		details.setGift("赠品");
+		details.setStatus("未完成");
+		details.setDishes("即起");
+		details.setCreatDate(new Date());
+		details.setOrderId(order.getId());
+		List<Menu> list =menuService.getAll();
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getName().equals(details.getMenuName())){
+				details.setMenuId(list.get(i).getId());
+				details.setPrice(list.get(i).getPrice());
+				details.setImgUrl(list.get(i).getImgUrl());
+			}
+		}
+		if(orderDetailsService.save(details)){
+			request.put("mark", "赠送成功");
+		}else{
+			request.put("mark", "赠送失败，请重新尝试");
+		}
+	   }
+	   List<Menu> list =menuService.getAll();
+	   request.put("menulist", list);
+		return "ensureGive";
+	}
 	public int getId() {
 		return id;
 	}
@@ -122,6 +167,22 @@ public class OrderDetailsAction extends BaseAction {
 
 	public void setSort(String sort) {
 		this.sort = sort;
+	}
+
+	public int getTableid() {
+		return tableid;
+	}
+
+	public void setTableid(int tableid) {
+		this.tableid = tableid;
+	}
+
+	public String getTablename() {
+		return tablename;
+	}
+
+	public void setTablename(String tablename) {
+		this.tablename = tablename;
 	}
 
 }

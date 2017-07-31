@@ -5,13 +5,30 @@
 }
 .wall{
     height: auto;
-    margin-top: 6%;
-    margin-left: 35%;
+    margin-top: -15%;
+    margin-left: 50%;
+}
+.orderdetailes{
+	 margin-top: 10%;
+    margin-left: 15%;
 }
 table{
     width: 400px;
-    height:350px;
+    height:200px;
+    text-align:center;
+    
 }
+.select{
+   height: 40px;
+   width:235px;
+   border: 1px solid #666;
+   border-radius:3px;  
+   margin-left:9%;
+}
+.bg_color{
+	 background-color: #f6f6f6;
+}
+
 table td p{
     font-size: 20px;
     font-weight: bold;

@@ -30,7 +30,7 @@ public interface IOrderDetailsService {
 	//根据订单ID获取分页的订单详细信息
 	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid);
 	//安李杰加 新添加的菜
-	public Boolean save(OrderDetails orderDetails);
+	public Boolean save(OrderDetails orderDetails);//金高用
 	//安李杰加 判断是否有订单
 	public List<OrderDetails> getDetails(int tableId);
 	public List<OrderDetails> unfinish();
@@ -49,17 +49,22 @@ public interface IOrderDetailsService {
 	public OrderDetails getDetaill(int tableId);
 	//安李杰加 根据订单号获取订单详情中的信息
 	public List<OrderDetails> getDetailsTwo(int orderId);
-
-	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);// wqj 由餐桌ID查询餐桌信息
+	// wqj 由餐桌ID查询餐桌信息
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
 	public boolean updet(int id, int idd, String UserName);
+	//wqj 根据订单id查询所有该订单的详细信息
+	public List<OrderDetails> CheckDe(int id);
 	//安李杰用
-	public List<OrderDetails> CheckDe(int id);//wqj 根据订单id查询所有该订单的详细信息
 	//退菜安李杰加
 	public boolean back(int id);
 	//获取菜单祥情中菜的状态安李杰用
 	public OrderDetails checkStatus(int id);
 	//根据ID判断订单详细信息有无信息
-	public int getSomenum(int id);
+	public int getSomenum(int id);
+	//wqj修改菜品状态
+	public boolean deal(int id, int idd, String UserName);
+	//根据订单ID获得订单详情，不分页
+	public List<OrderDetails> selectOrderDetails(int id);
 }
 	
 
