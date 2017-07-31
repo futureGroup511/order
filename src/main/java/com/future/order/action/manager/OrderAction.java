@@ -91,7 +91,7 @@ public class OrderAction extends BaseAction {
 	}
 
 	public String toPay() {// 转发到结账界面
-		Order order = orderService.selectOrder(id,sign);
+		Order order = orderService.selectOrder(id,IDcard);
 		List<OrderDetails> detailslist = new ArrayList<>();
 		List<Payment> list = new ArrayList<>();
 	   if(order==null){
@@ -136,6 +136,7 @@ public class OrderAction extends BaseAction {
 		boolean boo = orderService.updateOrder(orderDb);
 		List<OrderDetails> list = orderDetailsService.seeByid(orderDb.getId());
 		request.put("orderlist", list);
+		request.put("payWay", new String(orders.getPayway().getBytes("ISO-8859-1"),"utf-8"));
 		return "print";
 	}
 

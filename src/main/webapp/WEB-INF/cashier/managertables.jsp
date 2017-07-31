@@ -64,13 +64,13 @@ window.onload=function(){
 					<c:if test="${pageCut.status eq '预定'}">预定</c:if>
 				</td>
 					<td>
-					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}&sort=cashier"><span class="glyphicon glyphicon-pencil"></span></a>
 				</td>
 				<td  class="four">
 					<c:if test="${pageCut.status eq '预定'}">无赠菜</c:if>
 	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderDetailsAction_giveMenu?tableid=${pageCut.id}&tablename=${pageCut.name}">赠菜</a></c:if>
 	               	<c:if test="${pageCut.status eq '无人'}">无赠菜</c:if>&nbsp;&nbsp;&nbsp;&nbsp;
-	               	<c:if test="${pageCut.status eq '预定'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}">付款</a></c:if>
+	               	<c:if test="${pageCut.status eq '预定'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}&IDcard=table">付款</a></c:if>
 	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}&IDcard=table">付款</a></c:if>
 	               	<c:if test="${pageCut.status eq '无人'}">无人</c:if>
 	             </td>    

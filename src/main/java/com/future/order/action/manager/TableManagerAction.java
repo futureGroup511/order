@@ -26,10 +26,10 @@ public class TableManagerAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private Tables table;
 	private int page = 1;
-	private String name;//餐桌名字
+	private String name;// 餐桌名字
 	private int id;
-	private String pass;//查询属性
-	private String replace;//查询属性值
+	private String pass;// 查询属性
+	private String replace;// 查询属性值
 	private String sort;// 判断用户的身份
 
 	@Override
@@ -66,25 +66,23 @@ public class TableManagerAction extends BaseAction {
 		int id = table.getId();
 		Tables updateTables = tablesService.get(id);// 得到被修改的餐桌信息
 		request.put("updateTables", updateTables);
+		request.put("sort", sort);
 		return "toUpdateTables";
 	}
 
 	// 修改餐桌的信息
 	public void updateTable() throws Exception {
 		boolean boo = tablesService.updateTables(table);
-//		int id = table.getId();
-//		Tables updateTables = tablesService.get(id);// 得到被修改的餐桌信息
-//		request.put("updateTables", updateTables);
-//		String updateTableMsg = "操作失败";
-		if (boo) {
-//			updateTableMsg = "修改成功";
+		if (sort.equals("cashier")) {
+			HttpServletResponse response = ServletActionContext.getResponse();
+			String returnUrl = "/order/manage/TableManager?sort=cashier";
+			response.getWriter()
+			.print("<script language=\"javascript\">" + "if(window.opener==null){window.location.href=\"" + returnUrl
+					+ "\";}else{window.opener.location.href=\"" + returnUrl + "\";window.close();}</script>");
+		} else {
 			id = table.getId();
 			reWeiMa();
 		}
-//		} else {
-//			updateTableMsg = "修改失败，";
-//		}
-//		request.put("TableMsg", updateTableMsg);
 	}
 
 	// 删除餐桌，同时删除餐桌所对应的二维码图片
@@ -133,7 +131,8 @@ public class TableManagerAction extends BaseAction {
 		return SUCCESS;
 
 	}
-   //生成二维码的方法
+
+	// 生成二维码的方法
 	public void reWeiMa() throws Exception {
 		HttpServletResponse response = ServletActionContext.getResponse();
 		HttpServletRequest quest = ServletActionContext.getRequest();
@@ -141,17 +140,17 @@ public class TableManagerAction extends BaseAction {
 		if (domain != null) {
 			String IP = domain.getIp();
 			// 设置页面不缓存
-			response.setHeader("Pragma", "No-cache");//指示请求或响应消息不能缓存，禁止浏览器缓存
-			response.setHeader("Cache-Control", "no-cache");//与上通常两者合用，Expires实体报头域给出响应过期的日期和时间
-			response.setDateHeader("Expires", 0);//设置非法的日期格式，如0
+			response.setHeader("Pragma", "No-cache");// 指示请求或响应消息不能缓存，禁止浏览器缓存
+			response.setHeader("Cache-Control", "no-cache");// 与上通常两者合用，Expires实体报头域给出响应过期的日期和时间
+			response.setDateHeader("Expires", 0);// 设置非法的日期格式，如0
 
 			BufferedImage image = null;
 			ServletOutputStream stream = null;
 			// 二维码的图片格式
 			String format = "gif";
 			String path = quest.getScheme() + "://" + IP + ":" + quest.getServerPort() + quest.getContextPath() + "/";
-			String content = path + "customer/customer_toIndex?id=" + id;//二维码内容
-			//设置二维码大小
+			String content = path + "customer/customer_toIndex?id=" + id;// 二维码内容
+			// 设置二维码大小
 			int width2 = 200;
 			int height2 = 200;
 
@@ -175,12 +174,14 @@ public class TableManagerAction extends BaseAction {
 				// TODO: handle exception
 			}
 			// 只有用这种解码方式才不出现乱码
-			String s = "attachment;filename=" + new String("No" + id + ".gif");//二维码的名字
+			String s = "attachment;filename=" + new String("No" + id + ".gif");// 二维码的名字
 			response.addHeader("Content-Disposition", s);
-			/*Content-Disposition为属性名
-			disposition-type是以什么方式下载，如attachment为以附件方式下载
-			disposition-parm为默认保存时的文件名 
-			服务端向客户端游览器发送文件时，使用attachment，这样浏览器会提示保存还是打开*/
+			/*
+			 * Content-Disposition为属性名
+			 * disposition-type是以什么方式下载，如attachment为以附件方式下载
+			 * disposition-parm为默认保存时的文件名
+			 * 服务端向客户端游览器发送文件时，使用attachment，这样浏览器会提示保存还是打开
+			 */
 			OutputStream os = new BufferedOutputStream(response.getOutputStream());
 			response.setContentType("image/gif");
 			ImageIO.write(image, format, os);

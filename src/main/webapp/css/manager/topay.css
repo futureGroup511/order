@@ -4,13 +4,18 @@
     text-decoration: none;
 }
 .wall{
-    height: auto;
-    margin-top: -15%;
+    height: auto;   
     margin-left: 50%;
+    position:absolute;
+    top:30%;
+    left:3%;
+
 }
 .orderdetailes{
-	 margin-top: 10%;
+	 margin-top: 5%;
     margin-left: 15%;
+    float:left;
+    width:400px;
 }
 table{
     width: 400px;
