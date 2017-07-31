@@ -28,7 +28,7 @@ public class MenuManagerAction extends BaseAction {
 	private List<String> fileFileName;	// 上传文件名集合
 	private List<String> fileContentType;	// 上传文件内容类型集合
 
-	public String execute() {
+	public String execute() {//遍历菜品，分页
 		List<MenuType> typelist=menuTypeService.getAllMenuType();
 		request.put("Typelist",typelist);
 		PageCut<Menu> pCut = menuService.getPageCut(page, 8);
@@ -41,7 +41,7 @@ public class MenuManagerAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	public String addMenu() throws Exception{
+	public String addMenu() throws Exception{//添加菜品
 		String typeName=menu.getTypeName();
 		int typeId=menuTypeService.getByName(typeName).getId();		
 		menu.setTypeId(typeId);		

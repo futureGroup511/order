@@ -119,7 +119,18 @@
                        </li>
                    </ul> 
               </li>
-              <li> <!-- 第六个父目录 -->
+               <li><!-- 第八个父目录 -->
+                   <a> <span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;&nbsp;支付管理</a>
+                   <ul class="nav nav-second-level">
+                      <li>
+                        <a href="${rootPath}manage/Change_addPayment" target="mainFrame"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;&nbsp;增加方式</a>
+                      </li>
+                      <li>
+                         <a href="${rootPath}manage/Payment" target="mainFrame"><span class="glyphicon glyphicon-glass"></span>&nbsp;&nbsp;&nbsp;管理方式</a>
+                      </li>
+                   </ul> 
+              </li>
+              <li> <!-- 第九个父目录 -->
                 <a><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;个人中心</a>
                  <ul class="nav nav-second-level">
                     <li>

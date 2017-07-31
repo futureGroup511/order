@@ -50,6 +50,8 @@ window.onload=function(){
          <tr>
             <th style="width: 190px;">餐桌名称</th>
             <th>状态</th>
+            <th>修改</th>
+            <th>操作</th>
           </tr>
          </thead>
         <tbody>
@@ -59,7 +61,19 @@ window.onload=function(){
 				<td>
 					<c:if test="${pageCut.status eq '无人'}">无人</c:if>
 					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
+					<c:if test="${pageCut.status eq '预定'}">预定</c:if>
 				</td>
+					<td>
+					<a href="${rootPath}manage/TableManager_toUpdateTable?table.id=${pageCut.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+				</td>
+				<td  class="four">
+					<c:if test="${pageCut.status eq '预定'}">无赠菜</c:if>
+	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderDetailsAction_giveMenu?tableid=${pageCut.id}&tablename=${pageCut.name}">赠菜</a></c:if>
+	               	<c:if test="${pageCut.status eq '无人'}">无赠菜</c:if>&nbsp;&nbsp;&nbsp;&nbsp;
+	               	<c:if test="${pageCut.status eq '预定'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}">付款</a></c:if>
+	               	<c:if test="${pageCut.status eq '有人'}"><a href="${rootPath}manage/OrderAction_toPay?id=${pageCut.id}">付款</a></c:if>
+	               	<c:if test="${pageCut.status eq '无人'}">无人</c:if>
+	             </td>    
 			</tr>
 		</c:forEach>
      </table>       

@@ -28,6 +28,18 @@ public class Inform {
 	@Column(length=255)
 	private String content;//通知内容
 	private Date createDate;//发布时间
+	
+	public Inform(int tableId, String tableName, String content, Date createDate) {
+		this.tableId = tableId;
+		this.tableName = tableName;
+		this.content = content;
+		this.createDate = createDate;
+	}
+	
+	public Inform() {
+	
+	}
+
 	/**
 	 * @return the id
 	 */

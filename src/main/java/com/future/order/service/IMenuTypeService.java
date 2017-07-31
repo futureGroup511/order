@@ -14,21 +14,20 @@ import com.future.order.util.PageCut;
 
 public interface IMenuTypeService {
 
+	//获得所有的菜品的类型，安李杰加
 	public List<MenuType> getAllMenuType();
 
-	public boolean addType(MenuType menutype);
+	public boolean addType(MenuType menutype);//添加菜品类型
 
-	public PageCut<MenuType> getPageCut(int currentPage, int pageSize);
+	public PageCut<MenuType> getPageCut(int currentPage, int pageSize);//得到菜品类型，分页
 
-	public MenuType CheckById(int id);
+	public MenuType CheckById(int id);//根据id得到菜品类型
 
-	public boolean UpdateType(MenuType menutype);
+	public boolean UpdateType(MenuType menutype);//修改菜品类型
 
-	public boolean DeletType(int id);
+	public PageCut<MenuType> getSomePageCut(int currentPage, int pageSize, String inquiry);//得到符合某种条件的菜品类型
 
-	public PageCut<MenuType> getSomePageCut(int currentPage, int pageSize, String inquiry);
-
-	public int getCount();
+	public int getCount();//得到菜品类型的条数
 	
-	public MenuType getByName(String name);
+	public MenuType getByName(String name);//根据菜品名称得到菜品类型
 }

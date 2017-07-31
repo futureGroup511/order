@@ -3,6 +3,8 @@ package com.future.order.action.manager;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
+import com.future.order.entity.Menu;
+import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.util.PageCut;
 
@@ -18,9 +20,11 @@ public class OrderDetailsAction extends BaseAction {
 	private int id;
 	private int detailid;
 	private int page = 1;
+	private int tableid;//餐桌ID
+	private String tablename;//餐桌名称
 	private OrderDetails details;
 	private String sort;// 判断用户的身份
-
+	//把订单ID放入session中，方便下面的方法使用
 	public String CheckOrderDetails() {
 		session.put("orderid", id);
 		return this.execute();
@@ -71,7 +75,7 @@ public class OrderDetailsAction extends BaseAction {
 		return this.execute();
 	}
 
-	public String Print() {
+	public String Print() {//有可能已无用
 		List<OrderDetails> list = orderDetailsService.seeByid(id);
 		double total = 0;
 		for (int i = 0; i < list.size(); i++) {
@@ -83,7 +87,27 @@ public class OrderDetailsAction extends BaseAction {
 		request.put("orderlist", list);
 		return "print";
 	}
-
+	public String giveMenu(){
+		List<Menu> list =menuService.getAll();
+		request.put("menulist", list);
+		session.put("tableid", tableid);
+		session.put("tablename", tablename);
+ 		return "givemenu";
+	}
+	public String ensureGive(){
+	   int tabid = (int) session.get("tableid");
+	   String tabname = (String) session.get("tablename");
+	   Order order = orderService.selectOrder(tabid);
+	   if(order==null){
+		   request.put("mark", "顾客没有消费，不能赠菜");
+	   }
+		details.setTableId(tabid);
+		details.setTableName(tabname);
+		details.setGift("赠品");
+		details.setOrderId(order.getId());
+		
+		return sort;
+	}
 	public int getId() {
 		return id;
 	}
@@ -122,6 +146,22 @@ public class OrderDetailsAction extends BaseAction {
 
 	public void setSort(String sort) {
 		this.sort = sort;
+	}
+
+	public int getTableid() {
+		return tableid;
+	}
+
+	public void setTableid(int tableid) {
+		this.tableid = tableid;
+	}
+
+	public String getTablename() {
+		return tablename;
+	}
+
+	public void setTablename(String tablename) {
+		this.tablename = tablename;
 	}
 
 }

@@ -21,8 +21,9 @@ public class CustomerAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	//接受前台传过来的id信息
 	private int id;
+	//接受前台传过来的配料id信息
 	private int ingId;	
 	//进入首页
 	public String toIndex() throws Exception{
@@ -30,14 +31,16 @@ public class CustomerAction extends BaseAction {
 		session.put("userId", id);
 		//获得推荐的菜品
 		List<Menu> menus=menuService.getRecommend(8);
-		//首页酒店的信息
+		//首页酒店的信息 下同
 		Restaurant r= restaurantService.getOne();
 		request.put("r",r);
+		//获得所有的菜品的类型下同
 		List<MenuType> menuType=menuTypeService.getAllMenuType();
 		request.put("menuType",menuType);
 		request.put("menus", menus);
 		//修改餐桌状态为有人
 		int tableId=(int) session.get("userId");//获得顾客桌号
+		//根据桌号去修改桌子的状态
 		Tables table=tablesService.get(tableId);
 		table.setStatus("有人");
 		boolean bool=tablesService.updateTables(table);
@@ -45,6 +48,7 @@ public class CustomerAction extends BaseAction {
 	}
 	//根据菜品类型id获得菜品
 	public String getMenuByTypeId() throws Exception{
+		//根据菜品类型id获得菜品
 		List<Menu> menus=menuService.getByTypeId(id);
 		Restaurant r= restaurantService.getOne();
 		request.put("r",r);
@@ -55,15 +59,16 @@ public class CustomerAction extends BaseAction {
 	}
 	//获得菜品详情和菜品原料
 	public String getMenuMaterial() throws Exception {		
-		
+		//根据前台传过来的id去获取每道菜的信息
 		Menu menu =menuService.get(id);
 		request.put("menu", menu);
-		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuIdTwo(id); 
+		//根据Menu中的id去获取菜单详情中的原料信息
+		List<MenuMaterial> menuMaterial=menuMaterialService.getByMenuIdTwo(id);
+		//关联表获得原料介绍
 		for(MenuMaterial item:menuMaterial){
 			int ingId=item.getIngId();
 			String introduce=ingerdientService.getById(ingId).getIntroduce();
 			item.setIntroduce(introduce);
-			
 		}
 		request.put("menuMaterial",menuMaterial);
 		return "getMenuMaterial";
@@ -72,6 +77,7 @@ public class CustomerAction extends BaseAction {
 	public String getStockDate() throws Exception {
 		List<StockDetails> stockDetails=stockDetailsService.getByIngId(ingId,2);
 		request.put("stockDetails", stockDetails);
+		//获得进货详情中配料名单独显示
 		for(StockDetails item:stockDetails){
 			request.put("ingName",item.getIngName());
 		}
@@ -80,7 +86,8 @@ public class CustomerAction extends BaseAction {
 	//加入购物车
 	public void joinCart() throws Exception {
 		Menu menu=menuService.get(id);
-		int tableId=(int) session.get("userId");//获得顾客桌号	
+		//获得顾客桌号	
+		int tableId=(int) session.get("userId");
 		//判断配料是否足够
 		ShopCart sCart=shopCartService.getByT_M_Id(tableId, id);
 		int menuNum=1;
@@ -113,7 +120,7 @@ public class CustomerAction extends BaseAction {
 		}			
 	}
 	
-
+	//一些set get方法
 	public int getId() {
 		return id;
 	}

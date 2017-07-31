@@ -41,6 +41,8 @@ public class Order {
 	private double favourable;//优惠金额
 	@Column(length=10)
 	private double price;//优惠后金额
+	@Column(length=20)
+	private String payway;//支付方式
 	
 	/**
 	 * @return the favourable
@@ -178,11 +180,20 @@ public class Order {
 		this.cookName = cookName;
 	}
 	
+	public String getPayway() {
+		return payway;
+	}
+
+	public void setPayway(String payway) {
+		this.payway = payway;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", tableId=" + tableId + ", tableName=" + tableName + ", total=" + total
 				+ ", status=" + status + ", createDate=" + createDate + ", remark=" + remark + ", cookId=" + cookId
-				+ ", cookName=" + cookName + "]";
+				+ ", cookName=" + cookName + ", favourable=" + favourable + ", price=" + price + ", payway=" + payway
+				+ "]";
 	}
-	
+
 }

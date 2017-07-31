@@ -24,7 +24,6 @@ import com.future.order.util.PageCut;
 public class InformDao extends BaseDao<Inform>  implements IInformService {
 	@Override
 	public List<Inform> getAll() {
-
 		List<Inform> list = new ArrayList<Inform>();
 		try{
 			String hql="from Inform as a order by a.createDate asc";

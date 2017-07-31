@@ -1,5 +1,6 @@
 package com.future.order.action.manager;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
+import com.future.order.entity.Payment;
 import com.future.order.util.PageCut;
 
 /**
@@ -88,14 +90,26 @@ public class OrderAction extends BaseAction {
 	}
 
 	public String toPay() {// 转发到结账界面
-		request.put("orderId", id);
-		Order order = orderService.checkById(id);
+		Order order = orderService.selectOrder(id);
+		List<OrderDetails> detailslist = new ArrayList<>();
+		List<Payment> list = new ArrayList<>();
+	   if(order==null){
+		   request.put("mark", "没有账单");
+	   } else {
+			 request.put("orderId", order.getId());//订单id
+			 detailslist= orderDetailsService.selectOrderDetails(order.getId());
+			 list = paymentService.selectWays();
+	   }
+	   	request.put("detailslist", detailslist);
+		request.put("paylist", list);
 		request.put("order", order);
 		return "toPay";
 	}
 
-	public String pay() {// 用于结账，把订单状态由已处理改为已结账 打印发票
+	public String pay() throws UnsupportedEncodingException {// 用于结账，把订单状态由已处理改为已结账 打印发票
 		double favourables = 0;// 优惠金额
+		Order order = orderService.checkById(orders.getId());
+		favourables = order.getTotal()-price;
 		boolean sign = orderService.payOrder(orders.getId());
 		String mark = "付款失败";
 		if (sign == true) {
@@ -106,6 +120,7 @@ public class OrderAction extends BaseAction {
 		Order orderDb = orderService.checkById(orders.getId());
 		BigDecimal bg = new BigDecimal(favourables);
 		favourables = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		orderDb.setPayway(new String(orders.getPayway().getBytes("ISO-8859-1"),"utf-8"));
 		orderDb.setPrice(price);
 		orderDb.setFavourable(favourables);
 		double returnPay = pay - price;// 找零
@@ -117,13 +132,13 @@ public class OrderAction extends BaseAction {
 		request.put("pay", pay);
 		request.put("returnPay", returnPay);
 		request.put("order", orderDb);
-
+		boolean boo = orderService.updateOrder(orderDb);
 		List<OrderDetails> list = orderDetailsService.seeByid(orderDb.getId());
 		request.put("orderlist", list);
 		return "print";
 	}
 
-	public String toUpdate() {// 根据ID获得需要修改的订单信息
+	public String toUpdate() {// 根据ID获得需要修改的订单信息，跳转到修改界面
 		Order order = orderService.checkById(id);
 		request.put("order", order);
 		return "update";
@@ -140,14 +155,16 @@ public class OrderAction extends BaseAction {
 		request.put("mark", mark);
 		return this.execute();
 	}
-
+	//根据条件查询符合条件的语句
 	public String Inquiry() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		List<Order> list = new ArrayList<>();
 		double sum = 0;
 		double sumprice = 0;
 		if (ask != null) {
+			//根据条件获得符合条件的8条数订单，分页
 			pCut = orderService.getSomePageCut(page, 8, ask, inquiry);
+			//根据条件获得所有的订单，用于计算总价
 			list = orderService.getPrice(ask, inquiry);
 		} else {
 			ask = (String) session.get("ask");
@@ -186,7 +203,7 @@ public class OrderAction extends BaseAction {
 		}
 		return "check";
 	}
-
+   //根据时间条件查询符合条件的数据
 	public String count() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		List<Order> list = new ArrayList<>();
@@ -198,8 +215,9 @@ public class OrderAction extends BaseAction {
 		}
 		sign = (String) session.get("sign");
 		if (sign.equals("all")) {
-			// 获得全部订单信息
+			// 获得全部订单信息，用于计算总价
 			list = orderService.getGain(starttime, endtime, sign);
+			//获得符合条件的6条订单
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
 		} else if (sign.equals("no")) {
 			// 获得全部没有结账的订单信息

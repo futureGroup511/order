@@ -18,8 +18,9 @@ import com.future.order.entity.Inform;
  *
  */
 public interface IInformService {
-
+	//获取催单信息安李杰用
 	public List<Inform> getAll();
+	//存催单信息 安李杰用
 	Boolean save(Inform inform);
 	//wqj催单
 	public PageCut<Inform> getPageCut(int curr, int pageSize);
