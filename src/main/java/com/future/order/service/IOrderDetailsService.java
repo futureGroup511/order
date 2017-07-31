@@ -30,7 +30,7 @@ public interface IOrderDetailsService {
 	//根据订单ID获取分页的订单详细信息
 	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid);
 	//安李杰加 新添加的菜
-	public Boolean save(OrderDetails orderDetails);
+	public Boolean save(OrderDetails orderDetails);//金高用
 	//安李杰加 判断是否有订单
 	public List<OrderDetails> getDetails(int tableId);
 	public List<OrderDetails> unfinish();

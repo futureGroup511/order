@@ -60,7 +60,7 @@ public class CartAction extends BaseAction {
 			for (ShopCart item : shopCarts) {
 				total += item.getMenuNum() * item.getPrice();
 			}
-			for (ShopCart item : shopCarts) {
+			for (ShopCart item : shopCarts) { 
 				order.setTotal(total);
 				order.setTableName(item.getTableName());
 				order.setTableId(item.getTableId());
