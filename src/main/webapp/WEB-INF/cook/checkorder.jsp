@@ -46,6 +46,7 @@ table {
     position:relative;
     top:0;
     margin-bottom:40px;
+    margin-top:20px;
     
 }
 #table1 tbody td {
