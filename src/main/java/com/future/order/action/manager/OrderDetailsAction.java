@@ -89,18 +89,18 @@ public class OrderDetailsAction extends BaseAction {
 		request.put("orderlist", list);
 		return "print";
 	}
-	public String giveMenu(){
+	public String giveMenu(){//转发到赠菜界面
 		List<Menu> list =menuService.getAll();
 		request.put("menulist", list);
 		session.put("tableid", tableid);
 		session.put("tablename", tablename);
  		return "givemenu";
 	}
-	public String ensureGive() throws UnsupportedEncodingException{
+	public String ensureGive() throws UnsupportedEncodingException{//添加赠菜到订单详情
 	   int tabid = (int) session.get("tableid");
 	   String tabname = (String) session.get("tablename");
 	   tabname =  new String(tabname.getBytes("ISO-8859-1"),"utf-8");
-	   Order order = orderService.selectOrder(tabid);
+	   Order order = orderService.selectOrder(tabid,"table");
 	   if(order==null){
 		   request.put("mark", "顾客没有消费，不能赠菜");
 	   }else{

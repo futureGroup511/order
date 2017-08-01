@@ -35,8 +35,8 @@ window.onload=function(){
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >
          <thead>
          <tr>
-         	<th>餐桌编号</th>
-            <th style="width: 90px;">餐桌名称</th>
+         	<th>编号</th>
+            <th style="width: 90px;">支付方式</th>
              <th>操作</th>
           </tr>
          </thead>

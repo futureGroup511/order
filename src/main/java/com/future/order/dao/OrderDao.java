@@ -160,7 +160,8 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 		hql = "select count(*) from Order";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order as o order by o.status desc , o.createDate asc",(currentPage - 1) * pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from Order as o order by o.status desc , o.createDate asc",
+				(currentPage - 1) * pageSize, pageSize));
 		return pc;
 	}
 
@@ -351,8 +352,14 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 
 	@Override
-	public Order selectOrder(int id) {
-		String hql = "from Order o where o.status<> '已付款' and o.tableId='"+id+"'";
+	public Order selectOrder(int id, String sign) {
+		String hql;
+		if (sign.equals("table")) {
+			hql = "from Order o where o.status<> '已付款' and o.tableId='" + id + "'";
+		} else {
+			hql = "from Order o where o.status<> '已付款' and o.id='" + id + "'";
+		}
+
 			return (Order) uniqueResult(hql);
 	}
 }

@@ -40,7 +40,7 @@
 	}
 	
 	
-	function dishes(id) {
+	function dishes() {
 		var xmlhttp;
 		if (window.XMLHttpRequest) {
 			// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -53,9 +53,9 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
 				var result = xmlhttp.responseText;								
 				if(parseInt(result)==1){
-					show_notice('即起成功',2);
-				}else if(parseInt(result)==0){
 					show_notice('叫起成功',2);
+				}else if(parseInt(result)==0){
+					show_notice('即起成功',2);
 				}
 							
 			}
@@ -63,7 +63,7 @@
 		xmlhttp.open("POST", "cart_dishes", true);
 		xmlhttp.setRequestHeader("Content-type",
 				"application/x-www-form-urlencoded");
-		xmlhttp.send("id="+id);
+		xmlhttp.send();
 	}
 	
 	function show_notice(str,second,callback){  
@@ -121,7 +121,7 @@
 	   	      <p class="right zengpin">${o.gift}</p>
 	    </c:if>
        <p class="left jia">价格：</p><p class="red">￥${o.price}</p>
-       <p>数量：${o.menuNum}  <input type="button" name="" value="起菜"  class="cd cd2 right" onclick="dishes(${o.id})" />  </p>   
+       <p>数量：${o.menuNum}</p>   
        <p class="left" style="display:inline-block">状态：</p><p class="green pppp1"  style="display:inline-block">${o.status}</p>
        <div class="right divv1">
 	       <c:if test="${o.status=='未完成'}">
@@ -144,8 +144,8 @@
      <p class="left red" style="font-size:18px; margin-bottom:10px;">${totall}</p>
      </div>
 </div>
-<input type="button" name="" value="催单"  class="cd1 cd2" onclick="Reminder()" />
-
+<input type="button" name="" value="催单"  class="cd1" onclick="Reminder()" />
+<input type="button" name="" value="叫起"  class="cd1" onclick="dishes()" id="ins" />
 </c:if>
  <c:if test="${empty orderDetails }">
  <center><h1 class="margin">你还没有下订单</h1></center>
@@ -184,6 +184,21 @@
 	   }
 	   
    }
+  function $(b){
+	  return document.getElementById(b);
+  }
+  var in1 = $('ins');
+  var c = true;
+  in1.addEventListener("click",function(){ 
+	  c=!c;
+	  if(c){
+		  in1.value = "叫起";
+	  }
+	  else{
+		  in1.value = "即起";
+	  }
+  }
+  )
      
 </script>
 </html>

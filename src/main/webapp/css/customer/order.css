@@ -73,27 +73,15 @@
 .green{
   color:green;
 }
-.cd{
-   width:50px;
-   line-height: 15px;
-   margin-right:20px;
-   height:15px;
-   font-size:12px;
-   padding:0px 10px;
-   margin-top:5px;
-}
-.cd2{
-    border:0px;
+.cd1{
+	border:0px;
    border-radius:4px;
    text-align:	 center;
    color: #000;
-}
-.cd1{
-    font-size: 14px;
+   font-size: 14px;
    display:inline-block;
-   width:80%;
+   width:35%;
    line-height: 30px;
-   margin-right:20px;
    height:30px; 
    background-color:#D41700;
    margin-left:10%;

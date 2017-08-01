@@ -2,15 +2,14 @@ package com.future.order.action.manager;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.entity.Payment;
+import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
 /**
@@ -27,6 +26,7 @@ public class OrderAction extends BaseAction {
 	private int id;
 	private Order orders;
 	private String sign = "all";//判断付款/未付款的条件
+	private String IDcard;
 	private String ask;//查询属性名
 	private String inquiry;//查询属性值
 	private String starttime;//开始时间
@@ -90,7 +90,7 @@ public class OrderAction extends BaseAction {
 	}
 
 	public String toPay() {// 转发到结账界面
-		Order order = orderService.selectOrder(id);
+		Order order = orderService.selectOrder(id,IDcard);
 		List<OrderDetails> detailslist = new ArrayList<>();
 		List<Payment> list = new ArrayList<>();
 	   if(order==null){
@@ -132,9 +132,13 @@ public class OrderAction extends BaseAction {
 		request.put("pay", pay);
 		request.put("returnPay", returnPay);
 		request.put("order", orderDb);
+		User cashier = (User)session.get("cashier");//张金高改
+		orderDb.setCashierId(cashier.getId());
+		orderDb.setCashierName(cashier.getName());
 		boolean boo = orderService.updateOrder(orderDb);
 		List<OrderDetails> list = orderDetailsService.seeByid(orderDb.getId());
 		request.put("orderlist", list);
+		request.put("payWay", new String(orders.getPayway().getBytes("ISO-8859-1"),"utf-8"));
 		return "print";
 	}
 
@@ -365,6 +369,14 @@ public class OrderAction extends BaseAction {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public String getIDcard() {
+		return IDcard;
+	}
+
+	public void setIDcard(String iDcard) {
+		IDcard = iDcard;
 	}
 
 }
