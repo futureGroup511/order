@@ -292,11 +292,11 @@ public class CartAction extends BaseAction {
 							if(en.getDishes().equals("即起")){
 								en.setDishes("叫起");
 								Boolean bool = orderDetailsService.updatee(en);
-								this.getResponse().getWriter().println(0);
+								this.getResponse().getWriter().println(1);
 							}else{
 								en.setDishes("即起");
 								Boolean bool = orderDetailsService.updatee(en);
-								this.getResponse().getWriter().println(1);
+								this.getResponse().getWriter().println(0);
 							}
 				  	  }
 				  }
