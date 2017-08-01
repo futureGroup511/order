@@ -9,27 +9,38 @@
 <link rel="stylesheet" type="text/css"
 	href="${rootPath}css/bootstrap.css">
 <style>
-.aa {
+body{
+background: url(../images/m-91.jpg);
+}
+#div1 {
 	width: 90%;
-	margin: 0 auto;
-	position: absolute;
-	left: 5%;
+    position:relative;
+    margin:10px auto;
 	z-index: 100;
 }
 
-.aa p {
+#div1 p {
 	margin-top: 30px;
 	float: right;
 	margin-right: 60px;
 	cursor: pointer;
 }
+ 
+#div2{
+   position:relative;
+   width:90%;
+   margin:50px auto;
+   
+} 
 
 .pag {
 	float: right;
-	margin-top: 40px;
-	margin-right: 60px;
+	margin-top: 30px;
+	margin-right: 0px;
 }
-
+#table1{
+     poaition:relative;
+}
 table {
 	width: 100%;
 	text-align: center;
@@ -40,14 +51,14 @@ table {
 #table1 thead td {
 	border: 1px solid #c6c6c6;
 	background-color: #e8e7e3;
-	  height: 30px; 
+	 height: 30px; 
 }
 #table2{
     position:relative;
     top:0;
     margin-bottom:40px;
     margin-top:20px;
-    
+    width:100%;
 }
 #table1 tbody td {
 	border: 1px solid #c6c6c6;
@@ -81,22 +92,31 @@ html {
 <script language="javascript">
 	window.onload = function() {
 		var array = new Array();
+		var array1 = new Array();
 		<c:forEach items="${paCut.data}" var="t">
 		array.push("${t.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
 		</c:forEach>
+		<c:forEach items="${inform}" var="q">
+		array1.push("${q.id}"); //js中可以使用此标签，将EL表达式中的值push到数组中  
+		</c:forEach>
 		var a = array.length;
+		var b = array1.length;
 		if (a != 0) {
 			/*  document.getElementsByClassName('aa')[0].style.display='none'; */
-			document.getElementById('div1').style.display = 'block';
+			document.getElementById('div2').style.display = 'block';
 
 		} else {
 			alert("无数据")
 		}
+		if (b != 0) {
+			document.getElementById('div1').style.display = 'block';
+
+		} 
 	}
 </script>
 <body>
-	<div class="aa" id="div1" style="display: none">
-	<table id="table2">
+<div id="div1" style="display: none">
+<table id="table2">
       <thead>
         <tr>
             <td colspan="10">催单信息</td>
@@ -121,6 +141,9 @@ html {
         	</c:forEach>
         </tbody>
     </table>
+</div>
+	<div id="div2" style="display: none">
+	
 	<table id="table1">
 			<thead>
 				<tr>

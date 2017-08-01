@@ -30,7 +30,7 @@
   }
   #ifr{
     border: none;
-    width: 88%;
+    width:88%;
     height: 570px;
     float: left;
     margin: 0;
@@ -58,7 +58,7 @@
   }
   .sidebar-collapse{
       border: 0px solid black;
-      width: 150px;
+      width: 12%;
       height: 600px;
       float: left;
       background-color: #008af6;
