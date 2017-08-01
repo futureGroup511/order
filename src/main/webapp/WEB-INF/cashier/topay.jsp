@@ -60,7 +60,7 @@ if(a==0){
 		<form action="${rootPath}manage/OrderAction_pay">
 			<input type="hidden" name="orders.id" value="${order.id}">
 	        <table cellspacing="0">
-	        	<tr>
+	        	<tr style="height:50px;">
 	        		 <td class="bor1"><p>支付方式:</p></td>
 	        		 <td><select name="orders.payway" class="select"> 
 				 	 <c:forEach items="${paylist}" var="item">
@@ -68,27 +68,27 @@ if(a==0){
 				     </c:forEach> 
 				 	 </select></td>
 	        	</tr>
-	            <tr>
+	            <tr style="height:50px;">
 	                <td class="bor1"><p>订单金额(元) :</p></td>
 	                <td><input type="text" value="${order.total}" id="total" readonly="readonly" ></td>
 	            </tr>
-	            <tr>
+	            <tr style="height:50px;">
 	                <td class="bor1"><p>打<span style="margin-left:37px;">折</span> :</p></td>
 	                <td><input type="text" id="discount"  name="discount" placeholder="输入小数,不打折为1" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();	"></td>
 	            </tr>
-	            <tr>
+	            <tr style="height:50px;">
 	                <td class="bor1"><p>直减(元) :</p></td>
 	                <td><input type="text" id="straightCut" name="straightCut" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();"></td>
 	            </tr>
-	            <tr>
+	            <tr style="height:50px;">
 	            	<td class="bor1"><p>合<span style="margin-left:37px;">计</span> :</td>
 	            	<td><input type="text" id="price" name="price" ></td>
 	            </tr>
-	            <tr>
+	            <tr style="height:50px;">
 	                <td class="bor1"><p>实收(元) :</p></td>
 	                <td><input type="text" name="pay" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''" required="required"></td>
 	            </tr>
-	            <tr>
+	            <tr style="height:50px;">
 	               <td colspan="2">
 	                   <button>确认收款</button>
 	               </td>

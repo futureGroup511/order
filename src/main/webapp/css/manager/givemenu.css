@@ -29,14 +29,14 @@ tr{
 }
 .form0 select{
     height: 30px;
-    width:60%;
+    width:40%;
     vertical-align: middle;
     border-radius:5px;
     border:2px solid #999;
 }
 .form0 input{
     height: 30px;
-    width: 60%;
+    width: 40%;
     border:2px solid #999;
     border-radius:5px;
 }
@@ -47,6 +47,6 @@ tr{
     border-radius:5px;
     background-color: #82C0E9;
     font-size: 16px;
-    margin-left:120%;
+    margin-left:110%;
  }
  #btn:hover{background: linear-gradient(#fff,#ccc)}

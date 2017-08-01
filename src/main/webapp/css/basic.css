@@ -36,11 +36,11 @@ body {
 
   #ifr{
     border: none;
-      width: 88%;
+      width: 89%;
       height: 600px;
       position: absolute;
       top: 125px;
-      left:12%;
+      left:11%;
 }
 .container{
     margin: 0 auto;
@@ -60,7 +60,8 @@ body {
     content: "\f107";
 }
  .sidebar-collapse{
-      overflow: hidden;
+      overflow: scroll;
+      overflow-x:hidden;
       border: 0px solid black;
       width: 13%;
       margin-left:-15px; 
