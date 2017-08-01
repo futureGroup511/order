@@ -97,34 +97,19 @@ public class CartAction extends BaseAction {
 				//判断再次加入菜品时是否名字相同
 				for (ShopCart item : shopCarts) {
 					  int sign = 0;
-					  int mark = 0;
 					for (OrderDetails en : orderDetail) {
-						if(en.getGift().equals("赠品")){
-							if (item.getMenuName().equals(en.getMenuName())) {
-								mark = 1;
-								en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-								Boolean bool = orderDetailsService.updatee(en);
-							}
-						}
-					}
-					if(mark == 0){	
-						OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","无");
-						Boolean boolt = orderDetailsService.save(orderDetails);
-					}
-					if (mark!=1&&mark!=0) {
-						for (OrderDetails en : orderDetail) {
+						if(!en.getGift().equals("赠品")){
 							if (item.getMenuName().equals(en.getMenuName())) {
 								sign = 1;
 								en.setMenuNum(en.getMenuNum() + item.getMenuNum());
 								Boolean bool = orderDetailsService.updatee(en);
 							}
-						}
-						if(sign == 0){
-							OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","无");
-								Boolean boolt = orderDetailsService.save(orderDetails);
-						}
+						}	
 					}
-					
+					if(sign == 0){
+						OrderDetails orderDetails = new OrderDetails(item.getTableId(),item.getTableName(),myId,item.getMenuId(),item.getMenuName(),item.getMenuNum(),"未完成",d,remark,item.getImgUrl(),item.getPrice(),"即起","无");
+							Boolean boolt = orderDetailsService.save(orderDetails);
+					}	
 				}
 			}
 			List<OrderDetails> orderDetailss = orderDetailsService.getDetailsOne(myId);
