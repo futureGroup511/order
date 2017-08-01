@@ -9,36 +9,31 @@
 	line-height: 55px;
 	
 }
-
-.form0 span{
-    width:100%;
-    display: inline-block;
-    text-align: right;
-    font-size: 20px;
-    font-family: "微软雅黑";
-    font-weight: bold;
-    margin-right: 10%;
-    vertical-align: middle;
+td{
+	font-weight: bold;
+	font-size: 22px;
 }
 table{
 	margin-right: 10%;
-	width:100%;
+	margin-left:30%;
+	width:50%;
 }
 tr{
 	height:60px;
 }
 .form0 select{
     height: 30px;
-    width:40%;
+    width:80%;
     vertical-align: middle;
     border-radius:5px;
     border:2px solid #999;
 }
 .form0 input{
     height: 30px;
-    width: 40%;
+    width: 80%;
     border:2px solid #999;
     border-radius:5px;
+    margin-left:0px;
 }
  #btn{
     height: 40px;
@@ -47,6 +42,7 @@ tr{
     border-radius:5px;
     background-color: #82C0E9;
     font-size: 16px;
-    margin-left:110%;
+/*     margin-top:15%; */
+    margin-left:90%;
  }
  #btn:hover{background: linear-gradient(#fff,#ccc)}

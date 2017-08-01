@@ -26,6 +26,8 @@
         	<script type="text/javascript" src="../js/datetime.js"></script><br>
         <lable id="text">厨师id:</lable><input name="orders.cookId" value="${order.cookId}" type="text" readonly="readonly">
         <lable id="text">厨师姓名:</lable><input name="orders.cookName" value="${order.cookName}" type="text" readonly="readonly"><br>
+		<lable id="text">收银id:</lable><input name="orders.cashierId" value="${order.cashierId}" type="text" readonly="readonly">
+        <lable id="text">收银姓名:</lable><input name="orders.cashierName" value="${order.cashierName}" type="text" readonly="readonly"><br>
         <lable id="text">备注:</lable><input name="orders.remark" value="${order.remark}" type="text">
     
     <div class="button">

@@ -2,15 +2,14 @@ package com.future.order.action.manager;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.entity.Payment;
+import com.future.order.entity.User;
 import com.future.order.util.PageCut;
 
 /**
@@ -133,6 +132,9 @@ public class OrderAction extends BaseAction {
 		request.put("pay", pay);
 		request.put("returnPay", returnPay);
 		request.put("order", orderDb);
+		User cashier = (User)session.get("cashier");//张金高改
+		orderDb.setCashierId(cashier.getId());
+		orderDb.setCashierName(cashier.getName());
 		boolean boo = orderService.updateOrder(orderDb);
 		List<OrderDetails> list = orderDetailsService.seeByid(orderDb.getId());
 		request.put("orderlist", list);

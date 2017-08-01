@@ -61,21 +61,23 @@ function checkPay(){
        <table cellspacing="0" border="1">
          <thead>
           <tr>
-             <td colspan="12">订单信息</td>
+             <td colspan="13">订单信息</td>
           </tr>   
          </thead>
          <tbody>
           <tr>
              <td>编号</td>
-             <td>餐桌编号</td>
-             <td>餐桌名称</td>
+             <td style="width:70px;">餐桌编号</td>
+             <td>餐桌</td>
              <td>总价</td>
              <td>状态</td>
              <td style="width:160px;">订单时间</td>
-             <td>厨师编号</td>
-             <td>厨师姓名</td>
-             <td style="width:260px;">备注</td>
-             <td>操作</td>
+             <td style="width:70px;">厨师编号</td>
+             <td style="width:80px;">厨师</td>
+             <td style="width:70px;">收银编号</td>
+             <td style="width:80px;">收银</td>
+             <td style="width:180px;">备注</td>
+             <td style="width:70px;">操作</td>
              <td>操作</td>
            </tr>
                   	 <c:forEach items="${pc.data}" var="item"> 
@@ -88,7 +90,9 @@ function checkPay(){
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td><textarea rows="2" cols="38" readonly="readonly">${item.remark}</textarea></td>
+	                <td>${item.cashierId}</td>
+	                <td>${item.cashierName}</td>
+	                <td><textarea rows="2" cols="30" readonly="readonly">${item.remark}</textarea></td>
 	                <td><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}">查看详情</a></td>
 	                <td  class="four"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  

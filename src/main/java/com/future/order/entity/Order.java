@@ -43,6 +43,11 @@ public class Order {
 	private double price;//优惠后金额
 	@Column(length=20)
 	private String payway;//支付方式
+	//张金高加
+	@Column(length=10)
+	private int cashierId;//收银员ID
+	@Column(length=10)
+	private String cashierName;//收银员名字
 	
 	/**
 	 * @return the favourable
@@ -186,6 +191,22 @@ public class Order {
 
 	public void setPayway(String payway) {
 		this.payway = payway;
+	}
+
+	public int getCashierId() {
+		return cashierId;
+	}
+
+	public void setCashierId(int cashierId) {
+		this.cashierId = cashierId;
+	}
+
+	public String getCashierName() {
+		return cashierName;
+	}
+
+	public void setCashierName(String cashierName) {
+		this.cashierName = cashierName;
 	}
 
 	@Override

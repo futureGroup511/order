@@ -15,7 +15,7 @@
 	<form action="${rootPath}manage/OrderDetailsAction_ensureGive" method="post" class="form0">
 		<table>
 			<tr> 
-				<td><span>菜品名称：</span></td>
+				<td>菜品名称：</td>
 				<td>
 					<select name="details.menuName" class="select"> 
 						<c:forEach items="${menulist}" var="item">
@@ -25,7 +25,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><span>数量：</span></td>
+				<td><span style="margin-right:46px;">数</span>量：</td>
 				<td><input type="text"  name="details.menuNum" id="num" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" required="required"></td>
 			</tr>
 			<tr>
