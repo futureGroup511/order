@@ -53,9 +53,9 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
 				var result = xmlhttp.responseText;								
 				if(parseInt(result)==1){
-					show_notice('即起成功',2);
-				}else if(parseInt(result)==0){
 					show_notice('叫起成功',2);
+				}else if(parseInt(result)==0){
+					show_notice('即起成功',2);
 				}
 							
 			}
@@ -145,7 +145,7 @@
      </div>
 </div>
 <input type="button" name="" value="催单"  class="cd1" onclick="Reminder()" />
-<input type="button" name="" value="即起"  class="cd1" onclick="dishes()" id="ins" />
+<input type="button" name="" value="叫起"  class="cd1" onclick="dishes()" id="ins" />
 </c:if>
  <c:if test="${empty orderDetails }">
  <center><h1 class="margin">你还没有下订单</h1></center>
@@ -192,10 +192,10 @@
   in1.addEventListener("click",function(){ 
 	  c=!c;
 	  if(c){
-		  in1.value = "即起";
+		  in1.value = "叫起";
 	  }
 	  else{
-		  in1.value = "叫起";
+		  in1.value = "即起";
 	  }
   }
   )
