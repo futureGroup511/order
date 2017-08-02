@@ -64,7 +64,8 @@ public interface IOrderDetailsService {
 	//wqj修改菜品状态
 	public boolean deal(int id, int idd, String UserName);
 	//根据订单ID获得订单详情，不分页
-	public List<OrderDetails> selectOrderDetails(int id);
+	public List<OrderDetails> selectOrderDetails(int id);
+
 }
 	
 

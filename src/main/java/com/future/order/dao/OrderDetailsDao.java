@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.future.order.base.BaseDao;
+import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
 import com.future.order.service.IOrderDetailsService;
 import com.future.order.util.PageCut;
@@ -191,6 +192,32 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		orderdetails.setCookId(idd);
 		orderdetails.setCookName(UserName);
 		orderdetails.setStatus(status);
+		if(orderdetails.getGift().equals("无")) {
+		String hql = "from OrderDetails as o order by o.creatDate asc";
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		list = this.getEntityList(hql);
+		for(int i=0;i<list.size();i++) {
+			OrderDetails orderdetail1 = list.get(i);
+			int menuId1 = orderdetail1.getMenuId();
+			int id1 = orderdetail1.getId();
+			int num1 = orderdetail1.getMenuNum();
+			for(int j=0;j<list.size();j++) {
+				OrderDetails orderdetail2 = list.get(j);
+				int menuId2 = orderdetail2.getMenuId();
+				int num2 = orderdetail2.getMenuNum();
+				int id2 = orderdetail2.getId();
+				if(menuId1==menuId2&&id1!=id2) {
+					String hql1="delete from OrderDetails o Where o.id="+id;
+					int mark=this.executeUpdate(hql1);
+					String hql2 = "from OrderDetails o where o.menuId='"+menuId1+"'";
+					orderdetails=(OrderDetails) this.uniqueResult(hql2);
+					orderdetails.setMenuNum(num1+num2);
+					boolean menus = this.updateEntity(orderdetails);
+				}
+			}
+		}
+		
+		}
 		boolean menus = this.updateEntity(orderdetails);
 		return true;
 	}
