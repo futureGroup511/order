@@ -212,7 +212,6 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 					String hql2 = "from OrderDetails o where o.menuId='"+menuId1+"'";
 					orderdetails=(OrderDetails) this.uniqueResult(hql2);
 					orderdetails.setMenuNum(num2+num1);
-					boolean menus = this.updateEntity(orderdetails);
 				}
 			}
 		}
