@@ -88,7 +88,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		hql = "select count(*) from OrderDetails o where o.status='"+status+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList(" from OrderDetails o where o.status='" + status + "' or o.status='" + status1 +"' and o.dishes='" + dishes + "' order by o.creatDate asc ", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList(" from OrderDetails o where (o.status='" + status + "' or o.status='" + status1 +"') and o.dishes='" + dishes + "' order by o.creatDate asc ", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	
@@ -204,14 +204,14 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 			for(int j=0;j<list.size();j++) {
 				OrderDetails orderdetail2 = list.get(j);
 				int menuId2 = orderdetail2.getMenuId();
-				int num2 = orderdetail2.getMenuNum();
 				int id2 = orderdetail2.getId();
 				if(menuId1==menuId2&&id1!=id2) {
+					int num2 = orderdetail2.getMenuNum();
 					String hql1="delete from OrderDetails o Where o.id="+id;
 					int mark=this.executeUpdate(hql1);
 					String hql2 = "from OrderDetails o where o.menuId='"+menuId1+"'";
 					orderdetails=(OrderDetails) this.uniqueResult(hql2);
-					orderdetails.setMenuNum(num1+num2);
+					orderdetails.setMenuNum(num2+num1);
 					boolean menus = this.updateEntity(orderdetails);
 				}
 			}
