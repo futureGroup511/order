@@ -26,9 +26,9 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
 				var result = xmlhttp.responseText;								
 				if(parseInt(result)==1){
-					show_notice('催单成功',2);
+					show_notice('催单成功',1);
 				}else if(parseInt(result)==0){
-					show_notice('催单失败',2);
+					show_notice('催单失败',1);
 				}
 							
 			}
@@ -53,9 +53,9 @@
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
 				var result = xmlhttp.responseText;								
 				if(parseInt(result)==1){
-					show_notice('叫起成功',2);
+					show_notice('叫起成功',1);
 				}else if(parseInt(result)==0){
-					show_notice('即起成功',2);
+					show_notice('即起成功',1);
 				}
 							
 			}
