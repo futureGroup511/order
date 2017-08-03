@@ -33,7 +33,9 @@ public class BaseDao<T> {
 		String hql="select count(*) from "+className;		
 		return ((Long)this.uniqueResult(hql)).intValue();
 	}
-	
+	public Session openSession() {
+		return sessionFactory.openSession();
+	}
 	//返回session会话
 	protected Session getSession(){
 		return this.sessionFactory.getCurrentSession();
@@ -54,6 +56,7 @@ public class BaseDao<T> {
 	}
 	//删除对象
 	protected final boolean deleteEntity(T t){
+		
 		this.getSession().delete(t);
 		return true;
 	}
