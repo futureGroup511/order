@@ -75,7 +75,6 @@ window.onload=function(){
       <li><a href="${rootPath }manage/MenuManager_${adss}?page=${allMenu.prePage}">上一页</a></li>
      			<c:forEach var="i" begin="${allMenu.currentPage-3>0?allMenu.currentPage-3:1 }"
  					end="${allMenu.currentPage+3>allMenu.pageNum?allMenu.pageNum:allMenu.currentPage+3  }">
-
  					<c:choose> 
 						<c:when test="${i>0 && i == allMenu.currentPage}">
  							<li class="active"><a href="${rootPath }manage/MenuManager_${adss}?page=${i }">${i}</a></li> 

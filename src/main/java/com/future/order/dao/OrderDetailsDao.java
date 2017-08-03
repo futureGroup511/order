@@ -199,6 +199,7 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	}
 
 	@Override
+
 	public boolean updet(int id) {
 		OrderDetails od = this.getEntity(id);
 		od.setStatus("已完成");

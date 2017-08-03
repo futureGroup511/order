@@ -66,6 +66,7 @@ window.onload=function(){
 				<td>
 					<c:if test="${pageCut.status eq '无人'}">无人</c:if>
 					<c:if test="${pageCut.status eq '有人'}">有人</c:if>
+					<c:if test="${pageCut.status eq '预定'}">预定</c:if>
 				</td>
 				<td><a href="${rootPath}manage/TableManager_reWeiMa?name=${pageCut.name}&id=${pageCut.id}">下载二维码</a></td>
 				<td>
