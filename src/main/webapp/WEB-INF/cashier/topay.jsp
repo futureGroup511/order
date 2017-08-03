@@ -25,19 +25,14 @@ if(a==0){
 	 var total=document.getElementById("total").value;
 	 var discount=document.getElementById("discount").value;
 	 var straightCut= document.getElementById("straightCut").value;
-	 sumValue =total*discount-straightCut;
-	 sumValue= sumValue.toFixed(2);
-	 self['price'].value =sumValue;
-    }
- function check()
- {
-	 var discount = document.getElementById("discount").value;
 	 if(discount>1){
-		 alert(discount);
 		 document.getElementById("discount").value="1";
-		 return true; 
+		 discount = 1;
 	 } 
- }
+	sumValue =total*discount-straightCut;
+	sumValue= sumValue.toFixed(2);
+	self['price'].value =sumValue;
+    }
 
 </script>
 <body style="background: url(${rootPath}/images/m-91.jpg);">
