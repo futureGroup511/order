@@ -29,6 +29,16 @@ if(a==0){
 	 sumValue= sumValue.toFixed(2);
 	 self['price'].value =sumValue;
     }
+ function check()
+ {
+	 var discount = document.getElementById("discount").value;
+	 if(discount>1){
+		 alert(discount);
+		 document.getElementById("discount").value="1";
+		 return true; 
+	 } 
+ }
+
 </script>
 <body style="background: url(${rootPath}/images/m-91.jpg);">
 <center><div style="font-weight: bold;margin-top:2%;">${mark}</div></center>
@@ -74,7 +84,7 @@ if(a==0){
 	            </tr>
 	            <tr style="height:50px;">
 	                <td class="bor1"><p>打<span style="margin-left:37px;">折</span> :</p></td>
-	                <td><input type="text" id="discount"  name="discount" placeholder="输入小数,不打折为1" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();	"></td>
+	                <td><input type="text" id="discount"  name="discount" placeholder="输入小数,不打折为1" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();" onblur="check()"></td>
 	            </tr>
 	            <tr style="height:50px;">
 	                <td class="bor1"><p>直减(元) :</p></td>
