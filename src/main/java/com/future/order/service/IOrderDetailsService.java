@@ -51,7 +51,7 @@ public interface IOrderDetailsService {
 	public List<OrderDetails> getDetailsTwo(int orderId);
 	// wqj 由餐桌ID查询餐桌信息
 	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
-	public boolean updet(int id, int idd, String UserName);
+	public boolean updet(int id);
 	//wqj 根据订单id查询所有该订单的详细信息
 	public List<OrderDetails> CheckDe(int id);
 	//安李杰用

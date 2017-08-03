@@ -3,8 +3,9 @@
  * @date:   createDate：2017年5月22日 上午10:48:11   
  * @Description:  
  * 
- */  
+ */
 package com.future.order.dao;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -18,32 +19,34 @@ import com.future.order.util.PageCut;
 public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDetailsService {
 
 	@Override
-	public List<OrderDetails> CheckDetails(int id) {//根据订单id查询所有该订单的详细信息
+	public List<OrderDetails> CheckDetails(int id) {// 根据订单id查询所有该订单的详细信息
 		@SuppressWarnings("unused")
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		try{
-			String hql="from OrderDetails o where o.orderId='"+id+"'";
-			list=this.getEntityList(hql);
-		}catch (Exception e) {
+		try {
+			String hql = "from OrderDetails o where o.orderId='" + id + "'";
+			list = this.getEntityList(hql);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
-	//wqj 未完成
+
+	// wqj 未完成
 	@Override
-	public List<OrderDetails> unfinish(){
+	public List<OrderDetails> unfinish() {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		 String status="未完成";
-		String hql="from OrderDetails o where o.status='"+status+"'";
-		String hql1="from OrderDetails as a order by a.creatDate asc";
-		list=this.getEntityList(hql);
-		list=this.getEntityList(hql1);
+		String status = "未完成";
+		String hql = "from OrderDetails o where o.status='" + status + "'";
+		String hql1 = "from OrderDetails as a order by a.creatDate asc";
+		list = this.getEntityList(hql);
+		list = this.getEntityList(hql1);
 		return list;
 	}
+
 	@Override
-	public PageCut<OrderDetails> searchOrder( String input ,int pageSize, int currPage) {
+	public PageCut<OrderDetails> searchOrder(String input, int pageSize, int currPage) {
 		StringBuilder sb = new StringBuilder("from OrderDetails as o where");
-		
+
 		if (input != null && input.length() > 0) {
 			sb.append(String.format(" o.id like '%%%s%%'", input));
 		}
@@ -66,85 +69,91 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 		}
 		return pc;
 	}
+
 	@Override
 	public List<OrderDetails> CheckDe(int id) {
 		@SuppressWarnings("unused")
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		try{
-			String hql="from OrderDetails o where o.orderId='"+id+"'";
-			list=this.getEntityList(hql);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-	@Override
-	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize) {
-		String status = "未完成";
-		String status1 = "处理中";
-		String dishes = "即起";
-		String hql ;
-		int count=0;
-		hql = "select count(*) from OrderDetails o where o.status='"+status+"'";
-		count = ((Long) this.uniqueResult(hql)).intValue();
-		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList(" from OrderDetails o where (o.status='" + status + "' or o.status='" + status1 +"') and o.dishes='" + dishes + "' order by o.creatDate asc ", (currentPage-1)*pageSize, pageSize));
-		return pc;
-	}
-	
-	@Override
-	public boolean updateOrerDetails(int id){
-		OrderDetails orderdetails = this.getEntity(id);
-		String status="已完成"; 
-		orderdetails.setStatus(status);
-		boolean menus = this.updateEntity(orderdetails);
-		return true;
-	}
-	
-	@Override
-	public List<OrderDetails> getAll(int id) {
-		@SuppressWarnings("unused")
-		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		try{
-			String hql="from OrderDetails as a order by a.creatDate asc";
-			list=this.getEntityList(hql);
-		}catch (Exception e) {
+		try {
+			String hql = "from OrderDetails o where o.orderId='" + id + "'";
+			list = this.getEntityList(hql);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
 
 	@Override
-	public boolean deletOrderDetails(int id) {//根据订单ID删除所有该订单所有详细信息
-		boolean sign = false;
-		try{
-			String hql="delete from OrderDetails o Where o.orderId='"+id+"'";
-			int mark=this.executeUpdate(hql);
-		if(mark==1){
-			sign=true;
-		}else{
-			sign=false;
+	public PageCut<OrderDetails> getUnfinishPageCut(int currentPage, int pageSize) {
+		String status = "未完成";
+		String status1 = "处理中";
+		String dishes = "即起";
+		String hql;
+		int count = 0;
+		hql = "select count(*) from OrderDetails o where o.status='" + status + "'";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
+		pc.setData(
+				this.getEntityLimitList(
+						" from OrderDetails o where (o.status='" + status + "' or o.status='" + status1
+								+ "') and o.dishes='" + dishes + "' order by o.creatDate asc ",
+						(currentPage - 1) * pageSize, pageSize));
+		return pc;
+	}
+
+	@Override
+	public boolean updateOrerDetails(int id) {
+		OrderDetails orderdetails = this.getEntity(id);
+		String status = "已完成";
+		orderdetails.setStatus(status);
+		boolean menus = this.updateEntity(orderdetails);
+		return true;
+	}
+
+	@Override
+	public List<OrderDetails> getAll(int id) {
+		@SuppressWarnings("unused")
+		List<OrderDetails> list = new ArrayList<OrderDetails>();
+		try {
+			String hql = "from OrderDetails as a order by a.creatDate asc";
+			list = this.getEntityList(hql);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		}catch (Exception e) {
+		return list;
+	}
+
+	@Override
+	public boolean deletOrderDetails(int id) {// 根据订单ID删除所有该订单所有详细信息
+		boolean sign = false;
+		try {
+			String hql = "delete from OrderDetails o Where o.orderId='" + id + "'";
+			int mark = this.executeUpdate(hql);
+			if (mark == 1) {
+				sign = true;
+			} else {
+				sign = false;
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sign;
 	}
 
 	@Override
-	public boolean deletDetails(int detailid) {//根据详细信息的ID删除信息
+	public boolean deletDetails(int detailid) {// 根据详细信息的ID删除信息
 		boolean sign = false;
-		try{
-			String hql="delete from OrderDetails o Where o.id="+detailid;
-			int mark=this.executeUpdate(hql);
-			if(mark==1){
-				sign=true;
-			}else{
-				sign=false;
+		try {
+			String hql = "delete from OrderDetails o Where o.id=" + detailid;
+			int mark = this.executeUpdate(hql);
+			if (mark == 1) {
+				sign = true;
+			} else {
+				sign = false;
 			}
-		
-		}catch (Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sign;
@@ -154,92 +163,78 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	public OrderDetails checkById(int detailid) {
 		@SuppressWarnings("unused")
 		OrderDetails orderdetails = new OrderDetails();
-		try{
-			String hql="from OrderDetails o where o.id='"+detailid+"'";
-			orderdetails=(OrderDetails) this.uniqueResult(hql);
-			
-		}catch (Exception e) {
+		try {
+			String hql = "from OrderDetails o where o.id='" + detailid + "'";
+			orderdetails = (OrderDetails) this.uniqueResult(hql);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return orderdetails;
 	}
+
 	@Override
-		public PageCut<OrderDetails> Check(int tableId,int currentPage, int pageSize) {
-			String hql ;
-			int count=0;
-			String dishes="即起";
-			hql = "select count(*) from OrderDetails o where o.orderId='"+tableId+"'";
-			count = ((Long) this.uniqueResult(hql)).intValue();
-			PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-			pc.setData(this.getEntityLimitList(" from OrderDetails o where o.orderId = '" + tableId + "' and o.dishes = '" + dishes + "'", (currentPage-1)*pageSize, pageSize));
-			return pc;
+	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize) {
+		String hql;
+		int count = 0;
+		String dishes = "即起";
+		hql = "select count(*) from OrderDetails o where o.orderId='" + tableId + "'";
+		count = ((Long) this.uniqueResult(hql)).intValue();
+		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
+		pc.setData(this.getEntityLimitList(
+				" from OrderDetails o where o.orderId = '" + tableId + "' and o.dishes = '" + dishes + "'",
+				(currentPage - 1) * pageSize, pageSize));
+		return pc;
 	}
+
 	@Override
 	public boolean deal(int id, int idd, String UserName) {
 		OrderDetails orderdetails = this.getEntity(id);
-		String status="处理中";
+		String status = "处理中";
 		orderdetails.setCookId(idd);
 		orderdetails.setCookName(UserName);
 		orderdetails.setStatus(status);
-		boolean menus = this.updateEntity(orderdetails);
-		return true;
-	}
-	
-	@Override
-	public boolean updet(int id,int idd,String UserName){
-		OrderDetails orderdetails = this.getEntity(id);
-		String status="已完成";
-		orderdetails.setCookId(idd);
-		orderdetails.setCookName(UserName);
-		orderdetails.setStatus(status);
-		if(orderdetails.getGift().equals("无")) {
-		String hql = "from OrderDetails as o order by o.creatDate asc";
-		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		list = this.getEntityList(hql);
-		for(int i=0;i<list.size();i++) {
-			OrderDetails orderdetail1 = list.get(i);
-			int menuId1 = orderdetail1.getMenuId();
-			int id1 = orderdetail1.getId();
-			int num1 = orderdetail1.getMenuNum();
-			for(int j=0;j<list.size();j++) {
-				OrderDetails orderdetail2 = list.get(j);
-				int menuId2 = orderdetail2.getMenuId();
-				int id2 = orderdetail2.getId();
-				if(menuId1==menuId2&&id1!=id2) {
-					int num2 = orderdetail2.getMenuNum();
-					String hql1="delete from OrderDetails o Where o.id="+id;
-					int mark=this.executeUpdate(hql1);
-					String hql2 = "from OrderDetails o where o.menuId='"+menuId1+"'";
-					orderdetails=(OrderDetails) this.uniqueResult(hql2);
-					orderdetails.setMenuNum(num2+num1);
-				}
-			}
-		}
-		
-		}
 		boolean menus = this.updateEntity(orderdetails);
 		return true;
 	}
 
 	@Override
+
+	public boolean updet(int id) {
+		OrderDetails od = this.getEntity(id);
+		od.setStatus("已完成");
+		int menuId = od.getMenuId();
+		List<OrderDetails> list = this.getEntityList("from OrderDetails as o where o.menuId = ?", menuId);
+		for(OrderDetails temp:list) {
+			if(temp.getMenuId() == menuId && temp.getId() != id) {
+				od.setMenuNum(od.getMenuNum()+temp.getMenuNum());
+			}
+		}
+		this.executeUpdate("delete OrderDetails as o where o.menuId = ? and o.id != ?", menuId,id);
+		return this.updatee(od);		
+
+	}
+
+	@Override
 	public boolean updateOrder(OrderDetails details) {
-		boolean sign=false;
-		try{
-			sign=this.updateEntity(details);
-		}catch (Exception e) {
+		boolean sign = false;
+		try {
+			sign = this.updateEntity(details);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sign;
 	}
-	
+
 	@Override
 	public PageCut<OrderDetails> getPageCut(int currentPage, int pageSize, int orderid) {
-		String hql ;
-		int count=0;
-		hql = "select count(*) from OrderDetails o where o.orderId='"+orderid+"'";
+		String hql;
+		int count = 0;
+		hql = "select count(*) from OrderDetails o where o.orderId='" + orderid + "'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<OrderDetails> pc = new PageCut<OrderDetails>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from OrderDetails o where o.orderId='"+orderid+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from OrderDetails o where o.orderId='" + orderid + "'",
+				(currentPage - 1) * pageSize, pageSize));
 		return pc;
 	}
 
@@ -251,92 +246,100 @@ public class OrderDetailsDao extends BaseDao<OrderDetails> implements IOrderDeta
 	@Override
 	public List<OrderDetails> getDetails(int tableId) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		String hql="from OrderDetails s where s.tableId="+tableId+" and (s.status='未完成' or s.status='已处理')";
-		list=this.getEntityList(hql);
+		String hql = "from OrderDetails s where s.tableId=" + tableId + " and (s.status='未完成' or s.status='已处理')";
+		list = this.getEntityList(hql);
 		return list;
 	}
+
 	@Override
 	public OrderDetails getByTableId(int tableId) {
-		String hql="from OrderDetails s where s.tableId="+tableId;
-		List<OrderDetails> orderDetails=this.getEntityList(hql);
-		if(orderDetails.size()>0){
-			return (OrderDetails)orderDetails.toArray()[0];
-		}
-		else{
+		String hql = "from OrderDetails s where s.tableId=" + tableId;
+		List<OrderDetails> orderDetails = this.getEntityList(hql);
+		if (orderDetails.size() > 0) {
+			return (OrderDetails) orderDetails.toArray()[0];
+		} else {
 			return null;
-		}	
+		}
 	}
+
 	@Override
 	public Boolean updatee(OrderDetails en) {
-		
+
 		return this.updateEntity(en);
 	}
+
 	@Override
 	public List<OrderDetails> getDetailsOne(int orderId) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		String hql="from OrderDetails s where s.orderId="+orderId;
-		list=this.getEntityList(hql);
+		String hql = "from OrderDetails s where s.orderId=" + orderId;
+		list = this.getEntityList(hql);
 		return list;
 	}
+
 	@Override
 	public List<OrderDetails> seeByid(int id) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		try{
-			String hql="from OrderDetails o where o.orderId='"+id+"'";
-			list=this.getEntityList(hql);
-		}catch (Exception e) {
+		try {
+			String hql = "from OrderDetails o where o.orderId='" + id + "'";
+			list = this.getEntityList(hql);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
+
 	@Override
 	public OrderDetails getDetaill(int tableId) {
-		String hql="from OrderDetails where id=(select max(id) from OrderDetails) and tableId='"+tableId+"'";
-		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
+		String hql = "from OrderDetails where id=(select max(id) from OrderDetails) and tableId='" + tableId + "'";
+		OrderDetails orderDetails = (OrderDetails) uniqueResult(hql);
 		return orderDetails;
 	}
+
 	@Override
 	public List<OrderDetails> getDetailsTwo(int orderId) {
 		List<OrderDetails> list = new ArrayList<OrderDetails>();
-		String hql="from OrderDetails s where s.orderId="+orderId+" and (s.status='未完成')";
-		list=this.getEntityList(hql);
+		String hql = "from OrderDetails s where s.orderId=" + orderId + " and (s.status='未完成')";
+		list = this.getEntityList(hql);
 		return list;
 	}
+
 	@Override
 	public boolean back(int id) {
 		boolean sign = false;
-		try{
-			String hql="delete from OrderDetails o Where o.id='"+id+"'";
-			int mark=this.executeUpdate(hql);
-		if(mark==1){
-			sign=true;
-		}else{
-			sign=false;
-		}
-		
-		}catch (Exception e) {
+		try {
+			String hql = "delete from OrderDetails o Where o.id='" + id + "'";
+			int mark = this.executeUpdate(hql);
+			if (mark == 1) {
+				sign = true;
+			} else {
+				sign = false;
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sign;
 	}
+
 	@Override
 	public OrderDetails checkStatus(int id) {
-		String hql="from OrderDetails s where s.id="+id;
-		OrderDetails orderDetails=(OrderDetails) uniqueResult(hql);
+		String hql = "from OrderDetails s where s.id=" + id;
+		OrderDetails orderDetails = (OrderDetails) uniqueResult(hql);
 		return orderDetails;
 	}
+
 	@Override
 	public int getSomenum(int id) {
-		String hql ="from OrderDetails where orderId='"+id+"'";
-		List<OrderDetails> list=getEntityList(hql);
-		int num=list.size();
+		String hql = "from OrderDetails where orderId='" + id + "'";
+		List<OrderDetails> list = getEntityList(hql);
+		int num = list.size();
 		return num;
 	}
-	
+
 	@Override
 	public List<OrderDetails> selectOrderDetails(int id) {
-		String hql ="from OrderDetails where orderId='"+id+"'";
-		List<OrderDetails> list=getEntityList(hql);
+		String hql = "from OrderDetails where orderId='" + id + "'";
+		List<OrderDetails> list = getEntityList(hql);
 		return list;
 	}
 }

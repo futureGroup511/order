@@ -80,11 +80,8 @@ public class orderCenterAction extends BaseAction {
 	
 	//修改菜品状态为已完成，修改配料
 	public String recheck() {
-		User me = (User) session.get("cook"); 
-		id = me.getId();
-		username = me.getName();
 		List<Inform> inform=informService.getTop();
-		boolean m=orderDetailsService.updet(i,id,username);
+		boolean m=orderDetailsService.updet(i);
 		updateIngredient(menuId);
 		updateOrder(Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.Check(Orderid,page, 5);
@@ -121,13 +118,9 @@ public class orderCenterAction extends BaseAction {
 	
 	//修改菜品状态(传入OrderId)
 	public String checko() {
-		User me = (User) session.get("cook");
-		id = me.getId();
-		username = me.getName();
 		session.put("itemid", Orderid);
 		List<Inform> inform=informService.getTop();
-		boolean menu=orderService.updetemenu(Orderid,id,username);
-		boolean m=orderDetailsService.updet(i,id,username);
+		boolean m=orderDetailsService.updet(i);
 		updateIngredient(menuId);
 		updateOrder(Orderid);
 		PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
