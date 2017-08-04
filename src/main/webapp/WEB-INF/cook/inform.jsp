@@ -25,29 +25,36 @@
     }
   .pag {
 	float: right;
-	margin-top: -100px;
+	margin-top: -40px;
 	margin-right: 0px;
 }
         table{
-        /*  position: relative;
-          top: 10px;
-          left: 10px;*/
+        
             width: 100%;
             text-align: center;
             margin:100px auto; 
             font-family: 微软雅黑;
          }
         
-        #table1 thead td{
+       #table2{
+    position:relative;
+    top:0;
+    margin-bottom:40px;
+    margin-top:80px;
+    width:100%;
+}
+       #table2 thead td{
+
             border: 1px solid #c6c6c6;
             background-color: #e8e7e3;
-             height: 40px;
+            height: 30px; 
            
         }
-         #table1 tbody td{
+       
+         #table2  tbody td{
             border: 1px solid #c6c6c6;
             background-color: #fefefe;
-            height: 35px;
+            height: 30px;
         }
            .footer{
             position: absolute;
@@ -76,7 +83,7 @@ window.onload = function() {
 	</script>
 <body style="">
 <div class="aa" id="div1" style="display: none">
-    <table id="table1">
+ <table id="table2">
       <thead>
         <tr>
             <td colspan="10">催单信息</td>
@@ -85,7 +92,7 @@ window.onload = function() {
         <tbody>
           <tr>
              <td>编号</td>
-             <td>通知时间</td>
+             <td style="width:250px">通知时间</td>
              <td>餐桌编号</td>
              <td>餐桌名称</td>
              <td>通知内容</td>
@@ -96,7 +103,7 @@ window.onload = function() {
 	                <td>${item.createDate}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
-	                 <td style="width:130px;height:10px"><textarea style="width:100%;height:99%">${item.content}</textarea></td>
+	                 <td style="width:400px;height:20px"><textarea style="width:400px;height:30px">${item.content}</textarea></td>
 	            </tr>  
         	</c:forEach>
         </tbody>
