@@ -11,7 +11,7 @@
 <body  style="background: url(${rootPath}/images/m-91.jpg);">
 	<div class="wall">
         <form action="${rootPath}manage/Payment_updatePayWays" method="post">
-            <label>支<span style="margin-right: 10px;">付</span>编号:</label>
+            <label>支付编号:</label>
               <input type="text" name="payment.id" value="${payways.id}" readonly="readonly"><br>
             <label>支付方式:</label>
               <input type="text" name="payment.ways" value="${payways.ways}" required="required"><br>

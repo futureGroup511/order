@@ -293,6 +293,8 @@ public class CartAction extends BaseAction {
 								en.setDishes("叫起");
 								Boolean bool = orderDetailsService.updatee(en);
 								this.getResponse().getWriter().println(1);
+							}else if(order.getStatus().equals("未付款")){
+								this.getResponse().getWriter().println(2);
 							}else{
 								en.setDishes("即起");
 								Boolean bool = orderDetailsService.updatee(en);

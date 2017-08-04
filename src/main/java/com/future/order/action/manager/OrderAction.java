@@ -120,7 +120,7 @@ public class OrderAction extends BaseAction {
 		Order orderDb = orderService.checkById(orders.getId());
 		BigDecimal bg = new BigDecimal(favourables);
 		favourables = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
-		orderDb.setPayway(new String(orders.getPayway().getBytes("ISO-8859-1"),"utf-8"));
+		orderDb.setPayway(orders.getPayway());
 		orderDb.setPrice(price);
 		orderDb.setFavourable(favourables);
 		double returnPay = pay - price;// 找零
@@ -138,7 +138,7 @@ public class OrderAction extends BaseAction {
 		boolean boo = orderService.updateOrder(orderDb);
 		List<OrderDetails> list = orderDetailsService.seeByid(orderDb.getId());
 		request.put("orderlist", list);
-		request.put("payWay", new String(orders.getPayway().getBytes("ISO-8859-1"),"utf-8"));
+		request.put("payWay", orders.getPayway());
 		return "print";
 	}
 

@@ -25,19 +25,24 @@ if(a==0){
 	 var total=document.getElementById("total").value;
 	 var discount=document.getElementById("discount").value;
 	 var straightCut= document.getElementById("straightCut").value;
-	 sumValue =total*discount-straightCut;
-	 sumValue= sumValue.toFixed(2);
-	 self['price'].value =sumValue;
+	 if(discount>1){
+		 document.getElementById("discount").value="1";
+		 discount = 1;
+	 } 
+	sumValue =total*discount-straightCut;
+	sumValue= sumValue.toFixed(2);
+	self['price'].value =sumValue;
     }
+
 </script>
 <body style="background: url(${rootPath}/images/m-91.jpg);">
 <center><div style="font-weight: bold;margin-top:2%;">${mark}</div></center>
 <c:if test="${order ne null}">
 	<div class="orderdetailes" id="div1">
-       <table  cellspacing="0"border="1">
+       <table  cellspacing="0" class="table">
          <thead>
           <tr>
-             <td colspan="3" style="height:45px;background-color: #E8E7E3;">订单详细信息</td>
+             <td colspan="4" style="height:45px;background-color: #E8E7E3;">订单详细信息</td>
           </tr>   
          </thead>
          <tbody>
@@ -45,12 +50,14 @@ if(a==0){
 	             <td>菜品名称</td>
 	             <td>数量</td>
 	             <td>单价(元)</td>
+	             <td>类别</td>
 	           </tr>
            <c:forEach items="${detailslist}" var="item">  
 	           <tr class="bg_color">
 	             <td>${item.menuName}</td>
 	             <td>${item.menuNum}</td>
 	             <td>${item.price}</td>
+	             <td>${item.gift}</td>
 	           </tr>  
            </c:forEach>          
          </tbody>
@@ -74,7 +81,7 @@ if(a==0){
 	            </tr>
 	            <tr style="height:50px;">
 	                <td class="bor1"><p>打<span style="margin-left:37px;">折</span> :</p></td>
-	                <td><input type="text" id="discount"  name="discount" placeholder="输入小数,不打折为1" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();	"></td>
+	                <td><input type="text" id="discount"  name="discount" placeholder="输入小数,不打折为1" onkeyup="value=value.replace(/[^\d\.]/g,'');SumNum();" onblur="check()"></td>
 	            </tr>
 	            <tr style="height:50px;">
 	                <td class="bor1"><p>直减(元) :</p></td>
