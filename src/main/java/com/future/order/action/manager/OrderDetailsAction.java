@@ -4,10 +4,15 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.future.order.base.BaseAction;
 import com.future.order.entity.Menu;
 import com.future.order.entity.Order;
 import com.future.order.entity.OrderDetails;
+import com.future.order.entity.Tables;
 import com.future.order.util.PageCut;
 
 /**
@@ -93,8 +98,8 @@ public class OrderDetailsAction extends BaseAction {
 		List<Menu> list =menuService.getAll();
 		request.put("menulist", list);
 		session.put("tableid", tableid);
-		tablename = new String(tablename.getBytes("ISO8859-1"),"UTF-8");
-		session.put("tablename", tablename);
+		Tables table = tablesService.getImurl(tableid);
+		session.put("tablename", table.getName());
  		return "givemenu";
 	}
 	public String ensureGive() throws UnsupportedEncodingException{//添加赠菜到订单详情
