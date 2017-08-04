@@ -56,6 +56,8 @@
 					show_notice('叫起成功',1);
 				}else if(parseInt(result)==0){
 					show_notice('即起成功',1);
+				}else if(parseInt(result)==2){
+					show_notice('菜已做好',1);
 				}
 							
 			}
