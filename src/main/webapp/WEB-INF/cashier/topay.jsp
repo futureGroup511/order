@@ -39,10 +39,10 @@ if(a==0){
 <center><div style="font-weight: bold;margin-top:2%;">${mark}</div></center>
 <c:if test="${order ne null}">
 	<div class="orderdetailes" id="div1">
-       <table  cellspacing="0"border="1">
+       <table  cellspacing="0" class="table">
          <thead>
           <tr>
-             <td colspan="3" style="height:45px;background-color: #E8E7E3;">订单详细信息</td>
+             <td colspan="4" style="height:45px;background-color: #E8E7E3;">订单详细信息</td>
           </tr>   
          </thead>
          <tbody>
@@ -50,12 +50,14 @@ if(a==0){
 	             <td>菜品名称</td>
 	             <td>数量</td>
 	             <td>单价(元)</td>
+	             <td>类别</td>
 	           </tr>
            <c:forEach items="${detailslist}" var="item">  
 	           <tr class="bg_color">
 	             <td>${item.menuName}</td>
 	             <td>${item.menuNum}</td>
 	             <td>${item.price}</td>
+	             <td>${item.gift}</td>
 	           </tr>  
            </c:forEach>          
          </tbody>
