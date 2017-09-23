@@ -6,6 +6,7 @@
  */  
 package com.future.order.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -17,7 +18,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tb_inform")
-public class Inform {
+public class Inform implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
