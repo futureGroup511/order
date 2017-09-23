@@ -31,16 +31,15 @@
 }
 .infors div{
 	display:inline-block;
-	background-color:#dadada;
 	border-radius:4px;
 	width:50px;
 	margin-right:20px;
 	margin-top:5px;
 }
 .infors div a{
-	line-height:15px;
+	line-height:13px;
 	margin-right:10px;
-	color:#000;
+	/* color:#000; */
 	height:15px;
 	font-size:12px;
 }
