@@ -82,8 +82,8 @@ window.onload=function(){
          </tbody>
      </table>
      <center>
-      <div style="margin-top:1%;font-weight: bold;" id="div4"> 本页面进货总支出为(元):${sumprice}</div><br>
-      <div style="margin-top:1%;font-weight: bold;" id="div3"> ${dateStr}${mark}${dateend}${stocksums}${stocksum}</div>   
+      <div style="margin-top:0%;font-weight: bold;" id="div4"> 本页面进货总支出为(元):${sumprice}</div><br>
+      <div style="margin-top:-1%;font-weight: bold;" id="div3"> ${dateStr}${mark}${dateend}${stocksums}${stocksum}</div>   
      </center>    
     </div>
     <div class="page" id="div2">
