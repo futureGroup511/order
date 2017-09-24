@@ -17,6 +17,12 @@ public class IPaymentDao extends BaseDao<Payment> implements IPaymentService {
 	//添加支付方式
 	@Override
 	public boolean addWays(Payment payment) {
+		List<Payment> payMents = this.selectWays();
+		for (Payment payments : payMents) {
+			if(payments.getWays().equals(payment.getWays())){
+				return false;
+			}
+		}
 		return saveEntity(payment);
 	}
 	

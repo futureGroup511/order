@@ -9,6 +9,10 @@ import com.future.order.entity.Payment;
  * @author 马黎明
  */
 public class PaymentAction extends BaseAction {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Payment payment;
 	private int id;
 
@@ -29,7 +33,7 @@ public class PaymentAction extends BaseAction {
 		if (sign) {
 			mark = "添加成功";
 		} else {
-			mark = "添加失败";
+			mark = "添加失败,已经存在";
 		}
 		request.put("mark", mark);
 		return "addways";

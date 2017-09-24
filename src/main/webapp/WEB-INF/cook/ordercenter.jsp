@@ -137,7 +137,7 @@ window.onload = function() {
           </tr>
        <c:forEach items="${paCut.data}" var="item"> 
 	            <tr>  
-	                <td><intput >${item.id}</td>
+	                <td>${item.id}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
 	                <td>${item.total}</td>
@@ -145,7 +145,7 @@ window.onload = function() {
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	               <td style="width:130px;height:10px"><textarea style="width:100%;height:105%">${item.remark}</textarea></td>
+	               <td style="width:130px;height:10px"><textarea readonly="readonly" style="width:100%;height:105%">${item.remark}</textarea></td>
 	                 <td><c:if test="${item.status eq '已付款'}">已完成</c:if>
 	                 <c:if test="${item.status eq '未处理'}"><a href="${rootPath}cook/orderCenter_DoOrder?Orderid=${item.id}&tableId=${item.tableId}">处理订单</a></c:if>
 	                 <c:if test="${item.status eq '处理中'}">处理中</c:if>

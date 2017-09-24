@@ -136,7 +136,7 @@ html {
 	                <td>${item.createDate}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
-	                 <td style="width:400px;height:20px"><textarea style="width:400px;height:30px">${item.content}</textarea></td>
+	                <td style="width:400px;height:20px"><textarea readonly="readonly" style="width:400px;height:30px">${item.content}</textarea></td>
 	            </tr>  
         	</c:forEach>
         </tbody>
@@ -178,7 +178,7 @@ html {
 						<td>${item.status}</td>
 						<td>${item.creatDate}</td>
 						<td>${item.cookName}</td>
-						 <td style="width:200px;height:10px"><textarea style="width:200px;height:30px">${item.remark}</textarea></td>
+						 <td style="width:200px;height:10px"><textarea readonly="readonly" style="width:200px;height:30px">${item.remark}</textarea></td>
 						<td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}&OrderId=${item.orderId}">打印二维码</a></td>
 						<td>
 							<c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_deal?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}&menuId=${item.menuId}">处理</a></c:if> 

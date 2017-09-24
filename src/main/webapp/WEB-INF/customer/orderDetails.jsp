@@ -126,7 +126,7 @@
        <p>数量：${o.menuNum}</p>   
        <p class="left" style="display:inline-block">状态：</p><p class="green pppp1"  style="display:inline-block">${o.status}</p>
        <div class="right divv1">
-	       <c:if test="${o.status=='未完成'}">
+	       <c:if test="${o.status=='未完成'&&o.gift!='赠品'}">
 	       <a class="right" href="${rootPath}customer/cart_getBack?id=${o.id}" >退菜</a>
 	       </c:if>
        </div>
@@ -169,7 +169,7 @@
          <p>购物车</p>
       </div>
       </a>
-      <a href="${rootPath}customer/cart_getOrderDetails">
+      <a href="${rootPath}customer/cart_orderDetails">
       <div class="left dingdan">
          <div><img src="${rootPath}images/dd.png" style="height:70%;width:70%;"></div>
          <p>订单</p>

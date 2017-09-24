@@ -41,7 +41,7 @@ function changeSelected() {
           <lable id="text">配料编号：</lable><input type="text" name="details.ingId" value="${stockDetails.ingId}" readonly="readonly">
           <lable id="text">配料名称：</lable><input type="text" name="details.ingName" value="${stockDetails.ingName}" readonly="readonly"></br>
           <lable id="text">单价(元)：</lable><input type="text" name="details.price" value="${stockDetails.price}" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">
-          <lable id="text">数量：</lable><input type="number" name="details.num" value="${stockDetails.num}"><br>
+          <lable id="text">数量：</lable><input type="text" name="details.num" value="${stockDetails.num}" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
           <lable id="text">进货时间：</lable><input type="text" name="details.createDate" value="${stockDetails.createDate}" class="sang_Calender" readonly="readonly">
       	</div>
       	<div class="row">

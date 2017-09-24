@@ -149,7 +149,7 @@
       	<p>购物车</p>
       </div>
       </a>
-      <a href="${rootPath}customer/cart_getOrderDetails">
+      <a href="${rootPath}customer/cart_orderDetails">
       <div class="left">
       	<div><img src="${rootPath}images/dd.png" style="width:70%; height:70%;"></div>
       	<p>订单</p>

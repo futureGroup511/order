@@ -264,7 +264,8 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 
 	@Override
 	public Order getOrder1(int tableId) {
-		String hql = "from Order where id=(select max(id) from Order) and tableId='" + tableId + "'";
+//		String hql = "from Order where id=(select max(id) from Order) and tableId ='" + tableId + "'";
+		String hql = "from Order where tableId ='" + tableId + "' and status != '已付款'";
 		Order order = (Order) uniqueResult(hql);
 		return order;
 	}

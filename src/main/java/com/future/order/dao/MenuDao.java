@@ -174,8 +174,10 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 		String selectHql;
 		if(ask.equals("price")){
 			int mark = Integer.parseInt(inquiry);
+			hql += " where "+ask+"='"+mark+"'";
 			 selectHql =  "from Menu where "+ask+"='"+mark+"'";
 		}else{
+			hql += " where "+ask+"='"+inquiry+"'";
 			 selectHql =  "from Menu where "+ask+"='"+inquiry+"'";
 		}
 		int count = ((Long) this.uniqueResult(hql)).intValue();
