@@ -93,6 +93,7 @@ public class OrderAction extends BaseAction {
 		Order order = orderService.selectOrder(id,IDcard);
 		List<OrderDetails> detailslist = new ArrayList<>();
 		List<Payment> list = new ArrayList<>();
+		System.out.println("order:"+order);
 	   if(order==null){
 		   request.put("mark", "没有账单");
 	   } else {
