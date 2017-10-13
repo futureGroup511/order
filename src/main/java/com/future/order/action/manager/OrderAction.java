@@ -25,12 +25,12 @@ public class OrderAction extends BaseAction {
 	private int page = 1;
 	private int id;
 	private Order orders;
-	private String sign = "all";//判断付款/未付款的条件
+	private String sign = "all";// 判断付款/未付款的条件
 	private String IDcard;
-	private String ask;//查询属性名
-	private String inquiry;//查询属性值
-	private String starttime;//开始时间
-	private String endtime;//结束时间
+	private String ask;// 查询属性名
+	private String inquiry;// 查询属性值
+	private String starttime;// 开始时间
+	private String endtime;// 结束时间
 	private double discount;// 打折 //张金高修改
 	private double straightCut;// 直减
 	private double price;// 打折后应收
@@ -73,7 +73,7 @@ public class OrderAction extends BaseAction {
 
 	public String Delet() {// 从前台获得ID用于根据账号删除订单信息和订单详细信息
 		boolean sign = orderService.deletOrder(id);
-		//根据ID判断订单详细信息有无信息
+		// 根据ID判断订单详细信息有无信息
 		int marks = orderDetailsService.getSomenum(id);
 		boolean signs = orderDetailsService.deletOrderDetails(id);
 		String mark = "操作失败";
@@ -90,27 +90,27 @@ public class OrderAction extends BaseAction {
 	}
 
 	public String toPay() {// 转发到结账界面
-		Order order = orderService.selectOrder(id,IDcard);
+		Order order = orderService.selectOrder(id, IDcard);
 		List<OrderDetails> detailslist = new ArrayList<>();
 		List<Payment> list = new ArrayList<>();
-		System.out.println("order:"+order);
-	   if(order==null){
-		   request.put("mark", "没有账单");
-	   } else {
-			 request.put("orderId", order.getId());//订单id
-			 detailslist= orderDetailsService.selectOrderDetails(order.getId());
-			 list = paymentService.selectWays();
-	   }
-	   	request.put("detailslist", detailslist);
+		if (order == null) {
+			request.put("mark", "没有账单");
+		} else {
+			request.put("orderId", order.getId());// 订单id
+			detailslist = orderDetailsService.selectOrderDetails(order.getId());
+			list = paymentService.selectWays();
+		}
+		request.put("detailslist", detailslist);
 		request.put("paylist", list);
 		request.put("order", order);
 		return "toPay";
 	}
 
-	public String pay() throws UnsupportedEncodingException {// 用于结账，把订单状态由已处理改为已结账 打印发票
+	public String pay() throws UnsupportedEncodingException {// 用于结账，把订单状态由已处理改为已结账
+																// 打印发票
 		double favourables = 0;// 优惠金额
 		Order order = orderService.checkById(orders.getId());
-		favourables = order.getTotal()-price;
+		favourables = order.getTotal() - price;
 		boolean sign = orderService.payOrder(orders.getId());
 		String mark = "付款失败";
 		if (sign == true) {
@@ -133,7 +133,7 @@ public class OrderAction extends BaseAction {
 		request.put("pay", pay);
 		request.put("returnPay", returnPay);
 		request.put("order", orderDb);
-		User cashier = (User)session.get("cashier");//张金高改
+		User cashier = (User) session.get("cashier");// 张金高改
 		orderDb.setCashierId(cashier.getId());
 		orderDb.setCashierName(cashier.getName());
 		boolean boo = orderService.updateOrder(orderDb);
@@ -160,16 +160,17 @@ public class OrderAction extends BaseAction {
 		request.put("mark", mark);
 		return this.execute();
 	}
-	//根据条件查询符合条件的语句
+
+	// 根据条件查询符合条件的语句
 	public String Inquiry() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		List<Order> list = new ArrayList<>();
 		double sum = 0;
 		double sumprice = 0;
 		if (ask != null) {
-			//根据条件获得符合条件的8条数订单，分页
+			// 根据条件获得符合条件的8条数订单，分页
 			pCut = orderService.getSomePageCut(page, 8, ask, inquiry);
-			//根据条件获得所有的订单，用于计算总价
+			// 根据条件获得所有的订单，用于计算总价
 			list = orderService.getPrice(ask, inquiry);
 		} else {
 			ask = (String) session.get("ask");
@@ -208,7 +209,8 @@ public class OrderAction extends BaseAction {
 		}
 		return "check";
 	}
-   //根据时间条件查询符合条件的数据
+
+	// 根据时间条件查询符合条件的数据
 	public String count() {
 		PageCut<Order> pCut = new PageCut<Order>();
 		List<Order> list = new ArrayList<>();
@@ -222,7 +224,7 @@ public class OrderAction extends BaseAction {
 		if (sign.equals("all")) {
 			// 获得全部订单信息，用于计算总价
 			list = orderService.getGain(starttime, endtime, sign);
-			//获得符合条件的6条订单
+			// 获得符合条件的6条订单
 			pCut = orderService.getPagegain(page, 6, starttime, endtime, sign);
 		} else if (sign.equals("no")) {
 			// 获得全部没有结账的订单信息

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>餐饮管理系统</title>
+<title>餐饮管理系统-收银</title>
    <link href="${rootPath}css/bootstrap.css"  rel="stylesheet" />
     <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
     <link href="${rootPath}css/basic.css" rel="stylesheet" />
