@@ -25,6 +25,7 @@
              <td>数量</td>
              <td>单价(元)</td>
              <td>菜品状态</td>
+             <td>上菜状态</td>
              <td>订单时间</td>
              <td>厨师id</td>
              <td>厨师姓名</td>         
@@ -41,6 +42,7 @@
 	                <td>${item.menuNum}</td>
 	                <td>${item.price}</td>
 	                <td>${item.status}</td>
+	                <td>${item.dishes}</td>
 	                <td>${item.creatDate}</td>	     
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
