@@ -15,10 +15,6 @@ import com.future.order.entity.Tables;
  * @author 安李杰
  *
  */
-/**
- * 
- *
- */
 public class CartAction extends BaseAction {
 
 	/**
@@ -233,18 +229,24 @@ public class CartAction extends BaseAction {
 			boolean boolll = orderService.delete(order.getId());
 			request.put("orderDetails", orderDetaill);
 		} else {
-			request.put("order", order.getStatus());
-			request.put("orderDetails", orderDetails);
-			request.put("myId", order.getId());
-			double totall = 0;
-			for (OrderDetails it : orderDetails) {
-				if(!it.getGift().equals("赠品")){
-					totall += it.getPrice() * it.getMenuNum();
+			List<OrderDetails> od = orderDetailsService.getDetailsTwo(order.getId());
+				if(od.isEmpty()){
+					request.put("order","未付款");
+					order.setStatus("未付款");
+				}else {
+					request.put("order", order.getStatus());
 				}
-			}
-			order.setTotal(totall);
-			boolean bool = orderService.update(order);
-			request.put("totall", totall);
+				request.put("orderDetails", orderDetails);
+				request.put("myId", order.getId());
+				double totall = 0;
+				for (OrderDetails it : orderDetails) {
+					if(!it.getGift().equals("赠品")){
+						totall += it.getPrice() * it.getMenuNum();
+					}
+				}
+				order.setTotal(totall);
+				boolean bool = orderService.update(order);
+				request.put("totall", totall);
 		}
 		return "getBack";
 	}
