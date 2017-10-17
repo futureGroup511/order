@@ -16,7 +16,7 @@
 				method="post">
 				<lable id="text">名称：</lable>
 				<input type="text" name="ingredient.name"
-					value="${updateIngredient.name}" required="required"><br>
+					value="${updateIngredient.name}" required="required" maxlength="10"><br>
 				<lable id="text">单价（元/kg）：</lable>
 				<input type="text" name="ingredient.price"
 					value="${updateIngredient.price}" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>

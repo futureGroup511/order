@@ -14,7 +14,7 @@
             <label>支付编号:</label>
               <input type="text" name="payment.id" value="${payways.id}" readonly="readonly"><br>
             <label>支付方式:</label>
-              <input type="text" name="payment.ways" value="${payways.ways}" required="required"><br>
+              <input type="text" name="payment.ways" value="${payways.ways}" required="required" maxlength="10"><br>
               <button style="background-color: #1BAFE0" type="submit">确认修改</button>
         </form>
     </div>

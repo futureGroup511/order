@@ -27,7 +27,7 @@
  <div class="wall">
 	 <h4><center>${mark}</center></h4>
 	 <form action="${rootPath}manage/MenuTypeAction_addType" method="post" enctype="multipart/form-data">
-	  <lable id="text">类型名称：</lable><input type="text" name="menutype.name" required="required"></input><br>
+	  <lable id="text">类型名称：</lable><input type="text" name="menutype.name" required="required" maxlength="10"></input><br>
 	  <lable id="textarea"><span style="margin-right: 45px;">备</span>注：</lable><textarea cols="31" rows="3" name="menutype.remark"></textarea><br>
 	  <label id="text">类型图片：</label><input class="file" type="file" name="file" value="选择图片" />
 	    <div class="move-font">

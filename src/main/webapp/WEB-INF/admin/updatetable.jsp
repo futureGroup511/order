@@ -16,7 +16,7 @@
             <label>餐<span style="margin-right: 10px;">桌</span> id:</label>
               <input type="text" name="table.id" value="${updateTables.id}" readonly="readonly"><br>
             <label>餐桌名称:</label>
-              <input type="text" name="table.name" value="${updateTables.name}" required="required"<c:if test="${sort eq 'cashier'}">readonly="readonly"</c:if> ><br>
+              <input type="text" name="table.name" value="${updateTables.name}" required="required" maxlength="10" <c:if test="${sort eq 'cashier'}">readonly="readonly"</c:if> ><br>
             <label>餐桌状态：</label>
 	        <select name="table.status">
 	            <option value="有人" <c:if test='${updateTables.status eq "有人"}'> selected="selected"</c:if>>有人</option>

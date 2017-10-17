@@ -19,7 +19,7 @@ ${updateUserMsg}
                <lable><span style="margin-right: 40px;">密</span>码：</lable>
               <input type="text" placeholder="请输入密码" name="user.password" value="${updateUser.password}" maxlength="10" required="required"><br>
               <lable><span style="margin-right: 40px;">姓</span>名：</lable>
-              <input type="text" placeholder="请输入姓名" name="user.name" value="${updateUser.name}" required="required"><br>
+              <input type="text" placeholder="请输入姓名" name="user.name" value="${updateUser.name}" required="required" maxlength="10"><br>
               <lable>注册时间：</lable>
               <input type="text" class="time" name="user.createDate" value="${updateUser.createDate}" readonly="readonly"><br>
 			  <lable style="margin-left:-55px;"><span style="margin-right: 40px;">身</span>份：</lable>
