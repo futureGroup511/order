@@ -13,6 +13,8 @@ public class CookdetailAction extends BaseAction{
 	 */
 	private static final long serialVersionUID = 1L;
 	private User user;
+	private int sex;
+	
 	public String viewUser(){
 		User users=(User) session.get("cook");
 		int id=users.getId();
@@ -27,13 +29,17 @@ public class CookdetailAction extends BaseAction{
 	}
 	 // 确认修改信息,修改个人资料  张金高加
 	public String updateMe() {
-		boolean boo = userService.updateUser(user);
+		User userUpdate = (User) session.get("cook");
+		userUpdate.setName(user.getName());
+		userUpdate.setPhone(user.getPhone());
+		userUpdate.setPassword(user.getPassword());
+		boolean boo = userService.updateUser(userUpdate);
 		if (boo) {
 			request.put("updateUserMsg", "修改成功");
 		} else {
 			request.put("updateUserMsg", "修改失败");
 		}
-		User userData = userService.viewUser(user.getId());
+		User userData = userService.viewUser(userUpdate.getId());
 		session.put("cook", userData);
 		return "toUpdateMyself";
 	}
@@ -50,6 +56,12 @@ public class CookdetailAction extends BaseAction{
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public final int getSex() {
+		return sex;
+	}
+	public final void setSex(int sex) {
+		this.sex = sex;
 	}
 	
 }

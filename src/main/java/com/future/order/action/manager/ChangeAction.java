@@ -1,8 +1,6 @@
 package com.future.order.action.manager;
 
-import java.util.Date;
 import java.util.List;
-
 import com.future.order.base.BaseAction;
 import com.future.order.entity.MenuType;
 import com.future.order.entity.User;
@@ -14,8 +12,10 @@ import com.future.order.entity.User;
  */
 public class ChangeAction extends BaseAction {
 	
-	private Date starttime;//获得查询的开始时间
-	private Date endtime;//获得查询的截止时间
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String sort;//获得用户的身份
 	public String add(){
 		return "add";
@@ -57,6 +57,8 @@ public class ChangeAction extends BaseAction {
 		User user = null;
 		if (sort.equals("cashier")) {
 			user = (User) session.get("cashier");
+			request.put("user", user);
+			return "cashierGetMyself";
 		} else if (sort.equals("manager")) {
 			user = (User) session.get("manager");
 		}

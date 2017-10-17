@@ -20,6 +20,7 @@ public class UserManagerAction extends BaseAction {
 	private int page=1;
 	private String inquiry;//得到查询的内容
 	private String ask;	//得到请求查询的条件
+	private int sex;//得到用户id，隐藏真实名字
 	
 	public String execute(){		//遍历所有用户，分页
 		PageCut<User> pCut=userService.getPageCut(page,8);
@@ -43,8 +44,13 @@ public class UserManagerAction extends BaseAction {
 	}
 	
 	public String toUpdateUser(){	//到修改界面，查询出所修改用户信息
-		User user = userService.viewUser(userId);
-		request.put("updateUser", user);
+		User userData = (User)session.get("manager");
+		if(userData.getId()==userId){//当修改的是管理员本身的时候
+			return "getMyself";
+		}else {
+			User user = userService.viewUser(userId);
+			request.put("updateUser", user);
+		}
 		return "toUpdateUser";
 	}
 	
@@ -57,23 +63,45 @@ public class UserManagerAction extends BaseAction {
 			request.put("updateUserMsg", "修改失败");
 		}
 		request.put("sort", user.getSort());//将用户身份存入request
-		User userM = (User)session.get("manager");
-		User userCa = (User)session.get("cashier");
-		if(userM!=null&&userM.getId()==user.getId()){	//当修改的是自己本人的时候，将修改后信息存入session
-			User userData = userService.viewUser(user.getId());
-			session.put("manager", userData);
-			return  "toUpdateMyself";
-		}
-		if(userCa!=null&&userCa.getId()==user.getId()){
-			User userData = userService.viewUser(user.getId());
-			session.put("cashier", userData);
-			return "toUpdateMyself";
-		}
 		PageCut<User> pCut=userService.getPageCut(page,8);
 		request.put("allUser", pCut);
 		return result;
 	}
-
+	
+	//管理员修改个人信息
+	public String updateMyself(){
+		User userM = (User)session.get("manager");
+		User userData = userService.viewUser(userM.getId());
+		userData.setName(user.getName());
+		userData.setPhone(user.getPhone());
+		userData.setPassword(user.getPassword());
+		boolean boo = userService.updateUser(userData);
+		if(boo){	//将修改后信息存入session
+			request.put("updateUserMsg", "修改成功");
+			session.put("manager", userData);
+		}else {
+			request.put("updateUserMsg", "修改失败");
+		}
+		return  "toUpdateMyself";
+	}
+	
+	//收银员修改个人信息
+	public String cashierUpMyself(){
+		User userCa = (User)session.get("cashier");
+		User userData = userService.viewUser(userCa.getId());
+		userData.setName(user.getName());
+		userData.setPhone(user.getPhone());
+		userData.setPassword(user.getPassword());
+		boolean boo = userService.updateUser(userData);
+		if(boo){	//将修改后信息存入session
+			request.put("updateUserMsg", "修改成功");
+			session.put("cashier", userData);
+		}else {
+			request.put("updateUserMsg", "修改失败");
+		}
+		return  "cashierGetMyself";
+	}
+	
 	public String deleteUser() {	//删除该用户，并查询所有用户
 		User me = (User) session.get("manager");
 		if(me.getId()==user.getId()){
@@ -147,6 +175,14 @@ public class UserManagerAction extends BaseAction {
 
 	public void setAsk(String ask) {
 		this.ask = ask;
+	}
+
+	public final int getSex() {
+		return sex;
+	}
+
+	public final void setSex(int sex) {
+		this.sex = sex;
 	}
 
 }

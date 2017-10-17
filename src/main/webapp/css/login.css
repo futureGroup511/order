@@ -1,101 +1,157 @@
-*{
-	margin:0;
-	padding:0;
-}
-.left{
-	float: left;
-}
-.right{
-	float: right;
-}
-.login{
-	width:100%;
-	height:700px;
-/* 	height:100%; */
-	background:url(../images/bg.jpg) no-repeat 0px 0px;
-	
-	text-align:center;
-	border:1px solid #000;
-}
-.login .loginp{
-	display:inline-block;
-	line-height:40px;
-	font-size:28px;
-/* 	color: #F5E7CA; */
-	letter-spacing:20px;
-	margin-top: 40px;
-}
-.logincenter{
-	width: 400px;
-	box-shadow: 2px 2px 4px #F5E7CA;
-/* 	margin: 0 auto; */
-	margin-top:10%;
-	margin-left:50%;
-/* 	background: #fff; */
-	z-index: 100;
-	position: relative;
-	top: 120px;
-	overflow: auto;
-}
-.logincenter .dz{
-	width: 100%;
-	height: 50px;
-	border-bottom: 1px solid #ddd;
-}
-.logincenter .dz p{
-   display:  inline-block;
-   width: 50%;
-   line-height: 50px;
-   text-align: center;
-   font-size: 20px;
-}
-.logincenter .dz p:hover{
-<<<<<<< HEAD
-	background: #f06060;
-=======
-/* 	background: #f06060; */
->>>>>>> 2e6022b78f37c5e4529bab8f47d08fe7642768b8
-/* 	color:#fff; */
-	cursor: pointer;
-}
-.zlogin{
-	width: 100%;
-	height: 300px;
-	padding: 30px 40px;
-}
-.zlogin .in1{
-	width: 100%;
-	height: 50px;
-	margin: 0 auto;
-	margin-bottom: 15px;
-}
-.zlogin .in1 p{
-	display: inline-block;
-	font-size: 18px;
-	letter-spacing:15px;
-}
-.zlogin .in1 .form-control{
-	display: inline-block;
-    width: 220px;
-    margin-left: 10px;
-}
-.in2{
-	width: 100%;
-	height: 30px;
-	padding: 0px 40px;
-}
-.in2 button{
-	width: 100px;
-	height: 30px;
-	text-align: center;
-	background-color: #3879D9;
-	border:0px; 
-}
-.seton{
-	padding:10px 30px;
-}
-.buttton1{
-     outline:none;
-	height:30px;
-	margin-top:10px;
-}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width:100%;
+			height: 100%;
+			background: url(../images/bg.jpg) no-repeat;
+			background-size:cover;
+			min-width: 545px;
+		}
+		.center{
+				width: 60%;
+				height:520px;
+				margin:0 auto;
+				position: relative;
+				top:50%;
+				transform: translateY(-50%);/*首先向下，然后向上偏移自身高度的50%*/
+/*				border:1px solid #000000;*/
+		        overflow: hidden;  
+			}
+			.header{
+				margin-top:50px ;
+				color:#FFFFFF;
+			}
+			.header p{
+				font-family:arial;
+				font-size: 1.5em;
+				min-width: 500px;
+			}
+			.login{
+				width:100%;
+				margin: 0 auto;
+				position: absolute;
+				top:50%;
+				transform: translateY(-50%);/*首先向下，然后向上偏移自身高度的50%*/
+				
+			}
+			form{
+				position: relative;
+				left:50%;
+				top:-28px;
+				transform: translateX(-30%);/*首先向下，然后向上偏移自身高度的50%*/
+			}
+			.form-inline{
+				color:#F9F9F9;
+				font-size: 24px;
+			}
+			.login input{
+				margin: 5px 8px;
+				padding: 2px;
+			}
+			.btn-g{
+				width: 63%;
+				min-width:258px;
+				position: absolute;
+				margin: 20px auto;
+				left:-10px;
+			    padding: 0 5%;   
+			}
+			.btn-g .btn{
+				width: 60px;
+				height:35px;
+				margin-top:-5px;
+			
+			}
+			.right{
+				float: right;
+			}
+			
+			
+			 /* 小屏幕（平板，大于等于768px） */
+        @media (min-width: 768px) {
+        	.header p{
+        		margin-left: 50px;
+        		font-size: 26px;
+				letter-spacing: 1px;
+			}
+			.btn-g .btn{
+				width: 90px;
+			}
+			.login input{
+				margin: 10px 16px;
+			}
+			.btn-g{
+				width: 63%;
+				min-width:366px;
+				position: absolute;
+				margin: 20px auto;
+				left:-40px;
+			    padding: 0 5%;   
+			}
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于992px） */
+        @media (min-width: 992px) {
+			.header p{
+				
+				font-size: 30px;
+			}
+			.left{
+				margin-left: -60px;
+			}
+			.btn-g .btn{
+				width: 120px;
+				margin-left: -10px;
+			}
+			.login input{
+				margin: 20px 30px;
+			}
+			.btn-g{
+				width: 63%;
+				min-width:440px;
+				position: absolute;
+				margin: 20px auto;
+				left:-30px;
+			    padding: 0 5%;   
+			}
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于1200px） */
+        @media (min-width: 1200px) {
+        	.header p{
+				font-family: kartika;
+				font-size: 36px;
+				letter-spacing: 3px;
+			}
+            form{
+				position: relative;
+				left:50%;
+				transform: translateX(-20%);/*首先向下，然后向上偏移自身高度的50%*/
+			}
+			.login input{
+				margin: 20px 30px;
+			}
+			.form-inline{
+				font-size: 36px;
+			}
+			.left{
+				margin-left: -80px;
+			}
+			.login input{
+				margin: 20px 50px;
+			}
+			.btn-g .btn{
+				width: 150px;
+			}
+			.btn-g{
+				width: 63%;
+				min-width:560px;
+				max-width:600px;
+				position: absolute;
+				margin: 20px auto;
+				left:-70px;
+			    padding: 0 5%;   
+			}
+			

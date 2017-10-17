@@ -10,19 +10,12 @@
 </head>
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 <div class="updatemyself">
-   <form action="${rootPath}manage/UserManager_updateUser?" method="post">
-   	 <input type="hidden" name="user.sort" value="${user.sort}"/>
-   	<input type="hidden" name="user.id" value="${user.id}">
-   	<input type="hidden" name="userId" value="2">
-     <lable id="text">姓名：</lable><input type="text" name="user.name" value="${user.name}" required="required"><br>
-     <lable id="text">账号：</lable><input type="tel" pattern="\d{11}" name="user.phone" value="${user.phone}" required="required"><br>
-     <lable id="text">密码：</lable><input type="text" maxlength="10" name="user.password" value="${user.password}" required="required"><br>
-     <lable id="text">身份：</lable><input type="text"
-			<c:if test="${user.sort eq 'cashier'}">value="收银员"</c:if>
-     		<c:if test="${user.sort eq 'cook'}">value="厨师"</c:if>
-     		<c:if test="${user.sort eq 'manager'}">value="管理员"</c:if>
-		 readonly="readonly"><br>    
-     <lable id="text">注册时间：</lable><input type="text"  name="user.createDate" value="${user.createDate}" readonly="readonly"><br>    
+   <form action="${rootPath}manage/UserManager_updateMyself" method="post">
+     <lable id="text">姓名：</lable><input type="text" name="user.name" value="${manager.name}" required="required"><br>
+     <lable id="text">账号：</lable><input type="tel" pattern="\d{11}" name="user.phone" value="${manager.phone}" required="required"><br>
+     <lable id="text">密码：</lable><input type="text" maxlength="10" name="user.password" value="${manager.password}" required="required"><br>
+     <lable id="text">身份：</lable><input type="text" value="管理员" readonly="readonly"><br>    
+     <lable id="text">注册时间：</lable><input type="text"  value="${manager.createDate}" readonly="readonly"><br>    
       <div class="button">
         <input type="submit" value="确认修改">
       </div>
