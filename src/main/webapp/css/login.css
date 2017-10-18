@@ -47,7 +47,7 @@ html,body{
 	width:100%;
 	min-width: 600px;
 	margin: 20px auto;
-	padding: 35px 10px 20px 25px;
+	padding: 35px 10px 5px 25px;
 	background:-webkit-linear-gradient(#32b1fe,#0b70be); 
 	background:-moz-linear-gradient(#32b1fe,#b70be);
 	border-radius: 15px;
@@ -56,8 +56,10 @@ html,body{
 }
 .login input{
 	width:auto;
+	margin-bottom:10px;
 }
 .login p{
+	margin-top:10px;
 	font-size: 18px;
 	color:red;
 	line-height: 18px;
