@@ -24,7 +24,7 @@ window.onload=function(){
 }
 </script>
 </head>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  style="background: url(${rootPath}/images/iframebg.jpg);">
 <center>
 	<div class="error" style="font-weight: bold;">${updateMsg}${deleteMenuMsg }</div>
 </cenetr>

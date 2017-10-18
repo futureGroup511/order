@@ -19,7 +19,7 @@
     }
     </style>
 </head>
-<body   style="background: url(${rootPath}/images/m-91.jpg);">
+<body   style="background: url(${rootPath}/images/iframebg.jpg);">
 <center>
 <div style="margin-top: 1%;font-weight: bold;font-size:20px;">${mark}</div>
 <c:if test="${fn:length(pc.data)>0}">

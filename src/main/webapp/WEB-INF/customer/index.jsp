@@ -138,7 +138,7 @@
    <footer>
      <a href="${rootPath}customer/customer_toIndex?id=${userId}">
       <div class="left">
-      	<div><img src="${rootPath}images/sy1.png" style="width:100%; height:100%; "></div>
+      	<div><img src="${rootPath}images/sy.png" style="width:100%; height:100%; "></div>
       	
       	<p>首页</p>
       </div>

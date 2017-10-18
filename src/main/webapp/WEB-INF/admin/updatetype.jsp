@@ -31,7 +31,7 @@
 }
 </style>
 </head>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  style="background: url(${rootPath}/images/iframebg.jpg);">
 <div class="wall">
 	<form action="${rootPath}manage/MenuTypeAction_Update?menutype.imgUrl=${menutype.imgUrl}" method="post" enctype="multipart/form-data">
           <lable id="text">编号:</lable><input name="menutype.id" value="${menutype.id}" type="text" readonly="readonly"><br>

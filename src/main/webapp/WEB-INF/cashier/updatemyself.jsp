@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatemyself.css">
 </head>
-<body   style="background: url(${rootPath}/images/m-91.jpg);">
+<body   style="background: url(${rootPath}/images/iframebg.jpg);">
 <div class="updatemyself">
    <form action="${rootPath}manage/UserManager_cashierUpMyself" method="post">
      <lable id="text">姓名：</lable><input type="text" name="user.name" value="${cashier.name}" required="required" maxlength="10"><br>

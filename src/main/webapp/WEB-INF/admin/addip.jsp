@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addtable.css">
 </head>
-<body style="background: url(${rootPath}/images/m-91.jpg);">
+<body style="background: url(${rootPath}/images/iframebg.jpg);">
 	<div style="font-size: 20px;margin-left:41%;font-weight: bold;margin-top:2%;">${mark}</div>
   <div class="wall"> 
     <form action="${rootPath}manage/DomainAction_addIp" method="post">

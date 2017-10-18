@@ -30,7 +30,7 @@ function checkPay(){
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/ordercheck.css">
  <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  style="background: url(${rootPath}/images/iframebg.jpg);">
 <center>
 <div style="font-weight: bold;font-size:20px;margin-top:2%;">${mark}</div>
 </center>

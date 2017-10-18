@@ -23,7 +23,7 @@ window.onload=function(){
  }
 }
 	</script>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  style="background: url(${rootPath}/images/iframebg.jpg);">
 <div style="margin-left: 40%;margin-top:2%;font-size:20px;font-weight: bold;">${updateIngredientMsg}${deleteIngredientMsg}</div>
 <c:if test="${fn:length(allIngredient.data)>0}">
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">

@@ -5,7 +5,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
 		<title>餐饮管理系统-登录</title>
-<!-- 			<meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 			<link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="${rootPath}css/login.css" />
 	</head>
@@ -18,9 +17,9 @@
 				</span>
 			</div>
 			<div class="login">
-				<form action="${rootPath}loginAction">
+				<form action="${rootPath}loginAction" method="post">
 					<input type="text" class="form-control name" placeholder="手机号" type="tel" maxlength="11" name="user.phone" required="required"/>
-						<input type="password" class=" form-control pass" placeholder="请您输入密码" maxlength="15" name="user.password" required="required"/>
+						<input type="password" class=" form-control pass" placeholder="密码" maxlength="15" name="user.password" required="required"/>
 						<input type="submit" class="btn btn-info denglu" value="登录">
 						<p>&nbsp;${loginMeg}<p>
 				</form>

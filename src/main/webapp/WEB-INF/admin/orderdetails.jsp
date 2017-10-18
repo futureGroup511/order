@@ -10,7 +10,7 @@
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/orderdetail.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
-<body   style="background: url(${rootPath}/images/m-91.jpg);">
+<body   style="background: url(${rootPath}/images/iframebg.jpg);">
 <center style="font-size:20px;font-weight:bold;margin-top:2%;">${markinfo}</center>
 <c:if test="${fn:length(detailspc.data) > 0 }">
 <div class="orderdetailes" id="div1">

@@ -26,7 +26,7 @@ window.onload=function(){
     } 
 	</script>
 </head>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  style="background: url(${rootPath}/images/iframebg.jpg);">
 <center><div style="margin-top:1%;font-size:20px;;">${deleteMark}${markinfo}</span></div>
 <c:if test="${fn:length(pc.data)>0 }">
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;margin-top:2%;">

@@ -31,7 +31,7 @@ window.onload=function(){
 		}
 	</style>
 </head>
-<body   style="background: url(${rootPath}/images/m-91.jpg);">
+<body   style="background: url(${rootPath}/images/iframebg.jpg);">
 <body>
 <center>
 <div style="font-weight: bold;margin-top:2%;">${stocknews }</div><br>

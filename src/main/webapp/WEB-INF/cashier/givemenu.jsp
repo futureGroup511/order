@@ -10,7 +10,7 @@
 </head>
 <body>
 <center><span style="font-weight: bold;font-size:18px;">${mark}</span></center>
-<body style="background: url(${rootPath}/images/m-91.jpg);">
+<body style="background: url(${rootPath}/images/iframebg.jpg);">
 <div class="wall">
 	<form action="${rootPath}manage/OrderDetailsAction_ensureGive" method="post" class="form0">
 		<table>

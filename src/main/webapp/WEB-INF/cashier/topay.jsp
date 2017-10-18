@@ -50,7 +50,7 @@
 		}
 	}
 </script>
-<body style="background: url(${rootPath}/images/m-91.jpg);">
+<body style="background: url(${rootPath}/images/iframebg.jpg);">
 <center><div style="font-weight: bold;margin-top:2%;">${mark}</div></center>
 <c:if test="${order ne null}">
 	<div class="orderdetailes" id="div1">

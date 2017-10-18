@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatetable.css">
 </head>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  style="background: url(${rootPath}/images/iframebg.jpg);">
 	<div class="wall">
         <form action="${rootPath}manage/Payment_updatePayWays" method="post">
             <label>支付编号:</label>

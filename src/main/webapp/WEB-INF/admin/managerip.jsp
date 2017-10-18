@@ -17,7 +17,7 @@
     
     </style>
 </head>
-<body  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  style="background: url(${rootPath}/images/iframebg.jpg);">
 <div style="margin-left:45%;font-size:15px;font-weight: bold;margin-top:2%;">${mark}</div>
 <c:if test="${domain ne null}">
 <div class="wall"style="width:43%;">

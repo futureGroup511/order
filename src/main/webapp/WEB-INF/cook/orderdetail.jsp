@@ -10,7 +10,7 @@
 	href="${rootPath}css/bootstrap.css">
 <style>
 body{
-background: url(../images/m-91.jpg);
+background: url(../images/iframebg.jpg);
 }
 #div1 {
 	width: 90%;
@@ -85,7 +85,7 @@ table {
 }
 
 html {
-	background: url(../images/m-91.jpg);
+	background: url(../images/iframebg.jpg);
 }
 </style>
 </head>

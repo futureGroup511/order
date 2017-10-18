@@ -32,7 +32,7 @@ function changeSelected() {
    }
 </script> 
 </head>
-<body  onload="changeSelected()"  style="background: url(${rootPath}/images/m-91.jpg);">
+<body  onload="changeSelected()"  style="background: url(${rootPath}/images/iframebg.jpg);">
  <div class="updatestocknews">
       <form action="${rootPath}manage/StockDetailsAction_Update" method="post" onsubmit="modifyContent()">
           <div class="sow">
