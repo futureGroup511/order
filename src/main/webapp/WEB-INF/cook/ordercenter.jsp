@@ -86,7 +86,7 @@
         
        
 	html{
-        background: url(../images/iframebg.jpg);
+        background: url(${rootPath}images/iframebg.jpg);
     }
          
     </style>

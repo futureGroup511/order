@@ -13,7 +13,7 @@
 	} 
 </script>
 </head>
-<body onload="p()"   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body onload="p()"   style="background: url(${rootPath}images/iframebg.jpg);">
 <center>
 <h3>${restlist.name}</h3><br>
 收银票据<br>

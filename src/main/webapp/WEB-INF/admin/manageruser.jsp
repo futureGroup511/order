@@ -17,7 +17,7 @@
 </script>
 
 </head>
-<body  style="background: url(${rootPath}/images/iframebg.jpg);"  >
+<body  style="background: url(${rootPath}images/iframebg.jpg);"  >
 	
 	<div style="margin-left:60%; height:30px;margin-top:1%;">
 		<div style="margin-left:-30%;font-weight: bold;">${updateUserMsg}${deleteUserMsg}</div>

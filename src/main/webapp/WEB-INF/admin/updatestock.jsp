@@ -8,7 +8,7 @@
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatestock.css">
 </head>
-<body  style="background: url(${rootPath}/images/iframebg.jpg);">
+<body  style="background: url(${rootPath}images/iframebg.jpg);">
  <div class="updatestock">
       <form action="${rootPath}manage/StockAction_Update" method="post">
           <lable id="text">编&nbsp;&nbsp;&nbsp;号：</lable><input name="stocks.id" value="${stock.id}" type="text" readonly="readonly"><br>

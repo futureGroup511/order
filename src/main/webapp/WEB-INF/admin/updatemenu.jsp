@@ -22,7 +22,7 @@ textarea{
 }
 
 </style>
-<script type="text/JavaScript" src="js/jquery.js"></script>
+<script type="text/JavaScript" src="${rootPath}js/jquery.js"></script>
 <script type="text/javascript">
 
 	function changeSelected() {
@@ -38,7 +38,7 @@ textarea{
 </script>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatemenu.css">
 </head>
-<body  onload="changeSelected()"   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body  onload="changeSelected()"   style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="updatemenu">
    <form action="${rootPath}manage/MenuManager_updateMenu?menu.id=${updateMenu.id}&menu.imgUrl=${updateMenu.imgUrl}" method="post" enctype="multipart/form-data">
           <lable id="text">菜名：</lable><input type="text" name="menu.name" value="${updateMenu.name}" required="required" maxlength="10">

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatedetails.css">
 </head>
-<body  style="background: url(${rootPath}/images/iframebg.jpg);">
+<body  style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="updatedetails">
     <form action="${rootPath}manage/OrderDetailsAction_Update" method="post">
         <lable id="text">id:</lable><input name="details.id" value="${ordernews.id}" type="text" readonly="readonly">

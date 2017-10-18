@@ -23,7 +23,7 @@
 }
 </style>
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
  <div class="wall">
 	 <h4><center>${mark}</center></h4>
 	 <form action="${rootPath}manage/MenuTypeAction_addType" method="post" enctype="multipart/form-data">

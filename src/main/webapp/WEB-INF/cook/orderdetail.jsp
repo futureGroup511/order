@@ -10,7 +10,7 @@
 	href="${rootPath}css/bootstrap.css">
 <style>
 body{
-background: url(../images/iframebg.jpg);
+background: url(${rootPath}images/iframebg.jpg);
 }
 #div1 {
 	width: 90%;

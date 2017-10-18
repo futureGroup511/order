@@ -8,7 +8,7 @@
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatetable.css">
 </head>
-<body  style="background: url(${rootPath}/images/iframebg.jpg);">
+<body  style="background: url(${rootPath}images/iframebg.jpg);">
 <center>${TableMsg}</center>
 	<div class="wall">
         <form action="${rootPath}manage/TableManager_updateTable" method="post">

@@ -22,7 +22,7 @@
 
 </style>
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 	<div class="wall">
 		<div style="margin-left: 35%;font-weight: bold;">${addrest}</div>
 		<form action="${rootPath}manage/Restaurant_AddRestaurant" method="post" enctype="multipart/form-data">

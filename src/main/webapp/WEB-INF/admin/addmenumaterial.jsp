@@ -28,7 +28,7 @@ window.onload=function(){
  }
  </style>
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 	<div style="margin-top:1%;">
 		<div style="margin-left: 45%;margin-top:1%;">${addMaterialMsg}</div>
 		<div style="margin-left:40%;margin-top:0%;"><button style="background-color: #1BAFE0;border-radius: 5px;" class="btn" onclick="window.location='${rootPath}manage/MenuMaterial_updateMenuMaterial?menuId=${menu.id}'">查看已添加配料</button></div>

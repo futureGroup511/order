@@ -18,7 +18,7 @@ display:inline-block;
 }
 </style>
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
  <div class="addmenu">
  <h5 style="margin-left:20%;">${addMsg}</h5>
    <form action="${rootPath}manage/MenuManager_addMenu" method="post" enctype="multipart/form-data">

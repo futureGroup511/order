@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/adduser.css">
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 	<center><h4>${addMsg}</h4></center>
 	<div class="adduser">
    <form action="${rootPath}manage/UserManager_addUser" method="post">

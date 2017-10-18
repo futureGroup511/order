@@ -28,7 +28,7 @@ window.onload=function(){
 }
 	</script>
 </head>
-<body  style="background: url(${rootPath}/images/iframebg.jpg);">
+<body  style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="wall">
 	<center>${mark}</center>
 	<div id="div1">

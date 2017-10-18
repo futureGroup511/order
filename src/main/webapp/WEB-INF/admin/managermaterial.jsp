@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/managermaterial.css">
     <link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.css">
 </head>
-<body style="background: url(${rootPath}/images/iframebg.jpg);">
+<body style="background: url(${rootPath}images/iframebg.jpg);">
 	<div style="margin-top:1%;">
 		<div style="margin-left: 43%;margin-top:1%;font-size: 15px;">${materialMsg}</div>
 		<div style="margin-left:43%;margin-top:0%;">

@@ -23,7 +23,7 @@
 	}
 	</script>
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 <div style="font-weight: bold;font-size:20px;margin-top:2%;margin-left:43%;">${markinfo}</div>
 <c:if test="${fn:length(detailspc.data)>0 }">
 <div class="orderdetailes" id="div1">

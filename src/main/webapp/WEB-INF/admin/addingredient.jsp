@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addingredient.css">
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 		<div style="margin-left: 40%;font-weight: bold;">${addIngerdientMsg}</div>
 		<div class="addingredient">
 			<form action="Ingredient_addIngredient" method="post">

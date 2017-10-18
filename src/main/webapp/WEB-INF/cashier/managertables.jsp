@@ -30,7 +30,7 @@ window.onload=function(){
 }
 	</script>
 </head>
-<body  style="background: url(${rootPath}/images/iframebg.jpg);">
+<body  style="background: url(${rootPath}images/iframebg.jpg);">
 		<div style="font-weight: bold;margin-left:40%;font-size: 20px;margin-top:2%;">${managerMsg}</div>
 <c:if test="${fn:length(allTables.data)>0 }">
 		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:36%; ">

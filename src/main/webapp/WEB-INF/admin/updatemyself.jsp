@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatemyself.css">
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="updatemyself">
    <form action="${rootPath}manage/UserManager_updateMyself" method="post">
      <lable id="text">姓名：</lable><input type="text" name="user.name" value="${manager.name}" required="required" maxlength="10"><br>

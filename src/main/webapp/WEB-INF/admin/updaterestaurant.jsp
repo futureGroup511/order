@@ -7,7 +7,7 @@
 <title>Insert title here</title>
     <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updaterestaurant.css">
 </head>
-<body  style="background: url(${rootPath}/images/iframebg.jpg);">
+<body  style="background: url(${rootPath}images/iframebg.jpg);">
 	<div class="wall">
 	<form action="${rootPath}manage/Restaurant_Update?restaurant.id=${rest.id}" method="post" enctype="multipart/form-data">
 		<label>店名：</label><input type="text" name="restaurant.name" value="${rest.name}" required="required" maxlength="10"><br>

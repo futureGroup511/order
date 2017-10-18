@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addstock.css">
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
  <div class="addstock">
    <form action="${rootPath}manage/StockAction_Add" method="post">
      <h4>${stocknews}</h4>

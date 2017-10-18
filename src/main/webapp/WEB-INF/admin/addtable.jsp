@@ -7,7 +7,7 @@
     <title>addtable</title>
     <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/addtable.css">
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 <div style="font-size: 20px;margin-left:45%;">${addTableMsg}</div>
   <div class="wall"> 
     <form action="${rootPath}manage/TableManager_addTable" method="post">

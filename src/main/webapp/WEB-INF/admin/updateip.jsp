@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatemyself.css">
 </head>
-<body   style="background: url(${rootPath}/images/iframebg.jpg);">
+<body   style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="updatemyself">
    <form action="${rootPath}manage/DomainAction_updateIp" method="post">
      <lable id="text">域名编号：</lable><input type="text" name="domain.id" value="${domain.id}" readonly="readonly"><br>
