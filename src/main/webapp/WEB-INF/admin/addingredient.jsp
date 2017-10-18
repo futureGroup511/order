@@ -12,7 +12,7 @@
 		<div class="addingredient">
 			<form action="Ingredient_addIngredient" method="post">
 				<lable id="text"><span style="padding-right:19%">名</span>称：</lable>
-				<input type="text" style="margin-left:1%;" class="a1" name="ingredient.name" required="required"><br>
+				<input type="text" style="margin-left:1%;" class="a1" maxlength="10"  name="ingredient.name" required="required"><br>
 				<lable id="text"><span style="padding-right:19%">类</span>型：</lable>
 				<select name="ingredient.type" style="margin-left:1%;">
 					<option value="原料">原料</option>

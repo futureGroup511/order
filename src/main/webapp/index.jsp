@@ -23,7 +23,7 @@
 						<label class="form-inline">账户<input type="tel" pattern="\d{11}" placeholder="手机号" class="form-control input-lg" name="user.phone" required="required"/></label>
 					</div>
 					<div class="pass">
-						<label class="form-inline">密码<input type="password" placeholder="密码" class="form-control input-lg" name="user.password" required="required"/></label>
+						<label class="form-inline">密码<input type="password" maxlength="15" placeholder="密码" class="form-control input-lg" name="user.password" required="required"/></label>
 					</div>
 					<div class="btn-g">
 						<div style="text-align: center;"><h4 style="color:red;">${loginMeg}</h4></div>
