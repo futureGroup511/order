@@ -11,7 +11,7 @@
 	<div style="font-size: 20px;margin-left:41%;font-weight: bold;margin-top:2%;">${mark}</div>
   <div class="wall"> 
     <form action="${rootPath}manage/Payment_addPayment" method="post">
-       <span style="font-size: 20px;">支付方式：</span><input class="input" type="text" name="payment.ways" required="required"><br>
+       <span style="font-size: 20px;">支付方式：</span><input class="input" type="text" name="payment.ways" required="required" maxlength="10"><br>
 		<input class="button" type="submit" value="确认添加"> 
     </form>
   </div>  

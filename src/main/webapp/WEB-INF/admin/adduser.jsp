@@ -13,7 +13,7 @@
    <form action="${rootPath}manage/UserManager_addUser" method="post">
      <lable>账号：</lable><input type="tel" name="user.phone" maxlength="11" pattern="\d{11}" placeholder="请输入手机号/账号"  required="required"><br>
      <lable>密码：</lable><input type="text" type="password" name="user.password" maxlength="10"  required="required" placeholder="请输入小于十位的数字/字母"><br>
-     <lable>姓名：</lable><input type="text" name="user.name"  required="required"><br>
+     <lable>姓名：</lable><input type="text" name="user.name"  required="required" maxlength="10"><br>
      	 身份：<select name="user.sort" style='width:40%' class="select">
         <option value="cook">厨师</option>
         <option value="manager">管理员</option>

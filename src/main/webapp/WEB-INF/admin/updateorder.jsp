@@ -14,7 +14,7 @@
     <form action="${rootPath}manage/OrderAction_Update" method="post">
         <lable id="text">id:</lable><input name="orders.id" value="${order.id}" type="text" readonly="readonly">
         <lable id="text">餐桌id:</lable><input name="orders.tableId" value="${order.tableId}" type="text" readonly="readonly"><br>
-        <lable id="text">餐桌名称:</lable><input name="orders.tableName" value="${order.tableName}" type="text" readonly="readonly">
+        <lable id="text">餐桌名称:</lable><input name="orders.tableName" value="${order.tableName}" type="text" readonly="readonly" maxlength="10">
         <lable id="text">状态:</lable>
         <select name="orders.status">
             <option value="未付款"  <c:if test='${order.status eq "未付款"}'>selected="selected"</c:if>>未付款</option>

@@ -11,7 +11,7 @@
 <body   style="background: url(${rootPath}/images/m-91.jpg);">
 <div class="updatemyself">
    <form action="${rootPath}manage/UserManager_updateMyself" method="post">
-     <lable id="text">姓名：</lable><input type="text" name="user.name" value="${manager.name}" required="required"><br>
+     <lable id="text">姓名：</lable><input type="text" name="user.name" value="${manager.name}" required="required" maxlength="10"><br>
      <lable id="text">账号：</lable><input type="tel" pattern="\d{11}" name="user.phone" value="${manager.phone}" required="required"><br>
      <lable id="text">密码：</lable><input type="text" maxlength="10" name="user.password" value="${manager.password}" required="required"><br>
      <lable id="text">身份：</lable><input type="text" value="管理员" readonly="readonly"><br>    
