@@ -1,157 +1,82 @@
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		html,body{
-			width:100%;
-			height: 100%;
-			background: url(../images/bg.jpg) no-repeat;
-			background-size:cover;
-			min-width: 545px;
-		}
-		.center{
-				width: 60%;
-				height:520px;
-				margin:0 auto;
-				position: relative;
-				top:50%;
-				transform: translateY(-50%);/*首先向下，然后向上偏移自身高度的50%*/
-/*				border:1px solid #000000;*/
-		        overflow: hidden;  
-			}
-			.header{
-				margin-top:50px ;
-				color:#FFFFFF;
-			}
-			.header p{
-				font-family:arial;
-				font-size: 1.5em;
-				min-width: 500px;
-			}
-			.login{
-				width:100%;
-				margin: 0 auto;
-				position: absolute;
-				top:50%;
-				transform: translateY(-50%);/*首先向下，然后向上偏移自身高度的50%*/
-				
-			}
-			form{
-				position: relative;
-				left:50%;
-				top:-28px;
-				transform: translateX(-30%);/*首先向下，然后向上偏移自身高度的50%*/
-			}
-			.form-inline{
-				color:#F9F9F9;
-				font-size: 24px;
-			}
-			.login input{
-				margin: 5px 8px;
-				padding: 2px;
-			}
-			.btn-g{
-				width: 63%;
-				min-width:258px;
-				position: absolute;
-				margin: 20px auto;
-				left:-10px;
-			    padding: 0 5%;   
-			}
-			.btn-g .btn{
-				width: 60px;
-				height:35px;
-				margin-top:-5px;
-			
-			}
-			.right{
-				float: right;
-			}
-			
-			
-			 /* 小屏幕（平板，大于等于768px） */
-        @media (min-width: 768px) {
-        	.header p{
-        		margin-left: 50px;
-        		font-size: 26px;
-				letter-spacing: 1px;
-			}
-			.btn-g .btn{
-				width: 90px;
-			}
-			.login input{
-				margin: 10px 16px;
-			}
-			.btn-g{
-				width: 63%;
-				min-width:366px;
-				position: absolute;
-				margin: 20px auto;
-				left:-40px;
-			    padding: 0 5%;   
-			}
-        }
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+	background: url(../images/bg.jpg) no-repeat;
+	background-size: cover;
+	overflow: hidden;
+}
+.content{
+	width: 40%;
+	width: 600px;
+	height: 400px;
+	margin: 0 auto;
+	position: relative;
+	top:50%;
+	transform: translateY(-50%);
+	
+}
+.header{
+	width:70%;
+	min-width: 540px;
+	text-align: center;
+	margin: 50px auto;
+	margin-bottom: 100px;
+}
+.header span{
+	color:#F7F7F7;
+}
+.header .p1{
+	font-family: KaiTi,"arial black";
+	font-size: 45px;
+	letter-spacing:4px;
+}
+.title{
+	font-family: KaiTi,DFKai-SB;
+	font-size: 50px;
+	padding: 4px;
+	text-shadow: 5px 5px 8px #31defc;
+}
+.header .p2{
+	font-size: 18px;
+}
+.login{
+	width:100%;
+	min-width: 600px;
+	margin: 20px auto;
+	padding: 35px 10px 20px 25px;
+	background:-webkit-linear-gradient(#32b1fe,#0b70be); 
+	background:-moz-linear-gradient(#32b1fe,#b70be);
+	border-radius: 15px;
+	background: url(../images/loginform.png) no-repeat;
+	background-size: cover;
+}
+.login input{
+	width:auto;
+}
+.login p{
+	font-size: 18px;
+	color:red;
+	line-height: 18px;
+	width:400px;
+	text-align: center;
+	
+}
+form{
+	margin-left: 40px;
+}
+.name{
+	float:left;
+	margin-right: 20px;
+}
+.pass{
+	float: left;
+}
+.denglu{
+	float:left;
+	margin-left: 30px;
+}
 
-        /* 中等屏幕（桌面显示器，大于等于992px） */
-        @media (min-width: 992px) {
-			.header p{
-				
-				font-size: 30px;
-			}
-			.left{
-				margin-left: -60px;
-			}
-			.btn-g .btn{
-				width: 120px;
-				margin-left: -10px;
-			}
-			.login input{
-				margin: 20px 30px;
-			}
-			.btn-g{
-				width: 63%;
-				min-width:440px;
-				position: absolute;
-				margin: 20px auto;
-				left:-30px;
-			    padding: 0 5%;   
-			}
-        }
-
-        /* 大屏幕（大桌面显示器，大于等于1200px） */
-        @media (min-width: 1200px) {
-        	.header p{
-				font-family: kartika;
-				font-size: 36px;
-				letter-spacing: 3px;
-			}
-            form{
-				position: relative;
-				left:50%;
-				transform: translateX(-20%);/*首先向下，然后向上偏移自身高度的50%*/
-			}
-			.login input{
-				margin: 20px 30px;
-			}
-			.form-inline{
-				font-size: 36px;
-			}
-			.left{
-				margin-left: -80px;
-			}
-			.login input{
-				margin: 20px 50px;
-			}
-			.btn-g .btn{
-				width: 150px;
-			}
-			.btn-g{
-				width: 63%;
-				min-width:560px;
-				max-width:600px;
-				position: absolute;
-				margin: 20px auto;
-				left:-70px;
-			    padding: 0 5%;   
-			}
-			
