@@ -148,7 +148,7 @@ public class TableManagerAction extends BaseAction {
 			ServletOutputStream stream = null;
 			// 二维码的图片格式
 			String format = "gif";
-			String path = quest.getScheme() + "://" + IP + ":" + quest.getServerPort() + quest.getContextPath() + "/";
+			String path = quest.getScheme() + "://" + IP + "/";
 			String content = path + "customer/customer_toIndex?id=" + id;// 二维码内容
 			// 设置二维码大小
 			int width2 = 200;
