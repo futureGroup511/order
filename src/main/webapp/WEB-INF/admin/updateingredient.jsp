@@ -33,7 +33,7 @@
 				<lable id="text"  style="margin-top:-50px;"><span>简介：</span></lable>
 				<textarea rows="4" cols="30" name="ingredient.introduce">${updateIngredient.introduce}</textarea>
 				<br>
-				<lable id="text">注册时间：</lable>
+				<lable id="text">添加时间：</lable>
 				<input type="text" name="ingredient.createDate"
 					value="${updateIngredient.createDate}" veadonly="veadonly"
 					readonly="readonly" class="sang_Calender"><br>

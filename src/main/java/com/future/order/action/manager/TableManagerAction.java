@@ -71,18 +71,14 @@ public class TableManagerAction extends BaseAction {
 	}
 
 	// 修改餐桌的信息
-	public void updateTable() throws Exception {
+	public String updateTable() throws Exception {
 		boolean boo = tablesService.updateTables(table);
-		if (sort.equals("cashier")) {
-			HttpServletResponse response = ServletActionContext.getResponse();
-			String returnUrl = "/order/manage/TableManager?sort=cashier";
-			response.getWriter()
-			.print("<script language=\"javascript\">" + "if(window.opener==null){window.location.href=\"" + returnUrl
-					+ "\";}else{window.opener.location.href=\"" + returnUrl + "\";window.close();}</script>");
+		if(boo){
+			request.put("managerMsg", "修改成功");
 		} else {
-			id = table.getId();
-			reWeiMa();
+			request.put("managerMsg", "修改失败");
 		}
+		return execute();
 	}
 
 	// 删除餐桌，同时删除餐桌所对应的二维码图片

@@ -45,7 +45,7 @@ window.onload=function(){
              <td>名称</td>
              <td>单价</td> 
              <td>库存</td>
-             <td>注册时间</td>
+             <td>添加时间</td>
              <td>类型</td>
              <td>简介</td>
              <td>操作</td>
