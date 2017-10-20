@@ -9,13 +9,14 @@
 <link rel="stylesheet" type="text/css"
 	href="${rootPath}css/bootstrap.css">
 <style>
-body{
-background: url(${rootPath}images/iframebg.jpg);
+body {
+	background: url(${rootPath}images/iframebg.jpg);
 }
+
 #div1 {
 	width: 90%;
-    position:relative;
-    margin:10px auto;
+	position: relative;
+	margin: 10px auto;
 	z-index: 100;
 }
 
@@ -25,59 +26,62 @@ background: url(${rootPath}images/iframebg.jpg);
 	margin-right: 60px;
 	cursor: pointer;
 }
- 
-#div2{
-   position:relative;
-   width:90%;
-   margin:50px auto;
-   
-} 
+
+#div2 {
+	position: relative;
+	width: 90%;
+	margin: 50px auto;
+}
 
 .pag {
 	float: right;
 	margin-top: 30px;
 	margin-right: 0px;
 }
-#table1{
-     poaition:relative;
+
+#table1 {
+	poaition: relative;
 }
+
 table {
 	width: 100%;
 	text-align: center;
 	font-family: 微软雅黑;
-	font-size:13px;
+	font-size: 13px;
 }
 
 #table1 thead td {
 	border: 1px solid #c6c6c6;
 	background-color: #e8e7e3;
-	 height: 30px; 
+	height: 30px;
 }
-#table2{
-    position:relative;
-    top:0;
-    margin-bottom:40px;
-    margin-top:20px;
-    width:100%;
+
+#table2 {
+	position: relative;
+	top: 0;
+	margin-bottom: 40px;
+	margin-top: 20px;
+	width: 100%;
 }
+
 #table1 tbody td {
 	border: 1px solid #c6c6c6;
 	background-color: #fefefe;
-    height: 35px;  
+	height: 35px;
 }
- #table2 thead td{
 
-            border: 1px solid #c6c6c6;
-            background-color: #e8e7e3;
-            height: 30px; 
-           
-        }
-       
-         #table2  tbody td{
-            border: 1px solid #c6c6c6;
-            background-color: #fefefe;
-            height: 30px;
-        }
+#table2 thead td {
+	border: 1px solid #c6c6c6;
+	background-color: #e8e7e3;
+	height: 30px;
+}
+
+#table2  tbody td {
+	border: 1px solid #c6c6c6;
+	background-color: #fefefe;
+	height: 30px;
+}
+
 .footer {
 	position: absolute;
 	left: 40%;
@@ -111,40 +115,41 @@ html {
 		if (b != 0) {
 			document.getElementById('div1').style.display = 'block';
 
-		} 
+		}
 	}
 </script>
 <body>
-<div id="div1" style="display: none">
-<table id="table2">
-      <thead>
-        <tr>
-            <td colspan="10">催单信息</td>
-        </tr>
-      </thead>
-        <tbody>
-          <tr>
-             <td>编号</td>
-             <td style="width:250px">通知时间</td>
-             <td>餐桌编号</td>
-             <td>餐桌名称</td>
-             <td>通知内容</td>
-          </tr>
-         <c:forEach items="${inform}" var="item"> 
-	            <tr>  
-	                <td>${item.id}</td>
-	                <td>${item.createDate}</td>
-	                <td>${item.tableId}</td>
-	                <td>${item.tableName}</td>
-	                <td style="width:400px;height:20px"><textarea readonly="readonly" style="width:400px;height:30px">${item.content}</textarea></td>
-	            </tr>  
-        	</c:forEach>
-        </tbody>
-    </table>
-</div>
+	<div id="div1" style="display: none">
+		<table id="table2">
+			<thead>
+				<tr>
+					<td colspan="10">催单信息</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>编号</td>
+					<td style="width: 250px">通知时间</td>
+					<td>餐桌编号</td>
+					<td>餐桌名称</td>
+					<td>通知内容</td>
+				</tr>
+				<c:forEach items="${inform}" var="item">
+					<tr>
+						<td>${item.id}</td>
+						<td>${item.createDate}</td>
+						<td>${item.tableId}</td>
+						<td>${item.tableName}</td>
+						<td style="width: 400px; height: 20px"><textarea
+								readonly="readonly" style="width: 400px; height: 30px">${item.content}</textarea></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 	<div id="div2" style="display: none">
-	
-	<table id="table1">
+
+		<table id="table1">
 			<thead>
 				<tr>
 					<td colspan="14">订单详情</td>
@@ -164,7 +169,7 @@ html {
 					<td>厨师名称</td>
 					<td>备注</td>
 					<td>溯源</td>
-					<td style="width:50px;">操作</td>
+					<td style="width: 50px;">操作</td>
 				</tr>
 				<c:forEach items="${paCut.data}" var="item">
 					<tr>
@@ -178,20 +183,25 @@ html {
 						<td>${item.status}</td>
 						<td>${item.creatDate}</td>
 						<td>${item.cookName}</td>
-						 <td style="width:200px;height:10px"><textarea readonly="readonly" style="width:200px;height:30px">${item.remark}</textarea></td>
-						<td><a target="_blank" href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}&OrderId=${item.orderId}">打印二维码</a></td>
-						<td>
-							<c:if test="${item.status eq '未完成'}"><a href="${rootPath}cook/orderCenter_deal?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}&menuId=${item.menuId}">处理</a></c:if> 
-							<c:if test="${item.status eq '处理中'}"><a href="${rootPath}cook/orderCenter_recheck?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}&menuId=${item.menuId}">完成</a></c:if>
-							<c:if test="${item.status eq '已完成'}">已完成</c:if>
-						</td>
+						<td style="width: 200px; height: 10px"><textarea
+								readonly="readonly" style="width: 200px; height: 30px">${item.remark}</textarea></td>
+						<td><a target="_blank"
+							href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}&OrderId=${item.orderId}">打印二维码</a></td>
+						<td><c:if test="${item.status eq '未完成'}">
+								<a
+									href="${rootPath}cook/orderCenter_deal?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}&menuId=${item.menuId}">处理</a>
+							</c:if> <c:if test="${item.status eq '处理中'}">
+								<a
+									href="${rootPath}cook/orderCenter_recheck?i=${item.id}&tableId=${item.tableId}&Orderid=${item.orderId}&menuId=${item.menuId}">完成</a>
+							</c:if> <c:if test="${item.status eq '已完成'}">已完成</c:if></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<div class="pag">
 			<ul class="pagination">
-				<li><a href="?page=${paCut.prePage}&OrderId=${paCut.data[0].orderId}&tableId=${paCut.data[0].tableId}&Orderid=${paCut.data[0].orderId}&i=${paCut.data[0].id}">上一页</a></li>
+				<li><a
+					href="?page=${paCut.prePage}&OrderId=${paCut.data[0].orderId}&tableId=${paCut.data[0].tableId}&Orderid=${paCut.data[0].orderId}&i=${paCut.data[0].id}">上一页</a></li>
 
 				<c:forEach var="i"
 					begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
