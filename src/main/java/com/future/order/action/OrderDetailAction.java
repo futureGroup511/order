@@ -70,7 +70,7 @@ public class OrderDetailAction extends BaseAction {
 			ServletOutputStream stream = null;
 			// 二维码的图片格式
 			String format = "gif";
-			String path = quest.getScheme() + "://" + IP + ":" + quest.getServerPort() + quest.getContextPath() + "/";
+			String path = quest.getScheme() + "://" + IP +  "/";
 			String content = path + "OrderDetail_getMenuMaterial?menuId=" + menuId;
 			int width2 = 200;
 			int height2 = 200;
