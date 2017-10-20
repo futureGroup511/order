@@ -8,7 +8,7 @@
 </head>
 <body>
 <div style="text-align:center;">
-<img alt="" src="${rootPath}/OrderDetail_reWeiMa?menuId=${menuId}">
+<img alt="无资源" src="${rootPath}OrderDetail_reWeiMa?menuId=${menuId}">
 </div>
 <script type="text/javascript">
 	window.onload = function(){

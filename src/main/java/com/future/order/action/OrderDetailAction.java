@@ -102,6 +102,8 @@ public class OrderDetailAction extends BaseAction {
 			ImageIO.write(image, format, os);
 			os.flush();
 			os.close();
+			LOG.debug("错误", "错误");
+			System.out.println("**************************************");
 		} else {
 			String messige = "未添加域名,暂无法打印二维码";
 			request.put("messige", messige);
