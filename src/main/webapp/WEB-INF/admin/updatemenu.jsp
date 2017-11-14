@@ -40,12 +40,14 @@ textarea{
 </head>
 <body  onload="changeSelected()"   style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="updatemenu">
-   <form action="${rootPath}manage/MenuManager_updateMenu?menu.id=${updateMenu.id}&menu.imgUrl=${updateMenu.imgUrl}" method="post" enctype="multipart/form-data">
+   <form action="${rootPath}manage/MenuManager_updateMenu" method="post" enctype="multipart/form-data">
+         	<input type="hidden" name="menu.id" value="${updateMenu.id}"/>
+         	<input type="hidden" name="menu.imgUrl" value="${updateMenu.imgUrl}"/>
           <lable id="text">菜名：</lable><input type="text" name="menu.name" value="${updateMenu.name}" required="required" maxlength="10">
           <lable id="text">类型名称：</lable>
-          <select name="menu.typeName" id="typeName">
+          <select name="menu.typeId" id="typeName">
           <c:forEach items="${Typelist}" var="item">
-          <option value="${item.name}">${item.name}</option>
+          	<option value="${item.id}">${item.name}</option>
           </c:forEach>
           </select><br>
           <lable id="text">价格：</lable><input type="text" name="menu.price" value="${updateMenu.price}" required="required" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''">

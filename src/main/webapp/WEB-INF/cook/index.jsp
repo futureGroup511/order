@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <title>餐饮管理系统-厨师</title>
+    <title>物联网餐饮管理系统-厨师</title>
     
     <link href="${rootPath}css/bootstrap.css" rel="stylesheet" />
     <link href="${rootPath}css/font-awesome.css" rel="stylesheet" />
@@ -15,7 +15,7 @@
 <body>
     <div class="header"><!-- 头部 -->
             <img src="${rootPath}images/top.jpg" style="width:100%;height:125px;">
-            <span>餐饮管理系统</span> 
+            <span>物联网餐饮管理系统</span> 
     </div>
     <div class="container"><!-- 此处包含左侧菜单和iframe标签的内容 -->
         <div class="sidebar-collapse"><!-- 左边的菜单栏 -->

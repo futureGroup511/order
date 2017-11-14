@@ -86,6 +86,10 @@ public class MenuManagerAction extends BaseAction {
 
 	// 修改菜品
 	public String updateMenu() throws FileNotFoundException, IOException {
+		MenuType menuType = menuTypeService.CheckById(menu.getTypeId());
+		menu.setTypeName(menuType.getName());
+		Menu menuData = menuService.get(menu.getId());
+		menu.setCreateDate(menuData.getCreateDate());
 		boolean boo=false;
 		if(file==null||file.equals("")){
 			menu.setImgUrl(menu.getImgUrl());

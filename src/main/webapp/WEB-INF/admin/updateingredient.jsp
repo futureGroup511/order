@@ -11,9 +11,8 @@
 </head>
 <body  style="background: url(${rootPath}images/iframebg.jpg);">
 		<div class="updateingredient">
-			<form
-				action="${rootPath}manage/Ingredient_updateIngredient?ingredient.id=${updateIngredient.id}"
-				method="post">
+			<form action="${rootPath}manage/Ingredient_updateIngredient" method="post">
+				<input type="hidden" name="ingredient.id" value="${updateIngredient.id}" />
 				<lable id="text">名称：</lable>
 				<input type="text" name="ingredient.name"
 					value="${updateIngredient.name}" required="required" maxlength="10"><br>
@@ -31,7 +30,7 @@
 						<c:if test='${order.status eq "原料"}'>selected="selected"</c:if>>原料</option>
 				</select><br>
 				<lable id="text"  style="margin-top:-50px;"><span>简介：</span></lable>
-				<textarea rows="4" cols="30" name="ingredient.introduce">${updateIngredient.introduce}</textarea>
+				<textarea rows="4" cols="30" name="ingredient.introduce"  style="resize:none" >${updateIngredient.introduce}</textarea>
 				<br>
 				<lable id="text">添加时间：</lable>
 				<input type="text" name="ingredient.createDate"

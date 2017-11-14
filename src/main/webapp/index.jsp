@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
-		<title>餐饮管理系统-登录</title>
+		<title>物联网餐饮管理系统-登录</title>
 			<link rel="stylesheet" type="text/css" href="${rootPath}css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="${rootPath}css/login.css" />
 	</head>
@@ -12,8 +12,8 @@
 		<div class="content">
 			<div class="header">
 				<span>
-					<p class="p1"><span class="title">天堂鸟</span>餐饮管理系统</p>
-					<p class="p2">Paradise bird catering management system</p>
+					<p class="p1">物联网餐饮管理系统</p>
+					<p class="p2">Food management system of Internet of things</p>
 				</span>
 			</div>
 			<div class="login">

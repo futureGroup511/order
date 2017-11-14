@@ -24,7 +24,7 @@ public interface IMenuService {
 
 	List<Menu> unfinish();
 	//根据前台传过来的id去获取每道菜的信息 安李杰加
-	public Menu get(int id);//金高用
+	public Menu get(int id);//张金高用
 	
 	
 	public List<Menu> ByName(String typeName);

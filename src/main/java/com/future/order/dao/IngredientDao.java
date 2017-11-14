@@ -90,9 +90,9 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 		String selecthql;
 		if(ask.equals("price")||ask.equals("num")){
 			int mark=Integer.parseInt(inquiry);
+//			String mark = inquiry;
 			hql = "select count(*) from Ingredient where "+ask+"='"+mark+"'";
 			selecthql="from Ingredient where "+ask+"='"+mark+"'";
-			
 		}else{
 			hql = "select count(*) from Ingredient where "+ask+"='"+inquiry+"'";
 			selecthql="from Ingredient where "+ask+"='"+inquiry+"'";

@@ -33,7 +33,8 @@
 </head>
 <body  style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="wall">
-	<form action="${rootPath}manage/MenuTypeAction_Update?menutype.imgUrl=${menutype.imgUrl}" method="post" enctype="multipart/form-data">
+	<form action="${rootPath}manage/MenuTypeAction_Update" method="post" enctype="multipart/form-data">
+		  <input type="hidden" name="menutype.imgUrl" value="${menutype.imgUrl}"/>
           <lable id="text">编号:</lable><input name="menutype.id" value="${menutype.id}" type="text" readonly="readonly"><br>
           <lable id="text">类型:</lable><input name="menutype.name" value="${menutype.name}" type="text" required="required" maxlength="10"><br>
           <lable id="text">介绍:</lable><input name="menutype.remark" value="${menutype.remark}" type="text"><br>

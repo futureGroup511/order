@@ -13,7 +13,8 @@
 ${updateUserMsg}
  <div class="updateuser">
        <div class="text">
-          <form action="${rootPath}manage/UserManager_updateUser?user.id=${updateUser.id}" method="post">
+          <form action="${rootPath}manage/UserManager_updateUser" method="post">
+          	  <input type="hidden" name="user.id" value="${updateUser.id}"/>
               <lable ><span style="margin-right: 40px;">账</span>号：</lable>
               <input type="tel" pattern="\d{11}" placeholder="请输入正确账号" name="user.phone" value="${updateUser.phone}" required="required"><br>
                <lable><span style="margin-right: 40px;">密</span>码：</lable>
