@@ -88,10 +88,13 @@ public class StockDao extends BaseDao<Stock> implements IStockService {
 	public PageCut<Stock> getSomePageCut(int currentPage, int pageSize, String inquiry) {
 		String hql;
 		int count = 0;
-		hql = "select count(*) from Stock where site='" + inquiry + "'";
+		String selecthql;
+		hql = "select count(*) from Stock where concat (site,',',total) like '%"+inquiry+"%'";
+		selecthql="from Stock where concat (site,',',total) like '%"+inquiry+"%'";
+//		hql = "select count(*) from Stock where site='" + inquiry + "'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Stock> pc = new PageCut<Stock>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Stock where site='" + inquiry + "'", (currentPage - 1) * pageSize,
+		pc.setData(this.getEntityLimitList(selecthql, (currentPage - 1) * pageSize,
 				pageSize));
 		return pc;
 	}
@@ -122,8 +125,8 @@ public class StockDao extends BaseDao<Stock> implements IStockService {
 
 	@Override
 	public List<Stock> getTotal(String inquiry) {
-		String hql = "from Stock where site='" + inquiry + "'";
-		return getEntityList(hql);
+		String selecthql="from Stock where concat (site,',',total) like '%"+inquiry+"%'";
+		return getEntityList(selecthql);
 	}
 
 	@Override

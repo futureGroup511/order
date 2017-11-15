@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,7 +20,7 @@
 				</select><br>
 				<lable id="text"><span style="padding-right:19%">简</span>介：</lable>
 				<div style="margin-left:20%;margin-top:-10%;">
-					<textarea style="margin-left:80px;" rows="5" cols="35" name="ingredient.introduce"></textarea>
+					<textarea style="margin-left:80px;resize:none;" maxlength="254" rows="5" cols="35" name="ingredient.introduce"></textarea>
 					</div>
 				<div class="button">
 					<input type="submit" style="font-size:20px;" value="添加">

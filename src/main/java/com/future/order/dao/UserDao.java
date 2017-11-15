@@ -69,27 +69,25 @@ public class UserDao extends BaseDao<User> implements IUserService {
 	}
 
 	@Override
-	public PageCut<User> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
-		if(ask.equals("sort")){	//当查询条件为身份查询时
-			switch (inquiry) {
-			case "管理员":
-				inquiry="manager";
-				break;
-			case "厨师":
-				inquiry="cook";
-				break;
-			case "收银员"
-				:inquiry="cashier";
-				break;
-			default :inquiry="";
-				break;
-			}
+	public PageCut<User> getSomePageCut(int curr, int pageSize, String inquiry) {
+		if(inquiry.equals("管理员")){
+			inquiry = "manager";
+		} else if(inquiry.equals("厨师")){
+			inquiry = "cook";
+		} else if(inquiry.equals("收银员")){
+			inquiry = "cashier";
 		}
-		String hql = "select count(*) from User where "+ask+"='"+inquiry+"'";
-		String selectHql =  "from User where "+ask+"='"+inquiry+"'";
+		String hql = "select count(*) from User where concat(phone,',',name) like '%"+inquiry+"%' or sort = '"+inquiry+"'";//,作用是分割多个条件
+		String selectHql =  "from User where concat(phone,',',name) like '%"+inquiry+"%' or sort = '"+inquiry+"'";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<User> pc = new PageCut<User>(curr,pageSize,count);
 		pc.setData(this.getEntityLimitList(selectHql, (curr-1)*pageSize, pageSize));
 		return pc;
+	}
+
+	@Override
+	public User selectByPhone(String phone) {
+		String hql = "from User where phone='"+phone+"'";
+		return (User)this.uniqueResult(hql);
 	}
 }

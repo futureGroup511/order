@@ -27,7 +27,7 @@
         	<!-- 用户名 -->
         	<property name="username" value="root"></property>
         	<!-- 密码 -->
-        	<property name="password" value="root"></property>
+        	<property name="password" value="${password}"></property>
         	<!-- 初始化连接大小 -->
 			<property name="initialSize" value="2" />
 			<!-- 连接池最大使用连接数量 -->

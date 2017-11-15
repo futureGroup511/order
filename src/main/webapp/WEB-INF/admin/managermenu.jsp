@@ -60,7 +60,7 @@ window.onload=function(){
     				<td>${data.price}</td>
     				<td><c:if test="${data.exist eq '0'}">暂缺</c:if><c:if test="${data.exist eq '1'}">可做</c:if></td>
     				<td>
-    					<textarea rows="2" cols="20" readonly="readonly">${data.introduce}</textarea>
+    					<textarea rows="2" cols="20" style="resize:none;" maxlength="254" readonly="readonly">${data.introduce}</textarea>
     				</td>
     				<td>
     					<a href="${rootPath}manage/MenuManager_toUpdateMenu?menu.id=${data.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;

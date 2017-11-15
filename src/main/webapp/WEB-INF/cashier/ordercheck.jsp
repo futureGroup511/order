@@ -38,9 +38,7 @@ window.onload=function(){
 <center>
 <div style="font-weight: bold;font-size:20px;margin-top:2%;">${marknews}${mark}</div>
 </center>
-<c:if test="${fn:length(pc.data)>0 }">
-<div class="ordercheck" id="div1">
-	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
+<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	</div>
      <div class="button">
       <input type="button" onclick="window.location.href='${rootPath}manage/OrderAction?sign=no&sort=cashier';" value="未付款" style="border-radius: 5px;">
@@ -48,14 +46,12 @@ window.onload=function(){
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
 	<form action="${rootPath}manage/OrderAction_Inquiry?sort=cashier" method="post">
-	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
-		<option value="tableName">餐桌名称</option>
-		<option value="cookName">厨师名称</option>
-	</select>
 		<input type="text" name="inquiry" style="border-radius:7px;background-color: #F0F0F0;" required="required">
 		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
 </form>
 </div>
+<c:if test="${fn:length(pc.data)>0 }">
+<div class="ordercheck" id="div1">
       <div class="order">
        <table cellspacing="0" border="1">
          <thead>
@@ -86,7 +82,7 @@ window.onload=function(){
 	                <td>${item.createDate}</td>
 	                <td>${item.cookId}</td>
 	                <td>${item.cookName}</td>
-	                <td style="width:130px;height:10px"><textarea readonly="readonly" style="width:100%;height:105%">${item.remark}</textarea></td>
+	                <td style="width:130px;height:10px"><textarea readonly="readonly" maxlength="254" style="width:100%;height:105%; resize:none">${item.remark}</textarea></td>
 	               <td  class="four">
 	               		<a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}&sort=cashier">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	               		<c:if test="${item.status ne '已付款'}"><a href="${rootPath}manage/OrderAction_toPay?id=${item.id}&IDcard=order">付款</a></c:if>

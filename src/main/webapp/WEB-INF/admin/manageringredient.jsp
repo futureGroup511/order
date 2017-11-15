@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,50 +25,46 @@ window.onload=function(){
 	</script>
 <body  style="background: url(${rootPath}images/iframebg.jpg);">
 <div style="margin-left: 40%;margin-top:2%;font-size:20px;font-weight: bold;">${updateIngredientMsg}${deleteIngredientMsg}</div>
-<c:if test="${fn:length(allIngredient.data)>0}">
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;">
 	<form action="${rootPath}manage/Ingredient_Inquiry" method="post"style="margin-left:10%;">
-	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
-		<option value="name">名称</option>
-		<option value="price">单价</option>
-		<option value="num">库存</option>
-		<option value="type">类型</option>
-	</select>
-		<input  class="text" type="text" name="inquiry" required="required">
+		<input  class="text" type="text" name="inquiry" placeholder="名称/单价/库存/类型" required="required">
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>
+<c:if test="${fn:length(allIngredient.data)>0}">
 <div  id="div1">
-     <table cellspacing="0">
-         <thead>
-          <tr class="tr1">
-             <td>名称</td>
-             <td>单价</td> 
-             <td>库存</td>
-             <td>添加时间</td>
-             <td>类型</td>
-             <td>简介</td>
-             <td>操作</td>
-          </tr>   
-         </thead>
-         <tbody>
-         <c:forEach items="${allIngredient.data}" var="ingredient">
-			<tr>
-				<td>${ingredient.name}</td>
-				<td>${ingredient.price}</td>
-				<td>${ingredient.num}</td>
-				<td style="width:200px;">${ingredient.createDate}</td>
-				<td>${ingredient.type}</td>
-				<td style="width:380px;"><textarea style="float:left;" rows="2" cols="61">${ingredient.introduce}</textarea></td>
-				<td >
-					<a href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;
-					<a href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span class="glyphicon glyphicon-trash"></span></a>
-				</td>
-			</tr> 
-		</c:forEach>
-         </tbody>
-     </table>        
-    </div>
+			<table cellspacing="0">
+				<thead>
+					<tr class="tr1">
+						<td>名称</td>
+						<td>单价</td>
+						<td>库存</td>
+						<td>添加时间</td>
+						<td>类型</td>
+						<td>简介</td>
+						<td>操作</td>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${allIngredient.data}" var="ingredient">
+						<tr>
+							<td>${ingredient.name}</td>
+							<td>${ingredient.price}</td>
+							<td>${ingredient.num}</td>
+							<td style="width: 200px;">${ingredient.createDate}</td>
+							<td>${ingredient.type}</td>
+							<td style="width: 380px;"><textarea readonly="readonly" style="float: left;resize:none;"
+									rows="2" cols="61">${ingredient.introduce}</textarea></td>
+							<td><a
+								href="${rootPath}manage/Ingredient_toUpdateIngredient?ingredient.id=${ingredient.id}"><span
+									class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp; <a
+								href="${rootPath}manage/Ingredient_deleteIngredient?ingredient.id=${ingredient.id}"><span
+									class="glyphicon glyphicon-trash"></span></a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
     <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath}manage/Ingredient_${adss}?page=${allIngredient.prePage}">上一页</a></li>

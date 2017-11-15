@@ -30,11 +30,6 @@ window.onload=function(){
 <center><div style="margin-top:1%;font-size:20px;;">${deleteMark}${markinfo}</span></div>
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;margin-top:2%;">
 	<form action="${rootPath}manage/StockDetailsAction_Inquiry" method="post"style="margin-left:10%;">
-	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
-		<option value="ingName">名称</option>
-		<option value="price">单价</option>
-		<option value="num">数量</option>
-	</select>
 		<input  class="text" style="background-color: #F0F0F0;border-radius:5px;" type="text" name="inquiry" required="required">
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>

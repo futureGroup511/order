@@ -15,7 +15,7 @@
      <lable><span style="margin-right: 10px;">总</span><span style="margin-right: 10px;">支</span>出：</lable><input type="text" name="stock.total" required="required" placeholder="请输入数字" onkeyup="this.value=/^\d+\.?\d{0,2}$/.test(this.value) ? this.value : ''"><br>
      <lable>进货时间：</lable><input type="text"  name="stock.createDate" class="sang_Calender" required="required" placeholder="请点击选择时间">
      <script type="text/javascript" src="../js/datetime.js"></script><br>
-     <lable><span style="margin-right: 40px;">备</span>注：</lable><input type="text" name="stock.remark">
+     <lable><span style="margin-right: 40px;">备</span>注：</lable><input type="text" name="stock.remark" maxlength="254" >
       <div class="button">
         <input type="submit" value="提交">          
       </div>

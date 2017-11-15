@@ -14,7 +14,7 @@
 		<label>电话：</label><input type="text" name="restaurant.phone" required="required" placeholder="请输入电话号" maxlength="22" value="${rest.phone }"><br>
 		<label>地址：</label><input type="text" name="restaurant.address" value="${rest.address}" required="required"><br>
 		<label>简介：</label>
-			<textarea style="margin-left:40%;margin-top:-7%;" rows="5" cols="30" name="restaurant.introduce">${rest.introduce}</textarea>
+			<textarea style="margin-left:40%;margin-top:-7%;resize:none;" rows="5" cols="30" maxlength="254" name="restaurant.introduce">${rest.introduce}</textarea>
 		<input type="file" name="file" accept="image/*" class="input1" value="选择图片" style="border:none; outline:none;margin-left:40%;margin-top: 1%;"><br>
 		<button class="btn" type="submit">修改</button><br>		
 	</form>

@@ -85,18 +85,19 @@ public class IngredientDao extends BaseDao<Ingredient> implements IIngerdientSer
 	}
 
 	@Override
-	public PageCut<Ingredient> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
+	public PageCut<Ingredient> getSomePageCut(int curr, int pageSize,String inquiry) {
 		String hql;
 		String selecthql;
-		if(ask.equals("price")||ask.equals("num")){
-			int mark=Integer.parseInt(inquiry);
-//			String mark = inquiry;
-			hql = "select count(*) from Ingredient where "+ask+"='"+mark+"'";
-			selecthql="from Ingredient where "+ask+"='"+mark+"'";
-		}else{
-			hql = "select count(*) from Ingredient where "+ask+"='"+inquiry+"'";
-			selecthql="from Ingredient where "+ask+"='"+inquiry+"'";
-		}
+//		if(ask.equals("price")||ask.equals("num")){
+//			int mark=Integer.parseInt(inquiry);
+////			String mark = inquiry;
+//			hql = "select count(*) from Ingredient where "+ask+"='"+mark+"'";
+//			selecthql="from Ingredient where "+ask+"='"+mark+"'";
+//		}else{   concat(phone,',',name) like '%"+inquiry+"%' or sort = '"+inquiry+"'";//,作用是分割多个条件
+		
+			hql = "select count(*) from Ingredient where concat (name,',',price,',',num,',',type) like '%"+inquiry+"%'";
+			selecthql="from Ingredient where concat (name,',',price,',',num,',',type) like '%"+inquiry+"%'";
+//		}
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Ingredient> pc = new PageCut<Ingredient>(curr,pageSize,count);	
 		pc.setData(this.getEntityLimitList(selecthql, (curr-1)*pageSize, pageSize));

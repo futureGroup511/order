@@ -32,17 +32,13 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}images/iframebg.jpg);">
 		<div style="font-weight: bold;margin-left:45%;font-size: 20px;margin-top:2%;">${managerMsg}</div>
-<c:if test="${fn:length(allTables.data)>0 }">
-		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:36%; ">
+		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:40%; ">
 			<form action="${rootPath}manage/TableManager_Inquiry?sort=cashier" method="post">
-				<select name="pass" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
-					<option value="name">按名称查询</option>
-					<option value="status">按状态查询</option>
-				</select>
 				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace" required="required">
 				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 			</form>
 		</div> 
+<c:if test="${fn:length(allTables.data)>0 }">
 <div class="wall">
 	<div id="div1">
      <table cellspacing="0" border="1" align="center" style="background-color: white;" >

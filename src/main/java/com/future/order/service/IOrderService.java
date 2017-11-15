@@ -48,7 +48,7 @@ public interface IOrderService {
 	//安李杰加 根据桌号获取订单中最近的信息
 	public Order getOrder1(int tableId);
 	//根据条件获得符合条件的数据
-	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry);
+	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String inquiry);
 	public boolean updetemenu(int id, int idd, String UserName);
 	//根据时间条件获得符合条件的订单
 	public PageCut<Order> getPagegain(int currentPage, int pageSize, String starttime, String endtime, String sign);
@@ -56,7 +56,7 @@ public interface IOrderService {
 	public List<Order> getGain(String starttime, String endtime, String sign);
 	public boolean updateOrder(int id);
 	//根据条件获得所有的订单
-	public List<Order> getPrice(String ask, String inquiry);
+	public List<Order> getPrice(String inquiry);
 	//安李杰加 删除订单
 	public boolean delete(int id);
 	//根据餐桌ID查找订单详情

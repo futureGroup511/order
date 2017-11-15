@@ -41,16 +41,12 @@ public class IngredientManagerAction extends BaseAction {
 
 	public String Inquiry() {			// 查找配料,按名字
 		PageCut<Ingredient> pCut = new PageCut<Ingredient>();
-		if(ask!=null){
-			pCut = ingerdientService.getSomePageCut(page, 8,ask,inquiry);
-			}else{
-				ask=(String) session.get("ask");
-				inquiry=(String) session.get("inquiry");
-				pCut = ingerdientService.getSomePageCut(page, 8,ask,inquiry);
-			}
+		if(inquiry==null){
+			inquiry=(String) session.get("inquiry");
+		}
+		pCut = ingerdientService.getSomePageCut(page, 8,inquiry);
 		request.put("allIngredient", pCut);
 		request.put("adss", "Inquiry");
-		session.put("ask", ask);
 		session.put("inquiry", inquiry);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有找到所需内容";

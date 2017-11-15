@@ -57,7 +57,7 @@ textarea{
 			<option value="0" <c:if test="${updateMenu.exist eq '0'}">selected = selected</c:if>>暂缺</option>
 			</select><br>
           <lable id="text">简介：</lable>
-          <textarea class="textarea" name="menu.introduce"rows="3" cols="63">${updateMenu.introduce}</textarea><br>          
+          <textarea class="textarea" name="menu.introduce"rows="3" cols="63" style="resize:none;" maxlength="254">${updateMenu.introduce}</textarea><br>          
            <lable id="text">图片：</lable>
            <img alt="加载中" src="${rootPath}uploadImg/${updateMenu.imgUrl}"  class="img"><br>
             <input type="file" name="file" accept="image/*" class="file" value="选择图片"><br>

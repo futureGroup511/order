@@ -124,22 +124,13 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 	}
 
 	@Override
-	public PageCut<StockDetails> getSomePageCut(int currentPage, int pageSize, int stockid, String ask,
+	public PageCut<StockDetails> getSomePageCut(int currentPage, int pageSize, int stockid,
 			String inquiry) {
 		String hql;
 		String selecthql;
 		int count = 0;
-		if (ask.equals("price") || ask.equals("num")) {
-			double mark = Double.valueOf(inquiry);
-			hql = "select count(*) from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + mark
-					+ "'";
-			selecthql = "from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + mark + "'";
-		} else {
-			hql = "select count(*) from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + inquiry
-					+ "'";
-			selecthql = "from StockDetails o where o.stockId='" + stockid + "' and o." + ask + "='" + inquiry + "'";
-		}
-
+		hql = "select count(*) from StockDetails where concat (ingName,',',price,',',num) like '%"+inquiry+"%'";
+		selecthql="from StockDetails where concat (ingName,',',price,',',num) like '%"+inquiry+"%'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<StockDetails> pc = new PageCut<StockDetails>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList(selecthql, (currentPage - 1) * pageSize, pageSize));
