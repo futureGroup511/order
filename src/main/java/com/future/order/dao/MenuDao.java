@@ -152,13 +152,13 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	 */
 	@Override
 	public List<Menu> getRecommend(int num) {
-		String sql = "select * from tb_menu where typeId not in(6,7,8) order by num desc limit " + num ;
+		String sql = "select * from tb_menu where exist=1 and typeId not in(6,7,8) order by num desc limit " + num ;
 		return this.executeSQLQuery(sql);
 	}
 	//根据菜品类型id获得菜品 安李杰用
 	@Override
 	public List<Menu> getByTypeId(int typeId) {
-		String hql = "from Menu m where m.typeId=" + typeId + " order by m.id desc";
+		String hql = "from Menu m where m.exist=1 and m.typeId=" + typeId + " order by m.id desc";
 		return this.getEntityList(hql);
 	}
 

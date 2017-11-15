@@ -26,10 +26,10 @@ textarea{
 <script type="text/javascript">
 
 	function changeSelected() {
-		var typeName = '${updateMenu.typeName}';	//获得后台的要选中的值
+		var typeId = '${updateMenu.typeId}';	//获得后台的要选中的值
 		   var all_options = document.getElementById("typeName").options;
 		   for (i=0; i<all_options.length; i++){
-		      if (all_options[i].value == typeName)  // 根据option标签的value来进行判断  测试的代码这里是两个等号
+		      if (all_options[i].value == typeId)  // 根据option标签的value来进行判断  测试的代码这里是两个等号
 		      {
 		         all_options[i].selected = true;
 		      }
