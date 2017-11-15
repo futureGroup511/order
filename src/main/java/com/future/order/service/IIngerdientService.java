@@ -37,7 +37,7 @@ public interface IIngerdientService {
 	
 	public boolean updeteNum(int id, int num);//更改配料库存量
 	
-	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String ask, String inquiry);//得到符合某种条件的配料，分页
+	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String inquiry);//得到符合某种条件的配料，分页
 	
 	public List<Ingredient> getByIdAll(int id);//执行有条件查询
 

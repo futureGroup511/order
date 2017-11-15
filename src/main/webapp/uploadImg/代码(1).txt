@@ -1,0 +1,70 @@
+package account;
+
+public class acc1 {
+	private int id;
+	private String mima;
+	private String zhicu;
+	private String tiaomu;
+	private double  data;
+	public acc1(int id,String mima,String zhicu,String tiaomu,double data)
+	{
+		this.id=id;
+		this.mima=mima;
+		this.zhicu=zhicu;
+		this.tiaomu=tiaomu;
+		this.data=data;
+	}
+	public  int getId(){
+		return id;
+	}
+	public String getMima(){
+		return mima;
+	}
+	public String getZhicu(){
+		return zhicu;
+	}
+	public String getTiaomu(){
+		return tiaomu;
+	}
+	public double getData(){
+		return data;
+	}
+	public void setAcc1(int id,String mima,String zhicu,String tiaomu,double data){
+		this.id=id;
+		this.mima=mima;
+		this.zhicu=zhicu;
+		this.tiaomu=tiaomu;
+		this.data=data;
+	}
+}
+	
+
+
+
+
+package account;
+import java.io.*;
+public class acc2 {
+	public static void main (String[] args)throws IOException
+	{
+System.out.println("1.¥¥Ω®’À∫≈√‹¬Î");
+System.out.println("2.µ«¬º’À∫≈√‹¬Î");
+System.out.println("3.ÕÀ≥ˆœµÕ≥");
+String str=new String();
+BufferedReader buf=new BufferedReader(new InputStreamReader(System.in));
+str=buf.readLine();
+BufferedReader in=new BufferedReader(new FileReader("d:\\java\\test.txt"));
+BufferedWriter out=new BufferedWriter(new FileWriter("d:\\java\\test2.txt"));
+ while((str=in.readLine())!=null)
+ {
+	 System.out.println(str);
+	 out.write(str);
+	 out.newLine();
+ }
+ out.flush();
+ in.close();
+ out.close();
+}
+	
+}
+	

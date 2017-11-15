@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,7 +30,7 @@
 						<c:if test='${order.status eq "原料"}'>selected="selected"</c:if>>原料</option>
 				</select><br>
 				<lable id="text"  style="margin-top:-50px;"><span>简介：</span></lable>
-				<textarea rows="4" cols="30" name="ingredient.introduce"  style="resize:none" >${updateIngredient.introduce}</textarea>
+				<textarea rows="4" cols="30" name="ingredient.introduce" maxlength="254" style="resize:none" >${updateIngredient.introduce}</textarea>
 				<br>
 				<lable id="text">添加时间：</lable>
 				<input type="text" name="ingredient.createDate"

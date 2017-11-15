@@ -33,5 +33,7 @@ public interface IUserService {
 	//分页
 	public PageCut<User> getPageCut(int curr,int pageSize);//得到成员，分页
 	
-	public PageCut<User> getSomePageCut(int curr, int pageSize, String ask, String inquiry);//得到符合某种条件的成员
+	public PageCut<User> getSomePageCut(int curr, int pageSize, String inquiry);//得到符合某种条件的成员
+	//根据用户手机号得到用户
+	public User selectByPhone(String phone);
 }

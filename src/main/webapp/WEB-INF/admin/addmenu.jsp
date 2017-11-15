@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,7 +37,7 @@ display:inline-block;
      </select><br>
      <label><span style="padding-right:9%">简</span>介：</label>
      <div style="margin-left:17%;margin-top:-5%;">
-     	<textarea rows="5" cols="50" name="menu.introduce"></textarea>
+     	<textarea rows="5" cols="50" style="resize:none;" maxlength="254" name="menu.introduce"></textarea>
      </div>
       <lable><span style="padding-right:1%">示</span><span style="padding-right:1%">例</span><span style="padding-right:1%">图</span>片：</lable>
      <input type="file" name="file" class="file" accept="image/*" value="选择图片">

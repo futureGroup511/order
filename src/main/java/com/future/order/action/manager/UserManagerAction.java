@@ -1,5 +1,7 @@
 package com.future.order.action.manager;
 
+import java.util.List;
+
 import com.future.order.base.BaseAction;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
@@ -55,13 +57,23 @@ public class UserManagerAction extends BaseAction {
 	}
 	
 	public String updateUser() {	//确认修改信息,修改个人资料
-		boolean boo = userService.updateUser(user);
+		boolean boo = false;
+		String msg = "修改失败";
+		User userData = userService.viewUser(user.getId());
+		if(userData!=null&&!userData.getPhone().equals(user.getPhone())){//修改了手机号
+			User userDb = userService.selectByPhone(user.getPhone());
+			msg = "该手机号已经被注册";
+			if(userDb==null){
+				boo = userService.updateUser(user);
+			}
+		} else {
+			boo = userService.updateUser(user);
+		}
 		String result = "updateUser";
 		if(boo){
-			request.put("updateUserMsg", "修改成功");
-		} else {
-			request.put("updateUserMsg", "修改失败");
+			msg = "修改成功";
 		}
+		request.put("updateUserMsg", msg);
 		request.put("sort", user.getSort());//将用户身份存入request
 		PageCut<User> pCut=userService.getPageCut(page,8);
 		request.put("allUser", pCut);
@@ -120,12 +132,12 @@ public class UserManagerAction extends BaseAction {
 	}
 	public String Inquiry(){		//条件查询
 		PageCut<User> pCut=new PageCut();
-		if(ask!=null){
-		 pCut=userService.getSomePageCut(page,8,ask,inquiry);
+		if(inquiry!=null){
+		 pCut=userService.getSomePageCut(page,8,inquiry);
 		}else{
-			ask=(String) session.get("ask");
+//			ask=(String) session.get("ask");
 			inquiry=(String) session.get("inquiry");
-			pCut=userService.getSomePageCut(page,8,ask,inquiry);
+			pCut=userService.getSomePageCut(page,8,inquiry);
 		}
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
@@ -133,7 +145,7 @@ public class UserManagerAction extends BaseAction {
 			request.put("deleteUserMsg", mark);
 		}
 		request.put("adss", "Inquiry");
-		session.put("ask", ask);
+//		session.put("ask", ask);
 		session.put("inquiry", inquiry);
 		return SUCCESS;
 	}
