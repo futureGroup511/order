@@ -28,7 +28,6 @@ window.onload=function(){
 </head>
 <body  style="background: url(${rootPath}images/iframebg.jpg);">
 <center><div style="margin-top:1%;font-size:20px;;">${deleteMark}${markinfo}</span></div>
-<c:if test="${fn:length(pc.data)>0 }">
 <div style="float:right;margin-right:10%;width:30%;height:30px; margin-bottom:2%;margin-top:2%;">
 	<form action="${rootPath}manage/StockDetailsAction_Inquiry" method="post"style="margin-left:10%;">
 	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
@@ -40,6 +39,7 @@ window.onload=function(){
 		<input style="border-radius: 5px;width:15%;background-color: #82C0E9;" type="submit" value="查询">
 	</form>
 </div>
+<c:if test="${fn:length(pc.data)>0 }">
 <div class="checkstock" id="div1">
      <table cellspacing="0">
          <thead>

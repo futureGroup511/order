@@ -34,7 +34,6 @@ function checkPay(){
 <center>
 <div style="font-weight: bold;font-size:20px;margin-top:2%;">${mark}</div>
 </center>
-<c:if test="${fn:length(pc.data) > 0 }">
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	<form action="${rootPath}manage/OrderAction_count" method="post">
@@ -57,6 +56,7 @@ function checkPay(){
 		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
 </form>
 </div>
+<c:if test="${fn:length(pc.data) > 0 }">
       <div class="order">
        <table cellspacing="0" border="1">
          <thead>

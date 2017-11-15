@@ -76,7 +76,7 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			request.put("managerMsg", "修改成功");
 		} else {
-			request.put("managerMsg", "修改失败");
+			request.put("managerMsg", "修改失败,已有此餐桌");
 		}
 		return execute();
 	}
