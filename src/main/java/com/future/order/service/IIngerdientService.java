@@ -40,5 +40,7 @@ public interface IIngerdientService {
 	public PageCut<Ingredient> getSomePageCut(int curr,int pageSize, String inquiry);//得到符合某种条件的配料，分页
 	
 	public List<Ingredient> getByIdAll(int id);//执行有条件查询
+	//根据配料名称得到配料
+	public Ingredient getByName(String name);
 
 }

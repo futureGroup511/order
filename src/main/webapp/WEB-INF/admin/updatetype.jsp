@@ -37,7 +37,7 @@
 		  <input type="hidden" name="menutype.imgUrl" value="${menutype.imgUrl}"/>
           <lable id="text">编号:</lable><input name="menutype.id" value="${menutype.id}" type="text" readonly="readonly"><br>
           <lable id="text">类型:</lable><input name="menutype.name" value="${menutype.name}" type="text" required="required" maxlength="10"><br>
-          <lable id="text">介绍:</lable><input name="menutype.remark" value="${menutype.remark}" type="text"><br>
+          <lable id="text">介绍:</lable><input name="menutype.remark" value="${menutype.remark}" maxlength="254" type="text"><br>
           <lable id="text" >图片：</lable>
           <img alt="加载中" src="${rootPath}uploadImg/${menutype.imgUrl}" class="img" >
          <input type="file" name="file" accept="image/*" class="file" value="选择图片"><br>

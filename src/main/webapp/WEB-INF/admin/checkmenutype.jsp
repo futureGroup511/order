@@ -22,7 +22,6 @@
 <body   style="background: url(${rootPath}images/iframebg.jpg);">
 <center>
 <div style="margin-top: 1%;font-weight: bold;font-size:20px;">${mark}</div>
-<c:if test="${fn:length(pc.data)>0}">
 <div style="margin-left:40%;MARGIN-TOP:1%;">
 	<form action="${rootPath}manage/MenuTypeAction_Inquiry" method="post">
 		<input class="input" type="text" name="inquiry" required="required">
@@ -30,6 +29,7 @@
 	</form>
 </div>
 </center>
+<c:if test="${fn:length(pc.data)>0}">
 <div class="wall">
        <table border="1" style="border-color:#C6C6C6;background-color: white;">
 			<tr>
@@ -45,7 +45,7 @@
 				<td>${pageCut.name}</td>
 				<td><img src="${rootPath}uploadImg/${pageCut.imgUrl}" alt="未添加图片" style="height:50px;width:110px;"></td>
 				<td>
-					<textarea rows="2" cols="35" readonly="readonly">${pageCut.remark}</textarea>
+					<textarea rows="2" cols="35" style="resize:none;" maxlength="254" readonly="readonly">${pageCut.remark}</textarea>
 				</td>
 				<td>
 					<a href="${rootPath}manage/MenuTypeAction_toUpdateType?id=${pageCut.id}"><span  class="glyphicon glyphicon-pencil"></span></a>

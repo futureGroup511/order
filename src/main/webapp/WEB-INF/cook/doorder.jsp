@@ -153,7 +153,7 @@ html {
 						<td>${item.status}</td>
 						<td>${item.creatDate}</td>
 						<td>${item.cookName}</td>
-						<td style="width:130px;height:10px"><textarea readonly="readonly" style="width:100%;height:105%">${item.remark}</textarea></td>
+						<td style="width:130px;height:10px"><textarea readonly="readonly" style="width:100%;height:105%;resize:none;">${item.remark}</textarea></td>
 						<td><a
 							href="${rootPath}cook/orderCenter_doOrder?OrderId=${item.id}&menuId=${item.menuId}">完成</a></td>
 					</tr>

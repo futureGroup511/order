@@ -68,22 +68,31 @@ public class MenuTypeAction extends BaseAction {
 	}
 
 	public String Update() throws FileNotFoundException, IOException {	//修改菜品类型
-		boolean sign=false;
+		boolean sign=true;
+		String mark = "修改失败";
+		MenuType menuTypeDb = menuTypeService.CheckById(menutype.getId());
+		if(menuTypeDb!=null&&!menuTypeDb.getName().equals(menutype.getName())){
+			MenuType menuTypeCheckName = menuTypeService.getByName(menutype.getName());
+			sign = false;
+			mark = "修改失败，该菜品类型已存在";
+			if(menuTypeCheckName==null){
+				mark = "修改失败";
+				sign = true;
+			}
+		}
 		if(file==null||file.equals("")){
 			menutype.setImgUrl(menutype.getImgUrl());
-			sign = menuTypeService.UpdateType(menutype);			
 		}else{
 			for (int i = 0; i < file.size(); i++) {
 				// 循环上传每个文件
 				uploadFile(i);
 			}
-			sign = menuTypeService.UpdateType(menutype);
 		}
-		String mark = "操作失败";
-		if (sign == true) {
-			mark = "修改成功";
-		} else {
-			mark = "修改失败";
+		if(sign){
+			sign = menuTypeService.UpdateType(menutype);
+			if (sign) {
+				mark = "修改成功";
+			}
 		}
 		request.put("mark", mark);
 		return this.execute();
@@ -91,12 +100,10 @@ public class MenuTypeAction extends BaseAction {
 
 	public String Inquiry() {	//条件查询
 		PageCut<MenuType> pCut = new PageCut<MenuType>();
-		if (inquiry != null) {
-			pCut = menuTypeService.getSomePageCut(page, 7, inquiry);
-		} else {
+		if (inquiry == null) {
 			inquiry = (String) session.get("inquiry");
-			pCut = menuTypeService.getSomePageCut(page, 7, inquiry);
 		}
+		pCut = menuTypeService.getSomePageCut(page, 7, inquiry);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有菜品的类型";
 			request.put("mark", mark);

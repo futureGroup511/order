@@ -1,7 +1,5 @@
 package com.future.order.action.manager;
 
-import java.util.List;
-
 import com.future.order.base.BaseAction;
 import com.future.order.entity.User;
 import com.future.order.util.PageCut;
@@ -132,13 +130,10 @@ public class UserManagerAction extends BaseAction {
 	}
 	public String Inquiry(){		//条件查询
 		PageCut<User> pCut=new PageCut();
-		if(inquiry!=null){
-		 pCut=userService.getSomePageCut(page,8,inquiry);
-		}else{
-//			ask=(String) session.get("ask");
+		if(inquiry==null){
 			inquiry=(String) session.get("inquiry");
-			pCut=userService.getSomePageCut(page,8,inquiry);
 		}
+		pCut=userService.getSomePageCut(page,8,inquiry);
 		request.put("allUser", pCut);
 		if(pCut.getData().size()==0){
 			String mark="没有你查询的用户";

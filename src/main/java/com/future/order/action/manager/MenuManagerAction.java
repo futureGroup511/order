@@ -86,26 +86,35 @@ public class MenuManagerAction extends BaseAction {
 
 	// 修改菜品
 	public String updateMenu() throws FileNotFoundException, IOException {
+		boolean boo=true;
+		String msg = "修改失败";
+		Menu menuDb = menuService.get(menu.getId());
+		if(menuDb!=null&&!menuDb.getName().equals(menu.getName())){
+			Menu menuCheckName = menuService.inquiryByName(menu.getName());
+			boo=false;
+			msg = "修改失败，该菜已存在";
+			if(menuCheckName==null){
+				msg = "修改失败";
+				boo = true;
+			}
+		}
 		MenuType menuType = menuTypeService.CheckById(menu.getTypeId());
 		menu.setTypeName(menuType.getName());
 		Menu menuData = menuService.get(menu.getId());
 		menu.setCreateDate(menuData.getCreateDate());
-		boolean boo=false;
 		if(file==null||file.equals("")){
 			menu.setImgUrl(menu.getImgUrl());
-			boo = menuService.updateUser(menu);			
 		}else{
 			for (int i = 0; i < file.size(); i++) {
 				// 循环上传每个文件
 				uploadFile(i);
 			}
-			boo = menuService.updateUser(menu);
 		}
-		if (boo) {
-			request.put("updateMsg", "修改成功");
-		} else {
-			request.put("updateMsg", "修改失败");
+		if(boo){
+			msg = "修改成功";
+			boo = menuService.updateUser(menu);			
 		}
+		request.put("updateMsg", msg);
 		PageCut<Menu> pCut = menuService.getPageCut(page, 7);
 		request.put("allMenu", pCut);
 		return "updateMenu";
@@ -163,19 +172,15 @@ public class MenuManagerAction extends BaseAction {
 	}
 	public String Inquiry(){
 		PageCut<Menu> pCut=new PageCut<Menu>();
-		if(ask!=null){
-			pCut = menuService.getSomePageCut(page, 7,ask,inquiry);
-			}else{
-				ask=(String) session.get("ask");
-				inquiry=(String) session.get("inquiry");
-				pCut = menuService.getSomePageCut(page, 7,ask,inquiry);
-			}
+		if(inquiry==null){
+			inquiry=(String) session.get("inquiry");
+		}
+		pCut = menuService.getSomePageCut(page, 7,inquiry);
 		if(pCut.getData().size()==0){
 			String mark="没有菜品";
 			request.put("deleteMenuMsg", mark);
 		}
 		request.put("adss", "Inquiry");		
-		session.put("ask", ask);
 		session.put("inquiry", inquiry);
 		request.put("allMenu", pCut);
 		return SUCCESS;

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,18 +28,13 @@ window.onload=function(){
 <center>
 	<div class="error" style="font-weight: bold;">${updateMsg}${deleteMenuMsg }</div>
 </cenetr>
-<c:if test="${fn:length(allMenu.data)>0 }">
  <div class="photowall" style="margin-left:35%;"> 
 	<form action="${rootPath}manage/MenuManager_Inquiry" method="post">
-	<select name="ask" style="border-radius:7px;background-color: #F0F0F0; height:25px;">
-		<option value="name">菜名</option>
-		<option value="typeName">类型</option>
-		<option value="price">价格</option>
-	</select>
-		<input class="input" type="text" name="inquiry" required="required">
+		<input class="input" type="text" name="inquiry" placeholder="菜名/类型/价格" required="required">
 		<button style="border-radius: 5px;width:6%;background-color: #82C0E9;" type="submit">查询</button>
 	</form>
 </div>
+<c:if test="${fn:length(allMenu.data)>0 }">
     <div class="picture_wall" id="div1">
     		${inquiryMsg}
     		<table>

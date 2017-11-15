@@ -141,7 +141,7 @@ html {
 						<td>${item.tableId}</td>
 						<td>${item.tableName}</td>
 						<td style="width: 400px; height: 20px"><textarea
-								readonly="readonly" style="width: 400px; height: 30px">${item.content}</textarea></td>
+								readonly="readonly" style="width: 400px; height: 30px;resize:none;">${item.content}</textarea></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -184,7 +184,7 @@ html {
 						<td>${item.creatDate}</td>
 						<td>${item.cookName}</td>
 						<td style="width: 200px; height: 10px"><textarea
-								readonly="readonly" style="width: 200px; height: 30px">${item.remark}</textarea></td>
+								readonly="readonly" style="width: 200px; height: 30px;resize:none;">${item.remark}</textarea></td>
 						<td><a target="_blank"
 							href="${rootPath}OrderDetail_printQRCode?menuId=${item.menuId}&OrderId=${item.orderId}">打印二维码</a></td>
 						<td><c:if test="${item.status eq '未完成'}">

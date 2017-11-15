@@ -169,17 +169,9 @@ public class MenuDao extends BaseDao<Menu> implements IMenuService {
 	}
 
 	@Override
-	public PageCut<Menu> getSomePageCut(int curr, int pageSize, String ask, String inquiry) {
-		String hql = "select count(*) from Menu";
-		String selectHql;
-		if(ask.equals("price")){
-			int mark = Integer.parseInt(inquiry);
-			hql += " where "+ask+"='"+mark+"'";
-			 selectHql =  "from Menu where "+ask+"='"+mark+"'";
-		}else{
-			hql += " where "+ask+"='"+inquiry+"'";
-			 selectHql =  "from Menu where "+ask+"='"+inquiry+"'";
-		}
+	public PageCut<Menu> getSomePageCut(int curr, int pageSize, String inquiry) {//菜名/类型/价格
+		String hql = "select count(*) from Menu where concat(name,',',typeName,',',price) like '%"+inquiry+"%'";
+		String selectHql = "from Menu where concat(name,',',typeName,',',price) like '%"+inquiry+"%'";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Menu> pc = new PageCut<Menu>(curr, pageSize, count);
 		pc.setData(this.getEntityLimitList(selectHql, (curr - 1) * pageSize, pageSize));

@@ -124,10 +124,10 @@ public class MenuTypeDao  extends BaseDao<MenuType> implements IMenuTypeService 
 	public PageCut<MenuType> getSomePageCut(int currentPage, int pageSize, String inquiry) {
 		String hql ;
 		int count=0;
-		hql = "select count(*) from MenuType where name='"+inquiry+"'";
+		hql = "select count(*) from MenuType where name like '%"+inquiry+"%'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<MenuType> pc = new PageCut<MenuType>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from MenuType where name='"+inquiry+"'", (currentPage-1)*pageSize, pageSize));
+		pc.setData(this.getEntityLimitList("from MenuType where name like '%"+inquiry+"%'", (currentPage-1)*pageSize, pageSize));
 		return pc;
 	}
 	//得到菜品类型数据的条数

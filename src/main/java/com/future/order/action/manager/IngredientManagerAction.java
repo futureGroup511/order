@@ -63,14 +63,25 @@ public class IngredientManagerAction extends BaseAction {
 	}
 
 	public String updateIngredient() {			// 修改配料信息
-		boolean boo = ingerdientService.updateIngredient(ingredient);
+		boolean boo = false;
+		String msg = "修改失败";
+		Ingredient ingredientDb = ingerdientService.getById(ingredient.getId());
+		if(ingredientDb!=null&&!ingredientDb.getName().equals(ingredient.getName())){
+			String ingredientName = ingredient.getName();
+			Ingredient ingredientCheck = ingerdientService.getByName(ingredientName);
+			msg = "该配料已存在";
+			if(ingredientCheck==null){
+				ingerdientService.updateIngredient(ingredient);
+			}
+		} else {
+			boo = ingerdientService.updateIngredient(ingredient);
+		}
 		if (boo) {
 			List<Ingredient> list1 = ingerdientService.getAll();
 			session.put("Ientlist",list1);	//将配料放进session
-			request.put("updateIngredientMsg", "修改成功");
-		} else {
-			request.put("updateIngredientMsg", "修改失败");
-		}
+			msg = "修改成功";
+		} 
+		request.put("updateIngredientMsg", msg);
 		PageCut<Ingredient> pCut = ingerdientService.getPageCut(page, 8);
 		request.put("allIngredient", pCut);
 		return "updateIngredient";

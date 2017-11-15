@@ -50,10 +50,9 @@ public interface IMenuService {
 	public boolean updatemenu(int id);
 	//根据菜品类型id获得菜品 安李杰加
 	public List<Menu> getByTypeId(int id);
-//查询菜  黎明加
-	public PageCut<Menu> getSomePageCut(int curr,int pageSize, String ask, String inquiry);
+	//查询菜  黎明加
+	public PageCut<Menu> getSomePageCut(int curr,int pageSize, String inquiry);
 	//安李杰用 更新菜单
 	public Boolean update(Menu m);
-	
 
 }

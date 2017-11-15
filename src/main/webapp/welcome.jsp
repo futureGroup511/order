@@ -11,7 +11,7 @@
     $(document).ready(function(){
         $("#div1").animate({top:'300px',left:'600px',opacity:'1',fontSize:'50'},2000);
         $("#div2").animate({top:'220px'},2000);
-});
+});e
      
     </script>
     <style type="text/css">
