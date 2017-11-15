@@ -169,7 +169,6 @@ public class CartAction extends BaseAction {
 			request.put("myId", orders.getId());
 			double totall = 0;
 			for (OrderDetails it : orderDetails) {
-				System.out.println("---"+it);
 				if (!it.getGift().equals("赠品")) {
 					totall += it.getPrice() * it.getMenuNum();
 				}
