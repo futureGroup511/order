@@ -35,8 +35,7 @@ window.onload=function(){
 <body>
 <center>
 <div style="font-weight: bold;margin-top:2%;">${stocknews }</div><br>
-<c:if test="${fn:length(pc.data)>0}">
-	<div style="float:right;margin-right:55%;width:40%;height:30px; margin-top:0%; margin-bottom:-3%;">
+<div style="float:right;margin-right:55%;width:40%;height:30px; margin-top:0%; margin-bottom:-3%;">
 	<form action="${rootPath}manage/StockAction_count" method="post">
 		<input typpe="text" name="starttime" placeholder="请输入开始的时间" class="sang_Calender" style="border-radius:7px;background-color: #F0F0F0;" required="required">-<input type="text" name="endtime" placeholder="请输入截止的时间" class="sang_Calender" style="border-radius:7px;background-color: #F0F0F0;" required="required">
 		 <script type="text/javascript" src="../js/datetime.js"></script>
@@ -47,9 +46,10 @@ window.onload=function(){
 	<form action="${rootPath}manage/StockAction_Inquiry" method="post">
 		<input class="input
 		" type="text" name="inquiry" style="width:15%;background-color: #F0F0F0;" required="required">
-		<button style="border-radius: 5px;width:15%;background-color: #82C0E9;" class="btnForm">地点查询</button>	
+		<button style="border-radius: 5px;width:15%;background-color: #82C0E9;" class="btnForm">查询</button>	
 	</form>
 </div>
+<c:if test="${fn:length(pc.data)>0}">
 </center>
  <div class="checkstock" id="div1">
      <table cellspacing="0">

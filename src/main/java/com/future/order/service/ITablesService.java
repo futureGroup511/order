@@ -35,7 +35,7 @@ public interface ITablesService {
 	
 	public List<Tables> CheckName();
 	//根据条件查询符合条件餐桌
-	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace);
+	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String replace);
 	//根据id得到餐桌的图片地址
 	public Tables getImurl(int id);
 

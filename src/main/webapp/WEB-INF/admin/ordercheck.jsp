@@ -34,7 +34,6 @@ function checkPay(){
 <center>
 <div style="font-weight: bold;font-size:20px;margin-top:2%;">${mark}</div>
 </center>
-<c:if test="${fn:length(pc.data) > 0 }">
 <div class="ordercheck" id="div1">
 	<div  style="float:right;margin-right:55%;width:40%;height:30px; margin-top:2%; margin-bottom:-10%;">
 	<form action="${rootPath}manage/OrderAction_count" method="post">
@@ -49,14 +48,11 @@ function checkPay(){
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
 	<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
-	<select name="ask" style="margin-left:0px;border-radius:7px;background-color: #F0F0F0; height:23px; ">
-		<option value="tableName">餐桌名称</option>
-		<option value="cookName">厨师名称</option>
-	</select>
 		<input type="text" name="inquiry" style="border-radius:7px;background-color: #F0F0F0;" required="required">
 		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
 </form>
 </div>
+<c:if test="${fn:length(pc.data) > 0 }">
       <div class="order">
        <table cellspacing="0" border="1">
          <thead>
@@ -92,7 +88,7 @@ function checkPay(){
 	                <td>${item.cookName}</td>
 	                <td>${item.cashierId}</td>
 	                <td>${item.cashierName}</td>
-	                <td><textarea rows="2" cols="30" readonly="readonly">${item.remark}</textarea></td>
+	                <td><textarea rows="2" cols="30" maxlength="254" style="resize:none" readonly="readonly">${item.remark}</textarea></td>
 	                <td><a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}">查看详情</a></td>
 	                <td  class="four"><a href="${rootPath}manage/OrderAction_toUpdate()?id=${item.id}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="${rootPath}manage/OrderAction_Delet()?id=${item.id}"><span class="glyphicon glyphicon-trash"></span></a></td>      
 	            </tr>  

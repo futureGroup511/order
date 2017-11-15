@@ -167,17 +167,11 @@ public class OrderAction extends BaseAction {
 		List<Order> list = new ArrayList<>();
 		double sum = 0;
 		double sumprice = 0;
-		if (ask != null) {
-			// 根据条件获得符合条件的8条数订单，分页
-			pCut = orderService.getSomePageCut(page, 8, ask, inquiry);
-			// 根据条件获得所有的订单，用于计算总价
-			list = orderService.getPrice(ask, inquiry);
-		} else {
-			ask = (String) session.get("ask");
+		if (inquiry == null) {
 			inquiry = (String) session.get("inquiry");
-			pCut = orderService.getSomePageCut(page, 8, ask, inquiry);
-			list = orderService.getPrice(ask, inquiry);
-		}
+		} 
+			pCut = orderService.getSomePageCut(page, 8, inquiry);
+			list = orderService.getPrice(inquiry);
 		// 获得全部订单信息
 		if (pCut.getData().size() == 0) {
 			String mark = "没有订单";

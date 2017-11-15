@@ -30,7 +30,7 @@
 			<label>电话：</label><input type="text" name="restaurant.phone" required="required" placeholder="请输入电话号" maxlength="22"><br>
 			<label>地址：</label><input type="text" name="restaurant.address" required="required" placeholder="请输入详细地址"><br>
 			<labe><span class="txt" style="padding-top:22px;display:block">简介: </span></label>
-			<textarea style="margin-left:200px;" rows="6" cols="38" name="restaurant.introduce"></textarea>
+			<textarea style="margin-left:200px;resize:none;" maxlength="254"  rows="6" cols="38" name="restaurant.introduce"></textarea>
 			<input type="file" value="选择图片" name="file" accept="image/*" class="file"><br>
 			 <div class="move-font">
         <marquee behavior="scroll"><p>温馨提示：不可以上传中文名称图片！</p></marquee>

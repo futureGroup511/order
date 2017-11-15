@@ -76,7 +76,7 @@ public class TableManagerAction extends BaseAction {
 		if(boo){
 			request.put("managerMsg", "修改成功");
 		} else {
-			request.put("managerMsg", "修改失败");
+			request.put("managerMsg", "修改失败,已有此餐桌");
 		}
 		return execute();
 	}
@@ -106,13 +106,10 @@ public class TableManagerAction extends BaseAction {
 	// 查询语句，用于界面的条件查询
 	public String Inquiry() {
 		PageCut<Tables> pCut = new PageCut<Tables>();
-		if (pass != null) {
-			pCut = tablesService.getSomePageCut(page, 8, pass, replace);
-		} else {
-			pass = (String) session.get("pass");
+		if (replace == null) {
 			replace = (String) session.get("replace");
-			pCut = tablesService.getSomePageCut(page, 8, pass, replace);
-		}
+		} 
+		pCut = tablesService.getSomePageCut(page, 8, replace);
 		request.put("allTables", pCut);
 		if (pCut.getData().size() == 0) {
 			String mark = "没有你搜索的餐桌";

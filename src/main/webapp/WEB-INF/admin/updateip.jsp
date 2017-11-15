@@ -11,7 +11,7 @@
 <div class="updatemyself">
    <form action="${rootPath}manage/DomainAction_updateIp" method="post">
      <lable id="text">域名编号：</lable><input type="text" name="domain.id" value="${domain.id}" readonly="readonly"><br>
-     <lable id="text">域名：</lable><input type="text" name="domain.ip" placehold="请输入域名或id"  value="${domain.ip}" required="required"><br>    
+     <lable id="text">域名：</lable><input type="text" name="domain.ip" placehold="请输入域名或id"  value="${domain.ip}" required="required" maxlength="254" ><br>    
       <div class="button">
         <input type="submit" value="确认修改">
       </div>

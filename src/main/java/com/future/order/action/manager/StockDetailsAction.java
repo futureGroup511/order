@@ -164,13 +164,10 @@ public class StockDetailsAction extends BaseAction {
 	public String Inquiry() {//用于条件查询，根据条件查询进货详情的信息
 		int stockid = (int) session.get("stockid");
 		PageCut<StockDetails> pCut = new PageCut<StockDetails>();
-		if (ask != null) {
-			pCut = stockDetailsService.getSomePageCut(page, 8, stockid, ask, inquiry);
-		} else {
-			ask = (String) session.get("ask");
+		if (inquiry == null) {
 			inquiry = (String) session.get("inquiry");
-			pCut = stockDetailsService.getSomePageCut(page, 8, stockid, ask, inquiry);
 		}
+			pCut = stockDetailsService.getSomePageCut(page, 8, stockid, inquiry);
 		// 获得全部订单信息
 		if (pCut.getData().size() == 0) {
 			String mark = "进货详细信息为空";

@@ -271,13 +271,14 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 
 	@Override
-	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String ask, String inquiry) {
+	public PageCut<Order> getSomePageCut(int currentPage, int pageSize, String inquiry) {
 		String hql;
-		int count = 0;
-		hql = "select count(*) from Order where " + ask + "='" + inquiry + "'";
-		count = ((Long) this.uniqueResult(hql)).intValue();
+		String selecthql;
+		hql = "select count(*) from Order where concat (tableName,',',cookName,',',payway,',',cashierName,',',total,',',status,',',id) like '%"+inquiry+"%'";
+		selecthql="from Order where concat (tableName,',',cookName,',',payway,',',cashierName,',',total,',',status,',',id) like '%"+inquiry+"%'";
+		int count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<Order> pc = new PageCut<Order>(currentPage, pageSize, count);
-		pc.setData(this.getEntityLimitList("from Order where " + ask + "='" + inquiry + "'",
+		pc.setData(this.getEntityLimitList(selecthql,
 				(currentPage - 1) * pageSize, pageSize));
 		return pc;
 	}
@@ -329,8 +330,8 @@ public class OrderDao extends BaseDao<Order> implements IOrderService {
 	}
 
 	@Override
-	public List<Order> getPrice(String ask, String inquiry) {
-		String hql = "from Order where " + ask + "='" + inquiry + "'";
+	public List<Order> getPrice(String inquiry) {
+		String hql = "from Order where concat (tableName,',',cookName,',',payway,',',cashierName,',',total,',',status,',',id) like '%"+inquiry+"%'";
 		return getEntityList(hql);
 	}
 

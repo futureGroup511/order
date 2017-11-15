@@ -51,7 +51,14 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 	//修改餐桌信息 安李杰用
 	@Override
 	public boolean updateTables(Tables table) {
-		return this.updateEntity(table);
+		String hql = "from Tables where name='"+table.getName()+"'";
+		Tables tableDataBase = (Tables) this.uniqueResult(hql);
+		if(tableDataBase==null){
+			this.updateEntity(table);
+			return true;
+		}
+		return false;
+		
 	}
 
 	@Override
@@ -60,18 +67,13 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 	}
 
 	@Override
-	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String pass, String replace) {
+	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String replace) {
 		String hql;
 		String selecthql;
-//		if(pass.equals("status")){
-//			int mark = Integer.parseInt(replace);
-//			hql = "select count(*) from Tables where "+pass+"='"+mark+"'";
-//			selecthql="from Tables where "+pass+"='"+mark+"'";
-//		}else{
-			hql = "select count(*) from Tables where "+pass+"='"+replace+"'";
-			selecthql="from Tables where "+pass+"='"+replace+"'";			
-//		}
+		hql = "select count(*) from Tables where concat (name,',',status,',',id) like '%"+replace+"%'";
+		selecthql="from Tables where concat (name,',',status,',',id) like '%"+replace+"%'";
 		int count = ((Long) this.uniqueResult(hql)).intValue();
+		System.out.println(count);
 		PageCut<Tables> pc = new PageCut<Tables>(curr,pageSize,count);
 		pc.setData(this.getEntityLimitList(selecthql, (curr-1)*pageSize, pageSize));
 		return pc;

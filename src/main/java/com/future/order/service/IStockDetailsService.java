@@ -38,5 +38,5 @@ public interface IStockDetailsService {
 	//根据条件查询，获得符合条件的进货详细信息
 	boolean addDetails(StockDetails details);
 	//根据条件查询，获得符合条件的进货详细信息
-	PageCut<StockDetails> getSomePageCut(int currentPage, int pageSize, int stockid, String ask, String inquiry);
+	PageCut<StockDetails> getSomePageCut(int currentPage, int pageSize, int stockid, String inquiry);
 }

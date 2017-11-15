@@ -11,7 +11,7 @@
 	<div style="font-size: 20px;margin-left:41%;font-weight: bold;margin-top:2%;">${mark}</div>
   <div class="wall"> 
     <form action="${rootPath}manage/DomainAction_addIp" method="post">
-       <span style="font-size: 20px;">域名/IP：</span><input class="input" type="text" name="domain.ip" required="required"><br>
+       <span style="font-size: 20px;">域名/IP：</span><input class="input" type="text" name="domain.ip" required="required" maxlength="254" ><br>
 		<input class="button" type="submit" value="确认添加"> 
     </form>
   </div>  
