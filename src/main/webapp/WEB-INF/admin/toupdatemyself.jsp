@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 <script type="text/javascript"> 
 	var sort = '${sort}';
-	this.location.href= "${rootPath}manage/Change_getMyself?sort="+sort+"";
+	var msg = '${updateUserMsg}';
+	this.location.href= "${rootPath}manage/Change_getMyself?sort="+sort+"&msg="+msg;
 </script>
 </head> 
 <body>

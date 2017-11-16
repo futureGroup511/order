@@ -1,5 +1,6 @@
 package com.future.order.action.manager;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import com.future.order.base.BaseAction;
 import com.future.order.entity.MenuType;
@@ -17,6 +18,7 @@ public class ChangeAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String sort;//获得用户的身份
+	private String msg;//获得返回信息
 	public String add(){
 		return "add";
 	}
@@ -53,8 +55,12 @@ public class ChangeAction extends BaseAction {
 	}
 
 	// 获得个人资料
-	public String getMyself() {
+	public String getMyself() throws UnsupportedEncodingException {
 		User user = null;
+		if(msg!=null){
+			msg = new String(msg.getBytes("ISO-8859-1"), "UTF-8");			
+			request.put("updateUserMsg", msg);
+		}
 		if (sort.equals("cashier")) {
 			user = (User) session.get("cashier");
 			request.put("user", user);
@@ -103,6 +109,14 @@ public class ChangeAction extends BaseAction {
 
 	public void setSort(String sort) {
 		this.sort = sort;
+	}
+
+	public final String getMsg() {
+		return msg;
+	}
+
+	public final void setMsg(String msg) {
+		this.msg = msg;
 	}
 
 }

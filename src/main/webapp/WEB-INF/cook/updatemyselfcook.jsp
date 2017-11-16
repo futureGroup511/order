@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}css/manager/updatemyself.css">
 </head>
 <body   style="background: url(${rootPath}images/iframebg.jpg);">
+<center>${updateUserMsg}</center>
 <div class="updatemyself">
    <form action="${rootPath}cook/Cookdetail_updateMe" method="post">
      <lable id="text">姓名：</lable><input type="text" name="user.name" value="${user.name}" required="required" maxlength="10"><br>

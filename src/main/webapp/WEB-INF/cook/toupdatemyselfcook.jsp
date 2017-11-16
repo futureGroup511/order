@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 <script type="text/javascript"> 
 	//厨师处修改个人资料
-	this.location.href= "${rootPath}cook/Cookdetail_updateUser";
+	var msg = '${updateUserMsg}';
+	console.info(msg);
+	this.location.href= "${rootPath}cook/Cookdetail_updateUser?msg="+msg+"";
 </script>
 </head> 
 <body>

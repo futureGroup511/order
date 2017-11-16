@@ -82,16 +82,29 @@ public class UserManagerAction extends BaseAction {
 	public String updateMyself(){
 		User userM = (User)session.get("manager");
 		User userData = userService.viewUser(userM.getId());
-		userData.setName(user.getName());
-		userData.setPhone(user.getPhone());
-		userData.setPassword(user.getPassword());
-		boolean boo = userService.updateUser(userData);
-		if(boo){	//将修改后信息存入session
-			request.put("updateUserMsg", "修改成功");
-			session.put("manager", userData);
-		}else {
-			request.put("updateUserMsg", "修改失败");
+		String msg = "修改失败";
+		boolean boo = false;
+		if(userData!=null&&!userData.getPhone().equals(user.getPhone())){//修改了手机号
+			User userDb = userService.selectByPhone(user.getPhone());
+			msg = "该手机号已经被注册";
+			if(userDb==null){
+				boo = true;
+				msg = "修改失败";
+			}
+		} else {
+			boo = true;
 		}
+		if(boo){
+			userData.setName(user.getName());
+			userData.setPhone(user.getPhone());
+			userData.setPassword(user.getPassword());
+			boo = userService.updateUser(userData);	
+		}
+		if(boo){	//将修改后信息存入session
+			session.put("manager", userData);
+			msg = "修改成功";
+		}
+		request.put("updateUserMsg",msg);
 		return  "toUpdateMyself";
 	}
 	
@@ -99,16 +112,30 @@ public class UserManagerAction extends BaseAction {
 	public String cashierUpMyself(){
 		User userCa = (User)session.get("cashier");
 		User userData = userService.viewUser(userCa.getId());
-		userData.setName(user.getName());
-		userData.setPhone(user.getPhone());
-		userData.setPassword(user.getPassword());
-		boolean boo = userService.updateUser(userData);
-		if(boo){	//将修改后信息存入session
-			request.put("updateUserMsg", "修改成功");
-			session.put("cashier", userData);
-		}else {
-			request.put("updateUserMsg", "修改失败");
+		String msg = "修改失败";
+		boolean boo = false;
+		if(userData!=null&&!userData.getPhone().equals(user.getPhone())){//修改了手机号
+			User userDb = userService.selectByPhone(user.getPhone());
+			msg = "该手机号已经被注册";
+			if(userDb==null){
+				boo = true;
+				msg = "修改失败";
+			}
+		} else {
+			boo = true;
 		}
+		if(boo){
+			userData.setName(user.getName());
+			userData.setPhone(user.getPhone());
+			userData.setPassword(user.getPassword());
+			boo = userService.updateUser(userData);			
+		}
+		if(boo){	//将修改后信息存入session
+			msg="修改成功";
+			session.put("cashier", userData);
+		}
+		request.put("sort", "cashier");
+		request.put("updateUserMsg",msg);
 		return  "cashierGetMyself";
 	}
 	
