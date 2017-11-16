@@ -45,7 +45,7 @@ window.onload=function(){
 <div style="margin-left:50%;">
 	<form action="${rootPath}manage/StockAction_Inquiry" method="post">
 		<input class="input
-		" type="text" name="inquiry" style="width:15%;background-color: #F0F0F0;" required="required">
+		" type="text" name="inquiry" style="width:20%;background-color: #F0F0F0;" placeholder="地点/总价格" required="required">
 		<button style="border-radius: 5px;width:15%;background-color: #82C0E9;" class="btnForm">查询</button>	
 	</form>
 </div>

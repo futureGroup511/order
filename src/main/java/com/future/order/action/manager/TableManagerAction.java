@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.OutputStream;
 import java.util.Hashtable;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -72,11 +73,29 @@ public class TableManagerAction extends BaseAction {
 
 	// 修改餐桌的信息
 	public String updateTable() throws Exception {
-		boolean boo = tablesService.updateTables(table);
+		boolean boo = false;
+		Tables oldTable = tablesService.get(table.getId());
+		if (oldTable.getName().equals(table.getName())) {
+			System.out.println(oldTable);
+			System.out.println(table);
+			System.out.println("45454545485");
+			boo = tablesService.updateTable(table);
+		} else {
+			List<Tables> list = tablesService.CheckName();
+			int judge = 1;
+			for (int i =0; i < list.size(); i++) {
+				if (list.get(i).getName().equals(table.getName())) {
+					judge = 0;
+				}
+			}
+			if (judge == 1) {
+				boo = tablesService.updateTables(table);
+			}
+		}
 		if(boo){
 			request.put("managerMsg", "修改成功");
 		} else {
-			request.put("managerMsg", "修改失败,已有此餐桌");
+			request.put("managerMsg", "修改失败");
 		}
 		return execute();
 	}

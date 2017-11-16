@@ -48,22 +48,28 @@ public class PaymentAction extends BaseAction {
 
 	// 修改支付方式
 	public String updatePayWays() {
+		boolean sign = false;
 		String mark = "操作失败";
 		int judge = 1;
-		List<Payment> list = paymentService.selectWays();
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getWays().equals(payment.getWays())) {
-				mark="已有此种支付方式";
-				judge = 0;
-			} 
-		}
-		if (judge == 1) {
-			boolean sign = paymentService.updateWays(payment);
-			if (sign) {
-				mark="修改成功";
-			} else {
-				mark="修改失败";
+		Payment oldPay = paymentService.select(payment.getId());
+		if (oldPay.getWays().equals(payment.getWays())) {
+			sign = paymentService.updateWays(payment);
+		} else {
+			List<Payment> list = paymentService.selectWays();
+			for (int i = 0; i < list.size(); i++) {
+				if (list.get(i).getWays().equals(payment.getWays())) {
+					mark="已有此种支付方式";
+					judge = 0;
+				} 
 			}
+			if (judge == 1) {
+				sign = paymentService.updateWays(payment);
+			}
+		}
+		if (sign) {
+			mark="修改成功";
+		} else {
+			mark="修改失败";
 		}
 		request.put("mark", mark);
 		return execute();

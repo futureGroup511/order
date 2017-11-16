@@ -34,7 +34,7 @@ window.onload=function(){
 		<div style="font-weight: bold;margin-left:45%;font-size: 20px;margin-top:2%;">${managerMsg}</div>
 		<div style="width:40%;height:35px; margin-bottom:2%;margin-top:3%;padding-top:3px;margin-left:40%; ">
 			<form action="${rootPath}manage/TableManager_Inquiry?sort=cashier" method="post">
-				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace" required="required">
+				<input style="background-color: #F0F0F0;border-radius: 5px;" type="text" name="replace" placeholder="编号/名字/状态" required="required">
 				<button type="submit" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>
 			</form>
 		</div> 

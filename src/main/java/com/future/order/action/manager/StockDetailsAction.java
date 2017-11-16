@@ -167,7 +167,7 @@ public class StockDetailsAction extends BaseAction {
 		if (inquiry == null) {
 			inquiry = (String) session.get("inquiry");
 		}
-			pCut = stockDetailsService.getSomePageCut(page, 8, stockid, inquiry);
+		pCut = stockDetailsService.getSomePageCut(page, 8, stockid, inquiry);
 		// 获得全部订单信息
 		if (pCut.getData().size() == 0) {
 			String mark = "进货详细信息为空";

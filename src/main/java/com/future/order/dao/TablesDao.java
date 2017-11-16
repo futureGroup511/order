@@ -91,4 +91,9 @@ public class TablesDao extends BaseDao<Tables> implements ITablesService {
 		table.setStatus("无人");
 		return this.updateEntity(table);
 	}
+
+	@Override
+	public boolean updateTable(Tables table) {
+		return this.updateEntity(table);
+	}
 }

@@ -38,6 +38,8 @@ public interface ITablesService {
 	public PageCut<Tables> getSomePageCut(int curr, int pageSize, String replace);
 	//根据id得到餐桌的图片地址
 	public Tables getImurl(int id);
+	//修改餐桌信息
+	public boolean updateTable(Tables table);
 
 	
 }

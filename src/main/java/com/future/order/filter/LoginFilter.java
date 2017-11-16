@@ -64,17 +64,18 @@ public class LoginFilter implements Filter {
 		} else if(manager!=null&&path.indexOf("manage")!=-1){	//当管理员登录并访问的是管理员action时放行
 			if(parameters!=null&&parameters.indexOf("sort=cashier")!=-1){//当参数里含有sort=cashier时说明进入的是收银员，禁止进入
 				boo = false;				
-			} else {
+			}else {
 				chain.doFilter(request, response);
 			}
-		} else if(cashier!=null&&path.indexOf("manage")!=-1){	//当收银员登录并访问的是收银员action时放行
+		} else {		//当用户为登录或登录超时时提醒并跳转到登录界面
+			boo = false;
+		}
+		if(cashier!=null&&path.indexOf("manage")!=-1){	//当收银员登录并访问的是收银员action时放行//当登录了管理员，又登录了收银员，没有退出管理员去访问收银员方法时会拦截，防止此情况
 			if(parameters!=null&&parameters.indexOf("sort=cashier")!=-1){
 				chain.doFilter(request, response);				
 			} else {
 				boo = false;
 			}
-		} else {		//当用户为登录或登录超时时提醒并跳转到登录界面
-			boo = false;
 		}
 		if(!boo){
 			response.getWriter()

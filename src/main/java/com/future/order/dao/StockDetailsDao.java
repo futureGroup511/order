@@ -129,8 +129,8 @@ public class StockDetailsDao extends BaseDao<StockDetails> implements IStockDeta
 		String hql;
 		String selecthql;
 		int count = 0;
-		hql = "select count(*) from StockDetails where concat (ingName,',',price,',',num) like '%"+inquiry+"%'";
-		selecthql="from StockDetails where concat (ingName,',',price,',',num) like '%"+inquiry+"%'";
+		hql = "select count(*) from StockDetails where concat (ingName,',',price,',',num) like '%"+inquiry+"%' and stockid = '"+stockid+"'";
+		selecthql="from StockDetails where concat (ingName,',',price,',',num) like '%"+inquiry+"%' and stockid = '"+stockid+"'";
 		count = ((Long) this.uniqueResult(hql)).intValue();
 		PageCut<StockDetails> pc = new PageCut<StockDetails>(currentPage, pageSize, count);
 		pc.setData(this.getEntityLimitList(selecthql, (currentPage - 1) * pageSize, pageSize));

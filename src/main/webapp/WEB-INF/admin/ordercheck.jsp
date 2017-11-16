@@ -48,7 +48,7 @@ function checkPay(){
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
 	<form action="${rootPath}manage/OrderAction_Inquiry" method="post">
-		<input type="text" name="inquiry" style="border-radius:7px;background-color: #F0F0F0;" required="required">
+		<input type="text" name="inquiry" style="width:80%;border-radius:7px;background-color: #F0F0F0;" placeholder="编号/餐桌/总价/状态/厨师/收银" required="required">
 		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
 </form>
 </div>
