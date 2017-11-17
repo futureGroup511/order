@@ -68,8 +68,8 @@ window.onload=function(){
     <div class="page" id="div2">
     <ul class="pagination">
       <li><a href="${rootPath}manage/Ingredient_${adss}?page=${allIngredient.prePage}">上一页</a></li>
-					<c:forEach var="i" begin="${allIngredient.currentPage-3>0?allIngredient.currentPage-3:1 }"
- 					end="${allIngredient.currentPage+3>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+3  }">
+					<c:forEach var="i" begin="${allIngredient.currentPage-2>0?allIngredient.currentPage-2:1 }"
+ 					end="${allIngredient.currentPage+2>allIngredient.pageNum?allIngredient.pageNum:allIngredient.currentPage+2  }">
  					<c:choose>
  						<c:when test="${i>0 && i == allIngredient.currentPage}"> 
  							<li class="active"><a href="${rootPath }manage/Ingredient_${adss}?page=${i }">${i}</a></li> 
