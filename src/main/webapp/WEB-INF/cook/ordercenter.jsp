@@ -159,16 +159,16 @@ window.onload = function() {
          <div class="pag">
          <ul class="pagination">
                    <li><a href="?page=${paCut.prePage}&Orderid=${paCut.data[0].id}">上一页</a></li>
- 						<c:forEach var="i" 
-							begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
- 							end="${paCut.currentPage+3>paCut.pageNum?paCut.pageNum:paCut.currentPage+3  }"> 
+ 						<c:forEach var="i"
+					begin="${paCut.currentPage-2>0?paCut.currentPage-2:1 }"
+ 					end="${paCut.currentPage+2>paCut.pageNum?paCut.pageNum:paCut.currentPage+2 }" >
  							<c:choose> 
- 								<c:when test="${i>0 && i == paCut.currentPage &&i<=3}">
+ 								<c:when test="${i>0 && i == paCut.currentPage }">
  									<li class="active"><a 
  										href="?page=${i}">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != paCut.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i != paCut.currentPage }"> 
  									<li><a href="?page=${i }">${i}</a></li> 
  								</c:when> 
  							</c:choose>
