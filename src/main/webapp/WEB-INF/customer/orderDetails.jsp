@@ -41,6 +41,8 @@
 	
 	
 	function dishes() {
+		var remark=document.getElementById("ins").value;
+		console.info(remark);
 		var xmlhttp;
 		if (window.XMLHttpRequest) {
 			// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -52,12 +54,14 @@
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {		
 				var result = xmlhttp.responseText;								
-				if(parseInt(result)==1){
+				if(remark=='叫起'){
 					show_notice('叫起成功',1);
-				}else if(parseInt(result)==0){
+				}else if(remark=='即起'){
 					show_notice('即起成功',1);
 				}else if(parseInt(result)==2){
 					show_notice('菜已做好',1);
+				}else{
+					show_notice('菜已处理,不能起菜',1);
 				}
 							
 			}
@@ -65,7 +69,7 @@
 		xmlhttp.open("POST", "cart_dishes", true);
 		xmlhttp.setRequestHeader("Content-type",
 				"application/x-www-form-urlencoded");
-		xmlhttp.send();
+		xmlhttp.send("remark="+remark);
 	}
 	
 	function show_notice(str,second,callback){  
@@ -193,14 +197,19 @@
   var c = true;
   in1.addEventListener("click",function(){ 
 	  c=!c;
+	  console.log('temp');
 	  if(c){
+		  console.log('temp:叫起');
 		  in1.value = "叫起";
-	  }
-	  else{
-		  in1.value = "即起";
+  	  }else{
+  		console.log('temp:else');
+  		if('${order}'!='未处理'){
+  			in1.value;
+  		}else{
+			in1.value = "即起";
+  		}
 	  }
   }
   )
-     
 </script>
 </html>

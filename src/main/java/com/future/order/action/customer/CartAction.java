@@ -294,18 +294,12 @@ public class CartAction extends BaseAction {
 		for (OrderDetails en : orderDetails) {
 			List<Menu> menus = menuService.CheckDetails(en.getMenuId());
 			for (Menu it : menus) {
-				if (!it.getTypeName().equals("凉菜")) {
-					if (en.getDishes().equals("即起")) {
-						en.setDishes("叫起");
-						Boolean bool = orderDetailsService.updatee(en);
-						this.getResponse().getWriter().println(1);
-					} else if (order.getStatus().equals("未付款")) {
-						this.getResponse().getWriter().println(2);
-					} else {
-						en.setDishes("即起");
-						Boolean bool = orderDetailsService.updatee(en);
-						this.getResponse().getWriter().println(0);
-					}
+				if(order.getStatus().equals("未付款")) {
+					this.getResponse().getWriter().println(2);
+				}
+				if (!it.getTypeName().equals("凉菜")&&order.getStatus().equals("未处理")) {
+					en.setDishes(remark);
+					Boolean bool = orderDetailsService.updatee(en);
 				}
 			}
 		}
@@ -327,5 +321,5 @@ public class CartAction extends BaseAction {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-
+	
 }
