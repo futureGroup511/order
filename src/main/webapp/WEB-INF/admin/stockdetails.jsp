@@ -74,13 +74,9 @@ window.onload=function(){
     <ul class="pagination">
      						<li><a
 							href="${rootPath}manage/StockDetailsAction_${adss}?page=${pc.prePage}">上一页</a></li>
-						<c:if test="${1 < pc.currentPage -3}">
-							<li><a href="#">1</a></li>
-						</c:if>
-
 						<c:forEach var="i"
- 							begin="${pc.currentPage-3>0?pc.currentPage-3:1 }" 
- 							end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }"> 
+ 							begin="${pc.currentPage-2>0?pc.currentPage-2:1 }" 
+ 							end="${pc.currentPage+2>pc.pageNum?pc.pageNum:pc.currentPage+2  }"> 
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage}"> 
 									<li class="active"><a

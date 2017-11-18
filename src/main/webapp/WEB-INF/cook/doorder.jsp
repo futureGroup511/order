@@ -167,14 +167,14 @@ html {
 					<li><a href="#">1</a></li>
 				</c:if>
 				<c:forEach var="i"
-					begin="${paCut.currentPage-3>0?paCut.currentPage-3:1 }"
-					end="${paCut.currentPage+3>paCut.pageNum?paCut.pageNum:paCut.currentPage+3  }">
+					begin="${paCut.currentPage-2>0?paCut.currentPage-2:1 }"
+ 					end="${paCut.currentPage+2>paCut.pageNum?paCut.pageNum:paCut.currentPage+2 }" >
 					<c:choose>
-						<c:when test="${i>0 && i == paCut.currentPage &&i<=3}">
+						<c:when test="${i>0 && i == paCut.currentPage}">
 							<li class="active"><a href="?page=${i}">${i}</a></li>
 						</c:when>
 
-						<c:when test="${i>0 && i != paCut.currentPage &&i<=3}">
+						<c:when test="${i>0 && i != paCut.currentPage}">
 							<li><a href="?page=${i }">${i}</a></li>
 						</c:when>
 					</c:choose>

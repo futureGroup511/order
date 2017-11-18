@@ -71,16 +71,16 @@
   <center>  <div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderDetailsAction?page=${detailspc.prePage}&sort=cashier">上一页</a></li>
-  		<c:forEach var="i" begin="${detailspc.currentPage-3>0?detailspc.currentPage-3:1 }"
- 					end="${detailspc.currentPage+3>detailspc.pageNum?detailspc.pageNum:allIngredient.currentPage+3  }">
+  		<c:forEach var="i" begin="${detailspc.currentPage-2>0?detailspc.currentPage-2:1 }"
+ 					end="${detailspc.currentPage+2>detailspc.pageNum?detailspc.pageNum:allIngredient.currentPage+2 }">
 
  							<c:choose> 
- 								<c:when test="${i>0 && i == detailspc.currentPage &&i<=3}">
+ 								<c:when test="${i>0 && i == detailspc.currentPage}">
  									<li class="active"><a 
  										href="${rootPath}manage/OrderDetailsAction?page=${i}&sort=cashier">${i}</a></li> 
  								</c:when> 
 
- 								<c:when test="${i>0 && i != postPS.currentPage &&i<=3}"> 
+ 								<c:when test="${i>0 && i != postPS.currentPage}"> 
  									<li><a href="${rootPath}manage/OrderDetailsAction?page=${i }&sort=cashier">${i}</a></li> 
  								</c:when> 
  							</c:choose>

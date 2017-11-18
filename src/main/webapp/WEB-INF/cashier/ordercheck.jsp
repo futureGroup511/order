@@ -46,7 +46,7 @@ window.onload=function(){
       </div>  
       <div  style="float:right;margin-right:5%;width:25%;height:30px; margin-top:2%; margin-bottom:2%;">
 	<form action="${rootPath}manage/OrderAction_Inquiry?sort=cashier" method="post">
-		<input type="text" name="inquiry" style="width:80%;border-radius:7px;background-color: #F0F0F0;" placeholder="请输入餐桌,厨师,收银名/总价/状态/编号" required="required">
+		<input type="text" name="inquiry" style="width:80%;border-radius:7px;background-color: #F0F0F0;" placeholder="编号/餐桌/总价/状态/厨师" required="required">
 		<button class="btnForm" style="border-radius: 5px;width:15%;background-color: #82C0E9;">查询</button>	
 </form>
 </div>
@@ -95,8 +95,8 @@ window.onload=function(){
 <div class="page" id="div2">
 <ul class="pagination">
   <li><a href="${rootPath}manage/OrderAction_${adss}?page=${pc.prePage}&sign=${sign}&sort=cashier">上一页</a></li>
-  				<c:forEach var="i" begin="${pc.currentPage-3>0?pc.currentPage-3:1 }"
- 					end="${pc.currentPage+3>pc.pageNum?pc.pageNum:pc.currentPage+3  }">
+  				<c:forEach var="i" begin="${pc.currentPage-2>0?pc.currentPage-2:1 }"
+ 					end="${pc.currentPage+2>pc.pageNum?pc.pageNum:pc.currentPage+2  }">
  
  							<c:choose> 
  								<c:when test="${i>0 && i == pc.currentPage}"> 

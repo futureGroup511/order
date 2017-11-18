@@ -50,7 +50,7 @@ public class orderCenterAction extends BaseAction {
 	//查看未完成菜品
 	public String unfinishdmenu() {
 		List<Inform> inform=informService.getTop();
-		PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
+		PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 6);
 		request.put("paCut",pCut);
 		request.put("inform",inform);
 		return "check";
@@ -58,7 +58,7 @@ public class orderCenterAction extends BaseAction {
 	
 	//查看已完成菜品
 	public String finish(){
-		PageCut<Order> pCut=orderService.getFinishPagcut(page, 5);
+		PageCut<Order> pCut=orderService.getFinishPagcut(page, 6);
 		request.put("paCut",pCut);
 		return "finish";
 	}
