@@ -294,13 +294,19 @@ public class CartAction extends BaseAction {
 		for (OrderDetails en : orderDetails) {
 			List<Menu> menus = menuService.CheckDetails(en.getMenuId());
 			for (Menu it : menus) {
-				if(order.getStatus().equals("未付款")) {
-					this.getResponse().getWriter().println(2);
-				}
-				if (!it.getTypeName().equals("凉菜")&&order.getStatus().equals("未处理")) {
+				if (!it.getTypeName().equals("凉菜")) {
 					en.setDishes(remark);
 					Boolean bool = orderDetailsService.updatee(en);
 				}
+			}
+		}
+		if(order.getStatus().equals("未付款")) {
+			this.getResponse().getWriter().println(2);
+		}else if(order.getStatus().equals("未处理")){
+			if(remark.equals("叫起")){
+				this.getResponse().getWriter().println(1);
+			}else if(remark.equals("即起")){
+				this.getResponse().getWriter().println(0);
 			}
 		}
 	}
