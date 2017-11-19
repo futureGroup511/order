@@ -228,10 +228,11 @@ public class CartAction extends BaseAction {
 			boolean boolll = orderService.delete(order.getId());
 			request.put("orderDetails", orderDetaill);
 		} else {
-			List<OrderDetails> od = orderDetailsService.getDetailsTwo(order.getId());
+			List<OrderDetails> od = orderDetailsService.getD(order.getId());
 				if(od.isEmpty()){
 					request.put("order","未付款");
 					order.setStatus("未付款");
+					boolean bool = orderService.update(order);
 				}else {
 					request.put("order", order.getStatus());
 				}
