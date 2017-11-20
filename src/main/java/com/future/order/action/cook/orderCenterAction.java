@@ -99,7 +99,7 @@ public class orderCenterAction extends BaseAction {
 			boolean u=orderService.updetemenu(Orderid, id, username);
 			boolean m=orderDetailsService.deal(i,id,username);
 		}else {
-			String msg = "未知原因，顾客已退菜";
+			String msg = "未知原因，该菜品已被顾客退订";
 			request.put("msg", msg);
 		}
 		List<Inform> inform=informService.getTop();
@@ -113,9 +113,15 @@ public class orderCenterAction extends BaseAction {
 			User me = (User) session.get("cook"); 
 			id = me.getId();
 			username = me.getName();
+			OrderDetails orderDetails = (OrderDetails) orderDetailsService.checkStatus(i);
+			if(orderDetails !=null) {
+				boolean u=orderService.updetemenu(Orderid, id, username);
+				boolean m=orderDetailsService.deal(i,id,username);
+			}else {
+				String msg = "未知原因，该菜品已被顾客退订";
+				request.put("msg", msg);
+			}
 			List<Inform> inform=informService.getTop();
-			boolean u=orderService.updetemenu(Orderid, id, username);
-			boolean m=orderDetailsService.deal(i,id,username);
 			PageCut<OrderDetails> pCut=orderDetailsService.getUnfinishPageCut(page, 5);
 			request.put("paCut", pCut);
 			request.put("inform", inform);
