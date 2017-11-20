@@ -95,7 +95,6 @@ public class orderCenterAction extends BaseAction {
 		id = me.getId();
 		username = me.getName();
 		OrderDetails orderDetails = (OrderDetails) orderDetailsService.checkStatus(i);
-		System.out.println(orderDetails);
 		if(orderDetails !=null) {
 			boolean u=orderService.updetemenu(Orderid, id, username);
 			boolean m=orderDetailsService.deal(i,id,username);
