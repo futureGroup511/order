@@ -48,7 +48,8 @@ public interface IOrderDetailsService {
 
 	public OrderDetails getDetaill(int tableId);
 	//安李杰加 根据订单号获取订单详情中的信息
-	public List<OrderDetails> getDetailsTwo(int orderId);
+	public List<OrderDetails> getDetailsTwo(int orderId);	//根据订单号判断订单详情中菜的状态是否为未完成和处理中
+	public List<OrderDetails> getD(int orderId);
 	// wqj 由餐桌ID查询餐桌信息
 	public PageCut<OrderDetails> Check(int tableId, int currentPage, int pageSize);
 	public boolean updet(int id);

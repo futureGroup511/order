@@ -40,7 +40,7 @@ public class OrderDetails implements Serializable{
 	@Column(length=5)
 	private int menuNum;//该菜品数量
 	@Column(length=10)
-	private String status;//菜品状态（未完成，已处理，已完成）
+	private String status;//菜品状态（未完成，处理中，已完成）
 	@Column(length=50)
 	private Date creatDate;//下单时间
 	@Column(length=255)
