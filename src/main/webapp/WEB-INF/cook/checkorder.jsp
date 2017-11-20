@@ -111,7 +111,7 @@ body {
 	}
 </script>
 <body>
-<div style="margin-top: 1%;margin-left:40%; font-weight: bold;font-size:15px;">${msg}</div>
+<div style="margin-top: 3%;margin-left:40%; font-weight: bold;font-size:15px;">${msg}</div>
 <div id="div1" style="display: none">
 <table id="table2">
       <thead>
