@@ -6,17 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>物联网餐饮管理系统</title>
-<script>
-	var myDate = new Date();    
-	myDate.toLocaleDateString();
-	var time = document.getElementById("#time");
-	time.innerHTML=myDate;
-	console.info(time+" time "+myDate);
-	 function p() {
-		 window.print();
-		 window.location.href="${rootPath}manage/OrderAction?sort=cashier";
-	} 
-</script>
 </head>
 <body onload="p()"   style="background: url(${rootPath}images/iframebg.jpg);">
 <center>
@@ -74,5 +63,14 @@
 	地址：${restlist.address}<br>
 	电话：${restlist.phone}
 	</center>
-	</body>
+<script>
+	var myDate = new Date();    
+	var time = document.getElementById("time");
+	time.innerHTML=myDate.toLocaleDateString()
+	 function p() {
+		 window.print();
+		 window.location.href="${rootPath}manage/OrderAction?sort=cashier";
+	} 
+</script>
+</body>
 </html>
