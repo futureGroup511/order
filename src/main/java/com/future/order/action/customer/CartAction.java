@@ -68,18 +68,18 @@ public class CartAction extends BaseAction {
 				order.setCreateDate(d);
 			}
 			// 修改订单中的信息下同
-			Boolean bool = orderService.update(order);
+			orderService.update(order);
 			Order orderss = orderService.getOrder1(tableId);
 			session.put("Id", orderss.getId());
 		} else if (orders.getStatus().equals("未付款")) {
 			orders.setStatus("未处理");
 			orders.setRemark(remark);
-			Boolean bool = orderService.update(orders);
+			orderService.update(orders);
 			Order orderss = orderService.getOrder1(tableId);
 			session.put("Id", orderss.getId());
 		} else {
 			orders.setRemark(remark);
-			Boolean bool = orderService.update(orders);
+			orderService.update(orders);
 			session.put("Id", orders.getId());
 		}
 		int myId = (int) session.get("Id");
@@ -91,7 +91,7 @@ public class CartAction extends BaseAction {
 				OrderDetails orderDetails = new OrderDetails(item.getTableId(), item.getTableName(), myId,
 						item.getMenuId(), item.getMenuName(), item.getMenuNum(), "未完成", d, remark, item.getImgUrl(),
 						item.getPrice(), "即起", "无");
-				Boolean booll = orderDetailsService.save(orderDetails);
+				orderDetailsService.save(orderDetails);
 			}
 		} else {
 			// 判断再次加入菜品时是否名字相同
@@ -102,7 +102,7 @@ public class CartAction extends BaseAction {
 						if (item.getMenuName().equals(en.getMenuName())) {
 							sign = 1;
 							en.setMenuNum(en.getMenuNum() + item.getMenuNum());
-							Boolean bool = orderDetailsService.updatee(en);
+							orderDetailsService.updatee(en);
 						}
 					}
 				}
@@ -110,7 +110,7 @@ public class CartAction extends BaseAction {
 					OrderDetails orderDetails = new OrderDetails(item.getTableId(), item.getTableName(), myId,
 							item.getMenuId(), item.getMenuName(), item.getMenuNum(), "未完成", d, remark, item.getImgUrl(),
 							item.getPrice(), "即起", "无");
-					Boolean boolt = orderDetailsService.save(orderDetails);
+					orderDetailsService.save(orderDetails);
 				}
 			}
 		}
@@ -125,26 +125,26 @@ public class CartAction extends BaseAction {
 			for (Menu m : menu) {
 				if (m.getName().equals(it.getMenuName())) {
 					m.setNum(m.getNum() + it.getMenuNum());
-					Boolean bool = menuService.update(m);
+					menuService.update(m);
 				}
 			}
 
 		}
 		order.setTotal(totall);
-		boolean bool = orderService.update(order);
+		orderService.update(order);
 		request.put("order", order.getStatus());
 		request.put("myId", myId);
 		request.put("totall", totall);
 		request.put("orderDetails", orderDetailss);
 		// 清空购物车
-		boolean bools = shopCartService.deleteAllCart(tableId);
+		shopCartService.deleteAllCart(tableId);
 		return "getHand";
 	}
 
 	// 删除购物车的菜品
 	public String deleteCart() throws Exception {
 		int tableId = (int) session.get("userId");
-		boolean bool = shopCartService.delete(id);
+		shopCartService.delete(id);
 		List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 		double total = 0.0;
 		for (ShopCart item : shopCarts) {
@@ -195,7 +195,7 @@ public class CartAction extends BaseAction {
 		if (enough) {
 			// 菜品数量加一
 			shopCart.setMenuNum(shopCart.getMenuNum() + 1);
-			Boolean bool = shopCartService.update(shopCart);
+			shopCartService.update(shopCart);
 			int tableId = (Integer) session.get("userId");
 			List<ShopCart> shopCarts = shopCartService.getByTableId(tableId);
 			double total = 0.0;
@@ -211,11 +211,11 @@ public class CartAction extends BaseAction {
 		int tableId = (int) session.get("userId");
 		OrderDetails orderDetail = orderDetailsService.checkStatus(id);
 		if (orderDetail.getStatus().equals("未完成")) {
-			boolean bool = orderDetailsService.back(id);
+			orderDetailsService.back(id);
 			String info = "退菜成功！";
 			request.put("stat", info);
 		} else {
-			String info = "该菜已做";
+			String info = "该菜已做,退不了!";
 			request.put("stat", info);
 		}
 		Order order = orderService.getOrder1(tableId);
@@ -224,15 +224,15 @@ public class CartAction extends BaseAction {
 			List<OrderDetails> orderDetaill = orderDetailsService.getDetails(0);
 			Tables table = tablesService.get(tableId);
 			table.setStatus("无人");
-			boolean bool = tablesService.updateTables(table);
-			boolean boolll = orderService.delete(order.getId());
+			tablesService.updateTables(table);
+			orderService.delete(order.getId());
 			request.put("orderDetails", orderDetaill);
 		} else {
 			List<OrderDetails> od = orderDetailsService.getD(order.getId());
 				if(od.isEmpty()){
 					request.put("order","未付款");
 					order.setStatus("未付款");
-					boolean bool = orderService.update(order);
+					orderService.update(order);
 				}else {
 					request.put("order", order.getStatus());
 				}
@@ -245,7 +245,7 @@ public class CartAction extends BaseAction {
 					}
 				}
 				order.setTotal(totall);
-				boolean bool = orderService.update(order);
+				orderService.update(order);
 				request.put("totall", totall);
 		}
 		return "getBack";
@@ -274,7 +274,7 @@ public class CartAction extends BaseAction {
 		// 获得当前时间
 		Date d = new Date();
 		Inform inform = new Inform(tableId, tableName, "顾客催单，请尽快做好", d);
-		Boolean bool = informService.save(inform);
+		informService.save(inform);
 		// 获取催单信息
 		List<Inform> informm = informService.getAll();
 		if (!informm.isEmpty()) {
@@ -295,20 +295,19 @@ public class CartAction extends BaseAction {
 		for (OrderDetails en : orderDetails) {
 			List<Menu> menus = menuService.CheckDetails(en.getMenuId());
 			for (Menu it : menus) {
-				if (!it.getTypeName().equals("凉菜")) {
+				if (!it.getTypeName().equals("凉菜")&&order.getStatus().equals("未处理")) {
 					en.setDishes(remark);
-					Boolean bool = orderDetailsService.updatee(en);
+					orderDetailsService.updatee(en);
+					if(remark.equals("叫起")){
+						this.getResponse().getWriter().println(1);
+					}else if(remark.equals("即起")){
+						this.getResponse().getWriter().println(0);
+					}
 				}
 			}
 		}
 		if(order.getStatus().equals("未付款")) {
 			this.getResponse().getWriter().println(2);
-		}else if(order.getStatus().equals("未处理")){
-			if(remark.equals("叫起")){
-				this.getResponse().getWriter().println(1);
-			}else if(remark.equals("即起")){
-				this.getResponse().getWriter().println(0);
-			}
 		}
 	}
 
