@@ -39,11 +39,13 @@ public class CustomerAction extends BaseAction {
 		request.put("menuType",menuType);
 		request.put("menus", menus);
 		//修改餐桌状态为有人
-		int tableId=(int) session.get("userId");//获得顾客桌号
+//		int tableId=(int) session.get("userId");//获得顾客桌号
 		//根据桌号去修改桌子的状态
-		Tables table=tablesService.get(tableId);
-		table.setStatus("有人");
-		boolean bool=tablesService.updateTables(table);
+		Tables table=tablesService.get(id);
+		if(table.getStatus().equals("无人")) {
+			table.setStatus("有人");
+			tablesService.updateTables(table);
+		}
 		return "toIndex";
 	}
 	//根据菜品类型id获得菜品
