@@ -5,8 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>物联网餐饮管理系统</title>
 <script>
+	var myDate = new Date();    
+	myDate.toLocaleDateString()；
+	var time = document.getElementById("#time");
+	time.value=myDate;
+	console.info(time+" time "+myDate);
 	 function p() {
 		 window.print();
 		 window.location.href="${rootPath}manage/OrderAction?sort=cashier";
@@ -16,6 +21,7 @@
 <body onload="p()"   style="background: url(${rootPath}images/iframebg.jpg);">
 <center>
 <h3>${restlist.name}</h3><br>
+<span id="time"></span>
 收银票据<br>
 **********************************<br>
 </center>
