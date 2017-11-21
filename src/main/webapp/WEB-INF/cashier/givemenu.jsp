@@ -12,7 +12,7 @@
 <center><span style="font-weight: bold;font-size:18px;">${mark}</span></center>
 <body style="background: url(${rootPath}images/iframebg.jpg);">
 <div class="wall">
-	<form action="${rootPath}manage/OrderDetailsAction_ensureGive" method="post" class="form0">
+	<form action="${rootPath}manage/OrderDetailsAction_ensureGive?sort=cashier" method="post" class="form0">
 		<table>
 			<tr> 
 				<td>菜品名称：</td>

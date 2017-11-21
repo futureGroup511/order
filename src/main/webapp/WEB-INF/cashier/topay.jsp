@@ -82,7 +82,7 @@
      </table>      
     </div>
 	<div class="wall" id="div2">
-		<form action="${rootPath}manage/OrderAction_pay" method="post">
+		<form action="${rootPath}manage/OrderAction_pay?sort=cashier" method="post">
 			<input type="hidden" name="orders.id" value="${order.id}">
 	        <table cellspacing="0">
 	        	<tr style="height:50px;">

@@ -10,7 +10,7 @@
 	var myDate = new Date();    
 	myDate.toLocaleDateString();
 	var time = document.getElementById("#time");
-	time.value=myDate;
+	time.innerHTML=myDate;
 	console.info(time+" time "+myDate);
 	 function p() {
 		 window.print();
@@ -21,7 +21,7 @@
 <body onload="p()"   style="background: url(${rootPath}images/iframebg.jpg);">
 <center>
 <h3>${restlist.name}</h3><br>
-<span id="time"></span><br>
+<div id="time"></div><br>
 收银票据<br>
 **********************************<br>
 </center>

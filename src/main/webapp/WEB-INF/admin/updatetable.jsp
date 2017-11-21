@@ -11,8 +11,7 @@
 <body  style="background: url(${rootPath}images/iframebg.jpg);">
 <center>${TableMsg}</center>
 	<div class="wall">
-        <form action="${rootPath}manage/TableManager_updateTable" method="post">
-        <input type="hidden" name="sort" value="${sort}">
+        <form action="${rootPath}manage/TableManager_updateTable?sort=${sort}" method="post">
             <label>餐<span style="margin-right: 10px;">桌</span> id:</label>
               <input type="text" name="table.id" value="${updateTables.id}" readonly="readonly"><br>
             <label>餐桌名称:</label>

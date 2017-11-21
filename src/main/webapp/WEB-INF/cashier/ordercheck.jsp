@@ -74,7 +74,7 @@ window.onload=function(){
            </tr>
                   	 <c:forEach items="${pc.data}" var="item"> 
 	            <tr>  
-	                <td><intput >${item.id}</td>
+	                <td>${item.id}</td>
 	                <td>${item.tableId}</td>
 	                <td>${item.tableName}</td>
 	                <td>${item.total}</td>
@@ -85,7 +85,7 @@ window.onload=function(){
 	                <td style="width:130px;height:10px"><textarea readonly="readonly" maxlength="254" style="width:100%;height:105%; resize:none">${item.remark}</textarea></td>
 	               <td  class="four">
 	               		<a href="${rootPath}manage/OrderDetailsAction_CheckOrderDetails?id=${item.id}&sort=cashier">查看详情</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	               		<c:if test="${item.status ne '已付款'}"><a href="${rootPath}manage/OrderAction_toPay?id=${item.id}&IDcard=order">付款</a></c:if>
+	               		<c:if test="${item.status ne '已付款'}"><a href="${rootPath}manage/OrderAction_toPay?id=${item.id}&IDcard=order&sort=cashier">付款</a></c:if>
 	               		<c:if test="${item.status eq '已付款'}">已付款</c:if>
 	               </td>      
 	            </tr>  
