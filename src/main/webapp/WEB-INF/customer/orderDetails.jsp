@@ -185,7 +185,7 @@
    function tuicai(){
 	   if('${stat}'=='退菜成功！'){
 		   show_notice('${stat}',1);
-	   }else if('${stat}'=='该菜已做,退不了'){
+	   }else if('${stat}'=='该菜已做,退不了!'){
 		   show_notice('${stat}',1);
 	   }
 	   

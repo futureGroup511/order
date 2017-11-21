@@ -115,6 +115,7 @@ window.onload = function() {
     <button class="input2"  >搜&nbsp;索</button>
     </form>
  </div>
+
     <table id="table1">
       <thead>
         <tr>
