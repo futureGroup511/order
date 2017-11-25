@@ -40,8 +40,8 @@ public class MenuMaterial implements Serializable{
 	@Column(length=10)
 	private double num;//需求量
 	@Column(length=5)
-	private String type;//(顾客只查原料)	
-	private Date stockDate;//进货时间（方便查询菜品的配料进货时间）
+	private String type;//配料类型，（原料，配料）
+	private Date stockDate;//进货时间
 	@Transient
 	private String introduce;//简介（临时属性，不存数据库）
 	/**
