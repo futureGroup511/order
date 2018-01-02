@@ -76,9 +76,6 @@ public class TableManagerAction extends BaseAction {
 		boolean boo = false;
 		Tables oldTable = tablesService.get(table.getId());
 		if (oldTable.getName().equals(table.getName())) {
-			System.out.println(oldTable);
-			System.out.println(table);
-			System.out.println("45454545485");
 			boo = tablesService.updateTable(table);
 		} else {
 			List<Tables> list = tablesService.CheckName();
