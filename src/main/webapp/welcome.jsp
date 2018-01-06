@@ -37,7 +37,7 @@
     </style>
 </head>
 <body>
-    <div id="div1">物联网餐饮管理系统</div>
+    <div id="div1">餐饮管理系统</div>
     <div id="div2">欢迎进入</div>
 </body>
 </html>
