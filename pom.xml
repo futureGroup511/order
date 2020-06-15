@@ -48,7 +48,7 @@
     <dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-core</artifactId><!-- Spring核心代码 -->
-	    <version>4.0.5.RELEASE</version>
+	    <version>4.3.19.RELEASE</version>
     </dependency>
     
     <dependency>
